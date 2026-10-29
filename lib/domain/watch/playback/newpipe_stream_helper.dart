@@ -46,7 +46,7 @@ class NewPipeStreamHelper {
         resolution: resolution,
         fps: videoStream.fps,
         format: videoStream.format,
-        requiresMerging: requiresMerging(label), // Video-only needs audio only above 360p
+        requiresMerging: true, // Video-only streams always need audio merging
         isVideoOnly: videoStream.isVideoOnly ?? true,
         videoStream: videoStream,
         audioStream: bestAudio,
