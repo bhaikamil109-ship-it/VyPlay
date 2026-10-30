@@ -488,17 +488,9 @@ class DownloadImpl implements DownloadService {
         // Clean up temp files
         await _deleteFile(item.videoFilePath);
         await _deleteFile(item.audioFilePath);
-      } else {
-        // Fallback: just use video file if muxing fails
-        final videoFile = File(item.videoFilePath!);
-        if (await videoFile.exists()) {
-          await videoFile.rename(item.outputFilePath!);
-        }
-        // Still delete audio temp file
-        await _deleteFile(item.audioFilePath);
       }
-    } else if (item.videoFilePath != null) {
-      // No audio, just rename video
+    } else if (item.videoFilePath != null && item.audioFilePath == null) {
+      // Video-only download: no audio to merge, just rename video
       final videoFile = File(item.videoFilePath!);
       if (await videoFile.exists()) {
         await videoFile.rename(item.outputFilePath!);
@@ -527,8 +519,7 @@ class DownloadImpl implements DownloadService {
           return true;
         }
 
-        log('[Download] Native MediaMuxer muxing failed');
-        return false;
+        throw Exception('Native MediaMuxer muxing failed');
       } else {
         // For non-Android platforms, try FFmpeg via Process
         final result = await Process.run(
@@ -550,12 +541,11 @@ class DownloadImpl implements DownloadService {
           return true;
         }
 
-        log('[Download] FFmpeg muxing failed (exit code: ${result.exitCode})');
-        return false;
+        throw Exception('FFmpeg muxing failed (exit code: ${result.exitCode})');
       }
     } catch (e) {
       log('[Download] Muxing error: $e');
-      return false;
+      rethrow;
     }
   }
 
@@ -1254,15 +1244,9 @@ class DownloadImpl implements DownloadService {
         // Clean up temp files
         await _deleteFile(item.videoFilePath);
         await _deleteFile(item.audioFilePath);
-      } else {
-        // Fallback: just use video file if muxing fails
-        final videoFile = File(item.videoFilePath!);
-        if (await videoFile.exists()) {
-          await videoFile.rename(item.outputFilePath!);
-        }
-        await _deleteFile(item.audioFilePath);
       }
-    } else if (item.videoFilePath != null) {
+    } else if (item.videoFilePath != null && item.audioFilePath == null) {
+      // Video-only download: no audio to merge, just rename video
       final videoFile = File(item.videoFilePath!);
       if (await videoFile.exists()) {
         await videoFile.rename(item.outputFilePath!);
@@ -1401,20 +1385,26 @@ class DownloadImpl implements DownloadService {
         return const Left(MainFailure.notFound(resource: 'Downloaded file'));
       }
 
-      // Determine the public directory based on download type
-      // For video: Movies folder, for audio: Music folder
+      // Determine the save directory based on Android version
+      // Android 8.1 and 9: direct access to public storage with WRITE_EXTERNAL_STORAGE permission
+      // Android 10+: scoped storage blocks direct access to /storage/emulated/0/Music and /Movies
+      // Use app-specific directory instead; do not claim SD card or public Downloads support
       Directory? publicDir;
       String subFolder;
 
       if (Platform.isAndroid) {
-        // On Android, use the public downloads directory
-        // This makes files visible in file managers and media apps
-        if (item.downloadType == domain.DownloadType.audioOnly) {
-          publicDir = Directory('/storage/emulated/0/Music');
+        final androidVersion = int.tryParse(Platform.version.split('.').first) ?? 0;
+        if (androidVersion <= 9) {
+          if (item.downloadType == domain.DownloadType.audioOnly) {
+            publicDir = Directory('/storage/emulated/0/Music');
+          } else {
+            publicDir = Directory('/storage/emulated/0/Movies');
+          }
           subFolder = 'FluxTube';
         } else {
-          publicDir = Directory('/storage/emulated/0/Movies');
-          subFolder = 'FluxTube';
+          // Android 10+: scoped storage - use app-specific directory only
+          publicDir = await getApplicationDocumentsDirectory();
+          subFolder = 'FluxTube/Downloads';
         }
       } else {
         // On other platforms, use the downloads directory
@@ -1423,7 +1413,7 @@ class DownloadImpl implements DownloadService {
       }
 
       if (publicDir == null) {
-        return const Left(MainFailure.unknown(message: 'Could not access public storage'));
+        return const Left(MainFailure.unknown(message: 'Could not access storage'));
       }
 
       // Create the FluxTube subfolder
