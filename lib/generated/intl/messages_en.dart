@@ -20,37 +20,41 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
-  static String m0(count) =>
-      "${Intl.plural(count, zero: 'No subscribers', one: 'subscriber', other: 'subscribers')}";
+  static String m0(name) => "Added to ${name}";
 
-  static String m3(title) => "Download failed: ${title}";
-
-  static String m1(count) =>
-      "${Intl.plural(count, one: 'Reply', other: 'Replies')}";
+  static String m1(device) => "Casting to ${device}";
 
   static String m2(count) =>
+      "${Intl.plural(count, zero: 'No subscribers', one: 'subscriber', other: 'subscribers')}";
+
+  static String m3(name) => "Delete ${name}?";
+
+  static String m4(title) => "Download failed: ${title}";
+
+  static String m5(count) =>
+      "${Intl.plural(count, one: 'Reply', other: 'Replies')}";
+
+  static String m6(count) => "${count} minutes";
+
+  static String m7(count) => "${count} min";
+
+  static String m8(count) => "${count} videos";
+
+  static String m9(count) =>
       "${Intl.plural(count, zero: 'No views', one: 'view', other: 'views')}";
-
-  static String m4(device) => "Casting to ${device}";
-
-  static String m5(name) => "Delete ${name}?";
-
-  static String m6(name) => "Added to ${name}";
-
-  static String m7(count) => "${count} videos";
-
-  static String m8(count) => "${count} minutes";
-
-  static String m9(count) => "${count} min";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about": MessageLookupByLibrary.simpleMessage("About"),
     "addProfile": MessageLookupByLibrary.simpleMessage("Add Profile"),
     "addToQueue": MessageLookupByLibrary.simpleMessage("Add to queue"),
-    "addVideosHint": MessageLookupByLibrary.simpleMessage("Long-press a video to save it to a playlist"),
-    "addedToPlayNext": MessageLookupByLibrary.simpleMessage("Added to play next"),
-    "addedToPlaylist": m6,
+    "addVideosHint": MessageLookupByLibrary.simpleMessage(
+      "Long-press a video to save it to a playlist",
+    ),
+    "addedToPlayNext": MessageLookupByLibrary.simpleMessage(
+      "Added to play next",
+    ),
+    "addedToPlaylist": m0,
     "addedToQueue": MessageLookupByLibrary.simpleMessage("Added to queue"),
     "all": MessageLookupByLibrary.simpleMessage("All"),
     "audio": MessageLookupByLibrary.simpleMessage("Audio"),
@@ -80,12 +84,16 @@ class MessageLookup extends MessageLookupByLibrary {
       "Cannot rename default profile",
     ),
     "castConnected": MessageLookupByLibrary.simpleMessage("Connected"),
-    "castConnectedTo": m4,
-    "castFailed": MessageLookupByLibrary.simpleMessage("This video cannot be cast"),
+    "castConnectedTo": m1,
+    "castFailed": MessageLookupByLibrary.simpleMessage(
+      "This video cannot be cast",
+    ),
     "castStop": MessageLookupByLibrary.simpleMessage("Stop casting"),
     "castTitle": MessageLookupByLibrary.simpleMessage("Cast"),
-    "castUnavailable": MessageLookupByLibrary.simpleMessage("Cast is not available on this device"),
-    "channelSubscribers": m0,
+    "castUnavailable": MessageLookupByLibrary.simpleMessage(
+      "Cast is not available on this device",
+    ),
+    "channelSubscribers": m2,
     "channels": MessageLookupByLibrary.simpleMessage("Channels"),
     "clearAll": MessageLookupByLibrary.simpleMessage("Clear all"),
     "clearAllHistory": MessageLookupByLibrary.simpleMessage(
@@ -119,9 +127,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "deleteDownloadConfirm": MessageLookupByLibrary.simpleMessage(
       "Are you sure you want to delete this download?",
     ),
-    "deletePlaylistAction": MessageLookupByLibrary.simpleMessage("Delete playlist"),
-    "deletePlaylistConfirm": m5,
-    "deletePlaylistTitle": MessageLookupByLibrary.simpleMessage("Delete Playlist"),
+    "deletePlaylistAction": MessageLookupByLibrary.simpleMessage(
+      "Delete playlist",
+    ),
+    "deletePlaylistConfirm": m3,
+    "deletePlaylistTitle": MessageLookupByLibrary.simpleMessage(
+      "Delete Playlist",
+    ),
     "deleteProfile": MessageLookupByLibrary.simpleMessage("Delete Profile"),
     "deleteVideo": MessageLookupByLibrary.simpleMessage("Delete video"),
     "deleteVideoConfirm": MessageLookupByLibrary.simpleMessage(
@@ -137,7 +149,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "dislike": MessageLookupByLibrary.simpleMessage("Dislike"),
     "distractionFree": MessageLookupByLibrary.simpleMessage("Distraction Free"),
     "download": MessageLookupByLibrary.simpleMessage("Download"),
-    "downloadFailed": m3,
+    "downloadFailed": m4,
     "downloadStarted": MessageLookupByLibrary.simpleMessage("Download started"),
     "downloadType": MessageLookupByLibrary.simpleMessage("Download Type"),
     "downloading": MessageLookupByLibrary.simpleMessage("Downloading"),
@@ -220,8 +232,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "newPlaylist": MessageLookupByLibrary.simpleMessage("New Playlist"),
     "newPlaylistShort": MessageLookupByLibrary.simpleMessage("+ New"),
     "newProfileName": MessageLookupByLibrary.simpleMessage("New Profile Name"),
-    "newVideoNotifications": MessageLookupByLibrary.simpleMessage("New upload notifications"),
-    "newVideoNotificationsDescription": MessageLookupByLibrary.simpleMessage("Get notified when channels you subscribe to upload"),
+    "newVideoNotifications": MessageLookupByLibrary.simpleMessage(
+      "New upload notifications",
+    ),
+    "newVideoNotificationsDescription": MessageLookupByLibrary.simpleMessage(
+      "Get notified when channels you subscribe to upload",
+    ),
     "noCommentsFound": MessageLookupByLibrary.simpleMessage(
       "No Comments Found",
     ),
@@ -234,10 +250,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "noPlaylists": MessageLookupByLibrary.simpleMessage(
       "No playlists available",
     ),
-    "noPlaylistsYet": MessageLookupByLibrary.simpleMessage("No playlists yet.\nTap + to create one."),
-    "noPlaylistsYetPicker": MessageLookupByLibrary.simpleMessage("No playlists yet.\nTap + New to create one."),
+    "noPlaylistsYet": MessageLookupByLibrary.simpleMessage(
+      "No playlists yet.\nTap + to create one.",
+    ),
+    "noPlaylistsYetPicker": MessageLookupByLibrary.simpleMessage(
+      "No playlists yet.\nTap + New to create one.",
+    ),
     "noSavedVideos": MessageLookupByLibrary.simpleMessage("No saved videos"),
     "noShorts": MessageLookupByLibrary.simpleMessage("No shorts available"),
+    "noShortsHint": MessageLookupByLibrary.simpleMessage(
+      "Short videos will appear here",
+    ),
     "noSubscriptions": MessageLookupByLibrary.simpleMessage("No Subscriptions"),
     "noSubscriptionsHint": MessageLookupByLibrary.simpleMessage(
       "Subscribe to channels to see their videos here",
@@ -253,7 +276,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "noVideoTitle": MessageLookupByLibrary.simpleMessage("No title"),
     "noVideosFound": MessageLookupByLibrary.simpleMessage("No videos found"),
     "noVideosInPlaylist": MessageLookupByLibrary.simpleMessage("No videos yet"),
-    "notificationsDenied": MessageLookupByLibrary.simpleMessage("Notification permission was denied"),
+    "notificationsDenied": MessageLookupByLibrary.simpleMessage(
+      "Notification permission was denied",
+    ),
     "openInBrowser": MessageLookupByLibrary.simpleMessage("Open in Browser"),
     "openLinksExternally": MessageLookupByLibrary.simpleMessage(
       "Open links in external browser",
@@ -272,7 +297,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "playNext": MessageLookupByLibrary.simpleMessage("Play next"),
     "playlist": MessageLookupByLibrary.simpleMessage("Playlist"),
     "playlistNameHint": MessageLookupByLibrary.simpleMessage("Playlist name"),
-    "playlistNotFound": MessageLookupByLibrary.simpleMessage("Playlist not found"),
+    "playlistNotFound": MessageLookupByLibrary.simpleMessage(
+      "Playlist not found",
+    ),
     "playlists": MessageLookupByLibrary.simpleMessage("Playlists"),
     "profileInUse": MessageLookupByLibrary.simpleMessage("Active"),
     "profileName": MessageLookupByLibrary.simpleMessage("Profile Name"),
@@ -293,6 +320,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "queueShuffle": MessageLookupByLibrary.simpleMessage("Shuffle"),
     "readMoreText": MessageLookupByLibrary.simpleMessage("Read more"),
     "recentSearches": MessageLookupByLibrary.simpleMessage("Recent searches"),
+    "refresh": MessageLookupByLibrary.simpleMessage("Refresh"),
     "refreshToLoad": MessageLookupByLibrary.simpleMessage(
       "Pull down to refresh",
     ),
@@ -301,17 +329,21 @@ class MessageLookup extends MessageLookupByLibrary {
     "removeFromHistory": MessageLookupByLibrary.simpleMessage(
       "Remove from history",
     ),
-    "removeFromQueue": MessageLookupByLibrary.simpleMessage("Remove from queue"),
+    "removeFromQueue": MessageLookupByLibrary.simpleMessage(
+      "Remove from queue",
+    ),
     "removeFromSaved": MessageLookupByLibrary.simpleMessage(
       "Remove from saved",
     ),
     "renameAction": MessageLookupByLibrary.simpleMessage("Rename"),
-    "renamePlaylistTitle": MessageLookupByLibrary.simpleMessage("Rename Playlist"),
+    "renamePlaylistTitle": MessageLookupByLibrary.simpleMessage(
+      "Rename Playlist",
+    ),
     "renameProfile": MessageLookupByLibrary.simpleMessage("Rename Profile"),
     "repliesNotSupported": MessageLookupByLibrary.simpleMessage(
       "Replies are not available yet",
     ),
-    "repliesPlural": m1,
+    "repliesPlural": m5,
     "resume": MessageLookupByLibrary.simpleMessage("Resume"),
     "retrieveDislikeCounts": MessageLookupByLibrary.simpleMessage(
       "Retrieve dislike counts",
@@ -377,12 +409,20 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "sleepTimer": MessageLookupByLibrary.simpleMessage("Sleep timer"),
     "sleepTimerCustom": MessageLookupByLibrary.simpleMessage("Custom"),
-    "sleepTimerCustomTitle": MessageLookupByLibrary.simpleMessage("Custom timer"),
-    "sleepTimerEndOfVideo": MessageLookupByLibrary.simpleMessage("End of video"),
-    "sleepTimerEnded": MessageLookupByLibrary.simpleMessage("Sleep timer ended"),
-    "sleepTimerEnterMinutes": MessageLookupByLibrary.simpleMessage("Enter minutes"),
-    "sleepTimerMinutes": m8,
-    "sleepTimerMinutesShort": m9,
+    "sleepTimerCustomTitle": MessageLookupByLibrary.simpleMessage(
+      "Custom timer",
+    ),
+    "sleepTimerEndOfVideo": MessageLookupByLibrary.simpleMessage(
+      "End of video",
+    ),
+    "sleepTimerEnded": MessageLookupByLibrary.simpleMessage(
+      "Sleep timer ended",
+    ),
+    "sleepTimerEnterMinutes": MessageLookupByLibrary.simpleMessage(
+      "Enter minutes",
+    ),
+    "sleepTimerMinutes": m6,
+    "sleepTimerMinutesShort": m7,
     "sleepTimerOff": MessageLookupByLibrary.simpleMessage("Off"),
     "sleepTimerSet": MessageLookupByLibrary.simpleMessage("Set"),
     "sort": MessageLookupByLibrary.simpleMessage("Sort"),
@@ -450,7 +490,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "version": MessageLookupByLibrary.simpleMessage("Version"),
     "video": MessageLookupByLibrary.simpleMessage("Video"),
     "videoAudio": MessageLookupByLibrary.simpleMessage("Video+Audio"),
-    "videoCountLabel": m7,
+    "videoCountLabel": m8,
     "videoFit": MessageLookupByLibrary.simpleMessage("Video Fit"),
     "videoFitContain": MessageLookupByLibrary.simpleMessage("Contain"),
     "videoFitCover": MessageLookupByLibrary.simpleMessage("Cover"),
@@ -459,7 +499,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "videoFitFitWidth": MessageLookupByLibrary.simpleMessage("Fit Width"),
     "videoOnly": MessageLookupByLibrary.simpleMessage("Video Only"),
     "videoQuality": MessageLookupByLibrary.simpleMessage("Video Quality"),
-    "videoViews": m2,
+    "videoViews": m9,
     "videoWithAudio": MessageLookupByLibrary.simpleMessage("Video + Audio"),
     "videos": MessageLookupByLibrary.simpleMessage("Videos"),
     "views": MessageLookupByLibrary.simpleMessage("views"),

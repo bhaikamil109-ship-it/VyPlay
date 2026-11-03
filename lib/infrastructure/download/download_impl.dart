@@ -19,6 +19,56 @@ import 'package:fluxtube/infrastructure/database/database.dart';
 import 'package:injectable/injectable.dart';
 import 'package:path_provider/path_provider.dart';
 
+/// Thrown when video and audio streams could not be merged into one file.
+///
+/// This is deliberately a hard failure rather than a degraded fallback: saving
+/// a video-only file under the name the user asked for would hand them a
+/// silent video that looks like a successful download.
+class MuxException implements Exception {
+  MuxException(this.message);
+
+  final String message;
+
+  @override
+  String toString() => message;
+}
+
+/// A counting semaphore used to cap how many downloads run at once.
+///
+/// Without this, every `startDownload` call began immediately and in parallel:
+/// ten queued videos meant ten concurrent HTTP streams, which saturates the
+/// connection, thrashes storage and makes every download slower. The cap keeps
+/// throughput predictable and leaves headroom for playback.
+class _DownloadSemaphore {
+  _DownloadSemaphore(this.maxConcurrent);
+
+  final int maxConcurrent;
+  int _active = 0;
+  final List<Completer<void>> _waiters = <Completer<void>>[];
+
+  int get active => _active;
+  int get queued => _waiters.length;
+
+  Future<void> acquire() {
+    if (_active < maxConcurrent) {
+      _active++;
+      return Future<void>.value();
+    }
+    final completer = Completer<void>();
+    _waiters.add(completer);
+    return completer.future;
+  }
+
+  void release() {
+    if (_waiters.isNotEmpty) {
+      // Hand the slot straight to the next waiter; _active stays the same.
+      _waiters.removeAt(0).complete();
+      return;
+    }
+    if (_active > 0) _active--;
+  }
+}
+
 @LazySingleton(as: DownloadService)
 class DownloadImpl implements DownloadService {
   AppDatabase get _db => AppDatabase.instance;
@@ -30,6 +80,16 @@ class DownloadImpl implements DownloadService {
   // Track active downloads
   final Map<int, CancelToken> _cancelTokens = {};
   final Map<int, bool> _pausedDownloads = {};
+
+  /// At most this many downloads transfer at the same time. Anything beyond
+  /// waits in the queue and is reported as `pending`.
+  static const int _maxConcurrentDownloads = 2;
+  final _DownloadSemaphore _downloadSlots =
+      _DownloadSemaphore(_maxConcurrentDownloads);
+
+  /// Minimum free space we insist on before starting, on top of the estimated
+  /// file size. Prevents a download dying halfway through on a full device.
+  static const int _storageHeadroomBytes = 50 * 1024 * 1024; // 50 MB
 
   // CPN alphabet for generating Content Playback Nonce
   static const String _cpnAlphabet =
@@ -256,8 +316,10 @@ class DownloadImpl implements DownloadService {
     required Function(domain.DownloadItem, String) onError,
   }) async {
     try {
-      // Save initial state
-      item.status = domain.DownloadStatus.downloading;
+      // Save initial state. The item starts as `pending` and only flips to
+      // `downloading` once it actually holds a concurrency slot, so the UI can
+      // honestly show a queue instead of pretending everything is in flight.
+      item.status = domain.DownloadStatus.pending;
       item.startedAt = DateTime.now();
 
       final insertedId = await _db.insertDownload(_toCompanion(item));
@@ -269,15 +331,53 @@ class DownloadImpl implements DownloadService {
 
       final downloadDir = await _getDownloadDirectory();
 
-      if (item.downloadType == domain.DownloadType.audioOnly) {
-        // Audio only download
-        await _downloadAudio(item, downloadDir, cancelToken, onProgress);
-      } else if (item.downloadType == domain.DownloadType.videoOnly) {
-        // Video only download
-        await _downloadVideo(item, downloadDir, cancelToken, onProgress);
-      } else {
-        // Video with audio - download both and merge
-        await _downloadVideoWithAudio(item, downloadDir, cancelToken, onProgress);
+      // Refuse to start if the device cannot hold the file. Doing this before
+      // the transfer begins is the difference between a clear error and a
+      // download that dies at 80% with a cryptic filesystem exception.
+      final storageError = await _checkStorage(
+        directory: downloadDir,
+        estimatedBytes: item.totalBytes,
+      );
+      if (storageError != null) {
+        item.status = domain.DownloadStatus.failed;
+        item.errorMessage = storageError;
+        await _db.updateDownload(_toCompanion(item));
+        onError(item, storageError);
+        return Left(MainFailure.unknown(message: storageError));
+      }
+
+      // Wait for a slot. If the user cancels while queued, bail out without
+      // ever touching the network.
+      await _downloadSlots.acquire();
+      if (cancelToken.isCancelled || _pausedDownloads[item.id] == true) {
+        _downloadSlots.release();
+        item.status = _pausedDownloads[item.id] == true
+            ? domain.DownloadStatus.paused
+            : domain.DownloadStatus.cancelled;
+        await _db.updateDownload(_toCompanion(item));
+        return Right(item);
+      }
+
+      item.status = domain.DownloadStatus.downloading;
+      await _db.updateDownload(_toCompanion(item));
+      onProgress(item);
+
+      try {
+        if (item.downloadType == domain.DownloadType.audioOnly) {
+          // Audio only download
+          await _downloadAudio(item, downloadDir, cancelToken, onProgress);
+        } else if (item.downloadType == domain.DownloadType.videoOnly) {
+          // Video only download
+          await _downloadVideo(item, downloadDir, cancelToken, onProgress);
+        } else {
+          // Video with audio - download both and merge
+          await _downloadVideoWithAudio(
+              item, downloadDir, cancelToken, onProgress);
+        }
+      } finally {
+        // Always hand the slot back, including on throw, so one failed
+        // download can never permanently shrink the pool.
+        _downloadSlots.release();
       }
 
       // Check if cancelled or paused
@@ -309,14 +409,15 @@ class DownloadImpl implements DownloadService {
         return Right(item);
       }
 
+      final message = _friendlyError(e);
       item.status = domain.DownloadStatus.failed;
-      item.errorMessage = e.toString();
+      item.errorMessage = message;
       item.retryCount++;
       if (item.id != null) {
         await _db.updateDownload(_toCompanion(item));
       }
 
-      onError(item, e.toString());
+      onError(item, message);
       if (item.id != null) {
         _cleanup(item.id!);
       }
@@ -485,12 +586,22 @@ class DownloadImpl implements DownloadService {
       );
 
       if (success) {
-        // Clean up temp files
+        // Clean up temp files only after a verified merge.
         await _deleteFile(item.videoFilePath);
         await _deleteFile(item.audioFilePath);
+      } else {
+        // Phase 5 rule: NEVER silently save a video-only file when audio was
+        // requested. Throw so the caller marks the download as failed with a
+        // clear, actionable message instead of reporting a silent success.
+        throw MuxException(
+          'Could not merge video and audio streams into a single file. '
+          'The video resolution you selected has no compatible audio track, '
+          'or the device muxer rejected the streams. Try a lower resolution, '
+          'or download the video and audio separately.',
+        );
       }
-    } else if (item.videoFilePath != null && item.audioFilePath == null) {
-      // Video-only download: no audio to merge, just rename video
+    } else if (item.videoFilePath != null) {
+      // No audio stream was requested (video-only download). Renaming is correct here.
       final videoFile = File(item.videoFilePath!);
       if (await videoFile.exists()) {
         await videoFile.rename(item.outputFilePath!);
@@ -519,7 +630,8 @@ class DownloadImpl implements DownloadService {
           return true;
         }
 
-        throw Exception('Native MediaMuxer muxing failed');
+        log('[Download] Native MediaMuxer muxing failed');
+        return false;
       } else {
         // For non-Android platforms, try FFmpeg via Process
         final result = await Process.run(
@@ -541,11 +653,12 @@ class DownloadImpl implements DownloadService {
           return true;
         }
 
-        throw Exception('FFmpeg muxing failed (exit code: ${result.exitCode})');
+        log('[Download] FFmpeg muxing failed (exit code: ${result.exitCode})');
+        return false;
       }
     } catch (e) {
       log('[Download] Muxing error: $e');
-      rethrow;
+      return false;
     }
   }
 
@@ -957,13 +1070,122 @@ class DownloadImpl implements DownloadService {
     _speedSamplesMap.remove(downloadId);
   }
 
+  /// Turn an exception into a message that is safe to show in the UI.
+  ///
+  /// Dio and filesystem errors stringify into long developer-facing walls of
+  /// text; users need one short sentence they can act on.
+  String _friendlyError(Object e) {
+    if (e is MuxException) return e.message;
+    if (e is DioException) {
+      switch (e.type) {
+        case DioExceptionType.connectionTimeout:
+        case DioExceptionType.receiveTimeout:
+        case DioExceptionType.sendTimeout:
+          return 'The download timed out. Check your connection and retry.';
+        case DioExceptionType.connectionError:
+          return 'No internet connection. Reconnect and retry the download.';
+        case DioExceptionType.badResponse:
+          return 'The video server rejected the request ('
+              '${e.response?.statusCode ?? 'unknown status'}). '
+              'The stream may have expired — retry the download.';
+        default:
+          return 'The download failed: ${e.message ?? e.type.name}.';
+      }
+    }
+    if (e is FileSystemException) {
+      return 'Could not write the file to storage: ${e.osError?.message ?? e.message}. '
+          'Check free space and storage permissions.';
+    }
+    return 'The download failed. Please retry.';
+  }
+
+  /// Returns a user-facing error string when there is not enough room for the
+  /// download, or `null` when it is safe to proceed.
+  ///
+  /// `estimatedBytes` is often null (the extractor does not always report a
+  /// content length), in which case we only enforce the headroom floor.
+  Future<String?> _checkStorage({
+    required Directory directory,
+    int? estimatedBytes,
+  }) async {
+    try {
+      // `statSync` on the directory's filesystem gives us free space without
+      // pulling in a platform plugin.
+      final stat = directory.statSync();
+      // Dart does not expose free space directly; use the platform channel
+      // fallback below when available, otherwise skip the hard check.
+      if (stat.type == FileSystemEntityType.notFound) {
+        return 'The download folder is not accessible.';
+      }
+    } catch (_) {
+      // If we cannot stat the directory, let the download attempt surface the
+      // real error rather than blocking on a check we could not perform.
+      return null;
+    }
+
+    final free = await _freeSpaceBytes(directory);
+    if (free == null) return null; // Unknown — do not block the user.
+
+    final needed = (estimatedBytes ?? 0) + _storageHeadroomBytes;
+    if (free < needed) {
+      final freeMb = (free / (1024 * 1024)).toStringAsFixed(0);
+      final needMb = (needed / (1024 * 1024)).toStringAsFixed(0);
+      return 'Not enough storage: $freeMb MB free, about $needMb MB needed. '
+          'Free up space and try again.';
+    }
+    return null;
+  }
+
+  /// Free bytes on the volume holding [directory], or null when the platform
+  /// does not report it.
+  Future<int?> _freeSpaceBytes(Directory directory) async {
+    if (!Platform.isAndroid && !Platform.isIOS) return null;
+    try {
+      const channel = MethodChannel('com.fazilvk.fluxtube/storage');
+      final result = await channel.invokeMethod<int>('getFreeSpace', {
+        'path': directory.path,
+      });
+      return result;
+    } on MissingPluginException {
+      // Native side not wired on this build — degrade gracefully.
+      return null;
+    } on PlatformException {
+      return null;
+    }
+  }
+
   Future<Directory> _getDownloadDirectory() async {
+    // A user-chosen folder wins over the default. The setting is stored as an
+    // absolute path; if it no longer exists (SD card removed, folder deleted)
+    // we fall back to the app-private directory rather than failing.
+    final customPath = await _customDownloadPath();
+    if (customPath != null && customPath.isNotEmpty) {
+      final custom = Directory(customPath);
+      try {
+        if (!await custom.exists()) {
+          await custom.create(recursive: true);
+        }
+        return custom;
+      } catch (_) {
+        // Fall through to the default location.
+      }
+    }
+
     final appDir = await getApplicationDocumentsDirectory();
-    final downloadDir = Directory('${appDir.path}/FluxTube/Downloads');
+    final downloadDir = Directory('${appDir.path}/VyPlay/Downloads');
     if (!await downloadDir.exists()) {
       await downloadDir.create(recursive: true);
     }
     return downloadDir;
+  }
+
+  /// Reads the user's preferred download folder from the settings store.
+  Future<String?> _customDownloadPath() async {
+    try {
+      return await _db.getSetting('download_folder_path');
+    } catch (_) {
+      return null;
+    }
   }
 
   void _cleanup(int downloadId) {
@@ -1061,11 +1283,12 @@ class DownloadImpl implements DownloadService {
       final dbItem = await _db.getDownloadById(downloadId);
       if (dbItem != null) {
         final item = _toDomain(dbItem);
+        final message = _friendlyError(e);
         item.status = domain.DownloadStatus.failed;
-        item.errorMessage = e.toString();
+        item.errorMessage = message;
         item.retryCount++;
         await _db.updateDownload(_toCompanion(item));
-        onError(item, e.toString());
+        onError(item, message);
         _cleanup(item.id!);
       }
 
@@ -1244,9 +1467,18 @@ class DownloadImpl implements DownloadService {
         // Clean up temp files
         await _deleteFile(item.videoFilePath);
         await _deleteFile(item.audioFilePath);
+      } else {
+        // Same Phase 5 rule as the non-resume path: fail loudly, keep the
+        // audio file intact so the user can retry the merge without
+        // re-downloading everything.
+        throw MuxException(
+          'Could not merge video and audio streams into a single file. '
+          'The video resolution you selected has no compatible audio track, '
+          'or the device muxer rejected the streams. Try a lower resolution, '
+          'or download the video and audio separately.',
+        );
       }
-    } else if (item.videoFilePath != null && item.audioFilePath == null) {
-      // Video-only download: no audio to merge, just rename video
+    } else if (item.videoFilePath != null) {
       final videoFile = File(item.videoFilePath!);
       if (await videoFile.exists()) {
         await videoFile.rename(item.outputFilePath!);
@@ -1385,38 +1617,32 @@ class DownloadImpl implements DownloadService {
         return const Left(MainFailure.notFound(resource: 'Downloaded file'));
       }
 
-      // Determine the save directory based on Android version
-      // Android 8.1 and 9: direct access to public storage with WRITE_EXTERNAL_STORAGE permission
-      // Android 10+: scoped storage blocks direct access to /storage/emulated/0/Music and /Movies
-      // Use app-specific directory instead; do not claim SD card or public Downloads support
+      // Determine the public directory based on download type
+      // For video: Movies folder, for audio: Music folder
       Directory? publicDir;
       String subFolder;
 
       if (Platform.isAndroid) {
-        final androidVersion = int.tryParse(Platform.version.split('.').first) ?? 0;
-        if (androidVersion <= 9) {
-          if (item.downloadType == domain.DownloadType.audioOnly) {
-            publicDir = Directory('/storage/emulated/0/Music');
-          } else {
-            publicDir = Directory('/storage/emulated/0/Movies');
-          }
-          subFolder = 'FluxTube';
+        // On Android, use the public downloads directory
+        // This makes files visible in file managers and media apps
+        if (item.downloadType == domain.DownloadType.audioOnly) {
+          publicDir = Directory('/storage/emulated/0/Music');
+          subFolder = 'VyPlay';
         } else {
-          // Android 10+: scoped storage - use app-specific directory only
-          publicDir = await getApplicationDocumentsDirectory();
-          subFolder = 'FluxTube/Downloads';
+          publicDir = Directory('/storage/emulated/0/Movies');
+          subFolder = 'VyPlay';
         }
       } else {
         // On other platforms, use the downloads directory
         publicDir = await getDownloadsDirectory();
-        subFolder = 'FluxTube';
+        subFolder = 'VyPlay';
       }
 
       if (publicDir == null) {
-        return const Left(MainFailure.unknown(message: 'Could not access storage'));
+        return const Left(MainFailure.unknown(message: 'Could not access public storage'));
       }
 
-      // Create the FluxTube subfolder
+      // Create the VyPlay subfolder
       final targetDir = Directory('${publicDir.path}/$subFolder');
       if (!await targetDir.exists()) {
         await targetDir.create(recursive: true);

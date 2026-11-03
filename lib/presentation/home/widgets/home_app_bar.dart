@@ -33,7 +33,7 @@ class HomeAppBar extends StatelessWidget {
             end: Alignment.bottomRight,
           ).createShader(bounds),
           child: const Text(
-            'FluxTube',
+            'VyPlay',
             style: TextStyle(
               fontWeight: FontWeight.w800,
               fontSize: 24,

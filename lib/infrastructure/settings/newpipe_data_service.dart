@@ -24,7 +24,7 @@ class NewPipeDataService {
   }) async {
     try {
       final tempDir = await getTemporaryDirectory();
-      final exportDir = Directory('${tempDir.path}/fluxtube_export');
+      final exportDir = Directory('${tempDir.path}/vyplay_export');
       if (await exportDir.exists()) {
         await exportDir.delete(recursive: true);
       }
@@ -34,7 +34,7 @@ class NewPipeDataService {
       final dbPath = '${exportDir.path}/newpipe.db';
       await _createNewPipeDatabase(dbPath, profileName);
 
-      // 2. Create preferences.json (FluxTube settings in JSON format)
+      // 2. Create preferences.json (VyPlay settings in JSON format)
       final prefsPath = '${exportDir.path}/preferences.json';
       await _createPreferencesJson(prefsPath, profileName);
 
@@ -76,7 +76,7 @@ class NewPipeDataService {
           .substring(0, 15);
       final profileSuffix = profileName == 'default' ? '' : '_$profileName';
       final zipPath =
-          '${docsDir.path}/FluxTubeData$profileSuffix-$timestamp.zip';
+          '${docsDir.path}/VyPlayData$profileSuffix-$timestamp.zip';
       final zipFile = File(zipPath);
       await zipFile.writeAsBytes(zipData);
 
@@ -153,11 +153,11 @@ class NewPipeDataService {
         await tempDbFile.delete();
       }
 
-      // Process preferences.json for FluxTube-specific settings (optional)
-      // We only use this for FluxTube-to-FluxTube transfers, not NewPipe
+      // Process preferences.json for VyPlay-specific settings (optional)
+      // We only use this for VyPlay-to-VyPlay transfers, not NewPipe
       if (prefsFile != null) {
-        // Could parse and import FluxTube-specific settings here
-        // For now, we skip this as user requested settings to be FluxTube-only
+        // Could parse and import VyPlay-specific settings here
+        // For now, we skip this as user requested settings to be VyPlay-only
       }
 
       return Right(ImportResult(
@@ -276,7 +276,7 @@ class NewPipeDataService {
       ''');
       await newPipeDb.insert('room_master_table', {
         'id': 42,
-        'identity_hash': 'fluxtube_export',
+        'identity_hash': 'vyplay_export',
       });
     });
 
@@ -345,12 +345,12 @@ class NewPipeDataService {
       }
     }
 
-    // Export saved videos as a playlist named "FluxTube Saved"
+    // Export saved videos as a playlist named "VyPlay Saved"
     final savedVideos = await db.getSavedVideos(profileName);
 
     if (savedVideos.isNotEmpty) {
       final playlistId = await newPipeDb.insert('playlists', {
-        'name': 'FluxTube Saved',
+        'name': 'VyPlay Saved',
         'is_thumbnail_permanent': 0,
         'thumbnail_stream_id': -1,
         'display_index': 0,
@@ -398,9 +398,9 @@ class NewPipeDataService {
     await newPipeDb.close();
   }
 
-  /// Create preferences.json (FluxTube settings + NewPipe compatible format)
+  /// Create preferences.json (VyPlay settings + NewPipe compatible format)
   Future<void> _createPreferencesJson(String path, String profileName) async {
-    // Create a combined format that works for both NewPipe and FluxTube
+    // Create a combined format that works for both NewPipe and VyPlay
     final prefs = {
       // NewPipe standard fields
       'default_resolution': '720p60',
@@ -412,7 +412,7 @@ class NewPipeDataService {
       'show_comments': true,
       'show_description': true,
       'last_used_preferences_version': 8,
-      // FluxTube specific (will be ignored by NewPipe)
+      // VyPlay specific (will be ignored by NewPipe)
       'fluxtube_profile': profileName,
       'fluxtube_version': '0.9.0',
     };

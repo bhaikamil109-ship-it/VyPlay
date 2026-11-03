@@ -1,5 +1,5 @@
 name: fluxtube
-description: "A YouTube client application."
+description: "VyPlay — a clean, ad-free YouTube client."
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 

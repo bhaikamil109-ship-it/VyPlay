@@ -20,6 +20,16 @@ class AboutSection extends StatelessWidget {
           style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 16),
         ),
         ListTile(
+          title: Text(
+            AppInfo.myApp.name,
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
+          subtitle: Text(AppInfo.myApp.description),
+          leading: const Icon(Icons.play_circle_outline_rounded),
+          trailing: const Icon(CupertinoIcons.arrow_up_right_square),
+          onTap: () => urlLaunch(AppInfo.myApp.url),
+        ),
+        ListTile(
           title: Text(S.of(context).developer,
               style: Theme.of(context).textTheme.titleMedium),
           subtitle: Text(AppInfo.developerInfos.first.name),
@@ -44,38 +54,25 @@ class AboutSection extends StatelessWidget {
             );
           },
         ),
+        // GPLv3 requires that the original authors stay credited. This block is
+        // deliberately not removable through settings.
+        Padding(
+          padding: const EdgeInsets.fromLTRB(16, 12, 16, 4),
+          child: Text(
+            'Open source',
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 16),
+          ),
+        ),
+        for (final upstream in AppInfo.upstreamInfos)
+          ListTile(
+            dense: true,
+            title: Text(upstream.name,
+                style: Theme.of(context).textTheme.titleSmall),
+            subtitle: Text(upstream.description),
+            leading: const Icon(Icons.link_rounded, size: 20),
+            onTap: () => urlLaunch(upstream.url),
+          ),
       ],
     );
   }
 }
-
-// SettingsSection aboutSection(
-//     S locals, BuildContext context, SettingsState state) {
-//   return SettingsSection(
-//     title: Text(
-//       locals.about,
-//       style: Theme.of(context).textTheme.bodyMedium,
-//     ),
-//     tiles: [
-//       SettingsTile(
-//         title: Text(locals.developer),
-//         description: Text(AppInfo.developerInfos.first.name),
-//         leading: const Icon(Icons.code),
-//         trailing: const Icon(CupertinoIcons.chat_bubble_2),
-//         onPressed: (BuildContext context) =>
-//             urlLaunch(AppInfo.developerInfos.first.url),
-//       ),
-//       SettingsTile(
-//         title: Text(locals.translators),
-//         leading: const Icon(Icons.translate_rounded),
-//         onPressed: (BuildContext ctx) => context.goNamed('translators'),
-//       ),
-//       SettingsTile(
-//         title: Text(locals.version),
-//         description: Text(state.version ?? ""),
-//         leading: const Icon(CupertinoIcons.info),
-//         onPressed: (BuildContext context) {},
-//       ),
-//     ],
-//   );
-// }

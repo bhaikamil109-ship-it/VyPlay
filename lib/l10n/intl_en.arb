@@ -764,5 +764,13 @@
   "sleepTimerEnded": "Sleep timer ended",
   "@sleepTimerEnded": {
     "description": "Sleep timer fired"
+  },
+  "refresh": "Refresh",
+  "@refresh": {
+    "description": "Refresh button label"
+  },
+  "noShortsHint": "Short videos will appear here",
+  "@noShortsHint": {
+    "description": "Empty state hint on the Shorts tab"
   }
 }

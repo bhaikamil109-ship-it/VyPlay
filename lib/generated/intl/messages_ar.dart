@@ -20,23 +20,131 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ar';
 
-  static String m0(count) =>
-      "${Intl.plural(count, zero: 'لا مشتركين', one: 'مشترك', two: 'مشتركين', few: 'مشتركين', many: 'مشتركين', other: 'مشتركين')}";
+  static String m0(name) => "أضيف إلى ${name}";
 
-  static String m1(count) =>
-      "${Intl.plural(count, zero: '', one: 'تعليق', two: 'تعليقات', few: 'تعليقات', many: 'تعليقات', other: 'تعليقات')}";
+  static String m1(device) => "جارٍ البث إلى ${device}";
 
   static String m2(count) =>
+      "${Intl.plural(count, zero: 'لا مشتركين', one: 'مشترك', two: 'مشتركين', few: 'مشتركين', many: 'مشتركين', other: 'مشتركين')}";
+
+  static String m3(name) => "حذف ${name}؟";
+
+  static String m4(title) => "فشل التنزيل: ${title}";
+
+  static String m5(count) =>
+      "${Intl.plural(count, zero: '', one: 'تعليق', two: 'تعليقات', few: 'تعليقات', many: 'تعليقات', other: 'تعليقات')}";
+
+  static String m6(count) => "${count} دقيقة";
+
+  static String m7(count) => "${count} د";
+
+  static String m8(count) => "${count} مقطع";
+
+  static String m9(count) =>
       "${Intl.plural(count, zero: 'لا مشاهدات', one: 'مشاهدة', two: 'مشاهدات', few: 'مشاهدات', many: 'مشاهدات', other: 'مشاهدات')}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about": MessageLookupByLibrary.simpleMessage("حول"),
+    "addProfile": MessageLookupByLibrary.simpleMessage("إضافة ملف شخصي"),
+    "addToQueue": MessageLookupByLibrary.simpleMessage(
+      "إضافة إلى قائمة الانتظار",
+    ),
+    "addVideosHint": MessageLookupByLibrary.simpleMessage(
+      "اضغط مطولًا على فيديو لحفظه في قائمة تشغيل",
+    ),
+    "addedToPlayNext": MessageLookupByLibrary.simpleMessage(
+      "أضيف للتشغيل التالي",
+    ),
+    "addedToPlaylist": m0,
+    "addedToQueue": MessageLookupByLibrary.simpleMessage(
+      "أضيف إلى قائمة الانتظار",
+    ),
+    "all": MessageLookupByLibrary.simpleMessage("الكل"),
+    "audio": MessageLookupByLibrary.simpleMessage("صوت"),
+    "audioFocus": MessageLookupByLibrary.simpleMessage("تركيز الصوت"),
+    "audioFocusDescription": MessageLookupByLibrary.simpleMessage(
+      "إيقاف التشغيل مؤقتًا عند المقاطعات",
+    ),
+    "audioOnly": MessageLookupByLibrary.simpleMessage("صوت فقط"),
+    "audioQuality": MessageLookupByLibrary.simpleMessage("جودة الصوت"),
+    "autoPip": MessageLookupByLibrary.simpleMessage("صورة داخل صورة تلقائية"),
+    "autoPipDescription": MessageLookupByLibrary.simpleMessage(
+      "الدخول تلقائيًا إلى وضع PiP عند الضغط على زر الرئيسية أثناء تشغيل الفيديو",
+    ),
+    "autoScrollOff": MessageLookupByLibrary.simpleMessage(
+      "التمرير التلقائي معطّل",
+    ),
+    "autoScrollOn": MessageLookupByLibrary.simpleMessage(
+      "التمرير التلقائي مفعّل",
+    ),
+    "backupRestore": MessageLookupByLibrary.simpleMessage(
+      "النسخ الاحتياطي والاستعادة",
+    ),
+    "backupRestoreDescription": MessageLookupByLibrary.simpleMessage(
+      "تصدير أو استيراد اشتراكاتك",
+    ),
     "canada": MessageLookupByLibrary.simpleMessage("كندا"),
-    "channelSubscribers": m0,
+    "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
+    "cancelled": MessageLookupByLibrary.simpleMessage("ملغى"),
+    "cannotDeleteDefault": MessageLookupByLibrary.simpleMessage(
+      "لا يمكن حذف الملف الشخصي الافتراضي",
+    ),
+    "cannotRenameDefault": MessageLookupByLibrary.simpleMessage(
+      "لا يمكن إعادة تسمية الملف الشخصي الافتراضي",
+    ),
+    "castConnected": MessageLookupByLibrary.simpleMessage("متصل"),
+    "castConnectedTo": m1,
+    "castFailed": MessageLookupByLibrary.simpleMessage(
+      "لا يمكن بث هذا الفيديو",
+    ),
+    "castStop": MessageLookupByLibrary.simpleMessage("إيقاف البث"),
+    "castTitle": MessageLookupByLibrary.simpleMessage("بث"),
+    "castUnavailable": MessageLookupByLibrary.simpleMessage(
+      "البث غير متاح على هذا الجهاز",
+    ),
+    "channelSubscribers": m2,
+    "channels": MessageLookupByLibrary.simpleMessage("القنوات"),
+    "clearAll": MessageLookupByLibrary.simpleMessage("مسح الكل"),
+    "clearAllHistory": MessageLookupByLibrary.simpleMessage("مسح كل السجل"),
+    "clearAllHistoryConfirm": MessageLookupByLibrary.simpleMessage(
+      "هل أنت متأكد من مسح كل سجل المشاهدة؟",
+    ),
+    "clearAllSaved": MessageLookupByLibrary.simpleMessage("مسح كل المحفوظات"),
+    "clearAllSavedConfirm": MessageLookupByLibrary.simpleMessage(
+      "هل أنت متأكد من إزالة جميع مقاطع الفيديو المحفوظة؟",
+    ),
+    "clearLogs": MessageLookupByLibrary.simpleMessage("مسح السجلات"),
     "commentAuthorNotFound": MessageLookupByLibrary.simpleMessage("غير متاح"),
+    "commentsDisabled": MessageLookupByLibrary.simpleMessage("التعليقات معطلة"),
     "commonSettingsTitle": MessageLookupByLibrary.simpleMessage("شائع"),
+    "completed": MessageLookupByLibrary.simpleMessage("مكتمل"),
+    "copiedToClipboard": MessageLookupByLibrary.simpleMessage(
+      "تم النسخ إلى الحافظة",
+    ),
+    "copyLink": MessageLookupByLibrary.simpleMessage("نسخ الرابط"),
+    "createAction": MessageLookupByLibrary.simpleMessage("إنشاء"),
+    "dateAdded": MessageLookupByLibrary.simpleMessage("تاريخ الإضافة"),
+    "debugConsole": MessageLookupByLibrary.simpleMessage("وحدة تحكم التصحيح"),
+    "defaultProfile": MessageLookupByLibrary.simpleMessage("افتراضي"),
     "defaultQuality": MessageLookupByLibrary.simpleMessage("الجودة الافتراضية"),
+    "delete": MessageLookupByLibrary.simpleMessage("حذف"),
+    "deleteDownload": MessageLookupByLibrary.simpleMessage("حذف التنزيل"),
+    "deleteDownloadConfirm": MessageLookupByLibrary.simpleMessage(
+      "هل أنت متأكد من حذف هذا التنزيل؟",
+    ),
+    "deletePlaylistAction": MessageLookupByLibrary.simpleMessage(
+      "حذف قائمة التشغيل",
+    ),
+    "deletePlaylistConfirm": m3,
+    "deletePlaylistTitle": MessageLookupByLibrary.simpleMessage(
+      "حذف قائمة التشغيل",
+    ),
+    "deleteProfile": MessageLookupByLibrary.simpleMessage("حذف الملف الشخصي"),
+    "deleteVideo": MessageLookupByLibrary.simpleMessage("حذف الفيديو"),
+    "deleteVideoConfirm": MessageLookupByLibrary.simpleMessage(
+      "هل أنت متأكد من إزالة هذا الفيديو؟",
+    ),
     "developer": MessageLookupByLibrary.simpleMessage("المطور"),
     "disablePipPlayer": MessageLookupByLibrary.simpleMessage(
       "Disable PIP player",
@@ -44,10 +152,37 @@ class MessageLookup extends MessageLookupByLibrary {
     "disableVideoHistory": MessageLookupByLibrary.simpleMessage(
       "عطل تاريخ المشاهدة",
     ),
+    "dislike": MessageLookupByLibrary.simpleMessage("عدم إعجاب"),
     "distractionFree": MessageLookupByLibrary.simpleMessage("بلا تشتت"),
+    "download": MessageLookupByLibrary.simpleMessage("تنزيل"),
+    "downloadFailed": m4,
+    "downloadStarted": MessageLookupByLibrary.simpleMessage("بدأ التنزيل"),
+    "downloadType": MessageLookupByLibrary.simpleMessage("نوع التنزيل"),
+    "downloading": MessageLookupByLibrary.simpleMessage("جارٍ التنزيل"),
+    "downloadingAudio": MessageLookupByLibrary.simpleMessage(
+      "جارٍ تنزيل الصوت",
+    ),
+    "downloadingVideo": MessageLookupByLibrary.simpleMessage(
+      "جارٍ تنزيل الفيديو",
+    ),
+    "downloads": MessageLookupByLibrary.simpleMessage("التنزيلات"),
+    "duration": MessageLookupByLibrary.simpleMessage("المدة"),
     "enableHlsPlayerDescription": MessageLookupByLibrary.simpleMessage(
       "شغل مشغل المباشر لتفعيل كل اختيارات الجودة، عطله عند ظهور أي أخطاء.",
     ),
+    "exportData": MessageLookupByLibrary.simpleMessage("تصدير البيانات"),
+    "exportSubscriptions": MessageLookupByLibrary.simpleMessage(
+      "تصدير الاشتراكات",
+    ),
+    "exportSuccess": MessageLookupByLibrary.simpleMessage("تم التصدير بنجاح"),
+    "failed": MessageLookupByLibrary.simpleMessage("فشل"),
+    "failedToOpenFile": MessageLookupByLibrary.simpleMessage("فشل فتح الملف"),
+    "fileNotFound": MessageLookupByLibrary.simpleMessage("الملف غير موجود"),
+    "filterAll": MessageLookupByLibrary.simpleMessage("الكل"),
+    "filterChannels": MessageLookupByLibrary.simpleMessage("القنوات"),
+    "filterMusic": MessageLookupByLibrary.simpleMessage("الموسيقى"),
+    "filterPlaylists": MessageLookupByLibrary.simpleMessage("قوائم التشغيل"),
+    "filterVideos": MessageLookupByLibrary.simpleMessage("مقاطع الفيديو"),
     "france": MessageLookupByLibrary.simpleMessage("فرنسا"),
     "hideComments": MessageLookupByLibrary.simpleMessage("إخفاء التعليقات"),
     "hideCommentsButtonFromWatchScreen": MessageLookupByLibrary.simpleMessage(
@@ -60,13 +195,77 @@ class MessageLookup extends MessageLookupByLibrary {
     "history": MessageLookupByLibrary.simpleMessage("التاريخ"),
     "hlsPlayer": MessageLookupByLibrary.simpleMessage("مشغل المباشر"),
     "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
+    "homeFeedMode": MessageLookupByLibrary.simpleMessage("الصفحة الرئيسية"),
+    "homeFeedModeAuto": MessageLookupByLibrary.simpleMessage("تلقائي"),
+    "homeFeedModeAutoHint": MessageLookupByLibrary.simpleMessage(
+      "إظهار الاشتراكات إن وُجدت، وإلا الرائج",
+    ),
+    "homeFeedModeFeedOnly": MessageLookupByLibrary.simpleMessage("الاشتراكات"),
+    "homeFeedModeFeedOnlyHint": MessageLookupByLibrary.simpleMessage(
+      "إظهار مقاطع القنوات المشترك بها فقط",
+    ),
+    "homeFeedModeTrendingOnly": MessageLookupByLibrary.simpleMessage("الرائج"),
+    "homeFeedModeTrendingOnlyHint": MessageLookupByLibrary.simpleMessage(
+      "إظهار المقاطع الرائجة دائمًا فقط",
+    ),
+    "imageCacheLabel": MessageLookupByLibrary.simpleMessage(
+      "ذاكرة الصور المؤقتة",
+    ),
+    "importData": MessageLookupByLibrary.simpleMessage("استيراد البيانات"),
+    "importError": MessageLookupByLibrary.simpleMessage("فشل الاستيراد"),
+    "importSubscriptions": MessageLookupByLibrary.simpleMessage(
+      "استيراد الاشتراكات",
+    ),
+    "importSuccess": MessageLookupByLibrary.simpleMessage("تم الاستيراد بنجاح"),
     "includeTitle": MessageLookupByLibrary.simpleMessage("تضمين العنوان"),
     "india": MessageLookupByLibrary.simpleMessage("الهند"),
     "instances": MessageLookupByLibrary.simpleMessage("فوريات"),
+    "interaction": MessageLookupByLibrary.simpleMessage("تفاعل"),
+    "intro": MessageLookupByLibrary.simpleMessage("مقدمة"),
     "language": MessageLookupByLibrary.simpleMessage("اللغة"),
+    "library": MessageLookupByLibrary.simpleMessage("المكتبة"),
+    "like": MessageLookupByLibrary.simpleMessage("إعجاب"),
+    "localPlaylists": MessageLookupByLibrary.simpleMessage("قوائم التشغيل"),
+    "logsLabel": MessageLookupByLibrary.simpleMessage("السجلات"),
+    "merging": MessageLookupByLibrary.simpleMessage("جارٍ الدمج"),
+    "musicOfftopic": MessageLookupByLibrary.simpleMessage("موسيقى: غير موسيقي"),
     "netherlands": MessageLookupByLibrary.simpleMessage("هولندا"),
+    "newNameHint": MessageLookupByLibrary.simpleMessage("اسم جديد"),
+    "newPlaylist": MessageLookupByLibrary.simpleMessage("قائمة تشغيل جديدة"),
+    "newPlaylistShort": MessageLookupByLibrary.simpleMessage("+ جديد"),
+    "newProfileName": MessageLookupByLibrary.simpleMessage("اسم ملف شخصي جديد"),
+    "newVideoNotifications": MessageLookupByLibrary.simpleMessage(
+      "إشعارات الرفع الجديد",
+    ),
+    "newVideoNotificationsDescription": MessageLookupByLibrary.simpleMessage(
+      "احصل على إشعار عند رفع القنوات التي تشترك بها",
+    ),
     "noCommentsFound": MessageLookupByLibrary.simpleMessage(
       "No Comments Found",
+    ),
+    "noDownloads": MessageLookupByLibrary.simpleMessage("لا توجد تنزيلات"),
+    "noDownloadsHint": MessageLookupByLibrary.simpleMessage(
+      "ستظهر المقاطع التي تم تنزيلها هنا",
+    ),
+    "noHistory": MessageLookupByLibrary.simpleMessage("لا يوجد سجل مشاهدة"),
+    "noLogs": MessageLookupByLibrary.simpleMessage("لا توجد سجلات بعد"),
+    "noPlaylists": MessageLookupByLibrary.simpleMessage("لا توجد قوائم تشغيل"),
+    "noPlaylistsYet": MessageLookupByLibrary.simpleMessage(
+      "لا توجد قوائم تشغيل بعد.\nاضغط + لإنشاء واحدة.",
+    ),
+    "noPlaylistsYetPicker": MessageLookupByLibrary.simpleMessage(
+      "لا توجد قوائم تشغيل بعد.\nاضغط + جديد لإنشاء واحدة.",
+    ),
+    "noSavedVideos": MessageLookupByLibrary.simpleMessage(
+      "لا توجد مقاطع محفوظة",
+    ),
+    "noShorts": MessageLookupByLibrary.simpleMessage("لا توجد مقاطع Shorts"),
+    "noShortsHint": MessageLookupByLibrary.simpleMessage(
+      "Short videos will appear here",
+    ),
+    "noSubscriptions": MessageLookupByLibrary.simpleMessage("لا توجد اشتراكات"),
+    "noSubscriptionsHint": MessageLookupByLibrary.simpleMessage(
+      "اشترك في القنوات لرؤية مقاطعها هنا",
     ),
     "noUploadDate": MessageLookupByLibrary.simpleMessage("بلا تاريخ"),
     "noUploaderName": MessageLookupByLibrary.simpleMessage("بدون اسم"),
@@ -75,10 +274,87 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "noVideoDescription": MessageLookupByLibrary.simpleMessage("لا يوجد وصف"),
     "noVideoTitle": MessageLookupByLibrary.simpleMessage("بلا عنوان"),
+    "noVideosFound": MessageLookupByLibrary.simpleMessage(
+      "لم يتم العثور على مقاطع",
+    ),
+    "noVideosInPlaylist": MessageLookupByLibrary.simpleMessage(
+      "لا توجد مقاطع بعد",
+    ),
+    "notificationsDenied": MessageLookupByLibrary.simpleMessage(
+      "تم رفض إذن الإشعارات",
+    ),
+    "openInBrowser": MessageLookupByLibrary.simpleMessage("فتح في المتصفح"),
+    "openLinksExternally": MessageLookupByLibrary.simpleMessage(
+      "فتح الروابط في المتصفح الخارجي",
+    ),
+    "outro": MessageLookupByLibrary.simpleMessage("خاتمة"),
+    "pause": MessageLookupByLibrary.simpleMessage("إيقاف مؤقت"),
+    "pauseOnCall": MessageLookupByLibrary.simpleMessage(
+      "إيقاف مؤقت عند مكالمة هاتفية",
+    ),
+    "pauseOnHeadphones": MessageLookupByLibrary.simpleMessage(
+      "إيقاف مؤقت عند فصل السماعات",
+    ),
+    "paused": MessageLookupByLibrary.simpleMessage("متوقف مؤقتًا"),
+    "pending": MessageLookupByLibrary.simpleMessage("قيد الانتظار"),
+    "pinned": MessageLookupByLibrary.simpleMessage("مثبت"),
+    "platformLabel": MessageLookupByLibrary.simpleMessage("المنصة"),
+    "playAll": MessageLookupByLibrary.simpleMessage("تشغيل الكل"),
+    "playNext": MessageLookupByLibrary.simpleMessage("تشغيل التالي"),
+    "playlist": MessageLookupByLibrary.simpleMessage("قائمة تشغيل"),
+    "playlistNameHint": MessageLookupByLibrary.simpleMessage(
+      "اسم قائمة التشغيل",
+    ),
+    "playlistNotFound": MessageLookupByLibrary.simpleMessage(
+      "قائمة التشغيل غير موجودة",
+    ),
+    "playlists": MessageLookupByLibrary.simpleMessage("قوائم التشغيل"),
+    "profileInUse": MessageLookupByLibrary.simpleMessage("نشط"),
+    "profileName": MessageLookupByLibrary.simpleMessage("اسم الملف الشخصي"),
+    "profiles": MessageLookupByLibrary.simpleMessage("الملفات الشخصية"),
+    "profilesDescription": MessageLookupByLibrary.simpleMessage(
+      "أنشئ ملفات شخصية منفصلة لحسابات أو تفضيلات مختلفة",
+    ),
+    "quality1080p": MessageLookupByLibrary.simpleMessage("1080p"),
+    "quality1440p": MessageLookupByLibrary.simpleMessage("1440p"),
+    "quality144p": MessageLookupByLibrary.simpleMessage("144p"),
+    "quality240p": MessageLookupByLibrary.simpleMessage("240p"),
+    "quality360p": MessageLookupByLibrary.simpleMessage("360p"),
+    "quality480p": MessageLookupByLibrary.simpleMessage("480p"),
+    "quality720p": MessageLookupByLibrary.simpleMessage("720p"),
+    "queue": MessageLookupByLibrary.simpleMessage("قائمة الانتظار"),
+    "queueClear": MessageLookupByLibrary.simpleMessage("مسح"),
+    "queueEmpty": MessageLookupByLibrary.simpleMessage("قائمة الانتظار فارغة"),
+    "queueShuffle": MessageLookupByLibrary.simpleMessage("خلط"),
     "readMoreText": MessageLookupByLibrary.simpleMessage("اقرأ المزيد"),
+    "recentSearches": MessageLookupByLibrary.simpleMessage(
+      "عمليات البحث الأخيرة",
+    ),
+    "refresh": MessageLookupByLibrary.simpleMessage("Refresh"),
+    "refreshToLoad": MessageLookupByLibrary.simpleMessage(
+      "اسحب للأسفل للتحديث",
+    ),
     "region": MessageLookupByLibrary.simpleMessage("المنطقة"),
     "relatedTitle": MessageLookupByLibrary.simpleMessage("مرتبط"),
-    "repliesPlural": m1,
+    "removeFromHistory": MessageLookupByLibrary.simpleMessage("إزالة من السجل"),
+    "removeFromQueue": MessageLookupByLibrary.simpleMessage(
+      "إزالة من قائمة الانتظار",
+    ),
+    "removeFromSaved": MessageLookupByLibrary.simpleMessage(
+      "إزالة من المحفوظات",
+    ),
+    "renameAction": MessageLookupByLibrary.simpleMessage("إعادة تسمية"),
+    "renamePlaylistTitle": MessageLookupByLibrary.simpleMessage(
+      "إعادة تسمية قائمة التشغيل",
+    ),
+    "renameProfile": MessageLookupByLibrary.simpleMessage(
+      "إعادة تسمية الملف الشخصي",
+    ),
+    "repliesNotSupported": MessageLookupByLibrary.simpleMessage(
+      "الردود غير متاحة بعد",
+    ),
+    "repliesPlural": m5,
+    "resume": MessageLookupByLibrary.simpleMessage("استئناف"),
     "retrieveDislikeCounts": MessageLookupByLibrary.simpleMessage(
       "أظهر عدد عدم الإعجابات",
     ),
@@ -86,38 +362,160 @@ class MessageLookup extends MessageLookupByLibrary {
       "أظهر عدم الإعجابات",
     ),
     "retry": MessageLookupByLibrary.simpleMessage("إعادة المحاولة"),
+    "saveToDevice": MessageLookupByLibrary.simpleMessage("حفظ على الجهاز"),
+    "saveToDeviceFailed": MessageLookupByLibrary.simpleMessage(
+      "فشل الحفظ على الجهاز",
+    ),
+    "saveToPlaylist": MessageLookupByLibrary.simpleMessage(
+      "حفظ في قائمة تشغيل",
+    ),
     "saved": MessageLookupByLibrary.simpleMessage("المحفوظات"),
+    "savedToDevice": MessageLookupByLibrary.simpleMessage(
+      "تم الحفظ على الجهاز",
+    ),
     "savedVideosTitle": MessageLookupByLibrary.simpleMessage(
       "الفيديوهات المحفوظة",
     ),
+    "savingToDevice": MessageLookupByLibrary.simpleMessage(
+      "جارٍ الحفظ على الجهاز...",
+    ),
+    "search": MessageLookupByLibrary.simpleMessage("بحث"),
+    "searchFilters": MessageLookupByLibrary.simpleMessage("عوامل التصفية"),
+    "searchForVideosChannels": MessageLookupByLibrary.simpleMessage(
+      "ابحث عن مقاطع وقنوات وقوائم تشغيل",
+    ),
+    "searchHistoryEnabled": MessageLookupByLibrary.simpleMessage(
+      "حفظ سجل البحث",
+    ),
+    "searchHistoryEnabledDescription": MessageLookupByLibrary.simpleMessage(
+      "احفظ استعلامات البحث للوصول السريع",
+    ),
+    "searchSavedVideos": MessageLookupByLibrary.simpleMessage(
+      "ابحث في المقاطع المحفوظة...",
+    ),
+    "searchSubscriptions": MessageLookupByLibrary.simpleMessage(
+      "ابحث في الاشتراكات...",
+    ),
+    "searchYouTube": MessageLookupByLibrary.simpleMessage("ابحث في يوتيوب..."),
+    "seconds": MessageLookupByLibrary.simpleMessage("ثانية"),
+    "selectAll": MessageLookupByLibrary.simpleMessage("تحديد الكل"),
+    "selectFile": MessageLookupByLibrary.simpleMessage("اختر ملفًا"),
+    "selectVideos": MessageLookupByLibrary.simpleMessage("تحديد مقاطع الفيديو"),
+    "selected": MessageLookupByLibrary.simpleMessage("محدد"),
+    "selfPromotion": MessageLookupByLibrary.simpleMessage("ترويج ذاتي"),
+    "serviceExplode": MessageLookupByLibrary.simpleMessage("Explode"),
+    "serviceInvidious": MessageLookupByLibrary.simpleMessage("Invidious"),
+    "serviceNewPipe": MessageLookupByLibrary.simpleMessage("NewPipe Extractor"),
+    "servicePiped": MessageLookupByLibrary.simpleMessage("Piped"),
     "settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),
     "share": MessageLookupByLibrary.simpleMessage("مشاركة"),
+    "shareLogs": MessageLookupByLibrary.simpleMessage("مشاركة السجلات"),
+    "shareVia": MessageLookupByLibrary.simpleMessage("مشاركة عبر"),
+    "shorts": MessageLookupByLibrary.simpleMessage("Shorts"),
     "showLessText": MessageLookupByLibrary.simpleMessage("إظهار أقل"),
+    "showSearchHistory": MessageLookupByLibrary.simpleMessage(
+      "إظهار سجل البحث",
+    ),
+    "showSearchHistoryDescription": MessageLookupByLibrary.simpleMessage(
+      "عرض عمليات البحث الأخيرة في شاشة البحث",
+    ),
+    "skipInterval": MessageLookupByLibrary.simpleMessage("فاصل التخطي"),
+    "skipIntervalDescription": MessageLookupByLibrary.simpleMessage(
+      "مدة التخطي بالنقر المزدوج بالثواني",
+    ),
+    "sleepTimer": MessageLookupByLibrary.simpleMessage("مؤقت النوم"),
+    "sleepTimerCustom": MessageLookupByLibrary.simpleMessage("مخصص"),
+    "sleepTimerCustomTitle": MessageLookupByLibrary.simpleMessage("مؤقت مخصص"),
+    "sleepTimerEndOfVideo": MessageLookupByLibrary.simpleMessage(
+      "نهاية الفيديو",
+    ),
+    "sleepTimerEnded": MessageLookupByLibrary.simpleMessage("انتهى مؤقت النوم"),
+    "sleepTimerEnterMinutes": MessageLookupByLibrary.simpleMessage(
+      "أدخل الدقائق",
+    ),
+    "sleepTimerMinutes": m6,
+    "sleepTimerMinutesShort": m7,
+    "sleepTimerOff": MessageLookupByLibrary.simpleMessage("إيقاف"),
+    "sleepTimerSet": MessageLookupByLibrary.simpleMessage("تعيين"),
+    "sort": MessageLookupByLibrary.simpleMessage("ترتيب"),
+    "sortBy": MessageLookupByLibrary.simpleMessage("ترتيب حسب"),
+    "sponsor": MessageLookupByLibrary.simpleMessage("رعاية"),
+    "sponsorBlock": MessageLookupByLibrary.simpleMessage("SponsorBlock"),
+    "sponsorBlockCategories": MessageLookupByLibrary.simpleMessage(
+      "فئات التخطي",
+    ),
+    "sponsorBlockDescription": MessageLookupByLibrary.simpleMessage(
+      "تخطي المقاطع الممولة تلقائيًا",
+    ),
+    "startDownload": MessageLookupByLibrary.simpleMessage("بدء التنزيل"),
+    "startSavingVideos": MessageLookupByLibrary.simpleMessage(
+      "ابدأ بحفظ المقاطع للمشاهدة لاحقًا",
+    ),
     "subscribe": MessageLookupByLibrary.simpleMessage("اشتراك"),
+    "subscriptions": MessageLookupByLibrary.simpleMessage("الاشتراكات"),
+    "subtitleSize": MessageLookupByLibrary.simpleMessage("حجم الترجمة"),
+    "subtitleSizeDescription": MessageLookupByLibrary.simpleMessage(
+      "ضبط حجم الترجمة على الفيديو",
+    ),
+    "subtitleSizeExtraLarge": MessageLookupByLibrary.simpleMessage("كبير جدًا"),
+    "subtitleSizeLarge": MessageLookupByLibrary.simpleMessage("كبير"),
+    "subtitleSizeMedium": MessageLookupByLibrary.simpleMessage("متوسط"),
+    "subtitleSizeSmall": MessageLookupByLibrary.simpleMessage("صغير"),
     "swipeDownToDismissDisabled": MessageLookupByLibrary.simpleMessage(
       "\'Swipe down to dismiss\' disabled",
     ),
     "swipeUpToDismissEnabled": MessageLookupByLibrary.simpleMessage(
       "\'Swipe up to dismiss\' enabled",
     ),
+    "switchProfile": MessageLookupByLibrary.simpleMessage("تبديل الملف الشخصي"),
     "switchRegion": MessageLookupByLibrary.simpleMessage(
       "من فضلك غير المنطقة لنتائج فُضْلى.",
     ),
     "theme": MessageLookupByLibrary.simpleMessage("المظهر"),
+    "themeDark": MessageLookupByLibrary.simpleMessage("داكن"),
+    "themeDynamic": MessageLookupByLibrary.simpleMessage("Material You"),
+    "themeLight": MessageLookupByLibrary.simpleMessage("فاتح"),
+    "themeOled": MessageLookupByLibrary.simpleMessage("أسود OLED"),
+    "themeSystem": MessageLookupByLibrary.simpleMessage("النظام"),
     "thereIsNoSavedOrHistoryVideos": MessageLookupByLibrary.simpleMessage(
       "لا يوجد فيديوهات/تاريخ محفوظ",
     ),
     "thereIsNoSavedVideos": MessageLookupByLibrary.simpleMessage(
       "لا يوجد فيديوهات محفوظة",
     ),
+    "title": MessageLookupByLibrary.simpleMessage("العنوان"),
     "translators": MessageLookupByLibrary.simpleMessage("المترجمين"),
     "trending": MessageLookupByLibrary.simpleMessage("شائع"),
     "unitedKingdom": MessageLookupByLibrary.simpleMessage("المملكة المتحدة"),
     "unitedStates": MessageLookupByLibrary.simpleMessage("الولايات المتحدة"),
     "unknown": MessageLookupByLibrary.simpleMessage("غير معرف"),
+    "unknownError": MessageLookupByLibrary.simpleMessage("حدث خطأ غير معروف"),
     "unknownQuality": MessageLookupByLibrary.simpleMessage("جودة غير محددة"),
+    "unsubscribe": MessageLookupByLibrary.simpleMessage("إلغاء الاشتراك"),
+    "unsubscribeConfirm": MessageLookupByLibrary.simpleMessage(
+      "إلغاء الاشتراك في هذه القناة؟",
+    ),
     "version": MessageLookupByLibrary.simpleMessage("النسخة"),
     "video": MessageLookupByLibrary.simpleMessage("فيديو"),
-    "videoViews": m2,
+    "videoAudio": MessageLookupByLibrary.simpleMessage("فيديو+صوت"),
+    "videoCountLabel": m8,
+    "videoFit": MessageLookupByLibrary.simpleMessage("ملاءمة الفيديو"),
+    "videoFitContain": MessageLookupByLibrary.simpleMessage("احتواء"),
+    "videoFitCover": MessageLookupByLibrary.simpleMessage("تغطية"),
+    "videoFitFill": MessageLookupByLibrary.simpleMessage("ملء"),
+    "videoFitFitHeight": MessageLookupByLibrary.simpleMessage(
+      "ملاءمة الارتفاع",
+    ),
+    "videoFitFitWidth": MessageLookupByLibrary.simpleMessage("ملاءمة العرض"),
+    "videoOnly": MessageLookupByLibrary.simpleMessage("فيديو فقط"),
+    "videoQuality": MessageLookupByLibrary.simpleMessage("جودة الفيديو"),
+    "videoViews": m9,
+    "videoWithAudio": MessageLookupByLibrary.simpleMessage("فيديو + صوت"),
+    "videos": MessageLookupByLibrary.simpleMessage("مقاطع الفيديو"),
+    "views": MessageLookupByLibrary.simpleMessage("مشاهدة"),
+    "watchSomeVideos": MessageLookupByLibrary.simpleMessage(
+      "ستظهر المقاطع التي تشاهدها هنا",
+    ),
+    "youtubeService": MessageLookupByLibrary.simpleMessage("خدمة يوتيوب"),
   };
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluxtube/application/application.dart';
 import 'package:fluxtube/core/constants.dart';
@@ -65,7 +64,6 @@ class _FeedVideoSectionState extends State<FeedVideoSection> {
 
     return ListView.separated(
       controller: _scrollController,
-      scrollCacheExtent: const ScrollCacheExtent.pixels(500),
       separatorBuilder: (context, index) => kHeightBox10,
       itemBuilder: (context, index) {
         // Show loading indicator at the end

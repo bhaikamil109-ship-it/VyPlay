@@ -57,7 +57,7 @@ class BackupSettingsSection extends StatelessWidget {
             ListTile(
               title: Text(locals.importSubscriptions,
                   style: Theme.of(context).textTheme.titleMedium),
-              subtitle: const Text('Import from NewPipe or FluxTube ZIP file'),
+              subtitle: const Text('Import from NewPipe or VyPlay ZIP file'),
               leading: const Icon(Icons.unarchive_outlined),
               onTap: () async {
                 await _importFromZip(context, currentProfile, locals);

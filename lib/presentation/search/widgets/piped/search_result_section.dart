@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluxtube/application/application.dart';
 import 'package:fluxtube/core/enums.dart';
@@ -68,7 +67,6 @@ class _SearcheResultSectionState extends State<SearcheResultSection> {
         final items = widget.state.result?.items ?? [];
         return ListView.separated(
           controller: _scrollController,
-          scrollCacheExtent: const ScrollCacheExtent.pixels(500),
           separatorBuilder: (context, index) => const SizedBox(height: 12),
           itemBuilder: (context, index) {
             if (index < items.length) {

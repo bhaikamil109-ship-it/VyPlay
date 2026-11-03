@@ -23,6 +23,7 @@ class MainActivity: AudioServiceFragmentActivity() {
         private const val MUXER_CHANNEL = "com.fazilvk.fluxtube/muxer"
         private const val CAST_CHANNEL = "com.fazilvk.fluxtube/cast"
         private const val CAST_EVENT_CHANNEL = "com.fazilvk.fluxtube/cast_events"
+        private const val STORAGE_CHANNEL = "com.fazilvk.fluxtube/storage"
     }
 
     private var newPipeHandler: NewPipeMethodHandler? = null
@@ -68,6 +69,10 @@ class MainActivity: AudioServiceFragmentActivity() {
             .setMethodCallHandler(castHandler)
         EventChannel(flutterEngine.dartExecutor.binaryMessenger, CAST_EVENT_CHANNEL)
             .setStreamHandler(castHandler)
+
+        // Register storage channel (free-space checks before a download starts)
+        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, STORAGE_CHANNEL)
+            .setMethodCallHandler(StorageMethodHandler())
 
         // Register PiP method channel
         pipChannel = MethodChannel(flutterEngine.dartExecutor.binaryMessenger, PIP_CHANNEL)

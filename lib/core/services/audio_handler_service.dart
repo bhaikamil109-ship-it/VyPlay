@@ -7,7 +7,7 @@ import 'package:fluxtube/core/services/exoplayer_notification_bridge.dart';
 
 /// Audio handler for background playback notification controls
 /// Provides media session controls (play/pause/seek) in notification and lock screen
-class FluxTubeAudioHandler extends BaseAudioHandler with SeekHandler {
+class VyPlayAudioHandler extends BaseAudioHandler with SeekHandler {
   // Use the singleton instance
   GlobalPlayerController get _globalPlayer => GlobalPlayerController();
 
@@ -31,7 +31,7 @@ class FluxTubeAudioHandler extends BaseAudioHandler with SeekHandler {
   Future<void> Function()? _externalStop;
   Future<void> Function(Duration position)? _externalSeek;
 
-  FluxTubeAudioHandler() {
+  VyPlayAudioHandler() {
     // Delay listener setup to ensure player is ready
     Future.delayed(const Duration(milliseconds: 100), () {
       _setupPlayerListeners();
@@ -431,13 +431,13 @@ class FluxTubeAudioHandler extends BaseAudioHandler with SeekHandler {
 }
 
 /// Global audio handler instance
-FluxTubeAudioHandler? _audioHandler;
+VyPlayAudioHandler? _audioHandler;
 bool _initializationAttempted = false;
 bool _isInitializing = false;
 
 /// Initialize the audio service with our handler
 /// Returns null if initialization fails (non-fatal - app continues without notification controls)
-Future<FluxTubeAudioHandler?> initAudioService() async {
+Future<VyPlayAudioHandler?> initAudioService() async {
   if (_audioHandler != null) {
     return _audioHandler;
   }
@@ -461,10 +461,10 @@ Future<FluxTubeAudioHandler?> initAudioService() async {
   try {
     log('[AudioHandler] Initializing audio service...');
     _audioHandler = await AudioService.init(
-      builder: () => FluxTubeAudioHandler(),
+      builder: () => VyPlayAudioHandler(),
       config: AudioServiceConfig(
         androidNotificationChannelId: 'com.fazilvk.fluxtube.audio',
-        androidNotificationChannelName: 'FluxTube Playback',
+        androidNotificationChannelName: 'VyPlay Playback',
         androidNotificationChannelDescription: 'Media playback controls',
         androidNotificationOngoing: false,
         androidStopForegroundOnPause:
@@ -489,7 +489,7 @@ Future<FluxTubeAudioHandler?> initAudioService() async {
 
 /// Ensure audio service is initialized before use
 /// Call this before updating media notification
-Future<FluxTubeAudioHandler?> ensureAudioServiceInitialized() async {
+Future<VyPlayAudioHandler?> ensureAudioServiceInitialized() async {
   if (_audioHandler != null) {
     return _audioHandler;
   }
@@ -497,4 +497,4 @@ Future<FluxTubeAudioHandler?> ensureAudioServiceInitialized() async {
 }
 
 /// Get the audio handler instance (may be null if initialization failed)
-FluxTubeAudioHandler? getAudioHandler() => _audioHandler;
+VyPlayAudioHandler? getAudioHandler() => _audioHandler;

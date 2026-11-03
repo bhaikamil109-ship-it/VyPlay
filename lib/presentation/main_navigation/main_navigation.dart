@@ -15,6 +15,7 @@ import '../download/screen_downloads.dart';
 import '../home/screen_home.dart';
 import '../saved/screen_saved.dart';
 import '../settings/screen_settings.dart';
+import '../shorts/shorts_feed_screen.dart';
 import '../subscriptions/screen_subscriptions.dart';
 import '../trending/screen_trending.dart';
 
@@ -37,10 +38,9 @@ void navigateToDownloadsTab({int? downloadsTabIndex}) {
   if (downloadsTabIndex != null) {
     downloadsTabNotifier.value = downloadsTabIndex;
   }
-  // Set index to a known downloads position (will be adjusted by MainNavigation if needed)
-  // Downloads is at index 4 with trending, index 3 without
-  // Use index 4, the MainNavigation will handle pending navigation and find correct index
-  indexChangeNotifier.value = 4;
+  // The exact index is resolved by key inside MainNavigation, so any value
+  // here is only a hint that a navigation is pending.
+  indexChangeNotifier.value = 0;
 }
 
 /// Get and clear pending navigation target
@@ -70,80 +70,76 @@ class MainNavigationState extends State<MainNavigation> {
   bool? _previousShowTrending;
   final Map<String, Widget> _pageCache = {};
 
-  List<Widget> _getPages(bool showTrending) {
-    if (showTrending) {
-      return [
-        _cachedPage('home', const ScreenHome()),
-        _cachedPage('trending', const ScreenTrending()),
-        _cachedPage('subscriptions', const ScreenSubscriptions()),
-        _cachedPage('saved', const ScreenSaved()),
-        _cachedPage('downloads', const ScreenDownloads()),
-        _cachedPage('settings', const ScreenSettings()),
-      ];
-    } else {
-      return [
-        _cachedPage('home', const ScreenHome()),
-        _cachedPage('subscriptions', const ScreenSubscriptions()),
-        _cachedPage('saved', const ScreenSaved()),
-        _cachedPage('downloads', const ScreenDownloads()),
-        _cachedPage('settings', const ScreenSettings()),
-      ];
-    }
+  /// The canonical tab order. Trending is conditional (NewPipe has no trending
+  /// endpoint), so it is filtered out at build time rather than by arithmetic.
+  static const List<String> _tabKeys = <String>[
+    'home',
+    'shorts',
+    'trending',
+    'subscriptions',
+    'library',
+    'downloads',
+    'settings',
+  ];
+
+  List<String> _activeKeys(bool showTrending) => _tabKeys
+      .where((k) => showTrending || k != 'trending')
+      .toList(growable: false);
+
+  Widget _pageFor(String key) {
+    return _cachedPage(key, switch (key) {
+      'home' => const ScreenHome(),
+      'shorts' => const ShortsFeedScreen(),
+      'trending' => const ScreenTrending(),
+      'subscriptions' => const ScreenSubscriptions(),
+      'library' => const ScreenSaved(),
+      'downloads' => const ScreenDownloads(),
+      _ => const ScreenSettings(),
+    });
   }
+
+  List<Widget> _getPages(bool showTrending) =>
+      _activeKeys(showTrending).map(_pageFor).toList(growable: false);
 
   Widget _cachedPage(String key, Widget page) {
     return _pageCache.putIfAbsent(key, () => page);
   }
 
-  List<TabItem> _getTabItems(S locals, bool showTrending) {
-    if (showTrending) {
-      return [
-        TabItem(
-            icon: CupertinoIcons.house_fill, title: locals.home, key: "home"),
-        TabItem(
-            icon: CupertinoIcons.flame_fill,
-            title: locals.trending,
-            key: "trending"),
-        TabItem(
-            icon: CupertinoIcons.person_2_fill,
-            title: locals.subscriptions,
-            key: "subscriptions"),
-        TabItem(
-            icon: CupertinoIcons.bookmark_fill,
-            title: locals.saved,
-            key: "saved"),
-        TabItem(
-            icon: CupertinoIcons.arrow_down_circle_fill,
-            title: locals.downloads,
-            key: "downloads"),
-        TabItem(
-            icon: CupertinoIcons.settings,
-            title: locals.settings,
-            key: "settings"),
-      ];
-    } else {
-      return [
-        TabItem(
-            icon: CupertinoIcons.house_fill, title: locals.home, key: "home"),
-        TabItem(
-            icon: CupertinoIcons.person_2_fill,
-            title: locals.subscriptions,
-            key: "subscriptions"),
-        TabItem(
-            icon: CupertinoIcons.bookmark_fill,
-            title: locals.saved,
-            key: "saved"),
-        TabItem(
-            icon: CupertinoIcons.arrow_down_circle_fill,
-            title: locals.downloads,
-            key: "downloads"),
-        TabItem(
-            icon: CupertinoIcons.settings,
-            title: locals.settings,
-            key: "settings"),
-      ];
-    }
+  TabItem _tabItemFor(String key, S locals) {
+    return switch (key) {
+      'home' => TabItem(
+          icon: CupertinoIcons.house_fill, title: locals.home, key: 'home'),
+      'shorts' => TabItem(
+          icon: CupertinoIcons.play_rectangle_fill,
+          title: locals.shorts,
+          key: 'shorts'),
+      'trending' => TabItem(
+          icon: CupertinoIcons.flame_fill,
+          title: locals.trending,
+          key: 'trending'),
+      'subscriptions' => TabItem(
+          icon: CupertinoIcons.person_2_fill,
+          title: locals.subscriptions,
+          key: 'subscriptions'),
+      'library' => TabItem(
+          icon: CupertinoIcons.bookmark_fill,
+          title: locals.library,
+          key: 'library'),
+      'downloads' => TabItem(
+          icon: CupertinoIcons.arrow_down_circle_fill,
+          title: locals.downloads,
+          key: 'downloads'),
+      _ => TabItem(
+          icon: CupertinoIcons.settings,
+          title: locals.settings,
+          key: 'settings'),
+    };
   }
+
+  List<TabItem> _getTabItems(S locals, bool showTrending) =>
+      _activeKeys(showTrending)
+          .map((k) => _tabItemFor(k, locals))
+          .toList(growable: false);
 
   @override
   void initState() {
@@ -175,35 +171,22 @@ class MainNavigationState extends State<MainNavigation> {
         final items = _getTabItems(locals, showTrending);
 
         final maxIndex = pages.length - 1;
+        final activeKeys = _activeKeys(showTrending);
 
-        // Adjust index when transitioning between services with different tab counts
+        // When the tab set changes (Trending appears/disappears with the
+        // backend), keep the user on the SAME tab by resolving its key rather
+        // than shifting raw indices. Index arithmetic breaks the moment a tab
+        // is inserted anywhere but the end — which is exactly what adding
+        // Shorts and Library did.
         if (_previousShowTrending != null &&
             _previousShowTrending != showTrending) {
           final currentIndex = indexChangeNotifier.value;
-          int newIndex;
-
-          if (showTrending && !_previousShowTrending!) {
-            // Switching FROM NewPipe (4 tabs) TO other service (5 tabs)
-            // Indices after Home need to shift up by 1 to account for Trending tab
-            // 0 (Home) -> 0 (Home)
-            // 1 (Subscriptions) -> 2 (Subscriptions)
-            // 2 (Saved) -> 3 (Saved)
-            // 3 (Settings) -> 4 (Settings)
-            newIndex = currentIndex == 0 ? 0 : currentIndex + 1;
-          } else {
-            // Switching FROM other service (5 tabs) TO NewPipe (4 tabs)
-            // Indices after Trending need to shift down by 1
-            // 0 (Home) -> 0 (Home)
-            // 1 (Trending) -> 0 (Home) - Trending doesn't exist, go to Home
-            // 2 (Subscriptions) -> 1 (Subscriptions)
-            // 3 (Saved) -> 2 (Saved)
-            // 4 (Settings) -> 3 (Settings)
-            if (currentIndex <= 1) {
-              newIndex = 0;
-            } else {
-              newIndex = currentIndex - 1;
-            }
-          }
+          final previousKeys = _activeKeys(_previousShowTrending!);
+          final currentKey = (currentIndex >= 0 && currentIndex < previousKeys.length)
+              ? previousKeys[currentIndex]
+              : 'home';
+          final resolved = activeKeys.indexOf(currentKey);
+          final newIndex = resolved >= 0 ? resolved : 0;
 
           WidgetsBinding.instance.addPostFrameCallback((_) {
             indexChangeNotifier.value = newIndex;

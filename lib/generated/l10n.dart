@@ -2053,6 +2053,7 @@ class S {
       args: [],
     );
   }
+
   /// `Cast`
   String get castTitle {
     return Intl.message(
@@ -2353,7 +2354,7 @@ class S {
     );
   }
 
-  /// `No playlists yet. Tap + to create one.`
+  /// `No playlists yet.\nTap + to create one.`
   String get noPlaylistsYet {
     return Intl.message(
       'No playlists yet.\nTap + to create one.',
@@ -2363,7 +2364,7 @@ class S {
     );
   }
 
-  /// `No playlists yet. Tap + New to create one.`
+  /// `No playlists yet.\nTap + New to create one.`
   String get noPlaylistsYetPicker {
     return Intl.message(
       'No playlists yet.\nTap + New to create one.',
@@ -2619,6 +2620,26 @@ class S {
       'Sleep timer ended',
       name: 'sleepTimerEnded',
       desc: 'Sleep timer fired',
+      args: [],
+    );
+  }
+
+  /// `Refresh`
+  String get refresh {
+    return Intl.message(
+      'Refresh',
+      name: 'refresh',
+      desc: 'Refresh button label',
+      args: [],
+    );
+  }
+
+  /// `Short videos will appear here`
+  String get noShortsHint {
+    return Intl.message(
+      'Short videos will appear here',
+      name: 'noShortsHint',
+      desc: 'Empty state hint on the Shorts tab',
       args: [],
     );
   }

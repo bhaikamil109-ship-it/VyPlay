@@ -144,7 +144,7 @@ class _ScreenDebugState extends State<ScreenDebug> {
 
   Future<void> _shareLogs() async {
     final dir = await getTemporaryDirectory();
-    final file = File('${dir.path}/fluxtube_debug.log');
+    final file = File('${dir.path}/vyplay_debug.log');
     await file.writeAsString(_collector.fullLog);
     await SharePlus.instance.share(ShareParams(files: [XFile(file.path)]));
   }
