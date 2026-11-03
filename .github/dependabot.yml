@@ -1,0 +1,24 @@
+version: 2
+
+updates:
+  # Dart / Flutter packages declared in pubspec.yaml
+  - package-ecosystem: 'pub'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: 'deps(pub)'
+    labels:
+      - 'dependencies'
+
+  # Actions used by the workflows in .github/workflows
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: 'deps(actions)'
+    labels:
+      - 'dependencies'

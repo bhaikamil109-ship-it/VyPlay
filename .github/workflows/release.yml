@@ -1,0 +1,189 @@
+name: Release
+
+# Builds a release APK and publishes it to a GitHub Release.
+#
+# Triggered by pushing a tag that starts with "v" (e.g. v0.9.3), or manually.
+# This file supersedes the previous "Android Draft Release" workflow, which ran
+# on every push to main and hard-failed when the ANDROID_* signing secrets were
+# absent. The signing-verification steps are preserved below.
+#
+# Signing: uses the repository's own GITHUB_TOKEN only — no extra secret is
+# required to run. If the optional ANDROID_* signing secrets ARE configured the
+# build is signed with them and the certificate fingerprint is verified. If they
+# are NOT configured, a throwaway self-signed keystore is generated so that
+# `flutter build apk --release` can run at all (android/app/build.gradle aborts
+# a release build when no keystore is present). Such an APK installs, but it
+# cannot upgrade an existing install and must not be published to a store.
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build-android:
+    name: Build APK & Release
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      GRADLE_OPTS: '-Dorg.gradle.daemon=false -Dkotlin.daemon.jvm.options=-Xmx2048m,-XX:-UseParallelGC'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Prepare signing keystore
+        shell: bash
+        env:
+          ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+        run: |
+          set -euo pipefail
+          mkdir -p android/app
+
+          if [[ -n "${ANDROID_KEYSTORE_BASE64}" && -n "${ANDROID_KEYSTORE_PASSWORD}" \
+                && -n "${ANDROID_KEY_PASSWORD}" && -n "${ANDROID_KEY_ALIAS}" ]]; then
+            echo "Using repository signing secrets."
+            printf '%s' "${ANDROID_KEYSTORE_BASE64}" | base64 --decode > android/app/key.jks
+            store_password="${ANDROID_KEYSTORE_PASSWORD}"
+            key_password="${ANDROID_KEY_PASSWORD}"
+            key_alias="${ANDROID_KEY_ALIAS}"
+            echo "SIGNING_MODE=repository-secrets" >> "${GITHUB_ENV}"
+          else
+            echo "::warning::No ANDROID_* signing secrets configured. Generating an ephemeral self-signed keystore. This APK is NOT suitable for store distribution."
+            store_password="vyplay-ci-ephemeral"
+            key_password="vyplay-ci-ephemeral"
+            key_alias="vyplay-ci"
+            keytool -genkeypair \
+              -keystore android/app/key.jks \
+              -storetype JKS \
+              -storepass "${store_password}" \
+              -keypass "${key_password}" \
+              -alias "${key_alias}" \
+              -keyalg RSA \
+              -keysize 2048 \
+              -validity 10000 \
+              -dname "CN=VyPlay CI, OU=CI, O=VyPlay, L=CI, S=CI, C=US"
+            echo "SIGNING_MODE=ephemeral-ci-key" >> "${GITHUB_ENV}"
+          fi
+
+          {
+            printf 'storePassword=%s\n' "${store_password}"
+            printf 'keyPassword=%s\n' "${key_password}"
+            printf 'keyAlias=%s\n' "${key_alias}"
+            printf 'storeFile=key.jks\n'
+          } > android/key.properties
+
+      - name: Verify signing key fingerprint
+        if: env.SIGNING_MODE == 'repository-secrets'
+        shell: bash
+        env:
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          EXPECTED_CERT_SHA256: ${{ secrets.ANDROID_CERT_SHA256 }}
+        run: |
+          set -euo pipefail
+
+          keytool -list -v \
+            -keystore android/app/key.jks \
+            -alias "${ANDROID_KEY_ALIAS}" \
+            -storepass "${ANDROID_KEYSTORE_PASSWORD}" > keytool-output.txt
+
+          actual_sha256="$(grep 'SHA256:' keytool-output.txt | head -n 1 | sed 's/.*SHA256: //' | tr -d ':' | tr '[:upper:]' '[:lower:]')"
+          expected_sha256="$(printf '%s' "${EXPECTED_CERT_SHA256}" | tr -d ':' | tr '[:upper:]' '[:lower:]')"
+
+          if [[ -n "${expected_sha256}" && "${actual_sha256}" != "${expected_sha256}" ]]; then
+            echo "Signing certificate mismatch." >&2
+            echo "Expected: ${expected_sha256}" >&2
+            echo "Actual:   ${actual_sha256}" >&2
+            exit 1
+          fi
+
+          echo "Signing certificate SHA-256: ${actual_sha256}"
+
+      - name: Build release APK
+        run: flutter build apk --release
+
+      - name: Collect APK
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          cp build/app/outputs/flutter-apk/app-release.apk "dist/vyplay-${GITHUB_REF_NAME}-release.apk"
+          ls -lah dist
+
+      - name: Read app version
+        id: app_version
+        shell: bash
+        run: |
+          set -euo pipefail
+          version="$(grep '^version:' pubspec.yaml | awk '{print $2}')"
+          echo "version=${version}" >> "${GITHUB_OUTPUT}"
+
+      - name: Create release notes
+        shell: bash
+        run: |
+          set -euo pipefail
+          {
+            echo "Automated release build for \`${GITHUB_REF_NAME}\` (${GITHUB_SHA})."
+            echo
+            echo "**Signing:** \`${SIGNING_MODE}\`"
+            if [[ "${SIGNING_MODE}" == "ephemeral-ci-key" ]]; then
+              echo
+              echo "> This APK was signed with a throwaway CI key. It installs, but it"
+              echo "> cannot upgrade an existing install and must not be published to a"
+              echo "> store. Configure ANDROID_KEYSTORE_BASE64 / ANDROID_KEYSTORE_PASSWORD /"
+              echo "> ANDROID_KEY_PASSWORD / ANDROID_KEY_ALIAS for a properly signed build."
+            fi
+            echo
+            echo "**Artifacts:**"
+            find dist -maxdepth 1 -name '*.apk' -printf '- %f\n' | sort
+            echo
+            echo "**Recent changes:**"
+            git log --pretty='- %s (%h)' -20
+          } > RELEASE_NOTES.md
+
+      - name: Publish GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          tag="${GITHUB_REF_NAME}"
+          if [[ "${GITHUB_REF_TYPE}" != "tag" ]]; then
+            tag="v${{ steps.app_version.outputs.version }}-run-${GITHUB_RUN_NUMBER}"
+          fi
+          if gh release view "${tag}" >/dev/null 2>&1; then
+            gh release upload "${tag}" dist/*.apk --clobber
+          else
+            gh release create "${tag}" dist/*.apk \
+              --title "VyPlay ${tag}" \
+              --notes-file RELEASE_NOTES.md
+          fi
