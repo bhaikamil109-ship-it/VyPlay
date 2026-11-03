@@ -2,14 +2,33 @@ import 'package:flutter/material.dart';
 import 'package:fluxtube/core/colors.dart';
 
 abstract class AppTheme {
+  /// Shared shape language: rounded cards and thumbnails everywhere, so the
+  /// app reads as one consistent product instead of a mix of default widgets.
+  static const double _cardRadius = 14.0;
+
+  static CardThemeData _cardTheme(Color surface, Color outline) =>
+      CardThemeData(
+        elevation: 0,
+        color: surface,
+        margin: EdgeInsets.zero,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(_cardRadius),
+          side: BorderSide(color: outline, width: 0.5),
+        ),
+      );
+
   static ThemeData get lightTheme => ThemeData(
         useMaterial3: true,
         tabBarTheme: TabBarThemeData(indicatorColor: kGreyColor),
         primaryColorLight: kWhiteColor,
         primaryColorDark: kBlackColor,
-        colorScheme: ColorScheme.fromSeed(seedColor: kBlackColor),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: AppColors.brand,
+          primary: AppColors.brand,
+        ),
         primaryIconTheme: const IconThemeData().copyWith(color: kBlackColor),
         scaffoldBackgroundColor: kWhiteColor,
+        cardTheme: _cardTheme(AppColors.surface, AppColors.surfaceVariant),
         textTheme: ThemeData.light().textTheme.copyWith(
               bodyLarge: const TextStyle(
                 fontSize: 25,
@@ -33,8 +52,13 @@ abstract class AppTheme {
       primaryColorDark: kBlackColor,
       tabBarTheme: TabBarThemeData(indicatorColor: kWhiteColor.withValues(alpha: 0.5)),
       primaryIconTheme: const IconThemeData().copyWith(color: kWhiteColor),
-      colorScheme: const ColorScheme.dark(),
+      colorScheme: ColorScheme.fromSeed(
+        seedColor: AppColors.brand,
+        brightness: Brightness.dark,
+        primary: AppColors.brandLight,
+      ),
       scaffoldBackgroundColor: kDarkColor,
+      cardTheme: _cardTheme(AppColors.surfaceDark, AppColors.surfaceVariantDark),
       dividerTheme: const DividerThemeData().copyWith(color: kGreyOpacityColor),
       textTheme: ThemeData.dark().textTheme.copyWith(
             bodyLarge: const TextStyle(

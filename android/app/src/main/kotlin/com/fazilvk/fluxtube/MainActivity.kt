@@ -29,7 +29,7 @@ class MainActivity: AudioServiceFragmentActivity() {
     private var newPipeHandler: NewPipeMethodHandler? = null
     private var castHandler: CastMethodHandler? = null
     private var pipChannel: MethodChannel? = null
-    private var muxerHandler: MediaMuxerHandler? = null
+    private var muxerHandler: FFmpegMuxerHandler? = null
 
     // PiP state
     private var isPipModeEnabled = false
@@ -55,8 +55,10 @@ class MainActivity: AudioServiceFragmentActivity() {
                 NewPipeExoPlayerViewFactory(flutterEngine.dartExecutor.binaryMessenger)
             )
 
-        // Initialize and register MediaMuxer handler
-        muxerHandler = MediaMuxerHandler()
+        // Initialize and register the FFmpeg mux plan handler. The actual
+        // merge runs in Dart via ffmpeg_kit_flutter_new; this channel only
+        // validates inputs and picks the output container.
+        muxerHandler = FFmpegMuxerHandler()
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, MUXER_CHANNEL)
             .setMethodCallHandler(muxerHandler)
 

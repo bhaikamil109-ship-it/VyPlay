@@ -1,0 +1,776 @@
+{
+  "home": "होम",
+  "themeSystem": "सिस्टम",
+  "themeLight": "हल्का",
+  "themeDark": "गहरा",
+  "themeOled": "OLED ब्लैक",
+  "themeDynamic": "मटेरियल यू",
+  "youtubeService": "यूट्यूब सेवा",
+  "servicePiped": "Piped",
+  "serviceExplode": "Explode",
+  "serviceInvidious": "Invidious",
+  "serviceNewPipe": "NewPipe Extractor",
+  "quality144p": "144p",
+  "quality240p": "240p",
+  "quality360p": "360p",
+  "quality480p": "480p",
+  "quality720p": "720p",
+  "quality1080p": "1080p",
+  "quality1440p": "1440p",
+  "searchFilters": "Filters",
+  "filterAll": "All",
+  "filterVideos": "Videos",
+  "filterChannels": "Channels",
+  "filterPlaylists": "Playlists",
+  "playlist": "Playlist",
+  "filterMusic": "Music",
+  "videoFit": "Video Fit",
+  "videoFitContain": "Contain",
+  "videoFitCover": "Cover",
+  "videoFitFill": "Fill",
+  "videoFitFitWidth": "Fit Width",
+  "videoFitFitHeight": "Fit Height",
+  "skipInterval": "Skip Interval",
+  "skipIntervalDescription": "Double-tap skip duration in seconds",
+  "seconds": "seconds",
+  "sponsorBlock": "स्पॉन्सरब्लॉक",
+  "sponsorBlockDescription": "Skip sponsored segments automatically",
+  "sponsorBlockCategories": "Skip Categories",
+  "sponsor": "Sponsor",
+  "intro": "Intro",
+  "outro": "Outro",
+  "selfPromotion": "Self Promotion",
+  "interaction": "Interaction",
+  "musicOfftopic": "Music: Non-Music",
+  "openInBrowser": "ब्राउज़र में खोलें",
+  "openLinksExternally": "Open links in external browser",
+  "exportData": "Export Data",
+  "importData": "Import Data",
+  "exportSubscriptions": "Export Subscriptions",
+  "importSubscriptions": "Import Subscriptions",
+  "backupRestore": "Backup & Restore",
+  "backupRestoreDescription": "Export or import your subscriptions",
+  "exportSuccess": "Export successful",
+  "importSuccess": "Import successful",
+  "importError": "Import failed",
+  "selectFile": "Select File",
+  "homeFeedMode": "Home Feed",
+  "homeFeedModeAuto": "Auto",
+  "homeFeedModeFeedOnly": "Subscriptions",
+  "homeFeedModeTrendingOnly": "Trending",
+  "homeFeedModeAutoHint": "Show subscriptions if available, otherwise trending",
+  "homeFeedModeFeedOnlyHint": "Only show videos from subscribed channels",
+  "homeFeedModeTrendingOnlyHint": "Always show trending videos only",
+  "noSubscriptions": "कोई सब्सक्रिप्शन नहीं",
+  "noSubscriptionsHint": "Subscribe to channels to see their videos here",
+  "profiles": "प्रोफ़ाइल",
+  "profilesDescription": "Create separate profiles for different accounts or preferences",
+  "addProfile": "Add Profile",
+  "deleteProfile": "प्रोफ़ाइल हटाएं",
+  "renameProfile": "Rename Profile",
+  "switchProfile": "प्रोफ़ाइल बदलें",
+  "profileName": "Profile Name",
+  "newProfileName": "New Profile Name",
+  "defaultProfile": "Default",
+  "profileInUse": "Active",
+  "cannotDeleteDefault": "Cannot delete default profile",
+  "cannotRenameDefault": "Cannot rename default profile",
+  "audioFocus": "Audio Focus",
+  "audioFocusDescription": "Pause playback on interruptions",
+  "pauseOnCall": "Pause on Phone Call",
+  "pauseOnHeadphones": "Pause on Headphone Disconnect",
+  "subtitleSize": "Subtitle Size",
+  "subtitleSizeDescription": "Adjust the size of subtitles on video",
+  "subtitleSizeSmall": "Small",
+  "subtitleSizeMedium": "Medium",
+  "subtitleSizeLarge": "Large",
+  "subtitleSizeExtraLarge": "Extra Large",
+  "@home": {
+    "description": "Home label"
+  },
+  "trending": "ट्रेंडिंग",
+  "@trending": {
+    "description": "Trending label"
+  },
+  "saved": "सेव किए गए",
+  "@saved": {
+    "description": "Saved label"
+  },
+  "settings": "सेटिंग्स",
+  "@settings": {
+    "description": "Settings label"
+  },
+  "history": "इतिहास",
+  "@history": {
+    "description": "History label"
+  },
+  "savedVideosTitle": "Saved Videos",
+  "@savedVideosTitle": {
+    "description": "Saved videos app bar title"
+  },
+  "noUploaderName": "No name",
+  "@noUploaderName": {
+    "description": "There is no uploader (channel) name available"
+  },
+  "noVideoTitle": "No title",
+  "@noVideoTitle": {
+    "description": "There is no video title available"
+  },
+  "videoViews": "{count, plural, =0{No views} =1{view} other{views}}",
+  "@videoViews": {
+    "description": "{number} views"
+  },
+  "channelSubscribers": "{count, plural, =0{No subscribers} =1{subscriber} other{subscribers}}",
+  "@channelSubscribers": {
+    "description": "{number} subscribers"
+  },
+  "subscribe": "सब्सक्राइब",
+  "@subscribe": {
+    "description": "Subscribe button label"
+  },
+  "noUploadDate": "No date",
+  "@noUploadDate": {
+    "description": "There is no video upload date available"
+  },
+  "thereIsNoSavedVideos": "There are no saved videos",
+  "@thereIsNoSavedVideos": {
+    "description": "There are no saved videos found"
+  },
+  "thereIsNoSavedOrHistoryVideos": "There are no saved/history videos",
+  "@thereIsNoSavedHistoryVideos": {
+    "description": "There are no saved or history videos"
+  },
+  "noVideoAvailableChangedToHls": "No video source available, automatically changed to hls",
+  "@noVideoAvailableChangedToHls": {
+    "description": "When there is no standard player link available, then it changed to hls player"
+  },
+  "unknownQuality": "Unknown Quality",
+  "@unknownQuality": {
+    "description": "Quality name not found"
+  },
+  "hlsPlayer": "Hls Player",
+  "@hlsPlayer": {
+    "description": "Hls player label"
+  },
+  "enableHlsPlayerDescription": "Enable HLS player to unlock all quality options. Disable if errors occur.",
+  "@enableHlsPlayerDescription": {
+    "description": "Enabling HLS player may slow down performance but unlocks all quality options. Disable this setting if errors occur."
+  },
+  "disableVideoHistory": "Disable video history",
+  "@disableVideoHistory": {
+    "description": "Hide watch history"
+  },
+  "retrieveDislikes": "Retrieve Dislikes",
+  "@retrieveDislikes": {
+    "description": "Retrieve dislikes label"
+  },
+  "retrieveDislikeCounts": "Retrieve dislike counts",
+  "@retrieveDislikeCounts": {
+    "description": "Return the dislike button of videos"
+  },
+  "noVideoDescription": "No description",
+  "@noVideoDescription": {
+    "description": "There is no video description available"
+  },
+  "relatedTitle": "Related",
+  "@relatedTitle": {
+    "description": "Related videos label"
+  },
+  "commentAuthorNotFound": "Not found",
+  "@commentAuthorNotFound": {
+    "description": "Name of the comment author is not found"
+  },
+  "readMoreText": "Read more",
+  "@readMoreText": {
+    "description": "Expand the comment text"
+  },
+  "showLessText": "Show less",
+  "@showLessText": {
+    "description": "Collapse the comment text"
+  },
+  "commonSettingsTitle": "Common",
+  "@commonSettingsTitle": {
+    "description": "Common settings label"
+  },
+  "language": "भाषा",
+  "@language": {
+    "description": "Language label"
+  },
+  "region": "क्षेत्र",
+  "@region": {
+    "description": "Region label"
+  },
+  "theme": "थीम",
+  "@theme": {
+    "description": "Theme label"
+  },
+  "developer": "Developer",
+  "@developer": {
+    "description": "Developer label"
+  },
+  "translators": "Translators",
+  "@translators": {
+    "description": "Translators label"
+  },
+  "version": "संस्करण",
+  "@version": {
+    "description": "Version label"
+  },
+  "about": "ऐप के बारे में",
+  "@about": {
+    "description": "About label"
+  },
+  "video": "Video",
+  "@video": {
+    "description": "Video label"
+  },
+  "unknown": "unknown",
+  "@unknown": {
+    "description": "Unknown label"
+  },
+  "defaultQuality": "Default Quality",
+  "@defaultQuality": {
+    "description": "Default video quality label"
+  },
+  "retry": "फिर कोशिश करें",
+  "@retry": {
+    "description": "Retry label"
+  },
+  "repliesPlural": "{count, plural, =1{Reply} other{Replies}}",
+  "@repliesPlural": {
+    "description": "{number} Replies"
+  },
+  "canada": "Canada",
+  "france": "France",
+  "india": "India",
+  "netherlands": "Netherlands",
+  "unitedKingdom": "United Kingdom",
+  "unitedStates": "United States",
+  "distractionFree": "Distraction Free",
+  "@distractionFree": {
+    "description": "A section for control distracting elements."
+  },
+  "hideComments": "Hide Comments",
+  "@hideComments": {
+    "description": "Hide Comments label."
+  },
+  "hideCommentsButtonFromWatchScreen": "Hide comments button from watch screen.",
+  "@hideCommentsButtonFromWatchScreen": {
+    "description": "Hide the comment button from video streaming screen."
+  },
+  "hideRelated": "Hide Related",
+  "@hideRelated": {
+    "description": "Hide Related videos label."
+  },
+  "hideRelatedVideosFromWatchScreen": "Hide related videos from watch screen",
+  "@hideRelatedVideosFromWatchScreen": {
+    "description": "Hide the related videos from video streaming screen."
+  },
+  "share": "शेयर",
+  "@share": {
+    "description": "Share label."
+  },
+  "includeTitle": "Include title",
+  "@includeTitle": {
+    "description": "Include title along with url"
+  },
+  "instances": "Instances",
+  "switchRegion": "Please consider switching to a different region for better results.",
+  "swipeDownToDismissDisabled": "'Swipe down to dismiss' disabled",
+  "swipeUpToDismissEnabled": "'Swipe up to dismiss' enabled",
+  "noCommentsFound": "No Comments Found",
+  "commentsDisabled": "Comments are disabled",
+  "repliesNotSupported": "Replies are not available yet",
+  "pinned": "Pinned",
+  "disablePipPlayer": "Disable PIP player",
+  "videos": "वीडियो",
+  "shorts": "शॉर्ट्स",
+  "playlists": "प्लेलिस्ट",
+  "noShorts": "No shorts available",
+  "noPlaylists": "No playlists available",
+  "library": "लाइब्रेरी",
+  "sortBy": "क्रमबद्ध करें",
+  "dateAdded": "Date added",
+  "title": "Title",
+  "duration": "Duration",
+  "selected": "selected",
+  "selectAll": "सब चुनें",
+  "delete": "हटाएं",
+  "cancel": "रद्द करें",
+  "sort": "Sort",
+  "selectVideos": "Select videos",
+  "clearAllSaved": "Clear all saved",
+  "clearAllHistory": "Clear all history",
+  "clearAllSavedConfirm": "Are you sure you want to remove all saved videos?",
+  "clearAllHistoryConfirm": "Are you sure you want to clear all watch history?",
+  "clearAll": "सब साफ़ करें",
+  "searchSavedVideos": "Search saved videos...",
+  "noSavedVideos": "No saved videos",
+  "startSavingVideos": "Start saving videos to watch later",
+  "noHistory": "कोई इतिहास नहीं",
+  "watchSomeVideos": "आपके देखे वीडियो यहाँ दिखेंगे",
+  "deleteVideo": "Delete video",
+  "deleteVideoConfirm": "Are you sure you want to remove this video?",
+  "removeFromSaved": "Remove from saved",
+  "removeFromHistory": "Remove from history",
+  "views": "व्यूज़",
+  "subscriptions": "सब्सक्रिप्शन",
+  "channels": "चैनल",
+  "searchSubscriptions": "Search subscriptions...",
+  "noVideosFound": "No videos found",
+  "refreshToLoad": "Pull down to refresh",
+  "unsubscribe": "अनसब्सक्राइब",
+  "unsubscribeConfirm": "Unsubscribe from this channel?",
+  "search": "खोज",
+  "searchYouTube": "Search YouTube...",
+  "searchForVideosChannels": "Search for videos, channels, and playlists",
+  "recentSearches": "Recent searches",
+  "searchHistoryEnabled": "Save Search History",
+  "searchHistoryEnabledDescription": "Save your search queries for quick access",
+  "showSearchHistory": "Show Search History",
+  "showSearchHistoryDescription": "Display your recent searches in search screen",
+  "copyLink": "लिंक कॉपी करें",
+  "@copyLink": {
+    "description": "Copy link button label"
+  },
+  "shareVia": "Share via",
+  "@shareVia": {
+    "description": "Share via apps button label"
+  },
+  "copiedToClipboard": "Copied to clipboard",
+  "@copiedToClipboard": {
+    "description": "Snackbar message when link is copied"
+  },
+  "like": "पसंद",
+  "@like": {
+    "description": "Like button label when count is unavailable"
+  },
+  "dislike": "नापसंद",
+  "@dislike": {
+    "description": "Dislike button label when count is unavailable"
+  },
+  "download": "डाउनलोड",
+  "@download": {
+    "description": "Download button label"
+  },
+  "downloads": "डाउनलोड",
+  "@downloads": {
+    "description": "Downloads screen title"
+  },
+  "downloading": "डाउनलोड हो रहा है",
+  "@downloading": {
+    "description": "Downloading status label"
+  },
+  "completed": "पूरा हुआ",
+  "@completed": {
+    "description": "Completed status label"
+  },
+  "pending": "प्रतीक्षारत",
+  "@pending": {
+    "description": "Pending status label"
+  },
+  "paused": "रोका गया",
+  "@paused": {
+    "description": "Paused status label"
+  },
+  "failed": "विफल",
+  "@failed": {
+    "description": "Failed status label"
+  },
+  "cancelled": "रद्द किया गया",
+  "@cancelled": {
+    "description": "Cancelled status label"
+  },
+  "merging": "मर्ज हो रहा है",
+  "@merging": {
+    "description": "Merging audio and video status"
+  },
+  "downloadingVideo": "Downloading video",
+  "@downloadingVideo": {
+    "description": "Phase indicator when downloading video track"
+  },
+  "downloadingAudio": "Downloading audio",
+  "@downloadingAudio": {
+    "description": "Phase indicator when downloading audio track"
+  },
+  "noDownloads": "कोई डाउनलोड नहीं",
+  "@noDownloads": {
+    "description": "Empty downloads state title"
+  },
+  "noDownloadsHint": "Downloaded videos will appear here",
+  "@noDownloadsHint": {
+    "description": "Empty downloads state hint"
+  },
+  "downloadType": "Download Type",
+  "@downloadType": {
+    "description": "Download type selector label"
+  },
+  "videoWithAudio": "वीडियो + ऑडियो",
+  "@videoWithAudio": {
+    "description": "Video with audio download type"
+  },
+  "videoOnly": "केवल वीडियो",
+  "@videoOnly": {
+    "description": "Video only download type"
+  },
+  "audioOnly": "केवल ऑडियो",
+  "@audioOnly": {
+    "description": "Audio only download type"
+  },
+  "audio": "Audio",
+  "@audio": {
+    "description": "Audio badge label"
+  },
+  "videoAudio": "Video+Audio",
+  "@videoAudio": {
+    "description": "Video with audio badge label"
+  },
+  "videoQuality": "वीडियो क्वालिटी",
+  "@videoQuality": {
+    "description": "Video quality selector label"
+  },
+  "audioQuality": "Audio Quality",
+  "@audioQuality": {
+    "description": "Audio quality selector label"
+  },
+  "startDownload": "Start Download",
+  "@startDownload": {
+    "description": "Start download button label"
+  },
+  "downloadStarted": "डाउनलोड शुरू हुआ",
+  "@downloadStarted": {
+    "description": "Download started snackbar message"
+  },
+  "deleteDownload": "Delete Download",
+  "@deleteDownload": {
+    "description": "Delete download dialog title"
+  },
+  "deleteDownloadConfirm": "Are you sure you want to delete this download?",
+  "@deleteDownloadConfirm": {
+    "description": "Delete download confirmation message"
+  },
+  "pause": "रोकें",
+  "@pause": {
+    "description": "Pause button label"
+  },
+  "resume": "जारी रखें",
+  "@resume": {
+    "description": "Resume button label"
+  },
+  "all": "All",
+  "@all": {
+    "description": "All tab label"
+  },
+  "unknownError": "An unknown error occurred",
+  "@unknownError": {
+    "description": "Unknown error message"
+  },
+  "failedToOpenFile": "Failed to open file",
+  "@failedToOpenFile": {
+    "description": "Error message when file cannot be opened"
+  },
+  "fileNotFound": "File not found",
+  "@fileNotFound": {
+    "description": "Error message when downloaded file is missing"
+  },
+  "downloadFailed": "डाउनलोड विफल",
+  "@downloadFailed": {
+    "description": "Error message when download fails",
+    "placeholders": {
+      "title": {
+        "type": "String",
+        "example": "Video Title"
+      }
+    }
+  },
+  "autoPip": "Auto Picture-in-Picture",
+  "@autoPip": {
+    "description": "Setting to enable auto PiP when pressing home button"
+  },
+  "autoPipDescription": "Automatically enter PiP mode when pressing home button while video is playing",
+  "@autoPipDescription": {
+    "description": "Description for auto PiP setting"
+  },
+  "saveToDevice": "Save to Device",
+  "@saveToDevice": {
+    "description": "Save downloaded file to device storage"
+  },
+  "savingToDevice": "Saving to device...",
+  "@savingToDevice": {
+    "description": "Message shown while saving file to device"
+  },
+  "savedToDevice": "Saved to device",
+  "@savedToDevice": {
+    "description": "Success message when file is saved to device"
+  },
+  "saveToDeviceFailed": "Failed to save to device",
+  "@saveToDeviceFailed": {
+    "description": "Error message when save to device fails"
+  },
+  "castTitle": "Cast",
+  "@castTitle": {
+    "description": "Cast button label"
+  },
+  "castConnected": "Connected",
+  "@castConnected": {
+    "description": "Cast connected state"
+  },
+  "castConnectedTo": "Casting to {device}",
+  "@castConnectedTo": {
+    "description": "Cast target device",
+    "placeholders": {
+      "device": {
+        "type": "String"
+      }
+    }
+  },
+  "castStop": "Stop casting",
+  "@castStop": {
+    "description": "Ends the Cast session"
+  },
+  "castUnavailable": "Cast is not available on this device",
+  "@castUnavailable": {
+    "description": "Shown when the Cast framework is missing"
+  },
+  "castFailed": "This video cannot be cast",
+  "@castFailed": {
+    "description": "No castable stream exists"
+  },
+  "newVideoNotifications": "New upload notifications",
+  "@newVideoNotifications": {
+    "description": "Setting for subscription upload notifications"
+  },
+  "newVideoNotificationsDescription": "Get notified when channels you subscribe to upload",
+  "@newVideoNotificationsDescription": {
+    "description": "Description for upload notification setting"
+  },
+  "notificationsDenied": "Notification permission was denied",
+  "@notificationsDenied": {
+    "description": "Shown when the notification permission is refused"
+  },
+  "queue": "Queue",
+  "@queue": {
+    "description": "Playback queue title"
+  },
+  "queueEmpty": "Queue is empty",
+  "@queueEmpty": {
+    "description": "Empty playback queue"
+  },
+  "queueShuffle": "Shuffle",
+  "@queueShuffle": {
+    "description": "Shuffles the upcoming queue"
+  },
+  "queueClear": "Clear",
+  "@queueClear": {
+    "description": "Clears the playback queue"
+  },
+  "removeFromQueue": "Remove from queue",
+  "@removeFromQueue": {
+    "description": "Removes one queue entry"
+  },
+  "playNext": "Play next",
+  "@playNext": {
+    "description": "Queues a video directly after the current one"
+  },
+  "addToQueue": "Add to queue",
+  "@addToQueue": {
+    "description": "Appends a video to the queue"
+  },
+  "addedToQueue": "Added to queue",
+  "@addedToQueue": {
+    "description": "Confirmation for queue append"
+  },
+  "addedToPlayNext": "Added to play next",
+  "@addedToPlayNext": {
+    "description": "Confirmation for play next"
+  },
+  "saveToPlaylist": "Save to playlist",
+  "@saveToPlaylist": {
+    "description": "Playlist picker title"
+  },
+  "localPlaylists": "Playlists",
+  "@localPlaylists": {
+    "description": "Local playlists screen title"
+  },
+  "newPlaylist": "New Playlist",
+  "@newPlaylist": {
+    "description": "New playlist dialog title"
+  },
+  "newPlaylistShort": "+ New",
+  "@newPlaylistShort": {
+    "description": "Compact create-playlist action"
+  },
+  "playlistNameHint": "Playlist name",
+  "@playlistNameHint": {
+    "description": "Playlist name field hint"
+  },
+  "createAction": "Create",
+  "@createAction": {
+    "description": "Confirms creation"
+  },
+  "renameAction": "Rename",
+  "@renameAction": {
+    "description": "Renames an item"
+  },
+  "renamePlaylistTitle": "Rename Playlist",
+  "@renamePlaylistTitle": {
+    "description": "Rename playlist dialog title"
+  },
+  "newNameHint": "New name",
+  "@newNameHint": {
+    "description": "New name field hint"
+  },
+  "deletePlaylistTitle": "Delete Playlist",
+  "@deletePlaylistTitle": {
+    "description": "Delete playlist dialog title"
+  },
+  "deletePlaylistAction": "Delete playlist",
+  "@deletePlaylistAction": {
+    "description": "Deletes a playlist"
+  },
+  "deletePlaylistConfirm": "Delete {name}?",
+  "@deletePlaylistConfirm": {
+    "description": "Confirms deleting a named playlist",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "noPlaylistsYet": "No playlists yet.\nTap + to create one.",
+  "@noPlaylistsYet": {
+    "description": "Empty local playlists screen"
+  },
+  "noPlaylistsYetPicker": "No playlists yet.\nTap + New to create one.",
+  "@noPlaylistsYetPicker": {
+    "description": "Empty playlist picker"
+  },
+  "addedToPlaylist": "Added to {name}",
+  "@addedToPlaylist": {
+    "description": "Confirms adding a video to a named playlist",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "playAll": "Play all",
+  "@playAll": {
+    "description": "Plays every video in a playlist"
+  },
+  "playlistNotFound": "Playlist not found",
+  "@playlistNotFound": {
+    "description": "Missing playlist"
+  },
+  "noVideosInPlaylist": "No videos yet",
+  "@noVideosInPlaylist": {
+    "description": "Empty playlist"
+  },
+  "addVideosHint": "Long-press a video to save it to a playlist",
+  "@addVideosHint": {
+    "description": "Hint for filling an empty playlist"
+  },
+  "videoCountLabel": "{count} videos",
+  "@videoCountLabel": {
+    "description": "Number of videos",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "debugConsole": "Debug Console",
+  "@debugConsole": {
+    "description": "Debug console screen title"
+  },
+  "shareLogs": "Share logs",
+  "@shareLogs": {
+    "description": "Shares the collected log file"
+  },
+  "clearLogs": "Clear logs",
+  "@clearLogs": {
+    "description": "Clears collected logs"
+  },
+  "autoScrollOn": "Auto-scroll on",
+  "@autoScrollOn": {
+    "description": "Log auto-scroll enabled"
+  },
+  "autoScrollOff": "Auto-scroll off",
+  "@autoScrollOff": {
+    "description": "Log auto-scroll disabled"
+  },
+  "noLogs": "No logs yet",
+  "@noLogs": {
+    "description": "Empty log console"
+  },
+  "logsLabel": "Logs",
+  "@logsLabel": {
+    "description": "Log count label"
+  },
+  "imageCacheLabel": "Image Cache",
+  "@imageCacheLabel": {
+    "description": "Image cache size label"
+  },
+  "platformLabel": "Platform",
+  "@platformLabel": {
+    "description": "Operating system label"
+  },
+  "sleepTimer": "स्लीप टाइमर",
+  "@sleepTimer": {
+    "description": "Sleep timer setting"
+  },
+  "sleepTimerOff": "Off",
+  "@sleepTimerOff": {
+    "description": "Sleep timer disabled"
+  },
+  "sleepTimerEndOfVideo": "End of video",
+  "@sleepTimerEndOfVideo": {
+    "description": "Sleep timer stops when the video ends"
+  },
+  "sleepTimerMinutes": "{count} minutes",
+  "@sleepTimerMinutes": {
+    "description": "Sleep timer duration",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "sleepTimerMinutesShort": "{count} min",
+  "@sleepTimerMinutesShort": {
+    "description": "Compact sleep timer duration",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "sleepTimerCustom": "Custom",
+  "@sleepTimerCustom": {
+    "description": "Custom sleep timer duration"
+  },
+  "sleepTimerCustomTitle": "Custom timer",
+  "@sleepTimerCustomTitle": {
+    "description": "Custom timer dialog title"
+  },
+  "sleepTimerEnterMinutes": "Enter minutes",
+  "@sleepTimerEnterMinutes": {
+    "description": "Custom timer field hint"
+  },
+  "sleepTimerSet": "सेट",
+  "@sleepTimerSet": {
+    "description": "Confirms the custom timer"
+  },
+  "sleepTimerEnded": "स्लीप टाइमर समाप्त",
+  "@sleepTimerEnded": {
+    "description": "Sleep timer fired"
+  },
+  "refresh": "रीफ्रेश करें",
+  "@refresh": {
+    "description": "Refresh button label"
+  },
+  "noShortsHint": "छोटे वीडियो यहाँ दिखेंगे",
+  "@noShortsHint": {
+    "description": "Empty state hint on the Shorts tab"
+  }
+}

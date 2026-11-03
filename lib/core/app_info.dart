@@ -9,7 +9,7 @@ class AppInfo {
   static final myApp = AppInfoModel(
     name: 'VyPlay',
     nickname: 'vyplay',
-    url: 'https://github.com/vyplay-app/vyplay',
+    url: 'https://github.com/bhaikamil109-ship-it/VyPlay.',
     description: 'A clean, ad-free YouTube client built for speed',
     image: 'vyplay.png',
   );
@@ -17,7 +17,7 @@ class AppInfo {
   static List<AppInfoModel> developerInfos = <AppInfoModel>[
     AppInfoModel(
       name: 'VyPlay Team',
-      url: 'https://github.com/vyplay-app',
+      url: 'https://github.com/bhaikamil109-ship-it',
       description: 'Maintainers',
     ),
   ];

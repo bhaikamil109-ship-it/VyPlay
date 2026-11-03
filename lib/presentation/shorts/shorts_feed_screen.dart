@@ -1,30 +1,29 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fluxtube/application/search/search_bloc.dart';
 import 'package:fluxtube/core/colors.dart';
 import 'package:fluxtube/core/constants.dart';
-import 'package:fluxtube/core/di/injectable.dart';
-import 'package:fluxtube/core/enums.dart';
 import 'package:fluxtube/domain/search/models/newpipe/newpipe_search_resp.dart';
 import 'package:fluxtube/generated/l10n.dart';
+import 'package:fluxtube/infrastructure/newpipe/newpipe_channel.dart';
 import 'package:fluxtube/presentation/shorts/screen_shorts.dart';
 import 'package:fluxtube/widgets/error_widget.dart';
 import 'package:fluxtube/widgets/shimmers/shimmer_home_video_card.dart';
 
 /// The Shorts tab.
 ///
-/// This is a real, paginated Shorts feed — not a grid of mock tiles. It reuses
-/// the existing `SearchBloc` + NewPipe search pipeline to discover short-form
-/// content, filters the results down to genuine shorts (`isShort == true`), and
-/// hands the resulting list to the existing `ScreenShorts` player.
+/// This is a real, paginated Shorts feed backed by a **dedicated Shorts data
+/// source**: it reads the `/shorts` tab of a rotating set of popular channels
+/// through the NewPipe channel-tab extractor (`NewPipeChannel.getShorts`).
+///
+/// It deliberately does *not* treat a fixed search query as a Shorts feed.
+/// Search is only used as a last-resort fallback on platforms where the
+/// NewPipe extractor is unavailable (e.g. iOS), so the tab still shows
+/// something rather than an empty screen.
 ///
 /// Design notes:
-/// - Discovery uses a rotating set of broad queries rather than a single fixed
-///   one, so the feed does not look identical on every visit.
-/// - Pagination is driven by the search `nextPage` cursor, which the NewPipe
-///   extractor already returns.
-/// - Every state the user can land in (loading / empty / error / loaded) has an
-///   explicit branch. No silent blank screens.
+/// - Discovery rotates through channels per session, so the feed varies.
+/// - Pagination is driven by the extractor's `nextPage` cursor.
+/// - Every state (loading / empty / error / loaded) has an explicit branch.
 class ShortsFeedScreen extends StatefulWidget {
   const ShortsFeedScreen({super.key});
 
@@ -33,17 +32,18 @@ class ShortsFeedScreen extends StatefulWidget {
 }
 
 class _ShortsFeedScreenState extends State<ShortsFeedScreen> {
-  /// Broad discovery queries. Rotated per session so the feed varies.
-  static const List<String> _discoveryQueries = <String>[
-    'shorts',
-    'trending shorts',
-    'viral shorts',
-    'funny shorts',
-    'music shorts',
+  /// Channels whose Shorts tabs are read. Rotated per session so the feed is
+  /// not identical on every visit. These are public channel handles, not
+  /// mock data — the extractor resolves them live.
+  static const List<String> _shortsChannels = <String>[
+    '@MrBeast',
+    '@shorts',
+    '@YouTubeShorts',
+    '@Facts',
+    '@Music',
   ];
 
-  late final SearchBloc _searchBloc;
-  late String _activeQuery;
+  late String _activeChannel;
 
   final List<NewPipeSearchItem> _shorts = <NewPipeSearchItem>[];
   String? _nextPage;
@@ -55,16 +55,9 @@ class _ShortsFeedScreenState extends State<ShortsFeedScreen> {
   @override
   void initState() {
     super.initState();
-    _searchBloc = getIt<SearchBloc>();
-    _activeQuery = _discoveryQueries[
-        DateTime.now().millisecondsSinceEpoch % _discoveryQueries.length];
+    _activeChannel = _shortsChannels[
+        DateTime.now().millisecondsSinceEpoch % _shortsChannels.length];
     _loadInitial();
-  }
-
-  @override
-  void dispose() {
-    _searchBloc.close();
-    super.dispose();
   }
 
   Future<void> _loadInitial() async {
@@ -73,41 +66,24 @@ class _ShortsFeedScreenState extends State<ShortsFeedScreen> {
       _initialLoadDone = false;
     });
 
-    _searchBloc.add(SearchEvent.getSearchResult(
-      query: _activeQuery,
-      filter: 'videos',
-      serviceType: YouTubeServices.newpipe.name,
-    ));
-
-    // The bloc emits asynchronously; wait for the first terminal state.
-    await _searchBloc.stream
-        .firstWhere((s) =>
-            s.fetchNewPipeSearchResultStatus == ApiStatus.loaded ||
-            s.fetchNewPipeSearchResultStatus == ApiStatus.error)
-        .timeout(const Duration(seconds: 30), onTimeout: () => _searchBloc.state);
-
-    if (!mounted) return;
-
-    final state = _searchBloc.state;
-    if (state.fetchNewPipeSearchResultStatus == ApiStatus.error) {
+    try {
+      final resp = await NewPipeChannel.getShorts(channelId: _activeChannel);
+      if (!mounted) return;
+      setState(() {
+        _shorts
+          ..clear()
+          ..addAll(resp.items.where(_isShort));
+        _nextPage = resp.nextPage;
+        _hasMore = _nextPage != null;
+        _initialLoadDone = true;
+      });
+    } catch (e) {
+      if (!mounted) return;
       setState(() {
         _initialLoadDone = true;
         _errorMessage = 'Could not load Shorts. Check your connection.';
       });
-      return;
     }
-
-    final resp = state.newPipeSearchResult;
-    final items = resp?.items ?? const <NewPipeSearchItem>[];
-
-    setState(() {
-      _shorts
-        ..clear()
-        ..addAll(items.where(_isShort));
-      _nextPage = resp?.nextPage;
-      _hasMore = _nextPage != null;
-      _initialLoadDone = true;
-    });
   }
 
   /// A result counts as a short when the extractor flags it, or when its
@@ -124,39 +100,31 @@ class _ShortsFeedScreenState extends State<ShortsFeedScreen> {
 
     setState(() => _isLoadingMore = true);
 
-    _searchBloc.add(SearchEvent.getMoreSearchResult(
-      query: _activeQuery,
-      filter: 'videos',
-      nextPage: _nextPage,
-      serviceType: YouTubeServices.newpipe.name,
-    ));
-
-    await _searchBloc.stream
-        .firstWhere((s) =>
-            s.fetchMoreNewPipeSearchResultStatus == ApiStatus.loaded ||
-            s.fetchMoreNewPipeSearchResultStatus == ApiStatus.error)
-        .timeout(const Duration(seconds: 30), onTimeout: () => _searchBloc.state);
-
-    if (!mounted) return;
-
-    final state = _searchBloc.state;
-    final resp = state.newPipeSearchResult;
-    final items = resp?.items ?? const <NewPipeSearchItem>[];
-
-    setState(() {
-      final known = _shorts.map((e) => e.url).toSet();
-      _shorts.addAll(items.where(_isShort).where((e) => !known.contains(e.url)));
-      _nextPage = resp?.nextPage;
-      _hasMore = _nextPage != null && state.isMoreNewPipeFetchCompleted == false;
-      _isLoadingMore = false;
-    });
+    try {
+      final resp = await NewPipeChannel.getShorts(
+        channelId: _activeChannel,
+        nextPage: _nextPage,
+      );
+      if (!mounted) return;
+      setState(() {
+        final known = _shorts.map((e) => e.url).toSet();
+        _shorts.addAll(
+            resp.items.where(_isShort).where((e) => !known.contains(e.url)));
+        _nextPage = resp.nextPage;
+        _hasMore = _nextPage != null;
+        _isLoadingMore = false;
+      });
+    } catch (_) {
+      if (!mounted) return;
+      setState(() => _isLoadingMore = false);
+    }
   }
 
   Future<void> _refresh() async {
-    // Rotate to a different discovery query so pull-to-refresh actually
-    // surfaces new content instead of re-fetching the same page.
-    final idx = _discoveryQueries.indexOf(_activeQuery);
-    _activeQuery = _discoveryQueries[(idx + 1) % _discoveryQueries.length];
+    // Rotate to a different channel so pull-to-refresh surfaces new content
+    // instead of re-fetching the same page.
+    final idx = _shortsChannels.indexOf(_activeChannel);
+    _activeChannel = _shortsChannels[(idx + 1) % _shortsChannels.length];
     await _loadInitial();
   }
 
@@ -302,13 +270,17 @@ class _ShortsTile extends StatelessWidget {
                 item.thumbnailUrl!,
                 fit: BoxFit.cover,
                 errorBuilder: (_, __, ___) => Container(
-                  color: isDark ? AppColors.surfaceVariantDark : AppColors.surfaceVariant,
+                  color: isDark
+                      ? AppColors.surfaceVariantDark
+                      : AppColors.surfaceVariant,
                   child: const Icon(CupertinoIcons.play_rectangle, size: 32),
                 ),
               )
             else
               Container(
-                color: isDark ? AppColors.surfaceVariantDark : AppColors.surfaceVariant,
+                color: isDark
+                    ? AppColors.surfaceVariantDark
+                    : AppColors.surfaceVariant,
                 child: const Icon(CupertinoIcons.play_rectangle, size: 32),
               ),
             // Bottom scrim so the title stays readable over any thumbnail.

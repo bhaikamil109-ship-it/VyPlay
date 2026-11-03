@@ -1,0 +1,25 @@
+# Release signing configuration for VyPlay.
+#
+# Copy this file to `android/key.properties` and fill in your own values.
+# `android/key.properties` is git-ignored and must never be committed.
+#
+# 1. Generate a keystore (run from the `android/app` directory):
+#
+#      keytool -genkey -v -keystore key.jks -keyalg RSA -keysize 2048 \
+#        -validity 10000 -alias vyplay
+#
+# 2. Fill in the values below. `storeFile` is resolved relative to
+#    `android/app`, so `key.jks` means `android/app/key.jks`.
+#
+# 3. Build a signed release:
+#
+#      flutter build apk --release
+#      flutter build appbundle --release
+#
+# If `android/key.properties` is missing, release builds fail fast with a
+# clear message instead of silently producing an unsigned artifact.
+
+storeFile=key.jks
+storePassword=CHANGE_ME
+keyAlias=vyplay
+keyPassword=CHANGE_ME

@@ -11,6 +11,7 @@ import 'package:fluxtube/domain/core/failure/main_failure.dart';
 import 'package:fluxtube/domain/download/download_service.dart';
 import 'package:fluxtube/domain/download/models/download_item.dart' as domain;
 import 'package:fluxtube/domain/download/models/download_quality.dart';
+import 'package:fluxtube/infrastructure/download/ffmpeg_muxer.dart';
 import 'package:fluxtube/domain/watch/models/newpipe/newpipe_stream.dart';
 import 'package:fluxtube/domain/watch/models/newpipe/newpipe_watch_resp.dart';
 import 'package:fluxtube/domain/watch/playback/newpipe_stream_helper.dart';
@@ -74,8 +75,11 @@ class DownloadImpl implements DownloadService {
   AppDatabase get _db => AppDatabase.instance;
   Dio get _dio => ApiClient.downloadDio;
 
-  // Platform channel for native MediaMuxer
-  static const _muxerChannel = MethodChannel('com.fazilvk.fluxtube/muxer');
+  // FFmpeg-based muxer. Replaces the old Android-only MediaMuxer channel:
+  // the merge now runs through FFmpeg on every platform, so there is a single
+  // code path and codec/container combinations MP4 cannot hold (VP9 + Opus)
+  // are written to MKV instead of producing a broken file.
+  final FfmpegMuxer _muxer = FfmpegMuxer();
 
   // Track active downloads
   final Map<int, CancelToken> _cancelTokens = {};
@@ -579,13 +583,15 @@ class DownloadImpl implements DownloadService {
       await _db.updateDownload(_toCompanion(item));
       onProgress(item); // Always send merging status update
 
-      final success = await _muxVideoAndAudio(
+      final mergedPath = await _muxVideoAndAudio(
         videoPath: item.videoFilePath!,
         audioPath: item.audioFilePath!,
         outputPath: item.outputFilePath!,
       );
 
-      if (success) {
+      if (mergedPath != null) {
+        // The container may have changed (mp4 -> mkv), so record the real path.
+        item.outputFilePath = mergedPath;
         // Clean up temp files only after a verified merge.
         await _deleteFile(item.videoFilePath);
         await _deleteFile(item.audioFilePath);
@@ -609,56 +615,31 @@ class DownloadImpl implements DownloadService {
     }
   }
 
-  /// Mux video and audio streams into a single MP4 file
-  /// Uses Android's native MediaMuxer API via platform channel
-  Future<bool> _muxVideoAndAudio({
+  /// Merge separate video and audio streams into one playable file.
+  ///
+  /// Returns the path of the merged file on success, or `null` when the merge
+  /// failed. The merge runs through FFmpeg (`FfmpegMuxer`), which replaced the
+  /// old Android-only MediaMuxer implementation. The returned path may differ
+  /// from [outputPath] when the codecs require an MKV container.
+  Future<String?> _muxVideoAndAudio({
     required String videoPath,
     required String audioPath,
     required String outputPath,
   }) async {
     try {
-      if (Platform.isAndroid) {
-        // Use native Android MediaMuxer via platform channel
-        final result = await _muxerChannel.invokeMethod<bool>('muxVideoAudio', {
-          'videoPath': videoPath,
-          'audioPath': audioPath,
-          'outputPath': outputPath,
-        });
-
-        if (result == true) {
-          log('[Download] Native MediaMuxer muxing successful');
-          return true;
-        }
-
-        log('[Download] Native MediaMuxer muxing failed');
-        return false;
-      } else {
-        // For non-Android platforms, try FFmpeg via Process
-        final result = await Process.run(
-          'ffmpeg',
-          [
-            '-i', videoPath,
-            '-i', audioPath,
-            '-c:v', 'copy',
-            '-c:a', 'copy',
-            '-shortest',
-            '-y',
-            outputPath,
-          ],
-          runInShell: Platform.isWindows,
-        );
-
-        if (result.exitCode == 0) {
-          log('[Download] FFmpeg muxing successful');
-          return true;
-        }
-
-        log('[Download] FFmpeg muxing failed (exit code: ${result.exitCode})');
-        return false;
-      }
+      final result = await _muxer.merge(
+        videoPath: videoPath,
+        audioPath: audioPath,
+        outputPath: outputPath,
+      );
+      log('[Download] FFmpeg merge successful: ${result.outputPath}');
+      return result.outputPath;
+    } on MuxFailure catch (e) {
+      log('[Download] FFmpeg merge failed: ${e.message}');
+      return null;
     } catch (e) {
       log('[Download] Muxing error: $e');
-      return false;
+      return null;
     }
   }
 
@@ -1457,13 +1438,15 @@ class DownloadImpl implements DownloadService {
       await _db.updateDownload(_toCompanion(item));
       onProgress(item); // Always send merging status update
 
-      final success = await _muxVideoAndAudio(
+      final mergedPath = await _muxVideoAndAudio(
         videoPath: item.videoFilePath!,
         audioPath: item.audioFilePath!,
         outputPath: item.outputFilePath!,
       );
 
-      if (success) {
+      if (mergedPath != null) {
+        // The container may have changed (mp4 -> mkv), so record the real path.
+        item.outputFilePath = mergedPath;
         // Clean up temp files
         await _deleteFile(item.videoFilePath);
         await _deleteFile(item.audioFilePath);

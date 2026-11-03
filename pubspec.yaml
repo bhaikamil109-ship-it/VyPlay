@@ -60,6 +60,10 @@ dependencies:
   volume_controller: ^3.4.1
   flutter_local_notifications: ^18.0.1
   audio_service: ^0.18.15
+  # FFmpeg-based video/audio merging. Replaces the Android-only MediaMuxer
+  # path so every platform shares one merge implementation. Full-GPL variant:
+  # the app is already GPLv3 (see LICENSE), so the licence is compatible.
+  ffmpeg_kit_flutter_new: ^4.6.4
 
 dev_dependencies:
   build_runner: ^2.4.13

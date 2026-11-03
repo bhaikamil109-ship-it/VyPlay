@@ -149,6 +149,37 @@ class NewPipeChannel {
     }
   }
 
+  /// Get Shorts from a channel's dedicated Shorts tab.
+  ///
+  /// This is the real Shorts data source: it reads the channel's `/shorts`
+  /// tab through the NewPipe channel-tab extractor, instead of treating a
+  /// fixed search query as a Shorts feed. [channelId] is a channel handle
+  /// (e.g. `@MrBeast`) or a channel URL.
+  static Future<NewPipeSearchResp> getShorts({
+    required String channelId,
+    String? nextPage,
+  }) async {
+    try {
+      final result = await _channel.invokeMethod<String>(
+        'getShorts',
+        {
+          'channelId': channelId,
+          if (nextPage != null) 'nextPage': nextPage,
+        },
+      );
+      if (result == null) {
+        throw PlatformException(
+          code: 'NULL_RESULT',
+          message: 'No data returned from NewPipe Extractor',
+        );
+      }
+      final json = jsonDecode(result) as Map<String, dynamic>;
+      return NewPipeSearchResp.fromJson(json);
+    } on PlatformException catch (e) {
+      throw Exception('Failed to get shorts: ${e.message}');
+    }
+  }
+
   /// Search for videos, channels, or playlists
   static Future<NewPipeSearchResp> search({
     required String query,

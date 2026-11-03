@@ -20,6 +20,13 @@ final LinearGradient shimmerGradient = LinearGradient(colors: [
 
 /// Semantic color system for consistent theming
 class AppColors {
+  // VyPlay brand accent. A vivid violet that reads as "premium" against both
+  // the light and dark surfaces, and stays distinct from YouTube red so the
+  // app does not look like a YouTube clone.
+  static const Color brand = Color(0xFF7C4DFF);
+  static const Color brandLight = Color(0xFFB47CFF);
+  static const Color brandDark = Color(0xFF5E35B1);
+
   // Primary brand colors
   static const Color primary = Color(0xFF1976D2);
   static const Color primaryLight = Color(0xFF42A5F5);

@@ -56,6 +56,7 @@ class NewPipeMethodHandler : MethodChannel.MethodCallHandler {
             "getStreamInfo" -> handleGetStreamInfo(call, result)
             "getStreamInfoFast" -> handleGetStreamInfoFast(call, result)
             "getTrending" -> handleGetTrending(call, result)
+            "getShorts" -> handleGetShorts(call, result)
             "search" -> handleSearch(call, result)
             "getSearchSuggestions" -> handleGetSearchSuggestions(call, result)
             "getChannel" -> handleGetChannel(call, result)
@@ -215,6 +216,54 @@ class NewPipeMethodHandler : MethodChannel.MethodCallHandler {
                 sendSuccess(result, gson.toJson(response))
             } catch (e: Exception) {
                 sendError(result, "EXTRACTION_ERROR", e.message ?: "Failed to get trending", null)
+            }
+        }
+    }
+
+    /**
+     * Get Shorts from a channel's dedicated Shorts tab.
+     *
+     * This is the real Shorts data source: it reads the channel's `/shorts`
+     * tab through the channel-tab extractor, rather than treating a fixed
+     * search query as a Shorts feed. The caller passes a channel handle
+     * (e.g. "@MrBeast") and optionally a pagination cursor.
+     */
+    private fun handleGetShorts(call: MethodCall, result: MethodChannel.Result) {
+        val channelId = call.argument<String>("channelId") ?: run {
+            result.error("INVALID_ARGUMENT", "channelId is required", null)
+            return
+        }
+        val nextPageJson = call.argument<String>("nextPage")
+
+        scope.launch {
+            try {
+                val linkHandler = ServiceList.YouTube.channelTabLHFactory.fromQuery(
+                    channelId,
+                    listOf("shorts"),
+                    ""
+                )
+                val tabExtractor = ServiceList.YouTube.getChannelTabExtractor(linkHandler)
+
+                val response = if (nextPageJson != null) {
+                    val page = deserializePage(nextPageJson)
+                    val moreItems = tabExtractor.getPage(page)
+                    mapOf(
+                        "items" to moreItems.items.map { mapInfoItem(it) },
+                        "nextPage" to serializePage(moreItems.nextPage)
+                    )
+                } else {
+                    tabExtractor.fetchPage()
+                    val initialPage = tabExtractor.initialPage
+                    mapOf(
+                        "items" to initialPage.items.map { mapInfoItem(it) },
+                        "nextPage" to serializePage(initialPage.nextPage)
+                    )
+                }
+
+                sendSuccess(result, gson.toJson(response))
+            } catch (e: Exception) {
+                android.util.Log.e("NewPipeHandler", "Failed to get shorts: ${e.message}", e)
+                sendError(result, "EXTRACTION_ERROR", e.message ?: "Failed to get shorts", null)
             }
         }
     }

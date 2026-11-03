@@ -7,6 +7,7 @@ final supportedLocales = [
   const Locale('ar'), //Arabic
   const Locale('en'), // English
   const Locale('fr'), //French
+  const Locale('hi'), //Hindi
   const Locale('ja'), //Japanese
   const Locale('ko'), //Korean
   const Locale('ml'), // Malayalam
@@ -23,6 +24,7 @@ final List<LanguageModel> languages = [
   LanguageModel(name: "العربية", code: "ar"),
   LanguageModel(name: "English", code: "en"),
   LanguageModel(name: "Français", code: "fr"),
+  LanguageModel(name: "हिन्दी", code: "hi"),
   LanguageModel(name: "日本語", code: "ja"),
   LanguageModel(name: "한국어", code: "ko"),
   LanguageModel(name: "മലയാളം", code: "ml"),

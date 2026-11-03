@@ -74,17 +74,13 @@
 -keep class androidx.core.app.NotificationCompat { *; }
 -keep class androidx.core.app.NotificationCompat$* { *; }
 
-# MediaMuxer Handler - Keep classes for video/audio muxing
--keep class com.fazilvk.fluxtube.MediaMuxerHandler { *; }
--keepclassmembers class com.fazilvk.fluxtube.MediaMuxerHandler { *; }
+# FFmpeg mux plan handler - keep classes for video/audio muxing
+-keep class com.fazilvk.fluxtube.FFmpegMuxerHandler { *; }
+-keepclassmembers class com.fazilvk.fluxtube.FFmpegMuxerHandler { *; }
 
-# Android Media APIs used by MediaMuxerHandler
--keep class android.media.MediaMuxer { *; }
--keep class android.media.MediaExtractor { *; }
--keep class android.media.MediaFormat { *; }
--keep class android.media.MediaCodec { *; }
--keep class android.media.MediaCodec$BufferInfo { *; }
--keepclassmembers class android.media.** { *; }
+# FFmpegKit native bindings (loaded reflectively by the plugin)
+-keep class com.arthenica.ffmpegkit.** { *; }
+-dontwarn com.arthenica.ffmpegkit.**
 
 # Google Play Core (Flutter deferred components)
 -dontwarn com.google.android.play.core.splitcompat.SplitCompatApplication

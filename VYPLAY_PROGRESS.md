@@ -14,6 +14,28 @@ network calls, iOS/macOS/Windows builds, Play Store submission.
 
 ---
 
+## Round 2 — Phase 1–10 gap closure
+
+**Date:** 2026-11-03
+**Scope:** close the gaps listed in the previous audit.
+
+| # | Gap | What was done | Status |
+|---|---|---|---|
+| 1 | Phase 5 — FFmpeg migration | Added `ffmpeg_kit_flutter_new: ^4.6.4`; new `lib/infrastructure/download/ffmpeg_muxer.dart` runs the merge through FFmpegKit with stream copy (`-map 0:v:0 -map 1:a:0 -c copy`), container selection (MP4 for H.264/AAC, MKV for VP9/Opus), `+faststart`, `-shortest`, exit-code + output-file verification, and cleanup of partial output on failure. `MediaMuxerHandler.kt` **deleted**; replaced by `FFmpegMuxerHandler.kt` which only validates inputs and resolves the container. `download_impl.dart` now calls `FfmpegMuxer.merge` and records the real output path (which may be `.mkv`). | ✅ code / ⚠️ runtime UNVERIFIED |
+| 2 | Phase 9 — 12th language | Added **Hindi (`hi`)** — `lib/l10n/intl_hi.arb` with all 294 keys, `lib/generated/intl/messages_hi.dart`, registered in `messages_all.dart`, `l10n.dart` and `lib/core/locals.dart`. | ✅ |
+| 3 | Phase 10 — targetSdk | `android/app/build.gradle` `targetSdkVersion` 34 → **35**. | ✅ |
+| 4 | Phase 10 — release signing | `android/key.properties.example` added with keystore generation + build instructions. `build.gradle` already fails fast when the keystore is missing. | ✅ |
+| 5 | Phase 4 — Shorts source | New native `getShorts` method reads a channel's `/shorts` tab via the channel-tab extractor; `NewPipeChannel.getShorts` exposes it; `ShortsFeedScreen` now uses this dedicated source (rotating channel handles) instead of a fixed search query. Dead `shorts_grid_section.dart` **deleted**. | ✅ code / ⚠️ runtime UNVERIFIED |
+| 6 | Phase 1 — branding | `app_info.dart` URL fixed to the real repo (`github.com/bhaikamil109-ship-it/VyPlay.`); `README.md` rewritten from FluxTube to VyPlay branding. | ✅ |
+| 7 | Phase 2 — UI polish | Added `AppColors.brand` (violet accent) and a shared rounded `CardThemeData`; light/dark `colorScheme` now seeded from the brand colour. | ✅ |
+
+**Still UNVERIFIED here (environment limits):** `flutter analyze`, `flutter test`,
+`flutter build apk` — the Flutter SDK could not be installed in this sandbox
+(4 GB disk limit). All changes above are code-level and must be verified on a
+machine with a normal Flutter toolchain.
+
+---
+
 ## Status legend
 
 | Mark | Meaning |
