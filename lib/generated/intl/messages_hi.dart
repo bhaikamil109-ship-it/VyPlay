@@ -1,5 +1,5 @@
 // DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
-// This is a library that provides messages for a ar locale. All the
+// This is a library that provides messages for a hi locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
 
@@ -20,7 +20,7 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'hi';
 
-  static String m0(name) => "أضيف إلى ${name}";
+  static String m0(name) => "प्लेलिस्ट ${name} में जोड़ा";
 
   static String m1(device) => "${device} पर कास्ट हो रहा है";
 
