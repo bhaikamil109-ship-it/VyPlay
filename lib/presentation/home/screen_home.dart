@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluxtube/application/application.dart';
 import 'package:fluxtube/core/constants.dart';
 import 'package:fluxtube/core/enums.dart';
+import 'package:fluxtube/core/perf/app_perf.dart';
 import 'package:fluxtube/generated/l10n.dart';
 import 'package:fluxtube/presentation/home/widgets/personalized_feed_section.dart';
 import 'package:fluxtube/presentation/trending/widgets/invidious/trending_videos_section.dart';
@@ -363,6 +364,7 @@ class ScreenHome extends StatelessWidget {
 
   Widget _buildLoadingList() {
     return ListView.separated(
+      cacheExtent: AppPerf.listCacheExtent,
       separatorBuilder: (context, index) => kHeightBox10,
       itemBuilder: (context, index) {
         return const ShimmerHomeVideoInfoCard();

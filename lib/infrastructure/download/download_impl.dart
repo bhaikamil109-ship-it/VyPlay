@@ -16,6 +16,7 @@ import 'package:fluxtube/domain/watch/models/newpipe/newpipe_stream.dart';
 import 'package:fluxtube/domain/watch/models/newpipe/newpipe_watch_resp.dart';
 import 'package:fluxtube/domain/watch/playback/newpipe_stream_helper.dart';
 import 'package:fluxtube/core/api_client.dart';
+import 'package:fluxtube/core/perf/app_perf.dart';
 import 'package:fluxtube/infrastructure/database/database.dart';
 import 'package:injectable/injectable.dart';
 import 'package:path_provider/path_provider.dart';
@@ -87,7 +88,10 @@ class DownloadImpl implements DownloadService {
 
   /// At most this many downloads transfer at the same time. Anything beyond
   /// waits in the queue and is reported as `pending`.
-  static const int _maxConcurrentDownloads = 2;
+  /// Concurrent downloads. Two on a normal device; one on a low-RAM one, where
+  /// two parallel streams compete with video decoding for the same storage and
+  /// CPU and make the whole app stutter.
+  static final int _maxConcurrentDownloads = AppPerf.maxConcurrentDownloads;
   final _DownloadSemaphore _downloadSlots =
       _DownloadSemaphore(_maxConcurrentDownloads);
 
@@ -1588,6 +1592,50 @@ class DownloadImpl implements DownloadService {
     }
   }
 
+  /// Hands a finished download to Android's MediaStore.
+  ///
+  /// Returns the display path on success, or null when the native channel is
+  /// not available (older build, non-Android) so the caller can fall back to
+  /// the legacy directory copy.
+  Future<String?> _saveViaMediaStore(
+    domain.DownloadItem item,
+    File sourceFile,
+  ) async {
+    try {
+      const channel = MethodChannel('com.fazilvk.fluxtube/mediastore');
+
+      // Only API 29+ needs this; below that the legacy copy is correct and
+      // MediaStore would add a needless round trip.
+      final required = await channel.invokeMethod<bool>('isMediaStoreRequired');
+      if (required != true) return null;
+
+      final isAudio = item.downloadType == domain.DownloadType.audioOnly;
+      final ext = item.outputFilePath!.split('.').last;
+      final safeTitle = item.title
+          .replaceAll(RegExp(r'[<>:"/\\|?*]'), '_')
+          .replaceAll(RegExp(r'\s+'), ' ')
+          .trim();
+      final fileName = '$safeTitle.$ext';
+
+      final saved = await channel.invokeMethod<String>('saveToCollection', {
+        'sourcePath': sourceFile.path,
+        'fileName': fileName,
+        'mimeType': isAudio ? 'audio/mpeg' : 'video/mp4',
+        'album': 'VyPlay',
+      });
+      return saved;
+    } on MissingPluginException {
+      // Native side not wired on this build — use the legacy path.
+      return null;
+    } on PlatformException catch (e) {
+      log('[Download] MediaStore save failed: ${e.message}');
+      return null;
+    } catch (e) {
+      log('[Download] MediaStore save error: $e');
+      return null;
+    }
+  }
+
   @override
   Future<Either<MainFailure, Unit>> saveToDevice(domain.DownloadItem item) async {
     try {
@@ -1598,6 +1646,19 @@ class DownloadImpl implements DownloadService {
       final sourceFile = File(item.outputFilePath!);
       if (!await sourceFile.exists()) {
         return const Left(MainFailure.notFound(resource: 'Downloaded file'));
+      }
+
+      // Android 10+ blocks direct writes into /storage/emulated/0, so the file
+      // is handed to MediaStore, which owns the volume and returns a content
+      // URI. Below API 29 the legacy directory copy further down is still the
+      // correct path, and the native side picks the right one for the device.
+      if (Platform.isAndroid) {
+        final viaMediaStore = await _saveViaMediaStore(item, sourceFile);
+        if (viaMediaStore != null) {
+          log('[Download] Saved to device via MediaStore: $viaMediaStore');
+          return const Right(unit);
+        }
+        // Fall through to the legacy copy when the channel is unavailable.
       }
 
       // Determine the public directory based on download type

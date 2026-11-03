@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluxtube/application/application.dart';
 import 'package:fluxtube/core/constants.dart';
+import 'package:fluxtube/core/perf/app_perf.dart';
 import 'package:fluxtube/domain/subscribes/models/subscribe.dart';
 import 'package:fluxtube/domain/watch/models/basic_info.dart';
 import 'package:fluxtube/generated/l10n.dart';
@@ -64,6 +65,8 @@ class _NewPipeFeedVideoSectionState extends State<NewPipeFeedVideoSection> {
 
     return ListView.separated(
       controller: _scrollController,
+      // Prefetch window scaled to the device (see AppPerf.listCacheExtent).
+      cacheExtent: AppPerf.listCacheExtent,
       separatorBuilder: (context, index) => kHeightBox10,
       itemBuilder: (context, index) {
         // Show loading indicator at the end

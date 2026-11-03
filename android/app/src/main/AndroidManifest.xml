@@ -6,10 +6,21 @@
     <uses-permission android:name="android.permission.READ_MEDIA_AUDIO"/>
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK"/>
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <!-- Legacy storage access, needed only on Android 9 and below. From API 29
+         scoped storage applies and saved downloads go through MediaStore
+         instead, so the permission is capped at 28 rather than requested on
+         every device. -->
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28"/>
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28"/>
     <application
         android:label="VyPlay"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon"
+        android:requestLegacyExternalStorage="true"
         android:enableOnBackInvokedCallback="true">
         <activity
             android:name=".MainActivity"

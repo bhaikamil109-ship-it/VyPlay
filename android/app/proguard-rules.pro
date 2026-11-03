@@ -94,3 +94,30 @@
 -dontwarn com.google.android.play.core.tasks.OnFailureListener
 -dontwarn com.google.android.play.core.tasks.OnSuccessListener
 -dontwarn com.google.android.play.core.tasks.Task
+
+# MediaStore save handler - invoked by name from the method channel
+-keep class com.fazilvk.fluxtube.MediaStoreHandler { *; }
+-keep class com.fazilvk.fluxtube.DeviceCapabilityHandler { *; }
+-keep class com.fazilvk.fluxtube.StorageMethodHandler { *; }
+
+# media_kit / libmpv native bindings. The Dart side reaches these through
+# dart:ffi, so R8 cannot see the references and would strip them.
+-keep class io.flutter.plugins.** { *; }
+-keep class com.alexmercerind.** { *; }
+-dontwarn com.alexmercerind.**
+
+# flutter_local_notifications - the plugin resolves its own classes and the
+# notification receiver reflectively from the manifest.
+-keep class com.dexterous.** { *; }
+-dontwarn com.dexterous.**
+
+# audio_service / media session (background playback)
+-keep class com.ryanheise.** { *; }
+-dontwarn com.ryanheise.**
+
+# ExoPlayer / Media3 - the player is constructed reflectively by the platform
+# view factory and by media_kit's Android backend.
+-keep class androidx.media3.** { *; }
+-dontwarn androidx.media3.**
+-keep class com.google.android.gms.cast.** { *; }
+-dontwarn com.google.android.gms.cast.**

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluxtube/core/colors.dart';
 import 'package:fluxtube/core/constants.dart';
+import 'package:fluxtube/core/perf/app_perf.dart';
 import 'package:fluxtube/domain/search/models/newpipe/newpipe_search_resp.dart';
 import 'package:fluxtube/generated/l10n.dart';
 import 'package:fluxtube/infrastructure/newpipe/newpipe_channel.dart';
@@ -211,7 +212,8 @@ class _ShortsFeedScreenState extends State<ShortsFeedScreen> {
       child: NotificationListener<ScrollNotification>(
         onNotification: (notification) {
           if (notification.metrics.pixels >=
-              notification.metrics.maxScrollExtent - 400) {
+              notification.metrics.maxScrollExtent -
+                  AppPerf.loadMoreThreshold) {
             _loadMore();
           }
           return false;

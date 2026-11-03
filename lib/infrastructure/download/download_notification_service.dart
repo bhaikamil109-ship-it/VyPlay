@@ -115,12 +115,24 @@ class DownloadNotificationService {
   Future<bool> requestNotificationPermission() async {
     if (!Platform.isAndroid) return true;
 
+    // Below API 33 there is no runtime notification grant: the system shows
+    // notifications as long as the user has not disabled them in settings.
+    // `requestNotificationsPermission()` returns null there, and treating that
+    // null as "denied" would silently suppress every download notification on
+    // Android 7–12 — the exact devices this release targets.
+    if (!DeviceProfile.current.needsNotificationPermission) {
+      _hasPermission = await _checkNotificationPermission();
+      return _hasPermission;
+    }
+
     final androidPlugin = _notifications
         .resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>();
     if (androidPlugin != null) {
       log('[Notification] Requesting notification permission...');
       final granted = await androidPlugin.requestNotificationsPermission();
-      _hasPermission = granted ?? false;
+      // A null result on API 33+ means the dialog could not be shown; fall
+      // back to the current system state rather than assuming refusal.
+      _hasPermission = granted ?? await _checkNotificationPermission();
       log('[Notification] Permission request result: $_hasPermission');
       return _hasPermission;
     }

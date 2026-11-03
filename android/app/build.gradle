@@ -68,7 +68,11 @@ android {
         applicationId "com.fazilvk.fluxtube"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdkVersion flutter.minSdkVersion
+        // Floor is 24 (Android 7.0), not 21. ffmpeg_kit_flutter_new — the
+        // FFmpeg merge backend this app depends on — ships native libraries
+        // built against API 24, so anything lower fails at link time. 24 is
+        // therefore the lowest version the dependency set actually allows.
+        minSdkVersion 24
         // Play Store requires targetSdk 35 for new submissions from 2025.
         targetSdkVersion 35
         versionCode flutterVersionCode.toInteger()
@@ -88,6 +92,22 @@ android {
 
     buildFeatures {
         buildConfig = true
+    }
+
+    // Per-ABI APKs. A universal APK carries every architecture's native
+    // libraries, which for this app (FFmpeg + media_kit + ExoPlayer) is tens of
+    // megabytes the device will never load. Splitting means a 32-bit phone
+    // downloads only armeabi-v7a and a modern one only arm64-v8a.
+    //
+    // `universalApk false` keeps the fat APK out of the output; the Play Store
+    // uses the AAB instead, where this split is applied automatically.
+    splits {
+        abi {
+            enable true
+            reset()
+            include "armeabi-v7a", "arm64-v8a"
+            universalApk false
+        }
     }
 
     packaging {

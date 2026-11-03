@@ -3,13 +3,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluxtube/core/colors.dart';
 import 'package:fluxtube/core/constants.dart';
+import 'package:fluxtube/core/perf/app_perf.dart';
 
-// Physical-pixel cache widths tuned to typical display sizes.
-// Full-width cards (~360dp @ 3× DPR = 1080px): 720px is enough for ≤2× and
-// is still reasonable for 3×, cutting memory ~3× vs the raw 1280px JPEG.
-const int _kCacheWidthCard = 720;
-// Related-video thumbnails (~120dp × 3× = 360px): 320px covers it.
-const int _kCacheWidthSmall = 320;
+// Cache widths come from AppPerf, which sizes them to the device: a 2 GB phone
+// decodes thumbnails at 480 px instead of 720 px, saving roughly two thirds of
+// the bitmap memory with no visible difference on its panel.
 
 /// Drop-in replacement for CachedNetworkImage that caps the in-memory decode
 /// size so we don't store full 1280×720 bitmaps for 100×56 thumbnails.
@@ -20,13 +18,13 @@ class ThumbnailImage extends StatelessWidget {
     super.key,
     required this.url,
     this.fit = BoxFit.cover,
-    this.memCacheWidth = _kCacheWidthCard,
+    this.memCacheWidth,
     this.memCacheHeight,
     this.width,
     this.height,
     this.placeholder,
     this.errorWidget,
-  });
+  }) : _isSmall = false;
 
   /// For related-video / search sidebars, small cards, and avatars.
   const ThumbnailImage.small({
@@ -37,29 +35,46 @@ class ThumbnailImage extends StatelessWidget {
     this.height,
     this.placeholder,
     this.errorWidget,
-  })  : memCacheWidth = _kCacheWidthSmall,
-        memCacheHeight = null;
+  })  : memCacheWidth = null,
+        memCacheHeight = null,
+        _isSmall = true;
 
   final String url;
   final BoxFit fit;
-  final int memCacheWidth;
+
+  /// Explicit override. Null means "use the device-tier default", which is
+  /// resolved in [build] rather than in the constructor so a `const`
+  /// ThumbnailImage still works after the profile has loaded.
+  final int? memCacheWidth;
   final int? memCacheHeight;
   final double? width;
   final double? height;
   final Widget Function(BuildContext, String)? placeholder;
   final Widget Function(BuildContext, String, Object)? errorWidget;
 
+  /// True for the `.small` constructor, which selects the sidebar-sized
+  /// decode width. Stored rather than inferred, because both constructors
+  /// leave [memCacheWidth] null when no override is given.
+  final bool _isSmall;
+
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final bg = isDark ? AppColors.surfaceVariantDark : AppColors.surfaceVariant;
+
+    // `.small` gets the sidebar width; the default constructor gets the card
+    // width. Both are device-tier aware.
+    final int resolvedWidth = memCacheWidth ??
+        (_isSmall
+            ? AppPerf.thumbnailCacheWidthSmall
+            : AppPerf.thumbnailCacheWidth);
 
     return CachedNetworkImage(
       imageUrl: url,
       fit: fit,
       width: width,
       height: height,
-      memCacheWidth: memCacheWidth,
+      memCacheWidth: resolvedWidth,
       memCacheHeight: memCacheHeight,
       placeholder: placeholder ?? (context, _) => ColoredBox(color: bg),
       errorWidget: errorWidget ??
@@ -84,7 +99,7 @@ CachedNetworkImageProvider cachedAvatarProvider(
   String url, {
   int logicalDiameter = 40,
 }) {
-  final px = (logicalDiameter * 3).clamp(48, 240);
+  final px = (logicalDiameter * 3).clamp(48, AppPerf.avatarCacheWidth);
   return CachedNetworkImageProvider(url, maxWidth: px, maxHeight: px);
 }
 
@@ -93,6 +108,8 @@ CachedNetworkImageProvider cachedThumbnailProvider(
   String url, {
   bool small = false,
 }) {
-  final w = small ? _kCacheWidthSmall : _kCacheWidthCard;
+  final w = small
+      ? AppPerf.thumbnailCacheWidthSmall
+      : AppPerf.thumbnailCacheWidth;
   return CachedNetworkImageProvider(url, maxWidth: w);
 }

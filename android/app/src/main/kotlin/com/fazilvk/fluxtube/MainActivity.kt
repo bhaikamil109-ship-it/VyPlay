@@ -24,6 +24,8 @@ class MainActivity: AudioServiceFragmentActivity() {
         private const val CAST_CHANNEL = "com.fazilvk.fluxtube/cast"
         private const val CAST_EVENT_CHANNEL = "com.fazilvk.fluxtube/cast_events"
         private const val STORAGE_CHANNEL = "com.fazilvk.fluxtube/storage"
+        private const val DEVICE_CHANNEL = "com.fazilvk.fluxtube/device"
+        private const val MEDIA_STORE_CHANNEL = "com.fazilvk.fluxtube/mediastore"
     }
 
     private var newPipeHandler: NewPipeMethodHandler? = null
@@ -75,6 +77,16 @@ class MainActivity: AudioServiceFragmentActivity() {
         // Register storage channel (free-space checks before a download starts)
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, STORAGE_CHANNEL)
             .setMethodCallHandler(StorageMethodHandler())
+
+        // Register device capability channel. The Flutter layer reads RAM/SDK
+        // once at startup and picks low-end-friendly cache and list settings.
+        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, DEVICE_CHANNEL)
+            .setMethodCallHandler(DeviceCapabilityHandler(applicationContext))
+
+        // Register MediaStore channel. Android 10+ blocks direct writes to
+        // /storage/emulated/0, so saved downloads go through MediaStore there.
+        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, MEDIA_STORE_CHANNEL)
+            .setMethodCallHandler(MediaStoreHandler(applicationContext))
 
         // Register PiP method channel
         pipChannel = MethodChannel(flutterEngine.dartExecutor.binaryMessenger, PIP_CHANNEL)

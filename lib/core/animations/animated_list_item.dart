@@ -57,7 +57,7 @@ class _AnimatedListItemState extends State<AnimatedListItem>
 
     _controller = AnimationController(
       vsync: this,
-      duration: widget.duration,
+      duration: AppPerf.scaleDuration(widget.duration),
     );
 
     _fadeAnimation = Tween<double>(

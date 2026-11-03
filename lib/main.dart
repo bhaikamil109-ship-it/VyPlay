@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,6 +14,8 @@ import 'package:fluxtube/application/watch/watch_bloc.dart';
 import 'package:fluxtube/core/app_info.dart';
 import 'package:fluxtube/core/app_theme.dart';
 import 'package:fluxtube/core/locals.dart';
+import 'package:fluxtube/core/perf/app_perf.dart';
+import 'package:fluxtube/core/perf/device_profile.dart';
 import 'package:fluxtube/core/player/global_player_controller.dart';
 import 'package:fluxtube/infrastructure/download/download_notification_service.dart';
 import 'package:fluxtube/infrastructure/settings/setting_impl.dart';
@@ -37,11 +41,19 @@ void main() async {
     }
   };
 
+  // Resolve the hardware profile before anything allocates a cache, so the
+  // image cache and list windows below are already sized for this device.
+  // Reading it first also keeps the measurement off the first frame.
+  await DeviceProfile.load();
+
   // Initialize media_kit
   MediaKit.ensureInitialized();
 
-  // Allow up to 200 MB for decoded image bitmaps (default is 100 MB)
-  PaintingBinding.instance.imageCache.maximumSizeBytes = 200 << 20;
+  // Decoded-image cache budget, scaled to the device (32 MB on a 2 GB phone,
+  // 200 MB on a flagship). Holding 200 MB of bitmaps on a low-RAM device is
+  // what triggers the low-memory killer mid-scroll.
+  PaintingBinding.instance.imageCache.maximumSizeBytes =
+      AppPerf.imageCacheBytes;
 
   Bloc.observer = AppBlocObserver();
   await SettingImpl.initializeDB();
@@ -69,9 +81,17 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
       DownloadNotificationService().initialize();
       // Initialize audio service for background playback notification controls
       initAudioService();
-      // Look for new uploads from subscribed channels. Self-throttling and a
-      // no-op unless the user turned notifications on.
-      SubscriptionNotifier().checkForNewVideos();
+
+      // Background work below is not needed for the first frame, and on a
+      // low-RAM device starting it immediately competes with the initial
+      // layout and image decoding for CPU. Give the UI a moment to settle
+      // first; the check is throttled internally anyway.
+      const settle = Duration(milliseconds: 900);
+      Timer(settle, () {
+        // Look for new uploads from subscribed channels. Self-throttling and a
+        // no-op unless the user turned notifications on.
+        SubscriptionNotifier().checkForNewVideos();
+      });
     });
   }
 
