@@ -40,10 +40,16 @@ would have broken the build on *any* machine, not just this one:
 | 1 | **`ndkVersion flutter.ndkVersion` forced a ~2.5 GB NDK download.** This project compiles no native code — no `CMakeLists.txt`, no `externalNativeBuild`, and no plugin ships one; every `.so` arrives prebuilt in an AAR. AGP only wanted the NDK to *strip* those libraries. | Removed the pin from `android/app/build.gradle` and disabled stripping via `packaging.jniLibs.keepDebugSymbols += ["**/*.so"]`. |
 | 2 | **AGP auto-downloaded the NDK during configuration** even with the pin gone. | `android.builder.sdkDownload=false` in `android/gradle.properties`. |
 | 3 | **`splits.abi` could never build.** Flutter's Gradle plugin writes `defaultConfig.ndk.abiFilters = armeabi-v7a,arm64-v8a,x86_64`, and AGP rejects having both `abiFilters` and `splits.abi` — so the per-ABI split block added in the low-end round was dead on arrival. | `disable-abi-filtering=true` (the plugin's own documented switch) so the `splits` block owns ABI selection. |
-| 4 | **Gradle's default `-Xmx4096m` exceeded the sandbox's 2 GB cgroup cap**, so the daemon was OOM-killed mid-build. | `android/gradle.properties` tuned to `-Xmx1400m`, `MaxMetaspaceSize=256m`, `UseSerialGC`, `org.gradle.daemon=false`, `workers.max=1`, `kotlin.compiler.execution.strategy=in-process`. |
+| 4 | **Gradle's default `-Xmx4096m` exceeded the sandbox's 2 GB cgroup cap**, so the daemon was OOM-killed mid-build. | **Sandbox-only workaround, deliberately NOT committed.** The project keeps its original 4 GB heap, which is correct on a normal machine. To reproduce the build inside a 2 GB container, add `-Xmx1400m -XX:MaxMetaspaceSize=256m -XX:+UseSerialGC`, `org.gradle.daemon=false`, `org.gradle.workers.max=1` and `kotlin.compiler.execution.strategy=in-process` locally. |
 
 Also switched the Gradle wrapper from the `-all` distribution to `-bin`
 (no docs/sources, ~570 MB less on disk).
+
+**A second real hazard this exposed:** `-XX:+HeapDumpOnOutOfMemoryError` (which
+the project already carried) wrote a **657 MB `java_pid*.hprof`** into
+`android/` on every OOM, and that is what filled the 4 GB disk quota. Worth
+knowing if a build ever dies with "No space left on device" — check for a
+stray `.hprof` before blaming the SDK.
 
 ### Where the build actually stops
 
