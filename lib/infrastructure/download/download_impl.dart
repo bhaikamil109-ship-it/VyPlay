@@ -147,8 +147,10 @@ class DownloadImpl implements DownloadService {
       ..duration = item.duration
       ..videoQuality = item.videoQuality
       ..audioQuality = item.audioQuality
-      ..downloadType = domain.DownloadType.values[item.downloadType]
-      ..status = domain.DownloadStatus.values[item.status]
+      ..downloadType = _downloadTypeByIndex[item.downloadType] ??
+          domain.DownloadType.videoWithAudio
+      ..status = _downloadStatusByIndex[item.status] ??
+          domain.DownloadStatus.failed
       ..videoUrl = item.videoUrl
       ..audioUrl = item.audioUrl
       ..videoFilePath = item.videoFilePath
@@ -170,6 +172,52 @@ class DownloadImpl implements DownloadService {
       ..completedAt = item.completedAt
       ..videoProgress = item.videoProgress
       ..audioProgress = item.audioProgress;
+  }
+
+  // Explicit maps instead of `Enum.values[index]`: adding a value to the enum
+  // (or an orphaned index in an old DB row) would otherwise throw RangeError
+  // at app start, when the downloads list is loaded.
+  static const Map<int, domain.DownloadType> _downloadTypeByIndex = {
+    0: domain.DownloadType.videoOnly,
+    1: domain.DownloadType.audioOnly,
+    2: domain.DownloadType.videoWithAudio,
+  };
+
+  static const Map<int, domain.DownloadStatus> _downloadStatusByIndex = {
+    0: domain.DownloadStatus.pending,
+    1: domain.DownloadStatus.downloading,
+    2: domain.DownloadStatus.paused,
+    3: domain.DownloadStatus.completed,
+    4: domain.DownloadStatus.failed,
+    5: domain.DownloadStatus.cancelled,
+    6: domain.DownloadStatus.merging,
+  };
+
+  /// Maps a file extension to the MIME type MediaStore should index it under.
+  /// Hardcoding audio/mpeg + video/mp4 mislabels Opus/VP9 `.webm` downloads,
+  /// which makes the gallery and share intents treat them as the wrong kind.
+  static String _mimeFor(String ext, {required bool isAudio}) {
+    switch (ext) {
+      case 'mp4':
+      case 'm4v':
+        return 'video/mp4';
+      case 'mkv':
+        return 'video/x-matroska';
+      case 'webm':
+        return isAudio ? 'audio/webm' : 'video/webm';
+      case 'm4a':
+        return 'audio/mp4';
+      case 'mp3':
+        return 'audio/mpeg';
+      case 'opus':
+        return 'audio/opus';
+      case 'ogg':
+        return 'audio/ogg';
+      case 'aac':
+        return 'audio/aac';
+      default:
+        return isAudio ? 'audio/mpeg' : 'video/mp4';
+    }
   }
 
   // Convert domain to Drift companion
@@ -351,6 +399,7 @@ class DownloadImpl implements DownloadService {
         item.errorMessage = storageError;
         await _db.updateDownload(_toCompanion(item));
         onError(item, storageError);
+        _cleanup(item.id!);
         return Left(MainFailure.unknown(message: storageError));
       }
 
@@ -1610,7 +1659,7 @@ class DownloadImpl implements DownloadService {
       if (required != true) return null;
 
       final isAudio = item.downloadType == domain.DownloadType.audioOnly;
-      final ext = item.outputFilePath!.split('.').last;
+      final ext = item.outputFilePath!.split('.').last.toLowerCase();
       final safeTitle = item.title
           .replaceAll(RegExp(r'[<>:"/\\|?*]'), '_')
           .replaceAll(RegExp(r'\s+'), ' ')
@@ -1620,7 +1669,7 @@ class DownloadImpl implements DownloadService {
       final saved = await channel.invokeMethod<String>('saveToCollection', {
         'sourcePath': sourceFile.path,
         'fileName': fileName,
-        'mimeType': isAudio ? 'audio/mpeg' : 'video/mp4',
+        'mimeType': _mimeFor(ext, isAudio: isAudio),
         'album': 'VyPlay',
       });
       return saved;
