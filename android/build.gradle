@@ -27,6 +27,19 @@ subprojects {
     project.evaluationDependsOn(':app')
 }
 
+// AGP strips native libraries by default, and stripping is the only build step
+// that requires the NDK. This project compiles no native code of its own —
+// every .so arrives prebuilt inside a plugin AAR — so the NDK would be a
+// ~2.5 GB download used for nothing. Disabling stripping on every Android
+// module (the app *and* each plugin library) removes that requirement.
+// The trade-off is a few MB of unstripped symbols in the APK; re-enable it
+// and install the NDK if APK size ever becomes critical.
+// Native-library stripping is disabled per-module in app/build.gradle via
+// packaging.jniLibs.keepDebugSymbols. It cannot be set from here: by the time
+// a subproject's Android plugin is applied, its packaging block has already
+// been read, and AGP rejects late mutation ("It is too late to modify
+// keepDebugSymbols").
+
 
 
 tasks.register("clean", Delete) {

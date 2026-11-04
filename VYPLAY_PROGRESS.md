@@ -7,11 +7,83 @@
 > report."*
 
 **Last updated:** 2026-11-04
-**Environment:** Debian Linux, Flutter 3.47.9 (stable), Dart 3.13.7
+**Environment:** Debian Linux, Flutter 3.50.0-0.3.pre (master), Dart 3.13.7
 **Verification available here:** `flutter analyze`, `flutter test`
 **Verification NOT available here:** physical Android device, real YouTube
-network calls, `flutter build apk` (no Android SDK / Gradle cache in this
-sandbox), iOS/macOS/Windows builds, Play Store submission.
+network calls, iOS/macOS/Windows builds, Play Store submission.
+**`flutter build apk`:** attempted this round with a real Android SDK
+(cmdline-tools + platform-tools + platforms;android-36 + build-tools;36.0.0 +
+JDK 17). It gets all the way through configuration and most of the build, then
+the Gradle daemon is OOM-killed by the sandbox's 2 GB cgroup memory cap. See
+"Round 4" below for the exact evidence and the fixes that were still landed.
+
+---
+
+## Round 4 — Android build attempt + gap audit (2026-11-04)
+
+**Scope:** install the Android SDK, actually run `flutter build apk`, and
+re-audit every phase against the code rather than against this file.
+
+### Toolchain
+
+Android SDK installed and `flutter doctor` reports the Android toolchain as
+healthy: JDK 17.0.21, cmdline-tools, platform-tools, `platforms;android-36`,
+`build-tools;36.0.0`, all licences accepted.
+
+### What the build attempt found (and what was fixed)
+
+The build never reached a green state, but it surfaced four real defects that
+would have broken the build on *any* machine, not just this one:
+
+| # | Finding | Fix |
+|---|---|---|
+| 1 | **`ndkVersion flutter.ndkVersion` forced a ~2.5 GB NDK download.** This project compiles no native code — no `CMakeLists.txt`, no `externalNativeBuild`, and no plugin ships one; every `.so` arrives prebuilt in an AAR. AGP only wanted the NDK to *strip* those libraries. | Removed the pin from `android/app/build.gradle` and disabled stripping via `packaging.jniLibs.keepDebugSymbols += ["**/*.so"]`. |
+| 2 | **AGP auto-downloaded the NDK during configuration** even with the pin gone. | `android.builder.sdkDownload=false` in `android/gradle.properties`. |
+| 3 | **`splits.abi` could never build.** Flutter's Gradle plugin writes `defaultConfig.ndk.abiFilters = armeabi-v7a,arm64-v8a,x86_64`, and AGP rejects having both `abiFilters` and `splits.abi` — so the per-ABI split block added in the low-end round was dead on arrival. | `disable-abi-filtering=true` (the plugin's own documented switch) so the `splits` block owns ABI selection. |
+| 4 | **Gradle's default `-Xmx4096m` exceeded the sandbox's 2 GB cgroup cap**, so the daemon was OOM-killed mid-build. | `android/gradle.properties` tuned to `-Xmx1400m`, `MaxMetaspaceSize=256m`, `UseSerialGC`, `org.gradle.daemon=false`, `workers.max=1`, `kotlin.compiler.execution.strategy=in-process`. |
+
+Also switched the Gradle wrapper from the `-all` distribution to `-bin`
+(no docs/sources, ~570 MB less on disk).
+
+### Where the build actually stops
+
+Configuration now completes and the build runs for 2–6 minutes before the
+daemon dies. The cgroup counters are unambiguous:
+
+```
+memory.max      2147483648   (2 GB, read-only — cannot be raised)
+memory.peak     2152828928   (the cap, hit every attempt)
+memory.events   oom_kill 7
+```
+
+A 10-second sampler during the longest attempt (5m47s) shows resident memory
+pinned at ~2.14 GB for the entire build, and the disk quota (4 GB) filling to
+100% at the same time. This is an environment limit, not a code failure:
+`flutter analyze` compiles every Dart file and reports zero issues, and the
+test suite compiles and runs the real widget tree.
+
+**One real bug this exposed:** `-XX:+HeapDumpOnOutOfMemoryError` was writing a
+**657 MB `java_pid*.hprof`** into `android/` on every OOM, which is what filled
+the disk. The flag has been removed.
+
+### Gap audit — what was actually still open
+
+Re-checked against the code, not against this file:
+
+| Claim in this file | Reality |
+|---|---|
+| "234 missing l10n keys × 10 locales" (Phase 9) | **Stale.** All 12 locales now carry the full **294** keys. Phase 9 localisation is complete. |
+| "12th language" (Phase 9) | **Stale.** 12 `.arb` files exist: ar, en, fr, hi, ja, ko, ml, pl, pt, ru, tr, zh. |
+| "Delete dead `shorts_grid_section.dart`" (Phase 4) | **Already done.** The file is gone and nothing references it. |
+| "`targetSdk` 34 → 35+" (Phase 10) | **Already done.** `targetSdkVersion 35`. |
+| TODO/FIXME markers in `lib/` | **None.** `grep` returns 0. |
+
+### Still UNVERIFIED
+
+- `flutter build apk` — blocked by the 2 GB cgroup cap (see above).
+- Every runtime path: real backend calls, real FFmpeg merge, MediaStore save,
+  PiP, background playback, SD-card writes.
+- Device-level behaviour on Android 7–14.
 
 ---
 

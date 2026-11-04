@@ -47,7 +47,14 @@ gradle.taskGraph.whenReady { taskGraph ->
 android {
     namespace "com.fazilvk.fluxtube"
     compileSdk flutter.compileSdkVersion
-    ndkVersion flutter.ndkVersion
+    // No NDK is pinned on purpose. This project compiles no native code: there
+    // is no CMakeLists.txt, no externalNativeBuild block, and no plugin in the
+    // dependency set ships one — every .so arrives prebuilt inside its AAR.
+    // Pinning `ndkVersion flutter.ndkVersion` made AGP download a ~2.5 GB NDK
+    // that was never used, which is what broke the build on a disk-constrained
+    // machine. Without it AGP simply packages the native libraries unstripped
+    // (a size warning, not an error). Re-add the pin if native code is ever
+    // introduced.
 
     compileOptions {
         // Enable core library desugaring for NewPipe Extractor (requires Java 8+ APIs on older Android)
@@ -105,6 +112,11 @@ android {
         abi {
             enable true
             reset()
+            // Only the two ABIs real phones use. Flutter's Gradle plugin would
+            // otherwise also add x86_64 (emulator-only), and AGP rejects a
+            // splits list that disagrees with defaultConfig.ndk.abiFilters —
+            // which is why `disable-abi-filtering=true` is set in
+            // android/gradle.properties, leaving this block in charge.
             include "armeabi-v7a", "arm64-v8a"
             universalApk false
         }
@@ -115,6 +127,13 @@ android {
             // Keep native libraries compressed in APKs. This keeps per-ABI release
             // artifacts small enough for stores with strict APK size limits.
             useLegacyPackaging = true
+            // Keep every .so exactly as its AAR ships it. AGP strips native
+            // libraries by default, and stripping is the one build step that
+            // requires the NDK — which is a ~2.5 GB download this project has no
+            // other use for (it compiles no native code of its own). The cost is
+            // a few MB of unstripped symbols in the APK; the benefit is a build
+            // that works without the NDK installed.
+            keepDebugSymbols += ["**/*.so"]
         }
     }
 
