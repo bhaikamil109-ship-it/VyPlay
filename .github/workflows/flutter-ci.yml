@@ -39,9 +39,8 @@ jobs:
 
       # The ubuntu runner image ships several large toolchains this build never
       # uses. Removing them frees ~20 GB, which the Gradle build needs: the NDK
-      # is ~2.5 GB and the merged native libraries (FFmpeg + mpv + Flutter, two
-      # ABIs) are several GB more. Without this the build dies with
-      # "No space left on device" during :app:stripDebugDebugSymbols.
+      # is ~2.5 GB and the merged native libraries (FFmpeg + mpv + Flutter) are
+      # several GB more.
       - name: Free disk space
         shell: bash
         run: |
@@ -83,11 +82,9 @@ jobs:
         run: flutter doctor -v || true
 
       # android/gradle.properties sets `android.builder.sdkDownload=false`, which
-      # stops AGP from fetching missing SDK components on its own. That is what
-      # keeps the NDK (~2.5 GB) out of the build, but it also means every
-      # platform/build-tools the build needs must be installed up front.
-      # compileSdk comes from flutter.compileSdkVersion (36 on this Flutter
-      # version) and targetSdk is 35, so both platforms are installed.
+      # stops AGP from fetching missing SDK components on its own. That keeps the
+      # NDK size out of the build, but it also means every platform and
+      # build-tools the build needs must be installed up front.
       - name: Install required Android SDK packages
         shell: bash
         run: |
@@ -135,9 +132,9 @@ jobs:
       - name: Test
         run: flutter test --reporter expanded
 
-      # Per-ABI splits are enabled in android/app/build.gradle, so this produces
-      # app-armeabi-v7a-debug.apk and app-arm64-v8a-debug.apk rather than a
-      # single app-debug.apk. The artifact glob below covers both shapes.
+      # A single debug APK, deliberately: no Gradle `splits` block and no
+      # --split-per-abi here, so the artifact is the plain app-debug.apk that
+      # the flutter tool expects to find under build/app/outputs/flutter-apk/.
       - name: Build debug APK
         run: flutter build apk --debug
 
@@ -145,7 +142,20 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          ls -lah build/app/outputs/flutter-apk/
+          ls -lah build/app/outputs/flutter-apk/ || true
+          ls -lah build/app/outputs/apk/debug/ || true
+
+      # If the Gradle step ever fails again, this prints the real compiler or
+      # packaging error instead of only "failed to produce an .apk file".
+      - name: Show Gradle failure details
+        if: failure()
+        shell: bash
+        run: |
+          set +e
+          echo "=== build tree ==="
+          find build -maxdepth 4 -name '*.apk' -o -maxdepth 4 -name '*.log' 2>/dev/null | head -50
+          echo "=== outputs ==="
+          ls -laR build/app/outputs 2>/dev/null | head -80
 
       - name: Upload debug APKs
         uses: actions/upload-artifact@v4

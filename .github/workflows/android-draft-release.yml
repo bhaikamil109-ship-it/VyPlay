@@ -7,8 +7,7 @@ name: Android APK Build & Release
 # APKs are signed with the real release keystore. When they are absent the
 # workflow generates a throwaway debug keystore so the build still succeeds and
 # still produces installable APKs. That is what makes this workflow green on a
-# fresh clone with no secrets configured — the previous version aborted with
-# "Missing Android signing secrets." before it ever built anything.
+# fresh clone with no secrets configured.
 
 on:
   push:
@@ -25,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     env:
-      GRADLE_OPTS: "-Dorg.gradle.daemon=false -Dkotlin.daemon.jvm.options=-Xmx2048m,-XX:-UseParallelGC"
+      GRADLE_OPTS: "-Dorg.gradle.daemon=false -Dkotlin.daemon.jvm.options=-Xmx1536m,-XX:-UseParallelGC"
 
     steps:
       - name: Checkout
@@ -33,11 +32,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      # The ubuntu runner image ships several large toolchains this build never
-      # uses. Removing them frees ~20 GB, which the Gradle build needs: the NDK
-      # is ~2.5 GB and the merged native libraries (FFmpeg + mpv + Flutter, two
-      # ABIs) are several GB more. Without this the build dies with
-      # "No space left on device" during :app:stripDebugDebugSymbols.
       - name: Free disk space
         shell: bash
         run: |
@@ -68,9 +62,8 @@ jobs:
           cache: true
 
       # android/gradle.properties sets `android.builder.sdkDownload=false`, which
-      # stops AGP from fetching missing SDK components on its own. That keeps the
-      # NDK (~2.5 GB) out of the build, but it also means every platform and
-      # build-tools the build needs must be installed up front.
+      # stops AGP from fetching missing SDK components on its own, so every
+      # platform and build-tools the build needs must be installed up front.
       - name: Install required Android SDK packages
         shell: bash
         run: |
@@ -157,11 +150,14 @@ jobs:
       - name: Test
         run: flutter test
 
-      # android/app/build.gradle enables per-ABI splits with universalApk=false,
-      # so this produces app-armeabi-v7a-release.apk and app-arm64-v8a-release.apk
-      # rather than a single fat APK.
+      # Split-per-abi is Flutter's own flag. It produces
+      # app-armeabi-v7a-release.apk and app-arm64-v8a-release.apk under
+      # build/app/outputs/flutter-apk/ with exactly the names the tool expects.
+      # Doing this from a Gradle `splits` block instead used to suppress the
+      # default app-release.apk and make the whole build report
+      # "Gradle build failed to produce an .apk file".
       - name: Build release APKs
-        run: flutter build apk --release
+        run: flutter build apk --release --split-per-abi
 
       - name: Collect APKs
         shell: bash
@@ -170,6 +166,16 @@ jobs:
           mkdir -p dist
           cp build/app/outputs/flutter-apk/*.apk dist/
           ls -lah dist
+
+      - name: Show Gradle failure details
+        if: failure()
+        shell: bash
+        run: |
+          set +e
+          echo "=== apk files ==="
+          find build -maxdepth 5 -name '*.apk' 2>/dev/null | head -50
+          echo "=== outputs ==="
+          ls -laR build/app/outputs 2>/dev/null | head -80
 
       - name: Read app version
         id: app_version

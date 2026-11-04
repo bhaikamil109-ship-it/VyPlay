@@ -85,7 +85,7 @@ android {
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         multiDexEnabled true
-    }   
+    }
     signingConfigs {
         release {
             if (hasReleaseKeystore) {
@@ -101,30 +101,18 @@ android {
         buildConfig = true
     }
 
-    // Per-ABI APKs. A universal APK carries every architecture's native
-    // libraries, which for this app (FFmpeg + media_kit + ExoPlayer) is tens of
-    // megabytes the device will never load. Splitting means a 32-bit phone
-    // downloads only armeabi-v7a and a modern one only arm64-v8a.
-    //
-    // `universalApk false` keeps the fat APK out of the output; the Play Store
-    // uses the AAB instead, where this split is applied automatically.
-    splits {
-        abi {
-            enable true
-            reset()
-            // Only the two ABIs real phones use. Flutter's Gradle plugin would
-            // otherwise also add x86_64 (emulator-only), and AGP rejects a
-            // splits list that disagrees with defaultConfig.ndk.abiFilters —
-            // which is why `disable-abi-filtering=true` is set in
-            // android/gradle.properties, leaving this block in charge.
-            include "armeabi-v7a", "arm64-v8a"
-            universalApk false
-        }
-    }
+    // Per-ABI APKs are requested from the Flutter tool with
+    // `flutter build apk --split-per-abi`, NOT from a Gradle `splits` block.
+    // A Gradle splits block makes AGP emit only app-<abi>-<type>.apk and skip
+    // the default app-<type>.apk; the flutter tool looks for that default name
+    // in build/app/outputs/flutter-apk/ and, not finding it, fails the build
+    // with "Gradle build failed to produce an .apk file" even though Gradle
+    // itself succeeded. Letting the tool drive splitting keeps the artifact
+    // names and locations exactly what the tool expects.
 
     packaging {
         jniLibs {
-            // Keep native libraries compressed in APKs. This keeps per-ABI release
+            // Keep native libraries compressed in APKs. This keeps release
             // artifacts small enough for stores with strict APK size limits.
             useLegacyPackaging = true
             // Keep every .so exactly as its AAR ships it. AGP strips native
