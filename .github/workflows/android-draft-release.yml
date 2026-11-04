@@ -166,6 +166,25 @@ jobs:
           mkdir -p dist
           cp build/app/outputs/flutter-apk/*.apk dist/
           ls -lah dist
+          # Fail loudly if the build produced nothing, instead of publishing an
+          # empty release and leaving the user hunting for a file that is not there.
+          count="$(find dist -maxdepth 1 -name '*.apk' | wc -l)"
+          if [[ "${count}" -eq 0 ]]; then
+            echo "No APK was produced - failing the job." >&2
+            exit 1
+          fi
+          echo "Collected ${count} APK file(s)."
+
+      # This step is what makes the APKs visible under the run's "Artifacts"
+      # section. Without it the release still gets the files, but the Actions
+      # page shows an empty Artifacts panel.
+      - name: Upload APK artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: vyplay-release-apks
+          path: dist/*.apk
+          if-no-files-found: error
+          retention-days: 30
 
       - name: Show Gradle failure details
         if: failure()
