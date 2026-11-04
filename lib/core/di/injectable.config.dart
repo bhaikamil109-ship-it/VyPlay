@@ -36,7 +36,7 @@ import 'package:fluxtube/domain/trending/trending_service.dart' as _i60;
 import 'package:fluxtube/domain/user_preferences/user_preferences_service.dart'
     as _i543;
 import 'package:fluxtube/domain/watch/watch_service.dart' as _i719;
-import 'package:fluxtube/infrastructure/channel/channel_impl.dart' as _i112;
+import 'package:fluxtube/infrastructure/channel/channel_impl.dart' as _i1120;
 import 'package:fluxtube/infrastructure/download/download_impl.dart' as _i167;
 import 'package:fluxtube/infrastructure/home/home_impl.dart' as _i764;
 import 'package:fluxtube/infrastructure/home_recommendation/home_recommendation_impl.dart'
@@ -47,7 +47,7 @@ import 'package:fluxtube/infrastructure/search/search_history_impl.dart'
     as _i183;
 import 'package:fluxtube/infrastructure/search/search_impl.dart' as _i568;
 import 'package:fluxtube/infrastructure/settings/newpipe_data_service.dart'
-    as _i611;
+    as _i6110;
 import 'package:fluxtube/infrastructure/settings/setting_impl.dart' as _i290;
 import 'package:fluxtube/infrastructure/sponsorblock/sponsorblock_impl.dart'
     as _i959;
@@ -70,11 +70,11 @@ extension GetItInjectableX on _i174.GetIt {
       environment,
       environmentFilter,
     );
-    gh.lazySingleton<_i611.NewPipeDataService>(
-        () => _i611.NewPipeDataService());
+    gh.lazySingleton<_i6110.NewPipeDataService>(
+        () => _i6110.NewPipeDataService());
     gh.lazySingleton<_i479.SubscribeServices>(() => _i848.SubscribeImpl());
     gh.lazySingleton<_i117.PlaylistService>(() => _i166.PlaylistImpl());
-    gh.lazySingleton<_i914.ChannelServices>(() => _i112.ChannelImpl());
+    gh.lazySingleton<_i914.ChannelServices>(() => _i1120.ChannelImpl());
     gh.lazySingleton<_i543.UserPreferencesService>(
         () => _i992.UserPreferencesImpl());
     gh.lazySingleton<_i719.WatchService>(() => _i796.WatchImpl());
