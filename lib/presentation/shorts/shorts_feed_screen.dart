@@ -53,6 +53,19 @@ class _ShortsFeedScreenState extends State<ShortsFeedScreen> {
   bool _initialLoadDone = false;
   String? _errorMessage;
 
+  /// Consecutive failed attempts. Drives the backoff between retries so a
+  /// flaky connection is not hammered with immediate re-requests.
+  int _retryAttempt = 0;
+
+  /// True once the dedicated Shorts source has failed and the feed is being
+  /// served by the search fallback instead.
+  bool _usingFallback = false;
+
+  /// Set when a *pagination* request fails. Kept separate from
+  /// [_errorMessage] so a failed "load more" does not throw away the items
+  /// already on screen.
+  bool _loadMoreFailed = false;
+
   @override
   void initState() {
     super.initState();
@@ -61,30 +74,123 @@ class _ShortsFeedScreenState extends State<ShortsFeedScreen> {
     _loadInitial();
   }
 
+  /// Fetches one page from whichever source is currently active.
+  ///
+  /// The dedicated channel-tab source is preferred; the search source is only
+  /// used after the dedicated one has failed (see [_loadFallback]).
+  Future<NewPipeSearchResp> _fetchPage(String? nextPage) {
+    if (_usingFallback) {
+      return NewPipeChannel.search(
+        query: 'shorts',
+        filter: 'videos',
+        nextPage: nextPage,
+      );
+    }
+    return NewPipeChannel.getShorts(
+      channelId: _activeChannel,
+      nextPage: nextPage,
+    );
+  }
+
   Future<void> _loadInitial() async {
     setState(() {
       _errorMessage = null;
       _initialLoadDone = false;
+      _loadMoreFailed = false;
     });
 
     try {
-      final resp = await NewPipeChannel.getShorts(channelId: _activeChannel);
+      final resp = await _fetchPage(null);
       if (!mounted) return;
       setState(() {
         _shorts
           ..clear()
-          ..addAll(resp.items.where(_isShort));
+          ..addAll((resp.items ?? const <NewPipeSearchItem>[]).where(_isShort));
         _nextPage = resp.nextPage;
         _hasMore = _nextPage != null;
         _initialLoadDone = true;
+        _retryAttempt = 0;
+      });
+    } catch (e) {
+      // The dedicated source can fail for reasons that have nothing to do
+      // with the network (an extractor change, a channel with no Shorts tab).
+      // Try the fallback source once before showing an error, so the tab still
+      // shows real content instead of an empty screen.
+      if (!_usingFallback) {
+        await _loadFallback();
+        return;
+      }
+      if (!mounted) return;
+      setState(() {
+        _initialLoadDone = true;
+        _errorMessage = _describeError(e);
+      });
+    }
+  }
+
+  /// Last-resort source: a Shorts-filtered search.
+  ///
+  /// Used only when the dedicated channel-tab source is unavailable, so the
+  /// tab is never empty for a reason the user cannot act on.
+  Future<void> _loadFallback() async {
+    try {
+      final resp = await NewPipeChannel.search(
+        query: 'shorts',
+        filter: 'videos',
+      );
+      if (!mounted) return;
+      setState(() {
+        _shorts
+          ..clear()
+          ..addAll((resp.items ?? const <NewPipeSearchItem>[]).where(_isShort));
+        _nextPage = resp.nextPage;
+        _hasMore = _nextPage != null;
+        _initialLoadDone = true;
+        _usingFallback = true;
+        _retryAttempt = 0;
       });
     } catch (e) {
       if (!mounted) return;
       setState(() {
         _initialLoadDone = true;
-        _errorMessage = 'Could not load Shorts. Check your connection.';
+        _errorMessage = _describeError(e);
       });
     }
+  }
+
+  /// Turns a thrown error into something the user can act on.
+  String _describeError(Object error) {
+    final text = error.toString().toLowerCase();
+    if (text.contains('socket') ||
+        text.contains('network') ||
+        text.contains('connection') ||
+        text.contains('timeout') ||
+        text.contains('failed host lookup')) {
+      return 'No internet connection. Check your network and try again.';
+    }
+    if (text.contains('extractor') || text.contains('null_result')) {
+      return 'The Shorts source is temporarily unavailable. Try again in a '
+          'moment.';
+    }
+    return 'Could not load Shorts. Pull to refresh or tap retry.';
+  }
+
+  /// Retries the initial load, backing off between consecutive attempts.
+  ///
+  /// The delay grows with each failure (2s, 4s, 6s …) and is capped at 10s, so
+  /// a persistent outage does not turn into a request loop.
+  Future<void> _retry() async {
+    _retryAttempt++;
+    final seconds = (_retryAttempt * 2).clamp(1, 10);
+
+    setState(() {
+      _errorMessage = null;
+      _initialLoadDone = false;
+    });
+
+    await Future<void>.delayed(Duration(seconds: seconds));
+    if (!mounted) return;
+    await _loadInitial();
   }
 
   /// A result counts as a short when the extractor flags it, or when its
@@ -102,30 +208,37 @@ class _ShortsFeedScreenState extends State<ShortsFeedScreen> {
     setState(() => _isLoadingMore = true);
 
     try {
-      final resp = await NewPipeChannel.getShorts(
-        channelId: _activeChannel,
-        nextPage: _nextPage,
-      );
+      final resp = await _fetchPage(_nextPage);
       if (!mounted) return;
       setState(() {
         final known = _shorts.map((e) => e.url).toSet();
-        _shorts.addAll(
-            resp.items.where(_isShort).where((e) => !known.contains(e.url)));
+        _shorts.addAll((resp.items ?? const <NewPipeSearchItem>[])
+            .where(_isShort)
+            .where((e) => !known.contains(e.url)));
         _nextPage = resp.nextPage;
         _hasMore = _nextPage != null;
         _isLoadingMore = false;
+        _loadMoreFailed = false;
       });
     } catch (_) {
       if (!mounted) return;
-      setState(() => _isLoadingMore = false);
+      // Keep the items already on screen; surface a retry affordance at the
+      // end of the list instead of replacing the whole feed with an error.
+      setState(() {
+        _isLoadingMore = false;
+        _loadMoreFailed = true;
+      });
     }
   }
 
   Future<void> _refresh() async {
     // Rotate to a different channel so pull-to-refresh surfaces new content
-    // instead of re-fetching the same page.
+    // instead of re-fetching the same page. A manual refresh also clears the
+    // backoff, because the user explicitly asked for a new attempt.
     final idx = _shortsChannels.indexOf(_activeChannel);
     _activeChannel = _shortsChannels[(idx + 1) % _shortsChannels.length];
+    _retryAttempt = 0;
+    _loadMoreFailed = false;
     await _loadInitial();
   }
 
@@ -193,7 +306,7 @@ class _ShortsFeedScreenState extends State<ShortsFeedScreen> {
         lottie: 'assets/cat-404.zip',
         errorType: ErrorType.network,
         customMessage: _errorMessage,
-        onTap: _loadInitial,
+        onTap: _retry,
       );
     }
 
@@ -220,6 +333,10 @@ class _ShortsFeedScreenState extends State<ShortsFeedScreen> {
         },
         child: GridView.builder(
           physics: const AlwaysScrollableScrollPhysics(),
+          // Dense grids hold four times as many tiles per screen as a list, so
+          // the prefetch window is scaled to the device tier here rather than
+          // reusing the list value.
+          cacheExtent: AppPerf.gridCacheExtent,
           padding: const EdgeInsets.all(AppSpacing.sm),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
@@ -227,9 +344,13 @@ class _ShortsFeedScreenState extends State<ShortsFeedScreen> {
             crossAxisSpacing: 8,
             mainAxisSpacing: 8,
           ),
-          itemCount: _shorts.length + (_isLoadingMore ? 1 : 0),
+          itemCount:
+              _shorts.length + ((_isLoadingMore || _loadMoreFailed) ? 1 : 0),
           itemBuilder: (context, index) {
             if (index >= _shorts.length) {
+              if (_loadMoreFailed) {
+                return _LoadMoreRetryTile(onRetry: _loadMore);
+              }
               return const Center(
                 child: Padding(
                   padding: EdgeInsets.all(16),
@@ -343,6 +464,44 @@ class _ShortsTile extends StatelessWidget {
                 color: Colors.white70,
                 size: 34,
               ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// Shown at the end of the grid when a pagination request failed.
+///
+/// The already-loaded tiles stay on screen, so the user keeps what they had
+/// and can retry just the next page instead of losing the whole feed.
+class _LoadMoreRetryTile extends StatelessWidget {
+  const _LoadMoreRetryTile({required this.onRetry});
+
+  final VoidCallback onRetry;
+
+  @override
+  Widget build(BuildContext context) {
+    final locals = S.of(context);
+    final theme = Theme.of(context);
+
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(AppSpacing.sm),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              locals.retry,
+              style: theme.textTheme.bodySmall,
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 8),
+            TextButton.icon(
+              onPressed: onRetry,
+              icon: const Icon(CupertinoIcons.refresh, size: 18),
+              label: Text(locals.retry),
             ),
           ],
         ),

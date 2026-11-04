@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- VyPlay brand accent, matching AppColors.brand in lib/core/colors.dart.
+         Used as the adaptive launcher icon background so the icon keeps the
+         same violet identity as the in-app theme. -->
+    <color name="ic_launcher_background">#7C4DFF</color>
+</resources>

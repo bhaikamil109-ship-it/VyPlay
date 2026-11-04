@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluxtube/core/perf/app_perf.dart';
 import 'animation_constants.dart';
 
 /// A widget that animates list items with staggered entrance effects
@@ -83,6 +84,17 @@ class _AnimatedListItemState extends State<AnimatedListItem>
       parent: _controller,
       curve: widget.curve,
     ));
+
+    // On a low-tier device the staggered entrance is skipped entirely: a
+    // 20-item list would otherwise keep 20 AnimationControllers alive through
+    // the first paint, which is the single biggest first-scroll hitch. Items
+    // past the stagger limit are off-screen anyway, so their delay is
+    // invisible and the controller is pure cost.
+    if (!AppPerf.enableListEntranceAnimations ||
+        widget.index >= AppPerf.staggerItemLimit) {
+      _controller.value = 1.0;
+      return;
+    }
 
     // Start animation after stagger delay
     final staggerDelay = AppAnimations.getStaggerDelay(

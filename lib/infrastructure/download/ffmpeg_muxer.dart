@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:ffmpeg_kit_flutter_new/ffmpeg_kit.dart';
 import 'package:ffmpeg_kit_flutter_new/ffmpeg_kit_config.dart';
-import 'package:ffmpeg_kit_flutter_new/return_code.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
 /// Result of a successful video/audio merge.
@@ -39,6 +39,41 @@ class MuxFailure implements Exception {
   String toString() => message;
 }
 
+/// Outcome of a single FFmpeg invocation.
+///
+/// Only the exit code and the log tail matter to the merge flow: a non-zero
+/// code means the output must be discarded, and a zero code still has to be
+/// confirmed against the file on disk.
+class FfmpegRunResult {
+  const FfmpegRunResult({required this.exitCode, this.logs = ''});
+
+  /// Process exit code. `0` means FFmpeg reported success.
+  final int exitCode;
+
+  /// Combined FFmpeg log output, used for diagnostics on failure.
+  final String logs;
+
+  bool get isSuccess => exitCode == 0;
+}
+
+/// Runs one FFmpeg command and reports its exit code.
+///
+/// This is a seam, not an abstraction for its own sake: `FFmpegKit` is a
+/// static plugin API that needs the native library, so the merge flow can only
+/// be exercised in a unit test if the command execution can be replaced.
+typedef FfmpegRunner = Future<FfmpegRunResult> Function(String command);
+
+/// Default runner: hands the command to `ffmpeg_kit_flutter_new`.
+Future<FfmpegRunResult> runFfmpegCommand(String command) async {
+  final session = await FFmpegKit.execute(command);
+  final returnCode = await session.getReturnCode();
+  final logs = await session.getAllLogsAsString();
+  return FfmpegRunResult(
+    exitCode: returnCode?.getValue() ?? -1,
+    logs: logs ?? '',
+  );
+}
+
 /// Merges separate video and audio streams into a single playable file.
 ///
 /// This replaces the previous Android-only `MediaMuxer` implementation. The
@@ -48,11 +83,24 @@ class MuxFailure implements Exception {
 ///     (VP9 + Opus goes to MKV rather than producing a broken MP4),
 ///   - stream copy by default, so no quality is lost to re-encoding.
 class FfmpegMuxer {
-  FfmpegMuxer({MethodChannel? planChannel})
-      : _planChannel = planChannel ??
-            const MethodChannel('com.fazilvk.fluxtube/muxer');
+  FfmpegMuxer({
+    MethodChannel? planChannel,
+    FfmpegRunner? runner,
+    bool? isAndroid,
+  })  : _planChannel = planChannel ??
+            const MethodChannel('com.fazilvk.fluxtube/muxer'),
+        _runner = runner ?? runFfmpegCommand,
+        _isAndroid = isAndroid ?? Platform.isAndroid;
 
   final MethodChannel _planChannel;
+
+  /// Executes the FFmpeg command. Injectable so the merge flow is testable
+  /// without the native binary.
+  final FfmpegRunner _runner;
+
+  /// Whether the native mux-plan channel should be consulted. Injectable so
+  /// the Android branch is reachable from a host-platform unit test.
+  final bool _isAndroid;
 
   /// Merges [videoPath] and [audioPath] into [outputPath].
   ///
@@ -75,9 +123,9 @@ class FfmpegMuxer {
     }
 
     var targetPath = outputPath;
-    var container = _containerFromPath(outputPath);
+    var container = containerFromPath(outputPath);
 
-    if (Platform.isAndroid) {
+    if (_isAndroid) {
       try {
         final plan = await _planChannel.invokeMapMethod<String, dynamic>(
           'resolveMuxPlan',
@@ -109,7 +157,7 @@ class FfmpegMuxer {
       await target.delete();
     }
 
-    final command = _buildCommand(
+    final command = buildCommand(
       videoPath: videoPath,
       audioPath: audioPath,
       outputPath: targetPath,
@@ -118,23 +166,20 @@ class FfmpegMuxer {
 
     log('[Mux] Running: ffmpeg $command');
 
-    final session = await FFmpegKit.execute(command);
-    final returnCode = await session.getReturnCode();
-    final logs = await session.getAllLogsAsString();
+    final run = await _runner(command);
 
-    if (!ReturnCode.isSuccess(returnCode)) {
+    if (!run.isSuccess) {
       // Never leave a half-written file behind on failure.
       if (await target.exists()) {
         await target.delete();
       }
-      final code = returnCode?.getValue();
-      log('[Mux] FFmpeg failed (exit $code): $logs');
+      log('[Mux] FFmpeg failed (exit ${run.exitCode}): ${run.logs}');
       throw MuxFailure(
         'FFmpeg could not merge the video and audio streams '
-        '(exit code $code). The selected resolution may have no compatible '
-        'audio track. Try a lower resolution, or download the streams '
-        'separately.',
-        exitCode: code,
+        '(exit code ${run.exitCode}). The selected resolution may have no '
+        'compatible audio track. Try a lower resolution, or download the '
+        'streams separately.',
+        exitCode: run.exitCode,
       );
     }
 
@@ -159,7 +204,12 @@ class FfmpegMuxer {
   /// Stream-copy merge. `-map` pins the first video track from the video file
   /// and the first audio track from the audio file, which is what the
   /// download pipeline always intends.
-  String _buildCommand({
+  ///
+  /// Public and annotated for tests: the exact argument list is part of the
+  /// contract (stream copy, `+faststart` for MP4, `-shortest`), so it is
+  /// asserted directly rather than inferred from a real FFmpeg run.
+  @visibleForTesting
+  String buildCommand({
     required String videoPath,
     required String audioPath,
     required String outputPath,
@@ -188,7 +238,8 @@ class FfmpegMuxer {
     return buffer.toString();
   }
 
-  String _containerFromPath(String path) {
+  @visibleForTesting
+  String containerFromPath(String path) {
     final lower = path.toLowerCase();
     if (lower.endsWith('.mkv')) return 'mkv';
     if (lower.endsWith('.webm')) return 'webm';

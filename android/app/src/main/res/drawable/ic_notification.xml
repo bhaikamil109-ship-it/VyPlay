@@ -4,7 +4,7 @@
     android:height="24dp"
     android:viewportWidth="24"
     android:viewportHeight="24">
-    <!-- FluxTube notification icon - simple play button (white only for notification) -->
+    <!-- VyPlay notification icon - simple play button (white only for notification) -->
     <path
         android:fillColor="#FFFFFFFF"
         android:pathData="M8,5v14l11,-7z"/>

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:media_kit/media_kit.dart';
 import 'package:media_kit_video/media_kit_video.dart';
+import 'package:fluxtube/core/perf/app_perf.dart';
 import 'package:fluxtube/core/services/pip_service.dart';
 import 'package:fluxtube/core/services/audio_handler_service.dart';
 import 'package:fluxtube/core/services/exoplayer_notification_bridge.dart';
@@ -666,13 +667,30 @@ class GlobalPlayerController extends ChangeNotifier {
         id: _currentVideoId!,
         title: title,
         artist: artist,
-        artUri: thumbnailUrl,
+        artUri: _notificationArtUri(thumbnailUrl),
         duration: duration,
       );
       log('[GlobalPlayer] Updated media notification: $title by $artist');
     } else {
       log('[GlobalPlayer] Cannot update notification - audioHandler: ${audioHandler != null}, videoId: $_currentVideoId');
     }
+  }
+
+  /// Downgrades a YouTube thumbnail URL to a small variant on low-end
+  /// devices, and leaves it untouched everywhere else.
+  ///
+  /// Only the known `i.ytimg.com` / `img.youtube.com` thumbnail paths are
+  /// rewritten; any other URL (a Piped/Invidious proxy, a local file) is
+  /// returned as-is so this never breaks a working image.
+  String? _notificationArtUri(String? url) {
+    if (url == null || !AppPerf.preferLowResPosters) return url;
+    if (!url.contains('ytimg.com') && !url.contains('img.youtube.com')) {
+      return url;
+    }
+    return url
+        .replaceAll('maxresdefault.jpg', 'mqdefault.jpg')
+        .replaceAll('sddefault.jpg', 'mqdefault.jpg')
+        .replaceAll('hqdefault.jpg', 'mqdefault.jpg');
   }
 
   /// Clear media notification

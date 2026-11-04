@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Adaptive launcher icon (Android 8.0 / API 26+).
+
+  Named `launcher_icon` to match the `android:icon="@mipmap/launcher_icon"`
+  reference in AndroidManifest.xml, so the adaptive definition replaces the
+  legacy bitmap on modern devices instead of being ignored.
+
+  Without this file the launcher falls back to the square PNG and the icon is
+  letterboxed inside a white shape on most modern devices. The `-v26` qualifier
+  means older releases keep using the mipmap-*/launcher_icon.png bitmaps, so
+  nothing regresses below API 26.
+-->
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <background android:drawable="@color/ic_launcher_background" />
+    <foreground android:drawable="@drawable/ic_launcher_foreground" />
+    <monochrome android:drawable="@drawable/ic_launcher_monochrome" />
+</adaptive-icon>
