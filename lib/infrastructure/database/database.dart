@@ -168,6 +168,11 @@ class DownloadItems extends Table {
 class AppDatabase extends _$AppDatabase {
   AppDatabase._() : super(_openConnection());
 
+  /// Test-only constructor: lets a unit test drive the real schema and the
+  /// real settings queries against an in-memory executor, so persistence
+  /// behaviour is exercised without a device or a file on disk.
+  AppDatabase.forTesting(super.executor);
+
   static AppDatabase? _instance;
 
   static AppDatabase get instance {

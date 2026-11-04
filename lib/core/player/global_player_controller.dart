@@ -23,6 +23,57 @@ class GlobalPlayerController extends ChangeNotifier {
     _setupPipListener();
   }
 
+  /// Test-only constructor: builds a controller without touching media_kit or
+  /// the PiP method channel, so state transitions and the pure clamping
+  /// helpers can be exercised on a host machine.
+  @visibleForTesting
+  GlobalPlayerController.forTesting();
+
+  /// The playback speeds the UI offers. Kept here so the controller and the
+  /// controls overlays cannot drift apart.
+  static const List<double> allowedPlaybackSpeeds = [
+    0.25,
+    0.5,
+    0.75,
+    1.0,
+    1.25,
+    1.5,
+    1.75,
+    2.0,
+  ];
+
+  /// Snaps [speed] to the nearest allowed value, so a stray value from a
+  /// restored preference or a platform callback can never reach the engine.
+  static double clampSpeed(double speed) {
+    if (speed.isNaN) return 1.0;
+    var best = allowedPlaybackSpeeds.first;
+    var bestDelta = (speed - best).abs();
+    for (final candidate in allowedPlaybackSpeeds) {
+      final delta = (speed - candidate).abs();
+      if (delta < bestDelta) {
+        best = candidate;
+        bestDelta = delta;
+      }
+    }
+    return best;
+  }
+
+  /// Clamps a 0..1 control value (volume, brightness).
+  static double clampUnit(double value) {
+    if (value.isNaN) return 0.0;
+    return value.clamp(0.0, 1.0);
+  }
+
+  /// Clamps a seek target into `[0, duration]`.
+  ///
+  /// A zero/unknown duration means the media has not reported its length yet;
+  /// the target is then only floored at zero rather than collapsed to it.
+  static Duration clampSeek(Duration target, Duration duration) {
+    if (target.isNegative) return Duration.zero;
+    if (duration <= Duration.zero) return target;
+    return target > duration ? duration : target;
+  }
+
   Player? _player;
   VideoController? _videoController;
   String? _currentVideoId;
@@ -49,6 +100,8 @@ class GlobalPlayerController extends ChangeNotifier {
   String? _nativeSubtitleCode;
   String? _nativeFitMode;
   double _nativeSpeed = 1.0;
+  double _volume = 1.0;
+  double _brightness = 1.0;
   Duration _nativePosition = Duration.zero;
   Duration _nativeDuration = Duration.zero;
   bool _nativeWasPlaying = false;
@@ -131,6 +184,8 @@ class GlobalPlayerController extends ChangeNotifier {
   String? get nativeSubtitleCode => _nativeSubtitleCode;
   String? get nativeFitMode => _nativeFitMode;
   double get nativeSpeed => _nativeSpeed;
+  double get volume => _volume;
+  double get brightness => _brightness;
   Duration get nativePosition => _nativePosition;
   bool get nativeWasPlaying => _nativeWasPlaying;
 
@@ -158,6 +213,12 @@ class GlobalPlayerController extends ChangeNotifier {
       _currentVideoId = null;
       _currentVideoUrl = null;
       _lastPosition = Duration.zero;
+      // A different video must not inherit the previous one's clock: the
+      // position/duration getters read these while a native session is active.
+      _nativePosition = Duration.zero;
+      _nativeDuration = Duration.zero;
+      _nativeWasPlaying = false;
+      _nativeBuffering = false;
     }
     _safeNotifyListeners();
     log('[GlobalPlayer] Native ExoPlayer session: $videoId / $quality');
@@ -207,6 +268,31 @@ class GlobalPlayerController extends ChangeNotifier {
     _nativeDuration = Duration.zero;
     _nativeWasPlaying = false;
     _nativeBuffering = false;
+    _safeNotifyListeners();
+  }
+
+  /// Seeks to [position], clamped into the media's bounds.
+  Future<void> seekTo(Duration position) async {
+    final target = clampSeek(position, totalDuration);
+    if (_player == null) return;
+    await _player!.seek(target);
+  }
+
+  /// Sets the playback speed, snapped to [allowedPlaybackSpeeds].
+  void setPlaybackSpeed(double speed) {
+    _nativeSpeed = clampSpeed(speed);
+    _safeNotifyListeners();
+  }
+
+  /// Sets the player volume, clamped to 0..1.
+  void setVolume(double value) {
+    _volume = clampUnit(value);
+    _safeNotifyListeners();
+  }
+
+  /// Sets the player brightness, clamped to 0..1.
+  void setBrightness(double value) {
+    _brightness = clampUnit(value);
     _safeNotifyListeners();
   }
 
@@ -361,7 +447,7 @@ class GlobalPlayerController extends ChangeNotifier {
   Future<void> restorePlaybackState() async {
     if (_player != null) {
       if (_lastPosition.inSeconds > 0) {
-        await _player!.seek(_lastPosition);
+        await seekTo(_lastPosition);
         log('[GlobalPlayer] Restored position: ${_lastPosition.inSeconds}s');
       }
       if (_wasPlaying) {
@@ -477,7 +563,7 @@ class GlobalPlayerController extends ChangeNotifier {
 
       // Seek to position if needed
       if (seekToSeconds > 0) {
-        await _player!.seek(Duration(seconds: seekToSeconds));
+        await seekTo(Duration(seconds: seekToSeconds));
         log('[GlobalPlayer] Seeked to $seekToSeconds s');
       }
 
