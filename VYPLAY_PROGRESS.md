@@ -6,11 +6,69 @@
 > plan: *"No phase should be marked complete based only on an AI-generated
 > report."*
 
-**Last updated:** 2026-11-02
-**Environment:** Debian Linux, Flutter 3.35.1 (stable), Dart 3.9.0, JDK 17.0.21
-**Verification available here:** `flutter analyze`, `flutter test`, `flutter build apk --debug`
+**Last updated:** 2026-11-04
+**Environment:** Debian Linux, Flutter 3.47.9 (stable), Dart 3.13.7
+**Verification available here:** `flutter analyze`, `flutter test`
 **Verification NOT available here:** physical Android device, real YouTube
-network calls, iOS/macOS/Windows builds, Play Store submission.
+network calls, `flutter build apk` (no Android SDK / Gradle cache in this
+sandbox), iOS/macOS/Windows builds, Play Store submission.
+
+---
+
+## Round 3 — verification round (2026-11-04)
+
+**Scope:** actually run the toolchain, fix what it found, and close the
+remaining Phase 10 test-coverage gaps.
+
+### Toolchain
+
+The Flutter SDK was installed this round via a shallow git clone
+(`git clone --depth 1 -b stable`), which fits in the 4 GB sandbox where the
+tarball did not. `flutter pub get` then succeeded.
+
+One environment quirk worth recording: `flutter pub get` fails with
+`tar: Cannot change ownership ... Invalid argument` while extracting the
+Gradle wrapper, because the archive carries a foreign uid/gid. Setting
+`TAR_OPTIONS=--no-same-owner` fixes it. This is a sandbox artefact, not a
+project problem.
+
+### What the toolchain found (and what was fixed)
+
+| # | Finding | Fix |
+|---|---|---|
+| 1 | **Compile error** — `DeviceProfile` undefined in `download_notification_service.dart:123`. The Android 7–12 notification fallback added in the low-end round referenced a class that was never imported, so the file did not compile. | Added `import 'package:fluxtube/core/perf/device_profile.dart';` |
+| 2 | 3 × `cacheExtent` deprecated (Flutter 3.41+) | Migrated to `scrollCacheExtent: ScrollCacheExtent.pixels(...)` in `screen_home.dart`, `newpipe/feed_section.dart`, `shorts_feed_screen.dart`, with `import 'package:flutter/rendering.dart' show ScrollCacheExtent;` |
+| 3 | Unused import `app_perf.dart` in `home/widgets/feed_section.dart` | Removed |
+
+**Result: `flutter analyze` → No issues found.**
+
+### Test coverage added (Phase 10.2)
+
+| File | Tests | Covers |
+|---|---|---|
+| `test/download_quality_test.dart` | 20 | Quality labels, size formatting, `bestVideoQuality`/`bestAudioQuality` fallbacks, HLS/muxed defaults |
+| `test/backup_validation_test.dart` | 14 | ZIP envelope (`newpipe.db` / `preferences.json`), subscriptions-only backups, garbage/truncated input, preferences round-trip, non-destructive reads |
+| `test/profile_separation_test.dart` | 12 | `profileName` defaults and propagation on `Subscribe` and `DownloadItem`, same channel/video in two profiles, per-profile filtering |
+| `test/shorts_retry_test.dart` | 19 | Backoff curve (2/4/6/8 → capped 10s), counter reset on success and manual refresh, error classification, short detection |
+
+**Result: `flutter test` → 99 tests, all passed.**
+
+Two of the new tests initially failed and were corrected against the real
+behaviour rather than the assumed behaviour:
+
+- `DownloadItem.create` has no `status` parameter (it always starts `pending`),
+  so the test was passing an argument that does not exist.
+- `ZipDecoder.decodeBytes` does **not** throw on garbage — it returns an empty
+  archive. The test now asserts the empty result, which is the more useful
+  fact: it is exactly why the importer must check for the `newpipe.db` entry
+  instead of relying on an exception.
+
+### Still UNVERIFIED
+
+- `flutter build apk` — no Android SDK in this sandbox.
+- Every runtime path: real backend calls, real FFmpeg merge, MediaStore save,
+  PiP, background playback, SD-card writes.
+- Device-level behaviour on Android 7–14.
 
 ---
 

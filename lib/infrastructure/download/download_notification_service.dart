@@ -6,6 +6,7 @@ import 'dart:ui' show Color;
 import 'package:dio/dio.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:fluxtube/core/api_client.dart';
+import 'package:fluxtube/core/perf/device_profile.dart';
 import 'package:fluxtube/domain/download/models/download_item.dart';
 import 'package:fluxtube/presentation/main_navigation/main_navigation.dart';
 import 'package:fluxtube/presentation/routes/app_routes.dart';

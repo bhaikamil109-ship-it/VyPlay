@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart' show ScrollCacheExtent;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluxtube/application/application.dart';
 import 'package:fluxtube/core/constants.dart';
@@ -66,7 +67,7 @@ class _NewPipeFeedVideoSectionState extends State<NewPipeFeedVideoSection> {
     return ListView.separated(
       controller: _scrollController,
       // Prefetch window scaled to the device (see AppPerf.listCacheExtent).
-      cacheExtent: AppPerf.listCacheExtent,
+      scrollCacheExtent: ScrollCacheExtent.pixels(AppPerf.listCacheExtent),
       separatorBuilder: (context, index) => kHeightBox10,
       itemBuilder: (context, index) {
         // Show loading indicator at the end

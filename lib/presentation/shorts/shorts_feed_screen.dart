@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart' show ScrollCacheExtent;
 import 'package:fluxtube/core/colors.dart';
 import 'package:fluxtube/core/constants.dart';
 import 'package:fluxtube/core/perf/app_perf.dart';
@@ -336,7 +337,7 @@ class _ShortsFeedScreenState extends State<ShortsFeedScreen> {
           // Dense grids hold four times as many tiles per screen as a list, so
           // the prefetch window is scaled to the device tier here rather than
           // reusing the list value.
-          cacheExtent: AppPerf.gridCacheExtent,
+          scrollCacheExtent: ScrollCacheExtent.pixels(AppPerf.gridCacheExtent),
           padding: const EdgeInsets.all(AppSpacing.sm),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,

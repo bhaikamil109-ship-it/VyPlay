@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart' show ScrollCacheExtent;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluxtube/application/application.dart';
 import 'package:fluxtube/core/constants.dart';
@@ -364,7 +365,7 @@ class ScreenHome extends StatelessWidget {
 
   Widget _buildLoadingList() {
     return ListView.separated(
-      cacheExtent: AppPerf.listCacheExtent,
+      scrollCacheExtent: ScrollCacheExtent.pixels(AppPerf.listCacheExtent),
       separatorBuilder: (context, index) => kHeightBox10,
       itemBuilder: (context, index) {
         return const ShimmerHomeVideoInfoCard();
