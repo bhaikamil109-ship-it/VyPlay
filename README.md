@@ -6,6 +6,7 @@
 <a href="https://github.com/bhaikamil109-ship-it/VyPlay./releases" alt="GitHub release"><img src="https://img.shields.io/github/release/bhaikamil109-ship-it/VyPlay..svg" ></a>
 <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" alt="GitHub release"><img src="https://shields.io/badge/License-GPL%20v3-blue.svg" ></a>
   <a href="https://github.com/bhaikamil109-ship-it/VyPlay./releases" alt="GitHub release"><img src="https://shields.io/badge/Flutter-v3.47.1-blue.svg" ></a>
+  <a href="https://github.com/bhaikamil109-ship-it/VyPlay./actions/workflows/flutter-ci.yml" alt="Flutter CI"><img src="https://github.com/bhaikamil109-ship-it/VyPlay./actions/workflows/flutter-ci.yml/badge.svg" ></a>
 </p>
 
 A clean, ad-free YouTube client built with Flutter. Watch YouTube videos without ads, subscribe to channels, retrieve video dislikes, read comments, save videos, and more.
