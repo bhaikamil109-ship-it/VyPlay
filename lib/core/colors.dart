@@ -1,1 +1,116 @@
-aW1wb3J0ICdwYWNrYWdlOmZsdXR0ZXIvbWF0ZXJpYWwuZGFydCc7CgovLyBMZWdhY3kgY29sb3JzIChrZXB0IGZvciBjb21wYXRpYmlsaXR5KQpjb25zdCBDb2xvciBrV2hpdGVDb2xvciA9IENvbG9ycy53aGl0ZTsKY29uc3QgQ29sb3Iga1JlZENvbG9yID0gQ29sb3JzLnJlZDsKY29uc3Qga0JsYWNrQ29sb3IgPSBDb2xvcnMuYmxhY2s7CmNvbnN0IGtCbHVlQ29sb3IgPSBDb2xvcnMubGlnaHRCbHVlOwpjb25zdCBDb2xvciBrVHJhbnNwYXJlbnRDb2xvciA9IENvbG9ycy50cmFuc3BhcmVudDsKQ29sb3Iga0RhcmtDb2xvciA9IENvbG9ycy5ibGFjay53aXRoVmFsdWVzKGFscGhhOiAwLjUpOwpDb2xvcj8ga0dyZXlDb2xvciA9IENvbG9ycy5ncmV5WzcwMF07CkNvbG9yPyBrR3JleU9wYWNpdHlDb2xvciA9IENvbG9ycy5ncmV5LndpdGhWYWx1ZXMoYWxwaGE6IDAuMik7CkNvbG9yPyBrQmx1ZU9wYWNpdHlDb2xvciA9IENvbG9ycy5saWdodEJsdWUud2l0aFZhbHVlcyhhbHBoYTogMC4yKTsKCmZpbmFsIExpbmVhckdyYWRpZW50IHNoaW1tZXJHcmFkaWVudCA9IExpbmVhckdyYWRpZW50KGNvbG9yczogWwogIENvbG9ycy5ncmV5LnNoYWRlNTAwLAogIENvbG9ycy5ncmV5LnNoYWRlNjAwLAogIENvbG9ycy5ncmV5LAogIENvbG9ycy5ncmV5LnNoYWRlNzAwLApdKTsKCi8vLyBTZW1hbnRpYyBjb2xvciBzeXN0ZW0gZm9yIGNvbnNpc3RlbnQgdGhlbWluZwoKLy8vCi8vLyBUaGUgcGFsZXR0ZSBmb2xsb3dzIExpYnJlVHViZS1FbmhhbmNlZCdzIE1hdGVyaWFsIDMgInJlZCIgc2NoZW1lIHNvIHRoZSBhcHAKLy8vIHJlYWRzIGxpa2UgdGhhdCBjbGllbnQ6IGEgbXV0ZWQgYnJpY2stcmVkIHByaW1hcnkgKG5vdCBZb3VUdWJlIHJlZCksIHdhcm0KLy8vIG5lYXItYmxhY2sgc3VyZmFjZXMgaW4gZGFyayBtb2RlLCBhbmQgd2FybSBvZmYtd2hpdGUgc3VyZmFjZXMgaW4gbGlnaHQgbW9kZS4KY2xhc3MgQXBwQ29sb3JzIHsKICAvLyBWeVBsYXkgYnJhbmQgYWNjZW50LiBLZXB0IGFzIHRoZSBzZWVkIGZvciBkeW5hbWljL2Rlcml2ZWQgc2NoZW1lcy4KICBzdGF0aWMgY29uc3QgQ29sb3IgYnJhbmQgPSBDb2xvcigweEZGOUY0MDM0KTsKICBzdGF0aWMgY29uc3QgQ29sb3IgYnJhbmRMaWdodCA9IENvbG9yKDB4RkZGQjRBOSk7CiAgc3RhdGljIGNvbnN0IENvbG9yIGJyYW5kRGFyayA9IENvbG9yKDB4RkY3RjI5MUYpOwoKICAvLyBQcmltYXJ5IGJyYW5kIGNvbG9ycyAoTGlicmVUdWJlLUVuaGFuY2VkIHJlZCBzY2hlbWUpCiAgc3RhdGljIGNvbnN0IENvbG9yIHByaW1hcnkgPSBDb2xvcigweEZGOUY0MDM0KTsKICBzdGF0aWMgY29uc3QgQ29sb3IgcHJpbWFyeUxpZ2h0ID0gQ29sb3IoMHhGRkZC NEE5KTsKICBzdGF0aWMgY29uc3QgQ29sb3IgcHJpbWFyeURhcmsgPSBDb2xvcigweEZGN0YyOTFGKTsKICBzdGF0aWMgY29uc3QgQ29sb3IgcHJpbWFyeUNvbnRhaW5lciA9IENvbG9yKDB4RkZGRkRBRDUpOwoKICAvLyBTdXJmYWNlIGNvbG9ycwogIHN0YXRpYyBjb25zdCBDb2xvciBzdXJmYWNlID0gQ29sb3IoMHhGRkZGRkJGRik7CiAgc3RhdGljIGNvbnN0IENvbG9yIHN1cmZhY2VEYXJrID0gQ29sb3IoMHhGRjIwMUExOSk7CiAgc3RhdGljIGNvbnN0IENvbG9yIHN1cmZhY2VWYXJpYW50ID0gQ29sb3IoMHhGRkY1REREQSk7CiAgc3RhdGljIGNvbnN0IENvbG9yIHN1cmZhY2VWYXJpYW50RGFyayA9IENvbG9yKDB4RkY1MzQzNDEpOwoKICAvLyBCYWNrZ3JvdW5kIGNvbG9ycwogIHN0YXRpYyBjb25zdCBDb2xvciBiYWNrZ3JvdW5kID0gQ29sb3IoMHhGRkZGRkJGRik7CiAgc3RhdGljIGNvbnN0IENvbG9yIGJhY2tncm91bmREYXJrID0gQ29sb3IoMHhGRjIwMUExOSk7CgogIC8vIE9uIGNvbG9ycyAodGV4dC9pY29ucyBvbiBjb2xvcmVkIGJhY2tncm91bmRzKQogIHN0YXRpYyBjb25zdCBDb2xvciBvblByaW1hcnkgPSBDb2xvcnMud2hpdGU7CiAgc3RhdGljIGNvbnN0IENvbG9yIG9uU3VyZmFjZSA9IENvbG9yKDB4RkYyMDFBMTkpOwogIHN0YXRpYyBjb25zdCBDb2xvciBvblN1cmZhY2VEYXJrID0gQ29sb3IoMHhGRkVERTBERSk7CiAgc3RhdGljIGNvbnN0IENvbG9yIG9uU3VyZmFjZVZhcmlhbnQgPSBDb2xvcigweEZGNTM0MzQxKTsKICBzdGF0aWMgY29uc3QgQ29sb3Igb25TdXJmYWNlVmFyaWFudERhcmsgPSBDb2xvcigweEZGRDhDMkJFKTsKCiAgLy8gU3RhdGUgY29sb3JzCiAgc3RhdGljIGNvbnN0IENvbG9yIGVycm9yID0gQ29sb3IoMHhGRkJBMUExQSk7CiAgc3RhdGljIGNvbnN0IENvbG9yIGVycm9yRGFyayA9IENvbG9yKDB4RkZGQkI0QUIpOwogIHN0YXRpYyBjb25zdCBDb2xvciBlcnJvckNvbnRhaW5lciA9IENvbG9yKDB4RkZGRkRBRDYpOwogIHN0YXRpYyBjb25zdCBDb2xvciBlcnJvckNvbnRhaW5lckRhcmsgPSBDb2xvcigweEZGOTMwMDBBKTsKICBzdGF0aWMgY29uc3QgQ29sb3Igc3VjY2VzcyA9IENvbG9yKDB4RkYyRTdEMzIpOwogIHN0YXRpYyBjb25zdCBDb2xvciBzdWNjZXNzRGFyayA9IENvbG9yKDB4RkY4MUM3ODQpOwogIHN0YXRpYyBjb25zdCBDb2xvciBzdWNjZXNzQ29udGFpbmVyID0gQ29sb3IoMHhGRkM4RTZDOSk7CiAgc3RhdGljIGNvbnN0IENvbG9yIHdhcm5pbmcgPSBDb2xvcigweEZGRkY4RjAwKTsKICBzdGF0aWMgY29uc3QgQ29sb3Igd2FybmluZ0RhcmsgPSBDb2xvcigweEZGRkZCNzREKTsKICBzdGF0aWMgY29uc3QgQ29sb3Igd2FybmluZ0NvbnRhaW5lciA9IENvbG9yKDB4RkZGRkUwQjIpOwoKICAvLyBZb3VUdWJlIHNwZWNpZmljCiAgc3RhdGljIGNvbnN0IENvbG9yIHlvdXR1YmVSZWQgPSBDb2xvcigweEZGRkYwMDAwKTsKICBzdGF0aWMgY29uc3QgQ29sb3IgeW91dHViZURhcmsgPSBDb2xvcigweEZGQ0MwMDAwKTsKICBzdGF0aWMgY29uc3QgQ29sb3IgbGlrZUZpbGxlZCA9IENvbG9yKDB4RkYwNjVGRDQpOwogIHN0YXRpYyBjb25zdCBDb2xvciBzdWJzY3JpYmVkUmVkID0gQ29sb3IoMHhGRkNDMDAwMCk7CgogIC8vIE5ldXRyYWwgY29sb3JzCiAgc3RhdGljIGNvbnN0IENvbG9yIGRpdmlkZXIgPSBDb2xvcigweEZGRTBFMEUwKTsKICBzdGF0aWMgY29uc3QgQ29sb3IgZGl2aWRlckRhcmsgPSBDb2xvcigweEZGMkMyQzJDKTsKICBzdGF0aWMgY29uc3QgQ29sb3IgZGlzYWJsZWQgPSBDb2xvcigweEZGQkRCREJEKTsKICBzdGF0aWMgY29uc3QgQ29sb3IgZGlzYWJsZWREYXJrID0gQ29sb3IoMHhGRjQyNDI0Mik7CgogIC8vIE92ZXJsYXkgY29sb3JzCiAgc3RhdGljIENvbG9yIHNjcmltID0gQ29sb3JzLmJsYWNrLndpdGhWYWx1ZXMoYWxwaGE6IDAuMzIpOwogIHN0YXRpYyBDb2xvciBvdmVybGF5ID0gQ29sb3JzLmJsYWNrLndpdGhWYWx1ZXMoYWxwaGE6IDAuNSk7CiAgc3RhdGljIENvbG9yIG92ZXJsYXlMaWdodCA9IENvbG9ycy5ibGFjay53aXRoVmFsdWVzKGFscGhhOiAwLjEpOwoKICAvLyBDYXJkIGNvbG9ycwogIHN0YXRpYyBjb25zdCBDb2xvciBjYXJkTGlnaHQgPSBDb2xvcnMud2hpdGU7CiAgc3RhdGljIGNvbnN0IENvbG9yIGNhcmREYXJrID0gQ29sb3IoMHhGRjFFMUUxRSk7CiAgc3RhdGljIENvbG9yIGNhcmRFbGV2YXRlZCA9IENvbG9ycy53aGl0ZTsKICBzdGF0aWMgQ29sb3IgY2FyZEVsZXZhdGVkRGFyayA9IGNvbnN0IENvbG9yKDB4RkYyRDJEMkQpOwoKICAvLyBJbnRlcmFjdGl2ZSBzdGF0ZXMKICBzdGF0aWMgQ29sb3IgaG92ZXJMaWdodCA9IENvbG9ycy5ibGFjay53aXRoVmFsdWVzKGFscGhhOiAwLjA0KTsKICBzdGF0aWMgQ29sb3IgaG92ZXJEYXJrID0gQ29sb3JzLndoaXRlLndpdGhWYWx1ZXMoYWxwaGE6IDAuMDgpOwogIHN0YXRpYyBDb2xvciBmb2N1c0xpZ2h0ID0gQ29sb3JzLmJsYWNrLndpdGhWYWx1ZXMoYWxwaGE6IDAuMTIpOwogIHN0YXRpYyBDb2xvciBmb2N1c0RhcmsgPSBDb2xvcnMud2hpdGUud2l0aFZhbHVlcyhhbHBoYTogMC4xMik7CiAgc3RhdGljIENvbG9yIHByZXNzZWRMaWdodCA9IENvbG9ycy5ibGFjay53aXRoVmFsdWVzKGFscGhhOiAwLjEyKTsKICBzdGF0aWMgQ29sb3IgcHJlc3NlZERhcmsgPSBDb2xvcnMud2hpdGUud2l0aFZhbHVlcyhhbHBoYTogMC4xMik7CgogIC8vIFNoaW1tZXIgZ3JhZGllbnRzCiAgc3RhdGljIExpbmVhckdyYWRpZW50IGdldCBzaGltbWVyR3JhZGllbnRMaWdodCA9PiBMaW5lYXJHcmFkaWVudCgKICAgICAgICBjb2xvcnM6IFsKICAgICAgICAgIENvbG9ycy5ncmV5LnNoYWRlMzAwLAogICAgICAgICAgQ29sb3JzLmdyZXkuc2hhZGUyMDAsCiAgICAgICAgICBDb2xvcnMuZ3JleS5zaGFkZTMwMCwKICAgICAgICBdLAogICAgICAgIHN0b3BzOiBjb25zdCBbMC4wLCAwLjUsIDEuMF0sCiAgICAgICk7CgogIHN0YXRpYyBMaW5lYXJHcmFkaWVudCBnZXQgc2hpbW1lckdyYWRpZW50RGFyayA9PiBMaW5lYXJHcmFkaWVudCgKICAgICAgICBjb2xvcnM6IFsKICAgICAgICAgIENvbG9ycy5ncmV5LnNoYWRlODAwLAogICAgICAgICAgQ29sb3JzLmdyZXkuc2hhZGU3MDAsCiAgICAgICAgICBDb2xvcnMuZ3JleS5zaGFkZTgwMCwKICAgICAgICBdLAogICAgICAgIHN0b3BzOiBjb25zdCBbMC4wLCAwLjUsIDEuMF0sCiAgICAgICk7Cn0K
+import 'package:flutter/material.dart';
+
+// Legacy colors (kept for compatibility)
+const Color kWhiteColor = Colors.white;
+const Color kRedColor = Colors.red;
+const kBlackColor = Colors.black;
+const kBlueColor = Colors.lightBlue;
+const Color kTransparentColor = Colors.transparent;
+Color kDarkColor = Colors.black.withValues(alpha: 0.5);
+Color? kGreyColor = Colors.grey[700];
+Color? kGreyOpacityColor = Colors.grey.withValues(alpha: 0.2);
+Color? kBlueOpacityColor = Colors.lightBlue.withValues(alpha: 0.2);
+
+final LinearGradient shimmerGradient = LinearGradient(colors: [
+  Colors.grey.shade500,
+  Colors.grey.shade600,
+  Colors.grey,
+  Colors.grey.shade700,
+]);
+
+/// Semantic color system for consistent theming
+///
+/// The palette follows LibreTube-Enhanced's Material 3 "red" scheme so the app
+/// reads like that client: a muted brick-red primary (not YouTube red), warm
+/// near-black surfaces in dark mode, and warm off-white surfaces in light mode.
+class AppColors {
+  // VyPlay brand accent. Kept as the seed for dynamic/derived schemes.
+  static const Color brand = Color(0xFF9F4034);
+  static const Color brandLight = Color(0xFFFFB4A9);
+  static const Color brandDark = Color(0xFF7F291F);
+
+  // Primary brand colors (LibreTube-Enhanced red scheme)
+  static const Color primary = Color(0xFF9F4034);
+  static const Color primaryLight = Color(0xFFFFB4A9);
+  static const Color primaryDark = Color(0xFF7F291F);
+  static const Color primaryContainer = Color(0xFFFFDAD5);
+
+  // Surface colors
+  static const Color surface = Color(0xFFFFFBFF);
+  static const Color surfaceDark = Color(0xFF201A19);
+  static const Color surfaceVariant = Color(0xFFF5DDDA);
+  static const Color surfaceVariantDark = Color(0xFF534341);
+
+  // Background colors
+  static const Color background = Color(0xFFFFFBFF);
+  static const Color backgroundDark = Color(0xFF201A19);
+
+  // On colors (text/icons on colored backgrounds)
+  static const Color onPrimary = Colors.white;
+  static const Color onSurface = Color(0xFF201A19);
+  static const Color onSurfaceDark = Color(0xFFEDE0DE);
+  static const Color onSurfaceVariant = Color(0xFF534341);
+  static const Color onSurfaceVariantDark = Color(0xFFD8C2BE);
+
+  // State colors
+  static const Color error = Color(0xFFBA1A1A);
+  static const Color errorDark = Color(0xFFFFB4AB);
+  static const Color errorContainer = Color(0xFFFFDAD6);
+  static const Color errorContainerDark = Color(0xFF93000A);
+  static const Color success = Color(0xFF2E7D32);
+  static const Color successDark = Color(0xFF81C784);
+  static const Color successContainer = Color(0xFFC8E6C9);
+  static const Color warning = Color(0xFFFF8F00);
+  static const Color warningDark = Color(0xFFFFB74D);
+  static const Color warningContainer = Color(0xFFFFE0B2);
+
+  // YouTube specific
+  static const Color youtubeRed = Color(0xFFFF0000);
+  static const Color youtubeDark = Color(0xFFCC0000);
+  static const Color likeFilled = Color(0xFF065FD4);
+  static const Color subscribedRed = Color(0xFFCC0000);
+
+  // Neutral colors
+  static const Color divider = Color(0xFFE0E0E0);
+  static const Color dividerDark = Color(0xFF2C2C2C);
+  static const Color disabled = Color(0xFFBDBDBD);
+  static const Color disabledDark = Color(0xFF424242);
+
+  // Overlay colors
+  static Color scrim = Colors.black.withValues(alpha: 0.32);
+  static Color overlay = Colors.black.withValues(alpha: 0.5);
+  static Color overlayLight = Colors.black.withValues(alpha: 0.1);
+
+  // Card colors
+  static const Color cardLight = Colors.white;
+  static const Color cardDark = Color(0xFF1E1E1E);
+  static Color cardElevated = Colors.white;
+  static Color cardElevatedDark = const Color(0xFF2D2D2D);
+
+  // Interactive states
+  static Color hoverLight = Colors.black.withValues(alpha: 0.04);
+  static Color hoverDark = Colors.white.withValues(alpha: 0.08);
+  static Color focusLight = Colors.black.withValues(alpha: 0.12);
+  static Color focusDark = Colors.white.withValues(alpha: 0.12);
+  static Color pressedLight = Colors.black.withValues(alpha: 0.12);
+  static Color pressedDark = Colors.white.withValues(alpha: 0.12);
+
+  // Shimmer gradients
+  static LinearGradient get shimmerGradientLight => LinearGradient(
+        colors: [
+          Colors.grey.shade300,
+          Colors.grey.shade200,
+          Colors.grey.shade300,
+        ],
+        stops: const [0.0, 0.5, 1.0],
+      );
+
+  static LinearGradient get shimmerGradientDark => LinearGradient(
+        colors: [
+          Colors.grey.shade800,
+          Colors.grey.shade700,
+          Colors.grey.shade800,
+        ],
+        stops: const [0.0, 0.5, 1.0],
+      );
+}
