@@ -33,7 +33,7 @@ class CustomAppBar extends StatelessWidget {
         padding: const EdgeInsets.only(left: 10),
         child: ShaderMask(
           shaderCallback: (bounds) => const LinearGradient(
-            colors: [Color(0xFFFF4444), Color(0xFFCC0000)],
+            colors: [Color(0xFF9F4034), Color(0xFF7F291F)],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ).createShader(bounds),
