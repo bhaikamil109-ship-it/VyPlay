@@ -74,13 +74,17 @@
 -keep class androidx.core.app.NotificationCompat { *; }
 -keep class androidx.core.app.NotificationCompat$* { *; }
 
-# FFmpeg mux plan handler - keep classes for video/audio muxing
+# Muxer handlers - invoked by name from the method channel.
+# FFmpegMuxerHandler is kept because NewPipeMuxerHandler delegates the legacy
+# `resolveMuxPlan` / `muxVideoAudio` calls to it.
 -keep class com.fazilvk.fluxtube.FFmpegMuxerHandler { *; }
 -keepclassmembers class com.fazilvk.fluxtube.FFmpegMuxerHandler { *; }
-
-# FFmpegKit native bindings (loaded reflectively by the plugin)
--keep class com.arthenica.ffmpegkit.** { *; }
--dontwarn com.arthenica.ffmpegkit.**
+# NewPipe pure-Java muxers (vendored from NewPipe 0.29.1) and the handler that
+# drives them. R8 must not strip or rename them because the MethodChannel
+# handler calls into them.
+-keep class com.fazilvk.fluxtube.NewPipeMuxerHandler { *; }
+-keepclassmembers class com.fazilvk.fluxtube.NewPipeMuxerHandler { *; }
+-keep class org.schabi.newpipe.streams.** { *; }
 
 # Google Play Core (Flutter deferred components)
 -dontwarn com.google.android.play.core.splitcompat.SplitCompatApplication
