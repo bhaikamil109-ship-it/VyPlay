@@ -1,5 +1,20 @@
 ## Changelog
 
+### v0.9.4
+
+###### Downloads
+
+- **Native stream merging**: video and audio streams are now merged in native Android code using the pure-Java muxers vendored from NewPipe 0.29.1 (`org.schabi.newpipe.streams`). The FFmpeg dependency (`ffmpeg_kit_flutter_new`) has been removed, so the app no longer ships an FFmpeg binary.
+  - The output container is chosen from the real stream headers, not the file extension, so a VP9 + Opus pair is written as WebM instead of a broken MP4.
+  - The audio track is located explicitly rather than assumed to be index 0, so a WebM video stream carrying a cover-image track cannot silently drop the audio.
+  - Streams are copied, never re-encoded, so no quality is lost.
+  - A failed merge still deletes the partial output and keeps the downloaded source streams intact.
+
+###### UI
+
+- Adopted LibreTube-Enhanced's Material 3 "red" colour scheme: a muted brick-red primary, warm near-black dark surfaces and warm off-white light surfaces.
+- Added a 3-dot overflow button next to the search bar that opens the existing Settings screen.
+
 ### v0.9.3
 
 ###### New Features
@@ -50,7 +65,7 @@
 - **Download System**: Full video/audio download support with quality selection, progress tracking, and notification updates.
   - Download videos in multiple qualities (up to 4K)
   - Download audio-only (MP3/AAC)
-  - FFmpeg merging for high-quality video+audio streams
+  - Native merging for high-quality video+audio streams
   - Download notifications with thumbnails and progress
   - "Save to Device" option to copy downloads to public storage (Movies/Music folders)
   - **All YouTube services supported** (NewPipe Extractor, Piped, Invidious, Explode)
@@ -67,7 +82,7 @@
 - **SponsorBlock Integration**: Automatically skip sponsored segments, intros, outros, and more. Configurable categories in settings.
 - **Multiple User Profiles**: Create separate profiles with isolated subscriptions, history, and saved videos. Switch instantly between profiles.
 - **NewPipe-Compatible Backup/Restore**: Export and import data as NewPipe-compatible ZIP files. Selective import options for subscriptions, history, and saved videos.
-- **Deep Linking & Share Intent**: Open YouTube links directly in FluxTube from browsers or share menu. Supports watch URLs, shorts, channels, and @handles.
+- **Deep Linking & Share Intent**: Open YouTube links directly in VyPlay from browsers or share menu. Supports watch URLs, shorts, channels, and @handles.
 - **NewPipe Extractor**: Native YouTube extraction without third-party instances. Recommended service for best reliability.
 - **Channel Page Tabs**: Browse Videos, Shorts, and Playlists separately on channel pages.
 - **Playlist Support**: View and browse YouTube playlists.
