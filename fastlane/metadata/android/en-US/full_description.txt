@@ -1,11 +1,11 @@
-<p><i>FluxTube</i> is an ad-free YouTube client built with Flutter. Watch YouTube videos without ads, download videos, subscribe to channels, retrieve video dislikes, read comments, save videos, and more.</p>
+<p><i>VyPlay</i> is an ad-free YouTube client built with Flutter. Watch YouTube videos without ads, download videos, subscribe to channels, retrieve video dislikes, read comments, save videos, and more.</p>
 
 <p><br><b>Features:</b></p>
 <ul>
 <li><b>No Login Needed:</b> Use the app without any login requirements.</li>
 <li><b>Ad-Free Experience:</b> Enjoy YouTube videos without interruptions.</li>
 <li><b>Multiple YouTube Services:</b> Switch between NewPipe Extractor, Piped, Invidious, or Explode backends.</li>
-<li><b>Download Videos:</b> Download videos and audio in multiple qualities with FFmpeg merging support.</li>
+<li><b>Download Videos:</b> Download videos and audio in multiple qualities, merged into a single playable file by native muxers.</li>
 <li><b>Background Playback:</b> Continue listening with notification controls (play/pause/seek).</li>
 <li><b>Picture-in-Picture:</b> System PiP mode - auto-enters when pressing home while playing.</li>
 <li><b>Audio Selection Supported:</b> You can now switch between audio tracks when multiple tracks are available (NewPipe Extractor and Piped).</li>
@@ -15,7 +15,7 @@
 <li><b>Dislike Retrieval:</b> See the number of dislikes on videos.</li>
 <li><b>Comment Section:</b> Read video comments and replies.</li>
 <li><b>Save Videos:</b> Save videos to watch later with search and sorting.</li>
-<li><b>Deep Linking:</b> Open YouTube links directly in FluxTube.</li>
+<li><b>Deep Linking:</b> Open YouTube links directly in VyPlay.</li>
 <li><b>NewPipe-Compatible Backup:</b> Import/export data as NewPipe-compatible ZIP files.</li>
 <li><b>Select Your Region:</b> Customize the content based on your region.</li>
 <li><b>Multi-Language Support:</b> 12+ languages supported.</li>
@@ -28,4 +28,4 @@
 
 <p><br><b>Note:</b> Some features are only available when using the NewPipe Extractor service.</p>
 
-<p><br><b>Privacy:</b> FluxTube is designed to offer a private, anonymous YouTube experience. The app ensures no data is collected without your explicit consent.</p>
+<p><br><b>Privacy:</b> VyPlay is designed to offer a private, anonymous YouTube experience. The app ensures no data is collected without your explicit consent.</p>
