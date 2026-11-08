@@ -1,22 +1,31 @@
+@TestOn('vm')
+library;
+
 import 'dart:io';
 
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fluxtube/infrastructure/download/ffmpeg_muxer.dart';
+import 'package:fluxtube/infrastructure/download/stream_muxer.dart'
+    show NativeMuxRunner;
 
-/// Unit tests for the FFmpeg-based video/audio merger.
+/// Unit tests for the NewPipe-based video/audio merger.
 ///
-/// The merge flow is exercised without the native FFmpeg binary: the command
-/// execution is replaced through [FfmpegMuxer]'s injectable runner, and the
-/// Android mux-plan channel is mocked with Flutter's test binary messenger.
-/// That keeps these tests fast and deterministic while still covering the
-/// parts that actually decide whether a download is reported as successful:
-/// the argument list, the container choice, the exit-code handling, the
-/// output-file verification and the cleanup of a failed run.
+/// The merge now runs in native Android code through the pure-Java muxers
+/// vendored from NewPipe 0.29.1, exposed by [StreamMuxer]. Rather than
+/// invoking a binary, the flow crosses the `com.fazilvk.fluxtube/muxer` method
+/// channel, so a host-platform unit test exercises it by replacing that channel
+/// with [TestDefaultBinaryMessengerBinding] and, where the contract being
+/// described is the runner rather than the channel, by providing a
+/// [NativeMuxRunner] via [StreamMuxer]'s constructor.
+///
+/// Coverage stays focused on the choice points that decide whether a download
+/// is reported as successful: input validation, the wrapper around the native
+/// call, the binary-messenger exceptions the native side can raise, the
+/// post-merge output verification, the cleanup of a failed or partial run, and
+/// the pre-deletion of a stale output file.
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
-
-  const planChannelName = 'com.fazilvk.fluxtube/muxer';
 
   late Directory tempDir;
 
@@ -30,6 +39,9 @@ void main() {
     }
   });
 
+  /// The method channel used by the native merge.
+  final muxerChannel = const MethodChannel('com.fazilvk.fluxtube/muxer');
+
   /// Creates a non-empty file so the input validation passes.
   Future<String> makeInput(String name, {int bytes = 64}) async {
     final file = File('${tempDir.path}/$name');
@@ -39,136 +51,45 @@ void main() {
 
   String outPath(String name) => '${tempDir.path}/$name';
 
-  /// A runner that records the command it was given and reports [exitCode].
-  ///
-  /// When [createOutput] is true it also writes the output file, which is what
-  /// a real successful FFmpeg run would leave behind.
-  FfmpegRunner fakeRunner({
-    required int exitCode,
-    bool createOutput = true,
-    List<String>? captured,
-    String logs = '',
+  /// Returns a runner that writes a 32-byte output file and returns a native
+  /// map. When [returnOutputPath] is provided the runner writes to and reports
+  /// that path regardless of the path [merge] passes it; otherwise it follows
+  /// the path [merge] gives it. [container] and [extras] are forwarded verbatim
+  /// so call sites can simulate an arbitrary native plan without touching the
+  /// method channel.
+  NativeMuxRunner makeNativeRunner({
+    String? returnOutputPath,
+    String? container,
+    Map<String, dynamic>? extras,
   }) {
-    return (String command) async {
-      captured?.add(command);
-      if (createOutput) {
-        // The output path is the last quoted token of the command.
-        final match = RegExp(r'"([^"]+)"\s*$').firstMatch(command);
-        if (match != null) {
-          await File(match.group(1)!).writeAsBytes(List<int>.filled(32, 1));
-        }
-      }
-      return FfmpegRunResult(exitCode: exitCode, logs: logs);
+    return ({
+      required String videoPath,
+      required String audioPath,
+      required String outputPath,
+    }) async {
+      final target = returnOutputPath ?? outputPath;
+      await File(target).writeAsBytes(List<int>.filled(32, 1));
+      return <String, dynamic>{
+        if (returnOutputPath != null) 'outputPath': returnOutputPath,
+        if (container != null) 'container': container,
+        if (extras != null) ...extras,
+      };
     };
   }
 
-  group('buildCommand', () {
-    final muxer = FfmpegMuxer(runner: fakeRunner(exitCode: 0));
-
-    test('pins the first video and first audio track and stream-copies', () {
-      final command = muxer.buildCommand(
-        videoPath: '/tmp/v.mp4',
-        audioPath: '/tmp/a.m4a',
-        outputPath: '/tmp/out.mp4',
-        container: 'mp4',
-      );
-
-      expect(command, contains('-map 0:v:0'));
-      expect(command, contains('-map 1:a:0'));
-      expect(command, contains('-c copy'));
-      // Stream copy must never be replaced by a re-encode.
-      expect(command, isNot(contains('-c:v libx264')));
-      expect(command, isNot(contains('-c:a aac')));
-    });
-
-    test('adds +faststart for an MP4 container', () {
-      final command = muxer.buildCommand(
-        videoPath: '/tmp/v.mp4',
-        audioPath: '/tmp/a.m4a',
-        outputPath: '/tmp/out.mp4',
-        container: 'mp4',
-      );
-
-      expect(command, contains('-movflags +faststart'));
-    });
-
-    test('omits +faststart for an MKV container', () {
-      final command = muxer.buildCommand(
-        videoPath: '/tmp/v.webm',
-        audioPath: '/tmp/a.webm',
-        outputPath: '/tmp/out.mkv',
-        container: 'mkv',
-      );
-
-      expect(command, isNot(contains('+faststart')));
-    });
-
-    test('always passes -shortest so unequal durations are trimmed', () {
-      for (final container in ['mp4', 'mkv']) {
-        final command = muxer.buildCommand(
-          videoPath: '/tmp/v',
-          audioPath: '/tmp/a',
-          outputPath: '/tmp/out.$container',
-          container: container,
-        );
-        expect(command, contains('-shortest'), reason: 'container=$container');
-      }
-    });
-
-    test('overwrites without prompting and quotes both inputs and output', () {
-      final command = muxer.buildCommand(
-        videoPath: '/tmp/v.mp4',
-        audioPath: '/tmp/a.m4a',
-        outputPath: '/tmp/out.mp4',
-        container: 'mp4',
-      );
-
-      expect(command, contains('-y'));
-      expect(command, contains('-i "/tmp/v.mp4"'));
-      expect(command, contains('-i "/tmp/a.m4a"'));
-      expect(command.trimRight(), endsWith('"/tmp/out.mp4"'));
-    });
-
-    test('escapes embedded quotes in a path', () {
-      final command = muxer.buildCommand(
-        videoPath: '/tmp/we"ird.mp4',
-        audioPath: '/tmp/a.m4a',
-        outputPath: '/tmp/out.mp4',
-        container: 'mp4',
-      );
-
-      expect(command, contains(r'/tmp/we\"ird.mp4'));
-    });
-  });
-
-  group('containerFromPath', () {
-    final muxer = FfmpegMuxer(runner: fakeRunner(exitCode: 0));
-
-    test('maps extensions to containers', () {
-      expect(muxer.containerFromPath('/tmp/out.mp4'), 'mp4');
-      expect(muxer.containerFromPath('/tmp/out.mkv'), 'mkv');
-      expect(muxer.containerFromPath('/tmp/out.webm'), 'webm');
-    });
-
-    test('is case-insensitive', () {
-      expect(muxer.containerFromPath('/tmp/OUT.MKV'), 'mkv');
-    });
-
-    test('defaults to mp4 for an unknown extension', () {
-      expect(muxer.containerFromPath('/tmp/out.bin'), 'mp4');
-      expect(muxer.containerFromPath('/tmp/noextension'), 'mp4');
-    });
-  });
-
-  group('merge — success', () {
-    test('returns the real output path and reports stream copy', () async {
+  group('merge — success path', () {
+    test('delegates to the native runner and returns the real output',
+        () async {
       final video = await makeInput('v.mp4');
       final audio = await makeInput('a.m4a');
       final output = outPath('merged.mp4');
 
-      final muxer = FfmpegMuxer(
-        runner: fakeRunner(exitCode: 0),
-        isAndroid: false,
+      final muxer = StreamMuxer(
+        runner: makeNativeRunner(
+          returnOutputPath: output,
+          container: 'mp4',
+        ),
+        isAndroid: true,
       );
 
       final result = await muxer.merge(
@@ -183,39 +104,21 @@ void main() {
       expect(File(output).existsSync(), isTrue);
     });
 
-    test('runs the command built for the resolved container', () async {
-      final video = await makeInput('v.webm');
-      final audio = await makeInput('a.webm');
-      final output = outPath('merged.mkv');
-      final captured = <String>[];
-
-      final muxer = FfmpegMuxer(
-        runner: fakeRunner(exitCode: 0, captured: captured),
-        isAndroid: false,
-      );
-
-      await muxer.merge(
-        videoPath: video,
-        audioPath: audio,
-        outputPath: output,
-      );
-
-      expect(captured, hasLength(1));
-      expect(captured.single, contains('-map 0:v:0 -map 1:a:0'));
-      expect(captured.single, isNot(contains('+faststart')));
-    });
-
-    test('deletes a stale output file before running', () async {
+    test('deletes a stale output file before running the merge', () async {
       final video = await makeInput('v.mp4');
       final audio = await makeInput('a.m4a');
       final output = outPath('merged.mp4');
+
       // A leftover file from an earlier attempt must not be mistaken for the
       // result of this run.
       await File(output).writeAsBytes(List<int>.filled(999, 3));
 
-      final muxer = FfmpegMuxer(
-        runner: fakeRunner(exitCode: 0),
-        isAndroid: false,
+      final muxer = StreamMuxer(
+        runner: makeNativeRunner(
+          returnOutputPath: output,
+          container: 'mp4',
+        ),
+        isAndroid: true,
       );
 
       final result = await muxer.merge(
@@ -225,20 +128,58 @@ void main() {
       );
 
       expect(result.outputPath, output);
-      // The fake runner writes 32 bytes; the stale 999-byte file is gone.
+      // The native runner writes 32 bytes; the stale 999-byte file is gone.
       expect(await File(output).length(), 32);
+    });
+
+    test('writes the output to the native plan path, not the requested one',
+        () async {
+      final video = await makeInput('v.webm');
+      final audio = await makeInput('a.webm');
+      final requested = outPath('merged.mp4');
+      final retargeted = outPath('merged.mkv');
+
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(muxerChannel, (call) async {
+        expect(call.method, 'mergeStreams');
+        await File(retargeted).writeAsBytes(List<int>.filled(32, 1));
+        return <String, dynamic>{
+          'outputPath': retargeted,
+          'container': 'mkv',
+        };
+      });
+      final muxer = StreamMuxer(isAndroid: true);
+
+      final result = await muxer.merge(
+        videoPath: video,
+        audioPath: audio,
+        outputPath: requested,
+      );
+
+      // VP9 + Opus cannot live in MP4, so the native plan retargets to MKV.
+      expect(result.container, 'mkv');
+      expect(result.outputPath, retargeted);
+      expect(File(retargeted).existsSync(), isTrue);
     });
   });
 
-  group('merge — failure', () {
-    test('throws MuxFailure carrying the exit code on a non-zero result',
-        () async {
+  group('merge — failure path', () {
+    test(
+        'throws MuxFailure with no output on a null plan result', () async {
       final video = await makeInput('v.mp4');
       final audio = await makeInput('a.m4a');
 
-      final muxer = FfmpegMuxer(
-        runner: fakeRunner(exitCode: 1, createOutput: false, logs: 'boom'),
-        isAndroid: false,
+      final muxer = StreamMuxer(
+        runner: ({
+          required String videoPath,
+          required String audioPath,
+          required String outputPath,
+        }) async =>
+            throw PlatformException(
+              code: 'MUX_NO_RESULT',
+              message: 'The native muxer returned no result.',
+            ),
+        isAndroid: true,
       );
 
       await expectLater(
@@ -248,22 +189,27 @@ void main() {
           outputPath: outPath('merged.mp4'),
         ),
         throwsA(
-          isA<MuxFailure>().having((e) => e.exitCode, 'exitCode', 1),
+          isA<MuxFailure>().having(
+            (e) => e.message,
+            'message',
+            contains('The native muxer returned no result.'),
+          ),
         ),
       );
     });
 
-    test('deletes the partial output file when the merge fails', () async {
+    test('deletes the partial output file when the native plan raises an error',
+        () async {
       final video = await makeInput('v.mp4');
       final audio = await makeInput('a.m4a');
       final output = outPath('merged.mp4');
 
-      final muxer = FfmpegMuxer(
-        // The runner writes a partial file, then reports failure — exactly the
-        // case that used to leave a broken file behind.
-        runner: fakeRunner(exitCode: 1, createOutput: true),
-        isAndroid: false,
-      );
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(muxerChannel, (call) async {
+        await File(output).writeAsBytes(List<int>.filled(12, 1));
+        throw PlatformException(code: 'MUX_PLAN_FAILED');
+      });
+      final muxer = StreamMuxer(isAndroid: true);
 
       await expectLater(
         muxer.merge(
@@ -281,10 +227,11 @@ void main() {
       final video = await makeInput('v.mp4');
       final audio = await makeInput('a.m4a');
 
-      final muxer = FfmpegMuxer(
-        runner: fakeRunner(exitCode: 1, createOutput: false),
-        isAndroid: false,
-      );
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(muxerChannel, (call) async {
+        throw PlatformException(code: 'MUX_PLAN_FAILED');
+      });
+      final muxer = StreamMuxer(isAndroid: true);
 
       await expectLater(
         muxer.merge(
@@ -295,19 +242,22 @@ void main() {
         throwsA(isA<MuxFailure>()),
       );
 
-      // Phase 5 rule: never delete the downloaded streams on a failed merge.
+      // The download streams are never deleted on a merge failure.
       expect(File(video).existsSync(), isTrue);
       expect(File(audio).existsSync(), isTrue);
     });
 
-    test('throws when FFmpeg reports success but writes no output', () async {
+    test('throws when the native plan reports success but writes no output',
+        () async {
       final video = await makeInput('v.mp4');
       final audio = await makeInput('a.m4a');
 
-      final muxer = FfmpegMuxer(
-        runner: fakeRunner(exitCode: 0, createOutput: false),
-        isAndroid: false,
-      );
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(muxerChannel, (call) async {
+        // The native plan says everything is fine but produces no output.
+        return <String, dynamic>{};
+      });
+      final muxer = StreamMuxer(isAndroid: true);
 
       await expectLater(
         muxer.merge(
@@ -330,12 +280,16 @@ void main() {
       final audio = await makeInput('a.m4a');
       final output = outPath('merged.mp4');
 
-      final muxer = FfmpegMuxer(
-        runner: (command) async {
+      final muxer = StreamMuxer(
+        runner: ({
+          required String videoPath,
+          required String audioPath,
+          required String outputPath,
+        }) async {
           await File(output).writeAsBytes(const <int>[]);
-          return const FfmpegRunResult(exitCode: 0);
+          return {'outputPath': output, 'container': 'mp4'};
         },
-        isAndroid: false,
+        isAndroid: true,
       );
 
       await expectLater(
@@ -350,16 +304,21 @@ void main() {
   });
 
   group('merge — input validation', () {
-    test('rejects a missing video file without running FFmpeg', () async {
+    test('rejects a missing video file without calling the native runner',
+        () async {
       final audio = await makeInput('a.m4a');
       var ran = false;
 
-      final muxer = FfmpegMuxer(
-        runner: (command) async {
+      final muxer = StreamMuxer(
+        runner: ({
+          required String videoPath,
+          required String audioPath,
+          required String outputPath,
+        }) async {
           ran = true;
-          return const FfmpegRunResult(exitCode: 0);
+          return {'outputPath': outPath('merged.mp4'), 'container': 'mp4'};
         },
-        isAndroid: false,
+        isAndroid: true,
       );
 
       await expectLater(
@@ -379,17 +338,22 @@ void main() {
       expect(ran, isFalse);
     });
 
-    test('rejects an empty audio file without running FFmpeg', () async {
+    test('rejects an empty audio file without calling the native runner',
+        () async {
       final video = await makeInput('v.mp4');
       final audio = await makeInput('a.m4a', bytes: 0);
       var ran = false;
 
-      final muxer = FfmpegMuxer(
-        runner: (command) async {
+      final muxer = StreamMuxer(
+        runner: ({
+          required String videoPath,
+          required String audioPath,
+          required String outputPath,
+        }) async {
           ran = true;
-          return const FfmpegRunResult(exitCode: 0);
+          return {'outputPath': outPath('merged.mp4'), 'container': 'mp4'};
         },
-        isAndroid: false,
+        isAndroid: true,
       );
 
       await expectLater(
@@ -413,19 +377,8 @@ void main() {
   group('merge — Android mux plan channel', () {
     tearDown(() {
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(
-        const MethodChannel(planChannelName),
-        null,
-      );
+          .setMockMethodCallHandler(muxerChannel, null);
     });
-
-    void mockPlan(Object? Function(MethodCall call) handler) {
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(
-        const MethodChannel(planChannelName),
-        (call) async => handler(call),
-      );
-    }
 
     test('uses the container and output path returned by the native plan',
         () async {
@@ -433,20 +386,17 @@ void main() {
       final audio = await makeInput('a.webm');
       final requested = outPath('merged.mp4');
       final retargeted = outPath('merged.mkv');
-      final captured = <String>[];
 
-      mockPlan((call) {
-        expect(call.method, 'resolveMuxPlan');
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(muxerChannel, (call) async {
+        expect(call.method, 'mergeStreams');
+        await File(retargeted).writeAsBytes(List<int>.filled(32, 1));
         return <String, dynamic>{
           'outputPath': retargeted,
           'container': 'mkv',
         };
       });
-
-      final muxer = FfmpegMuxer(
-        runner: fakeRunner(exitCode: 0, captured: captured),
-        isAndroid: true,
-      );
+      final muxer = StreamMuxer(isAndroid: true);
 
       final result = await muxer.merge(
         videoPath: video,
@@ -454,33 +404,24 @@ void main() {
         outputPath: requested,
       );
 
-      // VP9 + Opus cannot live in MP4, so the native plan retargets to MKV.
       expect(result.container, 'mkv');
       expect(result.outputPath, retargeted);
-      expect(captured.single, isNot(contains('+faststart')));
-      expect(captured.single, contains('"$retargeted"'));
+      expect(File(retargeted).existsSync(), isTrue);
     });
 
     test('surfaces a plan failure instead of attempting a doomed merge',
         () async {
       final video = await makeInput('v.mp4');
       final audio = await makeInput('a.m4a');
-      var ran = false;
 
-      mockPlan((call) {
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(muxerChannel, (call) async {
         throw PlatformException(
           code: 'MUX_PLAN_FAILED',
           message: 'Video stream file is missing or empty',
         );
       });
-
-      final muxer = FfmpegMuxer(
-        runner: (command) async {
-          ran = true;
-          return const FfmpegRunResult(exitCode: 0);
-        },
-        isAndroid: true,
-      );
+      final muxer = StreamMuxer(isAndroid: true);
 
       await expectLater(
         muxer.merge(
@@ -496,30 +437,56 @@ void main() {
           ),
         ),
       );
-      expect(ran, isFalse);
     });
 
-    test('falls back to the extension container when the channel is absent',
+    test('throws MuxFailure when the native muxer is unavailable on Android',
         () async {
       final video = await makeInput('v.mp4');
       final audio = await makeInput('a.m4a');
-      final output = outPath('merged.mp4');
 
-      // No mock handler registered: the channel raises MissingPluginException,
-      // which is what a non-Android host or a test harness looks like.
-      final muxer = FfmpegMuxer(
-        runner: fakeRunner(exitCode: 0),
-        isAndroid: true,
+      // No real channel handler is available, so the call raises
+      // MissingPluginException — the merge must translate that into a
+      // MuxFailure rather than crashing.
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(muxerChannel, (call) async {
+        throw MissingPluginException();
+      });
+      final muxer = StreamMuxer(isAndroid: true);
+
+      await expectLater(
+        muxer.merge(
+          videoPath: video,
+          audioPath: audio,
+          outputPath: outPath('merged.mp4'),
+        ),
+        throwsA(
+          isA<MuxFailure>().having(
+            (e) => e.message,
+            'message',
+            contains('The native muxer is unavailable'),
+          ),
+        ),
       );
+    });
+  });
 
-      final result = await muxer.merge(
-        videoPath: video,
-        audioPath: audio,
-        outputPath: output,
-      );
+  group('containerFromPath (visibleForTesting)', () {
+    test('maps extensions to containers', () {
+      final muxer = StreamMuxer(isAndroid: false);
+      expect(muxer.containerFromPath('/tmp/out.mp4'), 'mp4');
+      expect(muxer.containerFromPath('/tmp/out.mkv'), 'mkv');
+      expect(muxer.containerFromPath('/tmp/out.webm'), 'webm');
+    });
 
-      expect(result.container, 'mp4');
-      expect(result.outputPath, output);
+    test('is case-insensitive', () {
+      final muxer = StreamMuxer(isAndroid: false);
+      expect(muxer.containerFromPath('/tmp/OUT.MKV'), 'mkv');
+    });
+
+    test('defaults to mp4 for an unknown extension', () {
+      final muxer = StreamMuxer(isAndroid: false);
+      expect(muxer.containerFromPath('/tmp/out.bin'), 'mp4');
+      expect(muxer.containerFromPath('/tmp/noextension'), 'mp4');
     });
   });
 }

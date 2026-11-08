@@ -6,10 +6,12 @@
 /// name resolving for existing call sites so the download pipeline did not have
 /// to change; new code should use [StreamMuxer] directly.
 ///
-/// The public surface is unchanged: [MuxResult], [MuxFailure] and the `merge`
-/// method behave exactly as before, including the "no usable output file"
-/// check and the cleanup of a failed run.
+/// The public surface is unchanged: [MuxResult], [MuxFailure] and the
+/// `merge` method behave exactly as before, including the "no usable output
+/// file" check and the cleanup of a failed run.
 library;
+
+import 'stream_muxer.dart';
 
 export 'stream_muxer.dart' show MuxResult, MuxFailure, StreamMuxer;
 

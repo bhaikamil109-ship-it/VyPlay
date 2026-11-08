@@ -561,6 +561,9 @@
     "description": "Shuffles the upcoming queue"
   },
   "queueClear": "Clear",
+  "repeatOff": "दोहराव बंद",
+  "repeatAll": "सभी दोहराएँ",
+  "repeatOne": "एक दोहराएँ",
   "@queueClear": {
     "description": "Clears the playback queue"
   },

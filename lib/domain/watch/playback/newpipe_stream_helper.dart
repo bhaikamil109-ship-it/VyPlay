@@ -22,7 +22,6 @@ class NewPipeStreamHelper {
   static List<StreamQualityInfo> getAvailableQualities(
       NewPipeWatchResp watchResp) {
     final qualities = <StreamQualityInfo>[];
-    final seenLabels = <String>{};
 
     // Process video-only streams FIRST (videoOnlyStreams - need audio, >360p)
     // These are higher quality and should be preferred
@@ -37,17 +36,13 @@ class NewPipeStreamHelper {
 
       final label = _getQualityLabel(videoStream);
 
-      // Skip if we already have this quality label
-      if (seenLabels.contains(label)) continue;
-      seenLabels.add(label);
-
       qualities.add(StreamQualityInfo(
         label: label,
         resolution: resolution,
         fps: videoStream.fps,
         format: videoStream.format,
         requiresMerging: true, // Video-only streams always need audio merging
-        isVideoOnly: videoStream.isVideoOnly ?? true,
+        isVideoOnly: true,
         videoStream: videoStream,
         audioStream: bestAudio,
       ));
@@ -60,11 +55,7 @@ class NewPipeStreamHelper {
       final resolution = _parseResolution(videoStream.resolution);
       if (resolution == null) continue;
 
-      final label = _getQualityLabel(videoStream);
-
-      // Skip if we already have this quality label (prefer video-only + audio)
-      if (seenLabels.contains(label)) continue;
-      seenLabels.add(label);
+      final label = _getQualityLabel(videoStream, isMuxed: true);
 
       qualities.add(StreamQualityInfo(
         label: label,
@@ -85,12 +76,16 @@ class NewPipeStreamHelper {
   }
 
   /// Get quality label for video stream (e.g., "1080p", "720p 60fps")
-  static String _getQualityLabel(NewPipeVideoStream stream) {
+  static String _getQualityLabel(NewPipeVideoStream stream, {bool isMuxed = false}) {
     String label = stream.resolution ?? 'Unknown';
 
     // Add fps if higher than 30
     if (stream.fps != null && stream.fps! > 30) {
       label += ' ${stream.fps}fps';
+    }
+
+    if (isMuxed) {
+      label += ' (muxed)';
     }
 
     return label;
@@ -116,13 +111,32 @@ class NewPipeStreamHelper {
     if (qualities.isEmpty) return null;
 
     final normalizedPreference = preferredQuality.toLowerCase().trim();
-    final exact = qualities
-        .where((quality) =>
-            quality.label.toLowerCase().trim() == normalizedPreference)
-        .firstOrNull;
-    if (exact != null) return exact;
-
     final targetResolution = _parseResolution(preferredQuality);
+
+    // Collect exact matches: label equality OR resolution equality.
+    final exactMatches = <StreamQualityInfo>[];
+    for (var quality in qualities) {
+      final labelMatch =
+          quality.label.toLowerCase().trim() == normalizedPreference;
+      final resolutionMatch = targetResolution != null &&
+          targetResolution > 0 &&
+          quality.resolution == targetResolution;
+      if (labelMatch || resolutionMatch) {
+        exactMatches.add(quality);
+      }
+    }
+
+    if (exactMatches.isNotEmpty) {
+      // Prefer muxed (requiresMerging: false) over video-only when both match.
+      exactMatches.sort((a, b) {
+        if (a.requiresMerging != b.requiresMerging) {
+          return a.requiresMerging ? 1 : -1;
+        }
+        return 0;
+      });
+      return exactMatches.first;
+    }
+
     if (targetResolution == null || targetResolution <= 0) {
       return qualities.first;
     }
@@ -275,32 +289,38 @@ class NewPipeStreamHelper {
 
     if (filtered.isEmpty) return null;
 
-    // Sort streams
-    final sorted = sortVideoStreams(filtered);
-
     // Extract target resolution
-    final targetRes = _parseResolution(targetQuality) ?? 720;
+    final targetRes = _parseResolution(targetQuality);
 
-    // Try to find exact match first
-    for (var stream in sorted) {
-      final streamRes = _parseResolution(stream.resolution) ?? 0;
-      if (streamRes == targetRes) return stream;
+    // If target is vague (unparseable), return the highest resolution
+    if (targetRes == null || targetRes <= 0) {
+      final sorted = sortVideoStreams(filtered);
+      return sorted.first;
     }
 
-    // Find closest match
-    NewPipeVideoStream? closest = sorted.first;
+    // Find the best match: prefer exact resolution match, then closest.
+    // Among exact matches, pick the highest-resolution stream (which is the
+    // one with the best format/bitrate after sorting).
+    NewPipeVideoStream? exactMatch;
+    NewPipeVideoStream? closest;
     int smallestDiff = double.maxFinite.toInt();
 
-    for (var stream in sorted) {
+    for (var stream in filtered) {
       final streamRes = _parseResolution(stream.resolution) ?? 0;
       final diff = (streamRes - targetRes).abs();
 
-      if (diff < smallestDiff) {
+      if (diff == 0) {
+        // Exact match — keep the highest-resolution one (should be all the same).
+        if (exactMatch == null || streamRes > _parseResolution(exactMatch.resolution)!) {
+          exactMatch = stream;
+        }
+      } else if (diff < smallestDiff) {
         smallestDiff = diff;
         closest = stream;
       }
     }
 
+    if (exactMatch != null) return exactMatch;
     return closest;
   }
 

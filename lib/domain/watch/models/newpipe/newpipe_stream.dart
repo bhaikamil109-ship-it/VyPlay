@@ -52,6 +52,20 @@ class NewPipeAudioStream {
     this.audioLocale,
   });
 
+  /// Convenience label used by the selection helpers when they need a single
+  /// human-readable identifier for the stream.
+  String get label => quality ?? resolutionLikeLabel;
+
+  /// A best-effort text identifier for audio streams that do not expose a
+  /// separate quality label. This exists so the helper layer and tests can
+  /// read a `.label`-style value uniformly from audio and video streams.
+  String get resolutionLikeLabel {
+    if (averageBitrate != null) {
+      return '${averageBitrate}k';
+    }
+    return format ?? 'audio';
+  }
+
   /// Check if URL contains dubbed indicator in xtags parameter
   /// URL may contain: xtags=acont%3Ddubbed-auto%3Alang%3Den-US (decoded: acont=dubbed-auto:lang=en-US)
   bool get _urlIndicatesDubbed {
@@ -150,6 +164,23 @@ class NewPipeVideoStream {
     this.bitrate,
     this.approxDurationMs,
   });
+
+  /// Convenience label used by the selection helpers when they need a single
+  /// human-readable identifier for the stream.
+  ///
+  /// This mirrors what the helper layer writes into [StreamQualityInfo.label]:
+  /// the video resolution, with an optional high-FPS suffix.
+  String get label => quality ?? _labelFromResolution;
+
+  String get _labelFromResolution {
+    String? base = resolution;
+    if (base == null) return 'Unknown';
+    var label = base;
+    if (fps != null && fps! > 30) {
+      label = '$base ${fps}fps';
+    }
+    return label;
+  }
 
   /// Check if this stream has valid DASH segment info
   bool get hasDashInfo =>

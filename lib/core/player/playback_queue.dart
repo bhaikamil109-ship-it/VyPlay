@@ -1,7 +1,15 @@
+import 'dart:async';
 import 'dart:developer';
 
 import 'package:flutter/foundation.dart';
 import 'package:fluxtube/domain/watch/models/basic_info.dart';
+
+/// What happens when the current video finishes.
+///
+/// [one] is a per-video loop and is applied by the player itself (it restarts
+/// the same video); the queue only needs to know about it so the controls can
+/// show the state. [all] makes even a user-built queue wrap around.
+enum QueueRepeatMode { off, all, one }
 
 /// The single playback queue for the app.
 ///
@@ -22,6 +30,11 @@ class PlaybackQueue extends ChangeNotifier {
   final List<VideoBasicInfo> _queue = [];
   int _currentIndex = -1;
   bool _userManaged = false;
+  QueueRepeatMode _repeatMode = QueueRepeatMode.off;
+
+  /// Persists the chosen repeat mode. Wired at startup so this class stays
+  /// free of any database dependency.
+  Future<void> Function(QueueRepeatMode mode)? onQueueRepeatModeChanged;
 
   List<VideoBasicInfo> get queue => List.unmodifiable(_queue);
   int get currentIndex => _currentIndex;
@@ -32,6 +45,37 @@ class PlaybackQueue extends ChangeNotifier {
   /// Whether the viewer has hand-built this queue. Autoplay seeding is a no-op
   /// while this is true, and the queue does not wrap at the end.
   bool get isUserManaged => _userManaged;
+
+  /// Repeat behaviour applied when a video ends.
+  QueueRepeatMode get repeatMode => _repeatMode;
+
+  /// Sets the repeat mode and persists it through [onQueueRepeatModeChanged].
+  void setQueueRepeatMode(QueueRepeatMode mode) {
+    if (_repeatMode == mode) return;
+    _repeatMode = mode;
+    notifyListeners();
+    final persist = onQueueRepeatModeChanged;
+    if (persist != null) unawaited(persist(mode));
+    log('[Queue] Repeat mode: ${mode.name}');
+  }
+
+  /// Advances off → all → one → off, and returns the new mode.
+  QueueRepeatMode cycleQueueRepeatMode() {
+    final next = switch (_repeatMode) {
+      QueueRepeatMode.off => QueueRepeatMode.all,
+      QueueRepeatMode.all => QueueRepeatMode.one,
+      QueueRepeatMode.one => QueueRepeatMode.off,
+    };
+    setQueueRepeatMode(next);
+    return next;
+  }
+
+  /// Restores the saved mode at startup without writing it straight back.
+  void restoreQueueRepeatMode(QueueRepeatMode mode) {
+    if (_repeatMode == mode) return;
+    _repeatMode = mode;
+    notifyListeners();
+  }
 
   VideoBasicInfo? get current =>
       _currentIndex >= 0 && _currentIndex < _queue.length
@@ -176,8 +220,9 @@ class PlaybackQueue extends ChangeNotifier {
     }
 
     if (index == _queue.length - 1) {
-      // A user queue ends when it runs out; autoplay wraps so it never
-      // dead-ends.
+      // Repeat-all wraps even a user queue. Otherwise a user queue ends when
+      // it runs out, and autoplay wraps so it never dead-ends.
+      if (_repeatMode == QueueRepeatMode.all) return _queue.first;
       return _userManaged ? null : _queue.first;
     }
 

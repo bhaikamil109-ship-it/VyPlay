@@ -2184,6 +2184,36 @@ class S {
     );
   }
 
+  /// `Repeat off`
+  String get repeatOff {
+    return Intl.message(
+      'Repeat off',
+      name: 'repeatOff',
+      desc: 'Repeat mode is disabled',
+      args: [],
+    );
+  }
+
+  /// `Repeat all`
+  String get repeatAll {
+    return Intl.message(
+      'Repeat all',
+      name: 'repeatAll',
+      desc: 'Repeat the whole queue',
+      args: [],
+    );
+  }
+
+  /// `Repeat one`
+  String get repeatOne {
+    return Intl.message(
+      'Repeat one',
+      name: 'repeatOne',
+      desc: 'Repeat the current video',
+      args: [],
+    );
+  }
+
   /// `Remove from queue`
   String get removeFromQueue {
     return Intl.message(

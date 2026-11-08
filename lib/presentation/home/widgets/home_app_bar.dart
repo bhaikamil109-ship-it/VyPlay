@@ -7,6 +7,7 @@ import '../../../core/colors.dart';
 import '../../../core/constants.dart';
 import '../../../core/di/injectable.dart';
 import '../../search/screen_search.dart';
+import '../../settings/screen_settings.dart';
 import 'circular_icon.dart';
 
 class HomeAppBar extends StatelessWidget {
@@ -53,6 +54,15 @@ class HomeAppBar extends StatelessWidget {
           )),
           child: const CircularIcon(
             icon: CupertinoIcons.search,
+          ),
+        ),
+        kWidthBox10,
+        GestureDetector(
+          onTap: () => Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => const ScreenSettings(),
+          )),
+          child: const CircularIcon(
+            icon: CupertinoIcons.gear,
           ),
         ),
         kWidthBox20,

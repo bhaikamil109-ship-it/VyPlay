@@ -907,5 +907,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "youtubeService": MessageLookupByLibrary.simpleMessage(
       "यूट्यूब सेवा",
     ),
+    "repeatOff": MessageLookupByLibrary.simpleMessage(
+      "दोहराव बंद",
+    ),
+    "repeatAll": MessageLookupByLibrary.simpleMessage(
+      "सभी दोहराएँ",
+    ),
+    "repeatOne": MessageLookupByLibrary.simpleMessage(
+      "एक दोहराएँ",
+    ),
   };
 }

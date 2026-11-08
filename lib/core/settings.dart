@@ -51,6 +51,9 @@ const searchHistoryVisibilityKey = 'search-history-visibility';
 // Auto PiP (enter PiP when pressing home button while video is playing)
 const autoPipEnabledKey = 'auto-pip-enabled';
 
+// Repeat mode for the playback queue (off, all, one)
+const repeatModeKey = 'repeat-mode';
+
 // New-upload notifications for subscribed channels
 const notifyNewVideosKey = 'notify-new-videos';
 const notifyLastCheckKey = 'notify-last-check';

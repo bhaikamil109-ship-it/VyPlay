@@ -820,8 +820,16 @@ class _NewPipeExoPlayerState extends State<NewPipeExoPlayer> {
     ).then((_) => _startHideTimer());
   }
 
+  /// Guards against the completion callback firing twice for one ending.
+  bool _restartingForRepeat = false;
+
   void _handlePlaybackEnded() {
     if (!mounted || _autoAdvanced) return;
+    // Repeat-one restarts the same video instead of advancing the queue.
+    if (PlaybackQueue().repeatMode == QueueRepeatMode.one) {
+      unawaited(_restartForRepeat());
+      return;
+    }
     // "End of video" sleep timer: stop here instead of advancing.
     if (_sleepTimerMinutes == -1) {
       setState(() => _sleepTimerMinutes = null);
@@ -844,6 +852,20 @@ class _NewPipeExoPlayerState extends State<NewPipeExoPlayer> {
         'channelId': next.channelId ?? '',
       });
     });
+  }
+
+  /// Seeks back to the start and resumes, for [QueueRepeatMode.one].
+  Future<void> _restartForRepeat() async {
+    if (_restartingForRepeat) return;
+    _restartingForRepeat = true;
+    try {
+      await _channel?.invokeMethod('seekTo', {'positionMs': 0});
+      await _channel?.invokeMethod('play');
+    } catch (error) {
+      debugPrint('[NewPipeExoPlayer] Repeat restart failed: $error');
+    } finally {
+      _restartingForRepeat = false;
+    }
   }
 
   Future<void> _saveHistoryPosition() async {

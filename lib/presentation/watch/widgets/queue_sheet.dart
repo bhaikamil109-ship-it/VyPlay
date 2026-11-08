@@ -47,6 +47,21 @@ class QueueSheet extends StatelessWidget {
                           style: const TextStyle(
                               color: Colors.white54, fontSize: 13)),
                       const Spacer(),
+                      IconButton(
+                        onPressed: playbackQueue.cycleQueueRepeatMode,
+                        icon: Icon(
+                          _repeatIcon(playbackQueue.repeatMode),
+                          size: 18,
+                        ),
+                        color: playbackQueue.repeatMode == QueueRepeatMode.off
+                            ? Colors.white54
+                            : Colors.white,
+                        tooltip: _repeatLabel(locals, playbackQueue.repeatMode),
+                        padding: EdgeInsets.zero,
+                        constraints: const BoxConstraints(),
+                        visualDensity: VisualDensity.compact,
+                      ),
+                      const SizedBox(width: 8),
                       if (queue.length > 2)
                         TextButton(
                           onPressed: playbackQueue.shuffle,
@@ -171,6 +186,18 @@ class QueueSheet extends StatelessWidget {
       'videoId': video.id,
       'channelId': video.channelId ?? '',
     });
+  }
+
+  static IconData _repeatIcon(QueueRepeatMode mode) {
+    return mode == QueueRepeatMode.one ? Icons.repeat_one : Icons.repeat;
+  }
+
+  static String _repeatLabel(S locals, QueueRepeatMode mode) {
+    return switch (mode) {
+      QueueRepeatMode.off => locals.repeatOff,
+      QueueRepeatMode.all => locals.repeatAll,
+      QueueRepeatMode.one => locals.repeatOne,
+    };
   }
 
   Widget _buildHandle() {

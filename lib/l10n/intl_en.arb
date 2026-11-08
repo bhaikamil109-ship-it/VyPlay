@@ -564,6 +564,18 @@
   "@queueClear": {
     "description": "Clears the playback queue"
   },
+  "repeatOff": "Repeat off",
+  "@repeatOff": {
+    "description": "Repeat mode is disabled"
+  },
+  "repeatAll": "Repeat all",
+  "@repeatAll": {
+    "description": "Repeat the whole queue"
+  },
+  "repeatOne": "Repeat one",
+  "@repeatOne": {
+    "description": "Repeat the current video"
+  },
   "removeFromQueue": "Remove from queue",
   "@removeFromQueue": {
     "description": "Removes one queue entry"

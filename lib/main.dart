@@ -17,6 +17,9 @@ import 'package:fluxtube/core/locals.dart';
 import 'package:fluxtube/core/perf/app_perf.dart';
 import 'package:fluxtube/core/perf/device_profile.dart';
 import 'package:fluxtube/core/player/global_player_controller.dart';
+import 'package:fluxtube/core/player/playback_queue.dart';
+import 'package:fluxtube/core/settings.dart';
+import 'package:fluxtube/infrastructure/database/database.dart';
 import 'package:fluxtube/infrastructure/download/download_notification_service.dart';
 import 'package:fluxtube/infrastructure/settings/setting_impl.dart';
 import 'package:fluxtube/presentation/routes/app_routes.dart';
@@ -57,6 +60,18 @@ void main() async {
 
   Bloc.observer = AppBlocObserver();
   await SettingImpl.initializeDB();
+
+  // Restore the saved repeat mode and keep it persisted from here on. The
+  // queue takes a hook rather than touching the database itself.
+  final queue = PlaybackQueue();
+  final savedQueueRepeatMode = await AppDatabase.instance.getSetting(repeatModeKey);
+  queue.restoreQueueRepeatMode(QueueRepeatMode.values.firstWhere(
+    (mode) => mode.name == savedQueueRepeatMode,
+    orElse: () => QueueRepeatMode.off,
+  ));
+  queue.onQueueRepeatModeChanged = (mode) =>
+      AppDatabase.instance.setSetting(repeatModeKey, mode.name);
+
   // Initialize GetIt and register dependencies
   configureInjection();
 

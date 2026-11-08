@@ -340,6 +340,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Rename Playlist",
     ),
     "renameProfile": MessageLookupByLibrary.simpleMessage("Rename Profile"),
+    "repeatAll": MessageLookupByLibrary.simpleMessage("Repeat all"),
+    "repeatOff": MessageLookupByLibrary.simpleMessage("Repeat off"),
+    "repeatOne": MessageLookupByLibrary.simpleMessage("Repeat one"),
     "repliesNotSupported": MessageLookupByLibrary.simpleMessage(
       "Replies are not available yet",
     ),

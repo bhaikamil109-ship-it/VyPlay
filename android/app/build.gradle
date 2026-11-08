@@ -45,7 +45,7 @@ gradle.taskGraph.whenReady { taskGraph ->
 }
 
 android {
-    namespace "com.fazilvk.fluxtube"
+    namespace "com.kamil.vyplay"
     compileSdk flutter.compileSdkVersion
     // No NDK is pinned on purpose. This project compiles no native code: there
     // is no CMakeLists.txt, no externalNativeBuild block, and no plugin in the
@@ -72,7 +72,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.fazilvk.fluxtube"
+        applicationId "com.kamil.vyplay"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
         // Floor is 24 (Android 7.0), not 21. ffmpeg_kit_flutter_new — the
