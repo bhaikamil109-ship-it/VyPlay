@@ -51,6 +51,86 @@ const searchHistoryVisibilityKey = 'search-history-visibility';
 // Auto PiP (enter PiP when pressing home button while video is playing)
 const autoPipEnabledKey = 'auto-pip-enabled';
 
+// Sleep timer
+const sleepTimerKey = 'sleep-timer';
+
+// Swipe gestures
+const enableSwipeGesturesKey = 'enable-swipe-gestures';
+const swipeSensitivityKey = 'swipe-sensitivity';
+
+// DeArrow
+const dearrowEnabledKey = 'dearrow-enabled';
+
+// Playlist Bookmarks
+const bookmarksEnabledKey = 'bookmarks-enabled';
+const bookmarkPlaylistsKey = 'bookmarked-playlists';
+
+// Content Filtering
+const restrictedModeKey = 'restricted-mode';
+
+// Mini Player
+const miniPlayerEnabledKey = 'mini-player-enabled';
+
+// Download Preferences
+const downloadQualityKey = 'download-quality';
+const downloadSubtitlesKey = 'download-subtitles';
+const downloadOverWifiOnlyKey = 'download-over-wifi-only';
+const downloadAutoDeleteKey = 'download-auto-delete';
+
+// Playback speed (default playback speed for videos)
+const playbackSpeedKey = 'playback-speed';
+
+// Autoplay next video when current video ends
+const autoplayNextVideoKey = 'autoplay-next-video';
+
+// Show related videos in playback queue
+const showRelatedInQueueKey = 'show-related-in-queue';
+
+// Queue auto-dismiss time in seconds (0 = never dismiss)
+const queueDismissTimeKey = 'queue-dismiss-time';
+
+// Autoplay countdown seconds (0 = no countdown)
+const autoplayCountdownKey = 'autoplay-countdown';
+
+// Disable autoplay on cellular/mobile data
+const disableAutoplayOnCellularKey = 'disable-autoplay-cellular';
+
+// Auto-queue: continue playlist by auto-adding related stream when queue ends
+const autoQueueKey = 'auto-queue';
+
+// Buffer preloading (preload next video buffer)
+const bufferPreloadKey = 'buffer-preload';
+
+// Video quality auto-adjust based on network
+const autoQualityAdjustKey = 'auto-quality-adjust';
+
+// Background playback (audio continues in background)
+const backgroundPlaybackKey = 'background-playback';
+
+// Notification controls (lock screen/media notification)
+const notificationControlsKey = 'notification-controls';
+
+// Data saver mode
+const dataSaverKey = 'data-saver';
+
+// Hide watched videos in feeds
+const hideWatchedVideosKey = 'hide-watched-videos';
+
+// Quality for mobile data (specific setting)
+const mobileDataQualityKey = 'mobile-data-quality';
+
+// Download items in queue
+const downloadQueueItemsKey = 'download-queue-items';
+
+// Rich caption rendering
+const richCaptionRenderingKey = 'rich-caption-rendering';
+
+// Bilibili video support (enable/disable Bilibili as a service)
+const bilibiliEnabledKey = 'bilibili-enabled';
+
+// Content swipe direction (left-to-right or right-to-left)
+const swipeDirectionKey = 'swipe-direction';
+
 // Repeat mode for the playback queue (off, all, one)
 const repeatModeKey = 'repeat-mode';
 

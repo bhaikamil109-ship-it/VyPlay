@@ -5,8 +5,17 @@ import 'package:vyplay/generated/l10n.dart';
 
 import '../../widgets/custom_app_bar.dart';
 import 'widgets/widgets.dart';
+import 'widgets/sleep_timer_section.dart';
+import 'widgets/gestures_section.dart';
+import 'widgets/dearrow_section.dart';
+import 'widgets/bookmarks_section.dart';
+import 'widgets/content_filtering_section.dart';
+import 'widgets/mini_player_section.dart';
+import 'widgets/download_preferences_section.dart';
+import 'widgets/playback_speed_section.dart';
 
 class ScreenSettings extends StatelessWidget {
+
   const ScreenSettings({super.key});
 
   @override
@@ -34,6 +43,22 @@ class ScreenSettings extends StatelessWidget {
                 VideoSettingsSection(),
                 kHeightBox15,
                 PlaybackSettingsSection(),
+                kHeightBox15,
+                SleepTimerSettingsSection(),
+                kHeightBox15,
+                GesturesSettingsSection(),
+                kHeightBox15,
+                DeArrowSettingsSection(),
+                kHeightBox15,
+                PlaylistBookmarksSettingsSection(),
+                kHeightBox15,
+                ContentFilteringSettingsSection(),
+                kHeightBox15,
+                MiniPlayerSettingsSection(),
+                kHeightBox15,
+                DownloadPreferencesSettingsSection(),
+                kHeightBox15,
+                PlaybackSpeedSettingsSection(),
                 kHeightBox15,
                 SponsorBlockSettingsSection(),
                 kHeightBox15,

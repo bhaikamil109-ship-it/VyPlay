@@ -15,10 +15,16 @@ import 'package:injectable/injectable.dart';
 import 'package:path_provider/path_provider.dart';
 
 import '../../core/settings.dart';
+import '../../domain/subscription_groups/subscription_group.dart';
+import '../../domain/settings/settings_event.dart';
 
 @LazySingleton(as: SettingsService)
 class SettingImpl implements SettingsService {
-  static AppDatabase get db => AppDatabase.instance;
+  final AppDatabase? _db;
+  
+  SettingImpl({AppDatabase? db}) : _db = db;
+  
+  static AppDatabase get db => _db ?? AppDatabase.instance;
 
   // Initialize the database
   static Future<void> initializeDB() async {
@@ -742,5 +748,737 @@ class SettingImpl implements SettingsService {
       value: isEnabled,
       toStringValue: (v) => v.toString(),
     );
+  }
+
+  // Sleep timer methods
+  @override
+  Future<Either<MainFailure, SleepTimerConfig>> setSleepTimerConfig(
+      {required SleepTimerConfig config}) async {
+    try {
+      final seconds = config.duration.inSeconds;
+      await db.setSetting(sleepTimerKey, seconds.toString());
+      return Right(config);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, bool>> clearSleepTimer() async {
+    try {
+      await db.setSetting(sleepTimerKey, '0');
+      return const Right(true);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, SleepTimerConfig?>> getSleepTimerConfig() async {
+    try {
+      final setting = await db.getSetting(sleepTimerKey);
+      if (setting == null || setting == '0') {
+        return const Right(null);
+      }
+      final seconds = int.tryParse(setting) ?? 0;
+      if (seconds <= 0) {
+        return const Right(null);
+      }
+      final config = SleepTimerConfig(duration: Duration(seconds: seconds));
+      return Right(config);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  // Subscription Group methods
+  @override
+  Future<Either<MainFailure, List<Map<String, dynamic>>>> getAllSubscriptionGroups(
+      {required String profileName}) async {
+    try {
+      final groups = await db.getAllGroups(profileName);
+      return Right(groups.map((g) => {
+        'id': g.id.value,
+        'groupName': g.groupName,
+        'colorHex': g.colorHex,
+        'sortOrder': g.sortOrder.value,
+      }).toList());
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, int>> createSubscriptionGroup(
+      {required String groupName, required String profileName, String? colorHex}) async {
+    try {
+      final group = SubscriptionGroupsCompanion.insert(
+        groupName: groupName,
+        profileName: profileName,
+        colorHex: Value(colorHex),
+        sortOrder: 0,
+      );
+      final id = await db.insertGroup(group);
+      return Right(id);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, bool>> renameSubscriptionGroup(
+      {required int groupId, required String newName, required String profileName}) async {
+    try {
+      final update = SubscriptionGroupsCompanion(
+        groupName: Value(newName),
+      );
+      await db.updateGroup(update.copyWith(id: Value(groupId)));
+      return const Right(true);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, bool>> deleteSubscriptionGroup(
+      {required int groupId, required String profileName}) async {
+    try {
+      await db.deleteGroup(groupId);
+      return const Right(true);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, bool>> addToGroup(
+      {required int groupId, required String channelId, required String profileName}) async {
+    try {
+      await db.addToGroup(groupId, channelId, profileName);
+      return const Right(true);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, bool>> removeFromGroup(
+      {required int groupId, required String channelId, required String profileName}) async {
+    try {
+      await db.removeFromGroup(groupId, channelId, profileName);
+      return const Right(true);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, List<Map<String, dynamic>>>> getGroupMembers(
+      {required int groupId, required String profileName}) async {
+    try {
+      final members = await db.getGroupMembers(groupId, profileName);
+      return Right(members.map((s) => {
+        'channelId': s.channelId,
+        'channelName': s.channelName,
+        'avatarUrl': s.avatarUrl,
+        'isVerified': s.isVerified,
+      }).toList());
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  // Swipe gestures
+  @override
+  Future<Either<MainFailure, bool>> toggleSwipeGestures({required bool enabled}) async {
+    try {
+      await db.setSetting(enableSwipeGesturesKey, enabled.toString());
+      return Right(enabled);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, bool>> isSwipeGesturesEnabled() async {
+    try {
+      final setting = await db.getSetting(enableSwipeGesturesKey);
+      return Right(setting != 'false');
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  // DeArrow
+  @override
+  Future<Either<MainFailure, bool>> toggleDeArrow({required bool enabled}) async {
+    try {
+      await db.setSetting(dearrowEnabledKey, enabled.toString());
+      return Right(enabled);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, bool>> isDeArrowEnabled() async {
+    try {
+      final setting = await db.getSetting(dearrowEnabledKey);
+      return Right(setting == 'true');
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  // Playlist Bookmarks
+  @override
+  Future<Either<MainFailure, bool>> toggleBookmarks({required bool enabled}) async {
+    try {
+      await db.setSetting(bookmarksEnabledKey, enabled.toString());
+      return Right(enabled);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, bool>> isBookmarksEnabled() async {
+    try {
+      final setting = await db.getSetting(bookmarksEnabledKey);
+      return Right(setting == 'true');
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, bool>> toggleBookmarkPlaylist({required String playlistId, required bool bookmarked}) async {
+    try {
+      final current = await db.getSetting(bookmarkPlaylistsKey);
+      final list = current?.split(',').where((e) => e.isNotEmpty).toList() ?? [];
+      if (bookmarked) {
+        if (!list.contains(playlistId)) {
+          list.add(playlistId);
+        }
+      } else {
+        list.remove(playlistId);
+      }
+      await db.setSetting(bookmarkPlaylistsKey, list.join(','));
+      return Right(bookmarked);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, List<String>>> getBookmarkedPlaylists() async {
+    try {
+      final setting = await db.getSetting(bookmarkPlaylistsKey);
+      final list = setting?.split(',').where((e) => e.isNotEmpty).toList() ?? [];
+      return Right(list);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  // Content Filtering
+  @override
+  Future<Either<MainFailure, bool>> toggleRestrictedMode({required bool enabled}) async {
+    try {
+      await db.setSetting(restrictedModeKey, enabled.toString());
+      return Right(enabled);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, bool>> isRestrictedModeEnabled() async {
+    try {
+      final setting = await db.getSetting(restrictedModeKey);
+      return Right(setting == 'true');
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  // Mini Player
+  @override
+  Future<Either<MainFailure, bool>> toggleMiniPlayer({required bool enabled}) async {
+    try {
+      await db.setSetting(miniPlayerEnabledKey, enabled.toString());
+      return Right(enabled);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, bool>> isMiniPlayerEnabled() async {
+    try {
+      final setting = await db.getSetting(miniPlayerEnabledKey);
+      return Right(setting == 'true');
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  // Download Preferences
+  @override
+  Future<Either<MainFailure, String>> setDownloadQuality({required String quality}) async {
+    try {
+      await db.setSetting(downloadQualityKey, quality);
+      return Right(quality);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, String>> getDownloadQuality() async {
+    try {
+      final quality = await db.getSetting(downloadQualityKey);
+      return Right(quality ?? '720p');
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, bool>> toggleDownloadSubtitles({required bool enabled}) async {
+    try {
+      await db.setSetting(downloadSubtitlesKey, enabled.toString());
+      return Right(enabled);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, bool>> isDownloadSubtitlesEnabled() async {
+    try {
+      final setting = await db.getSetting(downloadSubtitlesKey);
+      return Right(setting == 'true');
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, bool>> toggleDownloadOverWifiOnly({required bool enabled}) async {
+    try {
+      await db.setSetting(downloadOverWifiOnlyKey, enabled.toString());
+      return Right(enabled);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, bool>> isDownloadOverWifiOnlyEnabled() async {
+    try {
+      final setting = await db.getSetting(downloadOverWifiOnlyKey);
+      return Right(setting == 'true');
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, bool>> toggleDownloadAutoDelete({required bool enabled}) async {
+    try {
+      await db.setSetting(downloadAutoDeleteKey, enabled.toString());
+      return Right(enabled);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, bool>> isDownloadAutoDeleteEnabled() async {
+    try {
+      final setting = await db.getSetting(downloadAutoDeleteKey);
+      return Right(setting == 'true');
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  // Playback speed
+  @override
+  Future<Either<MainFailure, double>> setPlaybackSpeed({required double speed}) async {
+    try {
+      await db.setSetting(playbackSpeedKey, speed.toString());
+      return Right(speed);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, double>> getPlaybackSpeed() async {
+    try {
+      final setting = await db.getSetting(playbackSpeedKey);
+      return Right(double.tryParse(setting ?? '1.0') ?? 1.0);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  // Autoplay next video
+  @override
+  Future<Either<MainFailure, bool>> setAutoplayNextVideo({required bool enabled}) async {
+    try {
+      await db.setSetting(autoplayNextVideoKey, enabled ? 'true' : 'false');
+      return Right(enabled);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, bool>> isAutoplayNextVideoEnabled() async {
+    try {
+      final setting = await db.getSetting(autoplayNextVideoKey);
+      return Right(setting == 'true');
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  // Show related videos in queue
+  @override
+  Future<Either<MainFailure, bool>> setShowRelatedInQueue({required bool enabled}) async {
+    try {
+      await db.setSetting(showRelatedInQueueKey, enabled ? 'true' : 'false');
+      return Right(enabled);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, bool>> isShowRelatedInQueueEnabled() async {
+    try {
+      final setting = await db.getSetting(showRelatedInQueueKey);
+      return Right(setting == 'true');
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  // Queue auto-dismiss time
+  @override
+  Future<Either<MainFailure, int>> setQueueDismissTime({required int seconds}) async {
+    try {
+      await db.setSetting(queueDismissTimeKey, seconds.toString());
+      return Right(seconds);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, int>> getQueueDismissTime() async {
+    try {
+      final setting = await db.getSetting(queueDismissTimeKey);
+      return Right(int.tryParse(setting ?? '30') ?? 30);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  // Autoplay countdown
+  @override
+  Future<Either<MainFailure, int>> setAutoplayCountdown({required int seconds}) async {
+    try {
+      await db.setSetting(autoplayCountdownKey, seconds.toString());
+      return Right(seconds);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, int>> getAutoplayCountdown() async {
+    try {
+      final setting = await db.getSetting(autoplayCountdownKey);
+      return Right(int.tryParse(setting ?? '5') ?? 5);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  // Disable autoplay on cellular
+  @override
+  Future<Either<MainFailure, bool>> setDisableAutoplayOnCellular({required bool enabled}) async {
+    try {
+      await db.setSetting(disableAutoplayOnCellularKey, enabled ? 'true' : 'false');
+      return Right(enabled);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, bool>> isDisableAutoplayOnCellularEnabled() async {
+    try {
+      final setting = await db.getSetting(disableAutoplayOnCellularKey);
+      return Right(setting == 'true');
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  // Auto-queue
+  @override
+  Future<Either<MainFailure, bool>> setAutoQueue({required bool enabled}) async {
+    try {
+      await db.setSetting(autoQueueKey, enabled ? 'true' : 'false');
+      return Right(enabled);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, bool>> isAutoQueueEnabled() async {
+    try {
+      final setting = await db.getSetting(autoQueueKey);
+      return Right(setting == 'true');
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  // Buffer preloading
+  @override
+  Future<Either<MainFailure, bool>> setBufferPreload({required bool enabled}) async {
+    try {
+      await db.setSetting(bufferPreloadKey, enabled ? 'true' : 'false');
+      return Right(enabled);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, bool>> isBufferPreloadEnabled() async {
+    try {
+      final setting = await db.getSetting(bufferPreloadKey);
+      return Right(setting == 'true');
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  // Video quality auto-adjust
+  @override
+  Future<Either<MainFailure, bool>> setAutoQualityAdjust({required bool enabled}) async {
+    try {
+      await db.setSetting(autoQualityAdjustKey, enabled ? 'true' : 'false');
+      return Right(enabled);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, bool>> isAutoQualityAdjustEnabled() async {
+    try {
+      final setting = await db.getSetting(autoQualityAdjustKey);
+      return Right(setting == 'true');
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  // Background playback
+  @override
+  Future<Either<MainFailure, bool>> setBackgroundPlayback({required bool enabled}) async {
+    try {
+      await db.setSetting(backgroundPlaybackKey, enabled ? 'true' : 'false');
+      return Right(enabled);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, bool>> isBackgroundPlaybackEnabled() async {
+    try {
+      final setting = await db.getSetting(backgroundPlaybackKey);
+      return Right(setting == 'true');
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  // Notification controls
+  @override
+  Future<Either<MainFailure, bool>> setNotificationControls({required bool enabled}) async {
+    try {
+      await db.setSetting(notificationControlsKey, enabled ? 'true' : 'false');
+      return Right(enabled);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, bool>> isNotificationControlsEnabled() async {
+    try {
+      final setting = await db.getSetting(notificationControlsKey);
+      return Right(setting == 'true');
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  // Data saver mode
+  @override
+  Future<Either<MainFailure, bool>> setDataSaver({required bool enabled}) async {
+    try {
+      await db.setSetting(dataSaverKey, enabled ? 'true' : 'false');
+      return Right(enabled);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, bool>> isDataSaverEnabled() async {
+    try {
+      final setting = await db.getSetting(dataSaverKey);
+      return Right(setting == 'true');
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  // Hide watched videos in feeds
+  @override
+  Future<Either<MainFailure, bool>> setHideWatchedVideos({required bool enabled}) async {
+    try {
+      await db.setSetting(hideWatchedVideosKey, enabled ? 'true' : 'false');
+      return Right(enabled);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, bool>> isHideWatchedVideosEnabled() async {
+    try {
+      final setting = await db.getSetting(hideWatchedVideosKey);
+      return Right(setting == 'true');
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  // Quality for mobile data
+  @override
+  Future<Either<MainFailure, int>> setMobileDataQuality({required int quality}) async {
+    try {
+      await db.setSetting(mobileDataQualityKey, quality.toString());
+      return Right(quality);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, int>> getMobileDataQuality() async {
+    try {
+      final setting = await db.getSetting(mobileDataQualityKey);
+      return Right(int.tryParse(setting ?? '360') ?? 360);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  // Download items in queue
+  @override
+  Future<Either<MainFailure, bool>> setDownloadQueueItems({required bool enabled}) async {
+    try {
+      await db.setSetting(downloadQueueItemsKey, enabled ? 'true' : 'false');
+      return Right(enabled);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, bool>> isDownloadQueueItemsEnabled() async {
+    try {
+      final setting = await db.getSetting(downloadQueueItemsKey);
+      return Right(setting == 'true');
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  // Rich caption rendering
+  @override
+  Future<Either<MainFailure, bool>> setRichCaptionRendering({required bool enabled}) async {
+    try {
+      await db.setSetting(richCaptionRenderingKey, enabled ? 'true' : 'false');
+      return Right(enabled);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, bool>> isRichCaptionRenderingEnabled() async {
+    try {
+      final setting = await db.getSetting(richCaptionRenderingKey);
+      return Right(setting == 'true');
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  // Bilibili video support
+  @override
+  Future<Either<MainFailure, bool>> setBilibiliEnabled({required bool enabled}) async {
+    try {
+      await db.setSetting(bilibiliEnabledKey, enabled ? 'true' : 'false');
+      return Right(enabled);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, bool>> isBilibiliEnabled() async {
+    try {
+      final setting = await db.getSetting(bilibiliEnabledKey);
+      return Right(setting == 'true');
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  // Content swipe direction
+  @override
+  Future<Either<MainFailure, bool>> setSwipeDirection({required bool leftToRight}) async {
+    try {
+      await db.setSetting(swipeDirectionKey, leftToRight ? 'ltr' : 'rtl');
+      return Right(leftToRight);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, bool>> isSwipeLeftToRight() async {
+    try {
+      final setting = await db.getSetting(swipeDirectionKey);
+      return Right(setting == 'ltr');
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
   }
 }

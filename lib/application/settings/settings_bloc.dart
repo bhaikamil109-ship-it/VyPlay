@@ -7,6 +7,7 @@ import 'package:vyplay/domain/core/failure/main_failure.dart';
 import 'package:vyplay/core/settings.dart';
 import 'package:vyplay/domain/settings/models/instance.dart';
 import 'package:vyplay/domain/settings/settings_service.dart';
+import 'package:vyplay/domain/sleep_timer/sleep_timer_config.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -661,6 +662,231 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
           (MainFailure f) => state.copyWith(isAutoPipEnabled: state.isAutoPipEnabled),
           (bool isEnabled) => state.copyWith(isAutoPipEnabled: isEnabled));
       emit(_state);
+    });
+
+    on<SetSleepTimer>((event, emit) async {
+      final _result = await settingsService.setSleepTimerConfig(
+          config: SleepTimerConfig(duration: Duration(seconds: event.seconds)));
+      emit(_result.fold(
+          (MainFailure f) => state,
+          (config) => state.copyWith(sleepTimerConfig: config)));
+    });
+
+    on<ClearSleepTimer>((event, emit) async {
+      final _result = await settingsService.clearSleepTimer();
+      emit(_result.fold(
+          (MainFailure f) => state,
+          (_) => state.copyWith(sleepTimerConfig: null)));
+    });
+
+    on<ToggleSwipeGestures>((event, emit) async {
+      final _result = await settingsService.toggleSwipeGestures(enabled: event.enabled);
+      emit(_result.fold(
+          (MainFailure f) => state,
+          (enabled) => state.copyWith(isSwipeGesturesEnabled: enabled)));
+    });
+
+    on<ToggleDeArrow>((event, emit) async {
+      final _result = await settingsService.toggleDeArrow(enabled: event.enabled);
+      emit(_result.fold(
+          (MainFailure f) => state,
+          (enabled) => state.copyWith(isDeArrowEnabled: enabled)));
+    });
+
+    // Playlist Bookmarks
+    on<ToggleBookmarks>((event, emit) async {
+      final _result = await settingsService.toggleBookmarks(enabled: event.enabled);
+      emit(_result.fold(
+          (MainFailure f) => state,
+          (enabled) => state.copyWith(isBookmarksEnabled: enabled)));
+    });
+
+    on<ToggleBookmarkPlaylist>((event, emit) async {
+      final _result = await settingsService.toggleBookmarkPlaylist(
+        playlistId: event.playlistId,
+        bookmarked: event.bookmarked,
+      );
+      _result.fold(
+        (MainFailure f) => emit(state),
+        (bookmarked) {
+          final current = state.bookmarkedPlaylists ?? [];
+          final updated = bookmarked
+              ? [...current, event.playlistId]
+              : current.where((id) => id != event.playlistId).toList();
+          emit(state.copyWith(bookmarkedPlaylists: updated));
+        },
+      );
+    });
+
+    // Content Filtering
+    on<ToggleRestrictedMode>((event, emit) async {
+      final _result = await settingsService.toggleRestrictedMode(enabled: event.enabled);
+      emit(_result.fold(
+          (MainFailure f) => state,
+          (enabled) => state.copyWith(isRestrictedModeEnabled: enabled)));
+    });
+
+    // Mini Player
+    on<ToggleMiniPlayer>((event, emit) async {
+      final _result = await settingsService.toggleMiniPlayer(enabled: event.enabled);
+      emit(_result.fold(
+          (MainFailure f) => state,
+          (enabled) => state.copyWith(isMiniPlayerEnabled: enabled)));
+    });
+
+    // Download Preferences
+    on<SetDownloadQuality>((event, emit) async {
+      final _result = await settingsService.setDownloadQuality(quality: event.quality);
+      emit(_result.fold(
+          (MainFailure f) => state,
+          (quality) => state.copyWith(downloadQuality: quality)));
+    });
+
+    on<ToggleDownloadSubtitles>((event, emit) async {
+      final _result = await settingsService.toggleDownloadSubtitles(enabled: event.enabled);
+      emit(_result.fold(
+          (MainFailure f) => state,
+          (enabled) => state.copyWith(isDownloadSubtitlesEnabled: enabled)));
+    });
+
+    on<ToggleDownloadOverWifiOnly>((event, emit) async {
+      final _result = await settingsService.toggleDownloadOverWifiOnly(enabled: event.enabled);
+      emit(_result.fold(
+          (MainFailure f) => state,
+          (enabled) => state.copyWith(isDownloadOverWifiOnlyEnabled: enabled)));
+    });
+
+    on<ToggleDownloadAutoDelete>((event, emit) async {
+      final _result = await settingsService.toggleDownloadAutoDelete(enabled: event.enabled);
+      emit(_result.fold(
+          (MainFailure f) => state,
+          (enabled) => state.copyWith(isDownloadAutoDeleteEnabled: enabled)));
+    });
+
+    on<SetPlaybackSpeed>((event, emit) async {
+      final _result = await settingsService.setPlaybackSpeed(speed: event.speed);
+      emit(_result.fold(
+          (MainFailure f) => state,
+          (speed) => state.copyWith(playbackSpeed: speed)));
+    });
+
+    on<ToggleAutoplayNextVideo>((event, emit) async {
+      final _result = await settingsService.setAutoplayNextVideo(enabled: event.enabled);
+      emit(_result.fold(
+          (MainFailure f) => state,
+          (enabled) => state.copyWith(isAutoplayNextVideoEnabled: enabled)));
+    });
+
+    on<ToggleShowRelatedInQueue>((event, emit) async {
+      final _result = await settingsService.setShowRelatedInQueue(enabled: event.enabled);
+      emit(_result.fold(
+          (MainFailure f) => state,
+          (enabled) => state.copyWith(isShowRelatedInQueueEnabled: enabled)));
+    });
+
+    on<SetQueueDismissTime>((event, emit) async {
+      final _result = await settingsService.setQueueDismissTime(seconds: event.seconds);
+      emit(_result.fold(
+          (MainFailure f) => state,
+          (seconds) => state.copyWith(queueDismissTime: seconds)));
+    });
+
+    on<SetAutoplayCountdown>((event, emit) async {
+      final _result = await settingsService.setAutoplayCountdown(seconds: event.seconds);
+      emit(_result.fold(
+          (MainFailure f) => state,
+          (seconds) => state.copyWith(autoplayCountdown: seconds)));
+    });
+
+    on<ToggleDisableAutoplayOnCellular>((event, emit) async {
+      final _result = await settingsService.setDisableAutoplayOnCellular(enabled: event.enabled);
+      emit(_result.fold(
+          (MainFailure f) => state,
+          (enabled) => state.copyWith(isDisableAutoplayOnCellularEnabled: enabled)));
+    });
+
+    on<ToggleAutoQueue>((event, emit) async {
+      final _result = await settingsService.setAutoQueue(enabled: event.enabled);
+      emit(_result.fold(
+          (MainFailure f) => state,
+          (enabled) => state.copyWith(isAutoQueueEnabled: enabled)));
+    });
+
+    on<ToggleBufferPreload>((event, emit) async {
+      final _result = await settingsService.setBufferPreload(enabled: event.enabled);
+      emit(_result.fold(
+          (MainFailure f) => state,
+          (enabled) => state.copyWith(isBufferPreloadEnabled: enabled)));
+    });
+
+    on<ToggleAutoQualityAdjust>((event, emit) async {
+      final _result = await settingsService.setAutoQualityAdjust(enabled: event.enabled);
+      emit(_result.fold(
+          (MainFailure f) => state,
+          (enabled) => state.copyWith(isAutoQualityAdjustEnabled: enabled)));
+    });
+
+    on<ToggleBackgroundPlayback>((event, emit) async {
+      final _result = await settingsService.setBackgroundPlayback(enabled: event.enabled);
+      emit(_result.fold(
+          (MainFailure f) => state,
+          (enabled) => state.copyWith(isBackgroundPlaybackEnabled: enabled)));
+    });
+
+    on<ToggleNotificationControls>((event, emit) async {
+      final _result = await settingsService.setNotificationControls(enabled: event.enabled);
+      emit(_result.fold(
+          (MainFailure f) => state,
+          (enabled) => state.copyWith(isNotificationControlsEnabled: enabled)));
+    });
+
+    on<ToggleDataSaver>((event, emit) async {
+      final _result = await settingsService.setDataSaver(enabled: event.enabled);
+      emit(_result.fold(
+          (MainFailure f) => state,
+          (enabled) => state.copyWith(isDataSaverEnabled: enabled)));
+    });
+
+    on<ToggleHideWatchedVideos>((event, emit) async {
+      final _result = await settingsService.setHideWatchedVideos(enabled: event.enabled);
+      emit(_result.fold(
+          (MainFailure f) => state,
+          (enabled) => state.copyWith(isHideWatchedVideosEnabled: enabled)));
+    });
+
+    on<SetMobileDataQuality>((event, emit) async {
+      final _result = await settingsService.setMobileDataQuality(quality: event.quality);
+      emit(_result.fold(
+          (MainFailure f) => state,
+          (quality) => state.copyWith(mobileDataQuality: quality)));
+    });
+
+    on<ToggleDownloadQueueItems>((event, emit) async {
+      final _result = await settingsService.setDownloadQueueItems(enabled: event.enabled);
+      emit(_result.fold(
+          (MainFailure f) => state,
+          (enabled) => state.copyWith(isDownloadQueueItemsEnabled: enabled)));
+    });
+
+    on<ToggleRichCaptionRendering>((event, emit) async {
+      final _result = await settingsService.setRichCaptionRendering(enabled: event.enabled);
+      emit(_result.fold(
+          (MainFailure f) => state,
+          (enabled) => state.copyWith(isRichCaptionRenderingEnabled: enabled)));
+    });
+
+    on<ToggleBilibiliEnabled>((event, emit) async {
+      final _result = await settingsService.setBilibiliEnabled(enabled: event.enabled);
+      emit(_result.fold(
+          (MainFailure f) => state,
+          (enabled) => state.copyWith(isBilibiliEnabled: enabled)));
+    });
+
+    on<SetSwipeDirection>((event, emit) async {
+      final _result = await settingsService.setSwipeDirection(leftToRight: event.leftToRight);
+      emit(_result.fold(
+          (MainFailure f) => state,
+          (leftToRight) => state.copyWith(isSwipeLeftToRight: leftToRight)));
     });
   }
 }
