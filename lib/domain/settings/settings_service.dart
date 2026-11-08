@@ -127,6 +127,9 @@ abstract class SettingsService {
   Future<Either<MainFailure, int>> setAutoplayCountdown({required int seconds});
   Future<Either<MainFailure, int>> getAutoplayCountdown();
   
+  // YouTube service type
+  Future<Either<MainFailure, String>> setYoutubeService({required String service});
+  
   // Disable autoplay on cellular
   Future<Either<MainFailure, bool>> setDisableAutoplayOnCellular({required bool enabled});
   Future<Either<MainFailure, bool>> isDisableAutoplayOnCellularEnabled();

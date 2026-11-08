@@ -3,6 +3,7 @@ enum YouTubeServices {
   piped,
   explode,
   invidious,
+  bilibili, // Bilibili video support - enable for Bilibili content
 }
 
 enum ApiStatus {

@@ -117,4 +117,7 @@ class SettingsEvent with _$SettingsEvent {
   
   // Content swipe direction
   const factory SettingsEvent.setSwipeDirection({required bool leftToRight}) = SetSwipeDirection;
+  
+  // YouTube service switch
+  const factory SettingsEvent.setYoutubeService({required String service}) = SetYoutubeService;
 }

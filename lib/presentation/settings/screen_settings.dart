@@ -13,6 +13,7 @@ import 'widgets/content_filtering_section.dart';
 import 'widgets/mini_player_section.dart';
 import 'widgets/download_preferences_section.dart';
 import 'widgets/playback_speed_section.dart';
+import 'widgets/service_switch_section.dart';
 
 class ScreenSettings extends StatelessWidget {
 
@@ -61,6 +62,8 @@ class ScreenSettings extends StatelessWidget {
                 PlaybackSpeedSettingsSection(),
                 kHeightBox15,
                 SponsorBlockSettingsSection(),
+                kHeightBox15,
+                ServiceSwitchSection(),
                 kHeightBox15,
                 BackupSettingsSection(),
                 kHeightBox15,

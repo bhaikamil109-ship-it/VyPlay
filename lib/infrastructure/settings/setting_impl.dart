@@ -1209,6 +1209,17 @@ class SettingImpl implements SettingsService {
     }
   }
 
+  // YouTube service type
+  @override
+  Future<Either<MainFailure, String>> setYoutubeService({required String service}) async {
+    try {
+      await db.setSetting(youtubeService, service);
+      return Right(service);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
   // Disable autoplay on cellular
   @override
   Future<Either<MainFailure, bool>> setDisableAutoplayOnCellular({required bool enabled}) async {

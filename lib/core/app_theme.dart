@@ -4,13 +4,14 @@ import 'package:vyplay/core/colors.dart';
 abstract class AppTheme {
   /// Shared shape language: rounded cards and thumbnails everywhere, so the
   /// app reads as one consistent product instead of a mix of default widgets.
-  static const double _cardRadius = 14.0;
+  /// LibreTube-style: subtle elevation, smooth rounded corners.
+  static const double _cardRadius = 16.0;
 
   static CardThemeData _cardTheme(Color surface, Color outline) =>
       CardThemeData(
-        elevation: 0,
+        elevation: 2,
         color: surface,
-        margin: EdgeInsets.zero,
+        margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(_cardRadius),
           side: BorderSide(color: outline, width: 0.5),

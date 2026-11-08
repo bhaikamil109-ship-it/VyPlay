@@ -56,7 +56,10 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
 
       final String instanceApi;
       log('YT Service: $ytService');
-      if (ytService == YouTubeServices.invidious.name) {
+      if (ytService == YouTubeServices.bilibili.name) {
+        // Bilibili: use same base URL for video extraction
+        instanceApi = settingsMap[instanceApiUrl] ?? BaseUrl.kBaseUrl;
+      } else if (ytService == YouTubeServices.invidious.name) {
         instanceApi = settingsMap[instanceApiUrl] ?? BaseUrl.kInvidiousBaseUrl;
       } else {
         instanceApi = settingsMap[instanceApiUrl] ?? BaseUrl.kBaseUrl;
@@ -887,6 +890,13 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
       emit(_result.fold(
           (MainFailure f) => state,
           (leftToRight) => state.copyWith(isSwipeLeftToRight: leftToRight)));
+    });
+
+    on<SetYoutubeService>((event, emit) async {
+      final _result = await settingsService.setYoutubeService(service: event.service);
+      emit(_result.fold(
+          (MainFailure f) => state,
+          (service) => state.copyWith(ytService: service)));
     });
   }
 }
