@@ -79,6 +79,11 @@ class _ShortsFeedScreenState extends State<ShortsFeedScreen> {
   ///
   /// The dedicated channel-tab source is preferred; the search source is only
   /// used after the dedicated one has failed (see [_loadFallback]).
+  ///
+  /// YouTube-jaisa feed ke liye: har page load par alag channel select karein
+  /// taaki alg alg channels ke shorts dikhein.
+  int _pageLoadCount = 0;
+
   Future<NewPipeSearchResp> _fetchPage(String? nextPage) {
     if (_usingFallback) {
       return NewPipeChannel.search(
@@ -87,6 +92,10 @@ class _ShortsFeedScreenState extends State<ShortsFeedScreen> {
         nextPage: nextPage,
       );
     }
+    // Har load par channel rotate karein (YouTube gese feed ke liye)
+    _pageLoadCount++;
+    final channelIndex = _pageLoadCount % _shortsChannels.length;
+    _activeChannel = _shortsChannels[channelIndex];
     return NewPipeChannel.getShorts(
       channelId: _activeChannel,
       nextPage: nextPage,
@@ -209,6 +218,11 @@ class _ShortsFeedScreenState extends State<ShortsFeedScreen> {
     setState(() => _isLoadingMore = true);
 
     try {
+      // Load more se pehle channel rotate karein (YouTube gese feed ke liye)
+      _pageLoadCount++;
+      final channelIndex = _pageLoadCount % _shortsChannels.length;
+      _activeChannel = _shortsChannels[channelIndex];
+      
       final resp = await _fetchPage(_nextPage);
       if (!mounted) return;
       setState(() {
