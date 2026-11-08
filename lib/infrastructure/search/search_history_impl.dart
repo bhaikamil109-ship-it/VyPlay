@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
 import 'package:drift/drift.dart';
-import 'package:fluxtube/domain/core/failure/main_failure.dart';
-import 'package:fluxtube/domain/search/models/search_history.dart';
-import 'package:fluxtube/domain/search/search_history_service.dart';
-import 'package:fluxtube/infrastructure/database/database.dart';
+import 'package:vyplay/domain/core/failure/main_failure.dart';
+import 'package:vyplay/domain/search/models/search_history.dart';
+import 'package:vyplay/domain/search/search_history_service.dart';
+import 'package:vyplay/infrastructure/database/database.dart';
 import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: SearchHistoryService)

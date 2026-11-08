@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:fluxtube/domain/watch/models/newpipe/newpipe_stream.dart';
+import 'package:vyplay/domain/watch/models/newpipe/newpipe_stream.dart';
 
 part 'stream_quality_info.freezed.dart';
 

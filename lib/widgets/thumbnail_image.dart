@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fluxtube/core/colors.dart';
-import 'package:fluxtube/core/constants.dart';
-import 'package:fluxtube/core/perf/app_perf.dart';
+import 'package:vyplay/core/colors.dart';
+import 'package:vyplay/core/constants.dart';
+import 'package:vyplay/core/perf/app_perf.dart';
 
 // Cache widths come from AppPerf, which sizes them to the device: a 2 GB phone
 // decodes thumbnails at 480 px instead of 720 px, saving roughly two thirds of

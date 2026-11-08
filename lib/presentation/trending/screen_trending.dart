@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:fluxtube/application/application.dart';
-import 'package:fluxtube/core/constants.dart';
-import 'package:fluxtube/core/enums.dart';
-import 'package:fluxtube/generated/l10n.dart';
-import 'package:fluxtube/presentation/trending/widgets/invidious/trending_videos_section.dart';
-import 'package:fluxtube/presentation/trending/widgets/newpipe/trending_videos_section.dart';
-import 'package:fluxtube/presentation/trending/widgets/piped/trending_videos_section.dart';
-import 'package:fluxtube/widgets/widgets.dart';
+import 'package:vyplay/application/application.dart';
+import 'package:vyplay/core/constants.dart';
+import 'package:vyplay/core/enums.dart';
+import 'package:vyplay/generated/l10n.dart';
+import 'package:vyplay/presentation/trending/widgets/invidious/trending_videos_section.dart';
+import 'package:vyplay/presentation/trending/widgets/newpipe/trending_videos_section.dart';
+import 'package:vyplay/presentation/trending/widgets/piped/trending_videos_section.dart';
+import 'package:vyplay/widgets/widgets.dart';
 
 class ScreenTrending extends StatelessWidget {
   const ScreenTrending({super.key});

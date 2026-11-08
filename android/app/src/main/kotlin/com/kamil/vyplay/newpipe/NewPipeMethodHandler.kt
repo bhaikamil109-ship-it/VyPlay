@@ -1,4 +1,4 @@
-package com.fazilvk.fluxtube.newpipe
+package com.kamil.vyplay.newpipe
 
 import android.os.Handler
 import android.os.Looper
@@ -42,7 +42,7 @@ class NewPipeMethodHandler : MethodChannel.MethodCallHandler {
 
         fun initialize() {
             if (!isInitialized) {
-                NewPipe.init(FluxTubeDownloader.getInstance())
+                NewPipe.init(VyPlayDownloader.getInstance())
                 isInitialized = true
             }
         }

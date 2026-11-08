@@ -1,4 +1,4 @@
-package com.fazilvk.fluxtube.player
+package com.kamil.vyplay.player
 
 import android.content.Context
 import android.net.Uri
@@ -124,7 +124,7 @@ class NewPipeExoPlayerView(
 ) : PlatformView, MethodChannel.MethodCallHandler {
     private val channel = MethodChannel(
         messenger,
-        "com.fazilvk.fluxtube/newpipe_exoplayer_$viewId"
+        "com.kamil.vyplay/newpipe_exoplayer_$viewId"
     )
     private val httpDataSourceFactory = DefaultHttpDataSource.Factory()
         .setUserAgent(USER_AGENT)

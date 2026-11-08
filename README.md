@@ -11,7 +11,7 @@
 
 A clean, ad-free YouTube client built with Flutter. Watch YouTube videos without ads, subscribe to channels, retrieve video dislikes, read comments, save videos, and more.
 
-> **Note:** VyPlay is a derivative work of [FluxTube](https://github.com/mu-fazil-vk/fluxtube) (GPLv3). It keeps the same multi-backend architecture and adds VyPlay branding, a dedicated Shorts feed, an FFmpeg-based download merge, and additional localisation. Upstream attribution is preserved in the app's About screen as required by the licence.
+> **Note:** VyPlay is a derivative work of [FluxTube](https://github.com/mu-fazil-vk/vyplay) (GPLv3). It keeps the same multi-backend architecture and adds VyPlay branding, a dedicated Shorts feed, an FFmpeg-based download merge, and additional localisation. Upstream attribution is preserved in the app's About screen as required by the licence.
 
 ## Features
 
@@ -130,7 +130,7 @@ If you have any ideas, suggestions, or issues, please open a [new issue](https:/
 
 ## License
 
-VyPlay is a free software licensed under GPL v3.0. It is a derivative work of [FluxTube](https://github.com/mu-fazil-vk/fluxtube), also GPLv3.
+VyPlay is a free software licensed under GPL v3.0. It is a derivative work of [FluxTube](https://github.com/mu-fazil-vk/vyplay), also GPLv3.
 
 ## Privacy Policy
 

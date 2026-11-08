@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:fluxtube/core/player/playback_queue.dart';
-import 'package:fluxtube/domain/watch/models/basic_info.dart';
+import 'package:vyplay/core/player/playback_queue.dart';
+import 'package:vyplay/domain/watch/models/basic_info.dart';
 
 VideoBasicInfo video(String id) => VideoBasicInfo(id: id, title: 'Video $id');
 

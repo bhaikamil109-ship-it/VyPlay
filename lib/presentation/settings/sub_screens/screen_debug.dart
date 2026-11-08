@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fluxtube/core/services/log_collector.dart';
-import 'package:fluxtube/generated/l10n.dart';
+import 'package:vyplay/core/services/log_collector.dart';
+import 'package:vyplay/generated/l10n.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:path_provider/path_provider.dart';
 

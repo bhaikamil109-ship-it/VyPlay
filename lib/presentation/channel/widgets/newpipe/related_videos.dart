@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluxtube/application/application.dart';
-import 'package:fluxtube/core/constants.dart';
-import 'package:fluxtube/domain/channel/models/newpipe/newpipe_channel_resp.dart';
-import 'package:fluxtube/domain/watch/models/basic_info.dart';
-import 'package:fluxtube/domain/watch/models/newpipe/newpipe_related.dart';
-import 'package:fluxtube/generated/l10n.dart';
-import 'package:fluxtube/infrastructure/newpipe/newpipe_channel.dart';
-import 'package:fluxtube/presentation/channel/widgets/newpipe/newpipe_channel_video_card.dart';
+import 'package:vyplay/application/application.dart';
+import 'package:vyplay/core/constants.dart';
+import 'package:vyplay/domain/channel/models/newpipe/newpipe_channel_resp.dart';
+import 'package:vyplay/domain/watch/models/basic_info.dart';
+import 'package:vyplay/domain/watch/models/newpipe/newpipe_related.dart';
+import 'package:vyplay/generated/l10n.dart';
+import 'package:vyplay/infrastructure/newpipe/newpipe_channel.dart';
+import 'package:vyplay/presentation/channel/widgets/newpipe/newpipe_channel_video_card.dart';
 import 'package:go_router/go_router.dart';
 
 class NewPipeChannelRelatedVideoSection extends StatefulWidget {

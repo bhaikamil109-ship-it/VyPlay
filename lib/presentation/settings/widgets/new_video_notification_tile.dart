@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fluxtube/core/services/subscription_notifier.dart';
-import 'package:fluxtube/generated/l10n.dart';
+import 'package:vyplay/core/services/subscription_notifier.dart';
+import 'package:vyplay/generated/l10n.dart';
 
 /// Switch for new-upload notifications from subscribed channels.
 ///

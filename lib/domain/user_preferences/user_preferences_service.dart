@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:fluxtube/domain/core/failure/main_failure.dart';
-import 'package:fluxtube/domain/user_preferences/models/user_preferences.dart';
+import 'package:vyplay/domain/core/failure/main_failure.dart';
+import 'package:vyplay/domain/user_preferences/models/user_preferences.dart';
 
 abstract class UserPreferencesService {
   // Track user interactions with enhanced metadata

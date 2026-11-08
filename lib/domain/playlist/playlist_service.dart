@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
-import 'package:fluxtube/domain/core/failure/main_failure.dart';
-import 'package:fluxtube/domain/playlist/models/piped/playlist_resp.dart';
-import 'package:fluxtube/domain/playlist/models/invidious/invidious_playlist_resp.dart';
+import 'package:vyplay/domain/core/failure/main_failure.dart';
+import 'package:vyplay/domain/playlist/models/piped/playlist_resp.dart';
+import 'package:vyplay/domain/playlist/models/invidious/invidious_playlist_resp.dart';
 
 abstract class PlaylistService {
   /// Fetch playlist data from Piped API

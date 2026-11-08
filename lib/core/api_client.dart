@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
-import 'package:fluxtube/domain/core/failure/main_failure.dart';
+import 'package:vyplay/domain/core/failure/main_failure.dart';
 
 /// Centralized HTTP layer.
 ///

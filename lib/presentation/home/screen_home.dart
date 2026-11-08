@@ -3,16 +3,16 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart' show ScrollCacheExtent;
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluxtube/application/application.dart';
-import 'package:fluxtube/core/constants.dart';
-import 'package:fluxtube/core/enums.dart';
-import 'package:fluxtube/core/perf/app_perf.dart';
-import 'package:fluxtube/generated/l10n.dart';
-import 'package:fluxtube/presentation/home/widgets/personalized_feed_section.dart';
-import 'package:fluxtube/presentation/trending/widgets/invidious/trending_videos_section.dart';
-import 'package:fluxtube/presentation/trending/widgets/newpipe/trending_videos_section.dart';
-import 'package:fluxtube/presentation/trending/widgets/piped/trending_videos_section.dart';
-import 'package:fluxtube/widgets/widgets.dart';
+import 'package:vyplay/application/application.dart';
+import 'package:vyplay/core/constants.dart';
+import 'package:vyplay/core/enums.dart';
+import 'package:vyplay/core/perf/app_perf.dart';
+import 'package:vyplay/generated/l10n.dart';
+import 'package:vyplay/presentation/home/widgets/personalized_feed_section.dart';
+import 'package:vyplay/presentation/trending/widgets/invidious/trending_videos_section.dart';
+import 'package:vyplay/presentation/trending/widgets/newpipe/trending_videos_section.dart';
+import 'package:vyplay/presentation/trending/widgets/piped/trending_videos_section.dart';
+import 'package:vyplay/widgets/widgets.dart';
 
 import 'widgets/widgets.dart';
 

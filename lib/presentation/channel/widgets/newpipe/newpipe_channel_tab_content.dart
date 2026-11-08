@@ -1,15 +1,15 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluxtube/application/subscribe/subscribe_bloc.dart';
-import 'package:fluxtube/core/colors.dart';
-import 'package:fluxtube/domain/channel/models/newpipe/newpipe_channel_resp.dart';
-import 'package:fluxtube/domain/watch/models/newpipe/newpipe_related.dart';
-import 'package:fluxtube/generated/l10n.dart';
-import 'package:fluxtube/infrastructure/newpipe/newpipe_channel.dart';
-import 'package:fluxtube/presentation/channel/widgets/newpipe/newpipe_channel_video_card.dart';
-import 'package:fluxtube/presentation/shorts/screen_shorts.dart';
-import 'package:fluxtube/widgets/widgets.dart';
+import 'package:vyplay/application/subscribe/subscribe_bloc.dart';
+import 'package:vyplay/core/colors.dart';
+import 'package:vyplay/domain/channel/models/newpipe/newpipe_channel_resp.dart';
+import 'package:vyplay/domain/watch/models/newpipe/newpipe_related.dart';
+import 'package:vyplay/generated/l10n.dart';
+import 'package:vyplay/infrastructure/newpipe/newpipe_channel.dart';
+import 'package:vyplay/presentation/channel/widgets/newpipe/newpipe_channel_video_card.dart';
+import 'package:vyplay/presentation/shorts/screen_shorts.dart';
+import 'package:vyplay/widgets/widgets.dart';
 import 'package:go_router/go_router.dart';
 
 /// Widget to display NewPipe channel tab content (shorts/playlists)

@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:media_kit/media_kit.dart';
 import 'package:media_kit_video/media_kit_video.dart';
-import 'package:fluxtube/core/perf/app_perf.dart';
-import 'package:fluxtube/core/services/pip_service.dart';
-import 'package:fluxtube/core/services/audio_handler_service.dart';
-import 'package:fluxtube/core/services/exoplayer_notification_bridge.dart';
+import 'package:vyplay/core/perf/app_perf.dart';
+import 'package:vyplay/core/services/pip_service.dart';
+import 'package:vyplay/core/services/audio_handler_service.dart';
+import 'package:vyplay/core/services/exoplayer_notification_bridge.dart';
 
 /// Global player controller singleton that persists across navigation
 /// This prevents the player from being recreated/disposed when navigating

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluxtube/application/watch/watch_bloc.dart';
-import 'package:fluxtube/core/player/playback_queue.dart';
-import 'package:fluxtube/domain/watch/models/basic_info.dart';
-import 'package:fluxtube/generated/l10n.dart';
+import 'package:vyplay/application/watch/watch_bloc.dart';
+import 'package:vyplay/core/player/playback_queue.dart';
+import 'package:vyplay/domain/watch/models/basic_info.dart';
+import 'package:vyplay/generated/l10n.dart';
 import 'package:go_router/go_router.dart';
 
 class QueueSheet extends StatelessWidget {

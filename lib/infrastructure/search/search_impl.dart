@@ -2,13 +2,13 @@ import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:fluxtube/core/api_client.dart';
-import 'package:fluxtube/domain/core/failure/main_failure.dart';
-import 'package:fluxtube/domain/search/models/invidious/invidious_search_resp.dart';
-import 'package:fluxtube/domain/search/models/newpipe/newpipe_search_resp.dart';
-import 'package:fluxtube/domain/search/models/piped/search_resp.dart';
-import 'package:fluxtube/domain/search/search_service.dart';
-import 'package:fluxtube/infrastructure/newpipe/newpipe_channel.dart';
+import 'package:vyplay/core/api_client.dart';
+import 'package:vyplay/domain/core/failure/main_failure.dart';
+import 'package:vyplay/domain/search/models/invidious/invidious_search_resp.dart';
+import 'package:vyplay/domain/search/models/newpipe/newpipe_search_resp.dart';
+import 'package:vyplay/domain/search/models/piped/search_resp.dart';
+import 'package:vyplay/domain/search/search_service.dart';
+import 'package:vyplay/infrastructure/newpipe/newpipe_channel.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../domain/core/api_end_points.dart';

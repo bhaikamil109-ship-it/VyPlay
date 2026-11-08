@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluxtube/application/application.dart';
-import 'package:fluxtube/core/player/global_player_controller.dart';
-import 'package:fluxtube/domain/subscribes/models/subscribe.dart';
-import 'package:fluxtube/domain/watch/models/newpipe/newpipe_watch_resp.dart';
-import 'package:fluxtube/generated/l10n.dart';
-import 'package:fluxtube/widgets/common_video_description_widget.dart';
+import 'package:vyplay/application/application.dart';
+import 'package:vyplay/core/player/global_player_controller.dart';
+import 'package:vyplay/domain/subscribes/models/subscribe.dart';
+import 'package:vyplay/domain/watch/models/newpipe/newpipe_watch_resp.dart';
+import 'package:vyplay/generated/l10n.dart';
+import 'package:vyplay/widgets/common_video_description_widget.dart';
 import 'package:go_router/go_router.dart';
 
 class NewPipeChannelInfoSection extends StatelessWidget {

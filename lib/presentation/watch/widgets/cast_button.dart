@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fluxtube/core/services/cast_service.dart';
-import 'package:fluxtube/generated/l10n.dart';
+import 'package:vyplay/core/services/cast_service.dart';
+import 'package:vyplay/generated/l10n.dart';
 
 /// Everything a receiver needs to play one video.
 class CastMedia {

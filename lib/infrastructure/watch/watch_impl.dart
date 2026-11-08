@@ -2,17 +2,17 @@ import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:fluxtube/core/api_client.dart';
-import 'package:fluxtube/domain/core/failure/main_failure.dart';
-import 'package:fluxtube/domain/watch/models/invidious/comments/invidious_comments_resp.dart';
-import 'package:fluxtube/domain/watch/models/invidious/video/invidious_watch_resp.dart';
-import 'package:fluxtube/domain/watch/models/newpipe/newpipe_watch_resp.dart';
-import 'package:fluxtube/domain/watch/models/newpipe/newpipe_comments_resp.dart';
-import 'package:fluxtube/domain/watch/models/piped/comments/comments_resp.dart';
-import 'package:fluxtube/domain/watch/models/explode/explode_watch.dart';
-import 'package:fluxtube/domain/watch/models/piped/video/watch_resp.dart';
-import 'package:fluxtube/domain/watch/watch_service.dart';
-import 'package:fluxtube/infrastructure/newpipe/newpipe_channel.dart';
+import 'package:vyplay/core/api_client.dart';
+import 'package:vyplay/domain/core/failure/main_failure.dart';
+import 'package:vyplay/domain/watch/models/invidious/comments/invidious_comments_resp.dart';
+import 'package:vyplay/domain/watch/models/invidious/video/invidious_watch_resp.dart';
+import 'package:vyplay/domain/watch/models/newpipe/newpipe_watch_resp.dart';
+import 'package:vyplay/domain/watch/models/newpipe/newpipe_comments_resp.dart';
+import 'package:vyplay/domain/watch/models/piped/comments/comments_resp.dart';
+import 'package:vyplay/domain/watch/models/explode/explode_watch.dart';
+import 'package:vyplay/domain/watch/models/piped/video/watch_resp.dart';
+import 'package:vyplay/domain/watch/watch_service.dart';
+import 'package:vyplay/infrastructure/newpipe/newpipe_channel.dart';
 import 'package:injectable/injectable.dart';
 import 'package:youtube_explode_dart/youtube_explode_dart.dart';
 

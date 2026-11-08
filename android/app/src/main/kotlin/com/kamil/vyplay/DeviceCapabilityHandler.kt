@@ -1,4 +1,4 @@
-package com.fazilvk.fluxtube
+package com.kamil.vyplay
 
 import android.app.ActivityManager
 import android.content.Context

@@ -2,11 +2,11 @@ import 'dart:convert';
 import 'dart:developer';
 import 'package:dartz/dartz.dart';
 import 'package:drift/drift.dart';
-import 'package:fluxtube/domain/core/failure/main_failure.dart';
-import 'package:fluxtube/domain/user_preferences/models/user_preferences.dart'
+import 'package:vyplay/domain/core/failure/main_failure.dart';
+import 'package:vyplay/domain/user_preferences/models/user_preferences.dart'
     as domain;
-import 'package:fluxtube/domain/user_preferences/user_preferences_service.dart';
-import 'package:fluxtube/infrastructure/database/database.dart';
+import 'package:vyplay/domain/user_preferences/user_preferences_service.dart';
+import 'package:vyplay/infrastructure/database/database.dart';
 import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: UserPreferencesService)

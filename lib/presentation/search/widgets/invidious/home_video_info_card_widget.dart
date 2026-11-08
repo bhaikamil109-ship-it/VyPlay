@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
-import 'package:fluxtube/core/colors.dart';
-import 'package:fluxtube/core/constants.dart';
-import 'package:fluxtube/core/operations/math_operations.dart';
-import 'package:fluxtube/domain/search/models/invidious/invidious_search_resp.dart';
-import 'package:fluxtube/generated/l10n.dart';
-import 'package:fluxtube/widgets/widgets.dart';
+import 'package:vyplay/core/colors.dart';
+import 'package:vyplay/core/constants.dart';
+import 'package:vyplay/core/operations/math_operations.dart';
+import 'package:vyplay/domain/search/models/invidious/invidious_search_resp.dart';
+import 'package:vyplay/generated/l10n.dart';
+import 'package:vyplay/widgets/widgets.dart';
 import 'package:go_router/go_router.dart';
 
 // if trending or search *videos*, this will return (bcz of common values)

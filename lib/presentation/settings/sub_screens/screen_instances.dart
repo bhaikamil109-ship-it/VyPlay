@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluxtube/application/settings/settings_bloc.dart';
-import 'package:fluxtube/core/enums.dart';
-import 'package:fluxtube/generated/l10n.dart';
-import 'package:fluxtube/widgets/widgets.dart';
+import 'package:vyplay/application/settings/settings_bloc.dart';
+import 'package:vyplay/core/enums.dart';
+import 'package:vyplay/generated/l10n.dart';
+import 'package:vyplay/widgets/widgets.dart';
 
 class ScreenInstances extends StatelessWidget {
   const ScreenInstances({super.key});

@@ -2,16 +2,16 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/services.dart';
-import 'package:fluxtube/domain/channel/models/newpipe/newpipe_channel_resp.dart';
-import 'package:fluxtube/domain/search/models/newpipe/newpipe_search_resp.dart';
-import 'package:fluxtube/domain/trending/models/newpipe/newpipe_trending_resp.dart';
-import 'package:fluxtube/domain/watch/models/newpipe/newpipe_comments_resp.dart';
-import 'package:fluxtube/domain/watch/models/newpipe/newpipe_watch_resp.dart';
+import 'package:vyplay/domain/channel/models/newpipe/newpipe_channel_resp.dart';
+import 'package:vyplay/domain/search/models/newpipe/newpipe_search_resp.dart';
+import 'package:vyplay/domain/trending/models/newpipe/newpipe_trending_resp.dart';
+import 'package:vyplay/domain/watch/models/newpipe/newpipe_comments_resp.dart';
+import 'package:vyplay/domain/watch/models/newpipe/newpipe_watch_resp.dart';
 
 /// Platform channel for communicating with NewPipe Extractor on Android.
 /// This service is Android-only. On iOS, it returns unavailable.
 class NewPipeChannel {
-  static const _channel = MethodChannel('com.fazilvk.fluxtube/newpipe');
+  static const _channel = MethodChannel('com.kamil.vyplay/newpipe');
 
   // Cache for stream URLs with TTL (5 minutes)
   static final Map<String, _CachedStreamInfo> _streamCache = {};

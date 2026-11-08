@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluxtube/application/application.dart';
-import 'package:fluxtube/core/colors.dart';
-import 'package:fluxtube/core/constants.dart';
-import 'package:fluxtube/generated/l10n.dart';
+import 'package:vyplay/application/application.dart';
+import 'package:vyplay/core/colors.dart';
+import 'package:vyplay/core/constants.dart';
+import 'package:vyplay/generated/l10n.dart';
 
 class ProfilesSettingsSection extends StatelessWidget {
   const ProfilesSettingsSection({super.key});

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluxtube/application/application.dart';
-import 'package:fluxtube/core/constants.dart';
-import 'package:fluxtube/domain/subscribes/models/subscribe.dart';
-import 'package:fluxtube/domain/watch/models/basic_info.dart';
-import 'package:fluxtube/generated/l10n.dart';
-import 'package:fluxtube/presentation/trending/widgets/newpipe/home_video_info_card_widget.dart';
+import 'package:vyplay/application/application.dart';
+import 'package:vyplay/core/constants.dart';
+import 'package:vyplay/domain/subscribes/models/subscribe.dart';
+import 'package:vyplay/domain/watch/models/basic_info.dart';
+import 'package:vyplay/generated/l10n.dart';
+import 'package:vyplay/presentation/trending/widgets/newpipe/home_video_info_card_widget.dart';
 import 'package:go_router/go_router.dart';
 
 class NewPipeTrendingVideosSection extends StatefulWidget {

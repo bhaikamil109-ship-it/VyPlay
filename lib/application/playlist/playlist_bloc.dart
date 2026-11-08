@@ -1,11 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluxtube/core/enums.dart';
-import 'package:fluxtube/domain/playlist/models/invidious/invidious_playlist_resp.dart';
-import 'package:fluxtube/domain/playlist/models/piped/playlist_resp.dart';
-import 'package:fluxtube/domain/playlist/models/piped/playlist_video.dart';
-import 'package:fluxtube/domain/playlist/playlist_service.dart';
+import 'package:vyplay/core/enums.dart';
+import 'package:vyplay/domain/playlist/models/invidious/invidious_playlist_resp.dart';
+import 'package:vyplay/domain/playlist/models/piped/playlist_resp.dart';
+import 'package:vyplay/domain/playlist/models/piped/playlist_video.dart';
+import 'package:vyplay/domain/playlist/playlist_service.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 

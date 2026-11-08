@@ -3,10 +3,10 @@ import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:fluxtube/core/api_client.dart';
-import 'package:fluxtube/domain/core/failure/main_failure.dart';
-import 'package:fluxtube/domain/sponsorblock/models/sponsor_segment.dart';
-import 'package:fluxtube/domain/sponsorblock/sponsorblock_service.dart';
+import 'package:vyplay/core/api_client.dart';
+import 'package:vyplay/domain/core/failure/main_failure.dart';
+import 'package:vyplay/domain/sponsorblock/models/sponsor_segment.dart';
+import 'package:vyplay/domain/sponsorblock/sponsorblock_service.dart';
 import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: SponsorBlockService)

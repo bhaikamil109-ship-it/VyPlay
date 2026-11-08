@@ -1,9 +1,9 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:fluxtube/domain/download/models/download_quality.dart';
-import 'package:fluxtube/domain/watch/models/newpipe/newpipe_stream.dart';
-import 'package:fluxtube/domain/watch/models/newpipe/newpipe_watch_resp.dart';
-import 'package:fluxtube/domain/watch/playback/models/stream_quality_info.dart';
-import 'package:fluxtube/domain/watch/playback/newpipe_stream_helper.dart';
+import 'package:vyplay/domain/download/models/download_quality.dart';
+import 'package:vyplay/domain/watch/models/newpipe/newpipe_stream.dart';
+import 'package:vyplay/domain/watch/models/newpipe/newpipe_watch_resp.dart';
+import 'package:vyplay/domain/watch/playback/models/stream_quality_info.dart';
+import 'package:vyplay/domain/watch/playback/newpipe_stream_helper.dart';
 
 /// Regression tests for the download stream-selection path.
 ///

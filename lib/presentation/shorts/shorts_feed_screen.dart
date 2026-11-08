@@ -1,15 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart' show ScrollCacheExtent;
-import 'package:fluxtube/core/colors.dart';
-import 'package:fluxtube/core/constants.dart';
-import 'package:fluxtube/core/perf/app_perf.dart';
-import 'package:fluxtube/domain/search/models/newpipe/newpipe_search_resp.dart';
-import 'package:fluxtube/generated/l10n.dart';
-import 'package:fluxtube/infrastructure/newpipe/newpipe_channel.dart';
-import 'package:fluxtube/presentation/shorts/screen_shorts.dart';
-import 'package:fluxtube/widgets/error_widget.dart';
-import 'package:fluxtube/widgets/shimmers/shimmer_home_video_card.dart';
+import 'package:vyplay/core/colors.dart';
+import 'package:vyplay/core/constants.dart';
+import 'package:vyplay/core/perf/app_perf.dart';
+import 'package:vyplay/domain/search/models/newpipe/newpipe_search_resp.dart';
+import 'package:vyplay/generated/l10n.dart';
+import 'package:vyplay/infrastructure/newpipe/newpipe_channel.dart';
+import 'package:vyplay/presentation/shorts/screen_shorts.dart';
+import 'package:vyplay/widgets/error_widget.dart';
+import 'package:vyplay/widgets/shimmers/shimmer_home_video_card.dart';
 
 /// The Shorts tab.
 ///

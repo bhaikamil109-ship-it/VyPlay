@@ -9,53 +9,53 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:fluxtube/application/application.dart' as _i1030;
-import 'package:fluxtube/application/channel/channel_bloc.dart' as _i20;
-import 'package:fluxtube/application/download/download_bloc.dart' as _i751;
-import 'package:fluxtube/application/playlist/playlist_bloc.dart' as _i611;
-import 'package:fluxtube/application/saved/saved_bloc.dart' as _i7;
-import 'package:fluxtube/application/search/search_bloc.dart' as _i799;
-import 'package:fluxtube/application/settings/settings_bloc.dart' as _i112;
-import 'package:fluxtube/application/subscribe/subscribe_bloc.dart' as _i187;
-import 'package:fluxtube/application/trending/trending_bloc.dart' as _i11;
-import 'package:fluxtube/application/watch/watch_bloc.dart' as _i771;
-import 'package:fluxtube/domain/channel/channel_services.dart' as _i914;
-import 'package:fluxtube/domain/download/download_service.dart' as _i1053;
-import 'package:fluxtube/domain/home/home_services.dart' as _i811;
-import 'package:fluxtube/domain/home_recommendation/home_recommendation_service.dart'
+import 'package:vyplay/application/application.dart' as _i1030;
+import 'package:vyplay/application/channel/channel_bloc.dart' as _i20;
+import 'package:vyplay/application/download/download_bloc.dart' as _i751;
+import 'package:vyplay/application/playlist/playlist_bloc.dart' as _i611;
+import 'package:vyplay/application/saved/saved_bloc.dart' as _i7;
+import 'package:vyplay/application/search/search_bloc.dart' as _i799;
+import 'package:vyplay/application/settings/settings_bloc.dart' as _i112;
+import 'package:vyplay/application/subscribe/subscribe_bloc.dart' as _i187;
+import 'package:vyplay/application/trending/trending_bloc.dart' as _i11;
+import 'package:vyplay/application/watch/watch_bloc.dart' as _i771;
+import 'package:vyplay/domain/channel/channel_services.dart' as _i914;
+import 'package:vyplay/domain/download/download_service.dart' as _i1053;
+import 'package:vyplay/domain/home/home_services.dart' as _i811;
+import 'package:vyplay/domain/home_recommendation/home_recommendation_service.dart'
     as _i72;
-import 'package:fluxtube/domain/playlist/playlist_service.dart' as _i117;
-import 'package:fluxtube/domain/saved/saved_services.dart' as _i722;
-import 'package:fluxtube/domain/search/search_history_service.dart' as _i190;
-import 'package:fluxtube/domain/search/search_service.dart' as _i947;
-import 'package:fluxtube/domain/settings/settings_service.dart' as _i816;
-import 'package:fluxtube/domain/sponsorblock/sponsorblock_service.dart'
+import 'package:vyplay/domain/playlist/playlist_service.dart' as _i117;
+import 'package:vyplay/domain/saved/saved_services.dart' as _i722;
+import 'package:vyplay/domain/search/search_history_service.dart' as _i190;
+import 'package:vyplay/domain/search/search_service.dart' as _i947;
+import 'package:vyplay/domain/settings/settings_service.dart' as _i816;
+import 'package:vyplay/domain/sponsorblock/sponsorblock_service.dart'
     as _i119;
-import 'package:fluxtube/domain/subscribes/subscribe_services.dart' as _i479;
-import 'package:fluxtube/domain/trending/trending_service.dart' as _i60;
-import 'package:fluxtube/domain/user_preferences/user_preferences_service.dart'
+import 'package:vyplay/domain/subscribes/subscribe_services.dart' as _i479;
+import 'package:vyplay/domain/trending/trending_service.dart' as _i60;
+import 'package:vyplay/domain/user_preferences/user_preferences_service.dart'
     as _i543;
-import 'package:fluxtube/domain/watch/watch_service.dart' as _i719;
-import 'package:fluxtube/infrastructure/channel/channel_impl.dart' as _i112;
-import 'package:fluxtube/infrastructure/download/download_impl.dart' as _i167;
-import 'package:fluxtube/infrastructure/home/home_impl.dart' as _i764;
-import 'package:fluxtube/infrastructure/home_recommendation/home_recommendation_impl.dart'
+import 'package:vyplay/domain/watch/watch_service.dart' as _i719;
+import 'package:vyplay/infrastructure/channel/channel_impl.dart' as _i112;
+import 'package:vyplay/infrastructure/download/download_impl.dart' as _i167;
+import 'package:vyplay/infrastructure/home/home_impl.dart' as _i764;
+import 'package:vyplay/infrastructure/home_recommendation/home_recommendation_impl.dart'
     as _i921;
-import 'package:fluxtube/infrastructure/playlist/playlist_impl.dart' as _i166;
-import 'package:fluxtube/infrastructure/saved/saved_impl.dart' as _i979;
-import 'package:fluxtube/infrastructure/search/search_history_impl.dart'
+import 'package:vyplay/infrastructure/playlist/playlist_impl.dart' as _i166;
+import 'package:vyplay/infrastructure/saved/saved_impl.dart' as _i979;
+import 'package:vyplay/infrastructure/search/search_history_impl.dart'
     as _i183;
-import 'package:fluxtube/infrastructure/search/search_impl.dart' as _i568;
-import 'package:fluxtube/infrastructure/settings/newpipe_data_service.dart'
+import 'package:vyplay/infrastructure/search/search_impl.dart' as _i568;
+import 'package:vyplay/infrastructure/settings/newpipe_data_service.dart'
     as _i611;
-import 'package:fluxtube/infrastructure/settings/setting_impl.dart' as _i290;
-import 'package:fluxtube/infrastructure/sponsorblock/sponsorblock_impl.dart'
+import 'package:vyplay/infrastructure/settings/setting_impl.dart' as _i290;
+import 'package:vyplay/infrastructure/sponsorblock/sponsorblock_impl.dart'
     as _i959;
-import 'package:fluxtube/infrastructure/subscribe/subscribe_impl.dart' as _i848;
-import 'package:fluxtube/infrastructure/trending/trending_impl.dart' as _i1069;
-import 'package:fluxtube/infrastructure/user_preferences/user_preferences_impl.dart'
+import 'package:vyplay/infrastructure/subscribe/subscribe_impl.dart' as _i848;
+import 'package:vyplay/infrastructure/trending/trending_impl.dart' as _i1069;
+import 'package:vyplay/infrastructure/user_preferences/user_preferences_impl.dart'
     as _i992;
-import 'package:fluxtube/infrastructure/watch/watch_impl.dart' as _i796;
+import 'package:vyplay/infrastructure/watch/watch_impl.dart' as _i796;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 

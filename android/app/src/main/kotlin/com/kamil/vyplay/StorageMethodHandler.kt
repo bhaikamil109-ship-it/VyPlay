@@ -1,4 +1,4 @@
-package com.fazilvk.fluxtube
+package com.kamil.vyplay
 
 import android.os.StatFs
 import io.flutter.plugin.common.MethodCall

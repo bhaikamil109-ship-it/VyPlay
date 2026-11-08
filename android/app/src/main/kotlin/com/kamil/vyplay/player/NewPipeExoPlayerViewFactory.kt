@@ -1,4 +1,4 @@
-package com.fazilvk.fluxtube.player
+package com.kamil.vyplay.player
 
 import android.content.Context
 import io.flutter.plugin.common.BinaryMessenger
@@ -12,7 +12,7 @@ class NewPipeExoPlayerViewFactory(
 ) : PlatformViewFactory(StandardMessageCodec.INSTANCE) {
     private val controlChannel = MethodChannel(
         messenger,
-        "com.fazilvk.fluxtube/newpipe_exoplayer_control"
+        "com.kamil.vyplay/newpipe_exoplayer_control"
     )
 
     init {

@@ -4,7 +4,6 @@
 
 list(APPEND FLUTTER_PLUGIN_LIST
   dynamic_color
-  ffmpeg_kit_flutter_new
   gtk
   media_kit_libs_linux
   media_kit_video

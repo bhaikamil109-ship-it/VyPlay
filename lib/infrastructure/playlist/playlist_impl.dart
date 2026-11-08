@@ -2,12 +2,12 @@ import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:fluxtube/core/api_client.dart';
-import 'package:fluxtube/domain/core/api_end_points.dart';
-import 'package:fluxtube/domain/core/failure/main_failure.dart';
-import 'package:fluxtube/domain/playlist/models/invidious/invidious_playlist_resp.dart';
-import 'package:fluxtube/domain/playlist/models/piped/playlist_resp.dart';
-import 'package:fluxtube/domain/playlist/playlist_service.dart';
+import 'package:vyplay/core/api_client.dart';
+import 'package:vyplay/domain/core/api_end_points.dart';
+import 'package:vyplay/domain/core/failure/main_failure.dart';
+import 'package:vyplay/domain/playlist/models/invidious/invidious_playlist_resp.dart';
+import 'package:vyplay/domain/playlist/models/piped/playlist_resp.dart';
+import 'package:vyplay/domain/playlist/playlist_service.dart';
 import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: PlaylistService)

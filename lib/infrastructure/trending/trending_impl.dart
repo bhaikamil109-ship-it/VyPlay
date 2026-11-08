@@ -2,14 +2,14 @@ import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:fluxtube/core/api_client.dart';
-import 'package:fluxtube/domain/core/api_end_points.dart';
-import 'package:fluxtube/domain/core/failure/main_failure.dart';
-import 'package:fluxtube/domain/trending/models/invidious/invidious_trending_resp.dart';
-import 'package:fluxtube/domain/trending/models/newpipe/newpipe_trending_resp.dart';
-import 'package:fluxtube/domain/trending/models/piped/trending_resp.dart';
-import 'package:fluxtube/domain/trending/trending_service.dart';
-import 'package:fluxtube/infrastructure/newpipe/newpipe_channel.dart';
+import 'package:vyplay/core/api_client.dart';
+import 'package:vyplay/domain/core/api_end_points.dart';
+import 'package:vyplay/domain/core/failure/main_failure.dart';
+import 'package:vyplay/domain/trending/models/invidious/invidious_trending_resp.dart';
+import 'package:vyplay/domain/trending/models/newpipe/newpipe_trending_resp.dart';
+import 'package:vyplay/domain/trending/models/piped/trending_resp.dart';
+import 'package:vyplay/domain/trending/trending_service.dart';
+import 'package:vyplay/infrastructure/newpipe/newpipe_channel.dart';
 import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: TrendingService)

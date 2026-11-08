@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:fluxtube/domain/core/failure/main_failure.dart';
-import 'package:fluxtube/domain/saved/models/local_store.dart';
+import 'package:vyplay/domain/core/failure/main_failure.dart';
+import 'package:vyplay/domain/saved/models/local_store.dart';
 
 abstract class SavedServices {
   Future<Either<MainFailure, List<LocalStoreVideoInfo>>> addVideoInfo(

@@ -5,10 +5,10 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:fluxtube/core/settings.dart';
-import 'package:fluxtube/domain/watch/models/newpipe/newpipe_related.dart';
-import 'package:fluxtube/infrastructure/database/database.dart';
-import 'package:fluxtube/infrastructure/newpipe/newpipe_channel.dart';
+import 'package:vyplay/core/settings.dart';
+import 'package:vyplay/domain/watch/models/newpipe/newpipe_related.dart';
+import 'package:vyplay/infrastructure/database/database.dart';
+import 'package:vyplay/infrastructure/newpipe/newpipe_channel.dart';
 
 /// Notifies about new uploads from subscribed channels.
 ///

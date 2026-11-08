@@ -4,8 +4,8 @@ import 'dart:io';
 import 'package:archive/archive.dart';
 import 'package:dartz/dartz.dart';
 import 'package:drift/drift.dart';
-import 'package:fluxtube/domain/core/failure/main_failure.dart';
-import 'package:fluxtube/infrastructure/database/database.dart';
+import 'package:vyplay/domain/core/failure/main_failure.dart';
+import 'package:vyplay/infrastructure/database/database.dart';
 import 'package:injectable/injectable.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
@@ -413,8 +413,8 @@ class NewPipeDataService {
       'show_description': true,
       'last_used_preferences_version': 8,
       // VyPlay specific (will be ignored by NewPipe)
-      'fluxtube_profile': profileName,
-      'fluxtube_version': '0.9.0',
+      'vyplay_profile': profileName,
+      'vyplay_version': '0.9.0',
     };
 
     final file = File(path);

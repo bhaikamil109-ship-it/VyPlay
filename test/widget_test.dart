@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:fluxtube/core/app_info.dart';
-import 'package:fluxtube/core/app_theme.dart';
-import 'package:fluxtube/widgets/error_widget.dart';
+import 'package:vyplay/core/app_info.dart';
+import 'package:vyplay/core/app_theme.dart';
+import 'package:vyplay/widgets/error_widget.dart';
 
 /// Widget tests for the shared UI building blocks.
 ///
@@ -21,7 +21,7 @@ void main() {
     test('keeps upstream GPL attribution', () {
       // The GPLv3 licence on the upstream project requires this to survive.
       final names = AppInfo.upstreamInfos.map((e) => e.name).toList();
-      expect(names, contains('FluxTube'));
+      expect(names, contains('VyPlay'));
       expect(names, contains('NewPipe Extractor'));
     });
 

@@ -53,7 +53,7 @@ typedef NativeMuxRunner = Future<Map<String, dynamic>> Function({
 /// The channel name is unchanged from the previous FFmpeg-based
 /// implementation, so the existing native contract keeps working.
 const MethodChannel muxerChannel =
-    MethodChannel('com.fazilvk.fluxtube/muxer');
+    MethodChannel('com.kamil.vyplay/muxer');
 
 /// Default runner: asks the native NewPipe muxer to merge the two streams.
 Future<Map<String, dynamic>> runNativeMux({

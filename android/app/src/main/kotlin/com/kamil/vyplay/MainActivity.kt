@@ -1,4 +1,4 @@
-package com.fazilvk.fluxtube
+package com.kamil.vyplay
 
 import android.app.PictureInPictureParams
 import android.content.res.Configuration
@@ -11,21 +11,21 @@ import com.ryanheise.audioservice.AudioServiceFragmentActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.EventChannel
 import io.flutter.plugin.common.MethodChannel
-import com.fazilvk.fluxtube.newpipe.NewPipeMethodHandler
-import com.fazilvk.fluxtube.player.NewPipeExoPlayerViewFactory
-import com.fazilvk.fluxtube.player.CastMethodHandler
+import com.kamil.vyplay.newpipe.NewPipeMethodHandler
+import com.kamil.vyplay.player.NewPipeExoPlayerViewFactory
+import com.kamil.vyplay.player.CastMethodHandler
 
 @UnstableApi
 class MainActivity: AudioServiceFragmentActivity() {
     companion object {
-        private const val NEWPIPE_CHANNEL = "com.fazilvk.fluxtube/newpipe"
-        private const val PIP_CHANNEL = "com.fazilvk.fluxtube/pip"
-        private const val MUXER_CHANNEL = "com.fazilvk.fluxtube/muxer"
-        private const val CAST_CHANNEL = "com.fazilvk.fluxtube/cast"
-        private const val CAST_EVENT_CHANNEL = "com.fazilvk.fluxtube/cast_events"
-        private const val STORAGE_CHANNEL = "com.fazilvk.fluxtube/storage"
-        private const val DEVICE_CHANNEL = "com.fazilvk.fluxtube/device"
-        private const val MEDIA_STORE_CHANNEL = "com.fazilvk.fluxtube/mediastore"
+        private const val NEWPIPE_CHANNEL = "com.kamil.vyplay/newpipe"
+        private const val PIP_CHANNEL = "com.kamil.vyplay/pip"
+        private const val MUXER_CHANNEL = "com.kamil.vyplay/muxer"
+        private const val CAST_CHANNEL = "com.kamil.vyplay/cast"
+        private const val CAST_EVENT_CHANNEL = "com.kamil.vyplay/cast_events"
+        private const val STORAGE_CHANNEL = "com.kamil.vyplay/storage"
+        private const val DEVICE_CHANNEL = "com.kamil.vyplay/device"
+        private const val MEDIA_STORE_CHANNEL = "com.kamil.vyplay/mediastore"
     }
 
     private var newPipeHandler: NewPipeMethodHandler? = null
@@ -53,7 +53,7 @@ class MainActivity: AudioServiceFragmentActivity() {
             .platformViewsController
             .registry
             .registerViewFactory(
-                "fluxtube/newpipe_exoplayer",
+                "vyplay/newpipe_exoplayer",
                 NewPipeExoPlayerViewFactory(flutterEngine.dartExecutor.binaryMessenger)
             )
 

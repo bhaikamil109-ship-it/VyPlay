@@ -5,15 +5,15 @@ import 'dart:io';
 
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:fluxtube/infrastructure/download/ffmpeg_muxer.dart';
-import 'package:fluxtube/infrastructure/download/stream_muxer.dart'
+import 'package:vyplay/infrastructure/download/ffmpeg_muxer.dart';
+import 'package:vyplay/infrastructure/download/stream_muxer.dart'
     show NativeMuxRunner;
 
 /// Unit tests for the NewPipe-based video/audio merger.
 ///
 /// The merge now runs in native Android code through the pure-Java muxers
 /// vendored from NewPipe 0.29.1, exposed by [StreamMuxer]. Rather than
-/// invoking a binary, the flow crosses the `com.fazilvk.fluxtube/muxer` method
+/// invoking a binary, the flow crosses the `com.kamil.vyplay/muxer` method
 /// channel, so a host-platform unit test exercises it by replacing that channel
 /// with [TestDefaultBinaryMessengerBinding] and, where the contract being
 /// described is the runner rather than the channel, by providing a
@@ -40,7 +40,7 @@ void main() {
   });
 
   /// The method channel used by the native merge.
-  final muxerChannel = const MethodChannel('com.fazilvk.fluxtube/muxer');
+  final muxerChannel = const MethodChannel('com.kamil.vyplay/muxer');
 
   /// Creates a non-empty file so the input validation passes.
   Future<String> makeInput(String name, {int bytes = 64}) async {

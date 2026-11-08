@@ -1,11 +1,11 @@
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluxtube/application/application.dart';
-import 'package:fluxtube/core/constants.dart';
-import 'package:fluxtube/generated/l10n.dart';
-import 'package:fluxtube/infrastructure/settings/newpipe_data_service.dart';
-import 'package:fluxtube/core/di/injectable.dart';
+import 'package:vyplay/application/application.dart';
+import 'package:vyplay/core/constants.dart';
+import 'package:vyplay/generated/l10n.dart';
+import 'package:vyplay/infrastructure/settings/newpipe_data_service.dart';
+import 'package:vyplay/core/di/injectable.dart';
 import 'package:share_plus/share_plus.dart' show ShareParams, SharePlus, XFile;
 
 class BackupSettingsSection extends StatelessWidget {

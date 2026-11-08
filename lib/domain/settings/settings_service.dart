@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
-import 'package:fluxtube/core/enums.dart';
-import 'package:fluxtube/domain/core/failure/main_failure.dart';
-import 'package:fluxtube/domain/settings/models/instance.dart';
+import 'package:vyplay/core/enums.dart';
+import 'package:vyplay/domain/core/failure/main_failure.dart';
+import 'package:vyplay/domain/settings/models/instance.dart';
 
 abstract class SettingsService {
   Future<List<Map<String, String>>> initializeSettings();

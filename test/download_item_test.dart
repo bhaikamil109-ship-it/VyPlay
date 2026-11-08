@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:fluxtube/domain/download/models/download_item.dart';
+import 'package:vyplay/domain/download/models/download_item.dart';
 
 /// Unit tests for the download domain model.
 ///

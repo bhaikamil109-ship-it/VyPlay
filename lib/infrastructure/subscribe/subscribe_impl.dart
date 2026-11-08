@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
 import 'package:drift/drift.dart';
-import 'package:fluxtube/domain/core/failure/main_failure.dart';
-import 'package:fluxtube/domain/subscribes/models/subscribe.dart';
-import 'package:fluxtube/domain/subscribes/subscribe_services.dart';
-import 'package:fluxtube/infrastructure/database/database.dart';
+import 'package:vyplay/domain/core/failure/main_failure.dart';
+import 'package:vyplay/domain/subscribes/models/subscribe.dart';
+import 'package:vyplay/domain/subscribes/subscribe_services.dart';
+import 'package:vyplay/infrastructure/database/database.dart';
 import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: SubscribeServices)

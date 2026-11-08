@@ -1,11 +1,11 @@
 import 'package:dartz/dartz.dart';
-import 'package:fluxtube/domain/core/failure/main_failure.dart';
-import 'package:fluxtube/domain/watch/models/explode/explode_watch.dart';
-import 'package:fluxtube/domain/watch/models/invidious/comments/invidious_comments_resp.dart';
-import 'package:fluxtube/domain/watch/models/invidious/video/invidious_watch_resp.dart';
-import 'package:fluxtube/domain/watch/models/newpipe/newpipe_watch_resp.dart';
-import 'package:fluxtube/domain/watch/models/newpipe/newpipe_comments_resp.dart';
-import 'package:fluxtube/domain/watch/models/piped/video/watch_resp.dart';
+import 'package:vyplay/domain/core/failure/main_failure.dart';
+import 'package:vyplay/domain/watch/models/explode/explode_watch.dart';
+import 'package:vyplay/domain/watch/models/invidious/comments/invidious_comments_resp.dart';
+import 'package:vyplay/domain/watch/models/invidious/video/invidious_watch_resp.dart';
+import 'package:vyplay/domain/watch/models/newpipe/newpipe_watch_resp.dart';
+import 'package:vyplay/domain/watch/models/newpipe/newpipe_comments_resp.dart';
+import 'package:vyplay/domain/watch/models/piped/video/watch_resp.dart';
 
 import 'models/piped/comments/comments_resp.dart';
 

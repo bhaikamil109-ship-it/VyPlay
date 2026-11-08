@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fluxtube/domain/watch/playback/models/generic_subtitle.dart';
-import 'package:fluxtube/domain/watch/playback/models/generic_quality_info.dart';
-import 'package:fluxtube/domain/watch/playback/models/generic_audio_track.dart';
+import 'package:vyplay/domain/watch/playback/models/generic_subtitle.dart';
+import 'package:vyplay/domain/watch/playback/models/generic_quality_info.dart';
+import 'package:vyplay/domain/watch/playback/models/generic_audio_track.dart';
 
 /// Settings page enum for generic player
 enum GenericSettingsPage {

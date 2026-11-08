@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:fluxtube/core/model/language_model.dart';
+import 'package:vyplay/core/model/language_model.dart';
 
 const fallbackLocale = Locale('en');
 

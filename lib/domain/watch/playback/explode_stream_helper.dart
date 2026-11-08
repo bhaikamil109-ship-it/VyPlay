@@ -1,4 +1,4 @@
-import 'package:fluxtube/domain/watch/models/newpipe/newpipe_stream.dart';
+import 'package:vyplay/domain/watch/models/newpipe/newpipe_stream.dart';
 import 'package:youtube_explode_dart/youtube_explode_dart.dart';
 
 /// Helper class to fetch and convert YouTube Explode streams to NewPipe format for download compatibility.

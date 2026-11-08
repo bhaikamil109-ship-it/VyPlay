@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:fluxtube/domain/download/models/download_item.dart';
-import 'package:fluxtube/domain/subscribes/models/subscribe.dart';
+import 'package:vyplay/domain/download/models/download_item.dart';
+import 'package:vyplay/domain/subscribes/models/subscribe.dart';
 
 /// Unit tests for local profile data separation (master checklist 10.2:
 /// "Profile data separation").

@@ -49,7 +49,7 @@ class DeviceProfile {
   );
 
   static const MethodChannel _channel =
-      MethodChannel('com.fazilvk.fluxtube/device');
+      MethodChannel('com.kamil.vyplay/device');
 
   /// The profile for this process. Safe to read from any widget.
   static DeviceProfile get current => _current;

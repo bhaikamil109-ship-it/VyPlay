@@ -1,4 +1,4 @@
-import 'package:fluxtube/core/model/region_model.dart';
+import 'package:vyplay/core/model/region_model.dart';
 
 final List<RegionModel> regions = [
   RegionModel(name: 'Afghanistan', code: 'AF'),

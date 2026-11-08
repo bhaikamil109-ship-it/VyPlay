@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluxtube/application/settings/settings_bloc.dart';
+import 'package:vyplay/application/settings/settings_bloc.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 /// Launch URL with optional external browser mode

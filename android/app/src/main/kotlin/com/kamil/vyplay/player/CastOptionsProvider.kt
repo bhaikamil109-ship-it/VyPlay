@@ -1,4 +1,4 @@
-package com.fazilvk.fluxtube.player
+package com.kamil.vyplay.player
 
 import android.content.Context
 import com.google.android.gms.cast.CastMediaControlIntent

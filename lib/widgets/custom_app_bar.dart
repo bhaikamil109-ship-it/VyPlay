@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fluxtube/core/constants.dart';
-import 'package:fluxtube/presentation/home/widgets/circular_icon.dart';
-import 'package:fluxtube/presentation/search/screen_search.dart';
+import 'package:vyplay/core/constants.dart';
+import 'package:vyplay/presentation/home/widgets/circular_icon.dart';
+import 'package:vyplay/presentation/search/screen_search.dart';
 
 import '../../../core/colors.dart';
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fluxtube/widgets/thumbnail_image.dart';
-import 'package:fluxtube/core/colors.dart';
-import 'package:fluxtube/core/constants.dart';
+import 'package:vyplay/widgets/thumbnail_image.dart';
+import 'package:vyplay/core/colors.dart';
+import 'package:vyplay/core/constants.dart';
 import 'package:intl/intl.dart';
 
 class PlaylistWidget extends StatelessWidget {

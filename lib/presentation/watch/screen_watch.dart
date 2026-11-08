@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluxtube/application/application.dart';
-import 'package:fluxtube/core/enums.dart';
-import 'package:fluxtube/presentation/watch/explode_screen_watch.dart';
-import 'package:fluxtube/presentation/watch/invidious_screen_watch.dart';
-import 'package:fluxtube/presentation/watch/newpipe_screen_watch.dart';
-import 'package:fluxtube/presentation/watch/piped_screen_watch.dart';
+import 'package:vyplay/application/application.dart';
+import 'package:vyplay/core/enums.dart';
+import 'package:vyplay/presentation/watch/explode_screen_watch.dart';
+import 'package:vyplay/presentation/watch/invidious_screen_watch.dart';
+import 'package:vyplay/presentation/watch/newpipe_screen_watch.dart';
+import 'package:vyplay/presentation/watch/piped_screen_watch.dart';
 
 class ScreenWatch extends StatelessWidget {
   const ScreenWatch({

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fluxtube/core/colors.dart';
+import 'package:vyplay/core/colors.dart';
 
 abstract class AppTheme {
   /// Shared shape language: rounded cards and thumbnails everywhere, so the

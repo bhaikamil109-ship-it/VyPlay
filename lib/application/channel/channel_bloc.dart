@@ -2,13 +2,13 @@ import 'dart:async';
 import 'dart:developer';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluxtube/core/enums.dart';
-import 'package:fluxtube/domain/channel/channel_services.dart';
-import 'package:fluxtube/domain/channel/models/invidious/invidious_channel_resp.dart';
-import 'package:fluxtube/domain/channel/models/invidious/latest_video.dart';
-import 'package:fluxtube/domain/channel/models/newpipe/newpipe_channel_resp.dart';
-import 'package:fluxtube/domain/channel/models/piped/channel_resp.dart';
-import 'package:fluxtube/domain/channel/models/piped/tab_content.dart';
+import 'package:vyplay/core/enums.dart';
+import 'package:vyplay/domain/channel/channel_services.dart';
+import 'package:vyplay/domain/channel/models/invidious/invidious_channel_resp.dart';
+import 'package:vyplay/domain/channel/models/invidious/latest_video.dart';
+import 'package:vyplay/domain/channel/models/newpipe/newpipe_channel_resp.dart';
+import 'package:vyplay/domain/channel/models/piped/channel_resp.dart';
+import 'package:vyplay/domain/channel/models/piped/tab_content.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 

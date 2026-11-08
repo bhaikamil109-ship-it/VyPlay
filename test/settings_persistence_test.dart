@@ -22,9 +22,9 @@ import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sqlite3/open.dart' as sqlite_open;
 import 'package:sqlite3/sqlite3.dart' as sqlite3;
-import 'package:fluxtube/core/enums.dart';
-import 'package:fluxtube/core/settings.dart';
-import 'package:fluxtube/infrastructure/database/database.dart';
+import 'package:vyplay/core/enums.dart';
+import 'package:vyplay/core/settings.dart';
+import 'package:vyplay/infrastructure/database/database.dart';
 
 /// The same defaults `SettingImpl.initializeSettings()` seeds, kept here so a
 /// test can assert against them without booting the whole DI graph.

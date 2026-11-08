@@ -1,6 +1,6 @@
-import 'package:fluxtube/domain/watch/models/newpipe/newpipe_stream.dart';
-import 'package:fluxtube/domain/watch/models/newpipe/newpipe_watch_resp.dart';
-import 'package:fluxtube/domain/watch/playback/models/stream_quality_info.dart';
+import 'package:vyplay/domain/watch/models/newpipe/newpipe_stream.dart';
+import 'package:vyplay/domain/watch/models/newpipe/newpipe_watch_resp.dart';
+import 'package:vyplay/domain/watch/playback/models/stream_quality_info.dart';
 
 /// Stream selection and sorting utilities (mimics NewPipe's ListHelper.java)
 class NewPipeStreamHelper {

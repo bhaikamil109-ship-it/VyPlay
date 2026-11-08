@@ -1,10 +1,10 @@
 import 'package:dartz/dartz.dart';
-import 'package:fluxtube/domain/channel/models/invidious/invidious_channel_resp.dart';
-import 'package:fluxtube/domain/channel/models/invidious/latest_video.dart';
-import 'package:fluxtube/domain/channel/models/newpipe/newpipe_channel_resp.dart';
-import 'package:fluxtube/domain/channel/models/piped/channel_resp.dart';
-import 'package:fluxtube/domain/channel/models/piped/tab_content.dart';
-import 'package:fluxtube/domain/core/failure/main_failure.dart';
+import 'package:vyplay/domain/channel/models/invidious/invidious_channel_resp.dart';
+import 'package:vyplay/domain/channel/models/invidious/latest_video.dart';
+import 'package:vyplay/domain/channel/models/newpipe/newpipe_channel_resp.dart';
+import 'package:vyplay/domain/channel/models/piped/channel_resp.dart';
+import 'package:vyplay/domain/channel/models/piped/tab_content.dart';
+import 'package:vyplay/domain/core/failure/main_failure.dart';
 
 abstract class ChannelServices {
   //Piped

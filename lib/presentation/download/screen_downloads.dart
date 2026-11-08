@@ -1,18 +1,18 @@
 import 'dart:io';
 
-import 'package:fluxtube/widgets/thumbnail_image.dart';
+import 'package:vyplay/widgets/thumbnail_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluxtube/application/download/download_bloc.dart';
-import 'package:fluxtube/application/settings/settings_bloc.dart';
-import 'package:fluxtube/core/animations/animations.dart';
-import 'package:fluxtube/core/colors.dart';
-import 'package:fluxtube/core/constants.dart';
-import 'package:fluxtube/core/enums.dart';
-import 'package:fluxtube/domain/download/models/download_item.dart';
-import 'package:fluxtube/generated/l10n.dart';
-import 'package:fluxtube/presentation/main_navigation/main_navigation.dart';
+import 'package:vyplay/application/download/download_bloc.dart';
+import 'package:vyplay/application/settings/settings_bloc.dart';
+import 'package:vyplay/core/animations/animations.dart';
+import 'package:vyplay/core/colors.dart';
+import 'package:vyplay/core/constants.dart';
+import 'package:vyplay/core/enums.dart';
+import 'package:vyplay/domain/download/models/download_item.dart';
+import 'package:vyplay/generated/l10n.dart';
+import 'package:vyplay/presentation/main_navigation/main_navigation.dart';
 import 'package:open_filex/open_filex.dart';
 
 class ScreenDownloads extends StatefulWidget {

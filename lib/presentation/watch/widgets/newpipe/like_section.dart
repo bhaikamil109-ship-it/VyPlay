@@ -2,14 +2,14 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluxtube/application/application.dart';
-import 'package:fluxtube/core/strings.dart';
-import 'package:fluxtube/domain/saved/models/local_store.dart';
-import 'package:fluxtube/domain/watch/models/newpipe/newpipe_watch_resp.dart';
-import 'package:fluxtube/presentation/download/widgets/download_options_sheet.dart';
-import 'package:fluxtube/presentation/settings/utils/launch_url.dart';
-import 'package:fluxtube/presentation/watch/widgets/redesigned/action_buttons_row.dart';
-import 'package:fluxtube/presentation/watch/widgets/redesigned/share_bottom_sheet.dart';
+import 'package:vyplay/application/application.dart';
+import 'package:vyplay/core/strings.dart';
+import 'package:vyplay/domain/saved/models/local_store.dart';
+import 'package:vyplay/domain/watch/models/newpipe/newpipe_watch_resp.dart';
+import 'package:vyplay/presentation/download/widgets/download_options_sheet.dart';
+import 'package:vyplay/presentation/settings/utils/launch_url.dart';
+import 'package:vyplay/presentation/watch/widgets/redesigned/action_buttons_row.dart';
+import 'package:vyplay/presentation/watch/widgets/redesigned/share_bottom_sheet.dart';
 
 class NewPipeLikeSection extends StatelessWidget {
   const NewPipeLikeSection({

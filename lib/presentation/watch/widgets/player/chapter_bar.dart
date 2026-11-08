@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fluxtube/domain/watch/models/video_chapter.dart';
+import 'package:vyplay/domain/watch/models/video_chapter.dart';
 
 class ChapterBar extends StatelessWidget {
   const ChapterBar({

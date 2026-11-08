@@ -1,4 +1,4 @@
-import 'package:fluxtube/core/strings.dart';
+import 'package:vyplay/core/strings.dart';
 
 class ApiEndPoints {
   static String get feed => "${BaseUrl.kBaseUrl}feed/unauthenticated?channels=";

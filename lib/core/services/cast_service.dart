@@ -27,8 +27,8 @@ class CastService extends ChangeNotifier {
   factory CastService() => _instance;
   CastService._();
 
-  static const _methods = MethodChannel('com.fazilvk.fluxtube/cast');
-  static const _events = EventChannel('com.fazilvk.fluxtube/cast_events');
+  static const _methods = MethodChannel('com.kamil.vyplay/cast');
+  static const _events = EventChannel('com.kamil.vyplay/cast_events');
 
   StreamSubscription<dynamic>? _subscription;
   int _listeners = 0;

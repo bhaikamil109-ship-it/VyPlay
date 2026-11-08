@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:fluxtube/domain/core/failure/main_failure.dart';
-import 'package:fluxtube/domain/sponsorblock/models/sponsor_segment.dart';
+import 'package:vyplay/domain/core/failure/main_failure.dart';
+import 'package:vyplay/domain/sponsorblock/models/sponsor_segment.dart';
 
 abstract class SponsorBlockService {
   /// Fetch sponsor segments for a video

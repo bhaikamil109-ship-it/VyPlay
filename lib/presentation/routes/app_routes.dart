@@ -1,21 +1,21 @@
 // GoRouter configuration
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluxtube/application/channel/channel_bloc.dart';
-import 'package:fluxtube/application/playlist/playlist_bloc.dart';
-import 'package:fluxtube/core/di/injectable.dart';
-import 'package:fluxtube/presentation/channel/screen_channel.dart';
-import 'package:fluxtube/presentation/main_navigation/main_navigation.dart';
-import 'package:fluxtube/presentation/playlist/screen_playlist.dart';
-import 'package:fluxtube/presentation/settings/sub_screens/screen_instances.dart';
-import 'package:fluxtube/presentation/settings/sub_screens/screen_language.dart';
-import 'package:fluxtube/presentation/settings/sub_screens/screen_regions.dart';
-import 'package:fluxtube/presentation/settings/sub_screens/screen_translators.dart';
-import 'package:fluxtube/presentation/settings/sub_screens/screen_debug.dart';
-import 'package:fluxtube/presentation/playlist/screen_local_playlists.dart';
-import 'package:fluxtube/presentation/playlist/screen_playlist_detail.dart';
-import 'package:fluxtube/presentation/splash/screen_splash.dart';
-import 'package:fluxtube/presentation/watch/screen_watch.dart';
+import 'package:vyplay/application/channel/channel_bloc.dart';
+import 'package:vyplay/application/playlist/playlist_bloc.dart';
+import 'package:vyplay/core/di/injectable.dart';
+import 'package:vyplay/presentation/channel/screen_channel.dart';
+import 'package:vyplay/presentation/main_navigation/main_navigation.dart';
+import 'package:vyplay/presentation/playlist/screen_playlist.dart';
+import 'package:vyplay/presentation/settings/sub_screens/screen_instances.dart';
+import 'package:vyplay/presentation/settings/sub_screens/screen_language.dart';
+import 'package:vyplay/presentation/settings/sub_screens/screen_regions.dart';
+import 'package:vyplay/presentation/settings/sub_screens/screen_translators.dart';
+import 'package:vyplay/presentation/settings/sub_screens/screen_debug.dart';
+import 'package:vyplay/presentation/playlist/screen_local_playlists.dart';
+import 'package:vyplay/presentation/playlist/screen_playlist_detail.dart';
+import 'package:vyplay/presentation/splash/screen_splash.dart';
+import 'package:vyplay/presentation/watch/screen_watch.dart';
 import 'package:go_router/go_router.dart';
 
 final GoRouter router = GoRouter(

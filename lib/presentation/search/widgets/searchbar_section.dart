@@ -2,7 +2,7 @@ import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluxtube/application/application.dart';
+import 'package:vyplay/application/application.dart';
 
 class SearchBarSection extends StatelessWidget {
   const SearchBarSection({

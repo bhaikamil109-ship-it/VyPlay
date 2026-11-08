@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fluxtube/domain/watch/models/newpipe/newpipe_subtitle.dart';
-import 'package:fluxtube/domain/watch/playback/models/stream_quality_info.dart';
-import 'package:fluxtube/domain/watch/playback/newpipe_stream_helper.dart';
-import 'package:fluxtube/generated/l10n.dart';
+import 'package:vyplay/domain/watch/models/newpipe/newpipe_subtitle.dart';
+import 'package:vyplay/domain/watch/playback/models/stream_quality_info.dart';
+import 'package:vyplay/domain/watch/playback/newpipe_stream_helper.dart';
+import 'package:vyplay/generated/l10n.dart';
 
 /// Settings page enum - exported for direct navigation
 enum SettingsPage {

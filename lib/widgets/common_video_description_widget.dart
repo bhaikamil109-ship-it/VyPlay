@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fluxtube/widgets/thumbnail_image.dart';
-import 'package:fluxtube/core/operations/math_operations.dart';
-import 'package:fluxtube/generated/l10n.dart';
+import 'package:vyplay/widgets/thumbnail_image.dart';
+import 'package:vyplay/core/operations/math_operations.dart';
+import 'package:vyplay/generated/l10n.dart';
 import 'package:intl/intl.dart';
 
 import '../core/colors.dart';

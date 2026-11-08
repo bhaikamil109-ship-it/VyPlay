@@ -2,16 +2,16 @@ import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:fluxtube/core/api_client.dart';
-import 'package:fluxtube/domain/channel/channel_services.dart';
-import 'package:fluxtube/domain/channel/models/invidious/invidious_channel_resp.dart';
-import 'package:fluxtube/domain/channel/models/invidious/latest_video.dart';
-import 'package:fluxtube/domain/channel/models/newpipe/newpipe_channel_resp.dart';
-import 'package:fluxtube/domain/channel/models/piped/channel_resp.dart';
-import 'package:fluxtube/domain/channel/models/piped/tab_content.dart';
-import 'package:fluxtube/domain/core/api_end_points.dart';
-import 'package:fluxtube/domain/core/failure/main_failure.dart';
-import 'package:fluxtube/infrastructure/newpipe/newpipe_channel.dart';
+import 'package:vyplay/core/api_client.dart';
+import 'package:vyplay/domain/channel/channel_services.dart';
+import 'package:vyplay/domain/channel/models/invidious/invidious_channel_resp.dart';
+import 'package:vyplay/domain/channel/models/invidious/latest_video.dart';
+import 'package:vyplay/domain/channel/models/newpipe/newpipe_channel_resp.dart';
+import 'package:vyplay/domain/channel/models/piped/channel_resp.dart';
+import 'package:vyplay/domain/channel/models/piped/tab_content.dart';
+import 'package:vyplay/domain/core/api_end_points.dart';
+import 'package:vyplay/domain/core/failure/main_failure.dart';
+import 'package:vyplay/infrastructure/newpipe/newpipe_channel.dart';
 import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: ChannelServices)

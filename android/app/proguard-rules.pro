@@ -56,7 +56,7 @@
 -dontwarn kotlinx.coroutines.**
 
 # Keep data classes for JSON serialization
--keepclassmembers class com.fazilvk.fluxtube.newpipe.models.** { *; }
+-keepclassmembers class com.kamil.vyplay.newpipe.models.** { *; }
 
 # Prevent R8 from removing classes needed at runtime
 -keep class * extends java.lang.Exception
@@ -77,13 +77,13 @@
 # Muxer handlers - invoked by name from the method channel.
 # FFmpegMuxerHandler is kept because NewPipeMuxerHandler delegates the legacy
 # `resolveMuxPlan` / `muxVideoAudio` calls to it.
--keep class com.fazilvk.fluxtube.FFmpegMuxerHandler { *; }
--keepclassmembers class com.fazilvk.fluxtube.FFmpegMuxerHandler { *; }
+-keep class com.kamil.vyplay.FFmpegMuxerHandler { *; }
+-keepclassmembers class com.kamil.vyplay.FFmpegMuxerHandler { *; }
 # NewPipe pure-Java muxers (vendored from NewPipe 0.29.1) and the handler that
 # drives them. R8 must not strip or rename them because the MethodChannel
 # handler calls into them.
--keep class com.fazilvk.fluxtube.NewPipeMuxerHandler { *; }
--keepclassmembers class com.fazilvk.fluxtube.NewPipeMuxerHandler { *; }
+-keep class com.kamil.vyplay.NewPipeMuxerHandler { *; }
+-keepclassmembers class com.kamil.vyplay.NewPipeMuxerHandler { *; }
 -keep class org.schabi.newpipe.streams.** { *; }
 
 # Google Play Core (Flutter deferred components)
@@ -100,9 +100,9 @@
 -dontwarn com.google.android.play.core.tasks.Task
 
 # MediaStore save handler - invoked by name from the method channel
--keep class com.fazilvk.fluxtube.MediaStoreHandler { *; }
--keep class com.fazilvk.fluxtube.DeviceCapabilityHandler { *; }
--keep class com.fazilvk.fluxtube.StorageMethodHandler { *; }
+-keep class com.kamil.vyplay.MediaStoreHandler { *; }
+-keep class com.kamil.vyplay.DeviceCapabilityHandler { *; }
+-keep class com.kamil.vyplay.StorageMethodHandler { *; }
 
 # media_kit / libmpv native bindings. The Dart side reaches these through
 # dart:ffi, so R8 cannot see the references and would strip them.

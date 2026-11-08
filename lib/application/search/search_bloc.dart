@@ -1,12 +1,12 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluxtube/core/enums.dart';
-import 'package:fluxtube/domain/core/failure/main_failure.dart';
-import 'package:fluxtube/domain/search/models/invidious/invidious_search_resp.dart';
-import 'package:fluxtube/domain/search/models/newpipe/newpipe_search_resp.dart';
-import 'package:fluxtube/domain/search/models/piped/search_resp.dart';
-import 'package:fluxtube/domain/search/models/search_history.dart';
-import 'package:fluxtube/domain/search/search_history_service.dart';
-import 'package:fluxtube/domain/search/search_service.dart';
+import 'package:vyplay/core/enums.dart';
+import 'package:vyplay/domain/core/failure/main_failure.dart';
+import 'package:vyplay/domain/search/models/invidious/invidious_search_resp.dart';
+import 'package:vyplay/domain/search/models/newpipe/newpipe_search_resp.dart';
+import 'package:vyplay/domain/search/models/piped/search_resp.dart';
+import 'package:vyplay/domain/search/models/search_history.dart';
+import 'package:vyplay/domain/search/search_history_service.dart';
+import 'package:vyplay/domain/search/search_service.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 

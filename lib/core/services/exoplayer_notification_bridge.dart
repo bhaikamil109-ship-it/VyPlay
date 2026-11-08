@@ -7,7 +7,7 @@ class ExoPlayerNotificationBridge {
       ExoPlayerNotificationBridge._();
 
   static const _controlChannel = MethodChannel(
-    'com.fazilvk.fluxtube/newpipe_exoplayer_control',
+    'com.kamil.vyplay/newpipe_exoplayer_control',
   );
 
   void attach(MethodChannel channel) {}

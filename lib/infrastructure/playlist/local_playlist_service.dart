@@ -4,7 +4,7 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:fluxtube/domain/playlist/models/local_playlist.dart';
+import 'package:vyplay/domain/playlist/models/local_playlist.dart';
 
 class LocalPlaylistService extends ChangeNotifier {
   static final LocalPlaylistService _instance = LocalPlaylistService._();

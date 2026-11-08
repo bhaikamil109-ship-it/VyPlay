@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
-import 'package:fluxtube/domain/core/failure/main_failure.dart';
-import 'package:fluxtube/domain/trending/models/invidious/invidious_trending_resp.dart';
-import 'package:fluxtube/domain/trending/models/newpipe/newpipe_trending_resp.dart';
-import 'package:fluxtube/domain/trending/models/piped/trending_resp.dart';
+import 'package:vyplay/domain/core/failure/main_failure.dart';
+import 'package:vyplay/domain/trending/models/invidious/invidious_trending_resp.dart';
+import 'package:vyplay/domain/trending/models/newpipe/newpipe_trending_resp.dart';
+import 'package:vyplay/domain/trending/models/piped/trending_resp.dart';
 
 abstract class TrendingService {
   ///[getTrendingData] used to fetch Trending data from Piped.

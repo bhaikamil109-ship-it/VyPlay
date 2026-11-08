@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:fluxtube/domain/search/models/invidious/video_thumbnail.dart';
+import 'package:vyplay/domain/search/models/invidious/video_thumbnail.dart';
 
 part 'invidious_playlist_resp.g.dart';
 

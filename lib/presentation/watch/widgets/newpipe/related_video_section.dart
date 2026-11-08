@@ -1,18 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fluxtube/widgets/thumbnail_image.dart';
+import 'package:vyplay/widgets/thumbnail_image.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluxtube/application/watch/watch_bloc.dart';
-import 'package:fluxtube/core/animations/animations.dart';
-import 'package:fluxtube/core/colors.dart';
-import 'package:fluxtube/core/constants.dart';
-import 'package:fluxtube/core/operations/math_operations.dart';
-import 'package:fluxtube/domain/watch/models/basic_info.dart';
-import 'package:fluxtube/domain/watch/models/newpipe/newpipe_related.dart';
-import 'package:fluxtube/domain/watch/models/newpipe/newpipe_watch_resp.dart';
-import 'package:fluxtube/generated/l10n.dart';
-import 'package:fluxtube/presentation/search/widgets/newpipe/home_video_info_card_widget.dart';
-import 'package:fluxtube/presentation/shorts/screen_shorts.dart';
+import 'package:vyplay/application/watch/watch_bloc.dart';
+import 'package:vyplay/core/animations/animations.dart';
+import 'package:vyplay/core/colors.dart';
+import 'package:vyplay/core/constants.dart';
+import 'package:vyplay/core/operations/math_operations.dart';
+import 'package:vyplay/domain/watch/models/basic_info.dart';
+import 'package:vyplay/domain/watch/models/newpipe/newpipe_related.dart';
+import 'package:vyplay/domain/watch/models/newpipe/newpipe_watch_resp.dart';
+import 'package:vyplay/generated/l10n.dart';
+import 'package:vyplay/presentation/search/widgets/newpipe/home_video_info_card_widget.dart';
+import 'package:vyplay/presentation/shorts/screen_shorts.dart';
 import 'package:go_router/go_router.dart';
 
 class NewPipeRelatedVideoSection extends StatelessWidget {

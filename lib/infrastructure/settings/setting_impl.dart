@@ -4,13 +4,13 @@ import 'dart:io';
 
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:fluxtube/core/api_client.dart';
-import 'package:fluxtube/core/enums.dart';
-import 'package:fluxtube/core/strings.dart';
-import 'package:fluxtube/domain/core/failure/main_failure.dart';
-import 'package:fluxtube/domain/settings/models/instance.dart';
-import 'package:fluxtube/domain/settings/settings_service.dart';
-import 'package:fluxtube/infrastructure/database/database.dart';
+import 'package:vyplay/core/api_client.dart';
+import 'package:vyplay/core/enums.dart';
+import 'package:vyplay/core/strings.dart';
+import 'package:vyplay/domain/core/failure/main_failure.dart';
+import 'package:vyplay/domain/settings/models/instance.dart';
+import 'package:vyplay/domain/settings/settings_service.dart';
+import 'package:vyplay/infrastructure/database/database.dart';
 import 'package:injectable/injectable.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -641,7 +641,7 @@ class SettingImpl implements SettingsService {
       final timestamp = DateTime.now().millisecondsSinceEpoch;
       final profileSuffix = profileName == 'default' ? '' : '_$profileName';
       final file = File(
-          '${dir.path}/fluxtube_subscriptions${profileSuffix}_$timestamp.json');
+          '${dir.path}/vyplay_subscriptions${profileSuffix}_$timestamp.json');
       await file.writeAsString(jsonEncode(exportData));
 
       return Right(file.path);

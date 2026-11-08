@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:fluxtube/domain/watch/models/newpipe/newpipe_related.dart';
+import 'package:vyplay/domain/watch/models/newpipe/newpipe_related.dart';
 
 part 'newpipe_channel_resp.g.dart';
 

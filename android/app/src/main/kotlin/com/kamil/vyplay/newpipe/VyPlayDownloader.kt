@@ -1,4 +1,4 @@
-package com.fazilvk.fluxtube.newpipe
+package com.kamil.vyplay.newpipe
 
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit
  * Custom OkHttp-based downloader for NewPipe Extractor.
  * Handles HTTP requests needed by the extractor to fetch YouTube data.
  */
-class FluxTubeDownloader private constructor(
+class VyPlayDownloader private constructor(
     private val client: OkHttpClient
 ) : Downloader() {
 
@@ -21,15 +21,15 @@ class FluxTubeDownloader private constructor(
         private const val USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
         @Volatile
-        private var instance: FluxTubeDownloader? = null
+        private var instance: VyPlayDownloader? = null
 
-        fun getInstance(): FluxTubeDownloader {
+        fun getInstance(): VyPlayDownloader {
             return instance ?: synchronized(this) {
                 instance ?: createInstance().also { instance = it }
             }
         }
 
-        private fun createInstance(): FluxTubeDownloader {
+        private fun createInstance(): VyPlayDownloader {
             val client = OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .readTimeout(30, TimeUnit.SECONDS)
@@ -38,7 +38,7 @@ class FluxTubeDownloader private constructor(
                 .followSslRedirects(true)
                 .build()
 
-            return FluxTubeDownloader(client)
+            return VyPlayDownloader(client)
         }
 
         /**

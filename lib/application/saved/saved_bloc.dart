@@ -1,10 +1,10 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluxtube/application/settings/settings_bloc.dart';
-import 'package:fluxtube/core/enums.dart';
-import 'package:fluxtube/domain/core/failure/main_failure.dart';
-import 'package:fluxtube/domain/saved/saved_services.dart';
-import 'package:fluxtube/domain/user_preferences/models/user_preferences.dart';
-import 'package:fluxtube/domain/user_preferences/user_preferences_service.dart';
+import 'package:vyplay/application/settings/settings_bloc.dart';
+import 'package:vyplay/core/enums.dart';
+import 'package:vyplay/domain/core/failure/main_failure.dart';
+import 'package:vyplay/domain/saved/saved_services.dart';
+import 'package:vyplay/domain/user_preferences/models/user_preferences.dart';
+import 'package:vyplay/domain/user_preferences/user_preferences_service.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 

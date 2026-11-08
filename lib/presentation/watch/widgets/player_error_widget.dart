@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fluxtube/core/colors.dart';
+import 'package:vyplay/core/colors.dart';
 
 /// A widget to display error messages in the video player area
 /// without affecting the rest of the watch screen (video info, related videos, etc.)

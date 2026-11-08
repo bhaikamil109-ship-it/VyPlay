@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fluxtube/core/constants.dart';
-import 'package:fluxtube/generated/l10n.dart';
+import 'package:vyplay/core/constants.dart';
+import 'package:vyplay/generated/l10n.dart';
 
 import '../../widgets/custom_app_bar.dart';
 import 'widgets/widgets.dart';

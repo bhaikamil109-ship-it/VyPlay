@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:fluxtube/widgets/thumbnail_image.dart';
-import 'package:fluxtube/core/animations/animations.dart';
-import 'package:fluxtube/core/colors.dart';
-import 'package:fluxtube/core/constants.dart';
-import 'package:fluxtube/core/operations/math_operations.dart';
-import 'package:fluxtube/core/player/playback_queue.dart';
-import 'package:fluxtube/domain/watch/models/basic_info.dart';
-import 'package:fluxtube/domain/watch/models/newpipe/newpipe_related.dart';
-import 'package:fluxtube/generated/l10n.dart';
-import 'package:fluxtube/infrastructure/playlist/local_playlist_service.dart';
-import 'package:fluxtube/presentation/search/widgets/newpipe/home_video_info_card_widget.dart';
-import 'package:fluxtube/widgets/common_video_description_widget.dart';
+import 'package:vyplay/widgets/thumbnail_image.dart';
+import 'package:vyplay/core/animations/animations.dart';
+import 'package:vyplay/core/colors.dart';
+import 'package:vyplay/core/constants.dart';
+import 'package:vyplay/core/operations/math_operations.dart';
+import 'package:vyplay/core/player/playback_queue.dart';
+import 'package:vyplay/domain/watch/models/basic_info.dart';
+import 'package:vyplay/domain/watch/models/newpipe/newpipe_related.dart';
+import 'package:vyplay/generated/l10n.dart';
+import 'package:vyplay/infrastructure/playlist/local_playlist_service.dart';
+import 'package:vyplay/presentation/search/widgets/newpipe/home_video_info_card_widget.dart';
+import 'package:vyplay/widgets/common_video_description_widget.dart';
 import 'package:go_router/go_router.dart';
 
 /// NewPipe-specific video card widget for channel videos

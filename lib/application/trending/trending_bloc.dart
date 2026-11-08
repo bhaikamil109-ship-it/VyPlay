@@ -2,18 +2,18 @@
 import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluxtube/application/application.dart';
+import 'package:vyplay/application/application.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
-import 'package:fluxtube/core/enums.dart';
-import 'package:fluxtube/domain/core/failure/main_failure.dart';
-import 'package:fluxtube/domain/home/home_services.dart';
-import 'package:fluxtube/domain/home_recommendation/home_recommendation_service.dart';
-import 'package:fluxtube/domain/subscribes/models/subscribe.dart';
-import 'package:fluxtube/domain/trending/models/invidious/invidious_trending_resp.dart';
-import 'package:fluxtube/domain/trending/models/newpipe/newpipe_trending_resp.dart';
-import 'package:fluxtube/domain/trending/trending_service.dart';
+import 'package:vyplay/core/enums.dart';
+import 'package:vyplay/domain/core/failure/main_failure.dart';
+import 'package:vyplay/domain/home/home_services.dart';
+import 'package:vyplay/domain/home_recommendation/home_recommendation_service.dart';
+import 'package:vyplay/domain/subscribes/models/subscribe.dart';
+import 'package:vyplay/domain/trending/models/invidious/invidious_trending_resp.dart';
+import 'package:vyplay/domain/trending/models/newpipe/newpipe_trending_resp.dart';
+import 'package:vyplay/domain/trending/trending_service.dart';
 
 import '../../domain/trending/models/piped/trending_resp.dart';
 

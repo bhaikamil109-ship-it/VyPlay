@@ -4,11 +4,11 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluxtube/application/application.dart';
-import 'package:fluxtube/core/player/global_player_controller.dart';
-import 'package:fluxtube/core/services/audio_handler_service.dart';
-import 'package:fluxtube/core/services/exoplayer_notification_bridge.dart';
-import 'package:fluxtube/presentation/routes/app_routes.dart';
+import 'package:vyplay/application/application.dart';
+import 'package:vyplay/core/player/global_player_controller.dart';
+import 'package:vyplay/core/services/audio_handler_service.dart';
+import 'package:vyplay/core/services/exoplayer_notification_bridge.dart';
+import 'package:vyplay/presentation/routes/app_routes.dart';
 import 'package:media_kit_video/media_kit_video.dart';
 
 /// A draggable Picture-in-Picture video overlay widget
@@ -119,7 +119,7 @@ class _PipVideoWidgetState extends State<PipVideoWidget> {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(12),
                       child: AndroidView(
-                        viewType: 'fluxtube/newpipe_exoplayer',
+                        viewType: 'vyplay/newpipe_exoplayer',
                         onPlatformViewCreated: _onNativeViewCreated,
                         creationParams: const {
                           'attachOnly': true,
@@ -206,7 +206,7 @@ class _PipVideoWidgetState extends State<PipVideoWidget> {
 
   void _onNativeViewCreated(int id) {
     _nativeChannel =
-        MethodChannel('com.fazilvk.fluxtube/newpipe_exoplayer_$id');
+        MethodChannel('com.kamil.vyplay/newpipe_exoplayer_$id');
     ExoPlayerNotificationBridge.instance.attach(_nativeChannel!);
     _nativeChannel!.setMethodCallHandler((call) async {
       if (call.method != 'onState') return;

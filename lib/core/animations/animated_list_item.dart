@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fluxtube/core/perf/app_perf.dart';
+import 'package:vyplay/core/perf/app_perf.dart';
 import 'animation_constants.dart';
 
 /// A widget that animates list items with staggered entrance effects

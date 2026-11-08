@@ -3,11 +3,11 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluxtube/application/application.dart';
-import 'package:fluxtube/core/player/global_player_controller.dart';
-import 'package:fluxtube/core/player/playback_queue.dart';
-import 'package:fluxtube/presentation/routes/app_routes.dart';
-import 'package:fluxtube/presentation/watch/widgets/pip_video_widget.dart';
+import 'package:vyplay/application/application.dart';
+import 'package:vyplay/core/player/global_player_controller.dart';
+import 'package:vyplay/core/player/playback_queue.dart';
+import 'package:vyplay/presentation/routes/app_routes.dart';
+import 'package:vyplay/presentation/watch/widgets/pip_video_widget.dart';
 import 'package:media_kit_video/media_kit_video.dart';
 
 /// Global key for the PiP widget to maintain its state across route changes
@@ -215,7 +215,7 @@ class _SystemPipExoPlayerView extends StatelessWidget {
         child: AspectRatio(
           aspectRatio: 16 / 9,
           child: AndroidView(
-            viewType: 'fluxtube/newpipe_exoplayer',
+            viewType: 'vyplay/newpipe_exoplayer',
             creationParams: {
               'attachOnly': true,
               'fitMode': 'contain',

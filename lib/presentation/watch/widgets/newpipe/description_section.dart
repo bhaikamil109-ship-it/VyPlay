@@ -1,8 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:fluxtube/core/colors.dart';
-import 'package:fluxtube/domain/watch/models/newpipe/newpipe_watch_resp.dart';
-import 'package:fluxtube/generated/l10n.dart';
+import 'package:vyplay/core/colors.dart';
+import 'package:vyplay/domain/watch/models/newpipe/newpipe_watch_resp.dart';
+import 'package:vyplay/generated/l10n.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class NewPipeDescriptionSection extends StatelessWidget {

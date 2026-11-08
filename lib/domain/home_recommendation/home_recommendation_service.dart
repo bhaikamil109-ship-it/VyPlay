@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:fluxtube/domain/core/failure/main_failure.dart';
-import 'package:fluxtube/domain/search/models/newpipe/newpipe_search_resp.dart';
+import 'package:vyplay/domain/core/failure/main_failure.dart';
+import 'package:vyplay/domain/search/models/newpipe/newpipe_search_resp.dart';
 
 abstract class HomeRecommendationService {
   /// Get personalized home feed based on user preferences

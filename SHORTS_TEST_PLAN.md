@@ -15,7 +15,7 @@ filters the results:
 2. It fires `SearchEvent.getSearchResult(query, filter: 'videos',
    serviceType: 'newpipe')`.
 3. That reaches `NewPipeChannel.search()`, which invokes the platform method
-   `search` on the channel `com.fazilvk.fluxtube/newpipe`.
+   `search` on the channel `com.fazilvk.vyplay/newpipe`.
 4. `NewPipeMethodHandler.handleSearch()` runs the real NewPipe extractor
    (`SearchInfo.getInfo` / `SearchInfo.getMoreItems`) and returns JSON.
 5. Back in Dart, `_isShort()` keeps only genuine shorts:

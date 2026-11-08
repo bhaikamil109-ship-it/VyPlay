@@ -3,10 +3,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:media_kit/media_kit.dart';
 import 'package:media_kit_video/media_kit_video.dart';
-import 'package:fluxtube/core/player/global_player_controller.dart';
-import 'package:fluxtube/domain/watch/models/newpipe/newpipe_subtitle.dart';
-import 'package:fluxtube/domain/watch/playback/models/stream_quality_info.dart';
-import 'package:fluxtube/domain/watch/playback/newpipe_stream_helper.dart';
+import 'package:vyplay/core/player/global_player_controller.dart';
+import 'package:vyplay/domain/watch/models/newpipe/newpipe_subtitle.dart';
+import 'package:vyplay/domain/watch/playback/models/stream_quality_info.dart';
+import 'package:vyplay/domain/watch/playback/newpipe_stream_helper.dart';
 import 'package:screen_brightness/screen_brightness.dart';
 import 'package:volume_controller/volume_controller.dart';
 

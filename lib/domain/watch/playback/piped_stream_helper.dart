@@ -1,7 +1,7 @@
-import 'package:fluxtube/domain/watch/models/newpipe/newpipe_stream.dart';
-import 'package:fluxtube/domain/watch/models/piped/video/audio_stream.dart';
-import 'package:fluxtube/domain/watch/models/piped/video/video_stream.dart';
-import 'package:fluxtube/domain/watch/playback/models/generic_audio_track.dart';
+import 'package:vyplay/domain/watch/models/newpipe/newpipe_stream.dart';
+import 'package:vyplay/domain/watch/models/piped/video/audio_stream.dart';
+import 'package:vyplay/domain/watch/models/piped/video/video_stream.dart';
+import 'package:vyplay/domain/watch/playback/models/generic_audio_track.dart';
 
 /// Helper class to convert Piped stream models to NewPipe format for download compatibility.
 /// This allows the download system to work with Piped service using the existing NewPipe-based

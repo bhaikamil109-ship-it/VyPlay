@@ -1,4 +1,4 @@
-package com.fazilvk.fluxtube
+package com.kamil.vyplay
 
 import android.util.Log
 import io.flutter.plugin.common.MethodCall
@@ -27,7 +27,7 @@ import java.io.RandomAccessFile
  *   - WebM -> [WebMWriter]         (picks the audio track, drops cover art)
  *   - Opus -> [OggFromWebMWriter]  (WebM/Opus -> Ogg/Opus, for audio-only)
  *
- * This handler is registered on the existing `com.fazilvk.fluxtube/muxer`
+ * This handler is registered on the existing `com.kamil.vyplay/muxer`
  * channel. Methods it does not recognise are delegated to
  * [FFmpegMuxerHandler] so the previously published `resolveMuxPlan` and
  * `muxVideoAudio` contracts keep working unchanged.

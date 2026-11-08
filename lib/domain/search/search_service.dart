@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
-import 'package:fluxtube/domain/core/failure/main_failure.dart';
-import 'package:fluxtube/domain/search/models/invidious/invidious_search_resp.dart';
-import 'package:fluxtube/domain/search/models/newpipe/newpipe_search_resp.dart';
-import 'package:fluxtube/domain/search/models/piped/search_resp.dart';
+import 'package:vyplay/domain/core/failure/main_failure.dart';
+import 'package:vyplay/domain/search/models/invidious/invidious_search_resp.dart';
+import 'package:vyplay/domain/search/models/newpipe/newpipe_search_resp.dart';
+import 'package:vyplay/domain/search/models/piped/search_resp.dart';
 
 abstract class SearchService {
   //Piped

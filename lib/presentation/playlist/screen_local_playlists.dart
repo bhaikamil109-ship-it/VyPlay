@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:fluxtube/domain/playlist/models/local_playlist.dart';
-import 'package:fluxtube/infrastructure/playlist/local_playlist_service.dart';
+import 'package:vyplay/domain/playlist/models/local_playlist.dart';
+import 'package:vyplay/infrastructure/playlist/local_playlist_service.dart';
 import 'package:go_router/go_router.dart';
-import 'package:fluxtube/generated/l10n.dart';
+import 'package:vyplay/generated/l10n.dart';
 
 class ScreenLocalPlaylists extends StatefulWidget {
   const ScreenLocalPlaylists({super.key});

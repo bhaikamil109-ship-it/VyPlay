@@ -2,8 +2,8 @@ import 'dart:async';
 import 'dart:developer';
 
 import 'package:audio_service/audio_service.dart';
-import 'package:fluxtube/core/player/global_player_controller.dart';
-import 'package:fluxtube/core/services/exoplayer_notification_bridge.dart';
+import 'package:vyplay/core/player/global_player_controller.dart';
+import 'package:vyplay/core/services/exoplayer_notification_bridge.dart';
 
 /// Audio handler for background playback notification controls
 /// Provides media session controls (play/pause/seek) in notification and lock screen
@@ -463,7 +463,7 @@ Future<VyPlayAudioHandler?> initAudioService() async {
     _audioHandler = await AudioService.init(
       builder: () => VyPlayAudioHandler(),
       config: AudioServiceConfig(
-        androidNotificationChannelId: 'com.fazilvk.fluxtube.audio',
+        androidNotificationChannelId: 'com.kamil.vyplay.audio',
         androidNotificationChannelName: 'VyPlay Playback',
         androidNotificationChannelDescription: 'Media playback controls',
         androidNotificationOngoing: false,

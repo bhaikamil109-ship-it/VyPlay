@@ -11,7 +11,7 @@ class PipService {
     _setupMethodChannel();
   }
 
-  static const _channel = MethodChannel('com.fazilvk.fluxtube/pip');
+  static const _channel = MethodChannel('com.kamil.vyplay/pip');
 
   bool _isInPipMode = false;
   bool _isAutoPipEnabled = false;

@@ -1,6 +1,6 @@
-import 'package:fluxtube/domain/watch/models/invidious/video/adaptive_format.dart';
-import 'package:fluxtube/domain/watch/models/invidious/video/format_stream.dart';
-import 'package:fluxtube/domain/watch/models/newpipe/newpipe_stream.dart';
+import 'package:vyplay/domain/watch/models/invidious/video/adaptive_format.dart';
+import 'package:vyplay/domain/watch/models/invidious/video/format_stream.dart';
+import 'package:vyplay/domain/watch/models/newpipe/newpipe_stream.dart';
 
 /// Helper class to convert Invidious stream models to NewPipe format for download compatibility.
 /// Invidious uses:

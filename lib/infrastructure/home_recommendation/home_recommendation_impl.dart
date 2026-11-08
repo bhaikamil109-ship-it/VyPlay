@@ -1,13 +1,13 @@
 import 'dart:developer';
 import 'dart:math' as math;
 import 'package:dartz/dartz.dart';
-import 'package:fluxtube/core/enums.dart';
-import 'package:fluxtube/domain/core/failure/main_failure.dart';
-import 'package:fluxtube/domain/home_recommendation/home_recommendation_service.dart';
-import 'package:fluxtube/domain/search/models/newpipe/newpipe_search_resp.dart';
-import 'package:fluxtube/domain/search/search_service.dart';
-import 'package:fluxtube/domain/user_preferences/models/user_preferences.dart';
-import 'package:fluxtube/domain/user_preferences/user_preferences_service.dart';
+import 'package:vyplay/core/enums.dart';
+import 'package:vyplay/domain/core/failure/main_failure.dart';
+import 'package:vyplay/domain/home_recommendation/home_recommendation_service.dart';
+import 'package:vyplay/domain/search/models/newpipe/newpipe_search_resp.dart';
+import 'package:vyplay/domain/search/search_service.dart';
+import 'package:vyplay/domain/user_preferences/models/user_preferences.dart';
+import 'package:vyplay/domain/user_preferences/user_preferences_service.dart';
 import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: HomeRecommendationService)

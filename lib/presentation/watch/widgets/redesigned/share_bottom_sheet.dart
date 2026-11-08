@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:fluxtube/core/colors.dart';
-import 'package:fluxtube/core/constants.dart';
-import 'package:fluxtube/core/strings.dart';
-import 'package:fluxtube/generated/l10n.dart';
+import 'package:vyplay/core/colors.dart';
+import 'package:vyplay/core/constants.dart';
+import 'package:vyplay/core/strings.dart';
+import 'package:vyplay/generated/l10n.dart';
 import 'package:share_plus/share_plus.dart';
 
 /// Modern share bottom sheet with multiple sharing options

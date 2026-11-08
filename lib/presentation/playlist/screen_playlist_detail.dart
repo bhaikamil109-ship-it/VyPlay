@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:fluxtube/core/player/playback_queue.dart';
-import 'package:fluxtube/domain/playlist/models/local_playlist.dart';
-import 'package:fluxtube/domain/watch/models/basic_info.dart';
-import 'package:fluxtube/infrastructure/playlist/local_playlist_service.dart';
-import 'package:fluxtube/widgets/thumbnail_image.dart';
-import 'package:fluxtube/generated/l10n.dart';
+import 'package:vyplay/core/player/playback_queue.dart';
+import 'package:vyplay/domain/playlist/models/local_playlist.dart';
+import 'package:vyplay/domain/watch/models/basic_info.dart';
+import 'package:vyplay/infrastructure/playlist/local_playlist_service.dart';
+import 'package:vyplay/widgets/thumbnail_image.dart';
+import 'package:vyplay/generated/l10n.dart';
 import 'package:go_router/go_router.dart';
 
 class ScreenPlaylistDetail extends StatefulWidget {

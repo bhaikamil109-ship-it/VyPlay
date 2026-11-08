@@ -1,6 +1,6 @@
-import 'package:fluxtube/domain/watch/models/newpipe/newpipe_watch_resp.dart';
-import 'package:fluxtube/domain/watch/playback/models/playback_configuration.dart';
-import 'package:fluxtube/domain/watch/playback/newpipe_stream_helper.dart';
+import 'package:vyplay/domain/watch/models/newpipe/newpipe_watch_resp.dart';
+import 'package:vyplay/domain/watch/playback/models/playback_configuration.dart';
+import 'package:vyplay/domain/watch/playback/newpipe_stream_helper.dart';
 
 /// Playback resolver that decides which media source strategy to use
 /// (mimics NewPipe's VideoPlaybackResolver.java)

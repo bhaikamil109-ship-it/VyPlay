@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fluxtube/application/search/search_bloc.dart';
-import 'package:fluxtube/core/constants.dart';
+import 'package:vyplay/application/search/search_bloc.dart';
+import 'package:vyplay/core/constants.dart';
 
 class SearchSuggestionSection extends StatelessWidget {
   const SearchSuggestionSection({

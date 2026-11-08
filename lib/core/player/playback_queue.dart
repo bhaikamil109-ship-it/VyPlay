@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:developer';
 
 import 'package:flutter/foundation.dart';
-import 'package:fluxtube/domain/watch/models/basic_info.dart';
+import 'package:vyplay/domain/watch/models/basic_info.dart';
 
 /// What happens when the current video finishes.
 ///

@@ -7,17 +7,17 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:drift/drift.dart';
 import 'package:flutter/services.dart';
-import 'package:fluxtube/domain/core/failure/main_failure.dart';
-import 'package:fluxtube/domain/download/download_service.dart';
-import 'package:fluxtube/domain/download/models/download_item.dart' as domain;
-import 'package:fluxtube/domain/download/models/download_quality.dart';
-import 'package:fluxtube/infrastructure/download/ffmpeg_muxer.dart';
-import 'package:fluxtube/domain/watch/models/newpipe/newpipe_stream.dart';
-import 'package:fluxtube/domain/watch/models/newpipe/newpipe_watch_resp.dart';
-import 'package:fluxtube/domain/watch/playback/newpipe_stream_helper.dart';
-import 'package:fluxtube/core/api_client.dart';
-import 'package:fluxtube/core/perf/app_perf.dart';
-import 'package:fluxtube/infrastructure/database/database.dart';
+import 'package:vyplay/domain/core/failure/main_failure.dart';
+import 'package:vyplay/domain/download/download_service.dart';
+import 'package:vyplay/domain/download/models/download_item.dart' as domain;
+import 'package:vyplay/domain/download/models/download_quality.dart';
+import 'package:vyplay/infrastructure/download/ffmpeg_muxer.dart';
+import 'package:vyplay/domain/watch/models/newpipe/newpipe_stream.dart';
+import 'package:vyplay/domain/watch/models/newpipe/newpipe_watch_resp.dart';
+import 'package:vyplay/domain/watch/playback/newpipe_stream_helper.dart';
+import 'package:vyplay/core/api_client.dart';
+import 'package:vyplay/core/perf/app_perf.dart';
+import 'package:vyplay/infrastructure/database/database.dart';
 import 'package:injectable/injectable.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -1126,7 +1126,7 @@ class DownloadImpl implements DownloadService {
   Future<int?> _freeSpaceBytes(Directory directory) async {
     if (!Platform.isAndroid && !Platform.isIOS) return null;
     try {
-      const channel = MethodChannel('com.fazilvk.fluxtube/storage');
+      const channel = MethodChannel('com.kamil.vyplay/storage');
       final result = await channel.invokeMethod<int>('getFreeSpace', {
         'path': directory.path,
       });
@@ -1602,7 +1602,7 @@ class DownloadImpl implements DownloadService {
     File sourceFile,
   ) async {
     try {
-      const channel = MethodChannel('com.fazilvk.fluxtube/mediastore');
+      const channel = MethodChannel('com.kamil.vyplay/mediastore');
 
       // Only API 29+ needs this; below that the legacy copy is correct and
       // MediaStore would add a needless round trip.

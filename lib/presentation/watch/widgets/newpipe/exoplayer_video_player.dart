@@ -6,27 +6,27 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluxtube/application/application.dart';
-import 'package:fluxtube/core/player/global_player_controller.dart';
-import 'package:fluxtube/core/services/audio_handler_service.dart';
-import 'package:fluxtube/core/services/exoplayer_notification_bridge.dart';
-import 'package:fluxtube/core/services/pip_service.dart';
-import 'package:fluxtube/domain/saved/models/local_store.dart';
-import 'package:fluxtube/domain/sponsorblock/models/sponsor_segment.dart';
-import 'package:fluxtube/domain/watch/models/newpipe/newpipe_subtitle.dart';
-import 'package:fluxtube/domain/watch/models/newpipe/newpipe_watch_resp.dart';
-import 'package:fluxtube/domain/watch/playback/models/playback_configuration.dart';
-import 'package:fluxtube/domain/watch/playback/models/stream_quality_info.dart';
-import 'package:fluxtube/domain/watch/playback/newpipe_playback_resolver.dart';
-import 'package:fluxtube/domain/watch/playback/newpipe_stream_helper.dart';
-import 'package:fluxtube/core/player/playback_queue.dart';
-import 'package:fluxtube/infrastructure/newpipe/newpipe_channel.dart';
-import 'package:fluxtube/presentation/watch/widgets/player/player_settings_sheet.dart';
-import 'package:fluxtube/presentation/watch/widgets/player/chapter_bar.dart';
-import 'package:fluxtube/presentation/watch/widgets/queue_sheet.dart';
-import 'package:fluxtube/presentation/watch/widgets/cast_button.dart';
-import 'package:fluxtube/domain/watch/models/video_chapter.dart';
-import 'package:fluxtube/generated/l10n.dart';
+import 'package:vyplay/application/application.dart';
+import 'package:vyplay/core/player/global_player_controller.dart';
+import 'package:vyplay/core/services/audio_handler_service.dart';
+import 'package:vyplay/core/services/exoplayer_notification_bridge.dart';
+import 'package:vyplay/core/services/pip_service.dart';
+import 'package:vyplay/domain/saved/models/local_store.dart';
+import 'package:vyplay/domain/sponsorblock/models/sponsor_segment.dart';
+import 'package:vyplay/domain/watch/models/newpipe/newpipe_subtitle.dart';
+import 'package:vyplay/domain/watch/models/newpipe/newpipe_watch_resp.dart';
+import 'package:vyplay/domain/watch/playback/models/playback_configuration.dart';
+import 'package:vyplay/domain/watch/playback/models/stream_quality_info.dart';
+import 'package:vyplay/domain/watch/playback/newpipe_playback_resolver.dart';
+import 'package:vyplay/domain/watch/playback/newpipe_stream_helper.dart';
+import 'package:vyplay/core/player/playback_queue.dart';
+import 'package:vyplay/infrastructure/newpipe/newpipe_channel.dart';
+import 'package:vyplay/presentation/watch/widgets/player/player_settings_sheet.dart';
+import 'package:vyplay/presentation/watch/widgets/player/chapter_bar.dart';
+import 'package:vyplay/presentation/watch/widgets/queue_sheet.dart';
+import 'package:vyplay/presentation/watch/widgets/cast_button.dart';
+import 'package:vyplay/domain/watch/models/video_chapter.dart';
+import 'package:vyplay/generated/l10n.dart';
 import 'package:go_router/go_router.dart';
 import 'package:screen_brightness/screen_brightness.dart';
 import 'package:volume_controller/volume_controller.dart';
@@ -349,7 +349,7 @@ class _NewPipeExoPlayerState extends State<NewPipeExoPlayer> {
   }
 
   void _onPlatformViewCreated(int id) {
-    _channel = MethodChannel('com.fazilvk.fluxtube/newpipe_exoplayer_$id');
+    _channel = MethodChannel('com.kamil.vyplay/newpipe_exoplayer_$id');
     ExoPlayerNotificationBridge.instance.attach(_channel!);
     _channel!.setMethodCallHandler((call) async {
       switch (call.method) {
@@ -939,7 +939,7 @@ class _NewPipeExoPlayerState extends State<NewPipeExoPlayer> {
       fit: StackFit.expand,
       children: [
         AndroidView(
-          viewType: 'fluxtube/newpipe_exoplayer',
+          viewType: 'vyplay/newpipe_exoplayer',
           onPlatformViewCreated: _onPlatformViewCreated,
           creationParams: _sourceParams(startPositionMs: _positionMs),
           creationParamsCodec: const StandardMessageCodec(),

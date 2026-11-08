@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fluxtube/widgets/thumbnail_image.dart';
-import 'package:fluxtube/core/animations/animations.dart';
-import 'package:fluxtube/core/colors.dart';
-import 'package:fluxtube/core/constants.dart';
-import 'package:fluxtube/core/operations/math_operations.dart';
+import 'package:vyplay/widgets/thumbnail_image.dart';
+import 'package:vyplay/core/animations/animations.dart';
+import 'package:vyplay/core/colors.dart';
+import 'package:vyplay/core/constants.dart';
+import 'package:vyplay/core/operations/math_operations.dart';
 
 class RelatedVideoWidget extends StatelessWidget {
   const RelatedVideoWidget({

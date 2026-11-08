@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluxtube/application/application.dart';
-import 'package:fluxtube/core/enums.dart';
-import 'package:fluxtube/domain/search/models/invidious/invidious_search_resp.dart';
-import 'package:fluxtube/domain/subscribes/models/subscribe.dart';
-import 'package:fluxtube/domain/watch/models/basic_info.dart';
-import 'package:fluxtube/generated/l10n.dart';
-import 'package:fluxtube/presentation/search/widgets/widgets.dart';
-import 'package:fluxtube/widgets/widgets.dart';
+import 'package:vyplay/application/application.dart';
+import 'package:vyplay/core/enums.dart';
+import 'package:vyplay/domain/search/models/invidious/invidious_search_resp.dart';
+import 'package:vyplay/domain/subscribes/models/subscribe.dart';
+import 'package:vyplay/domain/watch/models/basic_info.dart';
+import 'package:vyplay/generated/l10n.dart';
+import 'package:vyplay/presentation/search/widgets/widgets.dart';
+import 'package:vyplay/widgets/widgets.dart';
 import 'package:go_router/go_router.dart';
 
 class InvidiousSearcheResultSection extends StatefulWidget {

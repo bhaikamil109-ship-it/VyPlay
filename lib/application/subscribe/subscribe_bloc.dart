@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluxtube/core/enums.dart';
-import 'package:fluxtube/domain/subscribes/subscribe_services.dart';
+import 'package:vyplay/core/enums.dart';
+import 'package:vyplay/domain/subscribes/subscribe_services.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 

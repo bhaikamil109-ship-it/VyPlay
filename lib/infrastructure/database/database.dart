@@ -207,7 +207,7 @@ class AppDatabase extends _$AppDatabase {
       );
 
   static QueryExecutor _openConnection() {
-    return driftDatabase(name: 'fluxtube.db');
+    return driftDatabase(name: 'vyplay.db');
   }
 
   Future<void> _createIndexes() async {

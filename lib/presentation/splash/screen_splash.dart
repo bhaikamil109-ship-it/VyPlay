@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluxtube/application/application.dart';
-import 'package:fluxtube/core/enums.dart';
+import 'package:vyplay/application/application.dart';
+import 'package:vyplay/core/enums.dart';
 import 'package:go_router/go_router.dart';
 
 class SplashScreen extends StatefulWidget {

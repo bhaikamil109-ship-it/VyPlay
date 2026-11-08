@@ -1,14 +1,14 @@
 import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluxtube/domain/download/download_service.dart';
-import 'package:fluxtube/domain/download/models/download_item.dart';
-import 'package:fluxtube/domain/download/models/download_quality.dart';
-import 'package:fluxtube/domain/watch/models/newpipe/newpipe_stream.dart';
-import 'package:fluxtube/infrastructure/download/download_notification_service.dart';
+import 'package:vyplay/domain/download/download_service.dart';
+import 'package:vyplay/domain/download/models/download_item.dart';
+import 'package:vyplay/domain/download/models/download_quality.dart';
+import 'package:vyplay/domain/watch/models/newpipe/newpipe_stream.dart';
+import 'package:vyplay/infrastructure/download/download_notification_service.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:fluxtube/core/enums.dart';
+import 'package:vyplay/core/enums.dart';
 
 part 'download_event.dart';
 part 'download_state.dart';

@@ -9,15 +9,15 @@
 //    object without touching media_kit or the PiP channel, so the state
 //    machine, the clamping helpers and dispose-safety are all testable.
 //
-// The platform channels the controller talks to (`com.fazilvk.fluxtube/pip`
+// The platform channels the controller talks to (`com.kamil.vyplay/pip`
 // and the audio-service channels) are stubbed in `setUpAll` so nothing tries
 // to reach a real device.
 
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:fluxtube/core/player/global_player_controller.dart';
-import 'package:fluxtube/core/player/playback_queue.dart';
-import 'package:fluxtube/domain/watch/models/basic_info.dart';
+import 'package:vyplay/core/player/global_player_controller.dart';
+import 'package:vyplay/core/player/playback_queue.dart';
+import 'package:vyplay/domain/watch/models/basic_info.dart';
 
 VideoBasicInfo _video(String id, {String? title}) =>
     VideoBasicInfo(id: id, title: title ?? 'Video $id');
@@ -29,9 +29,9 @@ void main() {
     final messenger =
         TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger;
     for (final channel in const [
-      'com.fazilvk.fluxtube/pip',
-      'com.fazilvk.fluxtube/exoplayer',
-      'com.fazilvk.fluxtube/newpipe_exoplayer_control',
+      'com.kamil.vyplay/pip',
+      'com.kamil.vyplay/exoplayer',
+      'com.kamil.vyplay/newpipe_exoplayer_control',
       'com.ryanheise.audio_service.client.methods',
       'com.ryanheise.audio_service.client.updates',
       'com.ryanheise.audio_service.client.state',

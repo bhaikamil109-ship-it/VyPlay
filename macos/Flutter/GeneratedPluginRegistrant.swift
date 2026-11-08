@@ -9,7 +9,6 @@ import app_links
 import audio_service
 import audio_session
 import dynamic_color
-import ffmpeg_kit_flutter_new
 import file_picker
 import flutter_local_notifications
 import media_kit_libs_macos_video
@@ -29,7 +28,6 @@ func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {
   AudioServicePlugin.register(with: registry.registrar(forPlugin: "AudioServicePlugin"))
   AudioSessionPlugin.register(with: registry.registrar(forPlugin: "AudioSessionPlugin"))
   DynamicColorPlugin.register(with: registry.registrar(forPlugin: "DynamicColorPlugin"))
-  FFmpegKitFlutterPlugin.register(with: registry.registrar(forPlugin: "FFmpegKitFlutterPlugin"))
   FilePickerPlugin.register(with: registry.registrar(forPlugin: "FilePickerPlugin"))
   FlutterLocalNotificationsPlugin.register(with: registry.registrar(forPlugin: "FlutterLocalNotificationsPlugin"))
   MediaKitLibsMacosVideoPlugin.register(with: registry.registrar(forPlugin: "MediaKitLibsMacosVideoPlugin"))

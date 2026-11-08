@@ -28,8 +28,8 @@ class AppInfo {
   /// original authors' attribution, so this list must not be stripped.
   static List<AppInfoModel> upstreamInfos = <AppInfoModel>[
     AppInfoModel(
-      name: 'FluxTube',
-      url: 'https://github.com/mu-fazil-vk/fluxtube',
+      name: 'VyPlay',
+      url: 'https://github.com/mu-fazil-vk/vyplay',
       description: 'Upstream project (GPLv3)',
     ),
     AppInfoModel(

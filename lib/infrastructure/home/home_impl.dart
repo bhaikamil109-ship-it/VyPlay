@@ -2,13 +2,13 @@ import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:fluxtube/core/api_client.dart';
-import 'package:fluxtube/domain/core/failure/main_failure.dart';
-import 'package:fluxtube/domain/home/home_services.dart';
-import 'package:fluxtube/domain/subscribes/models/subscribe.dart';
-import 'package:fluxtube/domain/trending/models/newpipe/newpipe_trending_resp.dart';
-import 'package:fluxtube/domain/trending/models/piped/trending_resp.dart';
-import 'package:fluxtube/infrastructure/newpipe/newpipe_channel.dart';
+import 'package:vyplay/core/api_client.dart';
+import 'package:vyplay/domain/core/failure/main_failure.dart';
+import 'package:vyplay/domain/home/home_services.dart';
+import 'package:vyplay/domain/subscribes/models/subscribe.dart';
+import 'package:vyplay/domain/trending/models/newpipe/newpipe_trending_resp.dart';
+import 'package:vyplay/domain/trending/models/piped/trending_resp.dart';
+import 'package:vyplay/infrastructure/newpipe/newpipe_channel.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../domain/core/api_end_points.dart';
