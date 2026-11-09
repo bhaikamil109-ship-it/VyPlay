@@ -142,6 +142,11 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
           settingsMap[contentFilterHideShortsKey] == 'true';
       final bool contentFilterHidePaid =
           settingsMap[contentFilterHidePaidKey] == 'true';
+      final String? downloadFolderPath =
+          (settingsMap[downloadFolderPathKey] ?? '').trim().isEmpty
+              ? null
+              : settingsMap[downloadFolderPathKey];
+      final bool rydEnabled = settingsMap[rydEnabledKey] != 'false';
 
       newState = newState.copyWith(
         version: packageInfo.version,
@@ -168,6 +173,8 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
         contentFilterBlockedChannels: contentFilterChannels,
         contentFilterHideShorts: contentFilterHideShorts,
         contentFilterHidePaid: contentFilterHidePaid,
+        downloadFolderPath: downloadFolderPath,
+        isRydEnabled: rydEnabled,
       );
 
       if (ytService == YouTubeServices.invidious.name) {
@@ -996,6 +1003,22 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
           enabled: event.enabled);
       emit(_result.fold((MainFailure f) => state,
           (enabled) => state.copyWith(contentFilterHidePaid: enabled)));
+    });
+
+
+    // Download folder
+    on<DownloadFolderChanged>((event, emit) async {
+      final _result =
+          await settingsService.setDownloadFolderPath(path: event.path);
+      emit(_result.fold((MainFailure f) => state,
+          (path) => state.copyWith(downloadFolderPath: path)));
+    });
+
+    // Return YouTube Dislike
+    on<ToggleRyd>((event, emit) async {
+      final _result = await settingsService.toggleRyd(enabled: event.enabled);
+      emit(_result.fold((MainFailure f) => state,
+          (enabled) => state.copyWith(isRydEnabled: enabled)));
     });
 
   }

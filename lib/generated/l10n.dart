@@ -4128,6 +4128,96 @@ class S {
   String get add {
     return Intl.message('Add', name: 'add', desc: '', args: []);
   }
+
+  /// `Download location`
+  String get downloadLocation {
+    return Intl.message(
+      'Download location',
+      name: 'downloadLocation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose where downloads are saved. SD card folders are supported.`
+  String get downloadLocationDescription {
+    return Intl.message(
+      'Choose where downloads are saved. SD card folders are supported.',
+      name: 'downloadLocationDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change folder`
+  String get changeFolder {
+    return Intl.message(
+      'Change folder',
+      name: 'changeFolder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reset to default`
+  String get resetToDefault {
+    return Intl.message(
+      'Reset to default',
+      name: 'resetToDefault',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `App storage (default)`
+  String get appStorageDefault {
+    return Intl.message(
+      'App storage (default)',
+      name: 'appStorageDefault',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `SD card / removable storage`
+  String get sdCardStorage {
+    return Intl.message(
+      'SD card / removable storage',
+      name: 'sdCardStorage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Return YouTube Dislike`
+  String get rydTitle {
+    return Intl.message(
+      'Return YouTube Dislike',
+      name: 'rydTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Show the community dislike count when the active service does not provide one.`
+  String get rydDescription {
+    return Intl.message(
+      'Show the community dislike count when the active service does not provide one.',
+      name: 'rydDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Current folder`
+  String get currentFolder {
+    return Intl.message(
+      'Current folder',
+      name: 'currentFolder',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

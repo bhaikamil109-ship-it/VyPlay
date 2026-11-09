@@ -65,9 +65,14 @@ class ActionButtonsRow extends StatelessWidget {
     final formattedLikes = likes == -1 ? locals.like : formatCount(likes.toString());
     final formattedDislikes = dislikes == -1 ? locals.dislike : formatCount(dislikes.toString());
 
+    final rydEnabled =
+        context.select((SettingsBloc bloc) => bloc.state.isRydEnabled) ?? true;
+
     return SizedBox(
       height: 70,
-      child: SingleChildScrollView(
+      child: Stack(
+        children: [
+          SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),
         child: Row(
@@ -92,7 +97,10 @@ class ActionButtonsRow extends StatelessWidget {
                     ? CupertinoIcons.hand_thumbsdown_fill
                     : CupertinoIcons.hand_thumbsdown,
                 label: formattedDislikes,
-                labelChild: (videoId != null && videoId!.isNotEmpty && dislikes <= 0)
+                labelChild: (rydEnabled &&
+                        videoId != null &&
+                        videoId!.isNotEmpty &&
+                        dislikes <= 0)
                     ? _RydDislikeLabel(videoId: videoId!)
                     : null,
                 onTap: onTapDislike,
@@ -167,6 +175,15 @@ class ActionButtonsRow extends StatelessWidget {
             AppSpacing.width16,
           ],
         ),
+      ),
+          if (showDislike && rydEnabled && videoId != null && videoId!.isNotEmpty)
+            Positioned(
+              left: 12,
+              right: 12,
+              bottom: 2,
+              child: _RydRatioBar(videoId: videoId!, likes: likes),
+            ),
+        ],
       ),
     );
   }
@@ -479,6 +496,75 @@ class _RydDislikeLabelState extends State<_RydDislikeLabel> {
         fontSize: AppFontSize.caption,
         fontWeight: FontWeight.w500,
         color: color,
+      ),
+    );
+  }
+}
+
+/// Like/dislike ratio bar using the service count plus Return YouTube Dislike.
+class _RydRatioBar extends StatefulWidget {
+  const _RydRatioBar({required this.videoId, required this.likes});
+
+  final String videoId;
+  final int likes;
+
+  @override
+  State<_RydRatioBar> createState() => _RydRatioBarState();
+}
+
+class _RydRatioBarState extends State<_RydRatioBar> {
+  int? _dislikes;
+
+  @override
+  void initState() {
+    super.initState();
+    _load();
+  }
+
+  @override
+  void didUpdateWidget(covariant _RydRatioBar oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.videoId != widget.videoId) {
+      _dislikes = null;
+      _load();
+    }
+  }
+
+  Future<void> _load() async {
+    final votes =
+        await ReturnYoutubeDislikeService().fetchVotes(widget.videoId);
+    if (!mounted || votes == null) return;
+    setState(() => _dislikes = votes.dislikes);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final dislikes = _dislikes;
+    final likes = widget.likes;
+    if (dislikes == null || (likes <= 0 && dislikes <= 0)) {
+      return const SizedBox.shrink();
+    }
+    return ClipRRect(
+      borderRadius: AppRadius.borderFull,
+      child: SizedBox(
+        height: 3,
+        child: Row(
+          children: [
+            Expanded(
+              flex: likes <= 0 ? 1 : likes,
+              child: Container(color: AppColors.likeFilled),
+            ),
+            Expanded(
+              flex: dislikes <= 0 ? 1 : dislikes,
+              child: Container(
+                color: (Theme.of(context).brightness == Brightness.dark
+                        ? AppColors.onSurfaceVariantDark
+                        : AppColors.onSurfaceVariant)
+                    .withValues(alpha: 0.35),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

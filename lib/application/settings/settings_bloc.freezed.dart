@@ -142,6 +142,8 @@ extension SettingsEventPatterns on SettingsEvent {
         contentFilterHideShortsChanged,
     TResult Function(ContentFilterHidePaidChanged value)?
         contentFilterHidePaidChanged,
+    TResult Function(DownloadFolderChanged value)? downloadFolderChanged,
+    TResult Function(ToggleRyd value)? rydToggled,
     required TResult orElse(),
   }) {
     final _that = this;
@@ -309,6 +311,10 @@ extension SettingsEventPatterns on SettingsEvent {
       case ContentFilterHidePaidChanged()
           when contentFilterHidePaidChanged != null:
         return contentFilterHidePaidChanged(_that);
+      case DownloadFolderChanged() when downloadFolderChanged != null:
+        return downloadFolderChanged(_that);
+      case ToggleRyd() when rydToggled != null:
+        return rydToggled(_that);
       case _:
         return orElse();
     }
@@ -437,6 +443,9 @@ extension SettingsEventPatterns on SettingsEvent {
         contentFilterHideShortsChanged,
     required TResult Function(ContentFilterHidePaidChanged value)
         contentFilterHidePaidChanged,
+    required TResult Function(DownloadFolderChanged value)
+        downloadFolderChanged,
+    required TResult Function(ToggleRyd value) rydToggled,
   }) {
     final _that = this;
     switch (_that) {
@@ -590,6 +599,10 @@ extension SettingsEventPatterns on SettingsEvent {
         return contentFilterHideShortsChanged(_that);
       case ContentFilterHidePaidChanged():
         return contentFilterHidePaidChanged(_that);
+      case DownloadFolderChanged():
+        return downloadFolderChanged(_that);
+      case ToggleRyd():
+        return rydToggled(_that);
     }
   }
 
@@ -700,6 +713,8 @@ extension SettingsEventPatterns on SettingsEvent {
         contentFilterHideShortsChanged,
     TResult? Function(ContentFilterHidePaidChanged value)?
         contentFilterHidePaidChanged,
+    TResult? Function(DownloadFolderChanged value)? downloadFolderChanged,
+    TResult? Function(ToggleRyd value)? rydToggled,
   }) {
     final _that = this;
     switch (_that) {
@@ -866,6 +881,10 @@ extension SettingsEventPatterns on SettingsEvent {
       case ContentFilterHidePaidChanged()
           when contentFilterHidePaidChanged != null:
         return contentFilterHidePaidChanged(_that);
+      case DownloadFolderChanged() when downloadFolderChanged != null:
+        return downloadFolderChanged(_that);
+      case ToggleRyd() when rydToggled != null:
+        return rydToggled(_that);
       case _:
         return null;
     }
@@ -962,6 +981,8 @@ extension SettingsEventPatterns on SettingsEvent {
     TResult Function(List<String> channelIds)? contentFilterChannelsChanged,
     TResult Function(bool enabled)? contentFilterHideShortsChanged,
     TResult Function(bool enabled)? contentFilterHidePaidChanged,
+    TResult Function(String? path)? downloadFolderChanged,
+    TResult Function(bool enabled)? rydToggled,
     required TResult orElse(),
   }) {
     final _that = this;
@@ -1129,6 +1150,10 @@ extension SettingsEventPatterns on SettingsEvent {
       case ContentFilterHidePaidChanged()
           when contentFilterHidePaidChanged != null:
         return contentFilterHidePaidChanged(_that.enabled);
+      case DownloadFolderChanged() when downloadFolderChanged != null:
+        return downloadFolderChanged(_that.path);
+      case ToggleRyd() when rydToggled != null:
+        return rydToggled(_that.enabled);
       case _:
         return orElse();
     }
@@ -1230,6 +1255,8 @@ extension SettingsEventPatterns on SettingsEvent {
         contentFilterChannelsChanged,
     required TResult Function(bool enabled) contentFilterHideShortsChanged,
     required TResult Function(bool enabled) contentFilterHidePaidChanged,
+    required TResult Function(String? path) downloadFolderChanged,
+    required TResult Function(bool enabled) rydToggled,
   }) {
     final _that = this;
     switch (_that) {
@@ -1383,6 +1410,10 @@ extension SettingsEventPatterns on SettingsEvent {
         return contentFilterHideShortsChanged(_that.enabled);
       case ContentFilterHidePaidChanged():
         return contentFilterHidePaidChanged(_that.enabled);
+      case DownloadFolderChanged():
+        return downloadFolderChanged(_that.path);
+      case ToggleRyd():
+        return rydToggled(_that.enabled);
     }
   }
 
@@ -1477,6 +1508,8 @@ extension SettingsEventPatterns on SettingsEvent {
     TResult? Function(List<String> channelIds)? contentFilterChannelsChanged,
     TResult? Function(bool enabled)? contentFilterHideShortsChanged,
     TResult? Function(bool enabled)? contentFilterHidePaidChanged,
+    TResult? Function(String? path)? downloadFolderChanged,
+    TResult? Function(bool enabled)? rydToggled,
   }) {
     final _that = this;
     switch (_that) {
@@ -1643,6 +1676,10 @@ extension SettingsEventPatterns on SettingsEvent {
       case ContentFilterHidePaidChanged()
           when contentFilterHidePaidChanged != null:
         return contentFilterHidePaidChanged(_that.enabled);
+      case DownloadFolderChanged() when downloadFolderChanged != null:
+        return downloadFolderChanged(_that.path);
+      case ToggleRyd() when rydToggled != null:
+        return rydToggled(_that.enabled);
       case _:
         return null;
     }
@@ -6497,6 +6534,133 @@ class _$ContentFilterHidePaidChangedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
+class DownloadFolderChanged implements SettingsEvent {
+  const DownloadFolderChanged({this.path});
+
+  final String? path;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $DownloadFolderChangedCopyWith<DownloadFolderChanged> get copyWith =>
+      _$DownloadFolderChangedCopyWithImpl<DownloadFolderChanged>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is DownloadFolderChanged &&
+            (identical(other.path, path) || other.path == path));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, path);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.downloadFolderChanged(path: $path)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $DownloadFolderChangedCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $DownloadFolderChangedCopyWith(DownloadFolderChanged value,
+          $Res Function(DownloadFolderChanged) _then) =
+      _$DownloadFolderChangedCopyWithImpl;
+  @useResult
+  $Res call({String? path});
+}
+
+/// @nodoc
+class _$DownloadFolderChangedCopyWithImpl<$Res>
+    implements $DownloadFolderChangedCopyWith<$Res> {
+  _$DownloadFolderChangedCopyWithImpl(this._self, this._then);
+
+  final DownloadFolderChanged _self;
+  final $Res Function(DownloadFolderChanged) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? path = freezed,
+  }) {
+    return _then(DownloadFolderChanged(
+      path: freezed == path
+          ? _self.path
+          : path // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ToggleRyd implements SettingsEvent {
+  const ToggleRyd({required this.enabled});
+
+  final bool enabled;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ToggleRydCopyWith<ToggleRyd> get copyWith =>
+      _$ToggleRydCopyWithImpl<ToggleRyd>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ToggleRyd &&
+            (identical(other.enabled, enabled) || other.enabled == enabled));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, enabled);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.rydToggled(enabled: $enabled)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ToggleRydCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleRydCopyWith(ToggleRyd value, $Res Function(ToggleRyd) _then) =
+      _$ToggleRydCopyWithImpl;
+  @useResult
+  $Res call({bool enabled});
+}
+
+/// @nodoc
+class _$ToggleRydCopyWithImpl<$Res> implements $ToggleRydCopyWith<$Res> {
+  _$ToggleRydCopyWithImpl(this._self, this._then);
+
+  final ToggleRyd _self;
+  final $Res Function(ToggleRyd) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? enabled = null,
+  }) {
+    return _then(ToggleRyd(
+      enabled: null == enabled
+          ? _self.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
 mixin _$SettingsState {
   String get defaultLanguage;
   String get defaultQuality;
@@ -6577,6 +6741,8 @@ mixin _$SettingsState {
   List<String>? get contentFilterBlockedChannels;
   bool? get contentFilterHideShorts;
   bool? get contentFilterHidePaid;
+  String? get downloadFolderPath;
+  bool? get isRydEnabled;
 
   /// Create a copy of SettingsState
   /// with the given fields replaced by the non-null parameter values.
@@ -6702,7 +6868,9 @@ mixin _$SettingsState {
             const DeepCollectionEquality().equals(other.contentFilterKeywords, contentFilterKeywords) &&
             const DeepCollectionEquality().equals(other.contentFilterBlockedChannels, contentFilterBlockedChannels) &&
             (identical(other.contentFilterHideShorts, contentFilterHideShorts) || other.contentFilterHideShorts == contentFilterHideShorts) &&
-            (identical(other.contentFilterHidePaid, contentFilterHidePaid) || other.contentFilterHidePaid == contentFilterHidePaid));
+            (identical(other.contentFilterHidePaid, contentFilterHidePaid) || other.contentFilterHidePaid == contentFilterHidePaid) &&
+            (identical(other.downloadFolderPath, downloadFolderPath) || other.downloadFolderPath == downloadFolderPath) &&
+            (identical(other.isRydEnabled, isRydEnabled) || other.isRydEnabled == isRydEnabled));
   }
 
   @override
@@ -6783,12 +6951,14 @@ mixin _$SettingsState {
         const DeepCollectionEquality().hash(contentFilterKeywords),
         const DeepCollectionEquality().hash(contentFilterBlockedChannels),
         contentFilterHideShorts,
-        contentFilterHidePaid
+        contentFilterHidePaid,
+        downloadFolderPath,
+        isRydEnabled
       ]);
 
   @override
   String toString() {
-    return 'SettingsState(defaultLanguage: $defaultLanguage, defaultQuality: $defaultQuality, defaultRegion: $defaultRegion, themeMode: $themeMode, version: $version, isHistoryVisible: $isHistoryVisible, isDislikeVisible: $isDislikeVisible, isHlsPlayer: $isHlsPlayer, isHideComments: $isHideComments, isHideRelated: $isHideRelated, pipedInstances: $pipedInstances, pipedInstanceStatus: $pipedInstanceStatus, instance: $instance, invidiousInstances: $invidiousInstances, invidiousInstanceStatus: $invidiousInstanceStatus, ytService: $ytService, initialized: $initialized, settingsStatus: $settingsStatus, isPipDisabled: $isPipDisabled, connectingToInstance: $connectingToInstance, isTestingConnection: $isTestingConnection, userInstanceFailed: $userInstanceFailed, failedInstanceName: $failedInstanceName, searchFilter: $searchFilter, videoFitMode: $videoFitMode, skipInterval: $skipInterval, isSponsorBlockEnabled: $isSponsorBlockEnabled, sponsorBlockCategories: $sponsorBlockCategories, openLinksInBrowser: $openLinksInBrowser, homeFeedMode: $homeFeedMode, isAudioFocusEnabled: $isAudioFocusEnabled, currentProfile: $currentProfile, profiles: $profiles, subtitleSize: $subtitleSize, lastExportedFilePath: $lastExportedFilePath, isSearchHistoryEnabled: $isSearchHistoryEnabled, isSearchHistoryVisible: $isSearchHistoryVisible, isAutoPipEnabled: $isAutoPipEnabled, sleepTimerConfig: $sleepTimerConfig, isSwipeGesturesEnabled: $isSwipeGesturesEnabled, isDeArrowEnabled: $isDeArrowEnabled, isBookmarksEnabled: $isBookmarksEnabled, bookmarkedPlaylists: $bookmarkedPlaylists, isRestrictedModeEnabled: $isRestrictedModeEnabled, isMiniPlayerEnabled: $isMiniPlayerEnabled, downloadQuality: $downloadQuality, isDownloadSubtitlesEnabled: $isDownloadSubtitlesEnabled, isDownloadOverWifiOnlyEnabled: $isDownloadOverWifiOnlyEnabled, isDownloadAutoDeleteEnabled: $isDownloadAutoDeleteEnabled, playbackSpeed: $playbackSpeed, isAutoplayNextVideoEnabled: $isAutoplayNextVideoEnabled, isShowRelatedInQueueEnabled: $isShowRelatedInQueueEnabled, queueDismissTime: $queueDismissTime, autoplayCountdown: $autoplayCountdown, isDisableAutoplayOnCellularEnabled: $isDisableAutoplayOnCellularEnabled, isAutoQueueEnabled: $isAutoQueueEnabled, isBufferPreloadEnabled: $isBufferPreloadEnabled, isAutoQualityAdjustEnabled: $isAutoQualityAdjustEnabled, isBackgroundPlaybackEnabled: $isBackgroundPlaybackEnabled, isNotificationControlsEnabled: $isNotificationControlsEnabled, isDataSaverEnabled: $isDataSaverEnabled, isHideWatchedVideosEnabled: $isHideWatchedVideosEnabled, mobileDataQuality: $mobileDataQuality, isDownloadQueueItemsEnabled: $isDownloadQueueItemsEnabled, isRichCaptionRenderingEnabled: $isRichCaptionRenderingEnabled, isBilibiliEnabled: $isBilibiliEnabled, isSwipeLeftToRight: $isSwipeLeftToRight, isMiniPlayerAutoExpandEnabled: $isMiniPlayerAutoExpandEnabled, isMiniPlayerTapToExpandEnabled: $isMiniPlayerTapToExpandEnabled, isMiniPlayerDoubleTapToExpandEnabled: $isMiniPlayerDoubleTapToExpandEnabled, restrictedModeFilterLevel: $restrictedModeFilterLevel, downloadAutoDeleteDays: $downloadAutoDeleteDays, contentFilterKeywords: $contentFilterKeywords, contentFilterBlockedChannels: $contentFilterBlockedChannels, contentFilterHideShorts: $contentFilterHideShorts, contentFilterHidePaid: $contentFilterHidePaid)';
+    return 'SettingsState(defaultLanguage: $defaultLanguage, defaultQuality: $defaultQuality, defaultRegion: $defaultRegion, themeMode: $themeMode, version: $version, isHistoryVisible: $isHistoryVisible, isDislikeVisible: $isDislikeVisible, isHlsPlayer: $isHlsPlayer, isHideComments: $isHideComments, isHideRelated: $isHideRelated, pipedInstances: $pipedInstances, pipedInstanceStatus: $pipedInstanceStatus, instance: $instance, invidiousInstances: $invidiousInstances, invidiousInstanceStatus: $invidiousInstanceStatus, ytService: $ytService, initialized: $initialized, settingsStatus: $settingsStatus, isPipDisabled: $isPipDisabled, connectingToInstance: $connectingToInstance, isTestingConnection: $isTestingConnection, userInstanceFailed: $userInstanceFailed, failedInstanceName: $failedInstanceName, searchFilter: $searchFilter, videoFitMode: $videoFitMode, skipInterval: $skipInterval, isSponsorBlockEnabled: $isSponsorBlockEnabled, sponsorBlockCategories: $sponsorBlockCategories, openLinksInBrowser: $openLinksInBrowser, homeFeedMode: $homeFeedMode, isAudioFocusEnabled: $isAudioFocusEnabled, currentProfile: $currentProfile, profiles: $profiles, subtitleSize: $subtitleSize, lastExportedFilePath: $lastExportedFilePath, isSearchHistoryEnabled: $isSearchHistoryEnabled, isSearchHistoryVisible: $isSearchHistoryVisible, isAutoPipEnabled: $isAutoPipEnabled, sleepTimerConfig: $sleepTimerConfig, isSwipeGesturesEnabled: $isSwipeGesturesEnabled, isDeArrowEnabled: $isDeArrowEnabled, isBookmarksEnabled: $isBookmarksEnabled, bookmarkedPlaylists: $bookmarkedPlaylists, isRestrictedModeEnabled: $isRestrictedModeEnabled, isMiniPlayerEnabled: $isMiniPlayerEnabled, downloadQuality: $downloadQuality, isDownloadSubtitlesEnabled: $isDownloadSubtitlesEnabled, isDownloadOverWifiOnlyEnabled: $isDownloadOverWifiOnlyEnabled, isDownloadAutoDeleteEnabled: $isDownloadAutoDeleteEnabled, playbackSpeed: $playbackSpeed, isAutoplayNextVideoEnabled: $isAutoplayNextVideoEnabled, isShowRelatedInQueueEnabled: $isShowRelatedInQueueEnabled, queueDismissTime: $queueDismissTime, autoplayCountdown: $autoplayCountdown, isDisableAutoplayOnCellularEnabled: $isDisableAutoplayOnCellularEnabled, isAutoQueueEnabled: $isAutoQueueEnabled, isBufferPreloadEnabled: $isBufferPreloadEnabled, isAutoQualityAdjustEnabled: $isAutoQualityAdjustEnabled, isBackgroundPlaybackEnabled: $isBackgroundPlaybackEnabled, isNotificationControlsEnabled: $isNotificationControlsEnabled, isDataSaverEnabled: $isDataSaverEnabled, isHideWatchedVideosEnabled: $isHideWatchedVideosEnabled, mobileDataQuality: $mobileDataQuality, isDownloadQueueItemsEnabled: $isDownloadQueueItemsEnabled, isRichCaptionRenderingEnabled: $isRichCaptionRenderingEnabled, isBilibiliEnabled: $isBilibiliEnabled, isSwipeLeftToRight: $isSwipeLeftToRight, isMiniPlayerAutoExpandEnabled: $isMiniPlayerAutoExpandEnabled, isMiniPlayerTapToExpandEnabled: $isMiniPlayerTapToExpandEnabled, isMiniPlayerDoubleTapToExpandEnabled: $isMiniPlayerDoubleTapToExpandEnabled, restrictedModeFilterLevel: $restrictedModeFilterLevel, downloadAutoDeleteDays: $downloadAutoDeleteDays, contentFilterKeywords: $contentFilterKeywords, contentFilterBlockedChannels: $contentFilterBlockedChannels, contentFilterHideShorts: $contentFilterHideShorts, contentFilterHidePaid: $contentFilterHidePaid, downloadFolderPath: $downloadFolderPath, isRydEnabled: $isRydEnabled)';
   }
 }
 
@@ -6874,7 +7044,9 @@ abstract mixin class $SettingsStateCopyWith<$Res> {
       List<String>? contentFilterKeywords,
       List<String>? contentFilterBlockedChannels,
       bool? contentFilterHideShorts,
-      bool? contentFilterHidePaid});
+      bool? contentFilterHidePaid,
+      String? downloadFolderPath,
+      bool? isRydEnabled});
 }
 
 /// @nodoc
@@ -6966,6 +7138,8 @@ class _$SettingsStateCopyWithImpl<$Res>
     Object? contentFilterBlockedChannels = freezed,
     Object? contentFilterHideShorts = freezed,
     Object? contentFilterHidePaid = freezed,
+    Object? downloadFolderPath = freezed,
+    Object? isRydEnabled = freezed,
   }) {
     return _then(_self.copyWith(
       defaultLanguage: null == defaultLanguage
@@ -7274,6 +7448,14 @@ class _$SettingsStateCopyWithImpl<$Res>
           ? _self.contentFilterHidePaid
           : contentFilterHidePaid // ignore: cast_nullable_to_non_nullable
               as bool?,
+      downloadFolderPath: freezed == downloadFolderPath
+          ? _self.downloadFolderPath
+          : downloadFolderPath // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isRydEnabled: freezed == isRydEnabled
+          ? _self.isRydEnabled
+          : isRydEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -7445,7 +7627,9 @@ extension SettingsStatePatterns on SettingsState {
             List<String>? contentFilterKeywords,
             List<String>? contentFilterBlockedChannels,
             bool? contentFilterHideShorts,
-            bool? contentFilterHidePaid)?
+            bool? contentFilterHidePaid,
+            String? downloadFolderPath,
+            bool? isRydEnabled)?
         $default, {
     required TResult orElse(),
   }) {
@@ -7528,7 +7712,9 @@ extension SettingsStatePatterns on SettingsState {
             _that.contentFilterKeywords,
             _that.contentFilterBlockedChannels,
             _that.contentFilterHideShorts,
-            _that.contentFilterHidePaid);
+            _that.contentFilterHidePaid,
+            _that.downloadFolderPath,
+            _that.isRydEnabled);
       case _:
         return orElse();
     }
@@ -7625,7 +7811,9 @@ extension SettingsStatePatterns on SettingsState {
             List<String>? contentFilterKeywords,
             List<String>? contentFilterBlockedChannels,
             bool? contentFilterHideShorts,
-            bool? contentFilterHidePaid)
+            bool? contentFilterHidePaid,
+            String? downloadFolderPath,
+            bool? isRydEnabled)
         $default,
   ) {
     final _that = this;
@@ -7707,7 +7895,9 @@ extension SettingsStatePatterns on SettingsState {
             _that.contentFilterKeywords,
             _that.contentFilterBlockedChannels,
             _that.contentFilterHideShorts,
-            _that.contentFilterHidePaid);
+            _that.contentFilterHidePaid,
+            _that.downloadFolderPath,
+            _that.isRydEnabled);
     }
   }
 
@@ -7801,7 +7991,9 @@ extension SettingsStatePatterns on SettingsState {
             List<String>? contentFilterKeywords,
             List<String>? contentFilterBlockedChannels,
             bool? contentFilterHideShorts,
-            bool? contentFilterHidePaid)?
+            bool? contentFilterHidePaid,
+            String? downloadFolderPath,
+            bool? isRydEnabled)?
         $default,
   ) {
     final _that = this;
@@ -7883,7 +8075,9 @@ extension SettingsStatePatterns on SettingsState {
             _that.contentFilterKeywords,
             _that.contentFilterBlockedChannels,
             _that.contentFilterHideShorts,
-            _that.contentFilterHidePaid);
+            _that.contentFilterHidePaid,
+            _that.downloadFolderPath,
+            _that.isRydEnabled);
       case _:
         return null;
     }
@@ -7969,7 +8163,9 @@ class _Initial extends SettingsState {
       final List<String>? contentFilterKeywords,
       final List<String>? contentFilterBlockedChannels,
       this.contentFilterHideShorts,
-      this.contentFilterHidePaid})
+      this.contentFilterHidePaid,
+      this.downloadFolderPath,
+      this.isRydEnabled})
       : _pipedInstances = pipedInstances,
         _invidiousInstances = invidiousInstances,
         _sponsorBlockCategories = sponsorBlockCategories,
@@ -8198,6 +8394,10 @@ class _Initial extends SettingsState {
   final bool? contentFilterHideShorts;
   @override
   final bool? contentFilterHidePaid;
+  @override
+  final String? downloadFolderPath;
+  @override
+  final bool? isRydEnabled;
 
   /// Create a copy of SettingsState
   /// with the given fields replaced by the non-null parameter values.
@@ -8323,7 +8523,9 @@ class _Initial extends SettingsState {
             const DeepCollectionEquality().equals(other._contentFilterKeywords, _contentFilterKeywords) &&
             const DeepCollectionEquality().equals(other._contentFilterBlockedChannels, _contentFilterBlockedChannels) &&
             (identical(other.contentFilterHideShorts, contentFilterHideShorts) || other.contentFilterHideShorts == contentFilterHideShorts) &&
-            (identical(other.contentFilterHidePaid, contentFilterHidePaid) || other.contentFilterHidePaid == contentFilterHidePaid));
+            (identical(other.contentFilterHidePaid, contentFilterHidePaid) || other.contentFilterHidePaid == contentFilterHidePaid) &&
+            (identical(other.downloadFolderPath, downloadFolderPath) || other.downloadFolderPath == downloadFolderPath) &&
+            (identical(other.isRydEnabled, isRydEnabled) || other.isRydEnabled == isRydEnabled));
   }
 
   @override
@@ -8404,12 +8606,14 @@ class _Initial extends SettingsState {
         const DeepCollectionEquality().hash(_contentFilterKeywords),
         const DeepCollectionEquality().hash(_contentFilterBlockedChannels),
         contentFilterHideShorts,
-        contentFilterHidePaid
+        contentFilterHidePaid,
+        downloadFolderPath,
+        isRydEnabled
       ]);
 
   @override
   String toString() {
-    return 'SettingsState(defaultLanguage: $defaultLanguage, defaultQuality: $defaultQuality, defaultRegion: $defaultRegion, themeMode: $themeMode, version: $version, isHistoryVisible: $isHistoryVisible, isDislikeVisible: $isDislikeVisible, isHlsPlayer: $isHlsPlayer, isHideComments: $isHideComments, isHideRelated: $isHideRelated, pipedInstances: $pipedInstances, pipedInstanceStatus: $pipedInstanceStatus, instance: $instance, invidiousInstances: $invidiousInstances, invidiousInstanceStatus: $invidiousInstanceStatus, ytService: $ytService, initialized: $initialized, settingsStatus: $settingsStatus, isPipDisabled: $isPipDisabled, connectingToInstance: $connectingToInstance, isTestingConnection: $isTestingConnection, userInstanceFailed: $userInstanceFailed, failedInstanceName: $failedInstanceName, searchFilter: $searchFilter, videoFitMode: $videoFitMode, skipInterval: $skipInterval, isSponsorBlockEnabled: $isSponsorBlockEnabled, sponsorBlockCategories: $sponsorBlockCategories, openLinksInBrowser: $openLinksInBrowser, homeFeedMode: $homeFeedMode, isAudioFocusEnabled: $isAudioFocusEnabled, currentProfile: $currentProfile, profiles: $profiles, subtitleSize: $subtitleSize, lastExportedFilePath: $lastExportedFilePath, isSearchHistoryEnabled: $isSearchHistoryEnabled, isSearchHistoryVisible: $isSearchHistoryVisible, isAutoPipEnabled: $isAutoPipEnabled, sleepTimerConfig: $sleepTimerConfig, isSwipeGesturesEnabled: $isSwipeGesturesEnabled, isDeArrowEnabled: $isDeArrowEnabled, isBookmarksEnabled: $isBookmarksEnabled, bookmarkedPlaylists: $bookmarkedPlaylists, isRestrictedModeEnabled: $isRestrictedModeEnabled, isMiniPlayerEnabled: $isMiniPlayerEnabled, downloadQuality: $downloadQuality, isDownloadSubtitlesEnabled: $isDownloadSubtitlesEnabled, isDownloadOverWifiOnlyEnabled: $isDownloadOverWifiOnlyEnabled, isDownloadAutoDeleteEnabled: $isDownloadAutoDeleteEnabled, playbackSpeed: $playbackSpeed, isAutoplayNextVideoEnabled: $isAutoplayNextVideoEnabled, isShowRelatedInQueueEnabled: $isShowRelatedInQueueEnabled, queueDismissTime: $queueDismissTime, autoplayCountdown: $autoplayCountdown, isDisableAutoplayOnCellularEnabled: $isDisableAutoplayOnCellularEnabled, isAutoQueueEnabled: $isAutoQueueEnabled, isBufferPreloadEnabled: $isBufferPreloadEnabled, isAutoQualityAdjustEnabled: $isAutoQualityAdjustEnabled, isBackgroundPlaybackEnabled: $isBackgroundPlaybackEnabled, isNotificationControlsEnabled: $isNotificationControlsEnabled, isDataSaverEnabled: $isDataSaverEnabled, isHideWatchedVideosEnabled: $isHideWatchedVideosEnabled, mobileDataQuality: $mobileDataQuality, isDownloadQueueItemsEnabled: $isDownloadQueueItemsEnabled, isRichCaptionRenderingEnabled: $isRichCaptionRenderingEnabled, isBilibiliEnabled: $isBilibiliEnabled, isSwipeLeftToRight: $isSwipeLeftToRight, isMiniPlayerAutoExpandEnabled: $isMiniPlayerAutoExpandEnabled, isMiniPlayerTapToExpandEnabled: $isMiniPlayerTapToExpandEnabled, isMiniPlayerDoubleTapToExpandEnabled: $isMiniPlayerDoubleTapToExpandEnabled, restrictedModeFilterLevel: $restrictedModeFilterLevel, downloadAutoDeleteDays: $downloadAutoDeleteDays, contentFilterKeywords: $contentFilterKeywords, contentFilterBlockedChannels: $contentFilterBlockedChannels, contentFilterHideShorts: $contentFilterHideShorts, contentFilterHidePaid: $contentFilterHidePaid)';
+    return 'SettingsState(defaultLanguage: $defaultLanguage, defaultQuality: $defaultQuality, defaultRegion: $defaultRegion, themeMode: $themeMode, version: $version, isHistoryVisible: $isHistoryVisible, isDislikeVisible: $isDislikeVisible, isHlsPlayer: $isHlsPlayer, isHideComments: $isHideComments, isHideRelated: $isHideRelated, pipedInstances: $pipedInstances, pipedInstanceStatus: $pipedInstanceStatus, instance: $instance, invidiousInstances: $invidiousInstances, invidiousInstanceStatus: $invidiousInstanceStatus, ytService: $ytService, initialized: $initialized, settingsStatus: $settingsStatus, isPipDisabled: $isPipDisabled, connectingToInstance: $connectingToInstance, isTestingConnection: $isTestingConnection, userInstanceFailed: $userInstanceFailed, failedInstanceName: $failedInstanceName, searchFilter: $searchFilter, videoFitMode: $videoFitMode, skipInterval: $skipInterval, isSponsorBlockEnabled: $isSponsorBlockEnabled, sponsorBlockCategories: $sponsorBlockCategories, openLinksInBrowser: $openLinksInBrowser, homeFeedMode: $homeFeedMode, isAudioFocusEnabled: $isAudioFocusEnabled, currentProfile: $currentProfile, profiles: $profiles, subtitleSize: $subtitleSize, lastExportedFilePath: $lastExportedFilePath, isSearchHistoryEnabled: $isSearchHistoryEnabled, isSearchHistoryVisible: $isSearchHistoryVisible, isAutoPipEnabled: $isAutoPipEnabled, sleepTimerConfig: $sleepTimerConfig, isSwipeGesturesEnabled: $isSwipeGesturesEnabled, isDeArrowEnabled: $isDeArrowEnabled, isBookmarksEnabled: $isBookmarksEnabled, bookmarkedPlaylists: $bookmarkedPlaylists, isRestrictedModeEnabled: $isRestrictedModeEnabled, isMiniPlayerEnabled: $isMiniPlayerEnabled, downloadQuality: $downloadQuality, isDownloadSubtitlesEnabled: $isDownloadSubtitlesEnabled, isDownloadOverWifiOnlyEnabled: $isDownloadOverWifiOnlyEnabled, isDownloadAutoDeleteEnabled: $isDownloadAutoDeleteEnabled, playbackSpeed: $playbackSpeed, isAutoplayNextVideoEnabled: $isAutoplayNextVideoEnabled, isShowRelatedInQueueEnabled: $isShowRelatedInQueueEnabled, queueDismissTime: $queueDismissTime, autoplayCountdown: $autoplayCountdown, isDisableAutoplayOnCellularEnabled: $isDisableAutoplayOnCellularEnabled, isAutoQueueEnabled: $isAutoQueueEnabled, isBufferPreloadEnabled: $isBufferPreloadEnabled, isAutoQualityAdjustEnabled: $isAutoQualityAdjustEnabled, isBackgroundPlaybackEnabled: $isBackgroundPlaybackEnabled, isNotificationControlsEnabled: $isNotificationControlsEnabled, isDataSaverEnabled: $isDataSaverEnabled, isHideWatchedVideosEnabled: $isHideWatchedVideosEnabled, mobileDataQuality: $mobileDataQuality, isDownloadQueueItemsEnabled: $isDownloadQueueItemsEnabled, isRichCaptionRenderingEnabled: $isRichCaptionRenderingEnabled, isBilibiliEnabled: $isBilibiliEnabled, isSwipeLeftToRight: $isSwipeLeftToRight, isMiniPlayerAutoExpandEnabled: $isMiniPlayerAutoExpandEnabled, isMiniPlayerTapToExpandEnabled: $isMiniPlayerTapToExpandEnabled, isMiniPlayerDoubleTapToExpandEnabled: $isMiniPlayerDoubleTapToExpandEnabled, restrictedModeFilterLevel: $restrictedModeFilterLevel, downloadAutoDeleteDays: $downloadAutoDeleteDays, contentFilterKeywords: $contentFilterKeywords, contentFilterBlockedChannels: $contentFilterBlockedChannels, contentFilterHideShorts: $contentFilterHideShorts, contentFilterHidePaid: $contentFilterHidePaid, downloadFolderPath: $downloadFolderPath, isRydEnabled: $isRydEnabled)';
   }
 }
 
@@ -8496,7 +8700,9 @@ abstract mixin class _$InitialCopyWith<$Res>
       List<String>? contentFilterKeywords,
       List<String>? contentFilterBlockedChannels,
       bool? contentFilterHideShorts,
-      bool? contentFilterHidePaid});
+      bool? contentFilterHidePaid,
+      String? downloadFolderPath,
+      bool? isRydEnabled});
 }
 
 /// @nodoc
@@ -8587,6 +8793,8 @@ class __$InitialCopyWithImpl<$Res> implements _$InitialCopyWith<$Res> {
     Object? contentFilterBlockedChannels = freezed,
     Object? contentFilterHideShorts = freezed,
     Object? contentFilterHidePaid = freezed,
+    Object? downloadFolderPath = freezed,
+    Object? isRydEnabled = freezed,
   }) {
     return _then(_Initial(
       defaultLanguage: null == defaultLanguage
@@ -8894,6 +9102,14 @@ class __$InitialCopyWithImpl<$Res> implements _$InitialCopyWith<$Res> {
       contentFilterHidePaid: freezed == contentFilterHidePaid
           ? _self.contentFilterHidePaid
           : contentFilterHidePaid // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      downloadFolderPath: freezed == downloadFolderPath
+          ? _self.downloadFolderPath
+          : downloadFolderPath // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isRydEnabled: freezed == isRydEnabled
+          ? _self.isRydEnabled
+          : isRydEnabled // ignore: cast_nullable_to_non_nullable
               as bool?,
     ));
   }

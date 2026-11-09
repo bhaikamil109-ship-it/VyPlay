@@ -216,4 +216,11 @@ sealed class SettingsEvent with _$SettingsEvent {
       {required bool enabled}) = ContentFilterHideShortsChanged;
   const factory SettingsEvent.contentFilterHidePaidChanged(
       {required bool enabled}) = ContentFilterHidePaidChanged;
+
+  // Download folder (removable/SD storage aware)
+  const factory SettingsEvent.downloadFolderChanged({String? path}) =
+      DownloadFolderChanged;
+
+  // Return YouTube Dislike fallback
+  const factory SettingsEvent.rydToggled({required bool enabled}) = ToggleRyd;
 }

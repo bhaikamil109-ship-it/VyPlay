@@ -668,42 +668,24 @@ class SettingImpl implements SettingsService {
       }
 
       final content = await file.readAsString();
-      final data = jsonDecode(content) as Map<String, dynamic>;
+      final entries = _parseSubscriptionFile(content, filePath);
 
       int importedCount = 0;
 
-      // Handle NewPipe format
-      if (data.containsKey('subscriptions')) {
-        final subscriptions = data['subscriptions'] as List<dynamic>;
+      for (final entry in entries) {
+        final channelId = entry.key;
+        final name = entry.value;
+        if (channelId.isEmpty) continue;
 
-        for (final sub in subscriptions) {
-          final subMap = sub as Map<String, dynamic>;
-          final url = subMap['url'] as String? ?? '';
-          final name = subMap['name'] as String? ?? '';
+        final existing = await db.getSubscription(channelId, profileName);
+        if (existing != null) continue;
 
-          // Extract channel ID from URL
-          String? channelId;
-          if (url.contains('/channel/')) {
-            channelId = url.split('/channel/').last.split('/').first;
-          } else if (url.contains('/c/') || url.contains('/@')) {
-            // Handle custom URLs - would need API lookup in production
-            continue;
-          }
-
-          if (channelId != null && channelId.isNotEmpty) {
-            // Check if already subscribed in this profile
-            final existing = await db.getSubscription(channelId, profileName);
-
-            if (existing == null) {
-              await db.upsertSubscription(SubscriptionsCompanion.insert(
-                channelId: channelId,
-                profileName: profileName,
-                channelName: name,
-              ));
-              importedCount++;
-            }
-          }
-        }
+        await db.upsertSubscription(SubscriptionsCompanion.insert(
+          channelId: channelId,
+          profileName: profileName,
+          channelName: name,
+        ));
+        importedCount++;
       }
 
       return Right(importedCount);
@@ -1692,5 +1674,153 @@ class SettingImpl implements SettingsService {
       value: enabled,
       toStringValue: (v) => v.toString(),
     );
+  }
+
+  // Download folder
+  @override
+  Future<Either<MainFailure, String?>> getDownloadFolderPath() async {
+    try {
+      final path = await db.getSetting(downloadFolderPathKey);
+      if (path == null || path.trim().isEmpty) return const Right(null);
+      return Right(path);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, String?>> setDownloadFolderPath(
+      {String? path}) async {
+    try {
+      if (path == null || path.trim().isEmpty) {
+        await db.setSetting(downloadFolderPathKey, '');
+        return const Right(null);
+      }
+      final dir = Directory(path.trim());
+      if (!await dir.exists()) {
+        await dir.create(recursive: true);
+      }
+      await db.setSetting(downloadFolderPathKey, dir.path);
+      return Right(dir.path);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  // Return YouTube Dislike fallback
+  @override
+  Future<Either<MainFailure, bool>> toggleRyd({required bool enabled}) async {
+    return _setSetting(
+      settingName: rydEnabledKey,
+      value: enabled,
+      toStringValue: (v) => v.toString(),
+    );
+  }
+
+  @override
+  Future<Either<MainFailure, bool>> isRydEnabled() async {
+    try {
+      final value = await db.getSetting(rydEnabledKey);
+      return Right(value != 'false');
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  /// Parses YouTube Takeout CSV, NewPipe JSON or VyPlay JSON exports into
+  /// (channelId, channelName) pairs. Unknown/unsupported entries are skipped.
+  List<MapEntry<String, String>> _parseSubscriptionFile(
+      String content, String filePath) {
+    final result = <MapEntry<String, String>>[];
+    final trimmed = content.trimLeft();
+    final isCsv = filePath.toLowerCase().endsWith('.csv') ||
+        (!trimmed.startsWith('{') && !trimmed.startsWith('['));
+
+    if (isCsv) {
+      final lines = content.split(RegExp(r'\r?\n'));
+      for (var i = 0; i < lines.length; i++) {
+        final line = lines[i].trim();
+        if (line.isEmpty) continue;
+        final cells = _splitCsvLine(line);
+        if (cells.isEmpty) continue;
+        // Skip a header row.
+        if (i == 0 &&
+            cells.any((c) => c.toLowerCase().contains('channel id') ||
+                c.toLowerCase() == 'url' ||
+                c.toLowerCase() == 'name')) {
+          continue;
+        }
+        String? name;
+        String? id;
+        for (final cell in cells) {
+          final value = cell.trim();
+          final extracted = _channelIdFromUrl(value);
+          if (extracted != null) {
+            id = extracted;
+          } else if (value.startsWith('UC') && value.length > 20) {
+            id = value;
+          } else if (name == null && value.isNotEmpty && !value.startsWith('http')) {
+            name = value;
+          }
+        }
+        if (id != null) result.add(MapEntry(id, name ?? ''));
+      }
+      return result;
+    }
+
+    try {
+      final decoded = jsonDecode(content);
+      final dynamic data = decoded is Map<String, dynamic> && decoded['subscriptions'] != null
+          ? decoded['subscriptions']
+          : decoded;
+      if (data is List) {
+        for (final item in data) {
+          if (item is! Map) continue;
+          final map = item.cast<String, dynamic>();
+          final rawId = (map['channel_id'] ?? map['channelId'] ?? map['id'] ?? '').toString();
+          final url = (map['url'] ?? map['channel_url'] ?? '').toString();
+          final name = (map['name'] ?? map['channel_name'] ?? map['title'] ?? '').toString();
+          final id = rawId.startsWith('UC') && rawId.length > 20
+              ? rawId
+              : _channelIdFromUrl(url);
+          if (id != null && id.isNotEmpty) result.add(MapEntry(id, name));
+        }
+      }
+    } catch (_) {
+      // Not JSON and not CSV: return what we have (empty).
+    }
+    return result;
+  }
+
+  String? _channelIdFromUrl(String url) {
+    if (url.contains('/channel/')) {
+      final id = url.split('/channel/').last.split(RegExp(r'[/?#]')).first;
+      if (id.isNotEmpty) return id;
+    }
+    return null;
+  }
+
+  List<String> _splitCsvLine(String line) {
+    final cells = <String>[];
+    final buffer = StringBuffer();
+    var inQuotes = false;
+    for (var i = 0; i < line.length; i++) {
+      final char = line[i];
+      if (char == '"') {
+        if (inQuotes && i + 1 < line.length && line[i + 1] == '"') {
+          buffer.write('"');
+          i++;
+        } else {
+          inQuotes = !inQuotes;
+        }
+      } else if (char == ',' && !inQuotes) {
+        cells.add(buffer.toString());
+        buffer.clear();
+      } else {
+        buffer.write(char);
+      }
+    }
+    cells.add(buffer.toString());
+    return cells;
   }
 }

@@ -4,6 +4,7 @@ import 'package:vyplay/domain/playlist/models/local_playlist.dart';
 import 'package:vyplay/domain/watch/models/basic_info.dart';
 import 'package:vyplay/infrastructure/playlist/local_playlist_service.dart';
 import 'package:vyplay/widgets/thumbnail_image.dart';
+import 'package:vyplay/core/services/content_filter_helper.dart';
 import 'package:vyplay/generated/l10n.dart';
 import 'package:go_router/go_router.dart';
 
@@ -110,6 +111,15 @@ class _ScreenPlaylistDetailState extends State<ScreenPlaylistDetail> {
               separatorBuilder: (_, __) => const SizedBox(height: 2),
               itemBuilder: (context, index) {
                 final item = items[index];
+                if (isHiddenByContentFilter(
+                  context,
+                  title: item.title,
+                  channelId: item.channelId ?? '',
+                  channelName: item.channelName ?? '',
+                  url: '/watch?v=${item.id}',
+                )) {
+                  return const SizedBox.shrink();
+                }
                 return _buildVideoRow(context, item, index, playlist);
               },
             ),

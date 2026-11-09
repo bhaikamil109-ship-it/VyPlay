@@ -11,6 +11,7 @@ import 'package:vyplay/core/colors.dart';
 import 'package:vyplay/core/constants.dart';
 import 'package:vyplay/core/enums.dart';
 import 'package:vyplay/domain/download/models/download_item.dart';
+import 'package:vyplay/core/services/content_filter_helper.dart';
 import 'package:vyplay/generated/l10n.dart';
 import 'package:vyplay/presentation/main_navigation/main_navigation.dart';
 import 'package:open_filex/open_filex.dart';
@@ -205,6 +206,15 @@ class _ScreenDownloadsState extends State<ScreenDownloads>
         itemCount: downloads.length,
         itemBuilder: (context, index) {
           final item = downloads[index];
+          if (isHiddenByContentFilter(
+            context,
+            title: item.title,
+            channelId: '',
+            channelName: item.channelName,
+            url: '/watch?v=${item.videoId}',
+          )) {
+            return const SizedBox.shrink();
+          }
           return AnimatedListItem(
             index: index,
             child: _DownloadItemCard(

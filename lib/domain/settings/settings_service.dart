@@ -214,4 +214,12 @@ abstract class SettingsService {
       {required bool enabled});
   Future<Either<MainFailure, bool>> setContentFilterHidePaid(
       {required bool enabled});
+
+  // Download folder (supports removable/SD storage paths)
+  Future<Either<MainFailure, String?>> getDownloadFolderPath();
+  Future<Either<MainFailure, String?>> setDownloadFolderPath({String? path});
+
+  // Return YouTube Dislike fallback
+  Future<Either<MainFailure, bool>> toggleRyd({required bool enabled});
+  Future<Either<MainFailure, bool>> isRydEnabled();
 }

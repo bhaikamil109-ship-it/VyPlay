@@ -399,7 +399,7 @@ class BackupSettingsSection extends StatelessWidget {
     try {
       final result = await FilePicker.platform.pickFiles(
         type: FileType.custom,
-        allowedExtensions: ['json'],
+        allowedExtensions: ['json', 'csv'],
         allowMultiple: false,
       );
 

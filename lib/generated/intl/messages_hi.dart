@@ -58,6 +58,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "addedToPlaylist": m0,
     "addedToQueue": MessageLookupByLibrary.simpleMessage("Added to queue"),
     "all": MessageLookupByLibrary.simpleMessage("All"),
+    "appStorageDefault": MessageLookupByLibrary.simpleMessage(
+      "App storage (default)",
+    ),
     "audio": MessageLookupByLibrary.simpleMessage("Audio"),
     "audioFocus": MessageLookupByLibrary.simpleMessage("Audio Focus"),
     "audioFocusDescription": MessageLookupByLibrary.simpleMessage(
@@ -162,6 +165,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "castUnavailable": MessageLookupByLibrary.simpleMessage(
       "Cast is not available on this device",
     ),
+    "changeFolder": MessageLookupByLibrary.simpleMessage("Change folder"),
     "channelSubscribers": m2,
     "channels": MessageLookupByLibrary.simpleMessage("चैनल"),
     "clearAll": MessageLookupByLibrary.simpleMessage("सब साफ़ करें"),
@@ -200,6 +204,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "createFirstGroup": MessageLookupByLibrary.simpleMessage(
       "Create your first subscription group to organize channels",
     ),
+    "currentFolder": MessageLookupByLibrary.simpleMessage("Current folder"),
     "customTimer": MessageLookupByLibrary.simpleMessage("Custom Timer"),
     "customTimerDescription": MessageLookupByLibrary.simpleMessage(
       "Set a custom duration for the timer",
@@ -273,6 +278,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "Automatically delete downloaded videos after watching",
     ),
     "downloadFailed": m4,
+    "downloadLocation": MessageLookupByLibrary.simpleMessage(
+      "Download location",
+    ),
+    "downloadLocationDescription": MessageLookupByLibrary.simpleMessage(
+      "Choose where downloads are saved. SD card folders are supported.",
+    ),
     "downloadOverWifiOnly": MessageLookupByLibrary.simpleMessage(
       "Download Over Wi-Fi Only",
     ),
@@ -614,6 +625,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Replies are not available yet",
     ),
     "repliesPlural": m5,
+    "resetToDefault": MessageLookupByLibrary.simpleMessage("Reset to default"),
     "restrictedMode": MessageLookupByLibrary.simpleMessage("Restricted Mode"),
     "restrictedModeDescription": MessageLookupByLibrary.simpleMessage(
       "Filter out potentially mature content",
@@ -636,6 +648,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "richCaptionRenderingDescription": MessageLookupByLibrary.simpleMessage(
       "Render captions with styling and formatting",
     ),
+    "rydDescription": MessageLookupByLibrary.simpleMessage(
+      "Show the community dislike count when the active service does not provide one.",
+    ),
+    "rydTitle": MessageLookupByLibrary.simpleMessage("Return YouTube Dislike"),
     "save": MessageLookupByLibrary.simpleMessage("Save"),
     "saveToDevice": MessageLookupByLibrary.simpleMessage("Save to Device"),
     "saveToDeviceFailed": MessageLookupByLibrary.simpleMessage(
@@ -647,6 +663,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "savedVideosTitle": MessageLookupByLibrary.simpleMessage("Saved Videos"),
     "savingToDevice": MessageLookupByLibrary.simpleMessage(
       "Saving to device...",
+    ),
+    "sdCardStorage": MessageLookupByLibrary.simpleMessage(
+      "SD card / removable storage",
     ),
     "search": MessageLookupByLibrary.simpleMessage("खोज"),
     "searchFilters": MessageLookupByLibrary.simpleMessage("Filters"),

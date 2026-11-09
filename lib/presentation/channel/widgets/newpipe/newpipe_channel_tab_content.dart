@@ -5,6 +5,7 @@ import 'package:vyplay/application/subscribe/subscribe_bloc.dart';
 import 'package:vyplay/core/colors.dart';
 import 'package:vyplay/domain/channel/models/newpipe/newpipe_channel_resp.dart';
 import 'package:vyplay/domain/watch/models/newpipe/newpipe_related.dart';
+import 'package:vyplay/core/services/content_filter_helper.dart';
 import 'package:vyplay/generated/l10n.dart';
 import 'package:vyplay/infrastructure/newpipe/newpipe_channel.dart';
 import 'package:vyplay/presentation/channel/widgets/newpipe/newpipe_channel_video_card.dart';
@@ -174,6 +175,16 @@ class _NewPipeChannelTabContentState extends State<NewPipeChannelTabContent> {
         itemBuilder: (context, index) {
           if (index < _allContent.length) {
             final video = _allContent[index];
+            if (isHiddenByContentFilter(
+              context,
+              title: video.name ?? '',
+              channelId: widget.channelId,
+              channelName: video.uploaderName ?? '',
+              url: video.url ?? '',
+              isShort: video.isShort,
+            )) {
+              return const SizedBox.shrink();
+            }
             return NewPipeChannelVideoCard(
               videoInfo: video,
               channelId: widget.channelId,

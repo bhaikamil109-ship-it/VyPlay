@@ -935,5 +935,14 @@
   "hideShortsDescription": "Hide YouTube Shorts entries from feeds.",
   "hidePaidPromotions": "Hide paid promotions",
   "hidePaidPromotionsDescription": "Hide paid, membership-only and promoted videos.",
-  "add": "Add"
+  "add": "Add",
+  "downloadLocation": "Download location",
+  "downloadLocationDescription": "Choose where downloads are saved. SD card folders are supported.",
+  "changeFolder": "Change folder",
+  "resetToDefault": "Reset to default",
+  "appStorageDefault": "App storage (default)",
+  "sdCardStorage": "SD card / removable storage",
+  "rydTitle": "Return YouTube Dislike",
+  "rydDescription": "Show the community dislike count when the active service does not provide one.",
+  "currentFolder": "Current folder"
 }

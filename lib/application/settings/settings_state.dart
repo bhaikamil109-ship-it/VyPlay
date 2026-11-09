@@ -93,6 +93,8 @@ sealed class SettingsState with _$SettingsState {
     List<String>? contentFilterBlockedChannels,
     bool? contentFilterHideShorts,
     bool? contentFilterHidePaid,
+    String? downloadFolderPath,
+    bool? isRydEnabled,
   }) = _Initial;
 
   const SettingsState._();
@@ -176,6 +178,8 @@ sealed class SettingsState with _$SettingsState {
         contentFilterBlockedChannels: const [],
         contentFilterHideShorts: false,
         contentFilterHidePaid: false,
+        downloadFolderPath: null,
+        isRydEnabled: true,
       );
 
   /// Playlist bookmark preferences derived from the persisted state.

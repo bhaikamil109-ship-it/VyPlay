@@ -159,3 +159,9 @@ const contentFilterKeywordsKey = 'content-filter-keywords';
 const contentFilterChannelsKey = 'content-filter-channels';
 const contentFilterHideShortsKey = 'content-filter-hide-shorts';
 const contentFilterHidePaidKey = 'content-filter-hide-paid';
+
+// Custom download folder (absolute path; may point at removable/SD storage)
+const downloadFolderPathKey = 'download_folder_path';
+
+// Return YouTube Dislike fallback for dislike counts
+const rydEnabledKey = 'ryd-enabled';

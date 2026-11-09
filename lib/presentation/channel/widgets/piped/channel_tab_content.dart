@@ -6,6 +6,7 @@ import 'package:vyplay/core/enums.dart';
 import 'package:vyplay/core/colors.dart';
 import 'package:vyplay/domain/channel/models/piped/related_stream.dart';
 import 'package:vyplay/domain/channel/models/piped/tab.dart' as piped;
+import 'package:vyplay/core/services/content_filter_helper.dart';
 import 'package:vyplay/generated/l10n.dart';
 import 'package:vyplay/presentation/shorts/screen_shorts.dart';
 import 'package:vyplay/widgets/widgets.dart';
@@ -137,6 +138,15 @@ class _ChannelTabContentState extends State<ChannelTabContent>
       itemCount: content.length,
       itemBuilder: (context, index) {
         final item = content[index];
+        if (isHiddenByContentFilter(
+          context,
+          title: (item.title ?? item.name ?? ''),
+          channelId: '',
+          channelName: item.uploaderName ?? '',
+          url: item.url ?? '',
+        )) {
+          return const SizedBox.shrink();
+        }
 
         // Try to get thumbnail from various sources
         String thumbnailImage = item.thumbnail ?? item.thumbnailUrl ?? '';
