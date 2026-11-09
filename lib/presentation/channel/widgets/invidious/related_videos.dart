@@ -6,6 +6,7 @@ import 'package:vyplay/core/enums.dart';
 import 'package:vyplay/domain/channel/models/invidious/invidious_channel_resp.dart';
 import 'package:vyplay/domain/channel/models/invidious/latest_video.dart';
 import 'package:vyplay/domain/watch/models/basic_info.dart';
+import 'package:vyplay/core/services/content_filter_helper.dart';
 import 'package:vyplay/generated/l10n.dart';
 import 'package:vyplay/presentation/channel/widgets/invidious/video_info_card.dart';
 import 'package:vyplay/widgets/widgets.dart';
@@ -76,6 +77,16 @@ class InvidiousChannelRelatedVideoSection extends StatelessWidget {
             final LatestVideo videoInfo = videos[index];
             final String videoId = videoInfo.videoId!;
             final String channelId = videoInfo.authorId!;
+
+            if (isHiddenByContentFilter(
+              context,
+              title: videoInfo.title ?? '',
+              channelId: channelId,
+              channelName: videoInfo.author ?? '',
+              url: '/watch?v=$videoId',
+            )) {
+              return const SizedBox.shrink();
+            }
 
             return GestureDetector(
               onTap: () {

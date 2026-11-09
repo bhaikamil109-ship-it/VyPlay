@@ -6,6 +6,7 @@ import 'package:vyplay/core/colors.dart';
 import 'package:vyplay/core/constants.dart';
 import 'package:vyplay/core/enums.dart';
 import 'package:vyplay/domain/watch/models/basic_info.dart';
+import 'package:vyplay/core/services/content_filter_helper.dart';
 import 'package:vyplay/generated/l10n.dart';
 import 'package:vyplay/widgets/widgets.dart';
 import 'package:go_router/go_router.dart';
@@ -119,6 +120,16 @@ class ScreenPlaylist extends StatelessWidget {
                   final videoId = video.url?.split('=').last ?? '';
                   final channelId = video.uploaderUrl?.split('/').last ?? '';
 
+                  if (isHiddenByContentFilter(
+                    context,
+                    title: video.title ?? '',
+                    channelId: channelId,
+                    channelName: video.uploaderName ?? '',
+                    url: video.url ?? '',
+                  )) {
+                    return const SizedBox.shrink();
+                  }
+
                   return _buildVideoItem(
                     context: context,
                     index: index,
@@ -177,6 +188,16 @@ class ScreenPlaylist extends StatelessWidget {
                   final video = videos[index];
                   final videoId = video.videoId ?? '';
                   final channelId = playlist.authorId ?? '';
+
+                  if (isHiddenByContentFilter(
+                    context,
+                    title: video.title ?? '',
+                    channelId: channelId,
+                    channelName: playlist.author ?? '',
+                    url: '/watch?v=$videoId',
+                  )) {
+                    return const SizedBox.shrink();
+                  }
                   String? thumbnail;
                   if (video.videoThumbnails != null &&
                       video.videoThumbnails!.isNotEmpty) {

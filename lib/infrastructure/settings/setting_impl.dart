@@ -671,10 +671,18 @@ class SettingImpl implements SettingsService {
       final entries = _parseSubscriptionFile(content, filePath);
 
       int importedCount = 0;
+      int resolvedCount = 0;
 
       for (final entry in entries) {
-        final channelId = entry.key;
-        final name = entry.value;
+        var channelId = entry.id;
+        // /@handle and /c/name entries carry no channel ID: resolve them from
+        // the public channel page. Capped so a huge file cannot stall import.
+        if (channelId.isEmpty &&
+            entry.url.isNotEmpty &&
+            resolvedCount < 100) {
+          resolvedCount++;
+          channelId = await _resolveChannelIdFromUrl(entry.url) ?? '';
+        }
         if (channelId.isEmpty) continue;
 
         final existing = await db.getSubscription(channelId, profileName);
@@ -683,7 +691,7 @@ class SettingImpl implements SettingsService {
         await db.upsertSubscription(SubscriptionsCompanion.insert(
           channelId: channelId,
           profileName: profileName,
-          channelName: name,
+          channelName: entry.name,
         ));
         importedCount++;
       }
@@ -1728,10 +1736,11 @@ class SettingImpl implements SettingsService {
   }
 
   /// Parses YouTube Takeout CSV, NewPipe JSON or VyPlay JSON exports into
-  /// (channelId, channelName) pairs. Unknown/unsupported entries are skipped.
-  List<MapEntry<String, String>> _parseSubscriptionFile(
+  /// subscription entries. Entries without a channel ID keep their URL so the
+  /// importer can resolve handles later.
+  List<_SubscriptionEntry> _parseSubscriptionFile(
       String content, String filePath) {
-    final result = <MapEntry<String, String>>[];
+    final result = <_SubscriptionEntry>[];
     final trimmed = content.trimLeft();
     final isCsv = filePath.toLowerCase().endsWith('.csv') ||
         (!trimmed.startsWith('{') && !trimmed.startsWith('['));
@@ -1743,51 +1752,64 @@ class SettingImpl implements SettingsService {
         if (line.isEmpty) continue;
         final cells = _splitCsvLine(line);
         if (cells.isEmpty) continue;
-        // Skip a header row.
         if (i == 0 &&
             cells.any((c) => c.toLowerCase().contains('channel id') ||
                 c.toLowerCase() == 'url' ||
                 c.toLowerCase() == 'name')) {
           continue;
         }
-        String? name;
-        String? id;
+        String name = '';
+        String id = '';
+        String url = '';
         for (final cell in cells) {
           final value = cell.trim();
-          final extracted = _channelIdFromUrl(value);
-          if (extracted != null) {
-            id = extracted;
+          if (value.startsWith('http')) {
+            url = value;
+            final extracted = _channelIdFromUrl(value);
+            if (extracted != null) id = extracted;
           } else if (value.startsWith('UC') && value.length > 20) {
             id = value;
-          } else if (name == null && value.isNotEmpty && !value.startsWith('http')) {
+          } else if (name.isEmpty && value.isNotEmpty) {
             name = value;
           }
         }
-        if (id != null) result.add(MapEntry(id, name ?? ''));
+        if (id.isNotEmpty || url.isNotEmpty) {
+          result.add(_SubscriptionEntry(id: id, name: name, url: url));
+        }
       }
       return result;
     }
 
     try {
       final decoded = jsonDecode(content);
-      final dynamic data = decoded is Map<String, dynamic> && decoded['subscriptions'] != null
-          ? decoded['subscriptions']
-          : decoded;
+      final dynamic data =
+          decoded is Map<String, dynamic> && decoded['subscriptions'] != null
+              ? decoded['subscriptions']
+              : decoded;
       if (data is List) {
         for (final item in data) {
           if (item is! Map) continue;
           final map = item.cast<String, dynamic>();
-          final rawId = (map['channel_id'] ?? map['channelId'] ?? map['id'] ?? '').toString();
-          final url = (map['url'] ?? map['channel_url'] ?? '').toString();
-          final name = (map['name'] ?? map['channel_name'] ?? map['title'] ?? '').toString();
+          final rawId =
+              (map['channel_id'] ?? map['channelId'] ?? map['id'] ?? '')
+                  .toString();
+          final url =
+              (map['url'] ?? map['channel_url'] ?? '').toString();
+          final name = (map['name'] ??
+                  map['channel_name'] ??
+                  map['title'] ??
+                  '')
+              .toString();
           final id = rawId.startsWith('UC') && rawId.length > 20
               ? rawId
-              : _channelIdFromUrl(url);
-          if (id != null && id.isNotEmpty) result.add(MapEntry(id, name));
+              : (_channelIdFromUrl(url) ?? '');
+          if (id.isNotEmpty || url.isNotEmpty) {
+            result.add(_SubscriptionEntry(id: id, name: name, url: url));
+          }
         }
       }
     } catch (_) {
-      // Not JSON and not CSV: return what we have (empty).
+      // Not JSON and not CSV.
     }
     return result;
   }
@@ -1796,6 +1818,49 @@ class SettingImpl implements SettingsService {
     if (url.contains('/channel/')) {
       final id = url.split('/channel/').last.split(RegExp(r'[/?#]')).first;
       if (id.isNotEmpty) return id;
+    }
+    return null;
+  }
+
+  /// Resolves /@handle, /c/name and /user/name URLs to a channel ID by reading
+  /// the public channel page. Returns null when it cannot be resolved.
+  Future<String?> _resolveChannelIdFromUrl(String url) async {
+    final direct = _channelIdFromUrl(url);
+    if (direct != null) return direct;
+
+    var target = url.trim();
+    if (target.isEmpty) return null;
+    if (!target.startsWith('http')) {
+      target = 'https://www.youtube.com/'
+          '${target.startsWith('/') ? target.substring(1) : target}';
+    }
+
+    try {
+      final response = await Dio().get<String>(
+        target,
+        options: Options(
+          responseType: ResponseType.plain,
+          followRedirects: true,
+          receiveTimeout: const Duration(seconds: 10),
+          sendTimeout: const Duration(seconds: 10),
+          headers: {
+            'User-Agent':
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+          },
+        ),
+      );
+      final html = response.data ?? '';
+      final patterns = <RegExp>[
+        RegExp(r'"channelId":"(UC[0-9A-Za-z_-]{20,})"'),
+        RegExp(r'channel/(UC[0-9A-Za-z_-]{20,})'),
+        RegExp(r'"(UC[0-9A-Za-z_-]{22})"'),
+      ];
+      for (final pattern in patterns) {
+        final match = pattern.firstMatch(html);
+        if (match != null) return match.group(1);
+      }
+    } catch (_) {
+      // Unresolvable (offline, deleted channel, consent wall): skipped.
     }
     return null;
   }
@@ -1823,4 +1888,16 @@ class SettingImpl implements SettingsService {
     cells.add(buffer.toString());
     return cells;
   }
+}
+
+class _SubscriptionEntry {
+  const _SubscriptionEntry({
+    required this.id,
+    required this.name,
+    required this.url,
+  });
+
+  final String id;
+  final String name;
+  final String url;
 }
