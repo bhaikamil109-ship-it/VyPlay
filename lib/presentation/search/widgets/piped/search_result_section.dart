@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vyplay/application/application.dart';
+import 'package:vyplay/core/services/content_filter_helper.dart';
 import 'package:vyplay/core/enums.dart';
 import 'package:vyplay/domain/search/models/piped/item.dart';
 import 'package:vyplay/domain/subscribes/models/subscribe.dart';
@@ -108,6 +109,16 @@ class _SearcheResultSectionState extends State<SearcheResultSection> {
                     result.uploaderUrl?.split("/").last ?? '';
 
                 if (videoId.isEmpty || channelId.isEmpty) {
+                  return const SizedBox.shrink();
+                }
+
+                if (isHiddenByContentFilter(
+                  context,
+                  title: result.title ?? '',
+                  channelId: channelId,
+                  channelName: result.uploaderName ?? '',
+                  url: result.url ?? '',
+                )) {
                   return const SizedBox.shrink();
                 }
 

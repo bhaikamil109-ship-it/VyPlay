@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vyplay/application/application.dart';
+import 'package:vyplay/core/services/content_filter_helper.dart';
 import 'package:vyplay/core/colors.dart';
 import 'package:vyplay/core/constants.dart';
 import 'package:vyplay/core/enums.dart';
@@ -155,6 +156,19 @@ class _NewPipeSearchResultSectionState
                           '';
                       final channelId =
                           result.uploaderUrl?.split("/").last ?? '';
+
+                      if (!videoId.isEmpty &&
+                          !channelId.isEmpty &&
+                          isHiddenByContentFilter(
+                            context,
+                            title: result.name ?? '',
+                            channelId: channelId,
+                            channelName: result.uploaderName ?? '',
+                            url: result.url ?? '',
+                            isShort: result.isShort,
+                          )) {
+                        return const SizedBox.shrink();
+                      }
 
                       // Skip if videoId or channelId is empty
                       if (videoId.isEmpty || channelId.isEmpty) {

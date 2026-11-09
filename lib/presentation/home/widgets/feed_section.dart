@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vyplay/application/application.dart';
+import 'package:vyplay/core/services/content_filter_helper.dart';
 import 'package:vyplay/core/constants.dart';
 import 'package:vyplay/domain/subscribes/models/subscribe.dart';
 import 'package:vyplay/domain/watch/models/basic_info.dart';
@@ -75,6 +76,16 @@ class _FeedVideoSectionState extends State<FeedVideoSection> {
         final String videoId = feed.url!.split('=').last;
 
         final String channelId = feed.uploaderUrl!.split("/").last;
+        if (isHiddenByContentFilter(
+          context,
+          title: feed.title ?? '',
+          channelId: channelId,
+          channelName: feed.uploaderName ?? '',
+          url: feed.url ?? '',
+          isShort: feed.isShort,
+        )) {
+          return const SizedBox.shrink();
+        }
         final bool isSubscribed = widget.subscribeState.subscribedChannels
             .any((channel) => channel.id == channelId);
         return HomeVideoInfoCardWidget(

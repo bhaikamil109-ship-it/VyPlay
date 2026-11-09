@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart' show ScrollCacheExtent;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vyplay/application/application.dart';
+import 'package:vyplay/core/services/content_filter_helper.dart';
 import 'package:vyplay/core/constants.dart';
 import 'package:vyplay/core/perf/app_perf.dart';
 import 'package:vyplay/domain/subscribes/models/subscribe.dart';
@@ -83,6 +84,16 @@ class _NewPipeFeedVideoSectionState extends State<NewPipeFeedVideoSection> {
         }
 
         final String channelId = feed.uploaderUrl?.split("/").last ?? '';
+        if (isHiddenByContentFilter(
+          context,
+          title: feed.name ?? '',
+          channelId: channelId,
+          channelName: feed.uploaderName ?? '',
+          url: feed.url ?? '',
+          isShort: feed.isShort,
+        )) {
+          return const SizedBox.shrink();
+        }
         final bool isSubscribed = widget.subscribeState.subscribedChannels
             .where((channel) => channel.id == channelId)
             .isNotEmpty;

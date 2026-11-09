@@ -48,6 +48,7 @@ class LikeSection extends StatelessWidget {
             return ActionButtonsRow(
               likes: watchInfo.likes ?? 0,
               dislikes: watchInfo.dislikes ?? 0,
+              videoId: id,
               showDislike: settingsState.isDislikeVisible,
               isCommentActive: state.isTapComments,
               showPip: !settingsState.isPipDisabled,

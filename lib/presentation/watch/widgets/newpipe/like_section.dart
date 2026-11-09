@@ -49,6 +49,7 @@ class NewPipeLikeSection extends StatelessWidget {
             return ActionButtonsRow(
               likes: watchInfo.likeCount ?? 0,
               dislikes: watchInfo.dislikeCount ?? 0,
+              videoId: id,
               showDislike: settingsState.isDislikeVisible,
               isCommentActive: state.isTapComments,
               showPip: !settingsState.isPipDisabled,

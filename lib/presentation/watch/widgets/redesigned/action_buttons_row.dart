@@ -7,6 +7,7 @@ import 'package:vyplay/core/animations/animations.dart';
 import 'package:vyplay/core/colors.dart';
 import 'package:vyplay/core/constants.dart';
 import 'package:vyplay/core/operations/math_operations.dart';
+import 'package:vyplay/core/services/return_youtube_dislike_service.dart';
 import 'package:vyplay/generated/l10n.dart';
 
 /// Redesigned action buttons row with labeled style (like YouTube)
@@ -32,6 +33,7 @@ class ActionButtonsRow extends StatelessWidget {
     this.showDislike = false,
     this.showPip = true,
     this.isLive = false,
+    this.videoId,
   });
 
   final int likes;
@@ -52,6 +54,10 @@ class ActionButtonsRow extends StatelessWidget {
   final bool showDislike;
   final bool showPip;
   final bool isLive;
+
+  /// When set and the provided dislike count is unavailable (0), the count is
+  /// resolved through Return YouTube Dislike.
+  final String? videoId;
 
   @override
   Widget build(BuildContext context) {
@@ -86,6 +92,9 @@ class ActionButtonsRow extends StatelessWidget {
                     ? CupertinoIcons.hand_thumbsdown_fill
                     : CupertinoIcons.hand_thumbsdown,
                 label: formattedDislikes,
+                labelChild: (videoId != null && videoId!.isNotEmpty && dislikes <= 0)
+                    ? _RydDislikeLabel(videoId: videoId!)
+                    : null,
                 onTap: onTapDislike,
                 isActive: isDisliked,
               ),
@@ -169,6 +178,7 @@ class _ActionButton extends StatelessWidget {
     required this.index,
     required this.icon,
     required this.label,
+    this.labelChild,
     this.onTap,
     this.isActive = false,
     this.activeColor,
@@ -177,6 +187,7 @@ class _ActionButton extends StatelessWidget {
   final int index;
   final IconData icon;
   final String label;
+  final Widget? labelChild;
   final VoidCallback? onTap;
   final bool isActive;
   final Color? activeColor;
@@ -226,14 +237,15 @@ class _ActionButton extends StatelessWidget {
                 ),
               ),
               AppSpacing.height4,
-              Text(
-                label,
-                style: TextStyle(
-                  fontSize: AppFontSize.caption,
-                  fontWeight: isActive ? FontWeight.w600 : FontWeight.w500,
-                  color: labelColor,
-                ),
-              ),
+              labelChild ??
+                  Text(
+                    label,
+                    style: TextStyle(
+                      fontSize: AppFontSize.caption,
+                      fontWeight: isActive ? FontWeight.w600 : FontWeight.w500,
+                      color: labelColor,
+                    ),
+                  ),
             ],
           ),
         ),
@@ -410,6 +422,63 @@ class _CompactButton extends StatelessWidget {
             ],
           ],
         ),
+      ),
+    );
+  }
+}
+
+/// Resolves the Return YouTube Dislike count for a video once and renders it.
+class _RydDislikeLabel extends StatefulWidget {
+  const _RydDislikeLabel({required this.videoId});
+
+  final String videoId;
+
+  @override
+  State<_RydDislikeLabel> createState() => _RydDislikeLabelState();
+}
+
+class _RydDislikeLabelState extends State<_RydDislikeLabel> {
+  int? _dislikes;
+
+  @override
+  void initState() {
+    super.initState();
+    _load();
+  }
+
+  @override
+  void didUpdateWidget(covariant _RydDislikeLabel oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.videoId != widget.videoId) {
+      _dislikes = null;
+      _load();
+    }
+  }
+
+  Future<void> _load() async {
+    final cached = ReturnYoutubeDislikeService().cached(widget.videoId);
+    if (cached != null) {
+      if (mounted) setState(() => _dislikes = cached.dislikes);
+      return;
+    }
+    final votes =
+        await ReturnYoutubeDislikeService().fetchVotes(widget.videoId);
+    if (!mounted || votes == null) return;
+    setState(() => _dislikes = votes.dislikes);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final value = _dislikes;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final color =
+        isDark ? AppColors.onSurfaceVariantDark : AppColors.onSurfaceVariant;
+    return Text(
+      value == null ? '-' : formatCount(value.toString()),
+      style: TextStyle(
+        fontSize: AppFontSize.caption,
+        fontWeight: FontWeight.w500,
+        color: color,
       ),
     );
   }
