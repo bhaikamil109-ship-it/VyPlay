@@ -1,7 +1,7 @@
 part of 'subscribe_bloc.dart';
 
 @freezed
-class SubscribeState with _$SubscribeState {
+sealed class SubscribeState with _$SubscribeState {
   const factory SubscribeState({
     required ApiStatus subscribeStatus,
     required Subscribe? channelInfo,

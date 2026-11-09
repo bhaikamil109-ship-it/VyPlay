@@ -10,6 +10,7 @@ import 'widgets/gestures_section.dart';
 import 'widgets/dearrow_section.dart';
 import 'widgets/bookmarks_section.dart';
 import 'widgets/content_filtering_section.dart';
+import 'widgets/advanced_content_filter_section.dart';
 import 'widgets/mini_player_section.dart';
 import 'widgets/download_preferences_section.dart';
 import 'widgets/playback_speed_section.dart';
@@ -54,6 +55,8 @@ class ScreenSettings extends StatelessWidget {
                 PlaylistBookmarksSettingsSection(),
                 kHeightBox15,
                 ContentFilteringSettingsSection(),
+                kHeightBox15,
+                AdvancedContentFilterSection(),
                 kHeightBox15,
                 MiniPlayerSettingsSection(),
                 kHeightBox15,

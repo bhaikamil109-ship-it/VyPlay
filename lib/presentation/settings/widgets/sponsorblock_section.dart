@@ -38,7 +38,9 @@ class SponsorBlockSettingsSection extends StatelessWidget {
                 value: state.isSponsorBlockEnabled,
                 onChanged: (_) {
                   BlocProvider.of<SettingsBloc>(context)
-                      .add(SettingsEvent.toggleSponsorBlock());
+                      .add(SettingsEvent.toggleSponsorBlock(
+                          isEnabled: !state.isSponsorBlockEnabled,
+                        ));
                 },
               ),
             ),

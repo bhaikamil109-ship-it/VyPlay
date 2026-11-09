@@ -1,7 +1,7 @@
 part of 'channel_bloc.dart';
 
 @freezed
-class ChannelState with _$ChannelState {
+sealed class ChannelState with _$ChannelState {
   factory ChannelState({
     //
     required bool isMoreFetchCompleted,

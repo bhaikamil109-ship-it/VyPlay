@@ -27,6 +27,7 @@ import 'package:vyplay/presentation/routes/bloc_observer.dart';
 import 'package:vyplay/presentation/watch/widgets/global_pip_overlay.dart';
 import 'package:vyplay/core/services/audio_handler_service.dart';
 import 'package:vyplay/core/services/log_collector.dart';
+import 'package:vyplay/core/services/sleep_timer.dart';
 import 'package:vyplay/core/services/subscription_notifier.dart';
 import 'package:media_kit/media_kit.dart';
 

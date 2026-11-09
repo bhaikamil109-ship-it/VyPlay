@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,131 +9,86 @@ part of 'playback_configuration.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$PlaybackConfiguration {
   /// Type of media source
-  MediaSourceType get sourceType => throw _privateConstructorUsedError;
+  MediaSourceType get sourceType;
 
   /// Quality label (e.g., "1080p", "720p 60fps")
-  String get qualityLabel => throw _privateConstructorUsedError;
+  String get qualityLabel;
 
   /// Video URL (for progressive or merging)
-  String? get videoUrl => throw _privateConstructorUsedError;
+  String? get videoUrl;
 
   /// Audio URL (for merging only)
-  String? get audioUrl => throw _privateConstructorUsedError;
+  String? get audioUrl;
 
   /// Manifest URL (for HLS or DASH)
-  String? get manifestUrl => throw _privateConstructorUsedError;
+  String? get manifestUrl;
 
   /// Subtitle tracks
-  List<NewPipeSubtitle> get subtitles => throw _privateConstructorUsedError;
+  List<NewPipeSubtitle> get subtitles;
 
   /// HTTP headers (if needed)
-  Map<String, String> get headers => throw _privateConstructorUsedError;
+  Map<String, String> get headers;
 
   /// Whether this is a live stream
-  bool get isLive => throw _privateConstructorUsedError;
+  bool get isLive;
 
   /// Create a copy of PlaybackConfiguration
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $PlaybackConfigurationCopyWith<PlaybackConfiguration> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $PlaybackConfigurationCopyWith<$Res> {
-  factory $PlaybackConfigurationCopyWith(PlaybackConfiguration value,
-          $Res Function(PlaybackConfiguration) then) =
-      _$PlaybackConfigurationCopyWithImpl<$Res, PlaybackConfiguration>;
-  @useResult
-  $Res call(
-      {MediaSourceType sourceType,
-      String qualityLabel,
-      String? videoUrl,
-      String? audioUrl,
-      String? manifestUrl,
-      List<NewPipeSubtitle> subtitles,
-      Map<String, String> headers,
-      bool isLive});
-}
-
-/// @nodoc
-class _$PlaybackConfigurationCopyWithImpl<$Res,
-        $Val extends PlaybackConfiguration>
-    implements $PlaybackConfigurationCopyWith<$Res> {
-  _$PlaybackConfigurationCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of PlaybackConfiguration
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $PlaybackConfigurationCopyWith<PlaybackConfiguration> get copyWith =>
+      _$PlaybackConfigurationCopyWithImpl<PlaybackConfiguration>(
+          this as PlaybackConfiguration, _$identity);
+
   @override
-  $Res call({
-    Object? sourceType = null,
-    Object? qualityLabel = null,
-    Object? videoUrl = freezed,
-    Object? audioUrl = freezed,
-    Object? manifestUrl = freezed,
-    Object? subtitles = null,
-    Object? headers = null,
-    Object? isLive = null,
-  }) {
-    return _then(_value.copyWith(
-      sourceType: null == sourceType
-          ? _value.sourceType
-          : sourceType // ignore: cast_nullable_to_non_nullable
-              as MediaSourceType,
-      qualityLabel: null == qualityLabel
-          ? _value.qualityLabel
-          : qualityLabel // ignore: cast_nullable_to_non_nullable
-              as String,
-      videoUrl: freezed == videoUrl
-          ? _value.videoUrl
-          : videoUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
-      audioUrl: freezed == audioUrl
-          ? _value.audioUrl
-          : audioUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
-      manifestUrl: freezed == manifestUrl
-          ? _value.manifestUrl
-          : manifestUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
-      subtitles: null == subtitles
-          ? _value.subtitles
-          : subtitles // ignore: cast_nullable_to_non_nullable
-              as List<NewPipeSubtitle>,
-      headers: null == headers
-          ? _value.headers
-          : headers // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>,
-      isLive: null == isLive
-          ? _value.isLive
-          : isLive // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is PlaybackConfiguration &&
+            (identical(other.sourceType, sourceType) ||
+                other.sourceType == sourceType) &&
+            (identical(other.qualityLabel, qualityLabel) ||
+                other.qualityLabel == qualityLabel) &&
+            (identical(other.videoUrl, videoUrl) ||
+                other.videoUrl == videoUrl) &&
+            (identical(other.audioUrl, audioUrl) ||
+                other.audioUrl == audioUrl) &&
+            (identical(other.manifestUrl, manifestUrl) ||
+                other.manifestUrl == manifestUrl) &&
+            const DeepCollectionEquality().equals(other.subtitles, subtitles) &&
+            const DeepCollectionEquality().equals(other.headers, headers) &&
+            (identical(other.isLive, isLive) || other.isLive == isLive));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      sourceType,
+      qualityLabel,
+      videoUrl,
+      audioUrl,
+      manifestUrl,
+      const DeepCollectionEquality().hash(subtitles),
+      const DeepCollectionEquality().hash(headers),
+      isLive);
+
+  @override
+  String toString() {
+    return 'PlaybackConfiguration(sourceType: $sourceType, qualityLabel: $qualityLabel, videoUrl: $videoUrl, audioUrl: $audioUrl, manifestUrl: $manifestUrl, subtitles: $subtitles, headers: $headers, isLive: $isLive)';
   }
 }
 
 /// @nodoc
-abstract class _$$PlaybackConfigurationImplCopyWith<$Res>
-    implements $PlaybackConfigurationCopyWith<$Res> {
-  factory _$$PlaybackConfigurationImplCopyWith(
-          _$PlaybackConfigurationImpl value,
-          $Res Function(_$PlaybackConfigurationImpl) then) =
-      __$$PlaybackConfigurationImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $PlaybackConfigurationCopyWith<$Res> {
+  factory $PlaybackConfigurationCopyWith(PlaybackConfiguration value,
+          $Res Function(PlaybackConfiguration) _then) =
+      _$PlaybackConfigurationCopyWithImpl;
   @useResult
   $Res call(
       {MediaSourceType sourceType,
@@ -147,13 +102,12 @@ abstract class _$$PlaybackConfigurationImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$PlaybackConfigurationImplCopyWithImpl<$Res>
-    extends _$PlaybackConfigurationCopyWithImpl<$Res,
-        _$PlaybackConfigurationImpl>
-    implements _$$PlaybackConfigurationImplCopyWith<$Res> {
-  __$$PlaybackConfigurationImplCopyWithImpl(_$PlaybackConfigurationImpl _value,
-      $Res Function(_$PlaybackConfigurationImpl) _then)
-      : super(_value, _then);
+class _$PlaybackConfigurationCopyWithImpl<$Res>
+    implements $PlaybackConfigurationCopyWith<$Res> {
+  _$PlaybackConfigurationCopyWithImpl(this._self, this._then);
+
+  final PlaybackConfiguration _self;
+  final $Res Function(PlaybackConfiguration) _then;
 
   /// Create a copy of PlaybackConfiguration
   /// with the given fields replaced by the non-null parameter values.
@@ -169,47 +123,255 @@ class __$$PlaybackConfigurationImplCopyWithImpl<$Res>
     Object? headers = null,
     Object? isLive = null,
   }) {
-    return _then(_$PlaybackConfigurationImpl(
+    return _then(_self.copyWith(
       sourceType: null == sourceType
-          ? _value.sourceType
+          ? _self.sourceType
           : sourceType // ignore: cast_nullable_to_non_nullable
               as MediaSourceType,
       qualityLabel: null == qualityLabel
-          ? _value.qualityLabel
+          ? _self.qualityLabel
           : qualityLabel // ignore: cast_nullable_to_non_nullable
               as String,
       videoUrl: freezed == videoUrl
-          ? _value.videoUrl
+          ? _self.videoUrl
           : videoUrl // ignore: cast_nullable_to_non_nullable
               as String?,
       audioUrl: freezed == audioUrl
-          ? _value.audioUrl
+          ? _self.audioUrl
           : audioUrl // ignore: cast_nullable_to_non_nullable
               as String?,
       manifestUrl: freezed == manifestUrl
-          ? _value.manifestUrl
+          ? _self.manifestUrl
           : manifestUrl // ignore: cast_nullable_to_non_nullable
               as String?,
       subtitles: null == subtitles
-          ? _value._subtitles
+          ? _self.subtitles
           : subtitles // ignore: cast_nullable_to_non_nullable
               as List<NewPipeSubtitle>,
       headers: null == headers
-          ? _value._headers
+          ? _self.headers
           : headers // ignore: cast_nullable_to_non_nullable
               as Map<String, String>,
       isLive: null == isLive
-          ? _value.isLive
+          ? _self.isLive
           : isLive // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
 }
 
+/// Adds pattern-matching-related methods to [PlaybackConfiguration].
+extension PlaybackConfigurationPatterns on PlaybackConfiguration {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_PlaybackConfiguration value)? $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _PlaybackConfiguration() when $default != null:
+        return $default(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_PlaybackConfiguration value) $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _PlaybackConfiguration():
+        return $default(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_PlaybackConfiguration value)? $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _PlaybackConfiguration() when $default != null:
+        return $default(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            MediaSourceType sourceType,
+            String qualityLabel,
+            String? videoUrl,
+            String? audioUrl,
+            String? manifestUrl,
+            List<NewPipeSubtitle> subtitles,
+            Map<String, String> headers,
+            bool isLive)?
+        $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _PlaybackConfiguration() when $default != null:
+        return $default(
+            _that.sourceType,
+            _that.qualityLabel,
+            _that.videoUrl,
+            _that.audioUrl,
+            _that.manifestUrl,
+            _that.subtitles,
+            _that.headers,
+            _that.isLive);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            MediaSourceType sourceType,
+            String qualityLabel,
+            String? videoUrl,
+            String? audioUrl,
+            String? manifestUrl,
+            List<NewPipeSubtitle> subtitles,
+            Map<String, String> headers,
+            bool isLive)
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _PlaybackConfiguration():
+        return $default(
+            _that.sourceType,
+            _that.qualityLabel,
+            _that.videoUrl,
+            _that.audioUrl,
+            _that.manifestUrl,
+            _that.subtitles,
+            _that.headers,
+            _that.isLive);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(
+            MediaSourceType sourceType,
+            String qualityLabel,
+            String? videoUrl,
+            String? audioUrl,
+            String? manifestUrl,
+            List<NewPipeSubtitle> subtitles,
+            Map<String, String> headers,
+            bool isLive)?
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _PlaybackConfiguration() when $default != null:
+        return $default(
+            _that.sourceType,
+            _that.qualityLabel,
+            _that.videoUrl,
+            _that.audioUrl,
+            _that.manifestUrl,
+            _that.subtitles,
+            _that.headers,
+            _that.isLive);
+      case _:
+        return null;
+    }
+  }
+}
+
 /// @nodoc
 
-class _$PlaybackConfigurationImpl extends _PlaybackConfiguration {
-  const _$PlaybackConfigurationImpl(
+class _PlaybackConfiguration extends PlaybackConfiguration {
+  const _PlaybackConfiguration(
       {required this.sourceType,
       required this.qualityLabel,
       this.videoUrl,
@@ -271,16 +433,20 @@ class _$PlaybackConfigurationImpl extends _PlaybackConfiguration {
   @JsonKey()
   final bool isLive;
 
+  /// Create a copy of PlaybackConfiguration
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'PlaybackConfiguration(sourceType: $sourceType, qualityLabel: $qualityLabel, videoUrl: $videoUrl, audioUrl: $audioUrl, manifestUrl: $manifestUrl, subtitles: $subtitles, headers: $headers, isLive: $isLive)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$PlaybackConfigurationCopyWith<_PlaybackConfiguration> get copyWith =>
+      __$PlaybackConfigurationCopyWithImpl<_PlaybackConfiguration>(
+          this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PlaybackConfigurationImpl &&
+            other is _PlaybackConfiguration &&
             (identical(other.sourceType, sourceType) ||
                 other.sourceType == sourceType) &&
             (identical(other.qualityLabel, qualityLabel) ||
@@ -309,64 +475,88 @@ class _$PlaybackConfigurationImpl extends _PlaybackConfiguration {
       const DeepCollectionEquality().hash(_headers),
       isLive);
 
+  @override
+  String toString() {
+    return 'PlaybackConfiguration(sourceType: $sourceType, qualityLabel: $qualityLabel, videoUrl: $videoUrl, audioUrl: $audioUrl, manifestUrl: $manifestUrl, subtitles: $subtitles, headers: $headers, isLive: $isLive)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$PlaybackConfigurationCopyWith<$Res>
+    implements $PlaybackConfigurationCopyWith<$Res> {
+  factory _$PlaybackConfigurationCopyWith(_PlaybackConfiguration value,
+          $Res Function(_PlaybackConfiguration) _then) =
+      __$PlaybackConfigurationCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {MediaSourceType sourceType,
+      String qualityLabel,
+      String? videoUrl,
+      String? audioUrl,
+      String? manifestUrl,
+      List<NewPipeSubtitle> subtitles,
+      Map<String, String> headers,
+      bool isLive});
+}
+
+/// @nodoc
+class __$PlaybackConfigurationCopyWithImpl<$Res>
+    implements _$PlaybackConfigurationCopyWith<$Res> {
+  __$PlaybackConfigurationCopyWithImpl(this._self, this._then);
+
+  final _PlaybackConfiguration _self;
+  final $Res Function(_PlaybackConfiguration) _then;
+
   /// Create a copy of PlaybackConfiguration
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$PlaybackConfigurationImplCopyWith<_$PlaybackConfigurationImpl>
-      get copyWith => __$$PlaybackConfigurationImplCopyWithImpl<
-          _$PlaybackConfigurationImpl>(this, _$identity);
+  $Res call({
+    Object? sourceType = null,
+    Object? qualityLabel = null,
+    Object? videoUrl = freezed,
+    Object? audioUrl = freezed,
+    Object? manifestUrl = freezed,
+    Object? subtitles = null,
+    Object? headers = null,
+    Object? isLive = null,
+  }) {
+    return _then(_PlaybackConfiguration(
+      sourceType: null == sourceType
+          ? _self.sourceType
+          : sourceType // ignore: cast_nullable_to_non_nullable
+              as MediaSourceType,
+      qualityLabel: null == qualityLabel
+          ? _self.qualityLabel
+          : qualityLabel // ignore: cast_nullable_to_non_nullable
+              as String,
+      videoUrl: freezed == videoUrl
+          ? _self.videoUrl
+          : videoUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      audioUrl: freezed == audioUrl
+          ? _self.audioUrl
+          : audioUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      manifestUrl: freezed == manifestUrl
+          ? _self.manifestUrl
+          : manifestUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      subtitles: null == subtitles
+          ? _self._subtitles
+          : subtitles // ignore: cast_nullable_to_non_nullable
+              as List<NewPipeSubtitle>,
+      headers: null == headers
+          ? _self._headers
+          : headers // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>,
+      isLive: null == isLive
+          ? _self.isLive
+          : isLive // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
 }
 
-abstract class _PlaybackConfiguration extends PlaybackConfiguration {
-  const factory _PlaybackConfiguration(
-      {required final MediaSourceType sourceType,
-      required final String qualityLabel,
-      final String? videoUrl,
-      final String? audioUrl,
-      final String? manifestUrl,
-      final List<NewPipeSubtitle> subtitles,
-      final Map<String, String> headers,
-      final bool isLive}) = _$PlaybackConfigurationImpl;
-  const _PlaybackConfiguration._() : super._();
-
-  /// Type of media source
-  @override
-  MediaSourceType get sourceType;
-
-  /// Quality label (e.g., "1080p", "720p 60fps")
-  @override
-  String get qualityLabel;
-
-  /// Video URL (for progressive or merging)
-  @override
-  String? get videoUrl;
-
-  /// Audio URL (for merging only)
-  @override
-  String? get audioUrl;
-
-  /// Manifest URL (for HLS or DASH)
-  @override
-  String? get manifestUrl;
-
-  /// Subtitle tracks
-  @override
-  List<NewPipeSubtitle> get subtitles;
-
-  /// HTTP headers (if needed)
-  @override
-  Map<String, String> get headers;
-
-  /// Whether this is a live stream
-  @override
-  bool get isLive;
-
-  /// Create a copy of PlaybackConfiguration
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$PlaybackConfigurationImplCopyWith<_$PlaybackConfigurationImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
+// dart format on

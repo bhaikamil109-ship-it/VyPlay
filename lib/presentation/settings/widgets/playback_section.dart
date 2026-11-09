@@ -35,7 +35,9 @@ class PlaybackSettingsSection extends StatelessWidget {
                 value: state.isAudioFocusEnabled,
                 onChanged: (_) {
                   BlocProvider.of<SettingsBloc>(context)
-                      .add(SettingsEvent.toggleAudioFocus());
+                      .add(SettingsEvent.toggleAudioFocus(
+                          isEnabled: !state.isAudioFocusEnabled,
+                        ));
                 },
               ),
             ),
@@ -49,7 +51,9 @@ class PlaybackSettingsSection extends StatelessWidget {
                 value: state.openLinksInBrowser,
                 onChanged: (_) {
                   BlocProvider.of<SettingsBloc>(context)
-                      .add(SettingsEvent.toggleOpenLinksInBrowser());
+                      .add(SettingsEvent.toggleOpenLinksInBrowser(
+                          openInBrowser: !state.openLinksInBrowser,
+                        ));
                 },
               ),
             ),

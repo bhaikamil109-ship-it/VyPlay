@@ -77,7 +77,7 @@
   "cannotRenameDefault": "Cannot rename default profile",
   "audioFocus": "Audio Focus",
   "audioFocusDescription": "Pause playback on interruptions",
-  "sleepTimer": "Sleep Timer",
+  "sleepTimer": "Sleep timer",
   "sleepTimerDescription": "Pause playback after a set duration",
   "timerRunning": "Timer is running",
   "timerPaused": "Timer is paused",
@@ -89,7 +89,7 @@
   "quickOptions": "Quick Options",
   "customTimer": "Custom Timer",
   "customTimerDescription": "Set a custom duration for the timer",
-  "sleepTimerSet": "Sleep timer set successfully",
+  "sleepTimerSet": "Set",
   "sleepTimerCancelled": "Sleep timer cancelled",
   "clearSleepTimer": "Clear Sleep Timer",
   "subscriptionGroups": "Subscription Groups",
@@ -125,12 +125,12 @@
   "selectPlaylists": "Select Playlists",
   "save": "Save",
   "restrictedMode": "Restricted Mode",
-  "restrictedModeDescription": "Filter potentially inappropriate content",
+  "restrictedModeDescription": "Filter out potentially mature content",
   "filterLevel": "Filter Level",
   "filterStandardDescription": "Standard filtering - blocks most inappropriate content",
   "filterStrictDescription": "Strict filtering - blocks all potentially inappropriate content",
   "miniPlayer": "Mini Player",
-  "miniPlayerDescription": "Configure mini player behavior",
+  "miniPlayerDescription": "Play videos in a small floating window",
   "autoExpandMiniPlayer": "Auto Expand",
   "autoExpandDescription": "Automatically expand mini player on video end",
   "tapToExpandMiniPlayer": "Tap to Expand",
@@ -142,8 +142,8 @@
   "downloadQuality": "Download Quality",
   "includeSubtitles": "Include Subtitles",
   "includeSubtitlesDescription": "Include subtitles in downloaded videos",
-  "downloadOverWifiOnly": "Wi-Fi Only",
-  "downloadOverWifiOnlyDescription": "Only download when connected to Wi-Fi network",
+  "downloadOverWifiOnly": "Download Over Wi-Fi Only",
+  "downloadOverWifiOnlyDescription": "Only download when connected to Wi-Fi",
   "autoDeleteDownloads": "Auto Delete",
   "autoDeleteDescription": "Automatically delete old downloads",
   "autoDeleteAfter": "Auto delete after",
@@ -676,7 +676,6 @@
   "youtube": "YouTube",
   "swipeDirection": "Swipe Direction",
   "swipeDirectionDescription": "Content swipe direction (left-to-right or right-to-left)",
-  "queueDismissTimeout": "Queue Dismiss Timeout",
   "showRelatedInQueueDescription": "Automatically add related videos to the playlist queue",
   "@queueClear": {
     "description": "Clears the playback queue"
@@ -846,7 +845,6 @@
   "@platformLabel": {
     "description": "Operating system label"
   },
-  "sleepTimer": "Sleep timer",
   "@sleepTimer": {
     "description": "Sleep timer setting"
   },
@@ -888,7 +886,6 @@
   "@sleepTimerEnterMinutes": {
     "description": "Custom timer field hint"
   },
-  "sleepTimerSet": "Set",
   "@sleepTimerSet": {
     "description": "Confirms the custom timer"
   },
@@ -911,22 +908,14 @@
   "toggleBookmarkPlaylist": "Toggle Bookmark Playlist",
   "isBookmarksEnabled": "Is Bookmarks Enabled",
   "bookmarkedPlaylists": "Bookmarked Playlists",
-  "restrictedMode": "Restricted Mode",
-  "restrictedModeDescription": "Filter out potentially mature content",
   "restrictedModeEnabled": "Restricted Mode Enabled",
   "toggleRestrictedMode": "Toggle Restricted Mode",
   "isRestrictedModeEnabled": "Is Restricted Mode Enabled",
-  "miniPlayer": "Mini Player",
-  "miniPlayerDescription": "Play videos in a small floating window",
   "miniPlayerEnabled": "Mini Player Enabled",
   "toggleMiniPlayer": "Toggle Mini Player",
   "isMiniPlayerEnabled": "Is Mini Player Enabled",
-  "downloadPreferences": "Download Preferences",
-  "downloadQuality": "Download Quality",
   "downloadSubtitles": "Download Subtitles",
   "downloadSubtitlesDescription": "Automatically download subtitles with videos",
-  "downloadOverWifiOnly": "Download Over Wi-Fi Only",
-  "downloadOverWifiOnlyDescription": "Only download when connected to Wi-Fi",
   "downloadAutoDelete": "Auto Delete After Watch",
   "downloadAutoDeleteDescription": "Automatically delete downloaded videos after watching",
   "setDownloadQuality": "Set Download Quality",
@@ -935,5 +924,16 @@
   "toggleDownloadAutoDelete": "Toggle Download Auto Delete",
   "isDownloadSubtitlesEnabled": "Is Download Subtitles Enabled",
   "isDownloadOverWifiOnlyEnabled": "Is Download Over Wi-Fi Only Enabled",
-  "isDownloadAutoDeleteEnabled": "Is Download Auto Delete Enabled"
+  "isDownloadAutoDeleteEnabled": "Is Download Auto Delete Enabled",
+  "contentFilterAdvanced": "Advanced content filter",
+  "contentFilterAdvancedDescription": "Hide videos by keyword, channel or type. Keywords wrapped in slashes are treated as regular expressions.",
+  "blockedKeywords": "Blocked keywords",
+  "blockedKeywordsHint": "Add a keyword or /regex/",
+  "blockedChannels": "Blocked channel IDs",
+  "blockedChannelsHint": "Add a channel ID",
+  "hideShorts": "Hide Shorts",
+  "hideShortsDescription": "Hide YouTube Shorts entries from feeds.",
+  "hidePaidPromotions": "Hide paid promotions",
+  "hidePaidPromotionsDescription": "Hide paid, membership-only and promoted videos.",
+  "add": "Add"
 }

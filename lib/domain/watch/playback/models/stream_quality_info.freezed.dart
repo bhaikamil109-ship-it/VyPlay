@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,129 +9,78 @@ part of 'stream_quality_info.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$StreamQualityInfo {
   /// Quality label (e.g., "1080p", "720p 60fps", "360p")
-  String get label => throw _privateConstructorUsedError;
+  String get label;
 
   /// Numeric resolution value (e.g., 1080, 720, 360)
-  int get resolution => throw _privateConstructorUsedError;
+  int get resolution;
 
   /// Frame rate (null if standard 30fps or less)
-  int? get fps => throw _privateConstructorUsedError;
+  int? get fps;
 
   /// Video format (MP4, WEBM, etc.)
-  String? get format => throw _privateConstructorUsedError;
+  String? get format;
 
   /// Whether this quality requires stream merging (video-only + audio)
-  bool get requiresMerging => throw _privateConstructorUsedError;
+  bool get requiresMerging;
 
   /// Whether this is a video-only stream (no audio)
-  bool get isVideoOnly => throw _privateConstructorUsedError;
+  bool get isVideoOnly;
 
   /// The video stream for this quality
-  NewPipeVideoStream? get videoStream => throw _privateConstructorUsedError;
+  NewPipeVideoStream? get videoStream;
 
   /// The audio stream (if merging is required)
-  NewPipeAudioStream? get audioStream => throw _privateConstructorUsedError;
+  NewPipeAudioStream? get audioStream;
 
   /// Create a copy of StreamQualityInfo
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $StreamQualityInfoCopyWith<StreamQualityInfo> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $StreamQualityInfoCopyWith<$Res> {
-  factory $StreamQualityInfoCopyWith(
-          StreamQualityInfo value, $Res Function(StreamQualityInfo) then) =
-      _$StreamQualityInfoCopyWithImpl<$Res, StreamQualityInfo>;
-  @useResult
-  $Res call(
-      {String label,
-      int resolution,
-      int? fps,
-      String? format,
-      bool requiresMerging,
-      bool isVideoOnly,
-      NewPipeVideoStream? videoStream,
-      NewPipeAudioStream? audioStream});
-}
-
-/// @nodoc
-class _$StreamQualityInfoCopyWithImpl<$Res, $Val extends StreamQualityInfo>
-    implements $StreamQualityInfoCopyWith<$Res> {
-  _$StreamQualityInfoCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of StreamQualityInfo
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $StreamQualityInfoCopyWith<StreamQualityInfo> get copyWith =>
+      _$StreamQualityInfoCopyWithImpl<StreamQualityInfo>(
+          this as StreamQualityInfo, _$identity);
+
   @override
-  $Res call({
-    Object? label = null,
-    Object? resolution = null,
-    Object? fps = freezed,
-    Object? format = freezed,
-    Object? requiresMerging = null,
-    Object? isVideoOnly = null,
-    Object? videoStream = freezed,
-    Object? audioStream = freezed,
-  }) {
-    return _then(_value.copyWith(
-      label: null == label
-          ? _value.label
-          : label // ignore: cast_nullable_to_non_nullable
-              as String,
-      resolution: null == resolution
-          ? _value.resolution
-          : resolution // ignore: cast_nullable_to_non_nullable
-              as int,
-      fps: freezed == fps
-          ? _value.fps
-          : fps // ignore: cast_nullable_to_non_nullable
-              as int?,
-      format: freezed == format
-          ? _value.format
-          : format // ignore: cast_nullable_to_non_nullable
-              as String?,
-      requiresMerging: null == requiresMerging
-          ? _value.requiresMerging
-          : requiresMerging // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isVideoOnly: null == isVideoOnly
-          ? _value.isVideoOnly
-          : isVideoOnly // ignore: cast_nullable_to_non_nullable
-              as bool,
-      videoStream: freezed == videoStream
-          ? _value.videoStream
-          : videoStream // ignore: cast_nullable_to_non_nullable
-              as NewPipeVideoStream?,
-      audioStream: freezed == audioStream
-          ? _value.audioStream
-          : audioStream // ignore: cast_nullable_to_non_nullable
-              as NewPipeAudioStream?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is StreamQualityInfo &&
+            (identical(other.label, label) || other.label == label) &&
+            (identical(other.resolution, resolution) ||
+                other.resolution == resolution) &&
+            (identical(other.fps, fps) || other.fps == fps) &&
+            (identical(other.format, format) || other.format == format) &&
+            (identical(other.requiresMerging, requiresMerging) ||
+                other.requiresMerging == requiresMerging) &&
+            (identical(other.isVideoOnly, isVideoOnly) ||
+                other.isVideoOnly == isVideoOnly) &&
+            (identical(other.videoStream, videoStream) ||
+                other.videoStream == videoStream) &&
+            (identical(other.audioStream, audioStream) ||
+                other.audioStream == audioStream));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, label, resolution, fps, format,
+      requiresMerging, isVideoOnly, videoStream, audioStream);
+
+  @override
+  String toString() {
+    return 'StreamQualityInfo(label: $label, resolution: $resolution, fps: $fps, format: $format, requiresMerging: $requiresMerging, isVideoOnly: $isVideoOnly, videoStream: $videoStream, audioStream: $audioStream)';
   }
 }
 
 /// @nodoc
-abstract class _$$StreamQualityInfoImplCopyWith<$Res>
-    implements $StreamQualityInfoCopyWith<$Res> {
-  factory _$$StreamQualityInfoImplCopyWith(_$StreamQualityInfoImpl value,
-          $Res Function(_$StreamQualityInfoImpl) then) =
-      __$$StreamQualityInfoImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $StreamQualityInfoCopyWith<$Res> {
+  factory $StreamQualityInfoCopyWith(
+          StreamQualityInfo value, $Res Function(StreamQualityInfo) _then) =
+      _$StreamQualityInfoCopyWithImpl;
   @useResult
   $Res call(
       {String label,
@@ -145,12 +94,12 @@ abstract class _$$StreamQualityInfoImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$StreamQualityInfoImplCopyWithImpl<$Res>
-    extends _$StreamQualityInfoCopyWithImpl<$Res, _$StreamQualityInfoImpl>
-    implements _$$StreamQualityInfoImplCopyWith<$Res> {
-  __$$StreamQualityInfoImplCopyWithImpl(_$StreamQualityInfoImpl _value,
-      $Res Function(_$StreamQualityInfoImpl) _then)
-      : super(_value, _then);
+class _$StreamQualityInfoCopyWithImpl<$Res>
+    implements $StreamQualityInfoCopyWith<$Res> {
+  _$StreamQualityInfoCopyWithImpl(this._self, this._then);
+
+  final StreamQualityInfo _self;
+  final $Res Function(StreamQualityInfo) _then;
 
   /// Create a copy of StreamQualityInfo
   /// with the given fields replaced by the non-null parameter values.
@@ -166,47 +115,255 @@ class __$$StreamQualityInfoImplCopyWithImpl<$Res>
     Object? videoStream = freezed,
     Object? audioStream = freezed,
   }) {
-    return _then(_$StreamQualityInfoImpl(
+    return _then(_self.copyWith(
       label: null == label
-          ? _value.label
+          ? _self.label
           : label // ignore: cast_nullable_to_non_nullable
               as String,
       resolution: null == resolution
-          ? _value.resolution
+          ? _self.resolution
           : resolution // ignore: cast_nullable_to_non_nullable
               as int,
       fps: freezed == fps
-          ? _value.fps
+          ? _self.fps
           : fps // ignore: cast_nullable_to_non_nullable
               as int?,
       format: freezed == format
-          ? _value.format
+          ? _self.format
           : format // ignore: cast_nullable_to_non_nullable
               as String?,
       requiresMerging: null == requiresMerging
-          ? _value.requiresMerging
+          ? _self.requiresMerging
           : requiresMerging // ignore: cast_nullable_to_non_nullable
               as bool,
       isVideoOnly: null == isVideoOnly
-          ? _value.isVideoOnly
+          ? _self.isVideoOnly
           : isVideoOnly // ignore: cast_nullable_to_non_nullable
               as bool,
       videoStream: freezed == videoStream
-          ? _value.videoStream
+          ? _self.videoStream
           : videoStream // ignore: cast_nullable_to_non_nullable
               as NewPipeVideoStream?,
       audioStream: freezed == audioStream
-          ? _value.audioStream
+          ? _self.audioStream
           : audioStream // ignore: cast_nullable_to_non_nullable
               as NewPipeAudioStream?,
     ));
   }
 }
 
+/// Adds pattern-matching-related methods to [StreamQualityInfo].
+extension StreamQualityInfoPatterns on StreamQualityInfo {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_StreamQualityInfo value)? $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _StreamQualityInfo() when $default != null:
+        return $default(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_StreamQualityInfo value) $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _StreamQualityInfo():
+        return $default(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_StreamQualityInfo value)? $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _StreamQualityInfo() when $default != null:
+        return $default(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            String label,
+            int resolution,
+            int? fps,
+            String? format,
+            bool requiresMerging,
+            bool isVideoOnly,
+            NewPipeVideoStream? videoStream,
+            NewPipeAudioStream? audioStream)?
+        $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _StreamQualityInfo() when $default != null:
+        return $default(
+            _that.label,
+            _that.resolution,
+            _that.fps,
+            _that.format,
+            _that.requiresMerging,
+            _that.isVideoOnly,
+            _that.videoStream,
+            _that.audioStream);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            String label,
+            int resolution,
+            int? fps,
+            String? format,
+            bool requiresMerging,
+            bool isVideoOnly,
+            NewPipeVideoStream? videoStream,
+            NewPipeAudioStream? audioStream)
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _StreamQualityInfo():
+        return $default(
+            _that.label,
+            _that.resolution,
+            _that.fps,
+            _that.format,
+            _that.requiresMerging,
+            _that.isVideoOnly,
+            _that.videoStream,
+            _that.audioStream);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(
+            String label,
+            int resolution,
+            int? fps,
+            String? format,
+            bool requiresMerging,
+            bool isVideoOnly,
+            NewPipeVideoStream? videoStream,
+            NewPipeAudioStream? audioStream)?
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _StreamQualityInfo() when $default != null:
+        return $default(
+            _that.label,
+            _that.resolution,
+            _that.fps,
+            _that.format,
+            _that.requiresMerging,
+            _that.isVideoOnly,
+            _that.videoStream,
+            _that.audioStream);
+      case _:
+        return null;
+    }
+  }
+}
+
 /// @nodoc
 
-class _$StreamQualityInfoImpl extends _StreamQualityInfo {
-  const _$StreamQualityInfoImpl(
+class _StreamQualityInfo extends StreamQualityInfo {
+  const _StreamQualityInfo(
       {required this.label,
       required this.resolution,
       this.fps,
@@ -249,16 +406,19 @@ class _$StreamQualityInfoImpl extends _StreamQualityInfo {
   @override
   final NewPipeAudioStream? audioStream;
 
+  /// Create a copy of StreamQualityInfo
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'StreamQualityInfo(label: $label, resolution: $resolution, fps: $fps, format: $format, requiresMerging: $requiresMerging, isVideoOnly: $isVideoOnly, videoStream: $videoStream, audioStream: $audioStream)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$StreamQualityInfoCopyWith<_StreamQualityInfo> get copyWith =>
+      __$StreamQualityInfoCopyWithImpl<_StreamQualityInfo>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StreamQualityInfoImpl &&
+            other is _StreamQualityInfo &&
             (identical(other.label, label) || other.label == label) &&
             (identical(other.resolution, resolution) ||
                 other.resolution == resolution) &&
@@ -278,64 +438,88 @@ class _$StreamQualityInfoImpl extends _StreamQualityInfo {
   int get hashCode => Object.hash(runtimeType, label, resolution, fps, format,
       requiresMerging, isVideoOnly, videoStream, audioStream);
 
+  @override
+  String toString() {
+    return 'StreamQualityInfo(label: $label, resolution: $resolution, fps: $fps, format: $format, requiresMerging: $requiresMerging, isVideoOnly: $isVideoOnly, videoStream: $videoStream, audioStream: $audioStream)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$StreamQualityInfoCopyWith<$Res>
+    implements $StreamQualityInfoCopyWith<$Res> {
+  factory _$StreamQualityInfoCopyWith(
+          _StreamQualityInfo value, $Res Function(_StreamQualityInfo) _then) =
+      __$StreamQualityInfoCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String label,
+      int resolution,
+      int? fps,
+      String? format,
+      bool requiresMerging,
+      bool isVideoOnly,
+      NewPipeVideoStream? videoStream,
+      NewPipeAudioStream? audioStream});
+}
+
+/// @nodoc
+class __$StreamQualityInfoCopyWithImpl<$Res>
+    implements _$StreamQualityInfoCopyWith<$Res> {
+  __$StreamQualityInfoCopyWithImpl(this._self, this._then);
+
+  final _StreamQualityInfo _self;
+  final $Res Function(_StreamQualityInfo) _then;
+
   /// Create a copy of StreamQualityInfo
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$StreamQualityInfoImplCopyWith<_$StreamQualityInfoImpl> get copyWith =>
-      __$$StreamQualityInfoImplCopyWithImpl<_$StreamQualityInfoImpl>(
-          this, _$identity);
+  $Res call({
+    Object? label = null,
+    Object? resolution = null,
+    Object? fps = freezed,
+    Object? format = freezed,
+    Object? requiresMerging = null,
+    Object? isVideoOnly = null,
+    Object? videoStream = freezed,
+    Object? audioStream = freezed,
+  }) {
+    return _then(_StreamQualityInfo(
+      label: null == label
+          ? _self.label
+          : label // ignore: cast_nullable_to_non_nullable
+              as String,
+      resolution: null == resolution
+          ? _self.resolution
+          : resolution // ignore: cast_nullable_to_non_nullable
+              as int,
+      fps: freezed == fps
+          ? _self.fps
+          : fps // ignore: cast_nullable_to_non_nullable
+              as int?,
+      format: freezed == format
+          ? _self.format
+          : format // ignore: cast_nullable_to_non_nullable
+              as String?,
+      requiresMerging: null == requiresMerging
+          ? _self.requiresMerging
+          : requiresMerging // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isVideoOnly: null == isVideoOnly
+          ? _self.isVideoOnly
+          : isVideoOnly // ignore: cast_nullable_to_non_nullable
+              as bool,
+      videoStream: freezed == videoStream
+          ? _self.videoStream
+          : videoStream // ignore: cast_nullable_to_non_nullable
+              as NewPipeVideoStream?,
+      audioStream: freezed == audioStream
+          ? _self.audioStream
+          : audioStream // ignore: cast_nullable_to_non_nullable
+              as NewPipeAudioStream?,
+    ));
+  }
 }
 
-abstract class _StreamQualityInfo extends StreamQualityInfo {
-  const factory _StreamQualityInfo(
-      {required final String label,
-      required final int resolution,
-      final int? fps,
-      final String? format,
-      required final bool requiresMerging,
-      required final bool isVideoOnly,
-      final NewPipeVideoStream? videoStream,
-      final NewPipeAudioStream? audioStream}) = _$StreamQualityInfoImpl;
-  const _StreamQualityInfo._() : super._();
-
-  /// Quality label (e.g., "1080p", "720p 60fps", "360p")
-  @override
-  String get label;
-
-  /// Numeric resolution value (e.g., 1080, 720, 360)
-  @override
-  int get resolution;
-
-  /// Frame rate (null if standard 30fps or less)
-  @override
-  int? get fps;
-
-  /// Video format (MP4, WEBM, etc.)
-  @override
-  String? get format;
-
-  /// Whether this quality requires stream merging (video-only + audio)
-  @override
-  bool get requiresMerging;
-
-  /// Whether this is a video-only stream (no audio)
-  @override
-  bool get isVideoOnly;
-
-  /// The video stream for this quality
-  @override
-  NewPipeVideoStream? get videoStream;
-
-  /// The audio stream (if merging is required)
-  @override
-  NewPipeAudioStream? get audioStream;
-
-  /// Create a copy of StreamQualityInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$StreamQualityInfoImplCopyWith<_$StreamQualityInfoImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on

@@ -11,7 +11,7 @@ part 'image_thumbnail.g.dart';
 /// - AuthorBanner (in channel)
 /// - ChannelThumbnail (in search)
 @freezed
-class ImageThumbnail with _$ImageThumbnail {
+sealed class ImageThumbnail with _$ImageThumbnail {
   const factory ImageThumbnail({
     String? url,
     int? width,

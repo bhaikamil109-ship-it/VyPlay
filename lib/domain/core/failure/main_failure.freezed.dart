@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,79 +9,45 @@ part of 'main_failure.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$MainFailure {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String? message) networkError,
-    required TResult Function(int? statusCode, String? message) serverError,
-    required TResult Function(String? resource) notFound,
-    required TResult Function(String? message) parseError,
-    required TResult Function(int? retryAfter) rateLimited,
-    required TResult Function(String? message) timeout,
-    required TResult Function(String? message) unknown,
-    required TResult Function() clientFailure,
-    required TResult Function() serverFailure,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String? message)? networkError,
-    TResult? Function(int? statusCode, String? message)? serverError,
-    TResult? Function(String? resource)? notFound,
-    TResult? Function(String? message)? parseError,
-    TResult? Function(int? retryAfter)? rateLimited,
-    TResult? Function(String? message)? timeout,
-    TResult? Function(String? message)? unknown,
-    TResult? Function()? clientFailure,
-    TResult? Function()? serverFailure,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? message)? networkError,
-    TResult Function(int? statusCode, String? message)? serverError,
-    TResult Function(String? resource)? notFound,
-    TResult Function(String? message)? parseError,
-    TResult Function(int? retryAfter)? rateLimited,
-    TResult Function(String? message)? timeout,
-    TResult Function(String? message)? unknown,
-    TResult Function()? clientFailure,
-    TResult Function()? serverFailure,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_NetworkError value) networkError,
-    required TResult Function(_ServerError value) serverError,
-    required TResult Function(_NotFound value) notFound,
-    required TResult Function(_ParseError value) parseError,
-    required TResult Function(_RateLimited value) rateLimited,
-    required TResult Function(_Timeout value) timeout,
-    required TResult Function(_Unknown value) unknown,
-    required TResult Function(_ClientFailure value) clientFailure,
-    required TResult Function(_ServerFailure value) serverFailure,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_NetworkError value)? networkError,
-    TResult? Function(_ServerError value)? serverError,
-    TResult? Function(_NotFound value)? notFound,
-    TResult? Function(_ParseError value)? parseError,
-    TResult? Function(_RateLimited value)? rateLimited,
-    TResult? Function(_Timeout value)? timeout,
-    TResult? Function(_Unknown value)? unknown,
-    TResult? Function(_ClientFailure value)? clientFailure,
-    TResult? Function(_ServerFailure value)? serverFailure,
-  }) =>
-      throw _privateConstructorUsedError;
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is MainFailure);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'MainFailure()';
+  }
+}
+
+/// @nodoc
+class $MainFailureCopyWith<$Res> {
+  $MainFailureCopyWith(MainFailure _, $Res Function(MainFailure) __);
+}
+
+/// Adds pattern-matching-related methods to [MainFailure].
+extension MainFailurePatterns on MainFailure {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_NetworkError value)? networkError,
@@ -94,245 +60,335 @@ mixin _$MainFailure {
     TResult Function(_ClientFailure value)? clientFailure,
     TResult Function(_ServerFailure value)? serverFailure,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $MainFailureCopyWith<$Res> {
-  factory $MainFailureCopyWith(
-          MainFailure value, $Res Function(MainFailure) then) =
-      _$MainFailureCopyWithImpl<$Res, MainFailure>;
-}
-
-/// @nodoc
-class _$MainFailureCopyWithImpl<$Res, $Val extends MainFailure>
-    implements $MainFailureCopyWith<$Res> {
-  _$MainFailureCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of MainFailure
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-abstract class _$$NetworkErrorImplCopyWith<$Res> {
-  factory _$$NetworkErrorImplCopyWith(
-          _$NetworkErrorImpl value, $Res Function(_$NetworkErrorImpl) then) =
-      __$$NetworkErrorImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String? message});
-}
-
-/// @nodoc
-class __$$NetworkErrorImplCopyWithImpl<$Res>
-    extends _$MainFailureCopyWithImpl<$Res, _$NetworkErrorImpl>
-    implements _$$NetworkErrorImplCopyWith<$Res> {
-  __$$NetworkErrorImplCopyWithImpl(
-      _$NetworkErrorImpl _value, $Res Function(_$NetworkErrorImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of MainFailure
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? message = freezed,
   }) {
-    return _then(_$NetworkErrorImpl(
-      message: freezed == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
+    final _that = this;
+    switch (_that) {
+      case _NetworkError() when networkError != null:
+        return networkError(_that);
+      case _ServerError() when serverError != null:
+        return serverError(_that);
+      case _NotFound() when notFound != null:
+        return notFound(_that);
+      case _ParseError() when parseError != null:
+        return parseError(_that);
+      case _RateLimited() when rateLimited != null:
+        return rateLimited(_that);
+      case _Timeout() when timeout != null:
+        return timeout(_that);
+      case _Unknown() when unknown != null:
+        return unknown(_that);
+      case _ClientFailure() when clientFailure != null:
+        return clientFailure(_that);
+      case _ServerFailure() when serverFailure != null:
+        return serverFailure(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_NetworkError value) networkError,
+    required TResult Function(_ServerError value) serverError,
+    required TResult Function(_NotFound value) notFound,
+    required TResult Function(_ParseError value) parseError,
+    required TResult Function(_RateLimited value) rateLimited,
+    required TResult Function(_Timeout value) timeout,
+    required TResult Function(_Unknown value) unknown,
+    required TResult Function(_ClientFailure value) clientFailure,
+    required TResult Function(_ServerFailure value) serverFailure,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _NetworkError():
+        return networkError(_that);
+      case _ServerError():
+        return serverError(_that);
+      case _NotFound():
+        return notFound(_that);
+      case _ParseError():
+        return parseError(_that);
+      case _RateLimited():
+        return rateLimited(_that);
+      case _Timeout():
+        return timeout(_that);
+      case _Unknown():
+        return unknown(_that);
+      case _ClientFailure():
+        return clientFailure(_that);
+      case _ServerFailure():
+        return serverFailure(_that);
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_NetworkError value)? networkError,
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_NotFound value)? notFound,
+    TResult? Function(_ParseError value)? parseError,
+    TResult? Function(_RateLimited value)? rateLimited,
+    TResult? Function(_Timeout value)? timeout,
+    TResult? Function(_Unknown value)? unknown,
+    TResult? Function(_ClientFailure value)? clientFailure,
+    TResult? Function(_ServerFailure value)? serverFailure,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _NetworkError() when networkError != null:
+        return networkError(_that);
+      case _ServerError() when serverError != null:
+        return serverError(_that);
+      case _NotFound() when notFound != null:
+        return notFound(_that);
+      case _ParseError() when parseError != null:
+        return parseError(_that);
+      case _RateLimited() when rateLimited != null:
+        return rateLimited(_that);
+      case _Timeout() when timeout != null:
+        return timeout(_that);
+      case _Unknown() when unknown != null:
+        return unknown(_that);
+      case _ClientFailure() when clientFailure != null:
+        return clientFailure(_that);
+      case _ServerFailure() when serverFailure != null:
+        return serverFailure(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? message)? networkError,
+    TResult Function(int? statusCode, String? message)? serverError,
+    TResult Function(String? resource)? notFound,
+    TResult Function(String? message)? parseError,
+    TResult Function(int? retryAfter)? rateLimited,
+    TResult Function(String? message)? timeout,
+    TResult Function(String? message)? unknown,
+    TResult Function()? clientFailure,
+    TResult Function()? serverFailure,
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _NetworkError() when networkError != null:
+        return networkError(_that.message);
+      case _ServerError() when serverError != null:
+        return serverError(_that.statusCode, _that.message);
+      case _NotFound() when notFound != null:
+        return notFound(_that.resource);
+      case _ParseError() when parseError != null:
+        return parseError(_that.message);
+      case _RateLimited() when rateLimited != null:
+        return rateLimited(_that.retryAfter);
+      case _Timeout() when timeout != null:
+        return timeout(_that.message);
+      case _Unknown() when unknown != null:
+        return unknown(_that.message);
+      case _ClientFailure() when clientFailure != null:
+        return clientFailure();
+      case _ServerFailure() when serverFailure != null:
+        return serverFailure();
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? message) networkError,
+    required TResult Function(int? statusCode, String? message) serverError,
+    required TResult Function(String? resource) notFound,
+    required TResult Function(String? message) parseError,
+    required TResult Function(int? retryAfter) rateLimited,
+    required TResult Function(String? message) timeout,
+    required TResult Function(String? message) unknown,
+    required TResult Function() clientFailure,
+    required TResult Function() serverFailure,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _NetworkError():
+        return networkError(_that.message);
+      case _ServerError():
+        return serverError(_that.statusCode, _that.message);
+      case _NotFound():
+        return notFound(_that.resource);
+      case _ParseError():
+        return parseError(_that.message);
+      case _RateLimited():
+        return rateLimited(_that.retryAfter);
+      case _Timeout():
+        return timeout(_that.message);
+      case _Unknown():
+        return unknown(_that.message);
+      case _ClientFailure():
+        return clientFailure();
+      case _ServerFailure():
+        return serverFailure();
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String? message)? networkError,
+    TResult? Function(int? statusCode, String? message)? serverError,
+    TResult? Function(String? resource)? notFound,
+    TResult? Function(String? message)? parseError,
+    TResult? Function(int? retryAfter)? rateLimited,
+    TResult? Function(String? message)? timeout,
+    TResult? Function(String? message)? unknown,
+    TResult? Function()? clientFailure,
+    TResult? Function()? serverFailure,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _NetworkError() when networkError != null:
+        return networkError(_that.message);
+      case _ServerError() when serverError != null:
+        return serverError(_that.statusCode, _that.message);
+      case _NotFound() when notFound != null:
+        return notFound(_that.resource);
+      case _ParseError() when parseError != null:
+        return parseError(_that.message);
+      case _RateLimited() when rateLimited != null:
+        return rateLimited(_that.retryAfter);
+      case _Timeout() when timeout != null:
+        return timeout(_that.message);
+      case _Unknown() when unknown != null:
+        return unknown(_that.message);
+      case _ClientFailure() when clientFailure != null:
+        return clientFailure();
+      case _ServerFailure() when serverFailure != null:
+        return serverFailure();
+      case _:
+        return null;
+    }
   }
 }
 
 /// @nodoc
 
-class _$NetworkErrorImpl implements _NetworkError {
-  const _$NetworkErrorImpl({this.message});
+class _NetworkError implements MainFailure {
+  const _NetworkError({this.message});
 
-  @override
   final String? message;
 
-  @override
-  String toString() {
-    return 'MainFailure.networkError(message: $message)';
-  }
+  /// Create a copy of MainFailure
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$NetworkErrorCopyWith<_NetworkError> get copyWith =>
+      __$NetworkErrorCopyWithImpl<_NetworkError>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$NetworkErrorImpl &&
+            other is _NetworkError &&
             (identical(other.message, message) || other.message == message));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  /// Create a copy of MainFailure
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$NetworkErrorImplCopyWith<_$NetworkErrorImpl> get copyWith =>
-      __$$NetworkErrorImplCopyWithImpl<_$NetworkErrorImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String? message) networkError,
-    required TResult Function(int? statusCode, String? message) serverError,
-    required TResult Function(String? resource) notFound,
-    required TResult Function(String? message) parseError,
-    required TResult Function(int? retryAfter) rateLimited,
-    required TResult Function(String? message) timeout,
-    required TResult Function(String? message) unknown,
-    required TResult Function() clientFailure,
-    required TResult Function() serverFailure,
-  }) {
-    return networkError(message);
+  String toString() {
+    return 'MainFailure.networkError(message: $message)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String? message)? networkError,
-    TResult? Function(int? statusCode, String? message)? serverError,
-    TResult? Function(String? resource)? notFound,
-    TResult? Function(String? message)? parseError,
-    TResult? Function(int? retryAfter)? rateLimited,
-    TResult? Function(String? message)? timeout,
-    TResult? Function(String? message)? unknown,
-    TResult? Function()? clientFailure,
-    TResult? Function()? serverFailure,
-  }) {
-    return networkError?.call(message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? message)? networkError,
-    TResult Function(int? statusCode, String? message)? serverError,
-    TResult Function(String? resource)? notFound,
-    TResult Function(String? message)? parseError,
-    TResult Function(int? retryAfter)? rateLimited,
-    TResult Function(String? message)? timeout,
-    TResult Function(String? message)? unknown,
-    TResult Function()? clientFailure,
-    TResult Function()? serverFailure,
-    required TResult orElse(),
-  }) {
-    if (networkError != null) {
-      return networkError(message);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_NetworkError value) networkError,
-    required TResult Function(_ServerError value) serverError,
-    required TResult Function(_NotFound value) notFound,
-    required TResult Function(_ParseError value) parseError,
-    required TResult Function(_RateLimited value) rateLimited,
-    required TResult Function(_Timeout value) timeout,
-    required TResult Function(_Unknown value) unknown,
-    required TResult Function(_ClientFailure value) clientFailure,
-    required TResult Function(_ServerFailure value) serverFailure,
-  }) {
-    return networkError(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_NetworkError value)? networkError,
-    TResult? Function(_ServerError value)? serverError,
-    TResult? Function(_NotFound value)? notFound,
-    TResult? Function(_ParseError value)? parseError,
-    TResult? Function(_RateLimited value)? rateLimited,
-    TResult? Function(_Timeout value)? timeout,
-    TResult? Function(_Unknown value)? unknown,
-    TResult? Function(_ClientFailure value)? clientFailure,
-    TResult? Function(_ServerFailure value)? serverFailure,
-  }) {
-    return networkError?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_NetworkError value)? networkError,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_NotFound value)? notFound,
-    TResult Function(_ParseError value)? parseError,
-    TResult Function(_RateLimited value)? rateLimited,
-    TResult Function(_Timeout value)? timeout,
-    TResult Function(_Unknown value)? unknown,
-    TResult Function(_ClientFailure value)? clientFailure,
-    TResult Function(_ServerFailure value)? serverFailure,
-    required TResult orElse(),
-  }) {
-    if (networkError != null) {
-      return networkError(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _NetworkError implements MainFailure {
-  const factory _NetworkError({final String? message}) = _$NetworkErrorImpl;
-
-  String? get message;
-
-  /// Create a copy of MainFailure
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$NetworkErrorImplCopyWith<_$NetworkErrorImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ServerErrorImplCopyWith<$Res> {
-  factory _$$ServerErrorImplCopyWith(
-          _$ServerErrorImpl value, $Res Function(_$ServerErrorImpl) then) =
-      __$$ServerErrorImplCopyWithImpl<$Res>;
+abstract mixin class _$NetworkErrorCopyWith<$Res>
+    implements $MainFailureCopyWith<$Res> {
+  factory _$NetworkErrorCopyWith(
+          _NetworkError value, $Res Function(_NetworkError) _then) =
+      __$NetworkErrorCopyWithImpl;
   @useResult
-  $Res call({int? statusCode, String? message});
+  $Res call({String? message});
 }
 
 /// @nodoc
-class __$$ServerErrorImplCopyWithImpl<$Res>
-    extends _$MainFailureCopyWithImpl<$Res, _$ServerErrorImpl>
-    implements _$$ServerErrorImplCopyWith<$Res> {
-  __$$ServerErrorImplCopyWithImpl(
-      _$ServerErrorImpl _value, $Res Function(_$ServerErrorImpl) _then)
-      : super(_value, _then);
+class __$NetworkErrorCopyWithImpl<$Res>
+    implements _$NetworkErrorCopyWith<$Res> {
+  __$NetworkErrorCopyWithImpl(this._self, this._then);
+
+  final _NetworkError _self;
+  final $Res Function(_NetworkError) _then;
 
   /// Create a copy of MainFailure
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
-    Object? statusCode = freezed,
     Object? message = freezed,
   }) {
-    return _then(_$ServerErrorImpl(
-      statusCode: freezed == statusCode
-          ? _value.statusCode
-          : statusCode // ignore: cast_nullable_to_non_nullable
-              as int?,
+    return _then(_NetworkError(
       message: freezed == message
-          ? _value.message
+          ? _self.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
@@ -341,24 +397,24 @@ class __$$ServerErrorImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ServerErrorImpl implements _ServerError {
-  const _$ServerErrorImpl({this.statusCode, this.message});
+class _ServerError implements MainFailure {
+  const _ServerError({this.statusCode, this.message});
 
-  @override
   final int? statusCode;
-  @override
   final String? message;
 
-  @override
-  String toString() {
-    return 'MainFailure.serverError(statusCode: $statusCode, message: $message)';
-  }
+  /// Create a copy of MainFailure
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ServerErrorCopyWith<_ServerError> get copyWith =>
+      __$ServerErrorCopyWithImpl<_ServerError>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ServerErrorImpl &&
+            other is _ServerError &&
             (identical(other.statusCode, statusCode) ||
                 other.statusCode == statusCode) &&
             (identical(other.message, message) || other.message == message));
@@ -367,160 +423,106 @@ class _$ServerErrorImpl implements _ServerError {
   @override
   int get hashCode => Object.hash(runtimeType, statusCode, message);
 
-  /// Create a copy of MainFailure
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ServerErrorImplCopyWith<_$ServerErrorImpl> get copyWith =>
-      __$$ServerErrorImplCopyWithImpl<_$ServerErrorImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String? message) networkError,
-    required TResult Function(int? statusCode, String? message) serverError,
-    required TResult Function(String? resource) notFound,
-    required TResult Function(String? message) parseError,
-    required TResult Function(int? retryAfter) rateLimited,
-    required TResult Function(String? message) timeout,
-    required TResult Function(String? message) unknown,
-    required TResult Function() clientFailure,
-    required TResult Function() serverFailure,
-  }) {
-    return serverError(statusCode, message);
+  String toString() {
+    return 'MainFailure.serverError(statusCode: $statusCode, message: $message)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String? message)? networkError,
-    TResult? Function(int? statusCode, String? message)? serverError,
-    TResult? Function(String? resource)? notFound,
-    TResult? Function(String? message)? parseError,
-    TResult? Function(int? retryAfter)? rateLimited,
-    TResult? Function(String? message)? timeout,
-    TResult? Function(String? message)? unknown,
-    TResult? Function()? clientFailure,
-    TResult? Function()? serverFailure,
-  }) {
-    return serverError?.call(statusCode, message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? message)? networkError,
-    TResult Function(int? statusCode, String? message)? serverError,
-    TResult Function(String? resource)? notFound,
-    TResult Function(String? message)? parseError,
-    TResult Function(int? retryAfter)? rateLimited,
-    TResult Function(String? message)? timeout,
-    TResult Function(String? message)? unknown,
-    TResult Function()? clientFailure,
-    TResult Function()? serverFailure,
-    required TResult orElse(),
-  }) {
-    if (serverError != null) {
-      return serverError(statusCode, message);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_NetworkError value) networkError,
-    required TResult Function(_ServerError value) serverError,
-    required TResult Function(_NotFound value) notFound,
-    required TResult Function(_ParseError value) parseError,
-    required TResult Function(_RateLimited value) rateLimited,
-    required TResult Function(_Timeout value) timeout,
-    required TResult Function(_Unknown value) unknown,
-    required TResult Function(_ClientFailure value) clientFailure,
-    required TResult Function(_ServerFailure value) serverFailure,
-  }) {
-    return serverError(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_NetworkError value)? networkError,
-    TResult? Function(_ServerError value)? serverError,
-    TResult? Function(_NotFound value)? notFound,
-    TResult? Function(_ParseError value)? parseError,
-    TResult? Function(_RateLimited value)? rateLimited,
-    TResult? Function(_Timeout value)? timeout,
-    TResult? Function(_Unknown value)? unknown,
-    TResult? Function(_ClientFailure value)? clientFailure,
-    TResult? Function(_ServerFailure value)? serverFailure,
-  }) {
-    return serverError?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_NetworkError value)? networkError,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_NotFound value)? notFound,
-    TResult Function(_ParseError value)? parseError,
-    TResult Function(_RateLimited value)? rateLimited,
-    TResult Function(_Timeout value)? timeout,
-    TResult Function(_Unknown value)? unknown,
-    TResult Function(_ClientFailure value)? clientFailure,
-    TResult Function(_ServerFailure value)? serverFailure,
-    required TResult orElse(),
-  }) {
-    if (serverError != null) {
-      return serverError(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ServerError implements MainFailure {
-  const factory _ServerError({final int? statusCode, final String? message}) =
-      _$ServerErrorImpl;
-
-  int? get statusCode;
-  String? get message;
-
-  /// Create a copy of MainFailure
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ServerErrorImplCopyWith<_$ServerErrorImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$NotFoundImplCopyWith<$Res> {
-  factory _$$NotFoundImplCopyWith(
-          _$NotFoundImpl value, $Res Function(_$NotFoundImpl) then) =
-      __$$NotFoundImplCopyWithImpl<$Res>;
+abstract mixin class _$ServerErrorCopyWith<$Res>
+    implements $MainFailureCopyWith<$Res> {
+  factory _$ServerErrorCopyWith(
+          _ServerError value, $Res Function(_ServerError) _then) =
+      __$ServerErrorCopyWithImpl;
+  @useResult
+  $Res call({int? statusCode, String? message});
+}
+
+/// @nodoc
+class __$ServerErrorCopyWithImpl<$Res> implements _$ServerErrorCopyWith<$Res> {
+  __$ServerErrorCopyWithImpl(this._self, this._then);
+
+  final _ServerError _self;
+  final $Res Function(_ServerError) _then;
+
+  /// Create a copy of MainFailure
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? statusCode = freezed,
+    Object? message = freezed,
+  }) {
+    return _then(_ServerError(
+      statusCode: freezed == statusCode
+          ? _self.statusCode
+          : statusCode // ignore: cast_nullable_to_non_nullable
+              as int?,
+      message: freezed == message
+          ? _self.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _NotFound implements MainFailure {
+  const _NotFound({this.resource});
+
+  final String? resource;
+
+  /// Create a copy of MainFailure
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$NotFoundCopyWith<_NotFound> get copyWith =>
+      __$NotFoundCopyWithImpl<_NotFound>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _NotFound &&
+            (identical(other.resource, resource) ||
+                other.resource == resource));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, resource);
+
+  @override
+  String toString() {
+    return 'MainFailure.notFound(resource: $resource)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$NotFoundCopyWith<$Res>
+    implements $MainFailureCopyWith<$Res> {
+  factory _$NotFoundCopyWith(_NotFound value, $Res Function(_NotFound) _then) =
+      __$NotFoundCopyWithImpl;
   @useResult
   $Res call({String? resource});
 }
 
 /// @nodoc
-class __$$NotFoundImplCopyWithImpl<$Res>
-    extends _$MainFailureCopyWithImpl<$Res, _$NotFoundImpl>
-    implements _$$NotFoundImplCopyWith<$Res> {
-  __$$NotFoundImplCopyWithImpl(
-      _$NotFoundImpl _value, $Res Function(_$NotFoundImpl) _then)
-      : super(_value, _then);
+class __$NotFoundCopyWithImpl<$Res> implements _$NotFoundCopyWith<$Res> {
+  __$NotFoundCopyWithImpl(this._self, this._then);
+
+  final _NotFound _self;
+  final $Res Function(_NotFound) _then;
 
   /// Create a copy of MainFailure
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? resource = freezed,
   }) {
-    return _then(_$NotFoundImpl(
+    return _then(_NotFound(
       resource: freezed == resource
-          ? _value.resource
+          ? _self.resource
           : resource // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
@@ -529,181 +531,61 @@ class __$$NotFoundImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$NotFoundImpl implements _NotFound {
-  const _$NotFoundImpl({this.resource});
+class _ParseError implements MainFailure {
+  const _ParseError({this.message});
 
-  @override
-  final String? resource;
+  final String? message;
 
-  @override
-  String toString() {
-    return 'MainFailure.notFound(resource: $resource)';
-  }
+  /// Create a copy of MainFailure
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ParseErrorCopyWith<_ParseError> get copyWith =>
+      __$ParseErrorCopyWithImpl<_ParseError>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$NotFoundImpl &&
-            (identical(other.resource, resource) ||
-                other.resource == resource));
+            other is _ParseError &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, resource);
-
-  /// Create a copy of MainFailure
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$NotFoundImplCopyWith<_$NotFoundImpl> get copyWith =>
-      __$$NotFoundImplCopyWithImpl<_$NotFoundImpl>(this, _$identity);
+  int get hashCode => Object.hash(runtimeType, message);
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String? message) networkError,
-    required TResult Function(int? statusCode, String? message) serverError,
-    required TResult Function(String? resource) notFound,
-    required TResult Function(String? message) parseError,
-    required TResult Function(int? retryAfter) rateLimited,
-    required TResult Function(String? message) timeout,
-    required TResult Function(String? message) unknown,
-    required TResult Function() clientFailure,
-    required TResult Function() serverFailure,
-  }) {
-    return notFound(resource);
+  String toString() {
+    return 'MainFailure.parseError(message: $message)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String? message)? networkError,
-    TResult? Function(int? statusCode, String? message)? serverError,
-    TResult? Function(String? resource)? notFound,
-    TResult? Function(String? message)? parseError,
-    TResult? Function(int? retryAfter)? rateLimited,
-    TResult? Function(String? message)? timeout,
-    TResult? Function(String? message)? unknown,
-    TResult? Function()? clientFailure,
-    TResult? Function()? serverFailure,
-  }) {
-    return notFound?.call(resource);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? message)? networkError,
-    TResult Function(int? statusCode, String? message)? serverError,
-    TResult Function(String? resource)? notFound,
-    TResult Function(String? message)? parseError,
-    TResult Function(int? retryAfter)? rateLimited,
-    TResult Function(String? message)? timeout,
-    TResult Function(String? message)? unknown,
-    TResult Function()? clientFailure,
-    TResult Function()? serverFailure,
-    required TResult orElse(),
-  }) {
-    if (notFound != null) {
-      return notFound(resource);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_NetworkError value) networkError,
-    required TResult Function(_ServerError value) serverError,
-    required TResult Function(_NotFound value) notFound,
-    required TResult Function(_ParseError value) parseError,
-    required TResult Function(_RateLimited value) rateLimited,
-    required TResult Function(_Timeout value) timeout,
-    required TResult Function(_Unknown value) unknown,
-    required TResult Function(_ClientFailure value) clientFailure,
-    required TResult Function(_ServerFailure value) serverFailure,
-  }) {
-    return notFound(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_NetworkError value)? networkError,
-    TResult? Function(_ServerError value)? serverError,
-    TResult? Function(_NotFound value)? notFound,
-    TResult? Function(_ParseError value)? parseError,
-    TResult? Function(_RateLimited value)? rateLimited,
-    TResult? Function(_Timeout value)? timeout,
-    TResult? Function(_Unknown value)? unknown,
-    TResult? Function(_ClientFailure value)? clientFailure,
-    TResult? Function(_ServerFailure value)? serverFailure,
-  }) {
-    return notFound?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_NetworkError value)? networkError,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_NotFound value)? notFound,
-    TResult Function(_ParseError value)? parseError,
-    TResult Function(_RateLimited value)? rateLimited,
-    TResult Function(_Timeout value)? timeout,
-    TResult Function(_Unknown value)? unknown,
-    TResult Function(_ClientFailure value)? clientFailure,
-    TResult Function(_ServerFailure value)? serverFailure,
-    required TResult orElse(),
-  }) {
-    if (notFound != null) {
-      return notFound(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _NotFound implements MainFailure {
-  const factory _NotFound({final String? resource}) = _$NotFoundImpl;
-
-  String? get resource;
-
-  /// Create a copy of MainFailure
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$NotFoundImplCopyWith<_$NotFoundImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ParseErrorImplCopyWith<$Res> {
-  factory _$$ParseErrorImplCopyWith(
-          _$ParseErrorImpl value, $Res Function(_$ParseErrorImpl) then) =
-      __$$ParseErrorImplCopyWithImpl<$Res>;
+abstract mixin class _$ParseErrorCopyWith<$Res>
+    implements $MainFailureCopyWith<$Res> {
+  factory _$ParseErrorCopyWith(
+          _ParseError value, $Res Function(_ParseError) _then) =
+      __$ParseErrorCopyWithImpl;
   @useResult
   $Res call({String? message});
 }
 
 /// @nodoc
-class __$$ParseErrorImplCopyWithImpl<$Res>
-    extends _$MainFailureCopyWithImpl<$Res, _$ParseErrorImpl>
-    implements _$$ParseErrorImplCopyWith<$Res> {
-  __$$ParseErrorImplCopyWithImpl(
-      _$ParseErrorImpl _value, $Res Function(_$ParseErrorImpl) _then)
-      : super(_value, _then);
+class __$ParseErrorCopyWithImpl<$Res> implements _$ParseErrorCopyWith<$Res> {
+  __$ParseErrorCopyWithImpl(this._self, this._then);
+
+  final _ParseError _self;
+  final $Res Function(_ParseError) _then;
 
   /// Create a copy of MainFailure
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? message = freezed,
   }) {
-    return _then(_$ParseErrorImpl(
+    return _then(_ParseError(
       message: freezed == message
-          ? _value.message
+          ? _self.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
@@ -712,180 +594,62 @@ class __$$ParseErrorImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ParseErrorImpl implements _ParseError {
-  const _$ParseErrorImpl({this.message});
+class _RateLimited implements MainFailure {
+  const _RateLimited({this.retryAfter});
 
-  @override
-  final String? message;
+  final int? retryAfter;
 
-  @override
-  String toString() {
-    return 'MainFailure.parseError(message: $message)';
-  }
+  /// Create a copy of MainFailure
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$RateLimitedCopyWith<_RateLimited> get copyWith =>
+      __$RateLimitedCopyWithImpl<_RateLimited>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ParseErrorImpl &&
-            (identical(other.message, message) || other.message == message));
+            other is _RateLimited &&
+            (identical(other.retryAfter, retryAfter) ||
+                other.retryAfter == retryAfter));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, message);
-
-  /// Create a copy of MainFailure
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ParseErrorImplCopyWith<_$ParseErrorImpl> get copyWith =>
-      __$$ParseErrorImplCopyWithImpl<_$ParseErrorImpl>(this, _$identity);
+  int get hashCode => Object.hash(runtimeType, retryAfter);
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String? message) networkError,
-    required TResult Function(int? statusCode, String? message) serverError,
-    required TResult Function(String? resource) notFound,
-    required TResult Function(String? message) parseError,
-    required TResult Function(int? retryAfter) rateLimited,
-    required TResult Function(String? message) timeout,
-    required TResult Function(String? message) unknown,
-    required TResult Function() clientFailure,
-    required TResult Function() serverFailure,
-  }) {
-    return parseError(message);
+  String toString() {
+    return 'MainFailure.rateLimited(retryAfter: $retryAfter)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String? message)? networkError,
-    TResult? Function(int? statusCode, String? message)? serverError,
-    TResult? Function(String? resource)? notFound,
-    TResult? Function(String? message)? parseError,
-    TResult? Function(int? retryAfter)? rateLimited,
-    TResult? Function(String? message)? timeout,
-    TResult? Function(String? message)? unknown,
-    TResult? Function()? clientFailure,
-    TResult? Function()? serverFailure,
-  }) {
-    return parseError?.call(message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? message)? networkError,
-    TResult Function(int? statusCode, String? message)? serverError,
-    TResult Function(String? resource)? notFound,
-    TResult Function(String? message)? parseError,
-    TResult Function(int? retryAfter)? rateLimited,
-    TResult Function(String? message)? timeout,
-    TResult Function(String? message)? unknown,
-    TResult Function()? clientFailure,
-    TResult Function()? serverFailure,
-    required TResult orElse(),
-  }) {
-    if (parseError != null) {
-      return parseError(message);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_NetworkError value) networkError,
-    required TResult Function(_ServerError value) serverError,
-    required TResult Function(_NotFound value) notFound,
-    required TResult Function(_ParseError value) parseError,
-    required TResult Function(_RateLimited value) rateLimited,
-    required TResult Function(_Timeout value) timeout,
-    required TResult Function(_Unknown value) unknown,
-    required TResult Function(_ClientFailure value) clientFailure,
-    required TResult Function(_ServerFailure value) serverFailure,
-  }) {
-    return parseError(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_NetworkError value)? networkError,
-    TResult? Function(_ServerError value)? serverError,
-    TResult? Function(_NotFound value)? notFound,
-    TResult? Function(_ParseError value)? parseError,
-    TResult? Function(_RateLimited value)? rateLimited,
-    TResult? Function(_Timeout value)? timeout,
-    TResult? Function(_Unknown value)? unknown,
-    TResult? Function(_ClientFailure value)? clientFailure,
-    TResult? Function(_ServerFailure value)? serverFailure,
-  }) {
-    return parseError?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_NetworkError value)? networkError,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_NotFound value)? notFound,
-    TResult Function(_ParseError value)? parseError,
-    TResult Function(_RateLimited value)? rateLimited,
-    TResult Function(_Timeout value)? timeout,
-    TResult Function(_Unknown value)? unknown,
-    TResult Function(_ClientFailure value)? clientFailure,
-    TResult Function(_ServerFailure value)? serverFailure,
-    required TResult orElse(),
-  }) {
-    if (parseError != null) {
-      return parseError(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ParseError implements MainFailure {
-  const factory _ParseError({final String? message}) = _$ParseErrorImpl;
-
-  String? get message;
-
-  /// Create a copy of MainFailure
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ParseErrorImplCopyWith<_$ParseErrorImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$RateLimitedImplCopyWith<$Res> {
-  factory _$$RateLimitedImplCopyWith(
-          _$RateLimitedImpl value, $Res Function(_$RateLimitedImpl) then) =
-      __$$RateLimitedImplCopyWithImpl<$Res>;
+abstract mixin class _$RateLimitedCopyWith<$Res>
+    implements $MainFailureCopyWith<$Res> {
+  factory _$RateLimitedCopyWith(
+          _RateLimited value, $Res Function(_RateLimited) _then) =
+      __$RateLimitedCopyWithImpl;
   @useResult
   $Res call({int? retryAfter});
 }
 
 /// @nodoc
-class __$$RateLimitedImplCopyWithImpl<$Res>
-    extends _$MainFailureCopyWithImpl<$Res, _$RateLimitedImpl>
-    implements _$$RateLimitedImplCopyWith<$Res> {
-  __$$RateLimitedImplCopyWithImpl(
-      _$RateLimitedImpl _value, $Res Function(_$RateLimitedImpl) _then)
-      : super(_value, _then);
+class __$RateLimitedCopyWithImpl<$Res> implements _$RateLimitedCopyWith<$Res> {
+  __$RateLimitedCopyWithImpl(this._self, this._then);
+
+  final _RateLimited _self;
+  final $Res Function(_RateLimited) _then;
 
   /// Create a copy of MainFailure
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? retryAfter = freezed,
   }) {
-    return _then(_$RateLimitedImpl(
+    return _then(_RateLimited(
       retryAfter: freezed == retryAfter
-          ? _value.retryAfter
+          ? _self.retryAfter
           : retryAfter // ignore: cast_nullable_to_non_nullable
               as int?,
     ));
@@ -894,363 +658,60 @@ class __$$RateLimitedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$RateLimitedImpl implements _RateLimited {
-  const _$RateLimitedImpl({this.retryAfter});
+class _Timeout implements MainFailure {
+  const _Timeout({this.message});
 
-  @override
-  final int? retryAfter;
+  final String? message;
 
-  @override
-  String toString() {
-    return 'MainFailure.rateLimited(retryAfter: $retryAfter)';
-  }
+  /// Create a copy of MainFailure
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$TimeoutCopyWith<_Timeout> get copyWith =>
+      __$TimeoutCopyWithImpl<_Timeout>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RateLimitedImpl &&
-            (identical(other.retryAfter, retryAfter) ||
-                other.retryAfter == retryAfter));
+            other is _Timeout &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, retryAfter);
-
-  /// Create a copy of MainFailure
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$RateLimitedImplCopyWith<_$RateLimitedImpl> get copyWith =>
-      __$$RateLimitedImplCopyWithImpl<_$RateLimitedImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String? message) networkError,
-    required TResult Function(int? statusCode, String? message) serverError,
-    required TResult Function(String? resource) notFound,
-    required TResult Function(String? message) parseError,
-    required TResult Function(int? retryAfter) rateLimited,
-    required TResult Function(String? message) timeout,
-    required TResult Function(String? message) unknown,
-    required TResult Function() clientFailure,
-    required TResult Function() serverFailure,
-  }) {
-    return rateLimited(retryAfter);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String? message)? networkError,
-    TResult? Function(int? statusCode, String? message)? serverError,
-    TResult? Function(String? resource)? notFound,
-    TResult? Function(String? message)? parseError,
-    TResult? Function(int? retryAfter)? rateLimited,
-    TResult? Function(String? message)? timeout,
-    TResult? Function(String? message)? unknown,
-    TResult? Function()? clientFailure,
-    TResult? Function()? serverFailure,
-  }) {
-    return rateLimited?.call(retryAfter);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? message)? networkError,
-    TResult Function(int? statusCode, String? message)? serverError,
-    TResult Function(String? resource)? notFound,
-    TResult Function(String? message)? parseError,
-    TResult Function(int? retryAfter)? rateLimited,
-    TResult Function(String? message)? timeout,
-    TResult Function(String? message)? unknown,
-    TResult Function()? clientFailure,
-    TResult Function()? serverFailure,
-    required TResult orElse(),
-  }) {
-    if (rateLimited != null) {
-      return rateLimited(retryAfter);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_NetworkError value) networkError,
-    required TResult Function(_ServerError value) serverError,
-    required TResult Function(_NotFound value) notFound,
-    required TResult Function(_ParseError value) parseError,
-    required TResult Function(_RateLimited value) rateLimited,
-    required TResult Function(_Timeout value) timeout,
-    required TResult Function(_Unknown value) unknown,
-    required TResult Function(_ClientFailure value) clientFailure,
-    required TResult Function(_ServerFailure value) serverFailure,
-  }) {
-    return rateLimited(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_NetworkError value)? networkError,
-    TResult? Function(_ServerError value)? serverError,
-    TResult? Function(_NotFound value)? notFound,
-    TResult? Function(_ParseError value)? parseError,
-    TResult? Function(_RateLimited value)? rateLimited,
-    TResult? Function(_Timeout value)? timeout,
-    TResult? Function(_Unknown value)? unknown,
-    TResult? Function(_ClientFailure value)? clientFailure,
-    TResult? Function(_ServerFailure value)? serverFailure,
-  }) {
-    return rateLimited?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_NetworkError value)? networkError,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_NotFound value)? notFound,
-    TResult Function(_ParseError value)? parseError,
-    TResult Function(_RateLimited value)? rateLimited,
-    TResult Function(_Timeout value)? timeout,
-    TResult Function(_Unknown value)? unknown,
-    TResult Function(_ClientFailure value)? clientFailure,
-    TResult Function(_ServerFailure value)? serverFailure,
-    required TResult orElse(),
-  }) {
-    if (rateLimited != null) {
-      return rateLimited(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _RateLimited implements MainFailure {
-  const factory _RateLimited({final int? retryAfter}) = _$RateLimitedImpl;
-
-  int? get retryAfter;
-
-  /// Create a copy of MainFailure
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$RateLimitedImplCopyWith<_$RateLimitedImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$TimeoutImplCopyWith<$Res> {
-  factory _$$TimeoutImplCopyWith(
-          _$TimeoutImpl value, $Res Function(_$TimeoutImpl) then) =
-      __$$TimeoutImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String? message});
-}
-
-/// @nodoc
-class __$$TimeoutImplCopyWithImpl<$Res>
-    extends _$MainFailureCopyWithImpl<$Res, _$TimeoutImpl>
-    implements _$$TimeoutImplCopyWith<$Res> {
-  __$$TimeoutImplCopyWithImpl(
-      _$TimeoutImpl _value, $Res Function(_$TimeoutImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of MainFailure
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? message = freezed,
-  }) {
-    return _then(_$TimeoutImpl(
-      message: freezed == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$TimeoutImpl implements _Timeout {
-  const _$TimeoutImpl({this.message});
-
-  @override
-  final String? message;
+  int get hashCode => Object.hash(runtimeType, message);
 
   @override
   String toString() {
     return 'MainFailure.timeout(message: $message)';
   }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$TimeoutImpl &&
-            (identical(other.message, message) || other.message == message));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, message);
-
-  /// Create a copy of MainFailure
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$TimeoutImplCopyWith<_$TimeoutImpl> get copyWith =>
-      __$$TimeoutImplCopyWithImpl<_$TimeoutImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String? message) networkError,
-    required TResult Function(int? statusCode, String? message) serverError,
-    required TResult Function(String? resource) notFound,
-    required TResult Function(String? message) parseError,
-    required TResult Function(int? retryAfter) rateLimited,
-    required TResult Function(String? message) timeout,
-    required TResult Function(String? message) unknown,
-    required TResult Function() clientFailure,
-    required TResult Function() serverFailure,
-  }) {
-    return timeout(message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String? message)? networkError,
-    TResult? Function(int? statusCode, String? message)? serverError,
-    TResult? Function(String? resource)? notFound,
-    TResult? Function(String? message)? parseError,
-    TResult? Function(int? retryAfter)? rateLimited,
-    TResult? Function(String? message)? timeout,
-    TResult? Function(String? message)? unknown,
-    TResult? Function()? clientFailure,
-    TResult? Function()? serverFailure,
-  }) {
-    return timeout?.call(message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? message)? networkError,
-    TResult Function(int? statusCode, String? message)? serverError,
-    TResult Function(String? resource)? notFound,
-    TResult Function(String? message)? parseError,
-    TResult Function(int? retryAfter)? rateLimited,
-    TResult Function(String? message)? timeout,
-    TResult Function(String? message)? unknown,
-    TResult Function()? clientFailure,
-    TResult Function()? serverFailure,
-    required TResult orElse(),
-  }) {
-    if (timeout != null) {
-      return timeout(message);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_NetworkError value) networkError,
-    required TResult Function(_ServerError value) serverError,
-    required TResult Function(_NotFound value) notFound,
-    required TResult Function(_ParseError value) parseError,
-    required TResult Function(_RateLimited value) rateLimited,
-    required TResult Function(_Timeout value) timeout,
-    required TResult Function(_Unknown value) unknown,
-    required TResult Function(_ClientFailure value) clientFailure,
-    required TResult Function(_ServerFailure value) serverFailure,
-  }) {
-    return timeout(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_NetworkError value)? networkError,
-    TResult? Function(_ServerError value)? serverError,
-    TResult? Function(_NotFound value)? notFound,
-    TResult? Function(_ParseError value)? parseError,
-    TResult? Function(_RateLimited value)? rateLimited,
-    TResult? Function(_Timeout value)? timeout,
-    TResult? Function(_Unknown value)? unknown,
-    TResult? Function(_ClientFailure value)? clientFailure,
-    TResult? Function(_ServerFailure value)? serverFailure,
-  }) {
-    return timeout?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_NetworkError value)? networkError,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_NotFound value)? notFound,
-    TResult Function(_ParseError value)? parseError,
-    TResult Function(_RateLimited value)? rateLimited,
-    TResult Function(_Timeout value)? timeout,
-    TResult Function(_Unknown value)? unknown,
-    TResult Function(_ClientFailure value)? clientFailure,
-    TResult Function(_ServerFailure value)? serverFailure,
-    required TResult orElse(),
-  }) {
-    if (timeout != null) {
-      return timeout(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Timeout implements MainFailure {
-  const factory _Timeout({final String? message}) = _$TimeoutImpl;
-
-  String? get message;
-
-  /// Create a copy of MainFailure
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$TimeoutImplCopyWith<_$TimeoutImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UnknownImplCopyWith<$Res> {
-  factory _$$UnknownImplCopyWith(
-          _$UnknownImpl value, $Res Function(_$UnknownImpl) then) =
-      __$$UnknownImplCopyWithImpl<$Res>;
+abstract mixin class _$TimeoutCopyWith<$Res>
+    implements $MainFailureCopyWith<$Res> {
+  factory _$TimeoutCopyWith(_Timeout value, $Res Function(_Timeout) _then) =
+      __$TimeoutCopyWithImpl;
   @useResult
   $Res call({String? message});
 }
 
 /// @nodoc
-class __$$UnknownImplCopyWithImpl<$Res>
-    extends _$MainFailureCopyWithImpl<$Res, _$UnknownImpl>
-    implements _$$UnknownImplCopyWith<$Res> {
-  __$$UnknownImplCopyWithImpl(
-      _$UnknownImpl _value, $Res Function(_$UnknownImpl) _then)
-      : super(_value, _then);
+class __$TimeoutCopyWithImpl<$Res> implements _$TimeoutCopyWith<$Res> {
+  __$TimeoutCopyWithImpl(this._self, this._then);
+
+  final _Timeout _self;
+  final $Res Function(_Timeout) _then;
 
   /// Create a copy of MainFailure
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? message = freezed,
   }) {
-    return _then(_$UnknownImpl(
+    return _then(_Timeout(
       message: freezed == message
-          ? _value.message
+          ? _self.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
@@ -1259,443 +720,104 @@ class __$$UnknownImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UnknownImpl implements _Unknown {
-  const _$UnknownImpl({this.message});
+class _Unknown implements MainFailure {
+  const _Unknown({this.message});
 
-  @override
   final String? message;
 
-  @override
-  String toString() {
-    return 'MainFailure.unknown(message: $message)';
-  }
+  /// Create a copy of MainFailure
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$UnknownCopyWith<_Unknown> get copyWith =>
+      __$UnknownCopyWithImpl<_Unknown>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UnknownImpl &&
+            other is _Unknown &&
             (identical(other.message, message) || other.message == message));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
+  @override
+  String toString() {
+    return 'MainFailure.unknown(message: $message)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$UnknownCopyWith<$Res>
+    implements $MainFailureCopyWith<$Res> {
+  factory _$UnknownCopyWith(_Unknown value, $Res Function(_Unknown) _then) =
+      __$UnknownCopyWithImpl;
+  @useResult
+  $Res call({String? message});
+}
+
+/// @nodoc
+class __$UnknownCopyWithImpl<$Res> implements _$UnknownCopyWith<$Res> {
+  __$UnknownCopyWithImpl(this._self, this._then);
+
+  final _Unknown _self;
+  final $Res Function(_Unknown) _then;
+
   /// Create a copy of MainFailure
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
   @pragma('vm:prefer-inline')
-  _$$UnknownImplCopyWith<_$UnknownImpl> get copyWith =>
-      __$$UnknownImplCopyWithImpl<_$UnknownImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String? message) networkError,
-    required TResult Function(int? statusCode, String? message) serverError,
-    required TResult Function(String? resource) notFound,
-    required TResult Function(String? message) parseError,
-    required TResult Function(int? retryAfter) rateLimited,
-    required TResult Function(String? message) timeout,
-    required TResult Function(String? message) unknown,
-    required TResult Function() clientFailure,
-    required TResult Function() serverFailure,
+  $Res call({
+    Object? message = freezed,
   }) {
-    return unknown(message);
+    return _then(_Unknown(
+      message: freezed == message
+          ? _self.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String? message)? networkError,
-    TResult? Function(int? statusCode, String? message)? serverError,
-    TResult? Function(String? resource)? notFound,
-    TResult? Function(String? message)? parseError,
-    TResult? Function(int? retryAfter)? rateLimited,
-    TResult? Function(String? message)? timeout,
-    TResult? Function(String? message)? unknown,
-    TResult? Function()? clientFailure,
-    TResult? Function()? serverFailure,
-  }) {
-    return unknown?.call(message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? message)? networkError,
-    TResult Function(int? statusCode, String? message)? serverError,
-    TResult Function(String? resource)? notFound,
-    TResult Function(String? message)? parseError,
-    TResult Function(int? retryAfter)? rateLimited,
-    TResult Function(String? message)? timeout,
-    TResult Function(String? message)? unknown,
-    TResult Function()? clientFailure,
-    TResult Function()? serverFailure,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(message);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_NetworkError value) networkError,
-    required TResult Function(_ServerError value) serverError,
-    required TResult Function(_NotFound value) notFound,
-    required TResult Function(_ParseError value) parseError,
-    required TResult Function(_RateLimited value) rateLimited,
-    required TResult Function(_Timeout value) timeout,
-    required TResult Function(_Unknown value) unknown,
-    required TResult Function(_ClientFailure value) clientFailure,
-    required TResult Function(_ServerFailure value) serverFailure,
-  }) {
-    return unknown(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_NetworkError value)? networkError,
-    TResult? Function(_ServerError value)? serverError,
-    TResult? Function(_NotFound value)? notFound,
-    TResult? Function(_ParseError value)? parseError,
-    TResult? Function(_RateLimited value)? rateLimited,
-    TResult? Function(_Timeout value)? timeout,
-    TResult? Function(_Unknown value)? unknown,
-    TResult? Function(_ClientFailure value)? clientFailure,
-    TResult? Function(_ServerFailure value)? serverFailure,
-  }) {
-    return unknown?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_NetworkError value)? networkError,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_NotFound value)? notFound,
-    TResult Function(_ParseError value)? parseError,
-    TResult Function(_RateLimited value)? rateLimited,
-    TResult Function(_Timeout value)? timeout,
-    TResult Function(_Unknown value)? unknown,
-    TResult Function(_ClientFailure value)? clientFailure,
-    TResult Function(_ServerFailure value)? serverFailure,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Unknown implements MainFailure {
-  const factory _Unknown({final String? message}) = _$UnknownImpl;
-
-  String? get message;
-
-  /// Create a copy of MainFailure
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UnknownImplCopyWith<_$UnknownImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$ClientFailureImplCopyWith<$Res> {
-  factory _$$ClientFailureImplCopyWith(
-          _$ClientFailureImpl value, $Res Function(_$ClientFailureImpl) then) =
-      __$$ClientFailureImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ClientFailureImplCopyWithImpl<$Res>
-    extends _$MainFailureCopyWithImpl<$Res, _$ClientFailureImpl>
-    implements _$$ClientFailureImplCopyWith<$Res> {
-  __$$ClientFailureImplCopyWithImpl(
-      _$ClientFailureImpl _value, $Res Function(_$ClientFailureImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of MainFailure
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$ClientFailureImpl implements _ClientFailure {
-  const _$ClientFailureImpl();
+class _ClientFailure implements MainFailure {
+  const _ClientFailure();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _ClientFailure);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
 
   @override
   String toString() {
     return 'MainFailure.clientFailure()';
   }
+}
+
+/// @nodoc
+
+class _ServerFailure implements MainFailure {
+  const _ServerFailure();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ClientFailureImpl);
+        (other.runtimeType == runtimeType && other is _ServerFailure);
   }
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String? message) networkError,
-    required TResult Function(int? statusCode, String? message) serverError,
-    required TResult Function(String? resource) notFound,
-    required TResult Function(String? message) parseError,
-    required TResult Function(int? retryAfter) rateLimited,
-    required TResult Function(String? message) timeout,
-    required TResult Function(String? message) unknown,
-    required TResult Function() clientFailure,
-    required TResult Function() serverFailure,
-  }) {
-    return clientFailure();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String? message)? networkError,
-    TResult? Function(int? statusCode, String? message)? serverError,
-    TResult? Function(String? resource)? notFound,
-    TResult? Function(String? message)? parseError,
-    TResult? Function(int? retryAfter)? rateLimited,
-    TResult? Function(String? message)? timeout,
-    TResult? Function(String? message)? unknown,
-    TResult? Function()? clientFailure,
-    TResult? Function()? serverFailure,
-  }) {
-    return clientFailure?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? message)? networkError,
-    TResult Function(int? statusCode, String? message)? serverError,
-    TResult Function(String? resource)? notFound,
-    TResult Function(String? message)? parseError,
-    TResult Function(int? retryAfter)? rateLimited,
-    TResult Function(String? message)? timeout,
-    TResult Function(String? message)? unknown,
-    TResult Function()? clientFailure,
-    TResult Function()? serverFailure,
-    required TResult orElse(),
-  }) {
-    if (clientFailure != null) {
-      return clientFailure();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_NetworkError value) networkError,
-    required TResult Function(_ServerError value) serverError,
-    required TResult Function(_NotFound value) notFound,
-    required TResult Function(_ParseError value) parseError,
-    required TResult Function(_RateLimited value) rateLimited,
-    required TResult Function(_Timeout value) timeout,
-    required TResult Function(_Unknown value) unknown,
-    required TResult Function(_ClientFailure value) clientFailure,
-    required TResult Function(_ServerFailure value) serverFailure,
-  }) {
-    return clientFailure(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_NetworkError value)? networkError,
-    TResult? Function(_ServerError value)? serverError,
-    TResult? Function(_NotFound value)? notFound,
-    TResult? Function(_ParseError value)? parseError,
-    TResult? Function(_RateLimited value)? rateLimited,
-    TResult? Function(_Timeout value)? timeout,
-    TResult? Function(_Unknown value)? unknown,
-    TResult? Function(_ClientFailure value)? clientFailure,
-    TResult? Function(_ServerFailure value)? serverFailure,
-  }) {
-    return clientFailure?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_NetworkError value)? networkError,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_NotFound value)? notFound,
-    TResult Function(_ParseError value)? parseError,
-    TResult Function(_RateLimited value)? rateLimited,
-    TResult Function(_Timeout value)? timeout,
-    TResult Function(_Unknown value)? unknown,
-    TResult Function(_ClientFailure value)? clientFailure,
-    TResult Function(_ServerFailure value)? serverFailure,
-    required TResult orElse(),
-  }) {
-    if (clientFailure != null) {
-      return clientFailure(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ClientFailure implements MainFailure {
-  const factory _ClientFailure() = _$ClientFailureImpl;
-}
-
-/// @nodoc
-abstract class _$$ServerFailureImplCopyWith<$Res> {
-  factory _$$ServerFailureImplCopyWith(
-          _$ServerFailureImpl value, $Res Function(_$ServerFailureImpl) then) =
-      __$$ServerFailureImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ServerFailureImplCopyWithImpl<$Res>
-    extends _$MainFailureCopyWithImpl<$Res, _$ServerFailureImpl>
-    implements _$$ServerFailureImplCopyWith<$Res> {
-  __$$ServerFailureImplCopyWithImpl(
-      _$ServerFailureImpl _value, $Res Function(_$ServerFailureImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of MainFailure
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$ServerFailureImpl implements _ServerFailure {
-  const _$ServerFailureImpl();
 
   @override
   String toString() {
     return 'MainFailure.serverFailure()';
   }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ServerFailureImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String? message) networkError,
-    required TResult Function(int? statusCode, String? message) serverError,
-    required TResult Function(String? resource) notFound,
-    required TResult Function(String? message) parseError,
-    required TResult Function(int? retryAfter) rateLimited,
-    required TResult Function(String? message) timeout,
-    required TResult Function(String? message) unknown,
-    required TResult Function() clientFailure,
-    required TResult Function() serverFailure,
-  }) {
-    return serverFailure();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String? message)? networkError,
-    TResult? Function(int? statusCode, String? message)? serverError,
-    TResult? Function(String? resource)? notFound,
-    TResult? Function(String? message)? parseError,
-    TResult? Function(int? retryAfter)? rateLimited,
-    TResult? Function(String? message)? timeout,
-    TResult? Function(String? message)? unknown,
-    TResult? Function()? clientFailure,
-    TResult? Function()? serverFailure,
-  }) {
-    return serverFailure?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? message)? networkError,
-    TResult Function(int? statusCode, String? message)? serverError,
-    TResult Function(String? resource)? notFound,
-    TResult Function(String? message)? parseError,
-    TResult Function(int? retryAfter)? rateLimited,
-    TResult Function(String? message)? timeout,
-    TResult Function(String? message)? unknown,
-    TResult Function()? clientFailure,
-    TResult Function()? serverFailure,
-    required TResult orElse(),
-  }) {
-    if (serverFailure != null) {
-      return serverFailure();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_NetworkError value) networkError,
-    required TResult Function(_ServerError value) serverError,
-    required TResult Function(_NotFound value) notFound,
-    required TResult Function(_ParseError value) parseError,
-    required TResult Function(_RateLimited value) rateLimited,
-    required TResult Function(_Timeout value) timeout,
-    required TResult Function(_Unknown value) unknown,
-    required TResult Function(_ClientFailure value) clientFailure,
-    required TResult Function(_ServerFailure value) serverFailure,
-  }) {
-    return serverFailure(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_NetworkError value)? networkError,
-    TResult? Function(_ServerError value)? serverError,
-    TResult? Function(_NotFound value)? notFound,
-    TResult? Function(_ParseError value)? parseError,
-    TResult? Function(_RateLimited value)? rateLimited,
-    TResult? Function(_Timeout value)? timeout,
-    TResult? Function(_Unknown value)? unknown,
-    TResult? Function(_ClientFailure value)? clientFailure,
-    TResult? Function(_ServerFailure value)? serverFailure,
-  }) {
-    return serverFailure?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_NetworkError value)? networkError,
-    TResult Function(_ServerError value)? serverError,
-    TResult Function(_NotFound value)? notFound,
-    TResult Function(_ParseError value)? parseError,
-    TResult Function(_RateLimited value)? rateLimited,
-    TResult Function(_Timeout value)? timeout,
-    TResult Function(_Unknown value)? unknown,
-    TResult Function(_ClientFailure value)? clientFailure,
-    TResult Function(_ServerFailure value)? serverFailure,
-    required TResult orElse(),
-  }) {
-    if (serverFailure != null) {
-      return serverFailure(this);
-    }
-    return orElse();
-  }
 }
 
-abstract class _ServerFailure implements MainFailure {
-  const factory _ServerFailure() = _$ServerFailureImpl;
-}
+// dart format on

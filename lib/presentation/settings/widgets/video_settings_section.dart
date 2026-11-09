@@ -139,6 +139,7 @@ class VideoSettingsSection extends StatelessWidget {
                         YouTubeServices.piped => locals.servicePiped,
                         YouTubeServices.invidious => locals.serviceInvidious,
                         YouTubeServices.explode => locals.serviceExplode,
+                        YouTubeServices.bilibili => 'Bilibili',
                       };
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
@@ -203,7 +204,9 @@ class VideoSettingsSection extends StatelessWidget {
                 value: state.isHlsPlayer,
                 onChanged: (_) {
                   BlocProvider.of<SettingsBloc>(context)
-                      .add(SettingsEvent.toggleHlsPlayer());
+                      .add(SettingsEvent.toggleHlsPlayer(
+                          isHlsPlayer: !state.isHlsPlayer,
+                        ));
                 },
               ),
             ),
@@ -216,7 +219,9 @@ class VideoSettingsSection extends StatelessWidget {
                 value: !state.isHistoryVisible,
                 onChanged: (_) {
                   BlocProvider.of<SettingsBloc>(context)
-                      .add(SettingsEvent.toggleHistoryVisibility());
+                      .add(SettingsEvent.toggleHistoryVisibility(
+                          isHistoryVisible: !state.isHistoryVisible,
+                        ));
                 },
               ),
             ),
@@ -229,7 +234,9 @@ class VideoSettingsSection extends StatelessWidget {
                 value: state.isDislikeVisible,
                 onChanged: (_) {
                   BlocProvider.of<SettingsBloc>(context)
-                      .add(SettingsEvent.toggleDislikeVisibility());
+                      .add(SettingsEvent.toggleDislikeVisibility(
+                          isDislikeVisible: !state.isDislikeVisible,
+                        ));
                 },
               ),
             ),
@@ -241,7 +248,9 @@ class VideoSettingsSection extends StatelessWidget {
                 value: state.isPipDisabled,
                 onChanged: (_) {
                   BlocProvider.of<SettingsBloc>(context)
-                      .add(SettingsEvent.togglePipPlayer());
+                      .add(SettingsEvent.togglePipPlayer(
+                          isPipDisabled: !state.isPipDisabled,
+                        ));
                 },
               ),
             ),
@@ -256,7 +265,9 @@ class VideoSettingsSection extends StatelessWidget {
                   value: state.isAutoPipEnabled,
                   onChanged: (_) {
                     BlocProvider.of<SettingsBloc>(context)
-                        .add(SettingsEvent.toggleAutoPip());
+                        .add(SettingsEvent.toggleAutoPip(
+                          isEnabled: !state.isAutoPipEnabled,
+                        ));
                   },
                 ),
               ),
@@ -271,7 +282,9 @@ class VideoSettingsSection extends StatelessWidget {
                 value: state.isSearchHistoryEnabled,
                 onChanged: (_) {
                   BlocProvider.of<SettingsBloc>(context)
-                      .add(SettingsEvent.toggleSearchHistoryEnabled());
+                      .add(SettingsEvent.toggleSearchHistoryEnabled(
+                          isEnabled: !state.isSearchHistoryEnabled,
+                        ));
                 },
               ),
             ),
@@ -285,7 +298,9 @@ class VideoSettingsSection extends StatelessWidget {
                   value: state.isSearchHistoryVisible,
                   onChanged: (_) {
                     BlocProvider.of<SettingsBloc>(context)
-                        .add(SettingsEvent.toggleSearchHistoryVisibility());
+                        .add(SettingsEvent.toggleSearchHistoryVisibility(
+                          isVisible: !state.isSearchHistoryVisible,
+                        ));
                   },
                 ),
               ),

@@ -4,6 +4,8 @@ import 'dart:developer';
 import 'package:audio_service/audio_service.dart';
 import 'package:vyplay/core/player/global_player_controller.dart';
 import 'package:vyplay/core/services/exoplayer_notification_bridge.dart';
+import 'package:vyplay/core/services/sleep_timer.dart';
+import 'package:vyplay/domain/sleep_timer/sleep_timer_config.dart';
 
 /// Audio handler for background playback notification controls
 /// Provides media session controls (play/pause/seek) in notification and lock screen
@@ -427,6 +429,20 @@ class VyPlayAudioHandler extends BaseAudioHandler with SeekHandler {
     _positionSubscription?.cancel();
     _durationSubscription?.cancel();
     _bufferingSubscription?.cancel();
+  }
+
+  /// Initialize sleep timer listener
+  static void initializeSleepTimerListener() {
+    SleepTimer.statusStream.listen((status) {
+      if (status == SleepTimerStatus.finished) {
+        log('[AudioHandler] Sleep timer finished - pausing playback');
+        // Pause the player
+        final player = GlobalPlayerController().player;
+        if (player.state.playing) {
+          player.pause();
+        }
+      }
+    });
   }
 }
 

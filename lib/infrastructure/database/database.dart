@@ -60,6 +60,37 @@ class Subscriptions extends Table {
 }
 
 // ============================================================================
+// Subscription Groups Table
+// ============================================================================
+class SubscriptionGroups extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  TextColumn get groupName => text()();
+  TextColumn get profileName => text()();
+  TextColumn get colorHex => text().nullable()();
+  IntColumn get sortOrder => integer().withDefault(const Constant(0))();
+
+  @override
+  List<Set<Column>> get uniqueKeys => [
+        {groupName, profileName}
+      ];
+}
+
+// ============================================================================
+// Subscription Group Members Table (junction)
+// ============================================================================
+class SubscriptionGroupMembers extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  IntColumn get groupId => integer()();
+  TextColumn get channelId => text()();
+  TextColumn get profileName => text()();
+
+  @override
+  List<Set<Column>> get uniqueKeys => [
+        {groupId, channelId, profileName}
+      ];
+}
+
+// ============================================================================
 // Search History Table
 // ============================================================================
 class SearchHistoryEntries extends Table {
@@ -160,6 +191,8 @@ class DownloadItems extends Table {
   SettingsEntries,
   LocalStoreVideos,
   Subscriptions,
+  SubscriptionGroups,
+  SubscriptionGroupMembers,
   SearchHistoryEntries,
   UserInteractions,
   UserTopicPreferences,
@@ -181,13 +214,14 @@ class AppDatabase extends _$AppDatabase {
   }
 
   @override
-  int get schemaVersion => 3;
+  int get schemaVersion => 4;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
         onCreate: (Migrator m) async {
           await m.createAll();
           await _createIndexes();
+          await _createAdditionalIndexes();
         },
         onUpgrade: (Migrator m, int from, int to) async {
           if (from < 2) {
@@ -201,7 +235,13 @@ class AppDatabase extends _$AppDatabase {
             await m.addColumn(downloadItems, downloadItems.currentPhase);
           }
           if (from < 3) {
-            await _createIndexes();
+            await _createAdditionalIndexes();
+          }
+          if (from < 4) {
+            // Create subscription groups tables
+            await m.createTable(subscriptionGroups);
+            await m.createTable(subscriptionGroupMembers);
+            await _createGroupIndexes();
           }
         },
       );
@@ -215,6 +255,24 @@ class AppDatabase extends _$AppDatabase {
       'CREATE INDEX IF NOT EXISTS idx_local_store_profile_saved_time '
       'ON local_store_videos(profile_name, is_saved, time DESC)',
     );
+  }
+
+  Future<void> _createGroupIndexes() async {
+    await customStatement(
+      'CREATE INDEX IF NOT EXISTS idx_subscription_groups_profile '
+      'ON subscription_groups(profile_name)',
+    );
+    await customStatement(
+      'CREATE INDEX IF NOT EXISTS idx_subscription_group_members_group '
+      'ON subscription_group_members(group_id)',
+    );
+    await customStatement(
+      'CREATE INDEX IF NOT EXISTS idx_subscription_group_members_profile '
+      'ON subscription_group_members(profile_name)',
+    );
+  }
+
+  Future<void> _createAdditionalIndexes() async {
     await customStatement(
       'CREATE INDEX IF NOT EXISTS idx_local_store_profile_history_time '
       'ON local_store_videos(profile_name, is_history, time DESC)',
@@ -373,6 +431,85 @@ class AppDatabase extends _$AppDatabase {
     await (delete(subscriptions)
           ..where((t) => t.profileName.equals(profileName)))
         .go();
+  }
+
+  // ============================================================================
+  // Subscription Group Operations
+  // ============================================================================
+  Future<List<SubscriptionGroup>> getAllGroups(String profileName) async {
+    final query = select(subscriptionGroups)
+      ..where((t) => t.profileName.equals(profileName))
+      ..orderBy([(t) => OrderingTerm.asc(t.sortOrder)]);
+    return query.get();
+  }
+
+  Future<SubscriptionGroup?> getGroupById(int groupId) async {
+    final query = select(subscriptionGroups)..where((t) => t.id.equals(groupId));
+    return query.getSingleOrNull();
+  }
+
+  Future<int> insertGroup(SubscriptionGroupsCompanion group) async {
+    return into(subscriptionGroups).insert(group);
+  }
+
+  Future<void> updateGroup(SubscriptionGroupsCompanion group) async {
+    await (update(subscriptionGroups)..where((t) => t.id.equals(group.id.value)))
+        .write(group);
+  }
+
+  Future<void> deleteGroup(int groupId) async {
+    // Delete members first (foreign key constraint)
+    await (delete(subscriptionGroupMembers)
+          ..where((t) => t.groupId.equals(groupId)))
+        .go();
+    await (delete(subscriptionGroups)..where((t) => t.id.equals(groupId))).go();
+  }
+
+  Future<List<Subscription>> getGroupMembers(
+      int groupId, String profileName) async {
+    final query = select(subscriptionGroupMembers)
+      ..where((t) =>
+          t.groupId.equals(groupId) & t.profileName.equals(profileName));
+    final members = await query.get();
+    final channelIds = members.map((m) => m.channelId).toList();
+    if (channelIds.isEmpty) return [];
+    final subscriptionQuery = select(subscriptions)
+      ..where((t) => t.channelId.isIn(channelIds));
+    return subscriptionQuery.get();
+  }
+
+  Future<void> addToGroup(int groupId, String channelId, String profileName) async {
+    await into(subscriptionGroupMembers).insert(
+      SubscriptionGroupMembersCompanion.insert(
+        groupId: groupId,
+        channelId: channelId,
+        profileName: profileName,
+      ),
+      onConflict: DoNothing(),
+    );
+  }
+
+  Future<void> removeFromGroup(int groupId, String channelId, String profileName) async {
+    await (delete(subscriptionGroupMembers)
+          ..where((t) =>
+              t.groupId.equals(groupId) &
+              t.channelId.equals(channelId) &
+              t.profileName.equals(profileName)))
+        .go();
+  }
+
+  Future<List<SubscriptionGroup>> getDefaultGroup(String profileName) async {
+    final allGroups = await getAllGroups(profileName);
+    if (allGroups.isEmpty) {
+      // Create default "All Subscriptions" group
+      await insertGroup(SubscriptionGroupsCompanion.insert(
+        groupName: 'All Subscriptions',
+        profileName: profileName,
+        sortOrder: Value(0),
+      ));
+      return getAllGroups(profileName);
+    }
+    return allGroups;
   }
 
   // ============================================================================
@@ -560,3 +697,4 @@ class AppDatabase extends _$AppDatabase {
     return query.getSingleOrNull();
   }
 }
+

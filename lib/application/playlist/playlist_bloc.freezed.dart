@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,161 +9,270 @@ part of 'playlist_bloc.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$PlaylistEvent {
-  String get playlistId => throw _privateConstructorUsedError;
+  String get playlistId;
+
+  /// Create a copy of PlaylistEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $PlaylistEventCopyWith<PlaylistEvent> get copyWith =>
+      _$PlaylistEventCopyWithImpl<PlaylistEvent>(
+          this as PlaylistEvent, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is PlaylistEvent &&
+            (identical(other.playlistId, playlistId) ||
+                other.playlistId == playlistId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, playlistId);
+
+  @override
+  String toString() {
+    return 'PlaylistEvent(playlistId: $playlistId)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $PlaylistEventCopyWith<$Res> {
+  factory $PlaylistEventCopyWith(
+          PlaylistEvent value, $Res Function(PlaylistEvent) _then) =
+      _$PlaylistEventCopyWithImpl;
+  @useResult
+  $Res call({String playlistId});
+}
+
+/// @nodoc
+class _$PlaylistEventCopyWithImpl<$Res>
+    implements $PlaylistEventCopyWith<$Res> {
+  _$PlaylistEventCopyWithImpl(this._self, this._then);
+
+  final PlaylistEvent _self;
+  final $Res Function(PlaylistEvent) _then;
+
+  /// Create a copy of PlaylistEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? playlistId = null,
+  }) {
+    return _then(_self.copyWith(
+      playlistId: null == playlistId
+          ? _self.playlistId
+          : playlistId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// Adds pattern-matching-related methods to [PlaylistEvent].
+extension PlaylistEventPatterns on PlaylistEvent {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
   @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String playlistId, String serviceType)
-        getPlaylistData,
-    required TResult Function(String playlistId, String? nextPage)
-        getMorePlaylistVideos,
-  }) =>
-      throw _privateConstructorUsedError;
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetPlaylistData value)? getPlaylistData,
+    TResult Function(GetMorePlaylistVideos value)? getMorePlaylistVideos,
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case GetPlaylistData() when getPlaylistData != null:
+        return getPlaylistData(_that);
+      case GetMorePlaylistVideos() when getMorePlaylistVideos != null:
+        return getMorePlaylistVideos(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String playlistId, String serviceType)? getPlaylistData,
-    TResult? Function(String playlistId, String? nextPage)?
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetPlaylistData value) getPlaylistData,
+    required TResult Function(GetMorePlaylistVideos value)
         getMorePlaylistVideos,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) {
+    final _that = this;
+    switch (_that) {
+      case GetPlaylistData():
+        return getPlaylistData(_that);
+      case GetMorePlaylistVideos():
+        return getMorePlaylistVideos(_that);
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetPlaylistData value)? getPlaylistData,
+    TResult? Function(GetMorePlaylistVideos value)? getMorePlaylistVideos,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case GetPlaylistData() when getPlaylistData != null:
+        return getPlaylistData(_that);
+      case GetMorePlaylistVideos() when getMorePlaylistVideos != null:
+        return getMorePlaylistVideos(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String playlistId, String serviceType)? getPlaylistData,
     TResult Function(String playlistId, String? nextPage)?
         getMorePlaylistVideos,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) {
+    final _that = this;
+    switch (_that) {
+      case GetPlaylistData() when getPlaylistData != null:
+        return getPlaylistData(_that.playlistId, _that.serviceType);
+      case GetMorePlaylistVideos() when getMorePlaylistVideos != null:
+        return getMorePlaylistVideos(_that.playlistId, _that.nextPage);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
   @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GetPlaylistData value) getPlaylistData,
-    required TResult Function(GetMorePlaylistVideos value)
+  TResult when<TResult extends Object?>({
+    required TResult Function(String playlistId, String serviceType)
+        getPlaylistData,
+    required TResult Function(String playlistId, String? nextPage)
         getMorePlaylistVideos,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GetPlaylistData value)? getPlaylistData,
-    TResult? Function(GetMorePlaylistVideos value)? getMorePlaylistVideos,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetPlaylistData value)? getPlaylistData,
-    TResult Function(GetMorePlaylistVideos value)? getMorePlaylistVideos,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-
-  /// Create a copy of PlaylistEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $PlaylistEventCopyWith<PlaylistEvent> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $PlaylistEventCopyWith<$Res> {
-  factory $PlaylistEventCopyWith(
-          PlaylistEvent value, $Res Function(PlaylistEvent) then) =
-      _$PlaylistEventCopyWithImpl<$Res, PlaylistEvent>;
-  @useResult
-  $Res call({String playlistId});
-}
-
-/// @nodoc
-class _$PlaylistEventCopyWithImpl<$Res, $Val extends PlaylistEvent>
-    implements $PlaylistEventCopyWith<$Res> {
-  _$PlaylistEventCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of PlaylistEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? playlistId = null,
   }) {
-    return _then(_value.copyWith(
-      playlistId: null == playlistId
-          ? _value.playlistId
-          : playlistId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+    final _that = this;
+    switch (_that) {
+      case GetPlaylistData():
+        return getPlaylistData(_that.playlistId, _that.serviceType);
+      case GetMorePlaylistVideos():
+        return getMorePlaylistVideos(_that.playlistId, _that.nextPage);
+    }
   }
-}
 
-/// @nodoc
-abstract class _$$GetPlaylistDataImplCopyWith<$Res>
-    implements $PlaylistEventCopyWith<$Res> {
-  factory _$$GetPlaylistDataImplCopyWith(_$GetPlaylistDataImpl value,
-          $Res Function(_$GetPlaylistDataImpl) then) =
-      __$$GetPlaylistDataImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String playlistId, String serviceType});
-}
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
 
-/// @nodoc
-class __$$GetPlaylistDataImplCopyWithImpl<$Res>
-    extends _$PlaylistEventCopyWithImpl<$Res, _$GetPlaylistDataImpl>
-    implements _$$GetPlaylistDataImplCopyWith<$Res> {
-  __$$GetPlaylistDataImplCopyWithImpl(
-      _$GetPlaylistDataImpl _value, $Res Function(_$GetPlaylistDataImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of PlaylistEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? playlistId = null,
-    Object? serviceType = null,
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String playlistId, String serviceType)? getPlaylistData,
+    TResult? Function(String playlistId, String? nextPage)?
+        getMorePlaylistVideos,
   }) {
-    return _then(_$GetPlaylistDataImpl(
-      playlistId: null == playlistId
-          ? _value.playlistId
-          : playlistId // ignore: cast_nullable_to_non_nullable
-              as String,
-      serviceType: null == serviceType
-          ? _value.serviceType
-          : serviceType // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+    final _that = this;
+    switch (_that) {
+      case GetPlaylistData() when getPlaylistData != null:
+        return getPlaylistData(_that.playlistId, _that.serviceType);
+      case GetMorePlaylistVideos() when getMorePlaylistVideos != null:
+        return getMorePlaylistVideos(_that.playlistId, _that.nextPage);
+      case _:
+        return null;
+    }
   }
 }
 
 /// @nodoc
 
-class _$GetPlaylistDataImpl implements GetPlaylistData {
-  const _$GetPlaylistDataImpl(
-      {required this.playlistId, required this.serviceType});
+class GetPlaylistData implements PlaylistEvent {
+  const GetPlaylistData({required this.playlistId, required this.serviceType});
 
   @override
   final String playlistId;
-  @override
   final String serviceType;
 
+  /// Create a copy of PlaylistEvent
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'PlaylistEvent.getPlaylistData(playlistId: $playlistId, serviceType: $serviceType)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $GetPlaylistDataCopyWith<GetPlaylistData> get copyWith =>
+      _$GetPlaylistDataCopyWithImpl<GetPlaylistData>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetPlaylistDataImpl &&
+            other is GetPlaylistData &&
             (identical(other.playlistId, playlistId) ||
                 other.playlistId == playlistId) &&
             (identical(other.serviceType, serviceType) ||
@@ -173,161 +282,75 @@ class _$GetPlaylistDataImpl implements GetPlaylistData {
   @override
   int get hashCode => Object.hash(runtimeType, playlistId, serviceType);
 
-  /// Create a copy of PlaylistEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$GetPlaylistDataImplCopyWith<_$GetPlaylistDataImpl> get copyWith =>
-      __$$GetPlaylistDataImplCopyWithImpl<_$GetPlaylistDataImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String playlistId, String serviceType)
-        getPlaylistData,
-    required TResult Function(String playlistId, String? nextPage)
-        getMorePlaylistVideos,
-  }) {
-    return getPlaylistData(playlistId, serviceType);
+  String toString() {
+    return 'PlaylistEvent.getPlaylistData(playlistId: $playlistId, serviceType: $serviceType)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String playlistId, String serviceType)? getPlaylistData,
-    TResult? Function(String playlistId, String? nextPage)?
-        getMorePlaylistVideos,
-  }) {
-    return getPlaylistData?.call(playlistId, serviceType);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String playlistId, String serviceType)? getPlaylistData,
-    TResult Function(String playlistId, String? nextPage)?
-        getMorePlaylistVideos,
-    required TResult orElse(),
-  }) {
-    if (getPlaylistData != null) {
-      return getPlaylistData(playlistId, serviceType);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GetPlaylistData value) getPlaylistData,
-    required TResult Function(GetMorePlaylistVideos value)
-        getMorePlaylistVideos,
-  }) {
-    return getPlaylistData(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GetPlaylistData value)? getPlaylistData,
-    TResult? Function(GetMorePlaylistVideos value)? getMorePlaylistVideos,
-  }) {
-    return getPlaylistData?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetPlaylistData value)? getPlaylistData,
-    TResult Function(GetMorePlaylistVideos value)? getMorePlaylistVideos,
-    required TResult orElse(),
-  }) {
-    if (getPlaylistData != null) {
-      return getPlaylistData(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class GetPlaylistData implements PlaylistEvent {
-  const factory GetPlaylistData(
-      {required final String playlistId,
-      required final String serviceType}) = _$GetPlaylistDataImpl;
-
-  @override
-  String get playlistId;
-  String get serviceType;
-
-  /// Create a copy of PlaylistEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetPlaylistDataImplCopyWith<_$GetPlaylistDataImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$GetMorePlaylistVideosImplCopyWith<$Res>
+abstract mixin class $GetPlaylistDataCopyWith<$Res>
     implements $PlaylistEventCopyWith<$Res> {
-  factory _$$GetMorePlaylistVideosImplCopyWith(
-          _$GetMorePlaylistVideosImpl value,
-          $Res Function(_$GetMorePlaylistVideosImpl) then) =
-      __$$GetMorePlaylistVideosImplCopyWithImpl<$Res>;
+  factory $GetPlaylistDataCopyWith(
+          GetPlaylistData value, $Res Function(GetPlaylistData) _then) =
+      _$GetPlaylistDataCopyWithImpl;
   @override
   @useResult
-  $Res call({String playlistId, String? nextPage});
+  $Res call({String playlistId, String serviceType});
 }
 
 /// @nodoc
-class __$$GetMorePlaylistVideosImplCopyWithImpl<$Res>
-    extends _$PlaylistEventCopyWithImpl<$Res, _$GetMorePlaylistVideosImpl>
-    implements _$$GetMorePlaylistVideosImplCopyWith<$Res> {
-  __$$GetMorePlaylistVideosImplCopyWithImpl(_$GetMorePlaylistVideosImpl _value,
-      $Res Function(_$GetMorePlaylistVideosImpl) _then)
-      : super(_value, _then);
+class _$GetPlaylistDataCopyWithImpl<$Res>
+    implements $GetPlaylistDataCopyWith<$Res> {
+  _$GetPlaylistDataCopyWithImpl(this._self, this._then);
+
+  final GetPlaylistData _self;
+  final $Res Function(GetPlaylistData) _then;
 
   /// Create a copy of PlaylistEvent
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
   @override
+  @pragma('vm:prefer-inline')
   $Res call({
     Object? playlistId = null,
-    Object? nextPage = freezed,
+    Object? serviceType = null,
   }) {
-    return _then(_$GetMorePlaylistVideosImpl(
+    return _then(GetPlaylistData(
       playlistId: null == playlistId
-          ? _value.playlistId
+          ? _self.playlistId
           : playlistId // ignore: cast_nullable_to_non_nullable
               as String,
-      nextPage: freezed == nextPage
-          ? _value.nextPage
-          : nextPage // ignore: cast_nullable_to_non_nullable
-              as String?,
+      serviceType: null == serviceType
+          ? _self.serviceType
+          : serviceType // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
 
-class _$GetMorePlaylistVideosImpl implements GetMorePlaylistVideos {
-  const _$GetMorePlaylistVideosImpl({required this.playlistId, this.nextPage});
+class GetMorePlaylistVideos implements PlaylistEvent {
+  const GetMorePlaylistVideos({required this.playlistId, this.nextPage});
 
   @override
   final String playlistId;
-  @override
   final String? nextPage;
 
+  /// Create a copy of PlaylistEvent
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'PlaylistEvent.getMorePlaylistVideos(playlistId: $playlistId, nextPage: $nextPage)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $GetMorePlaylistVideosCopyWith<GetMorePlaylistVideos> get copyWith =>
+      _$GetMorePlaylistVideosCopyWithImpl<GetMorePlaylistVideos>(
+          this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetMorePlaylistVideosImpl &&
+            other is GetMorePlaylistVideos &&
             (identical(other.playlistId, playlistId) ||
                 other.playlistId == playlistId) &&
             (identical(other.nextPage, nextPage) ||
@@ -337,183 +360,100 @@ class _$GetMorePlaylistVideosImpl implements GetMorePlaylistVideos {
   @override
   int get hashCode => Object.hash(runtimeType, playlistId, nextPage);
 
-  /// Create a copy of PlaylistEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$GetMorePlaylistVideosImplCopyWith<_$GetMorePlaylistVideosImpl>
-      get copyWith => __$$GetMorePlaylistVideosImplCopyWithImpl<
-          _$GetMorePlaylistVideosImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String playlistId, String serviceType)
-        getPlaylistData,
-    required TResult Function(String playlistId, String? nextPage)
-        getMorePlaylistVideos,
-  }) {
-    return getMorePlaylistVideos(playlistId, nextPage);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String playlistId, String serviceType)? getPlaylistData,
-    TResult? Function(String playlistId, String? nextPage)?
-        getMorePlaylistVideos,
-  }) {
-    return getMorePlaylistVideos?.call(playlistId, nextPage);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String playlistId, String serviceType)? getPlaylistData,
-    TResult Function(String playlistId, String? nextPage)?
-        getMorePlaylistVideos,
-    required TResult orElse(),
-  }) {
-    if (getMorePlaylistVideos != null) {
-      return getMorePlaylistVideos(playlistId, nextPage);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GetPlaylistData value) getPlaylistData,
-    required TResult Function(GetMorePlaylistVideos value)
-        getMorePlaylistVideos,
-  }) {
-    return getMorePlaylistVideos(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GetPlaylistData value)? getPlaylistData,
-    TResult? Function(GetMorePlaylistVideos value)? getMorePlaylistVideos,
-  }) {
-    return getMorePlaylistVideos?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetPlaylistData value)? getPlaylistData,
-    TResult Function(GetMorePlaylistVideos value)? getMorePlaylistVideos,
-    required TResult orElse(),
-  }) {
-    if (getMorePlaylistVideos != null) {
-      return getMorePlaylistVideos(this);
-    }
-    return orElse();
+  String toString() {
+    return 'PlaylistEvent.getMorePlaylistVideos(playlistId: $playlistId, nextPage: $nextPage)';
   }
 }
 
-abstract class GetMorePlaylistVideos implements PlaylistEvent {
-  const factory GetMorePlaylistVideos(
-      {required final String playlistId,
-      final String? nextPage}) = _$GetMorePlaylistVideosImpl;
-
+/// @nodoc
+abstract mixin class $GetMorePlaylistVideosCopyWith<$Res>
+    implements $PlaylistEventCopyWith<$Res> {
+  factory $GetMorePlaylistVideosCopyWith(GetMorePlaylistVideos value,
+          $Res Function(GetMorePlaylistVideos) _then) =
+      _$GetMorePlaylistVideosCopyWithImpl;
   @override
-  String get playlistId;
-  String? get nextPage;
+  @useResult
+  $Res call({String playlistId, String? nextPage});
+}
+
+/// @nodoc
+class _$GetMorePlaylistVideosCopyWithImpl<$Res>
+    implements $GetMorePlaylistVideosCopyWith<$Res> {
+  _$GetMorePlaylistVideosCopyWithImpl(this._self, this._then);
+
+  final GetMorePlaylistVideos _self;
+  final $Res Function(GetMorePlaylistVideos) _then;
 
   /// Create a copy of PlaylistEvent
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetMorePlaylistVideosImplCopyWith<_$GetMorePlaylistVideosImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? playlistId = null,
+    Object? nextPage = freezed,
+  }) {
+    return _then(GetMorePlaylistVideos(
+      playlistId: null == playlistId
+          ? _self.playlistId
+          : playlistId // ignore: cast_nullable_to_non_nullable
+              as String,
+      nextPage: freezed == nextPage
+          ? _self.nextPage
+          : nextPage // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
 /// @nodoc
 mixin _$PlaylistState {
-  ApiStatus get fetchStatus => throw _privateConstructorUsedError;
-  ApiStatus get moreFetchStatus => throw _privateConstructorUsedError;
-  bool get isMoreFetchCompleted => throw _privateConstructorUsedError;
-  PlaylistResp? get pipedPlaylistResp => throw _privateConstructorUsedError;
-  InvidiousPlaylistResp? get invidiousPlaylistResp =>
-      throw _privateConstructorUsedError;
+  ApiStatus get fetchStatus;
+  ApiStatus get moreFetchStatus;
+  bool get isMoreFetchCompleted;
+  PlaylistResp? get pipedPlaylistResp;
+  InvidiousPlaylistResp? get invidiousPlaylistResp;
 
   /// Create a copy of PlaylistState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $PlaylistStateCopyWith<PlaylistState> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $PlaylistStateCopyWith<$Res> {
-  factory $PlaylistStateCopyWith(
-          PlaylistState value, $Res Function(PlaylistState) then) =
-      _$PlaylistStateCopyWithImpl<$Res, PlaylistState>;
-  @useResult
-  $Res call(
-      {ApiStatus fetchStatus,
-      ApiStatus moreFetchStatus,
-      bool isMoreFetchCompleted,
-      PlaylistResp? pipedPlaylistResp,
-      InvidiousPlaylistResp? invidiousPlaylistResp});
-}
-
-/// @nodoc
-class _$PlaylistStateCopyWithImpl<$Res, $Val extends PlaylistState>
-    implements $PlaylistStateCopyWith<$Res> {
-  _$PlaylistStateCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of PlaylistState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $PlaylistStateCopyWith<PlaylistState> get copyWith =>
+      _$PlaylistStateCopyWithImpl<PlaylistState>(
+          this as PlaylistState, _$identity);
+
   @override
-  $Res call({
-    Object? fetchStatus = null,
-    Object? moreFetchStatus = null,
-    Object? isMoreFetchCompleted = null,
-    Object? pipedPlaylistResp = freezed,
-    Object? invidiousPlaylistResp = freezed,
-  }) {
-    return _then(_value.copyWith(
-      fetchStatus: null == fetchStatus
-          ? _value.fetchStatus
-          : fetchStatus // ignore: cast_nullable_to_non_nullable
-              as ApiStatus,
-      moreFetchStatus: null == moreFetchStatus
-          ? _value.moreFetchStatus
-          : moreFetchStatus // ignore: cast_nullable_to_non_nullable
-              as ApiStatus,
-      isMoreFetchCompleted: null == isMoreFetchCompleted
-          ? _value.isMoreFetchCompleted
-          : isMoreFetchCompleted // ignore: cast_nullable_to_non_nullable
-              as bool,
-      pipedPlaylistResp: freezed == pipedPlaylistResp
-          ? _value.pipedPlaylistResp
-          : pipedPlaylistResp // ignore: cast_nullable_to_non_nullable
-              as PlaylistResp?,
-      invidiousPlaylistResp: freezed == invidiousPlaylistResp
-          ? _value.invidiousPlaylistResp
-          : invidiousPlaylistResp // ignore: cast_nullable_to_non_nullable
-              as InvidiousPlaylistResp?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is PlaylistState &&
+            (identical(other.fetchStatus, fetchStatus) ||
+                other.fetchStatus == fetchStatus) &&
+            (identical(other.moreFetchStatus, moreFetchStatus) ||
+                other.moreFetchStatus == moreFetchStatus) &&
+            (identical(other.isMoreFetchCompleted, isMoreFetchCompleted) ||
+                other.isMoreFetchCompleted == isMoreFetchCompleted) &&
+            (identical(other.pipedPlaylistResp, pipedPlaylistResp) ||
+                other.pipedPlaylistResp == pipedPlaylistResp) &&
+            (identical(other.invidiousPlaylistResp, invidiousPlaylistResp) ||
+                other.invidiousPlaylistResp == invidiousPlaylistResp));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, fetchStatus, moreFetchStatus,
+      isMoreFetchCompleted, pipedPlaylistResp, invidiousPlaylistResp);
+
+  @override
+  String toString() {
+    return 'PlaylistState(fetchStatus: $fetchStatus, moreFetchStatus: $moreFetchStatus, isMoreFetchCompleted: $isMoreFetchCompleted, pipedPlaylistResp: $pipedPlaylistResp, invidiousPlaylistResp: $invidiousPlaylistResp)';
   }
 }
 
 /// @nodoc
-abstract class _$$PlaylistStateImplCopyWith<$Res>
-    implements $PlaylistStateCopyWith<$Res> {
-  factory _$$PlaylistStateImplCopyWith(
-          _$PlaylistStateImpl value, $Res Function(_$PlaylistStateImpl) then) =
-      __$$PlaylistStateImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $PlaylistStateCopyWith<$Res> {
+  factory $PlaylistStateCopyWith(
+          PlaylistState value, $Res Function(PlaylistState) _then) =
+      _$PlaylistStateCopyWithImpl;
   @useResult
   $Res call(
       {ApiStatus fetchStatus,
@@ -524,12 +464,12 @@ abstract class _$$PlaylistStateImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$PlaylistStateImplCopyWithImpl<$Res>
-    extends _$PlaylistStateCopyWithImpl<$Res, _$PlaylistStateImpl>
-    implements _$$PlaylistStateImplCopyWith<$Res> {
-  __$$PlaylistStateImplCopyWithImpl(
-      _$PlaylistStateImpl _value, $Res Function(_$PlaylistStateImpl) _then)
-      : super(_value, _then);
+class _$PlaylistStateCopyWithImpl<$Res>
+    implements $PlaylistStateCopyWith<$Res> {
+  _$PlaylistStateCopyWithImpl(this._self, this._then);
+
+  final PlaylistState _self;
+  final $Res Function(PlaylistState) _then;
 
   /// Create a copy of PlaylistState
   /// with the given fields replaced by the non-null parameter values.
@@ -542,35 +482,221 @@ class __$$PlaylistStateImplCopyWithImpl<$Res>
     Object? pipedPlaylistResp = freezed,
     Object? invidiousPlaylistResp = freezed,
   }) {
-    return _then(_$PlaylistStateImpl(
+    return _then(_self.copyWith(
       fetchStatus: null == fetchStatus
-          ? _value.fetchStatus
+          ? _self.fetchStatus
           : fetchStatus // ignore: cast_nullable_to_non_nullable
               as ApiStatus,
       moreFetchStatus: null == moreFetchStatus
-          ? _value.moreFetchStatus
+          ? _self.moreFetchStatus
           : moreFetchStatus // ignore: cast_nullable_to_non_nullable
               as ApiStatus,
       isMoreFetchCompleted: null == isMoreFetchCompleted
-          ? _value.isMoreFetchCompleted
+          ? _self.isMoreFetchCompleted
           : isMoreFetchCompleted // ignore: cast_nullable_to_non_nullable
               as bool,
       pipedPlaylistResp: freezed == pipedPlaylistResp
-          ? _value.pipedPlaylistResp
+          ? _self.pipedPlaylistResp
           : pipedPlaylistResp // ignore: cast_nullable_to_non_nullable
               as PlaylistResp?,
       invidiousPlaylistResp: freezed == invidiousPlaylistResp
-          ? _value.invidiousPlaylistResp
+          ? _self.invidiousPlaylistResp
           : invidiousPlaylistResp // ignore: cast_nullable_to_non_nullable
               as InvidiousPlaylistResp?,
     ));
   }
 }
 
+/// Adds pattern-matching-related methods to [PlaylistState].
+extension PlaylistStatePatterns on PlaylistState {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_PlaylistState value)? $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _PlaylistState() when $default != null:
+        return $default(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_PlaylistState value) $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _PlaylistState():
+        return $default(_that);
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_PlaylistState value)? $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _PlaylistState() when $default != null:
+        return $default(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            ApiStatus fetchStatus,
+            ApiStatus moreFetchStatus,
+            bool isMoreFetchCompleted,
+            PlaylistResp? pipedPlaylistResp,
+            InvidiousPlaylistResp? invidiousPlaylistResp)?
+        $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _PlaylistState() when $default != null:
+        return $default(
+            _that.fetchStatus,
+            _that.moreFetchStatus,
+            _that.isMoreFetchCompleted,
+            _that.pipedPlaylistResp,
+            _that.invidiousPlaylistResp);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            ApiStatus fetchStatus,
+            ApiStatus moreFetchStatus,
+            bool isMoreFetchCompleted,
+            PlaylistResp? pipedPlaylistResp,
+            InvidiousPlaylistResp? invidiousPlaylistResp)
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _PlaylistState():
+        return $default(
+            _that.fetchStatus,
+            _that.moreFetchStatus,
+            _that.isMoreFetchCompleted,
+            _that.pipedPlaylistResp,
+            _that.invidiousPlaylistResp);
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(
+            ApiStatus fetchStatus,
+            ApiStatus moreFetchStatus,
+            bool isMoreFetchCompleted,
+            PlaylistResp? pipedPlaylistResp,
+            InvidiousPlaylistResp? invidiousPlaylistResp)?
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _PlaylistState() when $default != null:
+        return $default(
+            _that.fetchStatus,
+            _that.moreFetchStatus,
+            _that.isMoreFetchCompleted,
+            _that.pipedPlaylistResp,
+            _that.invidiousPlaylistResp);
+      case _:
+        return null;
+    }
+  }
+}
+
 /// @nodoc
 
-class _$PlaylistStateImpl implements _PlaylistState {
-  _$PlaylistStateImpl(
+class _PlaylistState implements PlaylistState {
+  _PlaylistState(
       {required this.fetchStatus,
       required this.moreFetchStatus,
       required this.isMoreFetchCompleted,
@@ -588,16 +714,19 @@ class _$PlaylistStateImpl implements _PlaylistState {
   @override
   final InvidiousPlaylistResp? invidiousPlaylistResp;
 
+  /// Create a copy of PlaylistState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'PlaylistState(fetchStatus: $fetchStatus, moreFetchStatus: $moreFetchStatus, isMoreFetchCompleted: $isMoreFetchCompleted, pipedPlaylistResp: $pipedPlaylistResp, invidiousPlaylistResp: $invidiousPlaylistResp)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$PlaylistStateCopyWith<_PlaylistState> get copyWith =>
+      __$PlaylistStateCopyWithImpl<_PlaylistState>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PlaylistStateImpl &&
+            other is _PlaylistState &&
             (identical(other.fetchStatus, fetchStatus) ||
                 other.fetchStatus == fetchStatus) &&
             (identical(other.moreFetchStatus, moreFetchStatus) ||
@@ -614,39 +743,70 @@ class _$PlaylistStateImpl implements _PlaylistState {
   int get hashCode => Object.hash(runtimeType, fetchStatus, moreFetchStatus,
       isMoreFetchCompleted, pipedPlaylistResp, invidiousPlaylistResp);
 
+  @override
+  String toString() {
+    return 'PlaylistState(fetchStatus: $fetchStatus, moreFetchStatus: $moreFetchStatus, isMoreFetchCompleted: $isMoreFetchCompleted, pipedPlaylistResp: $pipedPlaylistResp, invidiousPlaylistResp: $invidiousPlaylistResp)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$PlaylistStateCopyWith<$Res>
+    implements $PlaylistStateCopyWith<$Res> {
+  factory _$PlaylistStateCopyWith(
+          _PlaylistState value, $Res Function(_PlaylistState) _then) =
+      __$PlaylistStateCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {ApiStatus fetchStatus,
+      ApiStatus moreFetchStatus,
+      bool isMoreFetchCompleted,
+      PlaylistResp? pipedPlaylistResp,
+      InvidiousPlaylistResp? invidiousPlaylistResp});
+}
+
+/// @nodoc
+class __$PlaylistStateCopyWithImpl<$Res>
+    implements _$PlaylistStateCopyWith<$Res> {
+  __$PlaylistStateCopyWithImpl(this._self, this._then);
+
+  final _PlaylistState _self;
+  final $Res Function(_PlaylistState) _then;
+
   /// Create a copy of PlaylistState
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$PlaylistStateImplCopyWith<_$PlaylistStateImpl> get copyWith =>
-      __$$PlaylistStateImplCopyWithImpl<_$PlaylistStateImpl>(this, _$identity);
+  $Res call({
+    Object? fetchStatus = null,
+    Object? moreFetchStatus = null,
+    Object? isMoreFetchCompleted = null,
+    Object? pipedPlaylistResp = freezed,
+    Object? invidiousPlaylistResp = freezed,
+  }) {
+    return _then(_PlaylistState(
+      fetchStatus: null == fetchStatus
+          ? _self.fetchStatus
+          : fetchStatus // ignore: cast_nullable_to_non_nullable
+              as ApiStatus,
+      moreFetchStatus: null == moreFetchStatus
+          ? _self.moreFetchStatus
+          : moreFetchStatus // ignore: cast_nullable_to_non_nullable
+              as ApiStatus,
+      isMoreFetchCompleted: null == isMoreFetchCompleted
+          ? _self.isMoreFetchCompleted
+          : isMoreFetchCompleted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      pipedPlaylistResp: freezed == pipedPlaylistResp
+          ? _self.pipedPlaylistResp
+          : pipedPlaylistResp // ignore: cast_nullable_to_non_nullable
+              as PlaylistResp?,
+      invidiousPlaylistResp: freezed == invidiousPlaylistResp
+          ? _self.invidiousPlaylistResp
+          : invidiousPlaylistResp // ignore: cast_nullable_to_non_nullable
+              as InvidiousPlaylistResp?,
+    ));
+  }
 }
 
-abstract class _PlaylistState implements PlaylistState {
-  factory _PlaylistState(
-          {required final ApiStatus fetchStatus,
-          required final ApiStatus moreFetchStatus,
-          required final bool isMoreFetchCompleted,
-          final PlaylistResp? pipedPlaylistResp,
-          final InvidiousPlaylistResp? invidiousPlaylistResp}) =
-      _$PlaylistStateImpl;
-
-  @override
-  ApiStatus get fetchStatus;
-  @override
-  ApiStatus get moreFetchStatus;
-  @override
-  bool get isMoreFetchCompleted;
-  @override
-  PlaylistResp? get pipedPlaylistResp;
-  @override
-  InvidiousPlaylistResp? get invidiousPlaylistResp;
-
-  /// Create a copy of PlaylistState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$PlaylistStateImplCopyWith<_$PlaylistStateImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on

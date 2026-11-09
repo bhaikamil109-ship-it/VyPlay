@@ -14,6 +14,7 @@ import 'package:vyplay/domain/trending/models/piped/trending_resp.dart';
 import 'package:vyplay/domain/watch/models/basic_info.dart';
 import 'package:vyplay/generated/l10n.dart';
 import 'package:go_router/go_router.dart';
+import 'widgets/groups_tile.dart';
 
 // Widget to display channel avatar from either URL or initial
 
@@ -55,6 +56,8 @@ class _ScreenSubscriptionsState extends State<ScreenSubscriptions>
       _loadSubscriptions();
     }
   }
+
+  String get _currentProfile => context.read<SettingsBloc>().state.currentProfile;
 
   void _loadSubscriptions() {
     final currentProfile = context.read<SettingsBloc>().state.currentProfile;
@@ -328,6 +331,14 @@ class _ScreenSubscriptionsState extends State<ScreenSubscriptions>
                           ),
                         ),
                       ),
+                    ),
+
+                    // Groups Section
+                    SliverToBoxAdapter(
+                      child: SubscriptionGroupsTile(profileName: _currentProfile),
+                    ),
+                    const SliverToBoxAdapter(
+                      child: kHeightBox8,
                     ),
 
                     // Tab Bar

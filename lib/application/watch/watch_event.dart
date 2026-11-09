@@ -1,7 +1,7 @@
 part of 'watch_bloc.dart';
 
 @freezed
-class WatchEvent with _$WatchEvent {
+sealed class WatchEvent with _$WatchEvent {
   factory WatchEvent.getWatchInfo({
     required String id,
   }) = GetWatchInfo;

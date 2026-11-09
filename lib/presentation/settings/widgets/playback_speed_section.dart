@@ -54,32 +54,32 @@ class PlaybackSpeedSettingsSection extends StatelessWidget {
               segments: const [
                 ButtonSegment(
                   value: 0.5,
-                  icon: Icon(Icons.speed_5, size: 18),
+                  icon: Icon(Icons.speed, size: 18),
                   label: Text('0.5x'),
                 ),
                 ButtonSegment(
                   value: 0.75,
-                  icon: Icon(Icons.speed_4, size: 18),
+                  icon: Icon(Icons.speed, size: 18),
                   label: Text('0.75x'),
                 ),
                 ButtonSegment(
                   value: 1.0,
-                  icon: Icon(Icons.speed_1x, size: 18),
+                  icon: Icon(Icons.speed, size: 18),
                   label: Text('1x'),
                 ),
                 ButtonSegment(
                   value: 1.25,
-                  icon: Icon(Icons.speed_2, size: 18),
+                  icon: Icon(Icons.speed, size: 18),
                   label: Text('1.25x'),
                 ),
                 ButtonSegment(
                   value: 1.5,
-                  icon: Icon(Icons.speed_3, size: 18),
+                  icon: Icon(Icons.speed, size: 18),
                   label: Text('1.5x'),
                 ),
                 ButtonSegment(
                   value: 2.0,
-                  icon: Icon(Icons.speed_4x, size: 18),
+                  icon: Icon(Icons.speed, size: 18),
                   label: Text('2x'),
                 ),
               ],
@@ -216,11 +216,11 @@ class PlaybackSpeedSettingsSection extends StatelessWidget {
               children: [
                 Expanded(
                   child: Slider(
-                    value: (autoplayCountdown ?? 5).toDouble(),
+                    value: (state.autoplayCountdown ?? 5).toDouble(),
                     min: 0,
                     max: 10,
                     divisions: 10,
-                    label: '${autoplayCountdown ?? 5}s',
+                    label: '${state.autoplayCountdown ?? 5}s',
                     onChanged: (value) {
                       context.read<SettingsBloc>().add(
                             SettingsEvent.setAutoplayCountdown(
@@ -232,7 +232,7 @@ class PlaybackSpeedSettingsSection extends StatelessWidget {
                 SizedBox(
                   width: 60,
                   child: Text(
-                    '${autoplayCountdown ?? 5}s',
+                    '${state.autoplayCountdown ?? 5}s',
                     style: Theme.of(context).textTheme.bodyMedium,
                     textAlign: TextAlign.end,
                   ),
@@ -245,7 +245,7 @@ class PlaybackSpeedSettingsSection extends StatelessWidget {
               child: Row(
                 children: [
                   Checkbox(
-                    value: isDisableAutoplayOnCellularEnabled ?? false,
+                    value: state.isDisableAutoplayOnCellularEnabled ?? false,
                     onChanged: (value) {
                       context.read<SettingsBloc>().add(
                             SettingsEvent.toggleDisableAutoplayOnCellular(
@@ -284,7 +284,7 @@ class PlaybackSpeedSettingsSection extends StatelessWidget {
               child: Row(
                 children: [
                   Checkbox(
-                    value: isAutoQueueEnabled ?? true,
+                    value: state.isAutoQueueEnabled ?? true,
                     onChanged: (value) {
                       context.read<SettingsBloc>().add(
                             SettingsEvent.toggleAutoQueue(
@@ -321,7 +321,7 @@ class PlaybackSpeedSettingsSection extends StatelessWidget {
               child: Row(
                 children: [
                   Checkbox(
-                    value: isBufferPreloadEnabled ?? true,
+                    value: state.isBufferPreloadEnabled ?? true,
                     onChanged: (value) {
                       context.read<SettingsBloc>().add(
                             SettingsEvent.toggleBufferPreload(
@@ -358,7 +358,7 @@ class PlaybackSpeedSettingsSection extends StatelessWidget {
               child: Row(
                 children: [
                   Checkbox(
-                    value: isAutoQualityAdjustEnabled ?? false,
+                    value: state.isAutoQualityAdjustEnabled ?? false,
                     onChanged: (value) {
                       context.read<SettingsBloc>().add(
                             SettingsEvent.toggleAutoQualityAdjust(
@@ -397,7 +397,7 @@ class PlaybackSpeedSettingsSection extends StatelessWidget {
               child: Row(
                 children: [
                   Checkbox(
-                    value: isBackgroundPlaybackEnabled ?? true,
+                    value: state.isBackgroundPlaybackEnabled ?? true,
                     onChanged: (value) {
                       context.read<SettingsBloc>().add(
                             SettingsEvent.toggleBackgroundPlayback(
@@ -434,7 +434,7 @@ class PlaybackSpeedSettingsSection extends StatelessWidget {
               child: Row(
                 children: [
                   Checkbox(
-                    value: isNotificationControlsEnabled ?? true,
+                    value: state.isNotificationControlsEnabled ?? true,
                     onChanged: (value) {
                       context.read<SettingsBloc>().add(
                             SettingsEvent.toggleNotificationControls(
@@ -471,7 +471,7 @@ class PlaybackSpeedSettingsSection extends StatelessWidget {
               child: Row(
                 children: [
                   Checkbox(
-                    value: isDataSaverEnabled ?? false,
+                    value: state.isDataSaverEnabled ?? false,
                     onChanged: (value) {
                       context.read<SettingsBloc>().add(
                             SettingsEvent.toggleDataSaver(
@@ -510,7 +510,7 @@ class PlaybackSpeedSettingsSection extends StatelessWidget {
               child: Row(
                 children: [
                   Checkbox(
-                    value: isHideWatchedVideosEnabled ?? false,
+                    value: state.isHideWatchedVideosEnabled ?? false,
                     onChanged: (value) {
                       context.read<SettingsBloc>().add(
                             SettingsEvent.toggleHideWatchedVideos(
@@ -553,11 +553,11 @@ class PlaybackSpeedSettingsSection extends StatelessWidget {
               children: [
                 Expanded(
                   child: Slider(
-                    value: (mobileDataQuality ?? 360).toDouble(),
+                    value: (state.mobileDataQuality ?? 360).toDouble(),
                     min: 0,
                     max: 1080,
                     divisions: 8,
-                    label: '${mobileDataQuality ?? 360}p',
+                    label: '${state.mobileDataQuality ?? 360}p',
                     onChanged: (value) {
                       context.read<SettingsBloc>().add(
                             SettingsEvent.setMobileDataQuality(
@@ -569,7 +569,7 @@ class PlaybackSpeedSettingsSection extends StatelessWidget {
                 SizedBox(
                   width: 60,
                   child: Text(
-                    '${mobileDataQuality ?? 360}p',
+                    '${state.mobileDataQuality ?? 360}p',
                     style: Theme.of(context).textTheme.bodyMedium,
                     textAlign: TextAlign.end,
                   ),
@@ -582,7 +582,7 @@ class PlaybackSpeedSettingsSection extends StatelessWidget {
               child: Row(
                 children: [
                   Checkbox(
-                    value: isDownloadQueueItemsEnabled ?? false,
+                    value: state.isDownloadQueueItemsEnabled ?? false,
                     onChanged: (value) {
                       context.read<SettingsBloc>().add(
                             SettingsEvent.toggleDownloadQueueItems(
@@ -619,7 +619,7 @@ class PlaybackSpeedSettingsSection extends StatelessWidget {
               child: Row(
                 children: [
                   Checkbox(
-                    value: isRichCaptionRenderingEnabled ?? false,
+                    value: state.isRichCaptionRenderingEnabled ?? false,
                     onChanged: (value) {
                       context.read<SettingsBloc>().add(
                             SettingsEvent.toggleRichCaptionRendering(
@@ -658,7 +658,7 @@ class PlaybackSpeedSettingsSection extends StatelessWidget {
               child: Row(
                 children: [
                   Checkbox(
-                    value: isBilibiliEnabled ?? false,
+                    value: state.isBilibiliEnabled ?? false,
                     onChanged: (value) {
                       context.read<SettingsBloc>().add(
                             SettingsEvent.toggleBilibiliEnabled(
@@ -701,23 +701,24 @@ class PlaybackSpeedSettingsSection extends StatelessWidget {
               children: [
                 Expanded(
                   child: Slider(
-                    value: (isSwipeLeftToRight ?? false) ? 1.0 : 0.0,
+                    value: (state.isSwipeLeftToRight ?? false) ? 1.0 : 0.0,
                     min: 0,
                     max: 1,
                     divisions: 1,
-                    label: (isSwipeLeftToRight ?? false) ? 'LTR' : 'RTL',
+                    label: (state.isSwipeLeftToRight ?? false) ? 'LTR' : 'RTL',
                     onChanged: (value) {
                       context.read<SettingsBloc>().add(
                             SettingsEvent.setSwipeDirection(
                               leftToRight: value.round() == 1,
-                        );
+                            ),
+                          );
                     },
                   ),
                 ),
                 SizedBox(
                   width: 60,
                   child: Text(
-                    (isSwipeLeftToRight ?? false) ? 'LTR' : 'RTL',
+                    (state.isSwipeLeftToRight ?? false) ? 'LTR' : 'RTL',
                     style: Theme.of(context).textTheme.bodyMedium,
                     textAlign: TextAlign.end,
                   ),

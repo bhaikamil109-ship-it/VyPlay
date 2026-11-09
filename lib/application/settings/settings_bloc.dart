@@ -6,6 +6,8 @@ import 'package:vyplay/core/strings.dart';
 import 'package:vyplay/domain/core/failure/main_failure.dart';
 import 'package:vyplay/core/settings.dart';
 import 'package:vyplay/domain/settings/models/instance.dart';
+import 'package:vyplay/domain/content_filter/content_filter_config.dart';
+import 'package:vyplay/domain/settings/models/settings_configs.dart';
 import 'package:vyplay/domain/settings/settings_service.dart';
 import 'package:vyplay/domain/sleep_timer/sleep_timer_config.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -124,6 +126,22 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
 
       // Audio focus
       final bool audioFocusEnabled = settingsMap[audioFocusEnabledKey] != "false";
+      final List<String> contentFilterKeywords =
+          (settingsMap[contentFilterKeywordsKey] ?? '')
+              .split('\n')
+              .map((k) => k.trim())
+              .where((k) => k.isNotEmpty)
+              .toList();
+      final List<String> contentFilterChannels =
+          (settingsMap[contentFilterChannelsKey] ?? '')
+              .split(',')
+              .map((c) => c.trim())
+              .where((c) => c.isNotEmpty)
+              .toList();
+      final bool contentFilterHideShorts =
+          settingsMap[contentFilterHideShortsKey] == 'true';
+      final bool contentFilterHidePaid =
+          settingsMap[contentFilterHidePaidKey] == 'true';
 
       newState = newState.copyWith(
         version: packageInfo.version,
@@ -146,6 +164,10 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
         skipInterval: skipIntervalValue,
         openLinksInBrowser: openInBrowser,
         isAudioFocusEnabled: audioFocusEnabled,
+        contentFilterKeywords: contentFilterKeywords,
+        contentFilterBlockedChannels: contentFilterChannels,
+        contentFilterHideShorts: contentFilterHideShorts,
+        contentFilterHidePaid: contentFilterHidePaid,
       );
 
       if (ytService == YouTubeServices.invidious.name) {
@@ -898,5 +920,83 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
           (MainFailure f) => state,
           (service) => state.copyWith(ytService: service)));
     });
+
+    on<BookmarksApplied>((event, emit) async {
+      final _result = await settingsService.setBookmarkedPlaylists(
+          playlists: event.selectedPlaylists);
+      emit(_result.fold((MainFailure f) => state,
+          (playlists) => state.copyWith(bookmarkedPlaylists: playlists)));
+    });
+
+    on<RestrictedModeFilterChanged>((event, emit) async {
+      final _result = await settingsService.setRestrictedModeFilterLevel(
+          level: event.level);
+      emit(_result.fold((MainFailure f) => state,
+          (level) => state.copyWith(restrictedModeFilterLevel: level)));
+    });
+
+    on<MiniPlayerAutoExpandChanged>((event, emit) async {
+      final _result = await settingsService.setMiniPlayerAutoExpand(
+          enabled: event.enabled);
+      emit(_result.fold((MainFailure f) => state,
+          (enabled) => state.copyWith(isMiniPlayerAutoExpandEnabled: enabled)));
+    });
+
+    on<MiniPlayerTapToExpandChanged>((event, emit) async {
+      final _result =
+          await settingsService.setMiniPlayerTapToExpand(enabled: event.enabled);
+      emit(_result.fold((MainFailure f) => state,
+          (enabled) => state.copyWith(isMiniPlayerTapToExpandEnabled: enabled)));
+    });
+
+    on<MiniPlayerDoubleTapToExpandChanged>((event, emit) async {
+      final _result = await settingsService.setMiniPlayerDoubleTapToExpand(
+          enabled: event.enabled);
+      emit(_result.fold(
+          (MainFailure f) => state,
+          (enabled) =>
+              state.copyWith(isMiniPlayerDoubleTapToExpandEnabled: enabled)));
+    });
+
+    on<DownloadAutoDeleteDaysChanged>((event, emit) async {
+      final _result =
+          await settingsService.setDownloadAutoDeleteDays(days: event.days);
+      emit(_result.fold((MainFailure f) => state,
+          (days) => state.copyWith(downloadAutoDeleteDays: days)));
+    });
+
+
+    // Advanced content filter
+    on<ContentFilterKeywordsChanged>((event, emit) async {
+      final _result = await settingsService.setContentFilterKeywords(
+          keywords: event.keywords);
+      emit(_result.fold(
+          (MainFailure f) => state,
+          (keywords) => state.copyWith(contentFilterKeywords: keywords)));
+    });
+
+    on<ContentFilterChannelsChanged>((event, emit) async {
+      final _result = await settingsService.setContentFilterBlockedChannels(
+          channelIds: event.channelIds);
+      emit(_result.fold(
+          (MainFailure f) => state,
+          (channels) =>
+              state.copyWith(contentFilterBlockedChannels: channels)));
+    });
+
+    on<ContentFilterHideShortsChanged>((event, emit) async {
+      final _result = await settingsService.setContentFilterHideShorts(
+          enabled: event.enabled);
+      emit(_result.fold((MainFailure f) => state,
+          (enabled) => state.copyWith(contentFilterHideShorts: enabled)));
+    });
+
+    on<ContentFilterHidePaidChanged>((event, emit) async {
+      final _result = await settingsService.setContentFilterHidePaid(
+          enabled: event.enabled);
+      emit(_result.fold((MainFailure f) => state,
+          (enabled) => state.copyWith(contentFilterHidePaid: enabled)));
+    });
+
   }
 }

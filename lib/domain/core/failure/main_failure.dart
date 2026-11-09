@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'main_failure.freezed.dart';
 
 @freezed
-class MainFailure with _$MainFailure {
+sealed class MainFailure with _$MainFailure {
   /// Network connectivity error (no internet, DNS failure, etc.)
   const factory MainFailure.networkError({String? message}) = _NetworkError;
 

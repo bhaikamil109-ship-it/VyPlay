@@ -46,6 +46,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about": MessageLookupByLibrary.simpleMessage("About"),
+    "add": MessageLookupByLibrary.simpleMessage("Add"),
     "addProfile": MessageLookupByLibrary.simpleMessage("Add Profile"),
     "addToQueue": MessageLookupByLibrary.simpleMessage("Add to queue"),
     "addVideosHint": MessageLookupByLibrary.simpleMessage(
@@ -64,18 +65,86 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "audioOnly": MessageLookupByLibrary.simpleMessage("Audio Only"),
     "audioQuality": MessageLookupByLibrary.simpleMessage("Audio Quality"),
+    "autoDeleteAfter": MessageLookupByLibrary.simpleMessage(
+      "Auto delete after",
+    ),
+    "autoDeleteDescription": MessageLookupByLibrary.simpleMessage(
+      "Automatically delete old downloads",
+    ),
+    "autoDeleteDownloads": MessageLookupByLibrary.simpleMessage("Auto Delete"),
+    "autoExpandDescription": MessageLookupByLibrary.simpleMessage(
+      "Automatically expand mini player on video end",
+    ),
+    "autoExpandMiniPlayer": MessageLookupByLibrary.simpleMessage("Auto Expand"),
     "autoPip": MessageLookupByLibrary.simpleMessage("Auto Picture-in-Picture"),
     "autoPipDescription": MessageLookupByLibrary.simpleMessage(
       "Automatically enter PiP mode when pressing home button while video is playing",
     ),
+    "autoQualityAdjust": MessageLookupByLibrary.simpleMessage(
+      "Auto Quality Adjustment",
+    ),
+    "autoQualityAdjustDescription": MessageLookupByLibrary.simpleMessage(
+      "Automatically adjust video quality based on network speed",
+    ),
+    "autoQueue": MessageLookupByLibrary.simpleMessage("Auto-Queue"),
+    "autoQueueDescription": MessageLookupByLibrary.simpleMessage(
+      "Continue playback by auto-adding related videos to queue",
+    ),
     "autoScrollOff": MessageLookupByLibrary.simpleMessage("Auto-scroll off"),
     "autoScrollOn": MessageLookupByLibrary.simpleMessage("Auto-scroll on"),
+    "autoplayCountdown": MessageLookupByLibrary.simpleMessage(
+      "Autoplay Countdown",
+    ),
+    "autoplayCountdownDescription": MessageLookupByLibrary.simpleMessage(
+      "Show a countdown before autoplaying the next video",
+    ),
+    "autoplayNextVideo": MessageLookupByLibrary.simpleMessage(
+      "Autoplay Next Video",
+    ),
+    "autoplayNextVideoDescription": MessageLookupByLibrary.simpleMessage(
+      "Automatically play the next video when current video ends",
+    ),
+    "backgroundPlayback": MessageLookupByLibrary.simpleMessage(
+      "Background Playback",
+    ),
+    "backgroundPlaybackDescription": MessageLookupByLibrary.simpleMessage(
+      "Continue audio playback when app is in background",
+    ),
     "backupRestore": MessageLookupByLibrary.simpleMessage("Backup & Restore"),
     "backupRestoreDescription": MessageLookupByLibrary.simpleMessage(
       "Export or import your subscriptions",
     ),
+    "bilibiliEnabled": MessageLookupByLibrary.simpleMessage("Bilibili"),
+    "bilibiliEnabledDescription": MessageLookupByLibrary.simpleMessage(
+      "Enable Bilibili video support and service",
+    ),
+    "blockedChannels": MessageLookupByLibrary.simpleMessage(
+      "Blocked channel IDs",
+    ),
+    "blockedChannelsHint": MessageLookupByLibrary.simpleMessage(
+      "Add a channel ID",
+    ),
+    "blockedKeywords": MessageLookupByLibrary.simpleMessage("Blocked keywords"),
+    "blockedKeywordsHint": MessageLookupByLibrary.simpleMessage(
+      "Add a keyword or /regex/",
+    ),
+    "bookmarkedPlaylists": MessageLookupByLibrary.simpleMessage(
+      "Bookmarked Playlists",
+    ),
+    "bookmarks": MessageLookupByLibrary.simpleMessage("Playlist Bookmarks"),
+    "bookmarksDescription": MessageLookupByLibrary.simpleMessage(
+      "Bookmark your favorite playlists for quick access",
+    ),
+    "bookmarksEnabled": MessageLookupByLibrary.simpleMessage(
+      "Bookmarks Enabled",
+    ),
+    "bufferPreload": MessageLookupByLibrary.simpleMessage("Buffer Preloading"),
+    "bufferPreloadDescription": MessageLookupByLibrary.simpleMessage(
+      "Preload buffer for the next video",
+    ),
     "canada": MessageLookupByLibrary.simpleMessage("Canada"),
     "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+    "cancelTimer": MessageLookupByLibrary.simpleMessage("Cancel Timer"),
     "cancelled": MessageLookupByLibrary.simpleMessage("Cancelled"),
     "cannotDeleteDefault": MessageLookupByLibrary.simpleMessage(
       "Cannot delete default profile",
@@ -107,25 +176,60 @@ class MessageLookup extends MessageLookupByLibrary {
       "Are you sure you want to remove all saved videos?",
     ),
     "clearLogs": MessageLookupByLibrary.simpleMessage("Clear logs"),
+    "clearSleepTimer": MessageLookupByLibrary.simpleMessage(
+      "Clear Sleep Timer",
+    ),
     "commentAuthorNotFound": MessageLookupByLibrary.simpleMessage("Not found"),
     "commentsDisabled": MessageLookupByLibrary.simpleMessage(
       "Comments are disabled",
     ),
     "commonSettingsTitle": MessageLookupByLibrary.simpleMessage("Common"),
     "completed": MessageLookupByLibrary.simpleMessage("Completed"),
+    "contentFilterAdvanced": MessageLookupByLibrary.simpleMessage(
+      "Advanced content filter",
+    ),
+    "contentFilterAdvancedDescription": MessageLookupByLibrary.simpleMessage(
+      "Hide videos by keyword, channel or type. Keywords wrapped in slashes are treated as regular expressions.",
+    ),
     "copiedToClipboard": MessageLookupByLibrary.simpleMessage(
       "Copied to clipboard",
     ),
     "copyLink": MessageLookupByLibrary.simpleMessage("Copy link"),
+    "create": MessageLookupByLibrary.simpleMessage("Create"),
     "createAction": MessageLookupByLibrary.simpleMessage("Create"),
+    "createFirstGroup": MessageLookupByLibrary.simpleMessage(
+      "Create your first subscription group to organize channels",
+    ),
+    "customTimer": MessageLookupByLibrary.simpleMessage("Custom Timer"),
+    "customTimerDescription": MessageLookupByLibrary.simpleMessage(
+      "Set a custom duration for the timer",
+    ),
+    "dataSaver": MessageLookupByLibrary.simpleMessage("Data Saver Mode"),
+    "dataSaverDescription": MessageLookupByLibrary.simpleMessage(
+      "Reduce data usage while streaming videos",
+    ),
     "dateAdded": MessageLookupByLibrary.simpleMessage("Date added"),
+    "dearrow": MessageLookupByLibrary.simpleMessage("DeArrow"),
+    "dearrowDescription": MessageLookupByLibrary.simpleMessage(
+      "Get better titles and thumbnails without clickbait",
+    ),
+    "dearrowInfo": MessageLookupByLibrary.simpleMessage(
+      "DeArrow provides cleaner titles and thumbnails. Works best when enabled.",
+    ),
     "debugConsole": MessageLookupByLibrary.simpleMessage("Debug Console"),
+    "defaultPlaybackSpeed": MessageLookupByLibrary.simpleMessage(
+      "Default Speed",
+    ),
     "defaultProfile": MessageLookupByLibrary.simpleMessage("Default"),
     "defaultQuality": MessageLookupByLibrary.simpleMessage("Default Quality"),
     "delete": MessageLookupByLibrary.simpleMessage("Delete"),
     "deleteDownload": MessageLookupByLibrary.simpleMessage("Delete Download"),
     "deleteDownloadConfirm": MessageLookupByLibrary.simpleMessage(
       "Are you sure you want to delete this download?",
+    ),
+    "deleteGroup": MessageLookupByLibrary.simpleMessage("Delete Group"),
+    "deleteGroupConfirm": MessageLookupByLibrary.simpleMessage(
+      "Are you sure you want to delete this group? Channels will not be deleted.",
     ),
     "deletePlaylistAction": MessageLookupByLibrary.simpleMessage(
       "Delete playlist",
@@ -140,6 +244,13 @@ class MessageLookup extends MessageLookupByLibrary {
       "Are you sure you want to remove this video?",
     ),
     "developer": MessageLookupByLibrary.simpleMessage("Developer"),
+    "disableAutoplayOnCellular": MessageLookupByLibrary.simpleMessage(
+      "Disable Autoplay on Cellular",
+    ),
+    "disableAutoplayOnCellularDescription":
+        MessageLookupByLibrary.simpleMessage(
+          "Don\'t autoplay videos when using mobile data",
+        ),
     "disablePipPlayer": MessageLookupByLibrary.simpleMessage(
       "Disable PIP player",
     ),
@@ -148,9 +259,46 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "dislike": MessageLookupByLibrary.simpleMessage("Dislike"),
     "distractionFree": MessageLookupByLibrary.simpleMessage("Distraction Free"),
+    "doubleTapToExpandDescription": MessageLookupByLibrary.simpleMessage(
+      "Double tap mini player to expand",
+    ),
+    "doubleTapToExpandMiniPlayer": MessageLookupByLibrary.simpleMessage(
+      "Double Tap to Expand",
+    ),
     "download": MessageLookupByLibrary.simpleMessage("Download"),
+    "downloadAutoDelete": MessageLookupByLibrary.simpleMessage(
+      "Auto Delete After Watch",
+    ),
+    "downloadAutoDeleteDescription": MessageLookupByLibrary.simpleMessage(
+      "Automatically delete downloaded videos after watching",
+    ),
     "downloadFailed": m4,
+    "downloadOverWifiOnly": MessageLookupByLibrary.simpleMessage(
+      "Download Over Wi-Fi Only",
+    ),
+    "downloadOverWifiOnlyDescription": MessageLookupByLibrary.simpleMessage(
+      "Only download when connected to Wi-Fi",
+    ),
+    "downloadPreferences": MessageLookupByLibrary.simpleMessage(
+      "Download Preferences",
+    ),
+    "downloadPreferencesDescription": MessageLookupByLibrary.simpleMessage(
+      "Configure download preferences",
+    ),
+    "downloadQuality": MessageLookupByLibrary.simpleMessage("Download Quality"),
+    "downloadQueueItems": MessageLookupByLibrary.simpleMessage(
+      "Download Queue Items",
+    ),
+    "downloadQueueItemsDescription": MessageLookupByLibrary.simpleMessage(
+      "Download videos that are added to the queue",
+    ),
     "downloadStarted": MessageLookupByLibrary.simpleMessage("Download started"),
+    "downloadSubtitles": MessageLookupByLibrary.simpleMessage(
+      "Download Subtitles",
+    ),
+    "downloadSubtitlesDescription": MessageLookupByLibrary.simpleMessage(
+      "Automatically download subtitles with videos",
+    ),
     "downloadType": MessageLookupByLibrary.simpleMessage("Download Type"),
     "downloading": MessageLookupByLibrary.simpleMessage("Downloading"),
     "downloadingAudio": MessageLookupByLibrary.simpleMessage(
@@ -164,6 +312,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "enableHlsPlayerDescription": MessageLookupByLibrary.simpleMessage(
       "Enable HLS player to unlock all quality options. Disable if errors occur.",
     ),
+    "enableSwipeGestures": MessageLookupByLibrary.simpleMessage(
+      "Enable Swipe Gestures",
+    ),
     "exportData": MessageLookupByLibrary.simpleMessage("Export Data"),
     "exportSubscriptions": MessageLookupByLibrary.simpleMessage(
       "Export Subscriptions",
@@ -176,17 +327,51 @@ class MessageLookup extends MessageLookupByLibrary {
     "fileNotFound": MessageLookupByLibrary.simpleMessage("File not found"),
     "filterAll": MessageLookupByLibrary.simpleMessage("All"),
     "filterChannels": MessageLookupByLibrary.simpleMessage("Channels"),
+    "filterLevel": MessageLookupByLibrary.simpleMessage("Filter Level"),
     "filterMusic": MessageLookupByLibrary.simpleMessage("Music"),
     "filterPlaylists": MessageLookupByLibrary.simpleMessage("Playlists"),
+    "filterStandardDescription": MessageLookupByLibrary.simpleMessage(
+      "Standard filtering - blocks most inappropriate content",
+    ),
+    "filterStrictDescription": MessageLookupByLibrary.simpleMessage(
+      "Strict filtering - blocks all potentially inappropriate content",
+    ),
     "filterVideos": MessageLookupByLibrary.simpleMessage("Videos"),
     "france": MessageLookupByLibrary.simpleMessage("France"),
+    "gestureControls": MessageLookupByLibrary.simpleMessage("Gesture Controls"),
+    "gestureControlsDescription": MessageLookupByLibrary.simpleMessage(
+      "Swipe gestures for video playback",
+    ),
+    "groupChannelCount": MessageLookupByLibrary.simpleMessage("0 channels"),
+    "groupCreated": MessageLookupByLibrary.simpleMessage(
+      "Group created successfully",
+    ),
+    "groupDeleted": MessageLookupByLibrary.simpleMessage("Group deleted"),
+    "groupNameHint": MessageLookupByLibrary.simpleMessage("Enter group name"),
+    "groupRenamed": MessageLookupByLibrary.simpleMessage("Group renamed"),
     "hideComments": MessageLookupByLibrary.simpleMessage("Hide Comments"),
     "hideCommentsButtonFromWatchScreen": MessageLookupByLibrary.simpleMessage(
       "Hide comments button from watch screen.",
     ),
+    "hidePaidPromotions": MessageLookupByLibrary.simpleMessage(
+      "Hide paid promotions",
+    ),
+    "hidePaidPromotionsDescription": MessageLookupByLibrary.simpleMessage(
+      "Hide paid, membership-only and promoted videos.",
+    ),
     "hideRelated": MessageLookupByLibrary.simpleMessage("Hide Related"),
     "hideRelatedVideosFromWatchScreen": MessageLookupByLibrary.simpleMessage(
       "Hide related videos from watch screen",
+    ),
+    "hideShorts": MessageLookupByLibrary.simpleMessage("Hide Shorts"),
+    "hideShortsDescription": MessageLookupByLibrary.simpleMessage(
+      "Hide YouTube Shorts entries from feeds.",
+    ),
+    "hideWatchedVideos": MessageLookupByLibrary.simpleMessage(
+      "Hide Watched Videos",
+    ),
+    "hideWatchedVideosDescription": MessageLookupByLibrary.simpleMessage(
+      "Don\'t show already watched videos in feeds",
     ),
     "history": MessageLookupByLibrary.simpleMessage("History"),
     "hlsPlayer": MessageLookupByLibrary.simpleMessage("Hls Player"),
@@ -215,19 +400,64 @@ class MessageLookup extends MessageLookupByLibrary {
       "Import Subscriptions",
     ),
     "importSuccess": MessageLookupByLibrary.simpleMessage("Import successful"),
+    "includeSubtitles": MessageLookupByLibrary.simpleMessage(
+      "Include Subtitles",
+    ),
+    "includeSubtitlesDescription": MessageLookupByLibrary.simpleMessage(
+      "Include subtitles in downloaded videos",
+    ),
     "includeTitle": MessageLookupByLibrary.simpleMessage("Include title"),
     "india": MessageLookupByLibrary.simpleMessage("India"),
     "instances": MessageLookupByLibrary.simpleMessage("Instances"),
     "interaction": MessageLookupByLibrary.simpleMessage("Interaction"),
     "intro": MessageLookupByLibrary.simpleMessage("Intro"),
+    "isBookmarksEnabled": MessageLookupByLibrary.simpleMessage(
+      "Is Bookmarks Enabled",
+    ),
+    "isDeArrowEnabled": MessageLookupByLibrary.simpleMessage(
+      "Is DeArrow Enabled",
+    ),
+    "isDownloadAutoDeleteEnabled": MessageLookupByLibrary.simpleMessage(
+      "Is Download Auto Delete Enabled",
+    ),
+    "isDownloadOverWifiOnlyEnabled": MessageLookupByLibrary.simpleMessage(
+      "Is Download Over Wi-Fi Only Enabled",
+    ),
+    "isDownloadSubtitlesEnabled": MessageLookupByLibrary.simpleMessage(
+      "Is Download Subtitles Enabled",
+    ),
+    "isMiniPlayerEnabled": MessageLookupByLibrary.simpleMessage(
+      "Is Mini Player Enabled",
+    ),
+    "isRestrictedModeEnabled": MessageLookupByLibrary.simpleMessage(
+      "Is Restricted Mode Enabled",
+    ),
+    "isSwipeGesturesEnabled": MessageLookupByLibrary.simpleMessage(
+      "Is Swipe Gestures Enabled",
+    ),
     "language": MessageLookupByLibrary.simpleMessage("Language"),
     "library": MessageLookupByLibrary.simpleMessage("Library"),
     "like": MessageLookupByLibrary.simpleMessage("Like"),
     "localPlaylists": MessageLookupByLibrary.simpleMessage("Playlists"),
     "logsLabel": MessageLookupByLibrary.simpleMessage("Logs"),
+    "managePlaylists": MessageLookupByLibrary.simpleMessage("Manage Playlists"),
     "merging": MessageLookupByLibrary.simpleMessage("Merging"),
+    "miniPlayer": MessageLookupByLibrary.simpleMessage("Mini Player"),
+    "miniPlayerDescription": MessageLookupByLibrary.simpleMessage(
+      "Play videos in a small floating window",
+    ),
+    "miniPlayerEnabled": MessageLookupByLibrary.simpleMessage(
+      "Mini Player Enabled",
+    ),
+    "mobileDataQuality": MessageLookupByLibrary.simpleMessage(
+      "Mobile Data Quality",
+    ),
+    "mobileDataQualityDescription": MessageLookupByLibrary.simpleMessage(
+      "Video quality for mobile data connections",
+    ),
     "musicOfftopic": MessageLookupByLibrary.simpleMessage("Music: Non-Music"),
     "netherlands": MessageLookupByLibrary.simpleMessage("Netherlands"),
+    "newGroup": MessageLookupByLibrary.simpleMessage("New Group"),
     "newNameHint": MessageLookupByLibrary.simpleMessage("New name"),
     "newPlaylist": MessageLookupByLibrary.simpleMessage("New Playlist"),
     "newPlaylistShort": MessageLookupByLibrary.simpleMessage("+ New"),
@@ -245,10 +475,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "noDownloadsHint": MessageLookupByLibrary.simpleMessage(
       "Downloaded videos will appear here",
     ),
+    "noGroupsYet": MessageLookupByLibrary.simpleMessage("No groups yet"),
     "noHistory": MessageLookupByLibrary.simpleMessage("No watch history"),
     "noLogs": MessageLookupByLibrary.simpleMessage("No logs yet"),
     "noPlaylists": MessageLookupByLibrary.simpleMessage(
       "No playlists available",
+    ),
+    "noPlaylistsSelected": MessageLookupByLibrary.simpleMessage(
+      "No playlists selected",
     ),
     "noPlaylistsYet": MessageLookupByLibrary.simpleMessage(
       "No playlists yet.\nTap + to create one.",
@@ -276,6 +510,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "noVideoTitle": MessageLookupByLibrary.simpleMessage("No title"),
     "noVideosFound": MessageLookupByLibrary.simpleMessage("No videos found"),
     "noVideosInPlaylist": MessageLookupByLibrary.simpleMessage("No videos yet"),
+    "notificationControls": MessageLookupByLibrary.simpleMessage(
+      "Notification Controls",
+    ),
+    "notificationControlsDescription": MessageLookupByLibrary.simpleMessage(
+      "Show media playback controls in notification",
+    ),
     "notificationsDenied": MessageLookupByLibrary.simpleMessage(
       "Notification permission was denied",
     ),
@@ -283,19 +523,33 @@ class MessageLookup extends MessageLookupByLibrary {
     "openLinksExternally": MessageLookupByLibrary.simpleMessage(
       "Open links in external browser",
     ),
+    "organizeSubscriptions": MessageLookupByLibrary.simpleMessage(
+      "Organize your subscriptions into groups",
+    ),
     "outro": MessageLookupByLibrary.simpleMessage("Outro"),
     "pause": MessageLookupByLibrary.simpleMessage("Pause"),
     "pauseOnCall": MessageLookupByLibrary.simpleMessage("Pause on Phone Call"),
     "pauseOnHeadphones": MessageLookupByLibrary.simpleMessage(
       "Pause on Headphone Disconnect",
     ),
+    "pauseTimer": MessageLookupByLibrary.simpleMessage("Pause Timer"),
     "paused": MessageLookupByLibrary.simpleMessage("Paused"),
     "pending": MessageLookupByLibrary.simpleMessage("Pending"),
     "pinned": MessageLookupByLibrary.simpleMessage("Pinned"),
     "platformLabel": MessageLookupByLibrary.simpleMessage("Platform"),
     "playAll": MessageLookupByLibrary.simpleMessage("Play all"),
     "playNext": MessageLookupByLibrary.simpleMessage("Play next"),
+    "playbackSpeed": MessageLookupByLibrary.simpleMessage("Playback Speed"),
+    "playbackSpeedDescription": MessageLookupByLibrary.simpleMessage(
+      "Set default playback speed for videos",
+    ),
     "playlist": MessageLookupByLibrary.simpleMessage("Playlist"),
+    "playlistBookmarks": MessageLookupByLibrary.simpleMessage(
+      "Playlist Bookmarks",
+    ),
+    "playlistBookmarksDescription": MessageLookupByLibrary.simpleMessage(
+      "Automatically bookmark playlists you subscribe to.",
+    ),
     "playlistNameHint": MessageLookupByLibrary.simpleMessage("Playlist name"),
     "playlistNotFound": MessageLookupByLibrary.simpleMessage(
       "Playlist not found",
@@ -315,9 +569,19 @@ class MessageLookup extends MessageLookupByLibrary {
     "quality480p": MessageLookupByLibrary.simpleMessage("480p"),
     "quality720p": MessageLookupByLibrary.simpleMessage("720p"),
     "queue": MessageLookupByLibrary.simpleMessage("Queue"),
+    "queueAutoDismiss": MessageLookupByLibrary.simpleMessage(
+      "Auto Dismiss Queue",
+    ),
+    "queueAutoDismissDescription": MessageLookupByLibrary.simpleMessage(
+      "Automatically hide queue after a set time",
+    ),
     "queueClear": MessageLookupByLibrary.simpleMessage("Clear"),
+    "queueDismissTimeout": MessageLookupByLibrary.simpleMessage(
+      "Queue Dismiss Timeout",
+    ),
     "queueEmpty": MessageLookupByLibrary.simpleMessage("Queue is empty"),
     "queueShuffle": MessageLookupByLibrary.simpleMessage("Shuffle"),
+    "quickOptions": MessageLookupByLibrary.simpleMessage("Quick Options"),
     "readMoreText": MessageLookupByLibrary.simpleMessage("Read more"),
     "recentSearches": MessageLookupByLibrary.simpleMessage("Recent searches"),
     "refresh": MessageLookupByLibrary.simpleMessage("Refresh"),
@@ -336,6 +600,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Remove from saved",
     ),
     "renameAction": MessageLookupByLibrary.simpleMessage("Rename"),
+    "renameGroup": MessageLookupByLibrary.simpleMessage("Rename Group"),
     "renamePlaylistTitle": MessageLookupByLibrary.simpleMessage(
       "Rename Playlist",
     ),
@@ -347,7 +612,15 @@ class MessageLookup extends MessageLookupByLibrary {
       "Replies are not available yet",
     ),
     "repliesPlural": m5,
+    "restrictedMode": MessageLookupByLibrary.simpleMessage("Restricted Mode"),
+    "restrictedModeDescription": MessageLookupByLibrary.simpleMessage(
+      "Filter out potentially mature content",
+    ),
+    "restrictedModeEnabled": MessageLookupByLibrary.simpleMessage(
+      "Restricted Mode Enabled",
+    ),
     "resume": MessageLookupByLibrary.simpleMessage("Resume"),
+    "resumeTimer": MessageLookupByLibrary.simpleMessage("Resume Timer"),
     "retrieveDislikeCounts": MessageLookupByLibrary.simpleMessage(
       "Retrieve dislike counts",
     ),
@@ -355,6 +628,13 @@ class MessageLookup extends MessageLookupByLibrary {
       "Retrieve Dislikes",
     ),
     "retry": MessageLookupByLibrary.simpleMessage("Retry"),
+    "richCaptionRendering": MessageLookupByLibrary.simpleMessage(
+      "Rich Caption Rendering",
+    ),
+    "richCaptionRenderingDescription": MessageLookupByLibrary.simpleMessage(
+      "Render captions with styling and formatting",
+    ),
+    "save": MessageLookupByLibrary.simpleMessage("Save"),
     "saveToDevice": MessageLookupByLibrary.simpleMessage("Save to Device"),
     "saveToDeviceFailed": MessageLookupByLibrary.simpleMessage(
       "Failed to save to device",
@@ -387,19 +667,36 @@ class MessageLookup extends MessageLookupByLibrary {
     "seconds": MessageLookupByLibrary.simpleMessage("seconds"),
     "selectAll": MessageLookupByLibrary.simpleMessage("Select all"),
     "selectFile": MessageLookupByLibrary.simpleMessage("Select File"),
+    "selectPlaylists": MessageLookupByLibrary.simpleMessage("Select Playlists"),
     "selectVideos": MessageLookupByLibrary.simpleMessage("Select videos"),
     "selected": MessageLookupByLibrary.simpleMessage("selected"),
+    "selectedPlaylists": MessageLookupByLibrary.simpleMessage(
+      "Selected Playlists",
+    ),
     "selfPromotion": MessageLookupByLibrary.simpleMessage("Self Promotion"),
+    "service": MessageLookupByLibrary.simpleMessage("Service"),
+    "serviceDescription": MessageLookupByLibrary.simpleMessage(
+      "Choose your video service provider",
+    ),
     "serviceExplode": MessageLookupByLibrary.simpleMessage("Explode"),
     "serviceInvidious": MessageLookupByLibrary.simpleMessage("Invidious"),
     "serviceNewPipe": MessageLookupByLibrary.simpleMessage("NewPipe Extractor"),
     "servicePiped": MessageLookupByLibrary.simpleMessage("Piped"),
+    "setDownloadQuality": MessageLookupByLibrary.simpleMessage(
+      "Set Download Quality",
+    ),
     "settings": MessageLookupByLibrary.simpleMessage("Settings"),
     "share": MessageLookupByLibrary.simpleMessage("Share"),
     "shareLogs": MessageLookupByLibrary.simpleMessage("Share logs"),
     "shareVia": MessageLookupByLibrary.simpleMessage("Share via"),
     "shorts": MessageLookupByLibrary.simpleMessage("Shorts"),
     "showLessText": MessageLookupByLibrary.simpleMessage("Show less"),
+    "showRelatedInQueue": MessageLookupByLibrary.simpleMessage(
+      "Show Related Videos in Queue",
+    ),
+    "showRelatedInQueueDescription": MessageLookupByLibrary.simpleMessage(
+      "Automatically add related videos to the playlist queue",
+    ),
     "showSearchHistory": MessageLookupByLibrary.simpleMessage(
       "Show Search History",
     ),
@@ -411,9 +708,15 @@ class MessageLookup extends MessageLookupByLibrary {
       "Double-tap skip duration in seconds",
     ),
     "sleepTimer": MessageLookupByLibrary.simpleMessage("Sleep timer"),
+    "sleepTimerCancelled": MessageLookupByLibrary.simpleMessage(
+      "Sleep timer cancelled",
+    ),
     "sleepTimerCustom": MessageLookupByLibrary.simpleMessage("Custom"),
     "sleepTimerCustomTitle": MessageLookupByLibrary.simpleMessage(
       "Custom timer",
+    ),
+    "sleepTimerDescription": MessageLookupByLibrary.simpleMessage(
+      "Pause playback after a set duration",
     ),
     "sleepTimerEndOfVideo": MessageLookupByLibrary.simpleMessage(
       "End of video",
@@ -443,6 +746,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Start saving videos to watch later",
     ),
     "subscribe": MessageLookupByLibrary.simpleMessage("Subscribe"),
+    "subscriptionGroups": MessageLookupByLibrary.simpleMessage(
+      "Subscription Groups",
+    ),
     "subscriptions": MessageLookupByLibrary.simpleMessage("Subscriptions"),
     "subtitleSize": MessageLookupByLibrary.simpleMessage("Subtitle Size"),
     "subtitleSizeDescription": MessageLookupByLibrary.simpleMessage(
@@ -454,8 +760,26 @@ class MessageLookup extends MessageLookupByLibrary {
     "subtitleSizeLarge": MessageLookupByLibrary.simpleMessage("Large"),
     "subtitleSizeMedium": MessageLookupByLibrary.simpleMessage("Medium"),
     "subtitleSizeSmall": MessageLookupByLibrary.simpleMessage("Small"),
+    "swipeDirection": MessageLookupByLibrary.simpleMessage("Swipe Direction"),
+    "swipeDirectionDescription": MessageLookupByLibrary.simpleMessage(
+      "Content swipe direction (left-to-right or right-to-left)",
+    ),
     "swipeDownToDismissDisabled": MessageLookupByLibrary.simpleMessage(
       "\'Swipe down to dismiss\' disabled",
+    ),
+    "swipeForBrightness": MessageLookupByLibrary.simpleMessage(
+      "Swipe for Brightness",
+    ),
+    "swipeForBrightnessDescription": MessageLookupByLibrary.simpleMessage(
+      "Swipe up/down on left side to adjust brightness",
+    ),
+    "swipeForVolume": MessageLookupByLibrary.simpleMessage("Swipe for Volume"),
+    "swipeForVolumeDescription": MessageLookupByLibrary.simpleMessage(
+      "Swipe up/down on right side to adjust volume",
+    ),
+    "swipeToSeek": MessageLookupByLibrary.simpleMessage("Swipe to Seek"),
+    "swipeToSeekDescription": MessageLookupByLibrary.simpleMessage(
+      "Swipe left/right on video to seek forward/backward",
     ),
     "swipeUpToDismissEnabled": MessageLookupByLibrary.simpleMessage(
       "\'Swipe up to dismiss\' enabled",
@@ -463,6 +787,18 @@ class MessageLookup extends MessageLookupByLibrary {
     "switchProfile": MessageLookupByLibrary.simpleMessage("Switch Profile"),
     "switchRegion": MessageLookupByLibrary.simpleMessage(
       "Please consider switching to a different region for better results.",
+    ),
+    "switchToBilibili": MessageLookupByLibrary.simpleMessage(
+      "Switch to Bilibili",
+    ),
+    "switchToBilibiliDescription": MessageLookupByLibrary.simpleMessage(
+      "Change service from YouTube to Bilibili",
+    ),
+    "tapToExpandDescription": MessageLookupByLibrary.simpleMessage(
+      "Tap mini player to expand to full screen",
+    ),
+    "tapToExpandMiniPlayer": MessageLookupByLibrary.simpleMessage(
+      "Tap to Expand",
     ),
     "theme": MessageLookupByLibrary.simpleMessage("Theme"),
     "themeDark": MessageLookupByLibrary.simpleMessage("Dark"),
@@ -476,7 +812,36 @@ class MessageLookup extends MessageLookupByLibrary {
     "thereIsNoSavedVideos": MessageLookupByLibrary.simpleMessage(
       "There are no saved videos",
     ),
+    "timerAlreadyFinished": MessageLookupByLibrary.simpleMessage(
+      "Playback will not be affected",
+    ),
+    "timerFinished": MessageLookupByLibrary.simpleMessage("Timer finished"),
+    "timerPaused": MessageLookupByLibrary.simpleMessage("Timer is paused"),
+    "timerRunning": MessageLookupByLibrary.simpleMessage("Timer is running"),
     "title": MessageLookupByLibrary.simpleMessage("Title"),
+    "toggleBookmarkPlaylist": MessageLookupByLibrary.simpleMessage(
+      "Toggle Bookmark Playlist",
+    ),
+    "toggleBookmarks": MessageLookupByLibrary.simpleMessage("Toggle Bookmarks"),
+    "toggleDeArrow": MessageLookupByLibrary.simpleMessage("Toggle DeArrow"),
+    "toggleDownloadAutoDelete": MessageLookupByLibrary.simpleMessage(
+      "Toggle Download Auto Delete",
+    ),
+    "toggleDownloadOverWifiOnly": MessageLookupByLibrary.simpleMessage(
+      "Toggle Download Over Wi-Fi Only",
+    ),
+    "toggleDownloadSubtitles": MessageLookupByLibrary.simpleMessage(
+      "Toggle Download Subtitles",
+    ),
+    "toggleMiniPlayer": MessageLookupByLibrary.simpleMessage(
+      "Toggle Mini Player",
+    ),
+    "toggleRestrictedMode": MessageLookupByLibrary.simpleMessage(
+      "Toggle Restricted Mode",
+    ),
+    "toggleSwipeGestures": MessageLookupByLibrary.simpleMessage(
+      "Toggle Swipe Gestures",
+    ),
     "translators": MessageLookupByLibrary.simpleMessage("Translators"),
     "trending": MessageLookupByLibrary.simpleMessage("Trending"),
     "unitedKingdom": MessageLookupByLibrary.simpleMessage("United Kingdom"),
@@ -509,6 +874,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "watchSomeVideos": MessageLookupByLibrary.simpleMessage(
       "Videos you watch will appear here",
     ),
+    "youtube": MessageLookupByLibrary.simpleMessage("YouTube"),
     "youtubeService": MessageLookupByLibrary.simpleMessage("YouTube Service"),
   };
 }

@@ -1446,6 +1446,584 @@ class SubscriptionsCompanion extends UpdateCompanion<Subscription> {
   }
 }
 
+class $SubscriptionGroupsTable extends SubscriptionGroups
+    with TableInfo<$SubscriptionGroupsTable, SubscriptionGroup> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $SubscriptionGroupsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+      'id', aliasedName, false,
+      hasAutoIncrement: true,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultConstraints:
+          GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
+  static const VerificationMeta _groupNameMeta =
+      const VerificationMeta('groupName');
+  @override
+  late final GeneratedColumn<String> groupName = GeneratedColumn<String>(
+      'group_name', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _profileNameMeta =
+      const VerificationMeta('profileName');
+  @override
+  late final GeneratedColumn<String> profileName = GeneratedColumn<String>(
+      'profile_name', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _colorHexMeta =
+      const VerificationMeta('colorHex');
+  @override
+  late final GeneratedColumn<String> colorHex = GeneratedColumn<String>(
+      'color_hex', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _sortOrderMeta =
+      const VerificationMeta('sortOrder');
+  @override
+  late final GeneratedColumn<int> sortOrder = GeneratedColumn<int>(
+      'sort_order', aliasedName, false,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultValue: const Constant(0));
+  @override
+  List<GeneratedColumn> get $columns =>
+      [id, groupName, profileName, colorHex, sortOrder];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'subscription_groups';
+  @override
+  VerificationContext validateIntegrity(Insertable<SubscriptionGroup> instance,
+      {bool isInserting = false}) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('group_name')) {
+      context.handle(_groupNameMeta,
+          groupName.isAcceptableOrUnknown(data['group_name']!, _groupNameMeta));
+    } else if (isInserting) {
+      context.missing(_groupNameMeta);
+    }
+    if (data.containsKey('profile_name')) {
+      context.handle(
+          _profileNameMeta,
+          profileName.isAcceptableOrUnknown(
+              data['profile_name']!, _profileNameMeta));
+    } else if (isInserting) {
+      context.missing(_profileNameMeta);
+    }
+    if (data.containsKey('color_hex')) {
+      context.handle(_colorHexMeta,
+          colorHex.isAcceptableOrUnknown(data['color_hex']!, _colorHexMeta));
+    }
+    if (data.containsKey('sort_order')) {
+      context.handle(_sortOrderMeta,
+          sortOrder.isAcceptableOrUnknown(data['sort_order']!, _sortOrderMeta));
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  List<Set<GeneratedColumn>> get uniqueKeys => [
+        {groupName, profileName},
+      ];
+  @override
+  SubscriptionGroup map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return SubscriptionGroup(
+      id: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
+      groupName: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}group_name'])!,
+      profileName: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}profile_name'])!,
+      colorHex: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}color_hex']),
+      sortOrder: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}sort_order'])!,
+    );
+  }
+
+  @override
+  $SubscriptionGroupsTable createAlias(String alias) {
+    return $SubscriptionGroupsTable(attachedDatabase, alias);
+  }
+}
+
+class SubscriptionGroup extends DataClass
+    implements Insertable<SubscriptionGroup> {
+  final int id;
+  final String groupName;
+  final String profileName;
+  final String? colorHex;
+  final int sortOrder;
+  const SubscriptionGroup(
+      {required this.id,
+      required this.groupName,
+      required this.profileName,
+      this.colorHex,
+      required this.sortOrder});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['group_name'] = Variable<String>(groupName);
+    map['profile_name'] = Variable<String>(profileName);
+    if (!nullToAbsent || colorHex != null) {
+      map['color_hex'] = Variable<String>(colorHex);
+    }
+    map['sort_order'] = Variable<int>(sortOrder);
+    return map;
+  }
+
+  SubscriptionGroupsCompanion toCompanion(bool nullToAbsent) {
+    return SubscriptionGroupsCompanion(
+      id: Value(id),
+      groupName: Value(groupName),
+      profileName: Value(profileName),
+      colorHex: colorHex == null && nullToAbsent
+          ? const Value.absent()
+          : Value(colorHex),
+      sortOrder: Value(sortOrder),
+    );
+  }
+
+  factory SubscriptionGroup.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return SubscriptionGroup(
+      id: serializer.fromJson<int>(json['id']),
+      groupName: serializer.fromJson<String>(json['groupName']),
+      profileName: serializer.fromJson<String>(json['profileName']),
+      colorHex: serializer.fromJson<String?>(json['colorHex']),
+      sortOrder: serializer.fromJson<int>(json['sortOrder']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'groupName': serializer.toJson<String>(groupName),
+      'profileName': serializer.toJson<String>(profileName),
+      'colorHex': serializer.toJson<String?>(colorHex),
+      'sortOrder': serializer.toJson<int>(sortOrder),
+    };
+  }
+
+  SubscriptionGroup copyWith(
+          {int? id,
+          String? groupName,
+          String? profileName,
+          Value<String?> colorHex = const Value.absent(),
+          int? sortOrder}) =>
+      SubscriptionGroup(
+        id: id ?? this.id,
+        groupName: groupName ?? this.groupName,
+        profileName: profileName ?? this.profileName,
+        colorHex: colorHex.present ? colorHex.value : this.colorHex,
+        sortOrder: sortOrder ?? this.sortOrder,
+      );
+  SubscriptionGroup copyWithCompanion(SubscriptionGroupsCompanion data) {
+    return SubscriptionGroup(
+      id: data.id.present ? data.id.value : this.id,
+      groupName: data.groupName.present ? data.groupName.value : this.groupName,
+      profileName:
+          data.profileName.present ? data.profileName.value : this.profileName,
+      colorHex: data.colorHex.present ? data.colorHex.value : this.colorHex,
+      sortOrder: data.sortOrder.present ? data.sortOrder.value : this.sortOrder,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('SubscriptionGroup(')
+          ..write('id: $id, ')
+          ..write('groupName: $groupName, ')
+          ..write('profileName: $profileName, ')
+          ..write('colorHex: $colorHex, ')
+          ..write('sortOrder: $sortOrder')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(id, groupName, profileName, colorHex, sortOrder);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is SubscriptionGroup &&
+          other.id == this.id &&
+          other.groupName == this.groupName &&
+          other.profileName == this.profileName &&
+          other.colorHex == this.colorHex &&
+          other.sortOrder == this.sortOrder);
+}
+
+class SubscriptionGroupsCompanion extends UpdateCompanion<SubscriptionGroup> {
+  final Value<int> id;
+  final Value<String> groupName;
+  final Value<String> profileName;
+  final Value<String?> colorHex;
+  final Value<int> sortOrder;
+  const SubscriptionGroupsCompanion({
+    this.id = const Value.absent(),
+    this.groupName = const Value.absent(),
+    this.profileName = const Value.absent(),
+    this.colorHex = const Value.absent(),
+    this.sortOrder = const Value.absent(),
+  });
+  SubscriptionGroupsCompanion.insert({
+    this.id = const Value.absent(),
+    required String groupName,
+    required String profileName,
+    this.colorHex = const Value.absent(),
+    this.sortOrder = const Value.absent(),
+  })  : groupName = Value(groupName),
+        profileName = Value(profileName);
+  static Insertable<SubscriptionGroup> custom({
+    Expression<int>? id,
+    Expression<String>? groupName,
+    Expression<String>? profileName,
+    Expression<String>? colorHex,
+    Expression<int>? sortOrder,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (groupName != null) 'group_name': groupName,
+      if (profileName != null) 'profile_name': profileName,
+      if (colorHex != null) 'color_hex': colorHex,
+      if (sortOrder != null) 'sort_order': sortOrder,
+    });
+  }
+
+  SubscriptionGroupsCompanion copyWith(
+      {Value<int>? id,
+      Value<String>? groupName,
+      Value<String>? profileName,
+      Value<String?>? colorHex,
+      Value<int>? sortOrder}) {
+    return SubscriptionGroupsCompanion(
+      id: id ?? this.id,
+      groupName: groupName ?? this.groupName,
+      profileName: profileName ?? this.profileName,
+      colorHex: colorHex ?? this.colorHex,
+      sortOrder: sortOrder ?? this.sortOrder,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (groupName.present) {
+      map['group_name'] = Variable<String>(groupName.value);
+    }
+    if (profileName.present) {
+      map['profile_name'] = Variable<String>(profileName.value);
+    }
+    if (colorHex.present) {
+      map['color_hex'] = Variable<String>(colorHex.value);
+    }
+    if (sortOrder.present) {
+      map['sort_order'] = Variable<int>(sortOrder.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('SubscriptionGroupsCompanion(')
+          ..write('id: $id, ')
+          ..write('groupName: $groupName, ')
+          ..write('profileName: $profileName, ')
+          ..write('colorHex: $colorHex, ')
+          ..write('sortOrder: $sortOrder')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $SubscriptionGroupMembersTable extends SubscriptionGroupMembers
+    with TableInfo<$SubscriptionGroupMembersTable, SubscriptionGroupMember> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $SubscriptionGroupMembersTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+      'id', aliasedName, false,
+      hasAutoIncrement: true,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultConstraints:
+          GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
+  static const VerificationMeta _groupIdMeta =
+      const VerificationMeta('groupId');
+  @override
+  late final GeneratedColumn<int> groupId = GeneratedColumn<int>(
+      'group_id', aliasedName, false,
+      type: DriftSqlType.int, requiredDuringInsert: true);
+  static const VerificationMeta _channelIdMeta =
+      const VerificationMeta('channelId');
+  @override
+  late final GeneratedColumn<String> channelId = GeneratedColumn<String>(
+      'channel_id', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _profileNameMeta =
+      const VerificationMeta('profileName');
+  @override
+  late final GeneratedColumn<String> profileName = GeneratedColumn<String>(
+      'profile_name', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  @override
+  List<GeneratedColumn> get $columns => [id, groupId, channelId, profileName];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'subscription_group_members';
+  @override
+  VerificationContext validateIntegrity(
+      Insertable<SubscriptionGroupMember> instance,
+      {bool isInserting = false}) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('group_id')) {
+      context.handle(_groupIdMeta,
+          groupId.isAcceptableOrUnknown(data['group_id']!, _groupIdMeta));
+    } else if (isInserting) {
+      context.missing(_groupIdMeta);
+    }
+    if (data.containsKey('channel_id')) {
+      context.handle(_channelIdMeta,
+          channelId.isAcceptableOrUnknown(data['channel_id']!, _channelIdMeta));
+    } else if (isInserting) {
+      context.missing(_channelIdMeta);
+    }
+    if (data.containsKey('profile_name')) {
+      context.handle(
+          _profileNameMeta,
+          profileName.isAcceptableOrUnknown(
+              data['profile_name']!, _profileNameMeta));
+    } else if (isInserting) {
+      context.missing(_profileNameMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  List<Set<GeneratedColumn>> get uniqueKeys => [
+        {groupId, channelId, profileName},
+      ];
+  @override
+  SubscriptionGroupMember map(Map<String, dynamic> data,
+      {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return SubscriptionGroupMember(
+      id: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
+      groupId: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}group_id'])!,
+      channelId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}channel_id'])!,
+      profileName: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}profile_name'])!,
+    );
+  }
+
+  @override
+  $SubscriptionGroupMembersTable createAlias(String alias) {
+    return $SubscriptionGroupMembersTable(attachedDatabase, alias);
+  }
+}
+
+class SubscriptionGroupMember extends DataClass
+    implements Insertable<SubscriptionGroupMember> {
+  final int id;
+  final int groupId;
+  final String channelId;
+  final String profileName;
+  const SubscriptionGroupMember(
+      {required this.id,
+      required this.groupId,
+      required this.channelId,
+      required this.profileName});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['group_id'] = Variable<int>(groupId);
+    map['channel_id'] = Variable<String>(channelId);
+    map['profile_name'] = Variable<String>(profileName);
+    return map;
+  }
+
+  SubscriptionGroupMembersCompanion toCompanion(bool nullToAbsent) {
+    return SubscriptionGroupMembersCompanion(
+      id: Value(id),
+      groupId: Value(groupId),
+      channelId: Value(channelId),
+      profileName: Value(profileName),
+    );
+  }
+
+  factory SubscriptionGroupMember.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return SubscriptionGroupMember(
+      id: serializer.fromJson<int>(json['id']),
+      groupId: serializer.fromJson<int>(json['groupId']),
+      channelId: serializer.fromJson<String>(json['channelId']),
+      profileName: serializer.fromJson<String>(json['profileName']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'groupId': serializer.toJson<int>(groupId),
+      'channelId': serializer.toJson<String>(channelId),
+      'profileName': serializer.toJson<String>(profileName),
+    };
+  }
+
+  SubscriptionGroupMember copyWith(
+          {int? id, int? groupId, String? channelId, String? profileName}) =>
+      SubscriptionGroupMember(
+        id: id ?? this.id,
+        groupId: groupId ?? this.groupId,
+        channelId: channelId ?? this.channelId,
+        profileName: profileName ?? this.profileName,
+      );
+  SubscriptionGroupMember copyWithCompanion(
+      SubscriptionGroupMembersCompanion data) {
+    return SubscriptionGroupMember(
+      id: data.id.present ? data.id.value : this.id,
+      groupId: data.groupId.present ? data.groupId.value : this.groupId,
+      channelId: data.channelId.present ? data.channelId.value : this.channelId,
+      profileName:
+          data.profileName.present ? data.profileName.value : this.profileName,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('SubscriptionGroupMember(')
+          ..write('id: $id, ')
+          ..write('groupId: $groupId, ')
+          ..write('channelId: $channelId, ')
+          ..write('profileName: $profileName')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(id, groupId, channelId, profileName);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is SubscriptionGroupMember &&
+          other.id == this.id &&
+          other.groupId == this.groupId &&
+          other.channelId == this.channelId &&
+          other.profileName == this.profileName);
+}
+
+class SubscriptionGroupMembersCompanion
+    extends UpdateCompanion<SubscriptionGroupMember> {
+  final Value<int> id;
+  final Value<int> groupId;
+  final Value<String> channelId;
+  final Value<String> profileName;
+  const SubscriptionGroupMembersCompanion({
+    this.id = const Value.absent(),
+    this.groupId = const Value.absent(),
+    this.channelId = const Value.absent(),
+    this.profileName = const Value.absent(),
+  });
+  SubscriptionGroupMembersCompanion.insert({
+    this.id = const Value.absent(),
+    required int groupId,
+    required String channelId,
+    required String profileName,
+  })  : groupId = Value(groupId),
+        channelId = Value(channelId),
+        profileName = Value(profileName);
+  static Insertable<SubscriptionGroupMember> custom({
+    Expression<int>? id,
+    Expression<int>? groupId,
+    Expression<String>? channelId,
+    Expression<String>? profileName,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (groupId != null) 'group_id': groupId,
+      if (channelId != null) 'channel_id': channelId,
+      if (profileName != null) 'profile_name': profileName,
+    });
+  }
+
+  SubscriptionGroupMembersCompanion copyWith(
+      {Value<int>? id,
+      Value<int>? groupId,
+      Value<String>? channelId,
+      Value<String>? profileName}) {
+    return SubscriptionGroupMembersCompanion(
+      id: id ?? this.id,
+      groupId: groupId ?? this.groupId,
+      channelId: channelId ?? this.channelId,
+      profileName: profileName ?? this.profileName,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (groupId.present) {
+      map['group_id'] = Variable<int>(groupId.value);
+    }
+    if (channelId.present) {
+      map['channel_id'] = Variable<String>(channelId.value);
+    }
+    if (profileName.present) {
+      map['profile_name'] = Variable<String>(profileName.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('SubscriptionGroupMembersCompanion(')
+          ..write('id: $id, ')
+          ..write('groupId: $groupId, ')
+          ..write('channelId: $channelId, ')
+          ..write('profileName: $profileName')
+          ..write(')'))
+        .toString();
+  }
+}
+
 class $SearchHistoryEntriesTable extends SearchHistoryEntries
     with TableInfo<$SearchHistoryEntriesTable, SearchHistoryEntry> {
   @override
@@ -4061,6 +4639,10 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $LocalStoreVideosTable localStoreVideos =
       $LocalStoreVideosTable(this);
   late final $SubscriptionsTable subscriptions = $SubscriptionsTable(this);
+  late final $SubscriptionGroupsTable subscriptionGroups =
+      $SubscriptionGroupsTable(this);
+  late final $SubscriptionGroupMembersTable subscriptionGroupMembers =
+      $SubscriptionGroupMembersTable(this);
   late final $SearchHistoryEntriesTable searchHistoryEntries =
       $SearchHistoryEntriesTable(this);
   late final $UserInteractionsTable userInteractions =
@@ -4076,6 +4658,8 @@ abstract class _$AppDatabase extends GeneratedDatabase {
         settingsEntries,
         localStoreVideos,
         subscriptions,
+        subscriptionGroups,
+        subscriptionGroupMembers,
         searchHistoryEntries,
         userInteractions,
         userTopicPreferences,
@@ -4776,6 +5360,334 @@ typedef $$SubscriptionsTableProcessedTableManager = ProcessedTableManager<
     ),
     Subscription,
     PrefetchHooks Function()>;
+typedef $$SubscriptionGroupsTableCreateCompanionBuilder
+    = SubscriptionGroupsCompanion Function({
+  Value<int> id,
+  required String groupName,
+  required String profileName,
+  Value<String?> colorHex,
+  Value<int> sortOrder,
+});
+typedef $$SubscriptionGroupsTableUpdateCompanionBuilder
+    = SubscriptionGroupsCompanion Function({
+  Value<int> id,
+  Value<String> groupName,
+  Value<String> profileName,
+  Value<String?> colorHex,
+  Value<int> sortOrder,
+});
+
+class $$SubscriptionGroupsTableFilterComposer
+    extends Composer<_$AppDatabase, $SubscriptionGroupsTable> {
+  $$SubscriptionGroupsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get groupName => $composableBuilder(
+      column: $table.groupName, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get profileName => $composableBuilder(
+      column: $table.profileName, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get colorHex => $composableBuilder(
+      column: $table.colorHex, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get sortOrder => $composableBuilder(
+      column: $table.sortOrder, builder: (column) => ColumnFilters(column));
+}
+
+class $$SubscriptionGroupsTableOrderingComposer
+    extends Composer<_$AppDatabase, $SubscriptionGroupsTable> {
+  $$SubscriptionGroupsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get groupName => $composableBuilder(
+      column: $table.groupName, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get profileName => $composableBuilder(
+      column: $table.profileName, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get colorHex => $composableBuilder(
+      column: $table.colorHex, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get sortOrder => $composableBuilder(
+      column: $table.sortOrder, builder: (column) => ColumnOrderings(column));
+}
+
+class $$SubscriptionGroupsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $SubscriptionGroupsTable> {
+  $$SubscriptionGroupsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get groupName =>
+      $composableBuilder(column: $table.groupName, builder: (column) => column);
+
+  GeneratedColumn<String> get profileName => $composableBuilder(
+      column: $table.profileName, builder: (column) => column);
+
+  GeneratedColumn<String> get colorHex =>
+      $composableBuilder(column: $table.colorHex, builder: (column) => column);
+
+  GeneratedColumn<int> get sortOrder =>
+      $composableBuilder(column: $table.sortOrder, builder: (column) => column);
+}
+
+class $$SubscriptionGroupsTableTableManager extends RootTableManager<
+    _$AppDatabase,
+    $SubscriptionGroupsTable,
+    SubscriptionGroup,
+    $$SubscriptionGroupsTableFilterComposer,
+    $$SubscriptionGroupsTableOrderingComposer,
+    $$SubscriptionGroupsTableAnnotationComposer,
+    $$SubscriptionGroupsTableCreateCompanionBuilder,
+    $$SubscriptionGroupsTableUpdateCompanionBuilder,
+    (
+      SubscriptionGroup,
+      BaseReferences<_$AppDatabase, $SubscriptionGroupsTable, SubscriptionGroup>
+    ),
+    SubscriptionGroup,
+    PrefetchHooks Function()> {
+  $$SubscriptionGroupsTableTableManager(
+      _$AppDatabase db, $SubscriptionGroupsTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$SubscriptionGroupsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$SubscriptionGroupsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$SubscriptionGroupsTableAnnotationComposer(
+                  $db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            Value<String> groupName = const Value.absent(),
+            Value<String> profileName = const Value.absent(),
+            Value<String?> colorHex = const Value.absent(),
+            Value<int> sortOrder = const Value.absent(),
+          }) =>
+              SubscriptionGroupsCompanion(
+            id: id,
+            groupName: groupName,
+            profileName: profileName,
+            colorHex: colorHex,
+            sortOrder: sortOrder,
+          ),
+          createCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            required String groupName,
+            required String profileName,
+            Value<String?> colorHex = const Value.absent(),
+            Value<int> sortOrder = const Value.absent(),
+          }) =>
+              SubscriptionGroupsCompanion.insert(
+            id: id,
+            groupName: groupName,
+            profileName: profileName,
+            colorHex: colorHex,
+            sortOrder: sortOrder,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$SubscriptionGroupsTableProcessedTableManager = ProcessedTableManager<
+    _$AppDatabase,
+    $SubscriptionGroupsTable,
+    SubscriptionGroup,
+    $$SubscriptionGroupsTableFilterComposer,
+    $$SubscriptionGroupsTableOrderingComposer,
+    $$SubscriptionGroupsTableAnnotationComposer,
+    $$SubscriptionGroupsTableCreateCompanionBuilder,
+    $$SubscriptionGroupsTableUpdateCompanionBuilder,
+    (
+      SubscriptionGroup,
+      BaseReferences<_$AppDatabase, $SubscriptionGroupsTable, SubscriptionGroup>
+    ),
+    SubscriptionGroup,
+    PrefetchHooks Function()>;
+typedef $$SubscriptionGroupMembersTableCreateCompanionBuilder
+    = SubscriptionGroupMembersCompanion Function({
+  Value<int> id,
+  required int groupId,
+  required String channelId,
+  required String profileName,
+});
+typedef $$SubscriptionGroupMembersTableUpdateCompanionBuilder
+    = SubscriptionGroupMembersCompanion Function({
+  Value<int> id,
+  Value<int> groupId,
+  Value<String> channelId,
+  Value<String> profileName,
+});
+
+class $$SubscriptionGroupMembersTableFilterComposer
+    extends Composer<_$AppDatabase, $SubscriptionGroupMembersTable> {
+  $$SubscriptionGroupMembersTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get groupId => $composableBuilder(
+      column: $table.groupId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get channelId => $composableBuilder(
+      column: $table.channelId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get profileName => $composableBuilder(
+      column: $table.profileName, builder: (column) => ColumnFilters(column));
+}
+
+class $$SubscriptionGroupMembersTableOrderingComposer
+    extends Composer<_$AppDatabase, $SubscriptionGroupMembersTable> {
+  $$SubscriptionGroupMembersTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get groupId => $composableBuilder(
+      column: $table.groupId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get channelId => $composableBuilder(
+      column: $table.channelId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get profileName => $composableBuilder(
+      column: $table.profileName, builder: (column) => ColumnOrderings(column));
+}
+
+class $$SubscriptionGroupMembersTableAnnotationComposer
+    extends Composer<_$AppDatabase, $SubscriptionGroupMembersTable> {
+  $$SubscriptionGroupMembersTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<int> get groupId =>
+      $composableBuilder(column: $table.groupId, builder: (column) => column);
+
+  GeneratedColumn<String> get channelId =>
+      $composableBuilder(column: $table.channelId, builder: (column) => column);
+
+  GeneratedColumn<String> get profileName => $composableBuilder(
+      column: $table.profileName, builder: (column) => column);
+}
+
+class $$SubscriptionGroupMembersTableTableManager extends RootTableManager<
+    _$AppDatabase,
+    $SubscriptionGroupMembersTable,
+    SubscriptionGroupMember,
+    $$SubscriptionGroupMembersTableFilterComposer,
+    $$SubscriptionGroupMembersTableOrderingComposer,
+    $$SubscriptionGroupMembersTableAnnotationComposer,
+    $$SubscriptionGroupMembersTableCreateCompanionBuilder,
+    $$SubscriptionGroupMembersTableUpdateCompanionBuilder,
+    (
+      SubscriptionGroupMember,
+      BaseReferences<_$AppDatabase, $SubscriptionGroupMembersTable,
+          SubscriptionGroupMember>
+    ),
+    SubscriptionGroupMember,
+    PrefetchHooks Function()> {
+  $$SubscriptionGroupMembersTableTableManager(
+      _$AppDatabase db, $SubscriptionGroupMembersTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$SubscriptionGroupMembersTableFilterComposer(
+                  $db: db, $table: table),
+          createOrderingComposer: () =>
+              $$SubscriptionGroupMembersTableOrderingComposer(
+                  $db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$SubscriptionGroupMembersTableAnnotationComposer(
+                  $db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            Value<int> groupId = const Value.absent(),
+            Value<String> channelId = const Value.absent(),
+            Value<String> profileName = const Value.absent(),
+          }) =>
+              SubscriptionGroupMembersCompanion(
+            id: id,
+            groupId: groupId,
+            channelId: channelId,
+            profileName: profileName,
+          ),
+          createCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            required int groupId,
+            required String channelId,
+            required String profileName,
+          }) =>
+              SubscriptionGroupMembersCompanion.insert(
+            id: id,
+            groupId: groupId,
+            channelId: channelId,
+            profileName: profileName,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$SubscriptionGroupMembersTableProcessedTableManager
+    = ProcessedTableManager<
+        _$AppDatabase,
+        $SubscriptionGroupMembersTable,
+        SubscriptionGroupMember,
+        $$SubscriptionGroupMembersTableFilterComposer,
+        $$SubscriptionGroupMembersTableOrderingComposer,
+        $$SubscriptionGroupMembersTableAnnotationComposer,
+        $$SubscriptionGroupMembersTableCreateCompanionBuilder,
+        $$SubscriptionGroupMembersTableUpdateCompanionBuilder,
+        (
+          SubscriptionGroupMember,
+          BaseReferences<_$AppDatabase, $SubscriptionGroupMembersTable,
+              SubscriptionGroupMember>
+        ),
+        SubscriptionGroupMember,
+        PrefetchHooks Function()>;
 typedef $$SearchHistoryEntriesTableCreateCompanionBuilder
     = SearchHistoryEntriesCompanion Function({
   Value<int> id,
@@ -5974,6 +6886,11 @@ class $AppDatabaseManager {
       $$LocalStoreVideosTableTableManager(_db, _db.localStoreVideos);
   $$SubscriptionsTableTableManager get subscriptions =>
       $$SubscriptionsTableTableManager(_db, _db.subscriptions);
+  $$SubscriptionGroupsTableTableManager get subscriptionGroups =>
+      $$SubscriptionGroupsTableTableManager(_db, _db.subscriptionGroups);
+  $$SubscriptionGroupMembersTableTableManager get subscriptionGroupMembers =>
+      $$SubscriptionGroupMembersTableTableManager(
+          _db, _db.subscriptionGroupMembers);
   $$SearchHistoryEntriesTableTableManager get searchHistoryEntries =>
       $$SearchHistoryEntriesTableTableManager(_db, _db.searchHistoryEntries);
   $$UserInteractionsTableTableManager get userInteractions =>

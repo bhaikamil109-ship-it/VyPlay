@@ -1,7 +1,7 @@
 part of 'trending_bloc.dart';
 
 @freezed
-class TrendingEvent with _$TrendingEvent {
+sealed class TrendingEvent with _$TrendingEvent {
   const factory TrendingEvent.getTrendingData(
       {required String serviceType, required String region}) = GetTrendingData;
   const factory TrendingEvent.getForcedTrendingData(

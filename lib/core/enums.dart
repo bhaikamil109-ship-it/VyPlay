@@ -13,6 +13,19 @@ enum ApiStatus {
   error,
 }
 
+/// Download quality preference
+enum DownloadQuality {
+  low,
+  medium,
+  high,
+}
+
+/// Restricted mode filtering strictness
+enum RestrictedModeFilterLevel {
+  standard,
+  strict,
+}
+
 /// Home feed display mode
 enum HomeFeedMode {
   /// Show subscription feed if available, otherwise trending

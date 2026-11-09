@@ -22,7 +22,7 @@ class SplashScreenState extends State<SplashScreen> {
     // Initialize the settings bloc first
     // Subscriptions will be loaded after settings are initialized (in _handleState)
     BlocProvider.of<SettingsBloc>(context)
-        .add(SettingsEvent.initializeSettings());
+        .add(SettingsEvent.initialize());
   }
 
   bool _subscriptionsLoaded = false;

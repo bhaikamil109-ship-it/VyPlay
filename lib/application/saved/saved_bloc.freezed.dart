@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,39 +9,175 @@ part of 'saved_bloc.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$SavedEvent {
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is SavedEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'SavedEvent()';
+  }
+}
+
+/// @nodoc
+class $SavedEventCopyWith<$Res> {
+  $SavedEventCopyWith(SavedEvent _, $Res Function(SavedEvent) __);
+}
+
+/// Adds pattern-matching-related methods to [SavedEvent].
+extension SavedEventPatterns on SavedEvent {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
   @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(LocalStoreVideoInfo videoInfo, String profileName)
-        addVideoInfo,
-    required TResult Function(String id, String profileName) deleteVideoInfo,
-    required TResult Function(String profileName) getAllVideoInfoList,
-    required TResult Function(String id, String profileName) checkVideoInfo,
-    required TResult Function(String videoId) trackVideoWatch,
-    required TResult Function(String query) trackSearch,
-    required TResult Function(LocalStoreVideoInfo videoInfo, String profileName)
-        updatePlaybackPosition,
-  }) =>
-      throw _privateConstructorUsedError;
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AddVideoInfo value)? addVideoInfo,
+    TResult Function(DeleteVideoInfo value)? deleteVideoInfo,
+    TResult Function(GetAllVideoInfoList value)? getAllVideoInfoList,
+    TResult Function(CheckVideoInfo value)? checkVideoInfo,
+    TResult Function(TrackVideoWatch value)? trackVideoWatch,
+    TResult Function(TrackSearch value)? trackSearch,
+    TResult Function(UpdatePlaybackPosition value)? updatePlaybackPosition,
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case AddVideoInfo() when addVideoInfo != null:
+        return addVideoInfo(_that);
+      case DeleteVideoInfo() when deleteVideoInfo != null:
+        return deleteVideoInfo(_that);
+      case GetAllVideoInfoList() when getAllVideoInfoList != null:
+        return getAllVideoInfoList(_that);
+      case CheckVideoInfo() when checkVideoInfo != null:
+        return checkVideoInfo(_that);
+      case TrackVideoWatch() when trackVideoWatch != null:
+        return trackVideoWatch(_that);
+      case TrackSearch() when trackSearch != null:
+        return trackSearch(_that);
+      case UpdatePlaybackPosition() when updatePlaybackPosition != null:
+        return updatePlaybackPosition(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(LocalStoreVideoInfo videoInfo, String profileName)?
-        addVideoInfo,
-    TResult? Function(String id, String profileName)? deleteVideoInfo,
-    TResult? Function(String profileName)? getAllVideoInfoList,
-    TResult? Function(String id, String profileName)? checkVideoInfo,
-    TResult? Function(String videoId)? trackVideoWatch,
-    TResult? Function(String query)? trackSearch,
-    TResult? Function(LocalStoreVideoInfo videoInfo, String profileName)?
+  TResult map<TResult extends Object?>({
+    required TResult Function(AddVideoInfo value) addVideoInfo,
+    required TResult Function(DeleteVideoInfo value) deleteVideoInfo,
+    required TResult Function(GetAllVideoInfoList value) getAllVideoInfoList,
+    required TResult Function(CheckVideoInfo value) checkVideoInfo,
+    required TResult Function(TrackVideoWatch value) trackVideoWatch,
+    required TResult Function(TrackSearch value) trackSearch,
+    required TResult Function(UpdatePlaybackPosition value)
         updatePlaybackPosition,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) {
+    final _that = this;
+    switch (_that) {
+      case AddVideoInfo():
+        return addVideoInfo(_that);
+      case DeleteVideoInfo():
+        return deleteVideoInfo(_that);
+      case GetAllVideoInfoList():
+        return getAllVideoInfoList(_that);
+      case CheckVideoInfo():
+        return checkVideoInfo(_that);
+      case TrackVideoWatch():
+        return trackVideoWatch(_that);
+      case TrackSearch():
+        return trackSearch(_that);
+      case UpdatePlaybackPosition():
+        return updatePlaybackPosition(_that);
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AddVideoInfo value)? addVideoInfo,
+    TResult? Function(DeleteVideoInfo value)? deleteVideoInfo,
+    TResult? Function(GetAllVideoInfoList value)? getAllVideoInfoList,
+    TResult? Function(CheckVideoInfo value)? checkVideoInfo,
+    TResult? Function(TrackVideoWatch value)? trackVideoWatch,
+    TResult? Function(TrackSearch value)? trackSearch,
+    TResult? Function(UpdatePlaybackPosition value)? updatePlaybackPosition,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case AddVideoInfo() when addVideoInfo != null:
+        return addVideoInfo(_that);
+      case DeleteVideoInfo() when deleteVideoInfo != null:
+        return deleteVideoInfo(_that);
+      case GetAllVideoInfoList() when getAllVideoInfoList != null:
+        return getAllVideoInfoList(_that);
+      case CheckVideoInfo() when checkVideoInfo != null:
+        return checkVideoInfo(_that);
+      case TrackVideoWatch() when trackVideoWatch != null:
+        return trackVideoWatch(_that);
+      case TrackSearch() when trackSearch != null:
+        return trackSearch(_that);
+      case UpdatePlaybackPosition() when updatePlaybackPosition != null:
+        return updatePlaybackPosition(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(LocalStoreVideoInfo videoInfo, String profileName)?
@@ -54,126 +190,139 @@ mixin _$SavedEvent {
     TResult Function(LocalStoreVideoInfo videoInfo, String profileName)?
         updatePlaybackPosition,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(AddVideoInfo value) addVideoInfo,
-    required TResult Function(DeleteVideoInfo value) deleteVideoInfo,
-    required TResult Function(GetAllVideoInfoList value) getAllVideoInfoList,
-    required TResult Function(CheckVideoInfo value) checkVideoInfo,
-    required TResult Function(TrackVideoWatch value) trackVideoWatch,
-    required TResult Function(TrackSearch value) trackSearch,
-    required TResult Function(UpdatePlaybackPosition value)
-        updatePlaybackPosition,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AddVideoInfo value)? addVideoInfo,
-    TResult? Function(DeleteVideoInfo value)? deleteVideoInfo,
-    TResult? Function(GetAllVideoInfoList value)? getAllVideoInfoList,
-    TResult? Function(CheckVideoInfo value)? checkVideoInfo,
-    TResult? Function(TrackVideoWatch value)? trackVideoWatch,
-    TResult? Function(TrackSearch value)? trackSearch,
-    TResult? Function(UpdatePlaybackPosition value)? updatePlaybackPosition,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(AddVideoInfo value)? addVideoInfo,
-    TResult Function(DeleteVideoInfo value)? deleteVideoInfo,
-    TResult Function(GetAllVideoInfoList value)? getAllVideoInfoList,
-    TResult Function(CheckVideoInfo value)? checkVideoInfo,
-    TResult Function(TrackVideoWatch value)? trackVideoWatch,
-    TResult Function(TrackSearch value)? trackSearch,
-    TResult Function(UpdatePlaybackPosition value)? updatePlaybackPosition,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $SavedEventCopyWith<$Res> {
-  factory $SavedEventCopyWith(
-          SavedEvent value, $Res Function(SavedEvent) then) =
-      _$SavedEventCopyWithImpl<$Res, SavedEvent>;
-}
-
-/// @nodoc
-class _$SavedEventCopyWithImpl<$Res, $Val extends SavedEvent>
-    implements $SavedEventCopyWith<$Res> {
-  _$SavedEventCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of SavedEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-abstract class _$$AddVideoInfoImplCopyWith<$Res> {
-  factory _$$AddVideoInfoImplCopyWith(
-          _$AddVideoInfoImpl value, $Res Function(_$AddVideoInfoImpl) then) =
-      __$$AddVideoInfoImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({LocalStoreVideoInfo videoInfo, String profileName});
-}
-
-/// @nodoc
-class __$$AddVideoInfoImplCopyWithImpl<$Res>
-    extends _$SavedEventCopyWithImpl<$Res, _$AddVideoInfoImpl>
-    implements _$$AddVideoInfoImplCopyWith<$Res> {
-  __$$AddVideoInfoImplCopyWithImpl(
-      _$AddVideoInfoImpl _value, $Res Function(_$AddVideoInfoImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of SavedEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? videoInfo = null,
-    Object? profileName = null,
   }) {
-    return _then(_$AddVideoInfoImpl(
-      videoInfo: null == videoInfo
-          ? _value.videoInfo
-          : videoInfo // ignore: cast_nullable_to_non_nullable
-              as LocalStoreVideoInfo,
-      profileName: null == profileName
-          ? _value.profileName
-          : profileName // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+    final _that = this;
+    switch (_that) {
+      case AddVideoInfo() when addVideoInfo != null:
+        return addVideoInfo(_that.videoInfo, _that.profileName);
+      case DeleteVideoInfo() when deleteVideoInfo != null:
+        return deleteVideoInfo(_that.id, _that.profileName);
+      case GetAllVideoInfoList() when getAllVideoInfoList != null:
+        return getAllVideoInfoList(_that.profileName);
+      case CheckVideoInfo() when checkVideoInfo != null:
+        return checkVideoInfo(_that.id, _that.profileName);
+      case TrackVideoWatch() when trackVideoWatch != null:
+        return trackVideoWatch(_that.videoId);
+      case TrackSearch() when trackSearch != null:
+        return trackSearch(_that.query);
+      case UpdatePlaybackPosition() when updatePlaybackPosition != null:
+        return updatePlaybackPosition(_that.videoInfo, _that.profileName);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(LocalStoreVideoInfo videoInfo, String profileName)
+        addVideoInfo,
+    required TResult Function(String id, String profileName) deleteVideoInfo,
+    required TResult Function(String profileName) getAllVideoInfoList,
+    required TResult Function(String id, String profileName) checkVideoInfo,
+    required TResult Function(String videoId) trackVideoWatch,
+    required TResult Function(String query) trackSearch,
+    required TResult Function(LocalStoreVideoInfo videoInfo, String profileName)
+        updatePlaybackPosition,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case AddVideoInfo():
+        return addVideoInfo(_that.videoInfo, _that.profileName);
+      case DeleteVideoInfo():
+        return deleteVideoInfo(_that.id, _that.profileName);
+      case GetAllVideoInfoList():
+        return getAllVideoInfoList(_that.profileName);
+      case CheckVideoInfo():
+        return checkVideoInfo(_that.id, _that.profileName);
+      case TrackVideoWatch():
+        return trackVideoWatch(_that.videoId);
+      case TrackSearch():
+        return trackSearch(_that.query);
+      case UpdatePlaybackPosition():
+        return updatePlaybackPosition(_that.videoInfo, _that.profileName);
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(LocalStoreVideoInfo videoInfo, String profileName)?
+        addVideoInfo,
+    TResult? Function(String id, String profileName)? deleteVideoInfo,
+    TResult? Function(String profileName)? getAllVideoInfoList,
+    TResult? Function(String id, String profileName)? checkVideoInfo,
+    TResult? Function(String videoId)? trackVideoWatch,
+    TResult? Function(String query)? trackSearch,
+    TResult? Function(LocalStoreVideoInfo videoInfo, String profileName)?
+        updatePlaybackPosition,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case AddVideoInfo() when addVideoInfo != null:
+        return addVideoInfo(_that.videoInfo, _that.profileName);
+      case DeleteVideoInfo() when deleteVideoInfo != null:
+        return deleteVideoInfo(_that.id, _that.profileName);
+      case GetAllVideoInfoList() when getAllVideoInfoList != null:
+        return getAllVideoInfoList(_that.profileName);
+      case CheckVideoInfo() when checkVideoInfo != null:
+        return checkVideoInfo(_that.id, _that.profileName);
+      case TrackVideoWatch() when trackVideoWatch != null:
+        return trackVideoWatch(_that.videoId);
+      case TrackSearch() when trackSearch != null:
+        return trackSearch(_that.query);
+      case UpdatePlaybackPosition() when updatePlaybackPosition != null:
+        return updatePlaybackPosition(_that.videoInfo, _that.profileName);
+      case _:
+        return null;
+    }
   }
 }
 
 /// @nodoc
 
-class _$AddVideoInfoImpl implements AddVideoInfo {
-  const _$AddVideoInfoImpl(
-      {required this.videoInfo, this.profileName = 'default'});
+class AddVideoInfo implements SavedEvent {
+  const AddVideoInfo({required this.videoInfo, this.profileName = 'default'});
 
-  @override
   final LocalStoreVideoInfo videoInfo;
-  @override
   @JsonKey()
   final String profileName;
 
-  @override
-  String toString() {
-    return 'SavedEvent.addVideoInfo(videoInfo: $videoInfo, profileName: $profileName)';
-  }
+  /// Create a copy of SavedEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $AddVideoInfoCopyWith<AddVideoInfo> get copyWith =>
+      _$AddVideoInfoCopyWithImpl<AddVideoInfo>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AddVideoInfoImpl &&
+            other is AddVideoInfo &&
             (identical(other.videoInfo, videoInfo) ||
                 other.videoInfo == videoInfo) &&
             (identical(other.profileName, profileName) ||
@@ -183,161 +332,43 @@ class _$AddVideoInfoImpl implements AddVideoInfo {
   @override
   int get hashCode => Object.hash(runtimeType, videoInfo, profileName);
 
-  /// Create a copy of SavedEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$AddVideoInfoImplCopyWith<_$AddVideoInfoImpl> get copyWith =>
-      __$$AddVideoInfoImplCopyWithImpl<_$AddVideoInfoImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(LocalStoreVideoInfo videoInfo, String profileName)
-        addVideoInfo,
-    required TResult Function(String id, String profileName) deleteVideoInfo,
-    required TResult Function(String profileName) getAllVideoInfoList,
-    required TResult Function(String id, String profileName) checkVideoInfo,
-    required TResult Function(String videoId) trackVideoWatch,
-    required TResult Function(String query) trackSearch,
-    required TResult Function(LocalStoreVideoInfo videoInfo, String profileName)
-        updatePlaybackPosition,
-  }) {
-    return addVideoInfo(videoInfo, profileName);
+  String toString() {
+    return 'SavedEvent.addVideoInfo(videoInfo: $videoInfo, profileName: $profileName)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(LocalStoreVideoInfo videoInfo, String profileName)?
-        addVideoInfo,
-    TResult? Function(String id, String profileName)? deleteVideoInfo,
-    TResult? Function(String profileName)? getAllVideoInfoList,
-    TResult? Function(String id, String profileName)? checkVideoInfo,
-    TResult? Function(String videoId)? trackVideoWatch,
-    TResult? Function(String query)? trackSearch,
-    TResult? Function(LocalStoreVideoInfo videoInfo, String profileName)?
-        updatePlaybackPosition,
-  }) {
-    return addVideoInfo?.call(videoInfo, profileName);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(LocalStoreVideoInfo videoInfo, String profileName)?
-        addVideoInfo,
-    TResult Function(String id, String profileName)? deleteVideoInfo,
-    TResult Function(String profileName)? getAllVideoInfoList,
-    TResult Function(String id, String profileName)? checkVideoInfo,
-    TResult Function(String videoId)? trackVideoWatch,
-    TResult Function(String query)? trackSearch,
-    TResult Function(LocalStoreVideoInfo videoInfo, String profileName)?
-        updatePlaybackPosition,
-    required TResult orElse(),
-  }) {
-    if (addVideoInfo != null) {
-      return addVideoInfo(videoInfo, profileName);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(AddVideoInfo value) addVideoInfo,
-    required TResult Function(DeleteVideoInfo value) deleteVideoInfo,
-    required TResult Function(GetAllVideoInfoList value) getAllVideoInfoList,
-    required TResult Function(CheckVideoInfo value) checkVideoInfo,
-    required TResult Function(TrackVideoWatch value) trackVideoWatch,
-    required TResult Function(TrackSearch value) trackSearch,
-    required TResult Function(UpdatePlaybackPosition value)
-        updatePlaybackPosition,
-  }) {
-    return addVideoInfo(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AddVideoInfo value)? addVideoInfo,
-    TResult? Function(DeleteVideoInfo value)? deleteVideoInfo,
-    TResult? Function(GetAllVideoInfoList value)? getAllVideoInfoList,
-    TResult? Function(CheckVideoInfo value)? checkVideoInfo,
-    TResult? Function(TrackVideoWatch value)? trackVideoWatch,
-    TResult? Function(TrackSearch value)? trackSearch,
-    TResult? Function(UpdatePlaybackPosition value)? updatePlaybackPosition,
-  }) {
-    return addVideoInfo?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(AddVideoInfo value)? addVideoInfo,
-    TResult Function(DeleteVideoInfo value)? deleteVideoInfo,
-    TResult Function(GetAllVideoInfoList value)? getAllVideoInfoList,
-    TResult Function(CheckVideoInfo value)? checkVideoInfo,
-    TResult Function(TrackVideoWatch value)? trackVideoWatch,
-    TResult Function(TrackSearch value)? trackSearch,
-    TResult Function(UpdatePlaybackPosition value)? updatePlaybackPosition,
-    required TResult orElse(),
-  }) {
-    if (addVideoInfo != null) {
-      return addVideoInfo(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class AddVideoInfo implements SavedEvent {
-  const factory AddVideoInfo(
-      {required final LocalStoreVideoInfo videoInfo,
-      final String profileName}) = _$AddVideoInfoImpl;
-
-  LocalStoreVideoInfo get videoInfo;
-  String get profileName;
-
-  /// Create a copy of SavedEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AddVideoInfoImplCopyWith<_$AddVideoInfoImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$DeleteVideoInfoImplCopyWith<$Res> {
-  factory _$$DeleteVideoInfoImplCopyWith(_$DeleteVideoInfoImpl value,
-          $Res Function(_$DeleteVideoInfoImpl) then) =
-      __$$DeleteVideoInfoImplCopyWithImpl<$Res>;
+abstract mixin class $AddVideoInfoCopyWith<$Res>
+    implements $SavedEventCopyWith<$Res> {
+  factory $AddVideoInfoCopyWith(
+          AddVideoInfo value, $Res Function(AddVideoInfo) _then) =
+      _$AddVideoInfoCopyWithImpl;
   @useResult
-  $Res call({String id, String profileName});
+  $Res call({LocalStoreVideoInfo videoInfo, String profileName});
 }
 
 /// @nodoc
-class __$$DeleteVideoInfoImplCopyWithImpl<$Res>
-    extends _$SavedEventCopyWithImpl<$Res, _$DeleteVideoInfoImpl>
-    implements _$$DeleteVideoInfoImplCopyWith<$Res> {
-  __$$DeleteVideoInfoImplCopyWithImpl(
-      _$DeleteVideoInfoImpl _value, $Res Function(_$DeleteVideoInfoImpl) _then)
-      : super(_value, _then);
+class _$AddVideoInfoCopyWithImpl<$Res> implements $AddVideoInfoCopyWith<$Res> {
+  _$AddVideoInfoCopyWithImpl(this._self, this._then);
+
+  final AddVideoInfo _self;
+  final $Res Function(AddVideoInfo) _then;
 
   /// Create a copy of SavedEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
-    Object? id = null,
+    Object? videoInfo = null,
     Object? profileName = null,
   }) {
-    return _then(_$DeleteVideoInfoImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
+    return _then(AddVideoInfo(
+      videoInfo: null == videoInfo
+          ? _self.videoInfo
+          : videoInfo // ignore: cast_nullable_to_non_nullable
+              as LocalStoreVideoInfo,
       profileName: null == profileName
-          ? _value.profileName
+          ? _self.profileName
           : profileName // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -346,25 +377,25 @@ class __$$DeleteVideoInfoImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DeleteVideoInfoImpl implements DeleteVideoInfo {
-  const _$DeleteVideoInfoImpl({required this.id, this.profileName = 'default'});
+class DeleteVideoInfo implements SavedEvent {
+  const DeleteVideoInfo({required this.id, this.profileName = 'default'});
 
-  @override
   final String id;
-  @override
   @JsonKey()
   final String profileName;
 
-  @override
-  String toString() {
-    return 'SavedEvent.deleteVideoInfo(id: $id, profileName: $profileName)';
-  }
+  /// Create a copy of SavedEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $DeleteVideoInfoCopyWith<DeleteVideoInfo> get copyWith =>
+      _$DeleteVideoInfoCopyWithImpl<DeleteVideoInfo>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DeleteVideoInfoImpl &&
+            other is DeleteVideoInfo &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.profileName, profileName) ||
                 other.profileName == profileName));
@@ -373,157 +404,44 @@ class _$DeleteVideoInfoImpl implements DeleteVideoInfo {
   @override
   int get hashCode => Object.hash(runtimeType, id, profileName);
 
-  /// Create a copy of SavedEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$DeleteVideoInfoImplCopyWith<_$DeleteVideoInfoImpl> get copyWith =>
-      __$$DeleteVideoInfoImplCopyWithImpl<_$DeleteVideoInfoImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(LocalStoreVideoInfo videoInfo, String profileName)
-        addVideoInfo,
-    required TResult Function(String id, String profileName) deleteVideoInfo,
-    required TResult Function(String profileName) getAllVideoInfoList,
-    required TResult Function(String id, String profileName) checkVideoInfo,
-    required TResult Function(String videoId) trackVideoWatch,
-    required TResult Function(String query) trackSearch,
-    required TResult Function(LocalStoreVideoInfo videoInfo, String profileName)
-        updatePlaybackPosition,
-  }) {
-    return deleteVideoInfo(id, profileName);
+  String toString() {
+    return 'SavedEvent.deleteVideoInfo(id: $id, profileName: $profileName)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(LocalStoreVideoInfo videoInfo, String profileName)?
-        addVideoInfo,
-    TResult? Function(String id, String profileName)? deleteVideoInfo,
-    TResult? Function(String profileName)? getAllVideoInfoList,
-    TResult? Function(String id, String profileName)? checkVideoInfo,
-    TResult? Function(String videoId)? trackVideoWatch,
-    TResult? Function(String query)? trackSearch,
-    TResult? Function(LocalStoreVideoInfo videoInfo, String profileName)?
-        updatePlaybackPosition,
-  }) {
-    return deleteVideoInfo?.call(id, profileName);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(LocalStoreVideoInfo videoInfo, String profileName)?
-        addVideoInfo,
-    TResult Function(String id, String profileName)? deleteVideoInfo,
-    TResult Function(String profileName)? getAllVideoInfoList,
-    TResult Function(String id, String profileName)? checkVideoInfo,
-    TResult Function(String videoId)? trackVideoWatch,
-    TResult Function(String query)? trackSearch,
-    TResult Function(LocalStoreVideoInfo videoInfo, String profileName)?
-        updatePlaybackPosition,
-    required TResult orElse(),
-  }) {
-    if (deleteVideoInfo != null) {
-      return deleteVideoInfo(id, profileName);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(AddVideoInfo value) addVideoInfo,
-    required TResult Function(DeleteVideoInfo value) deleteVideoInfo,
-    required TResult Function(GetAllVideoInfoList value) getAllVideoInfoList,
-    required TResult Function(CheckVideoInfo value) checkVideoInfo,
-    required TResult Function(TrackVideoWatch value) trackVideoWatch,
-    required TResult Function(TrackSearch value) trackSearch,
-    required TResult Function(UpdatePlaybackPosition value)
-        updatePlaybackPosition,
-  }) {
-    return deleteVideoInfo(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AddVideoInfo value)? addVideoInfo,
-    TResult? Function(DeleteVideoInfo value)? deleteVideoInfo,
-    TResult? Function(GetAllVideoInfoList value)? getAllVideoInfoList,
-    TResult? Function(CheckVideoInfo value)? checkVideoInfo,
-    TResult? Function(TrackVideoWatch value)? trackVideoWatch,
-    TResult? Function(TrackSearch value)? trackSearch,
-    TResult? Function(UpdatePlaybackPosition value)? updatePlaybackPosition,
-  }) {
-    return deleteVideoInfo?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(AddVideoInfo value)? addVideoInfo,
-    TResult Function(DeleteVideoInfo value)? deleteVideoInfo,
-    TResult Function(GetAllVideoInfoList value)? getAllVideoInfoList,
-    TResult Function(CheckVideoInfo value)? checkVideoInfo,
-    TResult Function(TrackVideoWatch value)? trackVideoWatch,
-    TResult Function(TrackSearch value)? trackSearch,
-    TResult Function(UpdatePlaybackPosition value)? updatePlaybackPosition,
-    required TResult orElse(),
-  }) {
-    if (deleteVideoInfo != null) {
-      return deleteVideoInfo(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class DeleteVideoInfo implements SavedEvent {
-  const factory DeleteVideoInfo(
-      {required final String id,
-      final String profileName}) = _$DeleteVideoInfoImpl;
-
-  String get id;
-  String get profileName;
-
-  /// Create a copy of SavedEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$DeleteVideoInfoImplCopyWith<_$DeleteVideoInfoImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$GetAllVideoInfoListImplCopyWith<$Res> {
-  factory _$$GetAllVideoInfoListImplCopyWith(_$GetAllVideoInfoListImpl value,
-          $Res Function(_$GetAllVideoInfoListImpl) then) =
-      __$$GetAllVideoInfoListImplCopyWithImpl<$Res>;
+abstract mixin class $DeleteVideoInfoCopyWith<$Res>
+    implements $SavedEventCopyWith<$Res> {
+  factory $DeleteVideoInfoCopyWith(
+          DeleteVideoInfo value, $Res Function(DeleteVideoInfo) _then) =
+      _$DeleteVideoInfoCopyWithImpl;
   @useResult
-  $Res call({String profileName});
+  $Res call({String id, String profileName});
 }
 
 /// @nodoc
-class __$$GetAllVideoInfoListImplCopyWithImpl<$Res>
-    extends _$SavedEventCopyWithImpl<$Res, _$GetAllVideoInfoListImpl>
-    implements _$$GetAllVideoInfoListImplCopyWith<$Res> {
-  __$$GetAllVideoInfoListImplCopyWithImpl(_$GetAllVideoInfoListImpl _value,
-      $Res Function(_$GetAllVideoInfoListImpl) _then)
-      : super(_value, _then);
+class _$DeleteVideoInfoCopyWithImpl<$Res>
+    implements $DeleteVideoInfoCopyWith<$Res> {
+  _$DeleteVideoInfoCopyWithImpl(this._self, this._then);
+
+  final DeleteVideoInfo _self;
+  final $Res Function(DeleteVideoInfo) _then;
 
   /// Create a copy of SavedEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
+    Object? id = null,
     Object? profileName = null,
   }) {
-    return _then(_$GetAllVideoInfoListImpl(
+    return _then(DeleteVideoInfo(
+      id: null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       profileName: null == profileName
-          ? _value.profileName
+          ? _self.profileName
           : profileName // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -532,23 +450,24 @@ class __$$GetAllVideoInfoListImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$GetAllVideoInfoListImpl implements GetAllVideoInfoList {
-  const _$GetAllVideoInfoListImpl({this.profileName = 'default'});
+class GetAllVideoInfoList implements SavedEvent {
+  const GetAllVideoInfoList({this.profileName = 'default'});
 
-  @override
   @JsonKey()
   final String profileName;
 
-  @override
-  String toString() {
-    return 'SavedEvent.getAllVideoInfoList(profileName: $profileName)';
-  }
+  /// Create a copy of SavedEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $GetAllVideoInfoListCopyWith<GetAllVideoInfoList> get copyWith =>
+      _$GetAllVideoInfoListCopyWithImpl<GetAllVideoInfoList>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetAllVideoInfoListImpl &&
+            other is GetAllVideoInfoList &&
             (identical(other.profileName, profileName) ||
                 other.profileName == profileName));
   }
@@ -556,160 +475,39 @@ class _$GetAllVideoInfoListImpl implements GetAllVideoInfoList {
   @override
   int get hashCode => Object.hash(runtimeType, profileName);
 
-  /// Create a copy of SavedEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$GetAllVideoInfoListImplCopyWith<_$GetAllVideoInfoListImpl> get copyWith =>
-      __$$GetAllVideoInfoListImplCopyWithImpl<_$GetAllVideoInfoListImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(LocalStoreVideoInfo videoInfo, String profileName)
-        addVideoInfo,
-    required TResult Function(String id, String profileName) deleteVideoInfo,
-    required TResult Function(String profileName) getAllVideoInfoList,
-    required TResult Function(String id, String profileName) checkVideoInfo,
-    required TResult Function(String videoId) trackVideoWatch,
-    required TResult Function(String query) trackSearch,
-    required TResult Function(LocalStoreVideoInfo videoInfo, String profileName)
-        updatePlaybackPosition,
-  }) {
-    return getAllVideoInfoList(profileName);
+  String toString() {
+    return 'SavedEvent.getAllVideoInfoList(profileName: $profileName)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(LocalStoreVideoInfo videoInfo, String profileName)?
-        addVideoInfo,
-    TResult? Function(String id, String profileName)? deleteVideoInfo,
-    TResult? Function(String profileName)? getAllVideoInfoList,
-    TResult? Function(String id, String profileName)? checkVideoInfo,
-    TResult? Function(String videoId)? trackVideoWatch,
-    TResult? Function(String query)? trackSearch,
-    TResult? Function(LocalStoreVideoInfo videoInfo, String profileName)?
-        updatePlaybackPosition,
-  }) {
-    return getAllVideoInfoList?.call(profileName);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(LocalStoreVideoInfo videoInfo, String profileName)?
-        addVideoInfo,
-    TResult Function(String id, String profileName)? deleteVideoInfo,
-    TResult Function(String profileName)? getAllVideoInfoList,
-    TResult Function(String id, String profileName)? checkVideoInfo,
-    TResult Function(String videoId)? trackVideoWatch,
-    TResult Function(String query)? trackSearch,
-    TResult Function(LocalStoreVideoInfo videoInfo, String profileName)?
-        updatePlaybackPosition,
-    required TResult orElse(),
-  }) {
-    if (getAllVideoInfoList != null) {
-      return getAllVideoInfoList(profileName);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(AddVideoInfo value) addVideoInfo,
-    required TResult Function(DeleteVideoInfo value) deleteVideoInfo,
-    required TResult Function(GetAllVideoInfoList value) getAllVideoInfoList,
-    required TResult Function(CheckVideoInfo value) checkVideoInfo,
-    required TResult Function(TrackVideoWatch value) trackVideoWatch,
-    required TResult Function(TrackSearch value) trackSearch,
-    required TResult Function(UpdatePlaybackPosition value)
-        updatePlaybackPosition,
-  }) {
-    return getAllVideoInfoList(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AddVideoInfo value)? addVideoInfo,
-    TResult? Function(DeleteVideoInfo value)? deleteVideoInfo,
-    TResult? Function(GetAllVideoInfoList value)? getAllVideoInfoList,
-    TResult? Function(CheckVideoInfo value)? checkVideoInfo,
-    TResult? Function(TrackVideoWatch value)? trackVideoWatch,
-    TResult? Function(TrackSearch value)? trackSearch,
-    TResult? Function(UpdatePlaybackPosition value)? updatePlaybackPosition,
-  }) {
-    return getAllVideoInfoList?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(AddVideoInfo value)? addVideoInfo,
-    TResult Function(DeleteVideoInfo value)? deleteVideoInfo,
-    TResult Function(GetAllVideoInfoList value)? getAllVideoInfoList,
-    TResult Function(CheckVideoInfo value)? checkVideoInfo,
-    TResult Function(TrackVideoWatch value)? trackVideoWatch,
-    TResult Function(TrackSearch value)? trackSearch,
-    TResult Function(UpdatePlaybackPosition value)? updatePlaybackPosition,
-    required TResult orElse(),
-  }) {
-    if (getAllVideoInfoList != null) {
-      return getAllVideoInfoList(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class GetAllVideoInfoList implements SavedEvent {
-  const factory GetAllVideoInfoList({final String profileName}) =
-      _$GetAllVideoInfoListImpl;
-
-  String get profileName;
-
-  /// Create a copy of SavedEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetAllVideoInfoListImplCopyWith<_$GetAllVideoInfoListImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$CheckVideoInfoImplCopyWith<$Res> {
-  factory _$$CheckVideoInfoImplCopyWith(_$CheckVideoInfoImpl value,
-          $Res Function(_$CheckVideoInfoImpl) then) =
-      __$$CheckVideoInfoImplCopyWithImpl<$Res>;
+abstract mixin class $GetAllVideoInfoListCopyWith<$Res>
+    implements $SavedEventCopyWith<$Res> {
+  factory $GetAllVideoInfoListCopyWith(
+          GetAllVideoInfoList value, $Res Function(GetAllVideoInfoList) _then) =
+      _$GetAllVideoInfoListCopyWithImpl;
   @useResult
-  $Res call({String id, String profileName});
+  $Res call({String profileName});
 }
 
 /// @nodoc
-class __$$CheckVideoInfoImplCopyWithImpl<$Res>
-    extends _$SavedEventCopyWithImpl<$Res, _$CheckVideoInfoImpl>
-    implements _$$CheckVideoInfoImplCopyWith<$Res> {
-  __$$CheckVideoInfoImplCopyWithImpl(
-      _$CheckVideoInfoImpl _value, $Res Function(_$CheckVideoInfoImpl) _then)
-      : super(_value, _then);
+class _$GetAllVideoInfoListCopyWithImpl<$Res>
+    implements $GetAllVideoInfoListCopyWith<$Res> {
+  _$GetAllVideoInfoListCopyWithImpl(this._self, this._then);
+
+  final GetAllVideoInfoList _self;
+  final $Res Function(GetAllVideoInfoList) _then;
 
   /// Create a copy of SavedEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
-    Object? id = null,
     Object? profileName = null,
   }) {
-    return _then(_$CheckVideoInfoImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
+    return _then(GetAllVideoInfoList(
       profileName: null == profileName
-          ? _value.profileName
+          ? _self.profileName
           : profileName // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -718,25 +516,25 @@ class __$$CheckVideoInfoImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CheckVideoInfoImpl implements CheckVideoInfo {
-  const _$CheckVideoInfoImpl({required this.id, this.profileName = 'default'});
+class CheckVideoInfo implements SavedEvent {
+  const CheckVideoInfo({required this.id, this.profileName = 'default'});
 
-  @override
   final String id;
-  @override
   @JsonKey()
   final String profileName;
 
-  @override
-  String toString() {
-    return 'SavedEvent.checkVideoInfo(id: $id, profileName: $profileName)';
-  }
+  /// Create a copy of SavedEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $CheckVideoInfoCopyWith<CheckVideoInfo> get copyWith =>
+      _$CheckVideoInfoCopyWithImpl<CheckVideoInfo>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CheckVideoInfoImpl &&
+            other is CheckVideoInfo &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.profileName, profileName) ||
                 other.profileName == profileName));
@@ -745,157 +543,108 @@ class _$CheckVideoInfoImpl implements CheckVideoInfo {
   @override
   int get hashCode => Object.hash(runtimeType, id, profileName);
 
-  /// Create a copy of SavedEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$CheckVideoInfoImplCopyWith<_$CheckVideoInfoImpl> get copyWith =>
-      __$$CheckVideoInfoImplCopyWithImpl<_$CheckVideoInfoImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(LocalStoreVideoInfo videoInfo, String profileName)
-        addVideoInfo,
-    required TResult Function(String id, String profileName) deleteVideoInfo,
-    required TResult Function(String profileName) getAllVideoInfoList,
-    required TResult Function(String id, String profileName) checkVideoInfo,
-    required TResult Function(String videoId) trackVideoWatch,
-    required TResult Function(String query) trackSearch,
-    required TResult Function(LocalStoreVideoInfo videoInfo, String profileName)
-        updatePlaybackPosition,
-  }) {
-    return checkVideoInfo(id, profileName);
+  String toString() {
+    return 'SavedEvent.checkVideoInfo(id: $id, profileName: $profileName)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(LocalStoreVideoInfo videoInfo, String profileName)?
-        addVideoInfo,
-    TResult? Function(String id, String profileName)? deleteVideoInfo,
-    TResult? Function(String profileName)? getAllVideoInfoList,
-    TResult? Function(String id, String profileName)? checkVideoInfo,
-    TResult? Function(String videoId)? trackVideoWatch,
-    TResult? Function(String query)? trackSearch,
-    TResult? Function(LocalStoreVideoInfo videoInfo, String profileName)?
-        updatePlaybackPosition,
-  }) {
-    return checkVideoInfo?.call(id, profileName);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(LocalStoreVideoInfo videoInfo, String profileName)?
-        addVideoInfo,
-    TResult Function(String id, String profileName)? deleteVideoInfo,
-    TResult Function(String profileName)? getAllVideoInfoList,
-    TResult Function(String id, String profileName)? checkVideoInfo,
-    TResult Function(String videoId)? trackVideoWatch,
-    TResult Function(String query)? trackSearch,
-    TResult Function(LocalStoreVideoInfo videoInfo, String profileName)?
-        updatePlaybackPosition,
-    required TResult orElse(),
-  }) {
-    if (checkVideoInfo != null) {
-      return checkVideoInfo(id, profileName);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(AddVideoInfo value) addVideoInfo,
-    required TResult Function(DeleteVideoInfo value) deleteVideoInfo,
-    required TResult Function(GetAllVideoInfoList value) getAllVideoInfoList,
-    required TResult Function(CheckVideoInfo value) checkVideoInfo,
-    required TResult Function(TrackVideoWatch value) trackVideoWatch,
-    required TResult Function(TrackSearch value) trackSearch,
-    required TResult Function(UpdatePlaybackPosition value)
-        updatePlaybackPosition,
-  }) {
-    return checkVideoInfo(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AddVideoInfo value)? addVideoInfo,
-    TResult? Function(DeleteVideoInfo value)? deleteVideoInfo,
-    TResult? Function(GetAllVideoInfoList value)? getAllVideoInfoList,
-    TResult? Function(CheckVideoInfo value)? checkVideoInfo,
-    TResult? Function(TrackVideoWatch value)? trackVideoWatch,
-    TResult? Function(TrackSearch value)? trackSearch,
-    TResult? Function(UpdatePlaybackPosition value)? updatePlaybackPosition,
-  }) {
-    return checkVideoInfo?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(AddVideoInfo value)? addVideoInfo,
-    TResult Function(DeleteVideoInfo value)? deleteVideoInfo,
-    TResult Function(GetAllVideoInfoList value)? getAllVideoInfoList,
-    TResult Function(CheckVideoInfo value)? checkVideoInfo,
-    TResult Function(TrackVideoWatch value)? trackVideoWatch,
-    TResult Function(TrackSearch value)? trackSearch,
-    TResult Function(UpdatePlaybackPosition value)? updatePlaybackPosition,
-    required TResult orElse(),
-  }) {
-    if (checkVideoInfo != null) {
-      return checkVideoInfo(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class CheckVideoInfo implements SavedEvent {
-  const factory CheckVideoInfo(
-      {required final String id,
-      final String profileName}) = _$CheckVideoInfoImpl;
-
-  String get id;
-  String get profileName;
-
-  /// Create a copy of SavedEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$CheckVideoInfoImplCopyWith<_$CheckVideoInfoImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$TrackVideoWatchImplCopyWith<$Res> {
-  factory _$$TrackVideoWatchImplCopyWith(_$TrackVideoWatchImpl value,
-          $Res Function(_$TrackVideoWatchImpl) then) =
-      __$$TrackVideoWatchImplCopyWithImpl<$Res>;
+abstract mixin class $CheckVideoInfoCopyWith<$Res>
+    implements $SavedEventCopyWith<$Res> {
+  factory $CheckVideoInfoCopyWith(
+          CheckVideoInfo value, $Res Function(CheckVideoInfo) _then) =
+      _$CheckVideoInfoCopyWithImpl;
+  @useResult
+  $Res call({String id, String profileName});
+}
+
+/// @nodoc
+class _$CheckVideoInfoCopyWithImpl<$Res>
+    implements $CheckVideoInfoCopyWith<$Res> {
+  _$CheckVideoInfoCopyWithImpl(this._self, this._then);
+
+  final CheckVideoInfo _self;
+  final $Res Function(CheckVideoInfo) _then;
+
+  /// Create a copy of SavedEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? id = null,
+    Object? profileName = null,
+  }) {
+    return _then(CheckVideoInfo(
+      id: null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      profileName: null == profileName
+          ? _self.profileName
+          : profileName // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class TrackVideoWatch implements SavedEvent {
+  const TrackVideoWatch({required this.videoId});
+
+  final String videoId;
+
+  /// Create a copy of SavedEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $TrackVideoWatchCopyWith<TrackVideoWatch> get copyWith =>
+      _$TrackVideoWatchCopyWithImpl<TrackVideoWatch>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is TrackVideoWatch &&
+            (identical(other.videoId, videoId) || other.videoId == videoId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, videoId);
+
+  @override
+  String toString() {
+    return 'SavedEvent.trackVideoWatch(videoId: $videoId)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $TrackVideoWatchCopyWith<$Res>
+    implements $SavedEventCopyWith<$Res> {
+  factory $TrackVideoWatchCopyWith(
+          TrackVideoWatch value, $Res Function(TrackVideoWatch) _then) =
+      _$TrackVideoWatchCopyWithImpl;
   @useResult
   $Res call({String videoId});
 }
 
 /// @nodoc
-class __$$TrackVideoWatchImplCopyWithImpl<$Res>
-    extends _$SavedEventCopyWithImpl<$Res, _$TrackVideoWatchImpl>
-    implements _$$TrackVideoWatchImplCopyWith<$Res> {
-  __$$TrackVideoWatchImplCopyWithImpl(
-      _$TrackVideoWatchImpl _value, $Res Function(_$TrackVideoWatchImpl) _then)
-      : super(_value, _then);
+class _$TrackVideoWatchCopyWithImpl<$Res>
+    implements $TrackVideoWatchCopyWith<$Res> {
+  _$TrackVideoWatchCopyWithImpl(this._self, this._then);
+
+  final TrackVideoWatch _self;
+  final $Res Function(TrackVideoWatch) _then;
 
   /// Create a copy of SavedEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? videoId = null,
   }) {
-    return _then(_$TrackVideoWatchImpl(
+    return _then(TrackVideoWatch(
       videoId: null == videoId
-          ? _value.videoId
+          ? _self.videoId
           : videoId // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -904,177 +653,61 @@ class __$$TrackVideoWatchImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$TrackVideoWatchImpl implements TrackVideoWatch {
-  const _$TrackVideoWatchImpl({required this.videoId});
+class TrackSearch implements SavedEvent {
+  const TrackSearch({required this.query});
 
-  @override
-  final String videoId;
+  final String query;
 
-  @override
-  String toString() {
-    return 'SavedEvent.trackVideoWatch(videoId: $videoId)';
-  }
+  /// Create a copy of SavedEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $TrackSearchCopyWith<TrackSearch> get copyWith =>
+      _$TrackSearchCopyWithImpl<TrackSearch>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TrackVideoWatchImpl &&
-            (identical(other.videoId, videoId) || other.videoId == videoId));
+            other is TrackSearch &&
+            (identical(other.query, query) || other.query == query));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, videoId);
-
-  /// Create a copy of SavedEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$TrackVideoWatchImplCopyWith<_$TrackVideoWatchImpl> get copyWith =>
-      __$$TrackVideoWatchImplCopyWithImpl<_$TrackVideoWatchImpl>(
-          this, _$identity);
+  int get hashCode => Object.hash(runtimeType, query);
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(LocalStoreVideoInfo videoInfo, String profileName)
-        addVideoInfo,
-    required TResult Function(String id, String profileName) deleteVideoInfo,
-    required TResult Function(String profileName) getAllVideoInfoList,
-    required TResult Function(String id, String profileName) checkVideoInfo,
-    required TResult Function(String videoId) trackVideoWatch,
-    required TResult Function(String query) trackSearch,
-    required TResult Function(LocalStoreVideoInfo videoInfo, String profileName)
-        updatePlaybackPosition,
-  }) {
-    return trackVideoWatch(videoId);
+  String toString() {
+    return 'SavedEvent.trackSearch(query: $query)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(LocalStoreVideoInfo videoInfo, String profileName)?
-        addVideoInfo,
-    TResult? Function(String id, String profileName)? deleteVideoInfo,
-    TResult? Function(String profileName)? getAllVideoInfoList,
-    TResult? Function(String id, String profileName)? checkVideoInfo,
-    TResult? Function(String videoId)? trackVideoWatch,
-    TResult? Function(String query)? trackSearch,
-    TResult? Function(LocalStoreVideoInfo videoInfo, String profileName)?
-        updatePlaybackPosition,
-  }) {
-    return trackVideoWatch?.call(videoId);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(LocalStoreVideoInfo videoInfo, String profileName)?
-        addVideoInfo,
-    TResult Function(String id, String profileName)? deleteVideoInfo,
-    TResult Function(String profileName)? getAllVideoInfoList,
-    TResult Function(String id, String profileName)? checkVideoInfo,
-    TResult Function(String videoId)? trackVideoWatch,
-    TResult Function(String query)? trackSearch,
-    TResult Function(LocalStoreVideoInfo videoInfo, String profileName)?
-        updatePlaybackPosition,
-    required TResult orElse(),
-  }) {
-    if (trackVideoWatch != null) {
-      return trackVideoWatch(videoId);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(AddVideoInfo value) addVideoInfo,
-    required TResult Function(DeleteVideoInfo value) deleteVideoInfo,
-    required TResult Function(GetAllVideoInfoList value) getAllVideoInfoList,
-    required TResult Function(CheckVideoInfo value) checkVideoInfo,
-    required TResult Function(TrackVideoWatch value) trackVideoWatch,
-    required TResult Function(TrackSearch value) trackSearch,
-    required TResult Function(UpdatePlaybackPosition value)
-        updatePlaybackPosition,
-  }) {
-    return trackVideoWatch(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AddVideoInfo value)? addVideoInfo,
-    TResult? Function(DeleteVideoInfo value)? deleteVideoInfo,
-    TResult? Function(GetAllVideoInfoList value)? getAllVideoInfoList,
-    TResult? Function(CheckVideoInfo value)? checkVideoInfo,
-    TResult? Function(TrackVideoWatch value)? trackVideoWatch,
-    TResult? Function(TrackSearch value)? trackSearch,
-    TResult? Function(UpdatePlaybackPosition value)? updatePlaybackPosition,
-  }) {
-    return trackVideoWatch?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(AddVideoInfo value)? addVideoInfo,
-    TResult Function(DeleteVideoInfo value)? deleteVideoInfo,
-    TResult Function(GetAllVideoInfoList value)? getAllVideoInfoList,
-    TResult Function(CheckVideoInfo value)? checkVideoInfo,
-    TResult Function(TrackVideoWatch value)? trackVideoWatch,
-    TResult Function(TrackSearch value)? trackSearch,
-    TResult Function(UpdatePlaybackPosition value)? updatePlaybackPosition,
-    required TResult orElse(),
-  }) {
-    if (trackVideoWatch != null) {
-      return trackVideoWatch(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class TrackVideoWatch implements SavedEvent {
-  const factory TrackVideoWatch({required final String videoId}) =
-      _$TrackVideoWatchImpl;
-
-  String get videoId;
-
-  /// Create a copy of SavedEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$TrackVideoWatchImplCopyWith<_$TrackVideoWatchImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$TrackSearchImplCopyWith<$Res> {
-  factory _$$TrackSearchImplCopyWith(
-          _$TrackSearchImpl value, $Res Function(_$TrackSearchImpl) then) =
-      __$$TrackSearchImplCopyWithImpl<$Res>;
+abstract mixin class $TrackSearchCopyWith<$Res>
+    implements $SavedEventCopyWith<$Res> {
+  factory $TrackSearchCopyWith(
+          TrackSearch value, $Res Function(TrackSearch) _then) =
+      _$TrackSearchCopyWithImpl;
   @useResult
   $Res call({String query});
 }
 
 /// @nodoc
-class __$$TrackSearchImplCopyWithImpl<$Res>
-    extends _$SavedEventCopyWithImpl<$Res, _$TrackSearchImpl>
-    implements _$$TrackSearchImplCopyWith<$Res> {
-  __$$TrackSearchImplCopyWithImpl(
-      _$TrackSearchImpl _value, $Res Function(_$TrackSearchImpl) _then)
-      : super(_value, _then);
+class _$TrackSearchCopyWithImpl<$Res> implements $TrackSearchCopyWith<$Res> {
+  _$TrackSearchCopyWithImpl(this._self, this._then);
+
+  final TrackSearch _self;
+  final $Res Function(TrackSearch) _then;
 
   /// Create a copy of SavedEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? query = null,
   }) {
-    return _then(_$TrackSearchImpl(
+    return _then(TrackSearch(
       query: null == query
-          ? _value.query
+          ? _self.query
           : query // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -1083,210 +716,27 @@ class __$$TrackSearchImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$TrackSearchImpl implements TrackSearch {
-  const _$TrackSearchImpl({required this.query});
-
-  @override
-  final String query;
-
-  @override
-  String toString() {
-    return 'SavedEvent.trackSearch(query: $query)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$TrackSearchImpl &&
-            (identical(other.query, query) || other.query == query));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, query);
-
-  /// Create a copy of SavedEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$TrackSearchImplCopyWith<_$TrackSearchImpl> get copyWith =>
-      __$$TrackSearchImplCopyWithImpl<_$TrackSearchImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(LocalStoreVideoInfo videoInfo, String profileName)
-        addVideoInfo,
-    required TResult Function(String id, String profileName) deleteVideoInfo,
-    required TResult Function(String profileName) getAllVideoInfoList,
-    required TResult Function(String id, String profileName) checkVideoInfo,
-    required TResult Function(String videoId) trackVideoWatch,
-    required TResult Function(String query) trackSearch,
-    required TResult Function(LocalStoreVideoInfo videoInfo, String profileName)
-        updatePlaybackPosition,
-  }) {
-    return trackSearch(query);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(LocalStoreVideoInfo videoInfo, String profileName)?
-        addVideoInfo,
-    TResult? Function(String id, String profileName)? deleteVideoInfo,
-    TResult? Function(String profileName)? getAllVideoInfoList,
-    TResult? Function(String id, String profileName)? checkVideoInfo,
-    TResult? Function(String videoId)? trackVideoWatch,
-    TResult? Function(String query)? trackSearch,
-    TResult? Function(LocalStoreVideoInfo videoInfo, String profileName)?
-        updatePlaybackPosition,
-  }) {
-    return trackSearch?.call(query);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(LocalStoreVideoInfo videoInfo, String profileName)?
-        addVideoInfo,
-    TResult Function(String id, String profileName)? deleteVideoInfo,
-    TResult Function(String profileName)? getAllVideoInfoList,
-    TResult Function(String id, String profileName)? checkVideoInfo,
-    TResult Function(String videoId)? trackVideoWatch,
-    TResult Function(String query)? trackSearch,
-    TResult Function(LocalStoreVideoInfo videoInfo, String profileName)?
-        updatePlaybackPosition,
-    required TResult orElse(),
-  }) {
-    if (trackSearch != null) {
-      return trackSearch(query);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(AddVideoInfo value) addVideoInfo,
-    required TResult Function(DeleteVideoInfo value) deleteVideoInfo,
-    required TResult Function(GetAllVideoInfoList value) getAllVideoInfoList,
-    required TResult Function(CheckVideoInfo value) checkVideoInfo,
-    required TResult Function(TrackVideoWatch value) trackVideoWatch,
-    required TResult Function(TrackSearch value) trackSearch,
-    required TResult Function(UpdatePlaybackPosition value)
-        updatePlaybackPosition,
-  }) {
-    return trackSearch(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AddVideoInfo value)? addVideoInfo,
-    TResult? Function(DeleteVideoInfo value)? deleteVideoInfo,
-    TResult? Function(GetAllVideoInfoList value)? getAllVideoInfoList,
-    TResult? Function(CheckVideoInfo value)? checkVideoInfo,
-    TResult? Function(TrackVideoWatch value)? trackVideoWatch,
-    TResult? Function(TrackSearch value)? trackSearch,
-    TResult? Function(UpdatePlaybackPosition value)? updatePlaybackPosition,
-  }) {
-    return trackSearch?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(AddVideoInfo value)? addVideoInfo,
-    TResult Function(DeleteVideoInfo value)? deleteVideoInfo,
-    TResult Function(GetAllVideoInfoList value)? getAllVideoInfoList,
-    TResult Function(CheckVideoInfo value)? checkVideoInfo,
-    TResult Function(TrackVideoWatch value)? trackVideoWatch,
-    TResult Function(TrackSearch value)? trackSearch,
-    TResult Function(UpdatePlaybackPosition value)? updatePlaybackPosition,
-    required TResult orElse(),
-  }) {
-    if (trackSearch != null) {
-      return trackSearch(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class TrackSearch implements SavedEvent {
-  const factory TrackSearch({required final String query}) = _$TrackSearchImpl;
-
-  String get query;
-
-  /// Create a copy of SavedEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$TrackSearchImplCopyWith<_$TrackSearchImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$UpdatePlaybackPositionImplCopyWith<$Res> {
-  factory _$$UpdatePlaybackPositionImplCopyWith(
-          _$UpdatePlaybackPositionImpl value,
-          $Res Function(_$UpdatePlaybackPositionImpl) then) =
-      __$$UpdatePlaybackPositionImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({LocalStoreVideoInfo videoInfo, String profileName});
-}
-
-/// @nodoc
-class __$$UpdatePlaybackPositionImplCopyWithImpl<$Res>
-    extends _$SavedEventCopyWithImpl<$Res, _$UpdatePlaybackPositionImpl>
-    implements _$$UpdatePlaybackPositionImplCopyWith<$Res> {
-  __$$UpdatePlaybackPositionImplCopyWithImpl(
-      _$UpdatePlaybackPositionImpl _value,
-      $Res Function(_$UpdatePlaybackPositionImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of SavedEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? videoInfo = null,
-    Object? profileName = null,
-  }) {
-    return _then(_$UpdatePlaybackPositionImpl(
-      videoInfo: null == videoInfo
-          ? _value.videoInfo
-          : videoInfo // ignore: cast_nullable_to_non_nullable
-              as LocalStoreVideoInfo,
-      profileName: null == profileName
-          ? _value.profileName
-          : profileName // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$UpdatePlaybackPositionImpl implements UpdatePlaybackPosition {
-  const _$UpdatePlaybackPositionImpl(
+class UpdatePlaybackPosition implements SavedEvent {
+  const UpdatePlaybackPosition(
       {required this.videoInfo, this.profileName = 'default'});
 
-  @override
   final LocalStoreVideoInfo videoInfo;
-  @override
   @JsonKey()
   final String profileName;
 
-  @override
-  String toString() {
-    return 'SavedEvent.updatePlaybackPosition(videoInfo: $videoInfo, profileName: $profileName)';
-  }
+  /// Create a copy of SavedEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UpdatePlaybackPositionCopyWith<UpdatePlaybackPosition> get copyWith =>
+      _$UpdatePlaybackPositionCopyWithImpl<UpdatePlaybackPosition>(
+          this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UpdatePlaybackPositionImpl &&
+            other is UpdatePlaybackPosition &&
             (identical(other.videoInfo, videoInfo) ||
                 other.videoInfo == videoInfo) &&
             (identical(other.profileName, profileName) ||
@@ -1296,207 +746,98 @@ class _$UpdatePlaybackPositionImpl implements UpdatePlaybackPosition {
   @override
   int get hashCode => Object.hash(runtimeType, videoInfo, profileName);
 
-  /// Create a copy of SavedEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$UpdatePlaybackPositionImplCopyWith<_$UpdatePlaybackPositionImpl>
-      get copyWith => __$$UpdatePlaybackPositionImplCopyWithImpl<
-          _$UpdatePlaybackPositionImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(LocalStoreVideoInfo videoInfo, String profileName)
-        addVideoInfo,
-    required TResult Function(String id, String profileName) deleteVideoInfo,
-    required TResult Function(String profileName) getAllVideoInfoList,
-    required TResult Function(String id, String profileName) checkVideoInfo,
-    required TResult Function(String videoId) trackVideoWatch,
-    required TResult Function(String query) trackSearch,
-    required TResult Function(LocalStoreVideoInfo videoInfo, String profileName)
-        updatePlaybackPosition,
-  }) {
-    return updatePlaybackPosition(videoInfo, profileName);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(LocalStoreVideoInfo videoInfo, String profileName)?
-        addVideoInfo,
-    TResult? Function(String id, String profileName)? deleteVideoInfo,
-    TResult? Function(String profileName)? getAllVideoInfoList,
-    TResult? Function(String id, String profileName)? checkVideoInfo,
-    TResult? Function(String videoId)? trackVideoWatch,
-    TResult? Function(String query)? trackSearch,
-    TResult? Function(LocalStoreVideoInfo videoInfo, String profileName)?
-        updatePlaybackPosition,
-  }) {
-    return updatePlaybackPosition?.call(videoInfo, profileName);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(LocalStoreVideoInfo videoInfo, String profileName)?
-        addVideoInfo,
-    TResult Function(String id, String profileName)? deleteVideoInfo,
-    TResult Function(String profileName)? getAllVideoInfoList,
-    TResult Function(String id, String profileName)? checkVideoInfo,
-    TResult Function(String videoId)? trackVideoWatch,
-    TResult Function(String query)? trackSearch,
-    TResult Function(LocalStoreVideoInfo videoInfo, String profileName)?
-        updatePlaybackPosition,
-    required TResult orElse(),
-  }) {
-    if (updatePlaybackPosition != null) {
-      return updatePlaybackPosition(videoInfo, profileName);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(AddVideoInfo value) addVideoInfo,
-    required TResult Function(DeleteVideoInfo value) deleteVideoInfo,
-    required TResult Function(GetAllVideoInfoList value) getAllVideoInfoList,
-    required TResult Function(CheckVideoInfo value) checkVideoInfo,
-    required TResult Function(TrackVideoWatch value) trackVideoWatch,
-    required TResult Function(TrackSearch value) trackSearch,
-    required TResult Function(UpdatePlaybackPosition value)
-        updatePlaybackPosition,
-  }) {
-    return updatePlaybackPosition(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AddVideoInfo value)? addVideoInfo,
-    TResult? Function(DeleteVideoInfo value)? deleteVideoInfo,
-    TResult? Function(GetAllVideoInfoList value)? getAllVideoInfoList,
-    TResult? Function(CheckVideoInfo value)? checkVideoInfo,
-    TResult? Function(TrackVideoWatch value)? trackVideoWatch,
-    TResult? Function(TrackSearch value)? trackSearch,
-    TResult? Function(UpdatePlaybackPosition value)? updatePlaybackPosition,
-  }) {
-    return updatePlaybackPosition?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(AddVideoInfo value)? addVideoInfo,
-    TResult Function(DeleteVideoInfo value)? deleteVideoInfo,
-    TResult Function(GetAllVideoInfoList value)? getAllVideoInfoList,
-    TResult Function(CheckVideoInfo value)? checkVideoInfo,
-    TResult Function(TrackVideoWatch value)? trackVideoWatch,
-    TResult Function(TrackSearch value)? trackSearch,
-    TResult Function(UpdatePlaybackPosition value)? updatePlaybackPosition,
-    required TResult orElse(),
-  }) {
-    if (updatePlaybackPosition != null) {
-      return updatePlaybackPosition(this);
-    }
-    return orElse();
+  String toString() {
+    return 'SavedEvent.updatePlaybackPosition(videoInfo: $videoInfo, profileName: $profileName)';
   }
 }
 
-abstract class UpdatePlaybackPosition implements SavedEvent {
-  const factory UpdatePlaybackPosition(
-      {required final LocalStoreVideoInfo videoInfo,
-      final String profileName}) = _$UpdatePlaybackPositionImpl;
+/// @nodoc
+abstract mixin class $UpdatePlaybackPositionCopyWith<$Res>
+    implements $SavedEventCopyWith<$Res> {
+  factory $UpdatePlaybackPositionCopyWith(UpdatePlaybackPosition value,
+          $Res Function(UpdatePlaybackPosition) _then) =
+      _$UpdatePlaybackPositionCopyWithImpl;
+  @useResult
+  $Res call({LocalStoreVideoInfo videoInfo, String profileName});
+}
 
-  LocalStoreVideoInfo get videoInfo;
-  String get profileName;
+/// @nodoc
+class _$UpdatePlaybackPositionCopyWithImpl<$Res>
+    implements $UpdatePlaybackPositionCopyWith<$Res> {
+  _$UpdatePlaybackPositionCopyWithImpl(this._self, this._then);
+
+  final UpdatePlaybackPosition _self;
+  final $Res Function(UpdatePlaybackPosition) _then;
 
   /// Create a copy of SavedEvent
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UpdatePlaybackPositionImplCopyWith<_$UpdatePlaybackPositionImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? videoInfo = null,
+    Object? profileName = null,
+  }) {
+    return _then(UpdatePlaybackPosition(
+      videoInfo: null == videoInfo
+          ? _self.videoInfo
+          : videoInfo // ignore: cast_nullable_to_non_nullable
+              as LocalStoreVideoInfo,
+      profileName: null == profileName
+          ? _self.profileName
+          : profileName // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 mixin _$SavedState {
-  ApiStatus get savedVideosFetchStatus => throw _privateConstructorUsedError;
-  LocalStoreVideoInfo? get videoInfo => throw _privateConstructorUsedError;
-  List<LocalStoreVideoInfo> get localSavedVideos =>
-      throw _privateConstructorUsedError;
-  List<LocalStoreVideoInfo> get localSavedHistoryVideos =>
-      throw _privateConstructorUsedError;
+  ApiStatus get savedVideosFetchStatus;
+  LocalStoreVideoInfo? get videoInfo;
+  List<LocalStoreVideoInfo> get localSavedVideos;
+  List<LocalStoreVideoInfo> get localSavedHistoryVideos;
 
   /// Create a copy of SavedState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $SavedStateCopyWith<SavedState> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $SavedStateCopyWith<$Res> {
-  factory $SavedStateCopyWith(
-          SavedState value, $Res Function(SavedState) then) =
-      _$SavedStateCopyWithImpl<$Res, SavedState>;
-  @useResult
-  $Res call(
-      {ApiStatus savedVideosFetchStatus,
-      LocalStoreVideoInfo? videoInfo,
-      List<LocalStoreVideoInfo> localSavedVideos,
-      List<LocalStoreVideoInfo> localSavedHistoryVideos});
-}
-
-/// @nodoc
-class _$SavedStateCopyWithImpl<$Res, $Val extends SavedState>
-    implements $SavedStateCopyWith<$Res> {
-  _$SavedStateCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of SavedState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $SavedStateCopyWith<SavedState> get copyWith =>
+      _$SavedStateCopyWithImpl<SavedState>(this as SavedState, _$identity);
+
   @override
-  $Res call({
-    Object? savedVideosFetchStatus = null,
-    Object? videoInfo = freezed,
-    Object? localSavedVideos = null,
-    Object? localSavedHistoryVideos = null,
-  }) {
-    return _then(_value.copyWith(
-      savedVideosFetchStatus: null == savedVideosFetchStatus
-          ? _value.savedVideosFetchStatus
-          : savedVideosFetchStatus // ignore: cast_nullable_to_non_nullable
-              as ApiStatus,
-      videoInfo: freezed == videoInfo
-          ? _value.videoInfo
-          : videoInfo // ignore: cast_nullable_to_non_nullable
-              as LocalStoreVideoInfo?,
-      localSavedVideos: null == localSavedVideos
-          ? _value.localSavedVideos
-          : localSavedVideos // ignore: cast_nullable_to_non_nullable
-              as List<LocalStoreVideoInfo>,
-      localSavedHistoryVideos: null == localSavedHistoryVideos
-          ? _value.localSavedHistoryVideos
-          : localSavedHistoryVideos // ignore: cast_nullable_to_non_nullable
-              as List<LocalStoreVideoInfo>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SavedState &&
+            (identical(other.savedVideosFetchStatus, savedVideosFetchStatus) ||
+                other.savedVideosFetchStatus == savedVideosFetchStatus) &&
+            (identical(other.videoInfo, videoInfo) ||
+                other.videoInfo == videoInfo) &&
+            const DeepCollectionEquality()
+                .equals(other.localSavedVideos, localSavedVideos) &&
+            const DeepCollectionEquality().equals(
+                other.localSavedHistoryVideos, localSavedHistoryVideos));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      savedVideosFetchStatus,
+      videoInfo,
+      const DeepCollectionEquality().hash(localSavedVideos),
+      const DeepCollectionEquality().hash(localSavedHistoryVideos));
+
+  @override
+  String toString() {
+    return 'SavedState(savedVideosFetchStatus: $savedVideosFetchStatus, videoInfo: $videoInfo, localSavedVideos: $localSavedVideos, localSavedHistoryVideos: $localSavedHistoryVideos)';
   }
 }
 
 /// @nodoc
-abstract class _$$InitialImplCopyWith<$Res>
-    implements $SavedStateCopyWith<$Res> {
-  factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $SavedStateCopyWith<$Res> {
+  factory $SavedStateCopyWith(
+          SavedState value, $Res Function(SavedState) _then) =
+      _$SavedStateCopyWithImpl;
   @useResult
   $Res call(
       {ApiStatus savedVideosFetchStatus,
@@ -1506,12 +847,11 @@ abstract class _$$InitialImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$InitialImplCopyWithImpl<$Res>
-    extends _$SavedStateCopyWithImpl<$Res, _$InitialImpl>
-    implements _$$InitialImplCopyWith<$Res> {
-  __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
-      : super(_value, _then);
+class _$SavedStateCopyWithImpl<$Res> implements $SavedStateCopyWith<$Res> {
+  _$SavedStateCopyWithImpl(this._self, this._then);
+
+  final SavedState _self;
+  final $Res Function(SavedState) _then;
 
   /// Create a copy of SavedState
   /// with the given fields replaced by the non-null parameter values.
@@ -1523,31 +863,202 @@ class __$$InitialImplCopyWithImpl<$Res>
     Object? localSavedVideos = null,
     Object? localSavedHistoryVideos = null,
   }) {
-    return _then(_$InitialImpl(
+    return _then(_self.copyWith(
       savedVideosFetchStatus: null == savedVideosFetchStatus
-          ? _value.savedVideosFetchStatus
+          ? _self.savedVideosFetchStatus
           : savedVideosFetchStatus // ignore: cast_nullable_to_non_nullable
               as ApiStatus,
       videoInfo: freezed == videoInfo
-          ? _value.videoInfo
+          ? _self.videoInfo
           : videoInfo // ignore: cast_nullable_to_non_nullable
               as LocalStoreVideoInfo?,
       localSavedVideos: null == localSavedVideos
-          ? _value._localSavedVideos
+          ? _self.localSavedVideos
           : localSavedVideos // ignore: cast_nullable_to_non_nullable
               as List<LocalStoreVideoInfo>,
       localSavedHistoryVideos: null == localSavedHistoryVideos
-          ? _value._localSavedHistoryVideos
+          ? _self.localSavedHistoryVideos
           : localSavedHistoryVideos // ignore: cast_nullable_to_non_nullable
               as List<LocalStoreVideoInfo>,
     ));
   }
 }
 
+/// Adds pattern-matching-related methods to [SavedState].
+extension SavedStatePatterns on SavedState {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_Initial value)? $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Initial() when $default != null:
+        return $default(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_Initial value) $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Initial():
+        return $default(_that);
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_Initial value)? $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Initial() when $default != null:
+        return $default(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            ApiStatus savedVideosFetchStatus,
+            LocalStoreVideoInfo? videoInfo,
+            List<LocalStoreVideoInfo> localSavedVideos,
+            List<LocalStoreVideoInfo> localSavedHistoryVideos)?
+        $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Initial() when $default != null:
+        return $default(_that.savedVideosFetchStatus, _that.videoInfo,
+            _that.localSavedVideos, _that.localSavedHistoryVideos);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            ApiStatus savedVideosFetchStatus,
+            LocalStoreVideoInfo? videoInfo,
+            List<LocalStoreVideoInfo> localSavedVideos,
+            List<LocalStoreVideoInfo> localSavedHistoryVideos)
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Initial():
+        return $default(_that.savedVideosFetchStatus, _that.videoInfo,
+            _that.localSavedVideos, _that.localSavedHistoryVideos);
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(
+            ApiStatus savedVideosFetchStatus,
+            LocalStoreVideoInfo? videoInfo,
+            List<LocalStoreVideoInfo> localSavedVideos,
+            List<LocalStoreVideoInfo> localSavedHistoryVideos)?
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Initial() when $default != null:
+        return $default(_that.savedVideosFetchStatus, _that.videoInfo,
+            _that.localSavedVideos, _that.localSavedHistoryVideos);
+      case _:
+        return null;
+    }
+  }
+}
+
 /// @nodoc
 
-class _$InitialImpl implements _Initial {
-  const _$InitialImpl(
+class _Initial implements SavedState {
+  const _Initial(
       {required this.savedVideosFetchStatus,
       required this.videoInfo,
       required final List<LocalStoreVideoInfo> localSavedVideos,
@@ -1577,16 +1088,19 @@ class _$InitialImpl implements _Initial {
     return EqualUnmodifiableListView(_localSavedHistoryVideos);
   }
 
+  /// Create a copy of SavedState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'SavedState(savedVideosFetchStatus: $savedVideosFetchStatus, videoInfo: $videoInfo, localSavedVideos: $localSavedVideos, localSavedHistoryVideos: $localSavedHistoryVideos)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$InitialCopyWith<_Initial> get copyWith =>
+      __$InitialCopyWithImpl<_Initial>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$InitialImpl &&
+            other is _Initial &&
             (identical(other.savedVideosFetchStatus, savedVideosFetchStatus) ||
                 other.savedVideosFetchStatus == savedVideosFetchStatus) &&
             (identical(other.videoInfo, videoInfo) ||
@@ -1605,36 +1119,62 @@ class _$InitialImpl implements _Initial {
       const DeepCollectionEquality().hash(_localSavedVideos),
       const DeepCollectionEquality().hash(_localSavedHistoryVideos));
 
+  @override
+  String toString() {
+    return 'SavedState(savedVideosFetchStatus: $savedVideosFetchStatus, videoInfo: $videoInfo, localSavedVideos: $localSavedVideos, localSavedHistoryVideos: $localSavedHistoryVideos)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$InitialCopyWith<$Res>
+    implements $SavedStateCopyWith<$Res> {
+  factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) _then) =
+      __$InitialCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {ApiStatus savedVideosFetchStatus,
+      LocalStoreVideoInfo? videoInfo,
+      List<LocalStoreVideoInfo> localSavedVideos,
+      List<LocalStoreVideoInfo> localSavedHistoryVideos});
+}
+
+/// @nodoc
+class __$InitialCopyWithImpl<$Res> implements _$InitialCopyWith<$Res> {
+  __$InitialCopyWithImpl(this._self, this._then);
+
+  final _Initial _self;
+  final $Res Function(_Initial) _then;
+
   /// Create a copy of SavedState
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
-      __$$InitialImplCopyWithImpl<_$InitialImpl>(this, _$identity);
+  $Res call({
+    Object? savedVideosFetchStatus = null,
+    Object? videoInfo = freezed,
+    Object? localSavedVideos = null,
+    Object? localSavedHistoryVideos = null,
+  }) {
+    return _then(_Initial(
+      savedVideosFetchStatus: null == savedVideosFetchStatus
+          ? _self.savedVideosFetchStatus
+          : savedVideosFetchStatus // ignore: cast_nullable_to_non_nullable
+              as ApiStatus,
+      videoInfo: freezed == videoInfo
+          ? _self.videoInfo
+          : videoInfo // ignore: cast_nullable_to_non_nullable
+              as LocalStoreVideoInfo?,
+      localSavedVideos: null == localSavedVideos
+          ? _self._localSavedVideos
+          : localSavedVideos // ignore: cast_nullable_to_non_nullable
+              as List<LocalStoreVideoInfo>,
+      localSavedHistoryVideos: null == localSavedHistoryVideos
+          ? _self._localSavedHistoryVideos
+          : localSavedHistoryVideos // ignore: cast_nullable_to_non_nullable
+              as List<LocalStoreVideoInfo>,
+    ));
+  }
 }
 
-abstract class _Initial implements SavedState {
-  const factory _Initial(
-          {required final ApiStatus savedVideosFetchStatus,
-          required final LocalStoreVideoInfo? videoInfo,
-          required final List<LocalStoreVideoInfo> localSavedVideos,
-          required final List<LocalStoreVideoInfo> localSavedHistoryVideos}) =
-      _$InitialImpl;
-
-  @override
-  ApiStatus get savedVideosFetchStatus;
-  @override
-  LocalStoreVideoInfo? get videoInfo;
-  @override
-  List<LocalStoreVideoInfo> get localSavedVideos;
-  @override
-  List<LocalStoreVideoInfo> get localSavedHistoryVideos;
-
-  /// Create a copy of SavedState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on

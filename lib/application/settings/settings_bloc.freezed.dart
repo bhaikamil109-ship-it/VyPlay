@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,457 +9,327 @@ part of 'settings_bloc.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$SettingsEvent {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initializeSettings,
-    required TResult Function(String? language) getDefaultLanguage,
-    required TResult Function(String? quality) getDefaultQuality,
-    required TResult Function(String? region) getDefaultRegion,
-    required TResult Function(String themeMode) changeTheme,
-    required TResult Function() toggleHistoryVisibility,
-    required TResult Function() toggleDislikeVisibility,
-    required TResult Function() toggleHlsPlayer,
-    required TResult Function() toggleCommentVisibility,
-    required TResult Function() toggleRelatedVideoVisibility,
-    required TResult Function(bool forceRefresh) fetchPipedInstances,
-    required TResult Function(bool forceRefresh) fetchInvidiousInstances,
-    required TResult Function(String instanceApi) setInstance,
-    required TResult Function(YouTubeServices service) setYTService,
-    required TResult Function() togglePipPlayer,
-    required TResult Function(String filter) setSearchFilter,
-    required TResult Function(String fitMode) setVideoFitMode,
-    required TResult Function(int seconds) setSkipInterval,
-    required TResult Function() toggleSponsorBlock,
-    required TResult Function(List<String> categories)
-        setSponsorBlockCategories,
-    required TResult Function() toggleOpenLinksInBrowser,
-    required TResult Function(String mode) setHomeFeedMode,
-    required TResult Function() toggleAudioFocus,
-    required TResult Function(String profileName) addProfile,
-    required TResult Function(String profileName) deleteProfile,
-    required TResult Function(String profileName) switchProfile,
-    required TResult Function(String oldName, String newName) renameProfile,
-    required TResult Function(String profileName) exportSubscriptions,
-    required TResult Function(String filePath, String profileName)
-        importSubscriptions,
-    required TResult Function(double size) setSubtitleSize,
-    required TResult Function() toggleSearchHistoryEnabled,
-    required TResult Function() toggleSearchHistoryVisibility,
-    required TResult Function(String filePath) setLastExportedFilePath,
-    required TResult Function() toggleAutoPip,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initializeSettings,
-    TResult? Function(String? language)? getDefaultLanguage,
-    TResult? Function(String? quality)? getDefaultQuality,
-    TResult? Function(String? region)? getDefaultRegion,
-    TResult? Function(String themeMode)? changeTheme,
-    TResult? Function()? toggleHistoryVisibility,
-    TResult? Function()? toggleDislikeVisibility,
-    TResult? Function()? toggleHlsPlayer,
-    TResult? Function()? toggleCommentVisibility,
-    TResult? Function()? toggleRelatedVideoVisibility,
-    TResult? Function(bool forceRefresh)? fetchPipedInstances,
-    TResult? Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult? Function(String instanceApi)? setInstance,
-    TResult? Function(YouTubeServices service)? setYTService,
-    TResult? Function()? togglePipPlayer,
-    TResult? Function(String filter)? setSearchFilter,
-    TResult? Function(String fitMode)? setVideoFitMode,
-    TResult? Function(int seconds)? setSkipInterval,
-    TResult? Function()? toggleSponsorBlock,
-    TResult? Function(List<String> categories)? setSponsorBlockCategories,
-    TResult? Function()? toggleOpenLinksInBrowser,
-    TResult? Function(String mode)? setHomeFeedMode,
-    TResult? Function()? toggleAudioFocus,
-    TResult? Function(String profileName)? addProfile,
-    TResult? Function(String profileName)? deleteProfile,
-    TResult? Function(String profileName)? switchProfile,
-    TResult? Function(String oldName, String newName)? renameProfile,
-    TResult? Function(String profileName)? exportSubscriptions,
-    TResult? Function(String filePath, String profileName)? importSubscriptions,
-    TResult? Function(double size)? setSubtitleSize,
-    TResult? Function()? toggleSearchHistoryEnabled,
-    TResult? Function()? toggleSearchHistoryVisibility,
-    TResult? Function(String filePath)? setLastExportedFilePath,
-    TResult? Function()? toggleAutoPip,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initializeSettings,
-    TResult Function(String? language)? getDefaultLanguage,
-    TResult Function(String? quality)? getDefaultQuality,
-    TResult Function(String? region)? getDefaultRegion,
-    TResult Function(String themeMode)? changeTheme,
-    TResult Function()? toggleHistoryVisibility,
-    TResult Function()? toggleDislikeVisibility,
-    TResult Function()? toggleHlsPlayer,
-    TResult Function()? toggleCommentVisibility,
-    TResult Function()? toggleRelatedVideoVisibility,
-    TResult Function(bool forceRefresh)? fetchPipedInstances,
-    TResult Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult Function(String instanceApi)? setInstance,
-    TResult Function(YouTubeServices service)? setYTService,
-    TResult Function()? togglePipPlayer,
-    TResult Function(String filter)? setSearchFilter,
-    TResult Function(String fitMode)? setVideoFitMode,
-    TResult Function(int seconds)? setSkipInterval,
-    TResult Function()? toggleSponsorBlock,
-    TResult Function(List<String> categories)? setSponsorBlockCategories,
-    TResult Function()? toggleOpenLinksInBrowser,
-    TResult Function(String mode)? setHomeFeedMode,
-    TResult Function()? toggleAudioFocus,
-    TResult Function(String profileName)? addProfile,
-    TResult Function(String profileName)? deleteProfile,
-    TResult Function(String profileName)? switchProfile,
-    TResult Function(String oldName, String newName)? renameProfile,
-    TResult Function(String profileName)? exportSubscriptions,
-    TResult Function(String filePath, String profileName)? importSubscriptions,
-    TResult Function(double size)? setSubtitleSize,
-    TResult Function()? toggleSearchHistoryEnabled,
-    TResult Function()? toggleSearchHistoryVisibility,
-    TResult Function(String filePath)? setLastExportedFilePath,
-    TResult Function()? toggleAutoPip,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(InitializeSettings value) initializeSettings,
-    required TResult Function(GetDefaultLanguage value) getDefaultLanguage,
-    required TResult Function(GetDefaultQuality value) getDefaultQuality,
-    required TResult Function(GetDefaultRegion value) getDefaultRegion,
-    required TResult Function(ChangeTheme value) changeTheme,
-    required TResult Function(ToggleHistoryVisibility value)
-        toggleHistoryVisibility,
-    required TResult Function(ToggleDislikeVisibility value)
-        toggleDislikeVisibility,
-    required TResult Function(ToggleHlsPlayer value) toggleHlsPlayer,
-    required TResult Function(ToggleCommentVisibility value)
-        toggleCommentVisibility,
-    required TResult Function(ToggleRelatedVideoVisibility value)
-        toggleRelatedVideoVisibility,
-    required TResult Function(FetchPipedInstances value) fetchPipedInstances,
-    required TResult Function(FetchInvidiousInstances value)
-        fetchInvidiousInstances,
-    required TResult Function(SetInstance value) setInstance,
-    required TResult Function(SetYTService value) setYTService,
-    required TResult Function(TogglePipPlayer value) togglePipPlayer,
-    required TResult Function(SetSearchFilter value) setSearchFilter,
-    required TResult Function(SetVideoFitMode value) setVideoFitMode,
-    required TResult Function(SetSkipInterval value) setSkipInterval,
-    required TResult Function(ToggleSponsorBlock value) toggleSponsorBlock,
-    required TResult Function(SetSponsorBlockCategories value)
-        setSponsorBlockCategories,
-    required TResult Function(ToggleOpenLinksInBrowser value)
-        toggleOpenLinksInBrowser,
-    required TResult Function(SetHomeFeedMode value) setHomeFeedMode,
-    required TResult Function(ToggleAudioFocus value) toggleAudioFocus,
-    required TResult Function(AddProfile value) addProfile,
-    required TResult Function(DeleteProfile value) deleteProfile,
-    required TResult Function(SwitchProfile value) switchProfile,
-    required TResult Function(RenameProfile value) renameProfile,
-    required TResult Function(ExportSubscriptions value) exportSubscriptions,
-    required TResult Function(ImportSubscriptions value) importSubscriptions,
-    required TResult Function(SetSubtitleSize value) setSubtitleSize,
-    required TResult Function(ToggleSearchHistoryEnabled value)
-        toggleSearchHistoryEnabled,
-    required TResult Function(ToggleSearchHistoryVisibility value)
-        toggleSearchHistoryVisibility,
-    required TResult Function(SetLastExportedFilePath value)
-        setLastExportedFilePath,
-    required TResult Function(ToggleAutoPip value) toggleAutoPip,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InitializeSettings value)? initializeSettings,
-    TResult? Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult? Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult? Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult? Function(ChangeTheme value)? changeTheme,
-    TResult? Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult? Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult? Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult? Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult? Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult? Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult? Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult? Function(SetInstance value)? setInstance,
-    TResult? Function(SetYTService value)? setYTService,
-    TResult? Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult? Function(SetSearchFilter value)? setSearchFilter,
-    TResult? Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult? Function(SetSkipInterval value)? setSkipInterval,
-    TResult? Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult? Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult? Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult? Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult? Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult? Function(AddProfile value)? addProfile,
-    TResult? Function(DeleteProfile value)? deleteProfile,
-    TResult? Function(SwitchProfile value)? switchProfile,
-    TResult? Function(RenameProfile value)? renameProfile,
-    TResult? Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult? Function(ImportSubscriptions value)? importSubscriptions,
-    TResult? Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult? Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult? Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult? Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult? Function(ToggleAutoPip value)? toggleAutoPip,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitializeSettings value)? initializeSettings,
-    TResult Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult Function(ChangeTheme value)? changeTheme,
-    TResult Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult Function(SetInstance value)? setInstance,
-    TResult Function(SetYTService value)? setYTService,
-    TResult Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult Function(SetSearchFilter value)? setSearchFilter,
-    TResult Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult Function(SetSkipInterval value)? setSkipInterval,
-    TResult Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult Function(AddProfile value)? addProfile,
-    TResult Function(DeleteProfile value)? deleteProfile,
-    TResult Function(SwitchProfile value)? switchProfile,
-    TResult Function(RenameProfile value)? renameProfile,
-    TResult Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult Function(ImportSubscriptions value)? importSubscriptions,
-    TResult Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult Function(ToggleAutoPip value)? toggleAutoPip,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $SettingsEventCopyWith<$Res> {
-  factory $SettingsEventCopyWith(
-          SettingsEvent value, $Res Function(SettingsEvent) then) =
-      _$SettingsEventCopyWithImpl<$Res, SettingsEvent>;
-}
-
-/// @nodoc
-class _$SettingsEventCopyWithImpl<$Res, $Val extends SettingsEvent>
-    implements $SettingsEventCopyWith<$Res> {
-  _$SettingsEventCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-abstract class _$$InitializeSettingsImplCopyWith<$Res> {
-  factory _$$InitializeSettingsImplCopyWith(_$InitializeSettingsImpl value,
-          $Res Function(_$InitializeSettingsImpl) then) =
-      __$$InitializeSettingsImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$InitializeSettingsImplCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res, _$InitializeSettingsImpl>
-    implements _$$InitializeSettingsImplCopyWith<$Res> {
-  __$$InitializeSettingsImplCopyWithImpl(_$InitializeSettingsImpl _value,
-      $Res Function(_$InitializeSettingsImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$InitializeSettingsImpl implements InitializeSettings {
-  _$InitializeSettingsImpl();
-
-  @override
-  String toString() {
-    return 'SettingsEvent.initializeSettings()';
-  }
-
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitializeSettingsImpl);
+        (other.runtimeType == runtimeType && other is SettingsEvent);
   }
 
   @override
   int get hashCode => runtimeType.hashCode;
 
   @override
+  String toString() {
+    return 'SettingsEvent()';
+  }
+}
+
+/// @nodoc
+class $SettingsEventCopyWith<$Res> {
+  $SettingsEventCopyWith(SettingsEvent _, $Res Function(SettingsEvent) __);
+}
+
+/// Adds pattern-matching-related methods to [SettingsEvent].
+extension SettingsEventPatterns on SettingsEvent {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
   @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initializeSettings,
-    required TResult Function(String? language) getDefaultLanguage,
-    required TResult Function(String? quality) getDefaultQuality,
-    required TResult Function(String? region) getDefaultRegion,
-    required TResult Function(String themeMode) changeTheme,
-    required TResult Function() toggleHistoryVisibility,
-    required TResult Function() toggleDislikeVisibility,
-    required TResult Function() toggleHlsPlayer,
-    required TResult Function() toggleCommentVisibility,
-    required TResult Function() toggleRelatedVideoVisibility,
-    required TResult Function(bool forceRefresh) fetchPipedInstances,
-    required TResult Function(bool forceRefresh) fetchInvidiousInstances,
-    required TResult Function(String instanceApi) setInstance,
-    required TResult Function(YouTubeServices service) setYTService,
-    required TResult Function() togglePipPlayer,
-    required TResult Function(String filter) setSearchFilter,
-    required TResult Function(String fitMode) setVideoFitMode,
-    required TResult Function(int seconds) setSkipInterval,
-    required TResult Function() toggleSponsorBlock,
-    required TResult Function(List<String> categories)
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitializeSettings value)? initialize,
+    TResult Function(GetDefaultLanguage value)? getDefaultLanguage,
+    TResult Function(GetDefaultQuality value)? getDefaultQuality,
+    TResult Function(GetDefaultRegion value)? getDefaultRegion,
+    TResult Function(ChangeTheme value)? changeTheme,
+    TResult Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
+    TResult Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
+    TResult Function(ToggleHlsPlayer value)? toggleHlsPlayer,
+    TResult Function(ToggleCommentVisibility value)? toggleCommentVisibility,
+    TResult Function(ToggleRelatedVideoVisibility value)?
+        toggleRelatedVideoVisibility,
+    TResult Function(SetInstance value)? setInstance,
+    TResult Function(SetYTService value)? setYTService,
+    TResult Function(TogglePipPlayer value)? togglePipPlayer,
+    TResult Function(SetSearchFilter value)? setSearchFilter,
+    TResult Function(SetVideoFitMode value)? setVideoFitMode,
+    TResult Function(SetSkipInterval value)? setSkipInterval,
+    TResult Function(ToggleSponsorBlock value)? toggleSponsorBlock,
+    TResult Function(SetSponsorBlockCategories value)?
         setSponsorBlockCategories,
-    required TResult Function() toggleOpenLinksInBrowser,
-    required TResult Function(String mode) setHomeFeedMode,
-    required TResult Function() toggleAudioFocus,
-    required TResult Function(String profileName) addProfile,
-    required TResult Function(String profileName) deleteProfile,
-    required TResult Function(String profileName) switchProfile,
-    required TResult Function(String oldName, String newName) renameProfile,
-    required TResult Function(String profileName) exportSubscriptions,
-    required TResult Function(String filePath, String profileName)
-        importSubscriptions,
-    required TResult Function(double size) setSubtitleSize,
-    required TResult Function() toggleSearchHistoryEnabled,
-    required TResult Function() toggleSearchHistoryVisibility,
-    required TResult Function(String filePath) setLastExportedFilePath,
-    required TResult Function() toggleAutoPip,
-  }) {
-    return initializeSettings();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initializeSettings,
-    TResult? Function(String? language)? getDefaultLanguage,
-    TResult? Function(String? quality)? getDefaultQuality,
-    TResult? Function(String? region)? getDefaultRegion,
-    TResult? Function(String themeMode)? changeTheme,
-    TResult? Function()? toggleHistoryVisibility,
-    TResult? Function()? toggleDislikeVisibility,
-    TResult? Function()? toggleHlsPlayer,
-    TResult? Function()? toggleCommentVisibility,
-    TResult? Function()? toggleRelatedVideoVisibility,
-    TResult? Function(bool forceRefresh)? fetchPipedInstances,
-    TResult? Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult? Function(String instanceApi)? setInstance,
-    TResult? Function(YouTubeServices service)? setYTService,
-    TResult? Function()? togglePipPlayer,
-    TResult? Function(String filter)? setSearchFilter,
-    TResult? Function(String fitMode)? setVideoFitMode,
-    TResult? Function(int seconds)? setSkipInterval,
-    TResult? Function()? toggleSponsorBlock,
-    TResult? Function(List<String> categories)? setSponsorBlockCategories,
-    TResult? Function()? toggleOpenLinksInBrowser,
-    TResult? Function(String mode)? setHomeFeedMode,
-    TResult? Function()? toggleAudioFocus,
-    TResult? Function(String profileName)? addProfile,
-    TResult? Function(String profileName)? deleteProfile,
-    TResult? Function(String profileName)? switchProfile,
-    TResult? Function(String oldName, String newName)? renameProfile,
-    TResult? Function(String profileName)? exportSubscriptions,
-    TResult? Function(String filePath, String profileName)? importSubscriptions,
-    TResult? Function(double size)? setSubtitleSize,
-    TResult? Function()? toggleSearchHistoryEnabled,
-    TResult? Function()? toggleSearchHistoryVisibility,
-    TResult? Function(String filePath)? setLastExportedFilePath,
-    TResult? Function()? toggleAutoPip,
-  }) {
-    return initializeSettings?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initializeSettings,
-    TResult Function(String? language)? getDefaultLanguage,
-    TResult Function(String? quality)? getDefaultQuality,
-    TResult Function(String? region)? getDefaultRegion,
-    TResult Function(String themeMode)? changeTheme,
-    TResult Function()? toggleHistoryVisibility,
-    TResult Function()? toggleDislikeVisibility,
-    TResult Function()? toggleHlsPlayer,
-    TResult Function()? toggleCommentVisibility,
-    TResult Function()? toggleRelatedVideoVisibility,
-    TResult Function(bool forceRefresh)? fetchPipedInstances,
-    TResult Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult Function(String instanceApi)? setInstance,
-    TResult Function(YouTubeServices service)? setYTService,
-    TResult Function()? togglePipPlayer,
-    TResult Function(String filter)? setSearchFilter,
-    TResult Function(String fitMode)? setVideoFitMode,
-    TResult Function(int seconds)? setSkipInterval,
-    TResult Function()? toggleSponsorBlock,
-    TResult Function(List<String> categories)? setSponsorBlockCategories,
-    TResult Function()? toggleOpenLinksInBrowser,
-    TResult Function(String mode)? setHomeFeedMode,
-    TResult Function()? toggleAudioFocus,
-    TResult Function(String profileName)? addProfile,
-    TResult Function(String profileName)? deleteProfile,
-    TResult Function(String profileName)? switchProfile,
-    TResult Function(String oldName, String newName)? renameProfile,
-    TResult Function(String profileName)? exportSubscriptions,
-    TResult Function(String filePath, String profileName)? importSubscriptions,
-    TResult Function(double size)? setSubtitleSize,
-    TResult Function()? toggleSearchHistoryEnabled,
-    TResult Function()? toggleSearchHistoryVisibility,
-    TResult Function(String filePath)? setLastExportedFilePath,
-    TResult Function()? toggleAutoPip,
+    TResult Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
+    TResult Function(SetHomeFeedMode value)? setHomeFeedMode,
+    TResult Function(ToggleAudioFocus value)? toggleAudioFocus,
+    TResult Function(AddProfile value)? addProfile,
+    TResult Function(DeleteProfile value)? deleteProfile,
+    TResult Function(SwitchProfile value)? switchProfile,
+    TResult Function(RenameProfile value)? renameProfile,
+    TResult Function(ExportSubscriptions value)? exportSubscriptions,
+    TResult Function(ImportSubscriptions value)? importSubscriptions,
+    TResult Function(SetSubtitleSize value)? setSubtitleSize,
+    TResult Function(ToggleSearchHistoryEnabled value)?
+        toggleSearchHistoryEnabled,
+    TResult Function(ToggleSearchHistoryVisibility value)?
+        toggleSearchHistoryVisibility,
+    TResult Function(ToggleAutoPip value)? toggleAutoPip,
+    TResult Function(FetchPipedInstances value)? fetchPipedInstances,
+    TResult Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
+    TResult Function(SetLastExportedFilePath value)? setLastExportedFilePath,
+    TResult Function(SetSleepTimer value)? setSleepTimer,
+    TResult Function(ClearSleepTimer value)? clearSleepTimer,
+    TResult Function(ToggleSwipeGestures value)? toggleSwipeGestures,
+    TResult Function(ToggleDeArrow value)? toggleDeArrow,
+    TResult Function(ToggleBookmarks value)? bookmarksToggled,
+    TResult Function(ToggleBookmarkPlaylist value)? toggleBookmarkPlaylist,
+    TResult Function(ToggleRestrictedMode value)? restrictedModeToggled,
+    TResult Function(ToggleMiniPlayer value)? miniPlayerToggled,
+    TResult Function(SetDownloadQuality value)? downloadQualityChanged,
+    TResult Function(ToggleDownloadSubtitles value)? downloadSubtitlesToggled,
+    TResult Function(ToggleDownloadOverWifiOnly value)?
+        downloadOverWifiOnlyToggled,
+    TResult Function(ToggleDownloadAutoDelete value)? downloadAutoDeleteToggled,
+    TResult Function(SetPlaybackSpeed value)? setPlaybackSpeed,
+    TResult Function(ToggleAutoplayNextVideo value)? toggleAutoplayNextVideo,
+    TResult Function(ToggleShowRelatedInQueue value)? toggleShowRelatedInQueue,
+    TResult Function(SetQueueDismissTime value)? setQueueDismissTime,
+    TResult Function(SetAutoplayCountdown value)? setAutoplayCountdown,
+    TResult Function(ToggleDisableAutoplayOnCellular value)?
+        toggleDisableAutoplayOnCellular,
+    TResult Function(ToggleAutoQueue value)? toggleAutoQueue,
+    TResult Function(ToggleBufferPreload value)? toggleBufferPreload,
+    TResult Function(ToggleAutoQualityAdjust value)? toggleAutoQualityAdjust,
+    TResult Function(ToggleBackgroundPlayback value)? toggleBackgroundPlayback,
+    TResult Function(ToggleNotificationControls value)?
+        toggleNotificationControls,
+    TResult Function(ToggleDataSaver value)? toggleDataSaver,
+    TResult Function(ToggleHideWatchedVideos value)? toggleHideWatchedVideos,
+    TResult Function(SetMobileDataQuality value)? setMobileDataQuality,
+    TResult Function(ToggleDownloadQueueItems value)? toggleDownloadQueueItems,
+    TResult Function(ToggleRichCaptionRendering value)?
+        toggleRichCaptionRendering,
+    TResult Function(ToggleBilibiliEnabled value)? toggleBilibiliEnabled,
+    TResult Function(SetSwipeDirection value)? setSwipeDirection,
+    TResult Function(SetYoutubeService value)? setYoutubeService,
+    TResult Function(BookmarksApplied value)? bookmarksApplied,
+    TResult Function(RestrictedModeFilterChanged value)?
+        restrictedModeFilterChanged,
+    TResult Function(MiniPlayerAutoExpandChanged value)?
+        miniPlayerAutoExpandChanged,
+    TResult Function(MiniPlayerTapToExpandChanged value)?
+        miniPlayerTapToExpandChanged,
+    TResult Function(MiniPlayerDoubleTapToExpandChanged value)?
+        miniPlayerDoubleTapToExpandChanged,
+    TResult Function(DownloadAutoDeleteDaysChanged value)?
+        downloadAutoDeleteDaysChanged,
+    TResult Function(ContentFilterKeywordsChanged value)?
+        contentFilterKeywordsChanged,
+    TResult Function(ContentFilterChannelsChanged value)?
+        contentFilterChannelsChanged,
+    TResult Function(ContentFilterHideShortsChanged value)?
+        contentFilterHideShortsChanged,
+    TResult Function(ContentFilterHidePaidChanged value)?
+        contentFilterHidePaidChanged,
     required TResult orElse(),
   }) {
-    if (initializeSettings != null) {
-      return initializeSettings();
+    final _that = this;
+    switch (_that) {
+      case InitializeSettings() when initialize != null:
+        return initialize(_that);
+      case GetDefaultLanguage() when getDefaultLanguage != null:
+        return getDefaultLanguage(_that);
+      case GetDefaultQuality() when getDefaultQuality != null:
+        return getDefaultQuality(_that);
+      case GetDefaultRegion() when getDefaultRegion != null:
+        return getDefaultRegion(_that);
+      case ChangeTheme() when changeTheme != null:
+        return changeTheme(_that);
+      case ToggleHistoryVisibility() when toggleHistoryVisibility != null:
+        return toggleHistoryVisibility(_that);
+      case ToggleDislikeVisibility() when toggleDislikeVisibility != null:
+        return toggleDislikeVisibility(_that);
+      case ToggleHlsPlayer() when toggleHlsPlayer != null:
+        return toggleHlsPlayer(_that);
+      case ToggleCommentVisibility() when toggleCommentVisibility != null:
+        return toggleCommentVisibility(_that);
+      case ToggleRelatedVideoVisibility()
+          when toggleRelatedVideoVisibility != null:
+        return toggleRelatedVideoVisibility(_that);
+      case SetInstance() when setInstance != null:
+        return setInstance(_that);
+      case SetYTService() when setYTService != null:
+        return setYTService(_that);
+      case TogglePipPlayer() when togglePipPlayer != null:
+        return togglePipPlayer(_that);
+      case SetSearchFilter() when setSearchFilter != null:
+        return setSearchFilter(_that);
+      case SetVideoFitMode() when setVideoFitMode != null:
+        return setVideoFitMode(_that);
+      case SetSkipInterval() when setSkipInterval != null:
+        return setSkipInterval(_that);
+      case ToggleSponsorBlock() when toggleSponsorBlock != null:
+        return toggleSponsorBlock(_that);
+      case SetSponsorBlockCategories() when setSponsorBlockCategories != null:
+        return setSponsorBlockCategories(_that);
+      case ToggleOpenLinksInBrowser() when toggleOpenLinksInBrowser != null:
+        return toggleOpenLinksInBrowser(_that);
+      case SetHomeFeedMode() when setHomeFeedMode != null:
+        return setHomeFeedMode(_that);
+      case ToggleAudioFocus() when toggleAudioFocus != null:
+        return toggleAudioFocus(_that);
+      case AddProfile() when addProfile != null:
+        return addProfile(_that);
+      case DeleteProfile() when deleteProfile != null:
+        return deleteProfile(_that);
+      case SwitchProfile() when switchProfile != null:
+        return switchProfile(_that);
+      case RenameProfile() when renameProfile != null:
+        return renameProfile(_that);
+      case ExportSubscriptions() when exportSubscriptions != null:
+        return exportSubscriptions(_that);
+      case ImportSubscriptions() when importSubscriptions != null:
+        return importSubscriptions(_that);
+      case SetSubtitleSize() when setSubtitleSize != null:
+        return setSubtitleSize(_that);
+      case ToggleSearchHistoryEnabled() when toggleSearchHistoryEnabled != null:
+        return toggleSearchHistoryEnabled(_that);
+      case ToggleSearchHistoryVisibility()
+          when toggleSearchHistoryVisibility != null:
+        return toggleSearchHistoryVisibility(_that);
+      case ToggleAutoPip() when toggleAutoPip != null:
+        return toggleAutoPip(_that);
+      case FetchPipedInstances() when fetchPipedInstances != null:
+        return fetchPipedInstances(_that);
+      case FetchInvidiousInstances() when fetchInvidiousInstances != null:
+        return fetchInvidiousInstances(_that);
+      case SetLastExportedFilePath() when setLastExportedFilePath != null:
+        return setLastExportedFilePath(_that);
+      case SetSleepTimer() when setSleepTimer != null:
+        return setSleepTimer(_that);
+      case ClearSleepTimer() when clearSleepTimer != null:
+        return clearSleepTimer(_that);
+      case ToggleSwipeGestures() when toggleSwipeGestures != null:
+        return toggleSwipeGestures(_that);
+      case ToggleDeArrow() when toggleDeArrow != null:
+        return toggleDeArrow(_that);
+      case ToggleBookmarks() when bookmarksToggled != null:
+        return bookmarksToggled(_that);
+      case ToggleBookmarkPlaylist() when toggleBookmarkPlaylist != null:
+        return toggleBookmarkPlaylist(_that);
+      case ToggleRestrictedMode() when restrictedModeToggled != null:
+        return restrictedModeToggled(_that);
+      case ToggleMiniPlayer() when miniPlayerToggled != null:
+        return miniPlayerToggled(_that);
+      case SetDownloadQuality() when downloadQualityChanged != null:
+        return downloadQualityChanged(_that);
+      case ToggleDownloadSubtitles() when downloadSubtitlesToggled != null:
+        return downloadSubtitlesToggled(_that);
+      case ToggleDownloadOverWifiOnly()
+          when downloadOverWifiOnlyToggled != null:
+        return downloadOverWifiOnlyToggled(_that);
+      case ToggleDownloadAutoDelete() when downloadAutoDeleteToggled != null:
+        return downloadAutoDeleteToggled(_that);
+      case SetPlaybackSpeed() when setPlaybackSpeed != null:
+        return setPlaybackSpeed(_that);
+      case ToggleAutoplayNextVideo() when toggleAutoplayNextVideo != null:
+        return toggleAutoplayNextVideo(_that);
+      case ToggleShowRelatedInQueue() when toggleShowRelatedInQueue != null:
+        return toggleShowRelatedInQueue(_that);
+      case SetQueueDismissTime() when setQueueDismissTime != null:
+        return setQueueDismissTime(_that);
+      case SetAutoplayCountdown() when setAutoplayCountdown != null:
+        return setAutoplayCountdown(_that);
+      case ToggleDisableAutoplayOnCellular()
+          when toggleDisableAutoplayOnCellular != null:
+        return toggleDisableAutoplayOnCellular(_that);
+      case ToggleAutoQueue() when toggleAutoQueue != null:
+        return toggleAutoQueue(_that);
+      case ToggleBufferPreload() when toggleBufferPreload != null:
+        return toggleBufferPreload(_that);
+      case ToggleAutoQualityAdjust() when toggleAutoQualityAdjust != null:
+        return toggleAutoQualityAdjust(_that);
+      case ToggleBackgroundPlayback() when toggleBackgroundPlayback != null:
+        return toggleBackgroundPlayback(_that);
+      case ToggleNotificationControls() when toggleNotificationControls != null:
+        return toggleNotificationControls(_that);
+      case ToggleDataSaver() when toggleDataSaver != null:
+        return toggleDataSaver(_that);
+      case ToggleHideWatchedVideos() when toggleHideWatchedVideos != null:
+        return toggleHideWatchedVideos(_that);
+      case SetMobileDataQuality() when setMobileDataQuality != null:
+        return setMobileDataQuality(_that);
+      case ToggleDownloadQueueItems() when toggleDownloadQueueItems != null:
+        return toggleDownloadQueueItems(_that);
+      case ToggleRichCaptionRendering() when toggleRichCaptionRendering != null:
+        return toggleRichCaptionRendering(_that);
+      case ToggleBilibiliEnabled() when toggleBilibiliEnabled != null:
+        return toggleBilibiliEnabled(_that);
+      case SetSwipeDirection() when setSwipeDirection != null:
+        return setSwipeDirection(_that);
+      case SetYoutubeService() when setYoutubeService != null:
+        return setYoutubeService(_that);
+      case BookmarksApplied() when bookmarksApplied != null:
+        return bookmarksApplied(_that);
+      case RestrictedModeFilterChanged()
+          when restrictedModeFilterChanged != null:
+        return restrictedModeFilterChanged(_that);
+      case MiniPlayerAutoExpandChanged()
+          when miniPlayerAutoExpandChanged != null:
+        return miniPlayerAutoExpandChanged(_that);
+      case MiniPlayerTapToExpandChanged()
+          when miniPlayerTapToExpandChanged != null:
+        return miniPlayerTapToExpandChanged(_that);
+      case MiniPlayerDoubleTapToExpandChanged()
+          when miniPlayerDoubleTapToExpandChanged != null:
+        return miniPlayerDoubleTapToExpandChanged(_that);
+      case DownloadAutoDeleteDaysChanged()
+          when downloadAutoDeleteDaysChanged != null:
+        return downloadAutoDeleteDaysChanged(_that);
+      case ContentFilterKeywordsChanged()
+          when contentFilterKeywordsChanged != null:
+        return contentFilterKeywordsChanged(_that);
+      case ContentFilterChannelsChanged()
+          when contentFilterChannelsChanged != null:
+        return contentFilterChannelsChanged(_that);
+      case ContentFilterHideShortsChanged()
+          when contentFilterHideShortsChanged != null:
+        return contentFilterHideShortsChanged(_that);
+      case ContentFilterHidePaidChanged()
+          when contentFilterHidePaidChanged != null:
+        return contentFilterHidePaidChanged(_that);
+      case _:
+        return orElse();
     }
-    return orElse();
   }
 
-  @override
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(InitializeSettings value) initializeSettings,
+    required TResult Function(InitializeSettings value) initialize,
     required TResult Function(GetDefaultLanguage value) getDefaultLanguage,
     required TResult Function(GetDefaultQuality value) getDefaultQuality,
     required TResult Function(GetDefaultRegion value) getDefaultRegion,
@@ -473,9 +343,6 @@ class _$InitializeSettingsImpl implements InitializeSettings {
         toggleCommentVisibility,
     required TResult Function(ToggleRelatedVideoVisibility value)
         toggleRelatedVideoVisibility,
-    required TResult Function(FetchPipedInstances value) fetchPipedInstances,
-    required TResult Function(FetchInvidiousInstances value)
-        fetchInvidiousInstances,
     required TResult Function(SetInstance value) setInstance,
     required TResult Function(SetYTService value) setYTService,
     required TResult Function(TogglePipPlayer value) togglePipPlayer,
@@ -500,17 +367,247 @@ class _$InitializeSettingsImpl implements InitializeSettings {
         toggleSearchHistoryEnabled,
     required TResult Function(ToggleSearchHistoryVisibility value)
         toggleSearchHistoryVisibility,
+    required TResult Function(ToggleAutoPip value) toggleAutoPip,
+    required TResult Function(FetchPipedInstances value) fetchPipedInstances,
+    required TResult Function(FetchInvidiousInstances value)
+        fetchInvidiousInstances,
     required TResult Function(SetLastExportedFilePath value)
         setLastExportedFilePath,
-    required TResult Function(ToggleAutoPip value) toggleAutoPip,
+    required TResult Function(SetSleepTimer value) setSleepTimer,
+    required TResult Function(ClearSleepTimer value) clearSleepTimer,
+    required TResult Function(ToggleSwipeGestures value) toggleSwipeGestures,
+    required TResult Function(ToggleDeArrow value) toggleDeArrow,
+    required TResult Function(ToggleBookmarks value) bookmarksToggled,
+    required TResult Function(ToggleBookmarkPlaylist value)
+        toggleBookmarkPlaylist,
+    required TResult Function(ToggleRestrictedMode value) restrictedModeToggled,
+    required TResult Function(ToggleMiniPlayer value) miniPlayerToggled,
+    required TResult Function(SetDownloadQuality value) downloadQualityChanged,
+    required TResult Function(ToggleDownloadSubtitles value)
+        downloadSubtitlesToggled,
+    required TResult Function(ToggleDownloadOverWifiOnly value)
+        downloadOverWifiOnlyToggled,
+    required TResult Function(ToggleDownloadAutoDelete value)
+        downloadAutoDeleteToggled,
+    required TResult Function(SetPlaybackSpeed value) setPlaybackSpeed,
+    required TResult Function(ToggleAutoplayNextVideo value)
+        toggleAutoplayNextVideo,
+    required TResult Function(ToggleShowRelatedInQueue value)
+        toggleShowRelatedInQueue,
+    required TResult Function(SetQueueDismissTime value) setQueueDismissTime,
+    required TResult Function(SetAutoplayCountdown value) setAutoplayCountdown,
+    required TResult Function(ToggleDisableAutoplayOnCellular value)
+        toggleDisableAutoplayOnCellular,
+    required TResult Function(ToggleAutoQueue value) toggleAutoQueue,
+    required TResult Function(ToggleBufferPreload value) toggleBufferPreload,
+    required TResult Function(ToggleAutoQualityAdjust value)
+        toggleAutoQualityAdjust,
+    required TResult Function(ToggleBackgroundPlayback value)
+        toggleBackgroundPlayback,
+    required TResult Function(ToggleNotificationControls value)
+        toggleNotificationControls,
+    required TResult Function(ToggleDataSaver value) toggleDataSaver,
+    required TResult Function(ToggleHideWatchedVideos value)
+        toggleHideWatchedVideos,
+    required TResult Function(SetMobileDataQuality value) setMobileDataQuality,
+    required TResult Function(ToggleDownloadQueueItems value)
+        toggleDownloadQueueItems,
+    required TResult Function(ToggleRichCaptionRendering value)
+        toggleRichCaptionRendering,
+    required TResult Function(ToggleBilibiliEnabled value)
+        toggleBilibiliEnabled,
+    required TResult Function(SetSwipeDirection value) setSwipeDirection,
+    required TResult Function(SetYoutubeService value) setYoutubeService,
+    required TResult Function(BookmarksApplied value) bookmarksApplied,
+    required TResult Function(RestrictedModeFilterChanged value)
+        restrictedModeFilterChanged,
+    required TResult Function(MiniPlayerAutoExpandChanged value)
+        miniPlayerAutoExpandChanged,
+    required TResult Function(MiniPlayerTapToExpandChanged value)
+        miniPlayerTapToExpandChanged,
+    required TResult Function(MiniPlayerDoubleTapToExpandChanged value)
+        miniPlayerDoubleTapToExpandChanged,
+    required TResult Function(DownloadAutoDeleteDaysChanged value)
+        downloadAutoDeleteDaysChanged,
+    required TResult Function(ContentFilterKeywordsChanged value)
+        contentFilterKeywordsChanged,
+    required TResult Function(ContentFilterChannelsChanged value)
+        contentFilterChannelsChanged,
+    required TResult Function(ContentFilterHideShortsChanged value)
+        contentFilterHideShortsChanged,
+    required TResult Function(ContentFilterHidePaidChanged value)
+        contentFilterHidePaidChanged,
   }) {
-    return initializeSettings(this);
+    final _that = this;
+    switch (_that) {
+      case InitializeSettings():
+        return initialize(_that);
+      case GetDefaultLanguage():
+        return getDefaultLanguage(_that);
+      case GetDefaultQuality():
+        return getDefaultQuality(_that);
+      case GetDefaultRegion():
+        return getDefaultRegion(_that);
+      case ChangeTheme():
+        return changeTheme(_that);
+      case ToggleHistoryVisibility():
+        return toggleHistoryVisibility(_that);
+      case ToggleDislikeVisibility():
+        return toggleDislikeVisibility(_that);
+      case ToggleHlsPlayer():
+        return toggleHlsPlayer(_that);
+      case ToggleCommentVisibility():
+        return toggleCommentVisibility(_that);
+      case ToggleRelatedVideoVisibility():
+        return toggleRelatedVideoVisibility(_that);
+      case SetInstance():
+        return setInstance(_that);
+      case SetYTService():
+        return setYTService(_that);
+      case TogglePipPlayer():
+        return togglePipPlayer(_that);
+      case SetSearchFilter():
+        return setSearchFilter(_that);
+      case SetVideoFitMode():
+        return setVideoFitMode(_that);
+      case SetSkipInterval():
+        return setSkipInterval(_that);
+      case ToggleSponsorBlock():
+        return toggleSponsorBlock(_that);
+      case SetSponsorBlockCategories():
+        return setSponsorBlockCategories(_that);
+      case ToggleOpenLinksInBrowser():
+        return toggleOpenLinksInBrowser(_that);
+      case SetHomeFeedMode():
+        return setHomeFeedMode(_that);
+      case ToggleAudioFocus():
+        return toggleAudioFocus(_that);
+      case AddProfile():
+        return addProfile(_that);
+      case DeleteProfile():
+        return deleteProfile(_that);
+      case SwitchProfile():
+        return switchProfile(_that);
+      case RenameProfile():
+        return renameProfile(_that);
+      case ExportSubscriptions():
+        return exportSubscriptions(_that);
+      case ImportSubscriptions():
+        return importSubscriptions(_that);
+      case SetSubtitleSize():
+        return setSubtitleSize(_that);
+      case ToggleSearchHistoryEnabled():
+        return toggleSearchHistoryEnabled(_that);
+      case ToggleSearchHistoryVisibility():
+        return toggleSearchHistoryVisibility(_that);
+      case ToggleAutoPip():
+        return toggleAutoPip(_that);
+      case FetchPipedInstances():
+        return fetchPipedInstances(_that);
+      case FetchInvidiousInstances():
+        return fetchInvidiousInstances(_that);
+      case SetLastExportedFilePath():
+        return setLastExportedFilePath(_that);
+      case SetSleepTimer():
+        return setSleepTimer(_that);
+      case ClearSleepTimer():
+        return clearSleepTimer(_that);
+      case ToggleSwipeGestures():
+        return toggleSwipeGestures(_that);
+      case ToggleDeArrow():
+        return toggleDeArrow(_that);
+      case ToggleBookmarks():
+        return bookmarksToggled(_that);
+      case ToggleBookmarkPlaylist():
+        return toggleBookmarkPlaylist(_that);
+      case ToggleRestrictedMode():
+        return restrictedModeToggled(_that);
+      case ToggleMiniPlayer():
+        return miniPlayerToggled(_that);
+      case SetDownloadQuality():
+        return downloadQualityChanged(_that);
+      case ToggleDownloadSubtitles():
+        return downloadSubtitlesToggled(_that);
+      case ToggleDownloadOverWifiOnly():
+        return downloadOverWifiOnlyToggled(_that);
+      case ToggleDownloadAutoDelete():
+        return downloadAutoDeleteToggled(_that);
+      case SetPlaybackSpeed():
+        return setPlaybackSpeed(_that);
+      case ToggleAutoplayNextVideo():
+        return toggleAutoplayNextVideo(_that);
+      case ToggleShowRelatedInQueue():
+        return toggleShowRelatedInQueue(_that);
+      case SetQueueDismissTime():
+        return setQueueDismissTime(_that);
+      case SetAutoplayCountdown():
+        return setAutoplayCountdown(_that);
+      case ToggleDisableAutoplayOnCellular():
+        return toggleDisableAutoplayOnCellular(_that);
+      case ToggleAutoQueue():
+        return toggleAutoQueue(_that);
+      case ToggleBufferPreload():
+        return toggleBufferPreload(_that);
+      case ToggleAutoQualityAdjust():
+        return toggleAutoQualityAdjust(_that);
+      case ToggleBackgroundPlayback():
+        return toggleBackgroundPlayback(_that);
+      case ToggleNotificationControls():
+        return toggleNotificationControls(_that);
+      case ToggleDataSaver():
+        return toggleDataSaver(_that);
+      case ToggleHideWatchedVideos():
+        return toggleHideWatchedVideos(_that);
+      case SetMobileDataQuality():
+        return setMobileDataQuality(_that);
+      case ToggleDownloadQueueItems():
+        return toggleDownloadQueueItems(_that);
+      case ToggleRichCaptionRendering():
+        return toggleRichCaptionRendering(_that);
+      case ToggleBilibiliEnabled():
+        return toggleBilibiliEnabled(_that);
+      case SetSwipeDirection():
+        return setSwipeDirection(_that);
+      case SetYoutubeService():
+        return setYoutubeService(_that);
+      case BookmarksApplied():
+        return bookmarksApplied(_that);
+      case RestrictedModeFilterChanged():
+        return restrictedModeFilterChanged(_that);
+      case MiniPlayerAutoExpandChanged():
+        return miniPlayerAutoExpandChanged(_that);
+      case MiniPlayerTapToExpandChanged():
+        return miniPlayerTapToExpandChanged(_that);
+      case MiniPlayerDoubleTapToExpandChanged():
+        return miniPlayerDoubleTapToExpandChanged(_that);
+      case DownloadAutoDeleteDaysChanged():
+        return downloadAutoDeleteDaysChanged(_that);
+      case ContentFilterKeywordsChanged():
+        return contentFilterKeywordsChanged(_that);
+      case ContentFilterChannelsChanged():
+        return contentFilterChannelsChanged(_that);
+      case ContentFilterHideShortsChanged():
+        return contentFilterHideShortsChanged(_that);
+      case ContentFilterHidePaidChanged():
+        return contentFilterHidePaidChanged(_that);
+    }
   }
 
-  @override
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InitializeSettings value)? initializeSettings,
+    TResult? Function(InitializeSettings value)? initialize,
     TResult? Function(GetDefaultLanguage value)? getDefaultLanguage,
     TResult? Function(GetDefaultQuality value)? getDefaultQuality,
     TResult? Function(GetDefaultRegion value)? getDefaultRegion,
@@ -521,8 +618,6 @@ class _$InitializeSettingsImpl implements InitializeSettings {
     TResult? Function(ToggleCommentVisibility value)? toggleCommentVisibility,
     TResult? Function(ToggleRelatedVideoVisibility value)?
         toggleRelatedVideoVisibility,
-    TResult? Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult? Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
     TResult? Function(SetInstance value)? setInstance,
     TResult? Function(SetYTService value)? setYTService,
     TResult? Function(TogglePipPlayer value)? togglePipPlayer,
@@ -546,117 +641,1053 @@ class _$InitializeSettingsImpl implements InitializeSettings {
         toggleSearchHistoryEnabled,
     TResult? Function(ToggleSearchHistoryVisibility value)?
         toggleSearchHistoryVisibility,
-    TResult? Function(SetLastExportedFilePath value)? setLastExportedFilePath,
     TResult? Function(ToggleAutoPip value)? toggleAutoPip,
+    TResult? Function(FetchPipedInstances value)? fetchPipedInstances,
+    TResult? Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
+    TResult? Function(SetLastExportedFilePath value)? setLastExportedFilePath,
+    TResult? Function(SetSleepTimer value)? setSleepTimer,
+    TResult? Function(ClearSleepTimer value)? clearSleepTimer,
+    TResult? Function(ToggleSwipeGestures value)? toggleSwipeGestures,
+    TResult? Function(ToggleDeArrow value)? toggleDeArrow,
+    TResult? Function(ToggleBookmarks value)? bookmarksToggled,
+    TResult? Function(ToggleBookmarkPlaylist value)? toggleBookmarkPlaylist,
+    TResult? Function(ToggleRestrictedMode value)? restrictedModeToggled,
+    TResult? Function(ToggleMiniPlayer value)? miniPlayerToggled,
+    TResult? Function(SetDownloadQuality value)? downloadQualityChanged,
+    TResult? Function(ToggleDownloadSubtitles value)? downloadSubtitlesToggled,
+    TResult? Function(ToggleDownloadOverWifiOnly value)?
+        downloadOverWifiOnlyToggled,
+    TResult? Function(ToggleDownloadAutoDelete value)?
+        downloadAutoDeleteToggled,
+    TResult? Function(SetPlaybackSpeed value)? setPlaybackSpeed,
+    TResult? Function(ToggleAutoplayNextVideo value)? toggleAutoplayNextVideo,
+    TResult? Function(ToggleShowRelatedInQueue value)? toggleShowRelatedInQueue,
+    TResult? Function(SetQueueDismissTime value)? setQueueDismissTime,
+    TResult? Function(SetAutoplayCountdown value)? setAutoplayCountdown,
+    TResult? Function(ToggleDisableAutoplayOnCellular value)?
+        toggleDisableAutoplayOnCellular,
+    TResult? Function(ToggleAutoQueue value)? toggleAutoQueue,
+    TResult? Function(ToggleBufferPreload value)? toggleBufferPreload,
+    TResult? Function(ToggleAutoQualityAdjust value)? toggleAutoQualityAdjust,
+    TResult? Function(ToggleBackgroundPlayback value)? toggleBackgroundPlayback,
+    TResult? Function(ToggleNotificationControls value)?
+        toggleNotificationControls,
+    TResult? Function(ToggleDataSaver value)? toggleDataSaver,
+    TResult? Function(ToggleHideWatchedVideos value)? toggleHideWatchedVideos,
+    TResult? Function(SetMobileDataQuality value)? setMobileDataQuality,
+    TResult? Function(ToggleDownloadQueueItems value)? toggleDownloadQueueItems,
+    TResult? Function(ToggleRichCaptionRendering value)?
+        toggleRichCaptionRendering,
+    TResult? Function(ToggleBilibiliEnabled value)? toggleBilibiliEnabled,
+    TResult? Function(SetSwipeDirection value)? setSwipeDirection,
+    TResult? Function(SetYoutubeService value)? setYoutubeService,
+    TResult? Function(BookmarksApplied value)? bookmarksApplied,
+    TResult? Function(RestrictedModeFilterChanged value)?
+        restrictedModeFilterChanged,
+    TResult? Function(MiniPlayerAutoExpandChanged value)?
+        miniPlayerAutoExpandChanged,
+    TResult? Function(MiniPlayerTapToExpandChanged value)?
+        miniPlayerTapToExpandChanged,
+    TResult? Function(MiniPlayerDoubleTapToExpandChanged value)?
+        miniPlayerDoubleTapToExpandChanged,
+    TResult? Function(DownloadAutoDeleteDaysChanged value)?
+        downloadAutoDeleteDaysChanged,
+    TResult? Function(ContentFilterKeywordsChanged value)?
+        contentFilterKeywordsChanged,
+    TResult? Function(ContentFilterChannelsChanged value)?
+        contentFilterChannelsChanged,
+    TResult? Function(ContentFilterHideShortsChanged value)?
+        contentFilterHideShortsChanged,
+    TResult? Function(ContentFilterHidePaidChanged value)?
+        contentFilterHidePaidChanged,
   }) {
-    return initializeSettings?.call(this);
+    final _that = this;
+    switch (_that) {
+      case InitializeSettings() when initialize != null:
+        return initialize(_that);
+      case GetDefaultLanguage() when getDefaultLanguage != null:
+        return getDefaultLanguage(_that);
+      case GetDefaultQuality() when getDefaultQuality != null:
+        return getDefaultQuality(_that);
+      case GetDefaultRegion() when getDefaultRegion != null:
+        return getDefaultRegion(_that);
+      case ChangeTheme() when changeTheme != null:
+        return changeTheme(_that);
+      case ToggleHistoryVisibility() when toggleHistoryVisibility != null:
+        return toggleHistoryVisibility(_that);
+      case ToggleDislikeVisibility() when toggleDislikeVisibility != null:
+        return toggleDislikeVisibility(_that);
+      case ToggleHlsPlayer() when toggleHlsPlayer != null:
+        return toggleHlsPlayer(_that);
+      case ToggleCommentVisibility() when toggleCommentVisibility != null:
+        return toggleCommentVisibility(_that);
+      case ToggleRelatedVideoVisibility()
+          when toggleRelatedVideoVisibility != null:
+        return toggleRelatedVideoVisibility(_that);
+      case SetInstance() when setInstance != null:
+        return setInstance(_that);
+      case SetYTService() when setYTService != null:
+        return setYTService(_that);
+      case TogglePipPlayer() when togglePipPlayer != null:
+        return togglePipPlayer(_that);
+      case SetSearchFilter() when setSearchFilter != null:
+        return setSearchFilter(_that);
+      case SetVideoFitMode() when setVideoFitMode != null:
+        return setVideoFitMode(_that);
+      case SetSkipInterval() when setSkipInterval != null:
+        return setSkipInterval(_that);
+      case ToggleSponsorBlock() when toggleSponsorBlock != null:
+        return toggleSponsorBlock(_that);
+      case SetSponsorBlockCategories() when setSponsorBlockCategories != null:
+        return setSponsorBlockCategories(_that);
+      case ToggleOpenLinksInBrowser() when toggleOpenLinksInBrowser != null:
+        return toggleOpenLinksInBrowser(_that);
+      case SetHomeFeedMode() when setHomeFeedMode != null:
+        return setHomeFeedMode(_that);
+      case ToggleAudioFocus() when toggleAudioFocus != null:
+        return toggleAudioFocus(_that);
+      case AddProfile() when addProfile != null:
+        return addProfile(_that);
+      case DeleteProfile() when deleteProfile != null:
+        return deleteProfile(_that);
+      case SwitchProfile() when switchProfile != null:
+        return switchProfile(_that);
+      case RenameProfile() when renameProfile != null:
+        return renameProfile(_that);
+      case ExportSubscriptions() when exportSubscriptions != null:
+        return exportSubscriptions(_that);
+      case ImportSubscriptions() when importSubscriptions != null:
+        return importSubscriptions(_that);
+      case SetSubtitleSize() when setSubtitleSize != null:
+        return setSubtitleSize(_that);
+      case ToggleSearchHistoryEnabled() when toggleSearchHistoryEnabled != null:
+        return toggleSearchHistoryEnabled(_that);
+      case ToggleSearchHistoryVisibility()
+          when toggleSearchHistoryVisibility != null:
+        return toggleSearchHistoryVisibility(_that);
+      case ToggleAutoPip() when toggleAutoPip != null:
+        return toggleAutoPip(_that);
+      case FetchPipedInstances() when fetchPipedInstances != null:
+        return fetchPipedInstances(_that);
+      case FetchInvidiousInstances() when fetchInvidiousInstances != null:
+        return fetchInvidiousInstances(_that);
+      case SetLastExportedFilePath() when setLastExportedFilePath != null:
+        return setLastExportedFilePath(_that);
+      case SetSleepTimer() when setSleepTimer != null:
+        return setSleepTimer(_that);
+      case ClearSleepTimer() when clearSleepTimer != null:
+        return clearSleepTimer(_that);
+      case ToggleSwipeGestures() when toggleSwipeGestures != null:
+        return toggleSwipeGestures(_that);
+      case ToggleDeArrow() when toggleDeArrow != null:
+        return toggleDeArrow(_that);
+      case ToggleBookmarks() when bookmarksToggled != null:
+        return bookmarksToggled(_that);
+      case ToggleBookmarkPlaylist() when toggleBookmarkPlaylist != null:
+        return toggleBookmarkPlaylist(_that);
+      case ToggleRestrictedMode() when restrictedModeToggled != null:
+        return restrictedModeToggled(_that);
+      case ToggleMiniPlayer() when miniPlayerToggled != null:
+        return miniPlayerToggled(_that);
+      case SetDownloadQuality() when downloadQualityChanged != null:
+        return downloadQualityChanged(_that);
+      case ToggleDownloadSubtitles() when downloadSubtitlesToggled != null:
+        return downloadSubtitlesToggled(_that);
+      case ToggleDownloadOverWifiOnly()
+          when downloadOverWifiOnlyToggled != null:
+        return downloadOverWifiOnlyToggled(_that);
+      case ToggleDownloadAutoDelete() when downloadAutoDeleteToggled != null:
+        return downloadAutoDeleteToggled(_that);
+      case SetPlaybackSpeed() when setPlaybackSpeed != null:
+        return setPlaybackSpeed(_that);
+      case ToggleAutoplayNextVideo() when toggleAutoplayNextVideo != null:
+        return toggleAutoplayNextVideo(_that);
+      case ToggleShowRelatedInQueue() when toggleShowRelatedInQueue != null:
+        return toggleShowRelatedInQueue(_that);
+      case SetQueueDismissTime() when setQueueDismissTime != null:
+        return setQueueDismissTime(_that);
+      case SetAutoplayCountdown() when setAutoplayCountdown != null:
+        return setAutoplayCountdown(_that);
+      case ToggleDisableAutoplayOnCellular()
+          when toggleDisableAutoplayOnCellular != null:
+        return toggleDisableAutoplayOnCellular(_that);
+      case ToggleAutoQueue() when toggleAutoQueue != null:
+        return toggleAutoQueue(_that);
+      case ToggleBufferPreload() when toggleBufferPreload != null:
+        return toggleBufferPreload(_that);
+      case ToggleAutoQualityAdjust() when toggleAutoQualityAdjust != null:
+        return toggleAutoQualityAdjust(_that);
+      case ToggleBackgroundPlayback() when toggleBackgroundPlayback != null:
+        return toggleBackgroundPlayback(_that);
+      case ToggleNotificationControls() when toggleNotificationControls != null:
+        return toggleNotificationControls(_that);
+      case ToggleDataSaver() when toggleDataSaver != null:
+        return toggleDataSaver(_that);
+      case ToggleHideWatchedVideos() when toggleHideWatchedVideos != null:
+        return toggleHideWatchedVideos(_that);
+      case SetMobileDataQuality() when setMobileDataQuality != null:
+        return setMobileDataQuality(_that);
+      case ToggleDownloadQueueItems() when toggleDownloadQueueItems != null:
+        return toggleDownloadQueueItems(_that);
+      case ToggleRichCaptionRendering() when toggleRichCaptionRendering != null:
+        return toggleRichCaptionRendering(_that);
+      case ToggleBilibiliEnabled() when toggleBilibiliEnabled != null:
+        return toggleBilibiliEnabled(_that);
+      case SetSwipeDirection() when setSwipeDirection != null:
+        return setSwipeDirection(_that);
+      case SetYoutubeService() when setYoutubeService != null:
+        return setYoutubeService(_that);
+      case BookmarksApplied() when bookmarksApplied != null:
+        return bookmarksApplied(_that);
+      case RestrictedModeFilterChanged()
+          when restrictedModeFilterChanged != null:
+        return restrictedModeFilterChanged(_that);
+      case MiniPlayerAutoExpandChanged()
+          when miniPlayerAutoExpandChanged != null:
+        return miniPlayerAutoExpandChanged(_that);
+      case MiniPlayerTapToExpandChanged()
+          when miniPlayerTapToExpandChanged != null:
+        return miniPlayerTapToExpandChanged(_that);
+      case MiniPlayerDoubleTapToExpandChanged()
+          when miniPlayerDoubleTapToExpandChanged != null:
+        return miniPlayerDoubleTapToExpandChanged(_that);
+      case DownloadAutoDeleteDaysChanged()
+          when downloadAutoDeleteDaysChanged != null:
+        return downloadAutoDeleteDaysChanged(_that);
+      case ContentFilterKeywordsChanged()
+          when contentFilterKeywordsChanged != null:
+        return contentFilterKeywordsChanged(_that);
+      case ContentFilterChannelsChanged()
+          when contentFilterChannelsChanged != null:
+        return contentFilterChannelsChanged(_that);
+      case ContentFilterHideShortsChanged()
+          when contentFilterHideShortsChanged != null:
+        return contentFilterHideShortsChanged(_that);
+      case ContentFilterHidePaidChanged()
+          when contentFilterHidePaidChanged != null:
+        return contentFilterHidePaidChanged(_that);
+      case _:
+        return null;
+    }
   }
 
-  @override
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitializeSettings value)? initializeSettings,
-    TResult Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult Function(ChangeTheme value)? changeTheme,
-    TResult Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult Function(SetInstance value)? setInstance,
-    TResult Function(SetYTService value)? setYTService,
-    TResult Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult Function(SetSearchFilter value)? setSearchFilter,
-    TResult Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult Function(SetSkipInterval value)? setSkipInterval,
-    TResult Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult Function(AddProfile value)? addProfile,
-    TResult Function(DeleteProfile value)? deleteProfile,
-    TResult Function(SwitchProfile value)? switchProfile,
-    TResult Function(RenameProfile value)? renameProfile,
-    TResult Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult Function(ImportSubscriptions value)? importSubscriptions,
-    TResult Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult Function(ToggleAutoPip value)? toggleAutoPip,
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function(String language)? getDefaultLanguage,
+    TResult Function(String quality)? getDefaultQuality,
+    TResult Function(String region)? getDefaultRegion,
+    TResult Function(String themeMode)? changeTheme,
+    TResult Function(bool isHistoryVisible)? toggleHistoryVisibility,
+    TResult Function(bool isDislikeVisible)? toggleDislikeVisibility,
+    TResult Function(bool isHlsPlayer)? toggleHlsPlayer,
+    TResult Function(bool isHideComments)? toggleCommentVisibility,
+    TResult Function(bool isHideRelated)? toggleRelatedVideoVisibility,
+    TResult Function(String instanceApi)? setInstance,
+    TResult Function(YouTubeServices service)? setYTService,
+    TResult Function(bool isPipDisabled)? togglePipPlayer,
+    TResult Function(String filter)? setSearchFilter,
+    TResult Function(String fitMode)? setVideoFitMode,
+    TResult Function(int seconds)? setSkipInterval,
+    TResult Function(bool isEnabled)? toggleSponsorBlock,
+    TResult Function(List<String> categories)? setSponsorBlockCategories,
+    TResult Function(bool openInBrowser)? toggleOpenLinksInBrowser,
+    TResult Function(String mode)? setHomeFeedMode,
+    TResult Function(bool isEnabled)? toggleAudioFocus,
+    TResult Function(String profileName)? addProfile,
+    TResult Function(String profileName)? deleteProfile,
+    TResult Function(String profileName)? switchProfile,
+    TResult Function(String oldName, String newName)? renameProfile,
+    TResult Function(String profileName)? exportSubscriptions,
+    TResult Function(String filePath, String profileName)? importSubscriptions,
+    TResult Function(double size)? setSubtitleSize,
+    TResult Function(bool isEnabled)? toggleSearchHistoryEnabled,
+    TResult Function(bool isVisible)? toggleSearchHistoryVisibility,
+    TResult Function(bool isEnabled)? toggleAutoPip,
+    TResult Function(bool forceRefresh)? fetchPipedInstances,
+    TResult Function(bool forceRefresh)? fetchInvidiousInstances,
+    TResult Function(String? filePath)? setLastExportedFilePath,
+    TResult Function(int seconds)? setSleepTimer,
+    TResult Function()? clearSleepTimer,
+    TResult Function(bool enabled)? toggleSwipeGestures,
+    TResult Function(bool enabled)? toggleDeArrow,
+    TResult Function(bool enabled)? bookmarksToggled,
+    TResult Function(String playlistId, bool bookmarked)?
+        toggleBookmarkPlaylist,
+    TResult Function(bool enabled)? restrictedModeToggled,
+    TResult Function(bool enabled)? miniPlayerToggled,
+    TResult Function(String quality)? downloadQualityChanged,
+    TResult Function(bool enabled)? downloadSubtitlesToggled,
+    TResult Function(bool enabled)? downloadOverWifiOnlyToggled,
+    TResult Function(bool enabled)? downloadAutoDeleteToggled,
+    TResult Function(double speed)? setPlaybackSpeed,
+    TResult Function(bool enabled)? toggleAutoplayNextVideo,
+    TResult Function(bool enabled)? toggleShowRelatedInQueue,
+    TResult Function(int seconds)? setQueueDismissTime,
+    TResult Function(int seconds)? setAutoplayCountdown,
+    TResult Function(bool enabled)? toggleDisableAutoplayOnCellular,
+    TResult Function(bool enabled)? toggleAutoQueue,
+    TResult Function(bool enabled)? toggleBufferPreload,
+    TResult Function(bool enabled)? toggleAutoQualityAdjust,
+    TResult Function(bool enabled)? toggleBackgroundPlayback,
+    TResult Function(bool enabled)? toggleNotificationControls,
+    TResult Function(bool enabled)? toggleDataSaver,
+    TResult Function(bool enabled)? toggleHideWatchedVideos,
+    TResult Function(int quality)? setMobileDataQuality,
+    TResult Function(bool enabled)? toggleDownloadQueueItems,
+    TResult Function(bool enabled)? toggleRichCaptionRendering,
+    TResult Function(bool enabled)? toggleBilibiliEnabled,
+    TResult Function(bool leftToRight)? setSwipeDirection,
+    TResult Function(String service)? setYoutubeService,
+    TResult Function(List<String> selectedPlaylists)? bookmarksApplied,
+    TResult Function(RestrictedModeFilterLevel level)?
+        restrictedModeFilterChanged,
+    TResult Function(bool enabled)? miniPlayerAutoExpandChanged,
+    TResult Function(bool enabled)? miniPlayerTapToExpandChanged,
+    TResult Function(bool enabled)? miniPlayerDoubleTapToExpandChanged,
+    TResult Function(int days)? downloadAutoDeleteDaysChanged,
+    TResult Function(List<String> keywords)? contentFilterKeywordsChanged,
+    TResult Function(List<String> channelIds)? contentFilterChannelsChanged,
+    TResult Function(bool enabled)? contentFilterHideShortsChanged,
+    TResult Function(bool enabled)? contentFilterHidePaidChanged,
     required TResult orElse(),
   }) {
-    if (initializeSettings != null) {
-      return initializeSettings(this);
+    final _that = this;
+    switch (_that) {
+      case InitializeSettings() when initialize != null:
+        return initialize();
+      case GetDefaultLanguage() when getDefaultLanguage != null:
+        return getDefaultLanguage(_that.language);
+      case GetDefaultQuality() when getDefaultQuality != null:
+        return getDefaultQuality(_that.quality);
+      case GetDefaultRegion() when getDefaultRegion != null:
+        return getDefaultRegion(_that.region);
+      case ChangeTheme() when changeTheme != null:
+        return changeTheme(_that.themeMode);
+      case ToggleHistoryVisibility() when toggleHistoryVisibility != null:
+        return toggleHistoryVisibility(_that.isHistoryVisible);
+      case ToggleDislikeVisibility() when toggleDislikeVisibility != null:
+        return toggleDislikeVisibility(_that.isDislikeVisible);
+      case ToggleHlsPlayer() when toggleHlsPlayer != null:
+        return toggleHlsPlayer(_that.isHlsPlayer);
+      case ToggleCommentVisibility() when toggleCommentVisibility != null:
+        return toggleCommentVisibility(_that.isHideComments);
+      case ToggleRelatedVideoVisibility()
+          when toggleRelatedVideoVisibility != null:
+        return toggleRelatedVideoVisibility(_that.isHideRelated);
+      case SetInstance() when setInstance != null:
+        return setInstance(_that.instanceApi);
+      case SetYTService() when setYTService != null:
+        return setYTService(_that.service);
+      case TogglePipPlayer() when togglePipPlayer != null:
+        return togglePipPlayer(_that.isPipDisabled);
+      case SetSearchFilter() when setSearchFilter != null:
+        return setSearchFilter(_that.filter);
+      case SetVideoFitMode() when setVideoFitMode != null:
+        return setVideoFitMode(_that.fitMode);
+      case SetSkipInterval() when setSkipInterval != null:
+        return setSkipInterval(_that.seconds);
+      case ToggleSponsorBlock() when toggleSponsorBlock != null:
+        return toggleSponsorBlock(_that.isEnabled);
+      case SetSponsorBlockCategories() when setSponsorBlockCategories != null:
+        return setSponsorBlockCategories(_that.categories);
+      case ToggleOpenLinksInBrowser() when toggleOpenLinksInBrowser != null:
+        return toggleOpenLinksInBrowser(_that.openInBrowser);
+      case SetHomeFeedMode() when setHomeFeedMode != null:
+        return setHomeFeedMode(_that.mode);
+      case ToggleAudioFocus() when toggleAudioFocus != null:
+        return toggleAudioFocus(_that.isEnabled);
+      case AddProfile() when addProfile != null:
+        return addProfile(_that.profileName);
+      case DeleteProfile() when deleteProfile != null:
+        return deleteProfile(_that.profileName);
+      case SwitchProfile() when switchProfile != null:
+        return switchProfile(_that.profileName);
+      case RenameProfile() when renameProfile != null:
+        return renameProfile(_that.oldName, _that.newName);
+      case ExportSubscriptions() when exportSubscriptions != null:
+        return exportSubscriptions(_that.profileName);
+      case ImportSubscriptions() when importSubscriptions != null:
+        return importSubscriptions(_that.filePath, _that.profileName);
+      case SetSubtitleSize() when setSubtitleSize != null:
+        return setSubtitleSize(_that.size);
+      case ToggleSearchHistoryEnabled() when toggleSearchHistoryEnabled != null:
+        return toggleSearchHistoryEnabled(_that.isEnabled);
+      case ToggleSearchHistoryVisibility()
+          when toggleSearchHistoryVisibility != null:
+        return toggleSearchHistoryVisibility(_that.isVisible);
+      case ToggleAutoPip() when toggleAutoPip != null:
+        return toggleAutoPip(_that.isEnabled);
+      case FetchPipedInstances() when fetchPipedInstances != null:
+        return fetchPipedInstances(_that.forceRefresh);
+      case FetchInvidiousInstances() when fetchInvidiousInstances != null:
+        return fetchInvidiousInstances(_that.forceRefresh);
+      case SetLastExportedFilePath() when setLastExportedFilePath != null:
+        return setLastExportedFilePath(_that.filePath);
+      case SetSleepTimer() when setSleepTimer != null:
+        return setSleepTimer(_that.seconds);
+      case ClearSleepTimer() when clearSleepTimer != null:
+        return clearSleepTimer();
+      case ToggleSwipeGestures() when toggleSwipeGestures != null:
+        return toggleSwipeGestures(_that.enabled);
+      case ToggleDeArrow() when toggleDeArrow != null:
+        return toggleDeArrow(_that.enabled);
+      case ToggleBookmarks() when bookmarksToggled != null:
+        return bookmarksToggled(_that.enabled);
+      case ToggleBookmarkPlaylist() when toggleBookmarkPlaylist != null:
+        return toggleBookmarkPlaylist(_that.playlistId, _that.bookmarked);
+      case ToggleRestrictedMode() when restrictedModeToggled != null:
+        return restrictedModeToggled(_that.enabled);
+      case ToggleMiniPlayer() when miniPlayerToggled != null:
+        return miniPlayerToggled(_that.enabled);
+      case SetDownloadQuality() when downloadQualityChanged != null:
+        return downloadQualityChanged(_that.quality);
+      case ToggleDownloadSubtitles() when downloadSubtitlesToggled != null:
+        return downloadSubtitlesToggled(_that.enabled);
+      case ToggleDownloadOverWifiOnly()
+          when downloadOverWifiOnlyToggled != null:
+        return downloadOverWifiOnlyToggled(_that.enabled);
+      case ToggleDownloadAutoDelete() when downloadAutoDeleteToggled != null:
+        return downloadAutoDeleteToggled(_that.enabled);
+      case SetPlaybackSpeed() when setPlaybackSpeed != null:
+        return setPlaybackSpeed(_that.speed);
+      case ToggleAutoplayNextVideo() when toggleAutoplayNextVideo != null:
+        return toggleAutoplayNextVideo(_that.enabled);
+      case ToggleShowRelatedInQueue() when toggleShowRelatedInQueue != null:
+        return toggleShowRelatedInQueue(_that.enabled);
+      case SetQueueDismissTime() when setQueueDismissTime != null:
+        return setQueueDismissTime(_that.seconds);
+      case SetAutoplayCountdown() when setAutoplayCountdown != null:
+        return setAutoplayCountdown(_that.seconds);
+      case ToggleDisableAutoplayOnCellular()
+          when toggleDisableAutoplayOnCellular != null:
+        return toggleDisableAutoplayOnCellular(_that.enabled);
+      case ToggleAutoQueue() when toggleAutoQueue != null:
+        return toggleAutoQueue(_that.enabled);
+      case ToggleBufferPreload() when toggleBufferPreload != null:
+        return toggleBufferPreload(_that.enabled);
+      case ToggleAutoQualityAdjust() when toggleAutoQualityAdjust != null:
+        return toggleAutoQualityAdjust(_that.enabled);
+      case ToggleBackgroundPlayback() when toggleBackgroundPlayback != null:
+        return toggleBackgroundPlayback(_that.enabled);
+      case ToggleNotificationControls() when toggleNotificationControls != null:
+        return toggleNotificationControls(_that.enabled);
+      case ToggleDataSaver() when toggleDataSaver != null:
+        return toggleDataSaver(_that.enabled);
+      case ToggleHideWatchedVideos() when toggleHideWatchedVideos != null:
+        return toggleHideWatchedVideos(_that.enabled);
+      case SetMobileDataQuality() when setMobileDataQuality != null:
+        return setMobileDataQuality(_that.quality);
+      case ToggleDownloadQueueItems() when toggleDownloadQueueItems != null:
+        return toggleDownloadQueueItems(_that.enabled);
+      case ToggleRichCaptionRendering() when toggleRichCaptionRendering != null:
+        return toggleRichCaptionRendering(_that.enabled);
+      case ToggleBilibiliEnabled() when toggleBilibiliEnabled != null:
+        return toggleBilibiliEnabled(_that.enabled);
+      case SetSwipeDirection() when setSwipeDirection != null:
+        return setSwipeDirection(_that.leftToRight);
+      case SetYoutubeService() when setYoutubeService != null:
+        return setYoutubeService(_that.service);
+      case BookmarksApplied() when bookmarksApplied != null:
+        return bookmarksApplied(_that.selectedPlaylists);
+      case RestrictedModeFilterChanged()
+          when restrictedModeFilterChanged != null:
+        return restrictedModeFilterChanged(_that.level);
+      case MiniPlayerAutoExpandChanged()
+          when miniPlayerAutoExpandChanged != null:
+        return miniPlayerAutoExpandChanged(_that.enabled);
+      case MiniPlayerTapToExpandChanged()
+          when miniPlayerTapToExpandChanged != null:
+        return miniPlayerTapToExpandChanged(_that.enabled);
+      case MiniPlayerDoubleTapToExpandChanged()
+          when miniPlayerDoubleTapToExpandChanged != null:
+        return miniPlayerDoubleTapToExpandChanged(_that.enabled);
+      case DownloadAutoDeleteDaysChanged()
+          when downloadAutoDeleteDaysChanged != null:
+        return downloadAutoDeleteDaysChanged(_that.days);
+      case ContentFilterKeywordsChanged()
+          when contentFilterKeywordsChanged != null:
+        return contentFilterKeywordsChanged(_that.keywords);
+      case ContentFilterChannelsChanged()
+          when contentFilterChannelsChanged != null:
+        return contentFilterChannelsChanged(_that.channelIds);
+      case ContentFilterHideShortsChanged()
+          when contentFilterHideShortsChanged != null:
+        return contentFilterHideShortsChanged(_that.enabled);
+      case ContentFilterHidePaidChanged()
+          when contentFilterHidePaidChanged != null:
+        return contentFilterHidePaidChanged(_that.enabled);
+      case _:
+        return orElse();
     }
-    return orElse();
   }
-}
 
-abstract class InitializeSettings implements SettingsEvent {
-  factory InitializeSettings() = _$InitializeSettingsImpl;
-}
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
 
-/// @nodoc
-abstract class _$$GetDefaultLanguageImplCopyWith<$Res> {
-  factory _$$GetDefaultLanguageImplCopyWith(_$GetDefaultLanguageImpl value,
-          $Res Function(_$GetDefaultLanguageImpl) then) =
-      __$$GetDefaultLanguageImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String? language});
-}
-
-/// @nodoc
-class __$$GetDefaultLanguageImplCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res, _$GetDefaultLanguageImpl>
-    implements _$$GetDefaultLanguageImplCopyWith<$Res> {
-  __$$GetDefaultLanguageImplCopyWithImpl(_$GetDefaultLanguageImpl _value,
-      $Res Function(_$GetDefaultLanguageImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? language = freezed,
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
+    required TResult Function(String language) getDefaultLanguage,
+    required TResult Function(String quality) getDefaultQuality,
+    required TResult Function(String region) getDefaultRegion,
+    required TResult Function(String themeMode) changeTheme,
+    required TResult Function(bool isHistoryVisible) toggleHistoryVisibility,
+    required TResult Function(bool isDislikeVisible) toggleDislikeVisibility,
+    required TResult Function(bool isHlsPlayer) toggleHlsPlayer,
+    required TResult Function(bool isHideComments) toggleCommentVisibility,
+    required TResult Function(bool isHideRelated) toggleRelatedVideoVisibility,
+    required TResult Function(String instanceApi) setInstance,
+    required TResult Function(YouTubeServices service) setYTService,
+    required TResult Function(bool isPipDisabled) togglePipPlayer,
+    required TResult Function(String filter) setSearchFilter,
+    required TResult Function(String fitMode) setVideoFitMode,
+    required TResult Function(int seconds) setSkipInterval,
+    required TResult Function(bool isEnabled) toggleSponsorBlock,
+    required TResult Function(List<String> categories)
+        setSponsorBlockCategories,
+    required TResult Function(bool openInBrowser) toggleOpenLinksInBrowser,
+    required TResult Function(String mode) setHomeFeedMode,
+    required TResult Function(bool isEnabled) toggleAudioFocus,
+    required TResult Function(String profileName) addProfile,
+    required TResult Function(String profileName) deleteProfile,
+    required TResult Function(String profileName) switchProfile,
+    required TResult Function(String oldName, String newName) renameProfile,
+    required TResult Function(String profileName) exportSubscriptions,
+    required TResult Function(String filePath, String profileName)
+        importSubscriptions,
+    required TResult Function(double size) setSubtitleSize,
+    required TResult Function(bool isEnabled) toggleSearchHistoryEnabled,
+    required TResult Function(bool isVisible) toggleSearchHistoryVisibility,
+    required TResult Function(bool isEnabled) toggleAutoPip,
+    required TResult Function(bool forceRefresh) fetchPipedInstances,
+    required TResult Function(bool forceRefresh) fetchInvidiousInstances,
+    required TResult Function(String? filePath) setLastExportedFilePath,
+    required TResult Function(int seconds) setSleepTimer,
+    required TResult Function() clearSleepTimer,
+    required TResult Function(bool enabled) toggleSwipeGestures,
+    required TResult Function(bool enabled) toggleDeArrow,
+    required TResult Function(bool enabled) bookmarksToggled,
+    required TResult Function(String playlistId, bool bookmarked)
+        toggleBookmarkPlaylist,
+    required TResult Function(bool enabled) restrictedModeToggled,
+    required TResult Function(bool enabled) miniPlayerToggled,
+    required TResult Function(String quality) downloadQualityChanged,
+    required TResult Function(bool enabled) downloadSubtitlesToggled,
+    required TResult Function(bool enabled) downloadOverWifiOnlyToggled,
+    required TResult Function(bool enabled) downloadAutoDeleteToggled,
+    required TResult Function(double speed) setPlaybackSpeed,
+    required TResult Function(bool enabled) toggleAutoplayNextVideo,
+    required TResult Function(bool enabled) toggleShowRelatedInQueue,
+    required TResult Function(int seconds) setQueueDismissTime,
+    required TResult Function(int seconds) setAutoplayCountdown,
+    required TResult Function(bool enabled) toggleDisableAutoplayOnCellular,
+    required TResult Function(bool enabled) toggleAutoQueue,
+    required TResult Function(bool enabled) toggleBufferPreload,
+    required TResult Function(bool enabled) toggleAutoQualityAdjust,
+    required TResult Function(bool enabled) toggleBackgroundPlayback,
+    required TResult Function(bool enabled) toggleNotificationControls,
+    required TResult Function(bool enabled) toggleDataSaver,
+    required TResult Function(bool enabled) toggleHideWatchedVideos,
+    required TResult Function(int quality) setMobileDataQuality,
+    required TResult Function(bool enabled) toggleDownloadQueueItems,
+    required TResult Function(bool enabled) toggleRichCaptionRendering,
+    required TResult Function(bool enabled) toggleBilibiliEnabled,
+    required TResult Function(bool leftToRight) setSwipeDirection,
+    required TResult Function(String service) setYoutubeService,
+    required TResult Function(List<String> selectedPlaylists) bookmarksApplied,
+    required TResult Function(RestrictedModeFilterLevel level)
+        restrictedModeFilterChanged,
+    required TResult Function(bool enabled) miniPlayerAutoExpandChanged,
+    required TResult Function(bool enabled) miniPlayerTapToExpandChanged,
+    required TResult Function(bool enabled) miniPlayerDoubleTapToExpandChanged,
+    required TResult Function(int days) downloadAutoDeleteDaysChanged,
+    required TResult Function(List<String> keywords)
+        contentFilterKeywordsChanged,
+    required TResult Function(List<String> channelIds)
+        contentFilterChannelsChanged,
+    required TResult Function(bool enabled) contentFilterHideShortsChanged,
+    required TResult Function(bool enabled) contentFilterHidePaidChanged,
   }) {
-    return _then(_$GetDefaultLanguageImpl(
-      language: freezed == language
-          ? _value.language
-          : language // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
+    final _that = this;
+    switch (_that) {
+      case InitializeSettings():
+        return initialize();
+      case GetDefaultLanguage():
+        return getDefaultLanguage(_that.language);
+      case GetDefaultQuality():
+        return getDefaultQuality(_that.quality);
+      case GetDefaultRegion():
+        return getDefaultRegion(_that.region);
+      case ChangeTheme():
+        return changeTheme(_that.themeMode);
+      case ToggleHistoryVisibility():
+        return toggleHistoryVisibility(_that.isHistoryVisible);
+      case ToggleDislikeVisibility():
+        return toggleDislikeVisibility(_that.isDislikeVisible);
+      case ToggleHlsPlayer():
+        return toggleHlsPlayer(_that.isHlsPlayer);
+      case ToggleCommentVisibility():
+        return toggleCommentVisibility(_that.isHideComments);
+      case ToggleRelatedVideoVisibility():
+        return toggleRelatedVideoVisibility(_that.isHideRelated);
+      case SetInstance():
+        return setInstance(_that.instanceApi);
+      case SetYTService():
+        return setYTService(_that.service);
+      case TogglePipPlayer():
+        return togglePipPlayer(_that.isPipDisabled);
+      case SetSearchFilter():
+        return setSearchFilter(_that.filter);
+      case SetVideoFitMode():
+        return setVideoFitMode(_that.fitMode);
+      case SetSkipInterval():
+        return setSkipInterval(_that.seconds);
+      case ToggleSponsorBlock():
+        return toggleSponsorBlock(_that.isEnabled);
+      case SetSponsorBlockCategories():
+        return setSponsorBlockCategories(_that.categories);
+      case ToggleOpenLinksInBrowser():
+        return toggleOpenLinksInBrowser(_that.openInBrowser);
+      case SetHomeFeedMode():
+        return setHomeFeedMode(_that.mode);
+      case ToggleAudioFocus():
+        return toggleAudioFocus(_that.isEnabled);
+      case AddProfile():
+        return addProfile(_that.profileName);
+      case DeleteProfile():
+        return deleteProfile(_that.profileName);
+      case SwitchProfile():
+        return switchProfile(_that.profileName);
+      case RenameProfile():
+        return renameProfile(_that.oldName, _that.newName);
+      case ExportSubscriptions():
+        return exportSubscriptions(_that.profileName);
+      case ImportSubscriptions():
+        return importSubscriptions(_that.filePath, _that.profileName);
+      case SetSubtitleSize():
+        return setSubtitleSize(_that.size);
+      case ToggleSearchHistoryEnabled():
+        return toggleSearchHistoryEnabled(_that.isEnabled);
+      case ToggleSearchHistoryVisibility():
+        return toggleSearchHistoryVisibility(_that.isVisible);
+      case ToggleAutoPip():
+        return toggleAutoPip(_that.isEnabled);
+      case FetchPipedInstances():
+        return fetchPipedInstances(_that.forceRefresh);
+      case FetchInvidiousInstances():
+        return fetchInvidiousInstances(_that.forceRefresh);
+      case SetLastExportedFilePath():
+        return setLastExportedFilePath(_that.filePath);
+      case SetSleepTimer():
+        return setSleepTimer(_that.seconds);
+      case ClearSleepTimer():
+        return clearSleepTimer();
+      case ToggleSwipeGestures():
+        return toggleSwipeGestures(_that.enabled);
+      case ToggleDeArrow():
+        return toggleDeArrow(_that.enabled);
+      case ToggleBookmarks():
+        return bookmarksToggled(_that.enabled);
+      case ToggleBookmarkPlaylist():
+        return toggleBookmarkPlaylist(_that.playlistId, _that.bookmarked);
+      case ToggleRestrictedMode():
+        return restrictedModeToggled(_that.enabled);
+      case ToggleMiniPlayer():
+        return miniPlayerToggled(_that.enabled);
+      case SetDownloadQuality():
+        return downloadQualityChanged(_that.quality);
+      case ToggleDownloadSubtitles():
+        return downloadSubtitlesToggled(_that.enabled);
+      case ToggleDownloadOverWifiOnly():
+        return downloadOverWifiOnlyToggled(_that.enabled);
+      case ToggleDownloadAutoDelete():
+        return downloadAutoDeleteToggled(_that.enabled);
+      case SetPlaybackSpeed():
+        return setPlaybackSpeed(_that.speed);
+      case ToggleAutoplayNextVideo():
+        return toggleAutoplayNextVideo(_that.enabled);
+      case ToggleShowRelatedInQueue():
+        return toggleShowRelatedInQueue(_that.enabled);
+      case SetQueueDismissTime():
+        return setQueueDismissTime(_that.seconds);
+      case SetAutoplayCountdown():
+        return setAutoplayCountdown(_that.seconds);
+      case ToggleDisableAutoplayOnCellular():
+        return toggleDisableAutoplayOnCellular(_that.enabled);
+      case ToggleAutoQueue():
+        return toggleAutoQueue(_that.enabled);
+      case ToggleBufferPreload():
+        return toggleBufferPreload(_that.enabled);
+      case ToggleAutoQualityAdjust():
+        return toggleAutoQualityAdjust(_that.enabled);
+      case ToggleBackgroundPlayback():
+        return toggleBackgroundPlayback(_that.enabled);
+      case ToggleNotificationControls():
+        return toggleNotificationControls(_that.enabled);
+      case ToggleDataSaver():
+        return toggleDataSaver(_that.enabled);
+      case ToggleHideWatchedVideos():
+        return toggleHideWatchedVideos(_that.enabled);
+      case SetMobileDataQuality():
+        return setMobileDataQuality(_that.quality);
+      case ToggleDownloadQueueItems():
+        return toggleDownloadQueueItems(_that.enabled);
+      case ToggleRichCaptionRendering():
+        return toggleRichCaptionRendering(_that.enabled);
+      case ToggleBilibiliEnabled():
+        return toggleBilibiliEnabled(_that.enabled);
+      case SetSwipeDirection():
+        return setSwipeDirection(_that.leftToRight);
+      case SetYoutubeService():
+        return setYoutubeService(_that.service);
+      case BookmarksApplied():
+        return bookmarksApplied(_that.selectedPlaylists);
+      case RestrictedModeFilterChanged():
+        return restrictedModeFilterChanged(_that.level);
+      case MiniPlayerAutoExpandChanged():
+        return miniPlayerAutoExpandChanged(_that.enabled);
+      case MiniPlayerTapToExpandChanged():
+        return miniPlayerTapToExpandChanged(_that.enabled);
+      case MiniPlayerDoubleTapToExpandChanged():
+        return miniPlayerDoubleTapToExpandChanged(_that.enabled);
+      case DownloadAutoDeleteDaysChanged():
+        return downloadAutoDeleteDaysChanged(_that.days);
+      case ContentFilterKeywordsChanged():
+        return contentFilterKeywordsChanged(_that.keywords);
+      case ContentFilterChannelsChanged():
+        return contentFilterChannelsChanged(_that.channelIds);
+      case ContentFilterHideShortsChanged():
+        return contentFilterHideShortsChanged(_that.enabled);
+      case ContentFilterHidePaidChanged():
+        return contentFilterHidePaidChanged(_that.enabled);
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
+    TResult? Function(String language)? getDefaultLanguage,
+    TResult? Function(String quality)? getDefaultQuality,
+    TResult? Function(String region)? getDefaultRegion,
+    TResult? Function(String themeMode)? changeTheme,
+    TResult? Function(bool isHistoryVisible)? toggleHistoryVisibility,
+    TResult? Function(bool isDislikeVisible)? toggleDislikeVisibility,
+    TResult? Function(bool isHlsPlayer)? toggleHlsPlayer,
+    TResult? Function(bool isHideComments)? toggleCommentVisibility,
+    TResult? Function(bool isHideRelated)? toggleRelatedVideoVisibility,
+    TResult? Function(String instanceApi)? setInstance,
+    TResult? Function(YouTubeServices service)? setYTService,
+    TResult? Function(bool isPipDisabled)? togglePipPlayer,
+    TResult? Function(String filter)? setSearchFilter,
+    TResult? Function(String fitMode)? setVideoFitMode,
+    TResult? Function(int seconds)? setSkipInterval,
+    TResult? Function(bool isEnabled)? toggleSponsorBlock,
+    TResult? Function(List<String> categories)? setSponsorBlockCategories,
+    TResult? Function(bool openInBrowser)? toggleOpenLinksInBrowser,
+    TResult? Function(String mode)? setHomeFeedMode,
+    TResult? Function(bool isEnabled)? toggleAudioFocus,
+    TResult? Function(String profileName)? addProfile,
+    TResult? Function(String profileName)? deleteProfile,
+    TResult? Function(String profileName)? switchProfile,
+    TResult? Function(String oldName, String newName)? renameProfile,
+    TResult? Function(String profileName)? exportSubscriptions,
+    TResult? Function(String filePath, String profileName)? importSubscriptions,
+    TResult? Function(double size)? setSubtitleSize,
+    TResult? Function(bool isEnabled)? toggleSearchHistoryEnabled,
+    TResult? Function(bool isVisible)? toggleSearchHistoryVisibility,
+    TResult? Function(bool isEnabled)? toggleAutoPip,
+    TResult? Function(bool forceRefresh)? fetchPipedInstances,
+    TResult? Function(bool forceRefresh)? fetchInvidiousInstances,
+    TResult? Function(String? filePath)? setLastExportedFilePath,
+    TResult? Function(int seconds)? setSleepTimer,
+    TResult? Function()? clearSleepTimer,
+    TResult? Function(bool enabled)? toggleSwipeGestures,
+    TResult? Function(bool enabled)? toggleDeArrow,
+    TResult? Function(bool enabled)? bookmarksToggled,
+    TResult? Function(String playlistId, bool bookmarked)?
+        toggleBookmarkPlaylist,
+    TResult? Function(bool enabled)? restrictedModeToggled,
+    TResult? Function(bool enabled)? miniPlayerToggled,
+    TResult? Function(String quality)? downloadQualityChanged,
+    TResult? Function(bool enabled)? downloadSubtitlesToggled,
+    TResult? Function(bool enabled)? downloadOverWifiOnlyToggled,
+    TResult? Function(bool enabled)? downloadAutoDeleteToggled,
+    TResult? Function(double speed)? setPlaybackSpeed,
+    TResult? Function(bool enabled)? toggleAutoplayNextVideo,
+    TResult? Function(bool enabled)? toggleShowRelatedInQueue,
+    TResult? Function(int seconds)? setQueueDismissTime,
+    TResult? Function(int seconds)? setAutoplayCountdown,
+    TResult? Function(bool enabled)? toggleDisableAutoplayOnCellular,
+    TResult? Function(bool enabled)? toggleAutoQueue,
+    TResult? Function(bool enabled)? toggleBufferPreload,
+    TResult? Function(bool enabled)? toggleAutoQualityAdjust,
+    TResult? Function(bool enabled)? toggleBackgroundPlayback,
+    TResult? Function(bool enabled)? toggleNotificationControls,
+    TResult? Function(bool enabled)? toggleDataSaver,
+    TResult? Function(bool enabled)? toggleHideWatchedVideos,
+    TResult? Function(int quality)? setMobileDataQuality,
+    TResult? Function(bool enabled)? toggleDownloadQueueItems,
+    TResult? Function(bool enabled)? toggleRichCaptionRendering,
+    TResult? Function(bool enabled)? toggleBilibiliEnabled,
+    TResult? Function(bool leftToRight)? setSwipeDirection,
+    TResult? Function(String service)? setYoutubeService,
+    TResult? Function(List<String> selectedPlaylists)? bookmarksApplied,
+    TResult? Function(RestrictedModeFilterLevel level)?
+        restrictedModeFilterChanged,
+    TResult? Function(bool enabled)? miniPlayerAutoExpandChanged,
+    TResult? Function(bool enabled)? miniPlayerTapToExpandChanged,
+    TResult? Function(bool enabled)? miniPlayerDoubleTapToExpandChanged,
+    TResult? Function(int days)? downloadAutoDeleteDaysChanged,
+    TResult? Function(List<String> keywords)? contentFilterKeywordsChanged,
+    TResult? Function(List<String> channelIds)? contentFilterChannelsChanged,
+    TResult? Function(bool enabled)? contentFilterHideShortsChanged,
+    TResult? Function(bool enabled)? contentFilterHidePaidChanged,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case InitializeSettings() when initialize != null:
+        return initialize();
+      case GetDefaultLanguage() when getDefaultLanguage != null:
+        return getDefaultLanguage(_that.language);
+      case GetDefaultQuality() when getDefaultQuality != null:
+        return getDefaultQuality(_that.quality);
+      case GetDefaultRegion() when getDefaultRegion != null:
+        return getDefaultRegion(_that.region);
+      case ChangeTheme() when changeTheme != null:
+        return changeTheme(_that.themeMode);
+      case ToggleHistoryVisibility() when toggleHistoryVisibility != null:
+        return toggleHistoryVisibility(_that.isHistoryVisible);
+      case ToggleDislikeVisibility() when toggleDislikeVisibility != null:
+        return toggleDislikeVisibility(_that.isDislikeVisible);
+      case ToggleHlsPlayer() when toggleHlsPlayer != null:
+        return toggleHlsPlayer(_that.isHlsPlayer);
+      case ToggleCommentVisibility() when toggleCommentVisibility != null:
+        return toggleCommentVisibility(_that.isHideComments);
+      case ToggleRelatedVideoVisibility()
+          when toggleRelatedVideoVisibility != null:
+        return toggleRelatedVideoVisibility(_that.isHideRelated);
+      case SetInstance() when setInstance != null:
+        return setInstance(_that.instanceApi);
+      case SetYTService() when setYTService != null:
+        return setYTService(_that.service);
+      case TogglePipPlayer() when togglePipPlayer != null:
+        return togglePipPlayer(_that.isPipDisabled);
+      case SetSearchFilter() when setSearchFilter != null:
+        return setSearchFilter(_that.filter);
+      case SetVideoFitMode() when setVideoFitMode != null:
+        return setVideoFitMode(_that.fitMode);
+      case SetSkipInterval() when setSkipInterval != null:
+        return setSkipInterval(_that.seconds);
+      case ToggleSponsorBlock() when toggleSponsorBlock != null:
+        return toggleSponsorBlock(_that.isEnabled);
+      case SetSponsorBlockCategories() when setSponsorBlockCategories != null:
+        return setSponsorBlockCategories(_that.categories);
+      case ToggleOpenLinksInBrowser() when toggleOpenLinksInBrowser != null:
+        return toggleOpenLinksInBrowser(_that.openInBrowser);
+      case SetHomeFeedMode() when setHomeFeedMode != null:
+        return setHomeFeedMode(_that.mode);
+      case ToggleAudioFocus() when toggleAudioFocus != null:
+        return toggleAudioFocus(_that.isEnabled);
+      case AddProfile() when addProfile != null:
+        return addProfile(_that.profileName);
+      case DeleteProfile() when deleteProfile != null:
+        return deleteProfile(_that.profileName);
+      case SwitchProfile() when switchProfile != null:
+        return switchProfile(_that.profileName);
+      case RenameProfile() when renameProfile != null:
+        return renameProfile(_that.oldName, _that.newName);
+      case ExportSubscriptions() when exportSubscriptions != null:
+        return exportSubscriptions(_that.profileName);
+      case ImportSubscriptions() when importSubscriptions != null:
+        return importSubscriptions(_that.filePath, _that.profileName);
+      case SetSubtitleSize() when setSubtitleSize != null:
+        return setSubtitleSize(_that.size);
+      case ToggleSearchHistoryEnabled() when toggleSearchHistoryEnabled != null:
+        return toggleSearchHistoryEnabled(_that.isEnabled);
+      case ToggleSearchHistoryVisibility()
+          when toggleSearchHistoryVisibility != null:
+        return toggleSearchHistoryVisibility(_that.isVisible);
+      case ToggleAutoPip() when toggleAutoPip != null:
+        return toggleAutoPip(_that.isEnabled);
+      case FetchPipedInstances() when fetchPipedInstances != null:
+        return fetchPipedInstances(_that.forceRefresh);
+      case FetchInvidiousInstances() when fetchInvidiousInstances != null:
+        return fetchInvidiousInstances(_that.forceRefresh);
+      case SetLastExportedFilePath() when setLastExportedFilePath != null:
+        return setLastExportedFilePath(_that.filePath);
+      case SetSleepTimer() when setSleepTimer != null:
+        return setSleepTimer(_that.seconds);
+      case ClearSleepTimer() when clearSleepTimer != null:
+        return clearSleepTimer();
+      case ToggleSwipeGestures() when toggleSwipeGestures != null:
+        return toggleSwipeGestures(_that.enabled);
+      case ToggleDeArrow() when toggleDeArrow != null:
+        return toggleDeArrow(_that.enabled);
+      case ToggleBookmarks() when bookmarksToggled != null:
+        return bookmarksToggled(_that.enabled);
+      case ToggleBookmarkPlaylist() when toggleBookmarkPlaylist != null:
+        return toggleBookmarkPlaylist(_that.playlistId, _that.bookmarked);
+      case ToggleRestrictedMode() when restrictedModeToggled != null:
+        return restrictedModeToggled(_that.enabled);
+      case ToggleMiniPlayer() when miniPlayerToggled != null:
+        return miniPlayerToggled(_that.enabled);
+      case SetDownloadQuality() when downloadQualityChanged != null:
+        return downloadQualityChanged(_that.quality);
+      case ToggleDownloadSubtitles() when downloadSubtitlesToggled != null:
+        return downloadSubtitlesToggled(_that.enabled);
+      case ToggleDownloadOverWifiOnly()
+          when downloadOverWifiOnlyToggled != null:
+        return downloadOverWifiOnlyToggled(_that.enabled);
+      case ToggleDownloadAutoDelete() when downloadAutoDeleteToggled != null:
+        return downloadAutoDeleteToggled(_that.enabled);
+      case SetPlaybackSpeed() when setPlaybackSpeed != null:
+        return setPlaybackSpeed(_that.speed);
+      case ToggleAutoplayNextVideo() when toggleAutoplayNextVideo != null:
+        return toggleAutoplayNextVideo(_that.enabled);
+      case ToggleShowRelatedInQueue() when toggleShowRelatedInQueue != null:
+        return toggleShowRelatedInQueue(_that.enabled);
+      case SetQueueDismissTime() when setQueueDismissTime != null:
+        return setQueueDismissTime(_that.seconds);
+      case SetAutoplayCountdown() when setAutoplayCountdown != null:
+        return setAutoplayCountdown(_that.seconds);
+      case ToggleDisableAutoplayOnCellular()
+          when toggleDisableAutoplayOnCellular != null:
+        return toggleDisableAutoplayOnCellular(_that.enabled);
+      case ToggleAutoQueue() when toggleAutoQueue != null:
+        return toggleAutoQueue(_that.enabled);
+      case ToggleBufferPreload() when toggleBufferPreload != null:
+        return toggleBufferPreload(_that.enabled);
+      case ToggleAutoQualityAdjust() when toggleAutoQualityAdjust != null:
+        return toggleAutoQualityAdjust(_that.enabled);
+      case ToggleBackgroundPlayback() when toggleBackgroundPlayback != null:
+        return toggleBackgroundPlayback(_that.enabled);
+      case ToggleNotificationControls() when toggleNotificationControls != null:
+        return toggleNotificationControls(_that.enabled);
+      case ToggleDataSaver() when toggleDataSaver != null:
+        return toggleDataSaver(_that.enabled);
+      case ToggleHideWatchedVideos() when toggleHideWatchedVideos != null:
+        return toggleHideWatchedVideos(_that.enabled);
+      case SetMobileDataQuality() when setMobileDataQuality != null:
+        return setMobileDataQuality(_that.quality);
+      case ToggleDownloadQueueItems() when toggleDownloadQueueItems != null:
+        return toggleDownloadQueueItems(_that.enabled);
+      case ToggleRichCaptionRendering() when toggleRichCaptionRendering != null:
+        return toggleRichCaptionRendering(_that.enabled);
+      case ToggleBilibiliEnabled() when toggleBilibiliEnabled != null:
+        return toggleBilibiliEnabled(_that.enabled);
+      case SetSwipeDirection() when setSwipeDirection != null:
+        return setSwipeDirection(_that.leftToRight);
+      case SetYoutubeService() when setYoutubeService != null:
+        return setYoutubeService(_that.service);
+      case BookmarksApplied() when bookmarksApplied != null:
+        return bookmarksApplied(_that.selectedPlaylists);
+      case RestrictedModeFilterChanged()
+          when restrictedModeFilterChanged != null:
+        return restrictedModeFilterChanged(_that.level);
+      case MiniPlayerAutoExpandChanged()
+          when miniPlayerAutoExpandChanged != null:
+        return miniPlayerAutoExpandChanged(_that.enabled);
+      case MiniPlayerTapToExpandChanged()
+          when miniPlayerTapToExpandChanged != null:
+        return miniPlayerTapToExpandChanged(_that.enabled);
+      case MiniPlayerDoubleTapToExpandChanged()
+          when miniPlayerDoubleTapToExpandChanged != null:
+        return miniPlayerDoubleTapToExpandChanged(_that.enabled);
+      case DownloadAutoDeleteDaysChanged()
+          when downloadAutoDeleteDaysChanged != null:
+        return downloadAutoDeleteDaysChanged(_that.days);
+      case ContentFilterKeywordsChanged()
+          when contentFilterKeywordsChanged != null:
+        return contentFilterKeywordsChanged(_that.keywords);
+      case ContentFilterChannelsChanged()
+          when contentFilterChannelsChanged != null:
+        return contentFilterChannelsChanged(_that.channelIds);
+      case ContentFilterHideShortsChanged()
+          when contentFilterHideShortsChanged != null:
+        return contentFilterHideShortsChanged(_that.enabled);
+      case ContentFilterHidePaidChanged()
+          when contentFilterHidePaidChanged != null:
+        return contentFilterHidePaidChanged(_that.enabled);
+      case _:
+        return null;
+    }
   }
 }
 
 /// @nodoc
 
-class _$GetDefaultLanguageImpl implements GetDefaultLanguage {
-  _$GetDefaultLanguageImpl({required this.language});
+class InitializeSettings implements SettingsEvent {
+  const InitializeSettings();
 
   @override
-  final String? language;
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is InitializeSettings);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
 
   @override
   String toString() {
-    return 'SettingsEvent.getDefaultLanguage(language: $language)';
+    return 'SettingsEvent.initialize()';
   }
+}
+
+/// @nodoc
+
+class GetDefaultLanguage implements SettingsEvent {
+  const GetDefaultLanguage({required this.language});
+
+  final String language;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $GetDefaultLanguageCopyWith<GetDefaultLanguage> get copyWith =>
+      _$GetDefaultLanguageCopyWithImpl<GetDefaultLanguage>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetDefaultLanguageImpl &&
+            other is GetDefaultLanguage &&
             (identical(other.language, language) ||
                 other.language == language));
   }
@@ -664,1038 +1695,231 @@ class _$GetDefaultLanguageImpl implements GetDefaultLanguage {
   @override
   int get hashCode => Object.hash(runtimeType, language);
 
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$GetDefaultLanguageImplCopyWith<_$GetDefaultLanguageImpl> get copyWith =>
-      __$$GetDefaultLanguageImplCopyWithImpl<_$GetDefaultLanguageImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initializeSettings,
-    required TResult Function(String? language) getDefaultLanguage,
-    required TResult Function(String? quality) getDefaultQuality,
-    required TResult Function(String? region) getDefaultRegion,
-    required TResult Function(String themeMode) changeTheme,
-    required TResult Function() toggleHistoryVisibility,
-    required TResult Function() toggleDislikeVisibility,
-    required TResult Function() toggleHlsPlayer,
-    required TResult Function() toggleCommentVisibility,
-    required TResult Function() toggleRelatedVideoVisibility,
-    required TResult Function(bool forceRefresh) fetchPipedInstances,
-    required TResult Function(bool forceRefresh) fetchInvidiousInstances,
-    required TResult Function(String instanceApi) setInstance,
-    required TResult Function(YouTubeServices service) setYTService,
-    required TResult Function() togglePipPlayer,
-    required TResult Function(String filter) setSearchFilter,
-    required TResult Function(String fitMode) setVideoFitMode,
-    required TResult Function(int seconds) setSkipInterval,
-    required TResult Function() toggleSponsorBlock,
-    required TResult Function(List<String> categories)
-        setSponsorBlockCategories,
-    required TResult Function() toggleOpenLinksInBrowser,
-    required TResult Function(String mode) setHomeFeedMode,
-    required TResult Function() toggleAudioFocus,
-    required TResult Function(String profileName) addProfile,
-    required TResult Function(String profileName) deleteProfile,
-    required TResult Function(String profileName) switchProfile,
-    required TResult Function(String oldName, String newName) renameProfile,
-    required TResult Function(String profileName) exportSubscriptions,
-    required TResult Function(String filePath, String profileName)
-        importSubscriptions,
-    required TResult Function(double size) setSubtitleSize,
-    required TResult Function() toggleSearchHistoryEnabled,
-    required TResult Function() toggleSearchHistoryVisibility,
-    required TResult Function(String filePath) setLastExportedFilePath,
-    required TResult Function() toggleAutoPip,
-  }) {
-    return getDefaultLanguage(language);
+  String toString() {
+    return 'SettingsEvent.getDefaultLanguage(language: $language)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initializeSettings,
-    TResult? Function(String? language)? getDefaultLanguage,
-    TResult? Function(String? quality)? getDefaultQuality,
-    TResult? Function(String? region)? getDefaultRegion,
-    TResult? Function(String themeMode)? changeTheme,
-    TResult? Function()? toggleHistoryVisibility,
-    TResult? Function()? toggleDislikeVisibility,
-    TResult? Function()? toggleHlsPlayer,
-    TResult? Function()? toggleCommentVisibility,
-    TResult? Function()? toggleRelatedVideoVisibility,
-    TResult? Function(bool forceRefresh)? fetchPipedInstances,
-    TResult? Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult? Function(String instanceApi)? setInstance,
-    TResult? Function(YouTubeServices service)? setYTService,
-    TResult? Function()? togglePipPlayer,
-    TResult? Function(String filter)? setSearchFilter,
-    TResult? Function(String fitMode)? setVideoFitMode,
-    TResult? Function(int seconds)? setSkipInterval,
-    TResult? Function()? toggleSponsorBlock,
-    TResult? Function(List<String> categories)? setSponsorBlockCategories,
-    TResult? Function()? toggleOpenLinksInBrowser,
-    TResult? Function(String mode)? setHomeFeedMode,
-    TResult? Function()? toggleAudioFocus,
-    TResult? Function(String profileName)? addProfile,
-    TResult? Function(String profileName)? deleteProfile,
-    TResult? Function(String profileName)? switchProfile,
-    TResult? Function(String oldName, String newName)? renameProfile,
-    TResult? Function(String profileName)? exportSubscriptions,
-    TResult? Function(String filePath, String profileName)? importSubscriptions,
-    TResult? Function(double size)? setSubtitleSize,
-    TResult? Function()? toggleSearchHistoryEnabled,
-    TResult? Function()? toggleSearchHistoryVisibility,
-    TResult? Function(String filePath)? setLastExportedFilePath,
-    TResult? Function()? toggleAutoPip,
-  }) {
-    return getDefaultLanguage?.call(language);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initializeSettings,
-    TResult Function(String? language)? getDefaultLanguage,
-    TResult Function(String? quality)? getDefaultQuality,
-    TResult Function(String? region)? getDefaultRegion,
-    TResult Function(String themeMode)? changeTheme,
-    TResult Function()? toggleHistoryVisibility,
-    TResult Function()? toggleDislikeVisibility,
-    TResult Function()? toggleHlsPlayer,
-    TResult Function()? toggleCommentVisibility,
-    TResult Function()? toggleRelatedVideoVisibility,
-    TResult Function(bool forceRefresh)? fetchPipedInstances,
-    TResult Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult Function(String instanceApi)? setInstance,
-    TResult Function(YouTubeServices service)? setYTService,
-    TResult Function()? togglePipPlayer,
-    TResult Function(String filter)? setSearchFilter,
-    TResult Function(String fitMode)? setVideoFitMode,
-    TResult Function(int seconds)? setSkipInterval,
-    TResult Function()? toggleSponsorBlock,
-    TResult Function(List<String> categories)? setSponsorBlockCategories,
-    TResult Function()? toggleOpenLinksInBrowser,
-    TResult Function(String mode)? setHomeFeedMode,
-    TResult Function()? toggleAudioFocus,
-    TResult Function(String profileName)? addProfile,
-    TResult Function(String profileName)? deleteProfile,
-    TResult Function(String profileName)? switchProfile,
-    TResult Function(String oldName, String newName)? renameProfile,
-    TResult Function(String profileName)? exportSubscriptions,
-    TResult Function(String filePath, String profileName)? importSubscriptions,
-    TResult Function(double size)? setSubtitleSize,
-    TResult Function()? toggleSearchHistoryEnabled,
-    TResult Function()? toggleSearchHistoryVisibility,
-    TResult Function(String filePath)? setLastExportedFilePath,
-    TResult Function()? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (getDefaultLanguage != null) {
-      return getDefaultLanguage(language);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(InitializeSettings value) initializeSettings,
-    required TResult Function(GetDefaultLanguage value) getDefaultLanguage,
-    required TResult Function(GetDefaultQuality value) getDefaultQuality,
-    required TResult Function(GetDefaultRegion value) getDefaultRegion,
-    required TResult Function(ChangeTheme value) changeTheme,
-    required TResult Function(ToggleHistoryVisibility value)
-        toggleHistoryVisibility,
-    required TResult Function(ToggleDislikeVisibility value)
-        toggleDislikeVisibility,
-    required TResult Function(ToggleHlsPlayer value) toggleHlsPlayer,
-    required TResult Function(ToggleCommentVisibility value)
-        toggleCommentVisibility,
-    required TResult Function(ToggleRelatedVideoVisibility value)
-        toggleRelatedVideoVisibility,
-    required TResult Function(FetchPipedInstances value) fetchPipedInstances,
-    required TResult Function(FetchInvidiousInstances value)
-        fetchInvidiousInstances,
-    required TResult Function(SetInstance value) setInstance,
-    required TResult Function(SetYTService value) setYTService,
-    required TResult Function(TogglePipPlayer value) togglePipPlayer,
-    required TResult Function(SetSearchFilter value) setSearchFilter,
-    required TResult Function(SetVideoFitMode value) setVideoFitMode,
-    required TResult Function(SetSkipInterval value) setSkipInterval,
-    required TResult Function(ToggleSponsorBlock value) toggleSponsorBlock,
-    required TResult Function(SetSponsorBlockCategories value)
-        setSponsorBlockCategories,
-    required TResult Function(ToggleOpenLinksInBrowser value)
-        toggleOpenLinksInBrowser,
-    required TResult Function(SetHomeFeedMode value) setHomeFeedMode,
-    required TResult Function(ToggleAudioFocus value) toggleAudioFocus,
-    required TResult Function(AddProfile value) addProfile,
-    required TResult Function(DeleteProfile value) deleteProfile,
-    required TResult Function(SwitchProfile value) switchProfile,
-    required TResult Function(RenameProfile value) renameProfile,
-    required TResult Function(ExportSubscriptions value) exportSubscriptions,
-    required TResult Function(ImportSubscriptions value) importSubscriptions,
-    required TResult Function(SetSubtitleSize value) setSubtitleSize,
-    required TResult Function(ToggleSearchHistoryEnabled value)
-        toggleSearchHistoryEnabled,
-    required TResult Function(ToggleSearchHistoryVisibility value)
-        toggleSearchHistoryVisibility,
-    required TResult Function(SetLastExportedFilePath value)
-        setLastExportedFilePath,
-    required TResult Function(ToggleAutoPip value) toggleAutoPip,
-  }) {
-    return getDefaultLanguage(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InitializeSettings value)? initializeSettings,
-    TResult? Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult? Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult? Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult? Function(ChangeTheme value)? changeTheme,
-    TResult? Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult? Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult? Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult? Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult? Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult? Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult? Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult? Function(SetInstance value)? setInstance,
-    TResult? Function(SetYTService value)? setYTService,
-    TResult? Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult? Function(SetSearchFilter value)? setSearchFilter,
-    TResult? Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult? Function(SetSkipInterval value)? setSkipInterval,
-    TResult? Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult? Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult? Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult? Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult? Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult? Function(AddProfile value)? addProfile,
-    TResult? Function(DeleteProfile value)? deleteProfile,
-    TResult? Function(SwitchProfile value)? switchProfile,
-    TResult? Function(RenameProfile value)? renameProfile,
-    TResult? Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult? Function(ImportSubscriptions value)? importSubscriptions,
-    TResult? Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult? Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult? Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult? Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult? Function(ToggleAutoPip value)? toggleAutoPip,
-  }) {
-    return getDefaultLanguage?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitializeSettings value)? initializeSettings,
-    TResult Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult Function(ChangeTheme value)? changeTheme,
-    TResult Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult Function(SetInstance value)? setInstance,
-    TResult Function(SetYTService value)? setYTService,
-    TResult Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult Function(SetSearchFilter value)? setSearchFilter,
-    TResult Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult Function(SetSkipInterval value)? setSkipInterval,
-    TResult Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult Function(AddProfile value)? addProfile,
-    TResult Function(DeleteProfile value)? deleteProfile,
-    TResult Function(SwitchProfile value)? switchProfile,
-    TResult Function(RenameProfile value)? renameProfile,
-    TResult Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult Function(ImportSubscriptions value)? importSubscriptions,
-    TResult Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult Function(ToggleAutoPip value)? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (getDefaultLanguage != null) {
-      return getDefaultLanguage(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class GetDefaultLanguage implements SettingsEvent {
-  factory GetDefaultLanguage({required final String? language}) =
-      _$GetDefaultLanguageImpl;
-
-  String? get language;
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetDefaultLanguageImplCopyWith<_$GetDefaultLanguageImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$GetDefaultQualityImplCopyWith<$Res> {
-  factory _$$GetDefaultQualityImplCopyWith(_$GetDefaultQualityImpl value,
-          $Res Function(_$GetDefaultQualityImpl) then) =
-      __$$GetDefaultQualityImplCopyWithImpl<$Res>;
+abstract mixin class $GetDefaultLanguageCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $GetDefaultLanguageCopyWith(
+          GetDefaultLanguage value, $Res Function(GetDefaultLanguage) _then) =
+      _$GetDefaultLanguageCopyWithImpl;
   @useResult
-  $Res call({String? quality});
+  $Res call({String language});
 }
 
 /// @nodoc
-class __$$GetDefaultQualityImplCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res, _$GetDefaultQualityImpl>
-    implements _$$GetDefaultQualityImplCopyWith<$Res> {
-  __$$GetDefaultQualityImplCopyWithImpl(_$GetDefaultQualityImpl _value,
-      $Res Function(_$GetDefaultQualityImpl) _then)
-      : super(_value, _then);
+class _$GetDefaultLanguageCopyWithImpl<$Res>
+    implements $GetDefaultLanguageCopyWith<$Res> {
+  _$GetDefaultLanguageCopyWithImpl(this._self, this._then);
+
+  final GetDefaultLanguage _self;
+  final $Res Function(GetDefaultLanguage) _then;
 
   /// Create a copy of SettingsEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
-    Object? quality = freezed,
+    Object? language = null,
   }) {
-    return _then(_$GetDefaultQualityImpl(
-      quality: freezed == quality
-          ? _value.quality
-          : quality // ignore: cast_nullable_to_non_nullable
-              as String?,
+    return _then(GetDefaultLanguage(
+      language: null == language
+          ? _self.language
+          : language // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
 
-class _$GetDefaultQualityImpl implements GetDefaultQuality {
-  _$GetDefaultQualityImpl({required this.quality});
+class GetDefaultQuality implements SettingsEvent {
+  const GetDefaultQuality({required this.quality});
 
-  @override
-  final String? quality;
+  final String quality;
 
-  @override
-  String toString() {
-    return 'SettingsEvent.getDefaultQuality(quality: $quality)';
-  }
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $GetDefaultQualityCopyWith<GetDefaultQuality> get copyWith =>
+      _$GetDefaultQualityCopyWithImpl<GetDefaultQuality>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetDefaultQualityImpl &&
+            other is GetDefaultQuality &&
             (identical(other.quality, quality) || other.quality == quality));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, quality);
 
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$GetDefaultQualityImplCopyWith<_$GetDefaultQualityImpl> get copyWith =>
-      __$$GetDefaultQualityImplCopyWithImpl<_$GetDefaultQualityImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initializeSettings,
-    required TResult Function(String? language) getDefaultLanguage,
-    required TResult Function(String? quality) getDefaultQuality,
-    required TResult Function(String? region) getDefaultRegion,
-    required TResult Function(String themeMode) changeTheme,
-    required TResult Function() toggleHistoryVisibility,
-    required TResult Function() toggleDislikeVisibility,
-    required TResult Function() toggleHlsPlayer,
-    required TResult Function() toggleCommentVisibility,
-    required TResult Function() toggleRelatedVideoVisibility,
-    required TResult Function(bool forceRefresh) fetchPipedInstances,
-    required TResult Function(bool forceRefresh) fetchInvidiousInstances,
-    required TResult Function(String instanceApi) setInstance,
-    required TResult Function(YouTubeServices service) setYTService,
-    required TResult Function() togglePipPlayer,
-    required TResult Function(String filter) setSearchFilter,
-    required TResult Function(String fitMode) setVideoFitMode,
-    required TResult Function(int seconds) setSkipInterval,
-    required TResult Function() toggleSponsorBlock,
-    required TResult Function(List<String> categories)
-        setSponsorBlockCategories,
-    required TResult Function() toggleOpenLinksInBrowser,
-    required TResult Function(String mode) setHomeFeedMode,
-    required TResult Function() toggleAudioFocus,
-    required TResult Function(String profileName) addProfile,
-    required TResult Function(String profileName) deleteProfile,
-    required TResult Function(String profileName) switchProfile,
-    required TResult Function(String oldName, String newName) renameProfile,
-    required TResult Function(String profileName) exportSubscriptions,
-    required TResult Function(String filePath, String profileName)
-        importSubscriptions,
-    required TResult Function(double size) setSubtitleSize,
-    required TResult Function() toggleSearchHistoryEnabled,
-    required TResult Function() toggleSearchHistoryVisibility,
-    required TResult Function(String filePath) setLastExportedFilePath,
-    required TResult Function() toggleAutoPip,
-  }) {
-    return getDefaultQuality(quality);
+  String toString() {
+    return 'SettingsEvent.getDefaultQuality(quality: $quality)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initializeSettings,
-    TResult? Function(String? language)? getDefaultLanguage,
-    TResult? Function(String? quality)? getDefaultQuality,
-    TResult? Function(String? region)? getDefaultRegion,
-    TResult? Function(String themeMode)? changeTheme,
-    TResult? Function()? toggleHistoryVisibility,
-    TResult? Function()? toggleDislikeVisibility,
-    TResult? Function()? toggleHlsPlayer,
-    TResult? Function()? toggleCommentVisibility,
-    TResult? Function()? toggleRelatedVideoVisibility,
-    TResult? Function(bool forceRefresh)? fetchPipedInstances,
-    TResult? Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult? Function(String instanceApi)? setInstance,
-    TResult? Function(YouTubeServices service)? setYTService,
-    TResult? Function()? togglePipPlayer,
-    TResult? Function(String filter)? setSearchFilter,
-    TResult? Function(String fitMode)? setVideoFitMode,
-    TResult? Function(int seconds)? setSkipInterval,
-    TResult? Function()? toggleSponsorBlock,
-    TResult? Function(List<String> categories)? setSponsorBlockCategories,
-    TResult? Function()? toggleOpenLinksInBrowser,
-    TResult? Function(String mode)? setHomeFeedMode,
-    TResult? Function()? toggleAudioFocus,
-    TResult? Function(String profileName)? addProfile,
-    TResult? Function(String profileName)? deleteProfile,
-    TResult? Function(String profileName)? switchProfile,
-    TResult? Function(String oldName, String newName)? renameProfile,
-    TResult? Function(String profileName)? exportSubscriptions,
-    TResult? Function(String filePath, String profileName)? importSubscriptions,
-    TResult? Function(double size)? setSubtitleSize,
-    TResult? Function()? toggleSearchHistoryEnabled,
-    TResult? Function()? toggleSearchHistoryVisibility,
-    TResult? Function(String filePath)? setLastExportedFilePath,
-    TResult? Function()? toggleAutoPip,
-  }) {
-    return getDefaultQuality?.call(quality);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initializeSettings,
-    TResult Function(String? language)? getDefaultLanguage,
-    TResult Function(String? quality)? getDefaultQuality,
-    TResult Function(String? region)? getDefaultRegion,
-    TResult Function(String themeMode)? changeTheme,
-    TResult Function()? toggleHistoryVisibility,
-    TResult Function()? toggleDislikeVisibility,
-    TResult Function()? toggleHlsPlayer,
-    TResult Function()? toggleCommentVisibility,
-    TResult Function()? toggleRelatedVideoVisibility,
-    TResult Function(bool forceRefresh)? fetchPipedInstances,
-    TResult Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult Function(String instanceApi)? setInstance,
-    TResult Function(YouTubeServices service)? setYTService,
-    TResult Function()? togglePipPlayer,
-    TResult Function(String filter)? setSearchFilter,
-    TResult Function(String fitMode)? setVideoFitMode,
-    TResult Function(int seconds)? setSkipInterval,
-    TResult Function()? toggleSponsorBlock,
-    TResult Function(List<String> categories)? setSponsorBlockCategories,
-    TResult Function()? toggleOpenLinksInBrowser,
-    TResult Function(String mode)? setHomeFeedMode,
-    TResult Function()? toggleAudioFocus,
-    TResult Function(String profileName)? addProfile,
-    TResult Function(String profileName)? deleteProfile,
-    TResult Function(String profileName)? switchProfile,
-    TResult Function(String oldName, String newName)? renameProfile,
-    TResult Function(String profileName)? exportSubscriptions,
-    TResult Function(String filePath, String profileName)? importSubscriptions,
-    TResult Function(double size)? setSubtitleSize,
-    TResult Function()? toggleSearchHistoryEnabled,
-    TResult Function()? toggleSearchHistoryVisibility,
-    TResult Function(String filePath)? setLastExportedFilePath,
-    TResult Function()? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (getDefaultQuality != null) {
-      return getDefaultQuality(quality);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(InitializeSettings value) initializeSettings,
-    required TResult Function(GetDefaultLanguage value) getDefaultLanguage,
-    required TResult Function(GetDefaultQuality value) getDefaultQuality,
-    required TResult Function(GetDefaultRegion value) getDefaultRegion,
-    required TResult Function(ChangeTheme value) changeTheme,
-    required TResult Function(ToggleHistoryVisibility value)
-        toggleHistoryVisibility,
-    required TResult Function(ToggleDislikeVisibility value)
-        toggleDislikeVisibility,
-    required TResult Function(ToggleHlsPlayer value) toggleHlsPlayer,
-    required TResult Function(ToggleCommentVisibility value)
-        toggleCommentVisibility,
-    required TResult Function(ToggleRelatedVideoVisibility value)
-        toggleRelatedVideoVisibility,
-    required TResult Function(FetchPipedInstances value) fetchPipedInstances,
-    required TResult Function(FetchInvidiousInstances value)
-        fetchInvidiousInstances,
-    required TResult Function(SetInstance value) setInstance,
-    required TResult Function(SetYTService value) setYTService,
-    required TResult Function(TogglePipPlayer value) togglePipPlayer,
-    required TResult Function(SetSearchFilter value) setSearchFilter,
-    required TResult Function(SetVideoFitMode value) setVideoFitMode,
-    required TResult Function(SetSkipInterval value) setSkipInterval,
-    required TResult Function(ToggleSponsorBlock value) toggleSponsorBlock,
-    required TResult Function(SetSponsorBlockCategories value)
-        setSponsorBlockCategories,
-    required TResult Function(ToggleOpenLinksInBrowser value)
-        toggleOpenLinksInBrowser,
-    required TResult Function(SetHomeFeedMode value) setHomeFeedMode,
-    required TResult Function(ToggleAudioFocus value) toggleAudioFocus,
-    required TResult Function(AddProfile value) addProfile,
-    required TResult Function(DeleteProfile value) deleteProfile,
-    required TResult Function(SwitchProfile value) switchProfile,
-    required TResult Function(RenameProfile value) renameProfile,
-    required TResult Function(ExportSubscriptions value) exportSubscriptions,
-    required TResult Function(ImportSubscriptions value) importSubscriptions,
-    required TResult Function(SetSubtitleSize value) setSubtitleSize,
-    required TResult Function(ToggleSearchHistoryEnabled value)
-        toggleSearchHistoryEnabled,
-    required TResult Function(ToggleSearchHistoryVisibility value)
-        toggleSearchHistoryVisibility,
-    required TResult Function(SetLastExportedFilePath value)
-        setLastExportedFilePath,
-    required TResult Function(ToggleAutoPip value) toggleAutoPip,
-  }) {
-    return getDefaultQuality(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InitializeSettings value)? initializeSettings,
-    TResult? Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult? Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult? Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult? Function(ChangeTheme value)? changeTheme,
-    TResult? Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult? Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult? Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult? Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult? Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult? Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult? Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult? Function(SetInstance value)? setInstance,
-    TResult? Function(SetYTService value)? setYTService,
-    TResult? Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult? Function(SetSearchFilter value)? setSearchFilter,
-    TResult? Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult? Function(SetSkipInterval value)? setSkipInterval,
-    TResult? Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult? Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult? Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult? Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult? Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult? Function(AddProfile value)? addProfile,
-    TResult? Function(DeleteProfile value)? deleteProfile,
-    TResult? Function(SwitchProfile value)? switchProfile,
-    TResult? Function(RenameProfile value)? renameProfile,
-    TResult? Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult? Function(ImportSubscriptions value)? importSubscriptions,
-    TResult? Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult? Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult? Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult? Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult? Function(ToggleAutoPip value)? toggleAutoPip,
-  }) {
-    return getDefaultQuality?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitializeSettings value)? initializeSettings,
-    TResult Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult Function(ChangeTheme value)? changeTheme,
-    TResult Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult Function(SetInstance value)? setInstance,
-    TResult Function(SetYTService value)? setYTService,
-    TResult Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult Function(SetSearchFilter value)? setSearchFilter,
-    TResult Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult Function(SetSkipInterval value)? setSkipInterval,
-    TResult Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult Function(AddProfile value)? addProfile,
-    TResult Function(DeleteProfile value)? deleteProfile,
-    TResult Function(SwitchProfile value)? switchProfile,
-    TResult Function(RenameProfile value)? renameProfile,
-    TResult Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult Function(ImportSubscriptions value)? importSubscriptions,
-    TResult Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult Function(ToggleAutoPip value)? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (getDefaultQuality != null) {
-      return getDefaultQuality(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class GetDefaultQuality implements SettingsEvent {
-  factory GetDefaultQuality({required final String? quality}) =
-      _$GetDefaultQualityImpl;
-
-  String? get quality;
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetDefaultQualityImplCopyWith<_$GetDefaultQualityImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$GetDefaultRegionImplCopyWith<$Res> {
-  factory _$$GetDefaultRegionImplCopyWith(_$GetDefaultRegionImpl value,
-          $Res Function(_$GetDefaultRegionImpl) then) =
-      __$$GetDefaultRegionImplCopyWithImpl<$Res>;
+abstract mixin class $GetDefaultQualityCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $GetDefaultQualityCopyWith(
+          GetDefaultQuality value, $Res Function(GetDefaultQuality) _then) =
+      _$GetDefaultQualityCopyWithImpl;
   @useResult
-  $Res call({String? region});
+  $Res call({String quality});
 }
 
 /// @nodoc
-class __$$GetDefaultRegionImplCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res, _$GetDefaultRegionImpl>
-    implements _$$GetDefaultRegionImplCopyWith<$Res> {
-  __$$GetDefaultRegionImplCopyWithImpl(_$GetDefaultRegionImpl _value,
-      $Res Function(_$GetDefaultRegionImpl) _then)
-      : super(_value, _then);
+class _$GetDefaultQualityCopyWithImpl<$Res>
+    implements $GetDefaultQualityCopyWith<$Res> {
+  _$GetDefaultQualityCopyWithImpl(this._self, this._then);
+
+  final GetDefaultQuality _self;
+  final $Res Function(GetDefaultQuality) _then;
 
   /// Create a copy of SettingsEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
-    Object? region = freezed,
+    Object? quality = null,
   }) {
-    return _then(_$GetDefaultRegionImpl(
-      region: freezed == region
-          ? _value.region
-          : region // ignore: cast_nullable_to_non_nullable
-              as String?,
+    return _then(GetDefaultQuality(
+      quality: null == quality
+          ? _self.quality
+          : quality // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
 
-class _$GetDefaultRegionImpl implements GetDefaultRegion {
-  _$GetDefaultRegionImpl({required this.region});
+class GetDefaultRegion implements SettingsEvent {
+  const GetDefaultRegion({required this.region});
 
-  @override
-  final String? region;
+  final String region;
 
-  @override
-  String toString() {
-    return 'SettingsEvent.getDefaultRegion(region: $region)';
-  }
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $GetDefaultRegionCopyWith<GetDefaultRegion> get copyWith =>
+      _$GetDefaultRegionCopyWithImpl<GetDefaultRegion>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetDefaultRegionImpl &&
+            other is GetDefaultRegion &&
             (identical(other.region, region) || other.region == region));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, region);
 
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$GetDefaultRegionImplCopyWith<_$GetDefaultRegionImpl> get copyWith =>
-      __$$GetDefaultRegionImplCopyWithImpl<_$GetDefaultRegionImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initializeSettings,
-    required TResult Function(String? language) getDefaultLanguage,
-    required TResult Function(String? quality) getDefaultQuality,
-    required TResult Function(String? region) getDefaultRegion,
-    required TResult Function(String themeMode) changeTheme,
-    required TResult Function() toggleHistoryVisibility,
-    required TResult Function() toggleDislikeVisibility,
-    required TResult Function() toggleHlsPlayer,
-    required TResult Function() toggleCommentVisibility,
-    required TResult Function() toggleRelatedVideoVisibility,
-    required TResult Function(bool forceRefresh) fetchPipedInstances,
-    required TResult Function(bool forceRefresh) fetchInvidiousInstances,
-    required TResult Function(String instanceApi) setInstance,
-    required TResult Function(YouTubeServices service) setYTService,
-    required TResult Function() togglePipPlayer,
-    required TResult Function(String filter) setSearchFilter,
-    required TResult Function(String fitMode) setVideoFitMode,
-    required TResult Function(int seconds) setSkipInterval,
-    required TResult Function() toggleSponsorBlock,
-    required TResult Function(List<String> categories)
-        setSponsorBlockCategories,
-    required TResult Function() toggleOpenLinksInBrowser,
-    required TResult Function(String mode) setHomeFeedMode,
-    required TResult Function() toggleAudioFocus,
-    required TResult Function(String profileName) addProfile,
-    required TResult Function(String profileName) deleteProfile,
-    required TResult Function(String profileName) switchProfile,
-    required TResult Function(String oldName, String newName) renameProfile,
-    required TResult Function(String profileName) exportSubscriptions,
-    required TResult Function(String filePath, String profileName)
-        importSubscriptions,
-    required TResult Function(double size) setSubtitleSize,
-    required TResult Function() toggleSearchHistoryEnabled,
-    required TResult Function() toggleSearchHistoryVisibility,
-    required TResult Function(String filePath) setLastExportedFilePath,
-    required TResult Function() toggleAutoPip,
-  }) {
-    return getDefaultRegion(region);
+  String toString() {
+    return 'SettingsEvent.getDefaultRegion(region: $region)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initializeSettings,
-    TResult? Function(String? language)? getDefaultLanguage,
-    TResult? Function(String? quality)? getDefaultQuality,
-    TResult? Function(String? region)? getDefaultRegion,
-    TResult? Function(String themeMode)? changeTheme,
-    TResult? Function()? toggleHistoryVisibility,
-    TResult? Function()? toggleDislikeVisibility,
-    TResult? Function()? toggleHlsPlayer,
-    TResult? Function()? toggleCommentVisibility,
-    TResult? Function()? toggleRelatedVideoVisibility,
-    TResult? Function(bool forceRefresh)? fetchPipedInstances,
-    TResult? Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult? Function(String instanceApi)? setInstance,
-    TResult? Function(YouTubeServices service)? setYTService,
-    TResult? Function()? togglePipPlayer,
-    TResult? Function(String filter)? setSearchFilter,
-    TResult? Function(String fitMode)? setVideoFitMode,
-    TResult? Function(int seconds)? setSkipInterval,
-    TResult? Function()? toggleSponsorBlock,
-    TResult? Function(List<String> categories)? setSponsorBlockCategories,
-    TResult? Function()? toggleOpenLinksInBrowser,
-    TResult? Function(String mode)? setHomeFeedMode,
-    TResult? Function()? toggleAudioFocus,
-    TResult? Function(String profileName)? addProfile,
-    TResult? Function(String profileName)? deleteProfile,
-    TResult? Function(String profileName)? switchProfile,
-    TResult? Function(String oldName, String newName)? renameProfile,
-    TResult? Function(String profileName)? exportSubscriptions,
-    TResult? Function(String filePath, String profileName)? importSubscriptions,
-    TResult? Function(double size)? setSubtitleSize,
-    TResult? Function()? toggleSearchHistoryEnabled,
-    TResult? Function()? toggleSearchHistoryVisibility,
-    TResult? Function(String filePath)? setLastExportedFilePath,
-    TResult? Function()? toggleAutoPip,
-  }) {
-    return getDefaultRegion?.call(region);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initializeSettings,
-    TResult Function(String? language)? getDefaultLanguage,
-    TResult Function(String? quality)? getDefaultQuality,
-    TResult Function(String? region)? getDefaultRegion,
-    TResult Function(String themeMode)? changeTheme,
-    TResult Function()? toggleHistoryVisibility,
-    TResult Function()? toggleDislikeVisibility,
-    TResult Function()? toggleHlsPlayer,
-    TResult Function()? toggleCommentVisibility,
-    TResult Function()? toggleRelatedVideoVisibility,
-    TResult Function(bool forceRefresh)? fetchPipedInstances,
-    TResult Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult Function(String instanceApi)? setInstance,
-    TResult Function(YouTubeServices service)? setYTService,
-    TResult Function()? togglePipPlayer,
-    TResult Function(String filter)? setSearchFilter,
-    TResult Function(String fitMode)? setVideoFitMode,
-    TResult Function(int seconds)? setSkipInterval,
-    TResult Function()? toggleSponsorBlock,
-    TResult Function(List<String> categories)? setSponsorBlockCategories,
-    TResult Function()? toggleOpenLinksInBrowser,
-    TResult Function(String mode)? setHomeFeedMode,
-    TResult Function()? toggleAudioFocus,
-    TResult Function(String profileName)? addProfile,
-    TResult Function(String profileName)? deleteProfile,
-    TResult Function(String profileName)? switchProfile,
-    TResult Function(String oldName, String newName)? renameProfile,
-    TResult Function(String profileName)? exportSubscriptions,
-    TResult Function(String filePath, String profileName)? importSubscriptions,
-    TResult Function(double size)? setSubtitleSize,
-    TResult Function()? toggleSearchHistoryEnabled,
-    TResult Function()? toggleSearchHistoryVisibility,
-    TResult Function(String filePath)? setLastExportedFilePath,
-    TResult Function()? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (getDefaultRegion != null) {
-      return getDefaultRegion(region);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(InitializeSettings value) initializeSettings,
-    required TResult Function(GetDefaultLanguage value) getDefaultLanguage,
-    required TResult Function(GetDefaultQuality value) getDefaultQuality,
-    required TResult Function(GetDefaultRegion value) getDefaultRegion,
-    required TResult Function(ChangeTheme value) changeTheme,
-    required TResult Function(ToggleHistoryVisibility value)
-        toggleHistoryVisibility,
-    required TResult Function(ToggleDislikeVisibility value)
-        toggleDislikeVisibility,
-    required TResult Function(ToggleHlsPlayer value) toggleHlsPlayer,
-    required TResult Function(ToggleCommentVisibility value)
-        toggleCommentVisibility,
-    required TResult Function(ToggleRelatedVideoVisibility value)
-        toggleRelatedVideoVisibility,
-    required TResult Function(FetchPipedInstances value) fetchPipedInstances,
-    required TResult Function(FetchInvidiousInstances value)
-        fetchInvidiousInstances,
-    required TResult Function(SetInstance value) setInstance,
-    required TResult Function(SetYTService value) setYTService,
-    required TResult Function(TogglePipPlayer value) togglePipPlayer,
-    required TResult Function(SetSearchFilter value) setSearchFilter,
-    required TResult Function(SetVideoFitMode value) setVideoFitMode,
-    required TResult Function(SetSkipInterval value) setSkipInterval,
-    required TResult Function(ToggleSponsorBlock value) toggleSponsorBlock,
-    required TResult Function(SetSponsorBlockCategories value)
-        setSponsorBlockCategories,
-    required TResult Function(ToggleOpenLinksInBrowser value)
-        toggleOpenLinksInBrowser,
-    required TResult Function(SetHomeFeedMode value) setHomeFeedMode,
-    required TResult Function(ToggleAudioFocus value) toggleAudioFocus,
-    required TResult Function(AddProfile value) addProfile,
-    required TResult Function(DeleteProfile value) deleteProfile,
-    required TResult Function(SwitchProfile value) switchProfile,
-    required TResult Function(RenameProfile value) renameProfile,
-    required TResult Function(ExportSubscriptions value) exportSubscriptions,
-    required TResult Function(ImportSubscriptions value) importSubscriptions,
-    required TResult Function(SetSubtitleSize value) setSubtitleSize,
-    required TResult Function(ToggleSearchHistoryEnabled value)
-        toggleSearchHistoryEnabled,
-    required TResult Function(ToggleSearchHistoryVisibility value)
-        toggleSearchHistoryVisibility,
-    required TResult Function(SetLastExportedFilePath value)
-        setLastExportedFilePath,
-    required TResult Function(ToggleAutoPip value) toggleAutoPip,
-  }) {
-    return getDefaultRegion(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InitializeSettings value)? initializeSettings,
-    TResult? Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult? Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult? Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult? Function(ChangeTheme value)? changeTheme,
-    TResult? Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult? Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult? Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult? Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult? Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult? Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult? Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult? Function(SetInstance value)? setInstance,
-    TResult? Function(SetYTService value)? setYTService,
-    TResult? Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult? Function(SetSearchFilter value)? setSearchFilter,
-    TResult? Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult? Function(SetSkipInterval value)? setSkipInterval,
-    TResult? Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult? Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult? Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult? Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult? Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult? Function(AddProfile value)? addProfile,
-    TResult? Function(DeleteProfile value)? deleteProfile,
-    TResult? Function(SwitchProfile value)? switchProfile,
-    TResult? Function(RenameProfile value)? renameProfile,
-    TResult? Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult? Function(ImportSubscriptions value)? importSubscriptions,
-    TResult? Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult? Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult? Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult? Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult? Function(ToggleAutoPip value)? toggleAutoPip,
-  }) {
-    return getDefaultRegion?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitializeSettings value)? initializeSettings,
-    TResult Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult Function(ChangeTheme value)? changeTheme,
-    TResult Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult Function(SetInstance value)? setInstance,
-    TResult Function(SetYTService value)? setYTService,
-    TResult Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult Function(SetSearchFilter value)? setSearchFilter,
-    TResult Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult Function(SetSkipInterval value)? setSkipInterval,
-    TResult Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult Function(AddProfile value)? addProfile,
-    TResult Function(DeleteProfile value)? deleteProfile,
-    TResult Function(SwitchProfile value)? switchProfile,
-    TResult Function(RenameProfile value)? renameProfile,
-    TResult Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult Function(ImportSubscriptions value)? importSubscriptions,
-    TResult Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult Function(ToggleAutoPip value)? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (getDefaultRegion != null) {
-      return getDefaultRegion(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class GetDefaultRegion implements SettingsEvent {
-  factory GetDefaultRegion({required final String? region}) =
-      _$GetDefaultRegionImpl;
-
-  String? get region;
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetDefaultRegionImplCopyWith<_$GetDefaultRegionImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ChangeThemeImplCopyWith<$Res> {
-  factory _$$ChangeThemeImplCopyWith(
-          _$ChangeThemeImpl value, $Res Function(_$ChangeThemeImpl) then) =
-      __$$ChangeThemeImplCopyWithImpl<$Res>;
+abstract mixin class $GetDefaultRegionCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $GetDefaultRegionCopyWith(
+          GetDefaultRegion value, $Res Function(GetDefaultRegion) _then) =
+      _$GetDefaultRegionCopyWithImpl;
+  @useResult
+  $Res call({String region});
+}
+
+/// @nodoc
+class _$GetDefaultRegionCopyWithImpl<$Res>
+    implements $GetDefaultRegionCopyWith<$Res> {
+  _$GetDefaultRegionCopyWithImpl(this._self, this._then);
+
+  final GetDefaultRegion _self;
+  final $Res Function(GetDefaultRegion) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? region = null,
+  }) {
+    return _then(GetDefaultRegion(
+      region: null == region
+          ? _self.region
+          : region // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ChangeTheme implements SettingsEvent {
+  const ChangeTheme({required this.themeMode});
+
+  final String themeMode;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ChangeThemeCopyWith<ChangeTheme> get copyWith =>
+      _$ChangeThemeCopyWithImpl<ChangeTheme>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ChangeTheme &&
+            (identical(other.themeMode, themeMode) ||
+                other.themeMode == themeMode));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, themeMode);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.changeTheme(themeMode: $themeMode)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ChangeThemeCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ChangeThemeCopyWith(
+          ChangeTheme value, $Res Function(ChangeTheme) _then) =
+      _$ChangeThemeCopyWithImpl;
   @useResult
   $Res call({String themeMode});
 }
 
 /// @nodoc
-class __$$ChangeThemeImplCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res, _$ChangeThemeImpl>
-    implements _$$ChangeThemeImplCopyWith<$Res> {
-  __$$ChangeThemeImplCopyWithImpl(
-      _$ChangeThemeImpl _value, $Res Function(_$ChangeThemeImpl) _then)
-      : super(_value, _then);
+class _$ChangeThemeCopyWithImpl<$Res> implements $ChangeThemeCopyWith<$Res> {
+  _$ChangeThemeCopyWithImpl(this._self, this._then);
+
+  final ChangeTheme _self;
+  final $Res Function(ChangeTheme) _then;
 
   /// Create a copy of SettingsEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? themeMode = null,
   }) {
-    return _then(_$ChangeThemeImpl(
+    return _then(ChangeTheme(
       themeMode: null == themeMode
-          ? _value.themeMode
+          ? _self.themeMode
           : themeMode // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -1704,2309 +1928,65 @@ class __$$ChangeThemeImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChangeThemeImpl implements ChangeTheme {
-  _$ChangeThemeImpl({required this.themeMode});
+class ToggleHistoryVisibility implements SettingsEvent {
+  const ToggleHistoryVisibility({required this.isHistoryVisible});
 
-  @override
-  final String themeMode;
-
-  @override
-  String toString() {
-    return 'SettingsEvent.changeTheme(themeMode: $themeMode)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ChangeThemeImpl &&
-            (identical(other.themeMode, themeMode) ||
-                other.themeMode == themeMode));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, themeMode);
+  final bool isHistoryVisible;
 
   /// Create a copy of SettingsEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
   @pragma('vm:prefer-inline')
-  _$$ChangeThemeImplCopyWith<_$ChangeThemeImpl> get copyWith =>
-      __$$ChangeThemeImplCopyWithImpl<_$ChangeThemeImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initializeSettings,
-    required TResult Function(String? language) getDefaultLanguage,
-    required TResult Function(String? quality) getDefaultQuality,
-    required TResult Function(String? region) getDefaultRegion,
-    required TResult Function(String themeMode) changeTheme,
-    required TResult Function() toggleHistoryVisibility,
-    required TResult Function() toggleDislikeVisibility,
-    required TResult Function() toggleHlsPlayer,
-    required TResult Function() toggleCommentVisibility,
-    required TResult Function() toggleRelatedVideoVisibility,
-    required TResult Function(bool forceRefresh) fetchPipedInstances,
-    required TResult Function(bool forceRefresh) fetchInvidiousInstances,
-    required TResult Function(String instanceApi) setInstance,
-    required TResult Function(YouTubeServices service) setYTService,
-    required TResult Function() togglePipPlayer,
-    required TResult Function(String filter) setSearchFilter,
-    required TResult Function(String fitMode) setVideoFitMode,
-    required TResult Function(int seconds) setSkipInterval,
-    required TResult Function() toggleSponsorBlock,
-    required TResult Function(List<String> categories)
-        setSponsorBlockCategories,
-    required TResult Function() toggleOpenLinksInBrowser,
-    required TResult Function(String mode) setHomeFeedMode,
-    required TResult Function() toggleAudioFocus,
-    required TResult Function(String profileName) addProfile,
-    required TResult Function(String profileName) deleteProfile,
-    required TResult Function(String profileName) switchProfile,
-    required TResult Function(String oldName, String newName) renameProfile,
-    required TResult Function(String profileName) exportSubscriptions,
-    required TResult Function(String filePath, String profileName)
-        importSubscriptions,
-    required TResult Function(double size) setSubtitleSize,
-    required TResult Function() toggleSearchHistoryEnabled,
-    required TResult Function() toggleSearchHistoryVisibility,
-    required TResult Function(String filePath) setLastExportedFilePath,
-    required TResult Function() toggleAutoPip,
-  }) {
-    return changeTheme(themeMode);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initializeSettings,
-    TResult? Function(String? language)? getDefaultLanguage,
-    TResult? Function(String? quality)? getDefaultQuality,
-    TResult? Function(String? region)? getDefaultRegion,
-    TResult? Function(String themeMode)? changeTheme,
-    TResult? Function()? toggleHistoryVisibility,
-    TResult? Function()? toggleDislikeVisibility,
-    TResult? Function()? toggleHlsPlayer,
-    TResult? Function()? toggleCommentVisibility,
-    TResult? Function()? toggleRelatedVideoVisibility,
-    TResult? Function(bool forceRefresh)? fetchPipedInstances,
-    TResult? Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult? Function(String instanceApi)? setInstance,
-    TResult? Function(YouTubeServices service)? setYTService,
-    TResult? Function()? togglePipPlayer,
-    TResult? Function(String filter)? setSearchFilter,
-    TResult? Function(String fitMode)? setVideoFitMode,
-    TResult? Function(int seconds)? setSkipInterval,
-    TResult? Function()? toggleSponsorBlock,
-    TResult? Function(List<String> categories)? setSponsorBlockCategories,
-    TResult? Function()? toggleOpenLinksInBrowser,
-    TResult? Function(String mode)? setHomeFeedMode,
-    TResult? Function()? toggleAudioFocus,
-    TResult? Function(String profileName)? addProfile,
-    TResult? Function(String profileName)? deleteProfile,
-    TResult? Function(String profileName)? switchProfile,
-    TResult? Function(String oldName, String newName)? renameProfile,
-    TResult? Function(String profileName)? exportSubscriptions,
-    TResult? Function(String filePath, String profileName)? importSubscriptions,
-    TResult? Function(double size)? setSubtitleSize,
-    TResult? Function()? toggleSearchHistoryEnabled,
-    TResult? Function()? toggleSearchHistoryVisibility,
-    TResult? Function(String filePath)? setLastExportedFilePath,
-    TResult? Function()? toggleAutoPip,
-  }) {
-    return changeTheme?.call(themeMode);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initializeSettings,
-    TResult Function(String? language)? getDefaultLanguage,
-    TResult Function(String? quality)? getDefaultQuality,
-    TResult Function(String? region)? getDefaultRegion,
-    TResult Function(String themeMode)? changeTheme,
-    TResult Function()? toggleHistoryVisibility,
-    TResult Function()? toggleDislikeVisibility,
-    TResult Function()? toggleHlsPlayer,
-    TResult Function()? toggleCommentVisibility,
-    TResult Function()? toggleRelatedVideoVisibility,
-    TResult Function(bool forceRefresh)? fetchPipedInstances,
-    TResult Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult Function(String instanceApi)? setInstance,
-    TResult Function(YouTubeServices service)? setYTService,
-    TResult Function()? togglePipPlayer,
-    TResult Function(String filter)? setSearchFilter,
-    TResult Function(String fitMode)? setVideoFitMode,
-    TResult Function(int seconds)? setSkipInterval,
-    TResult Function()? toggleSponsorBlock,
-    TResult Function(List<String> categories)? setSponsorBlockCategories,
-    TResult Function()? toggleOpenLinksInBrowser,
-    TResult Function(String mode)? setHomeFeedMode,
-    TResult Function()? toggleAudioFocus,
-    TResult Function(String profileName)? addProfile,
-    TResult Function(String profileName)? deleteProfile,
-    TResult Function(String profileName)? switchProfile,
-    TResult Function(String oldName, String newName)? renameProfile,
-    TResult Function(String profileName)? exportSubscriptions,
-    TResult Function(String filePath, String profileName)? importSubscriptions,
-    TResult Function(double size)? setSubtitleSize,
-    TResult Function()? toggleSearchHistoryEnabled,
-    TResult Function()? toggleSearchHistoryVisibility,
-    TResult Function(String filePath)? setLastExportedFilePath,
-    TResult Function()? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (changeTheme != null) {
-      return changeTheme(themeMode);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(InitializeSettings value) initializeSettings,
-    required TResult Function(GetDefaultLanguage value) getDefaultLanguage,
-    required TResult Function(GetDefaultQuality value) getDefaultQuality,
-    required TResult Function(GetDefaultRegion value) getDefaultRegion,
-    required TResult Function(ChangeTheme value) changeTheme,
-    required TResult Function(ToggleHistoryVisibility value)
-        toggleHistoryVisibility,
-    required TResult Function(ToggleDislikeVisibility value)
-        toggleDislikeVisibility,
-    required TResult Function(ToggleHlsPlayer value) toggleHlsPlayer,
-    required TResult Function(ToggleCommentVisibility value)
-        toggleCommentVisibility,
-    required TResult Function(ToggleRelatedVideoVisibility value)
-        toggleRelatedVideoVisibility,
-    required TResult Function(FetchPipedInstances value) fetchPipedInstances,
-    required TResult Function(FetchInvidiousInstances value)
-        fetchInvidiousInstances,
-    required TResult Function(SetInstance value) setInstance,
-    required TResult Function(SetYTService value) setYTService,
-    required TResult Function(TogglePipPlayer value) togglePipPlayer,
-    required TResult Function(SetSearchFilter value) setSearchFilter,
-    required TResult Function(SetVideoFitMode value) setVideoFitMode,
-    required TResult Function(SetSkipInterval value) setSkipInterval,
-    required TResult Function(ToggleSponsorBlock value) toggleSponsorBlock,
-    required TResult Function(SetSponsorBlockCategories value)
-        setSponsorBlockCategories,
-    required TResult Function(ToggleOpenLinksInBrowser value)
-        toggleOpenLinksInBrowser,
-    required TResult Function(SetHomeFeedMode value) setHomeFeedMode,
-    required TResult Function(ToggleAudioFocus value) toggleAudioFocus,
-    required TResult Function(AddProfile value) addProfile,
-    required TResult Function(DeleteProfile value) deleteProfile,
-    required TResult Function(SwitchProfile value) switchProfile,
-    required TResult Function(RenameProfile value) renameProfile,
-    required TResult Function(ExportSubscriptions value) exportSubscriptions,
-    required TResult Function(ImportSubscriptions value) importSubscriptions,
-    required TResult Function(SetSubtitleSize value) setSubtitleSize,
-    required TResult Function(ToggleSearchHistoryEnabled value)
-        toggleSearchHistoryEnabled,
-    required TResult Function(ToggleSearchHistoryVisibility value)
-        toggleSearchHistoryVisibility,
-    required TResult Function(SetLastExportedFilePath value)
-        setLastExportedFilePath,
-    required TResult Function(ToggleAutoPip value) toggleAutoPip,
-  }) {
-    return changeTheme(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InitializeSettings value)? initializeSettings,
-    TResult? Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult? Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult? Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult? Function(ChangeTheme value)? changeTheme,
-    TResult? Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult? Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult? Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult? Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult? Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult? Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult? Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult? Function(SetInstance value)? setInstance,
-    TResult? Function(SetYTService value)? setYTService,
-    TResult? Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult? Function(SetSearchFilter value)? setSearchFilter,
-    TResult? Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult? Function(SetSkipInterval value)? setSkipInterval,
-    TResult? Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult? Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult? Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult? Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult? Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult? Function(AddProfile value)? addProfile,
-    TResult? Function(DeleteProfile value)? deleteProfile,
-    TResult? Function(SwitchProfile value)? switchProfile,
-    TResult? Function(RenameProfile value)? renameProfile,
-    TResult? Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult? Function(ImportSubscriptions value)? importSubscriptions,
-    TResult? Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult? Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult? Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult? Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult? Function(ToggleAutoPip value)? toggleAutoPip,
-  }) {
-    return changeTheme?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitializeSettings value)? initializeSettings,
-    TResult Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult Function(ChangeTheme value)? changeTheme,
-    TResult Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult Function(SetInstance value)? setInstance,
-    TResult Function(SetYTService value)? setYTService,
-    TResult Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult Function(SetSearchFilter value)? setSearchFilter,
-    TResult Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult Function(SetSkipInterval value)? setSkipInterval,
-    TResult Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult Function(AddProfile value)? addProfile,
-    TResult Function(DeleteProfile value)? deleteProfile,
-    TResult Function(SwitchProfile value)? switchProfile,
-    TResult Function(RenameProfile value)? renameProfile,
-    TResult Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult Function(ImportSubscriptions value)? importSubscriptions,
-    TResult Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult Function(ToggleAutoPip value)? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (changeTheme != null) {
-      return changeTheme(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ChangeTheme implements SettingsEvent {
-  factory ChangeTheme({required final String themeMode}) = _$ChangeThemeImpl;
-
-  String get themeMode;
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ChangeThemeImplCopyWith<_$ChangeThemeImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$ToggleHistoryVisibilityImplCopyWith<$Res> {
-  factory _$$ToggleHistoryVisibilityImplCopyWith(
-          _$ToggleHistoryVisibilityImpl value,
-          $Res Function(_$ToggleHistoryVisibilityImpl) then) =
-      __$$ToggleHistoryVisibilityImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ToggleHistoryVisibilityImplCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res, _$ToggleHistoryVisibilityImpl>
-    implements _$$ToggleHistoryVisibilityImplCopyWith<$Res> {
-  __$$ToggleHistoryVisibilityImplCopyWithImpl(
-      _$ToggleHistoryVisibilityImpl _value,
-      $Res Function(_$ToggleHistoryVisibilityImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$ToggleHistoryVisibilityImpl implements ToggleHistoryVisibility {
-  _$ToggleHistoryVisibilityImpl();
-
-  @override
-  String toString() {
-    return 'SettingsEvent.toggleHistoryVisibility()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ToggleHistoryVisibilityImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initializeSettings,
-    required TResult Function(String? language) getDefaultLanguage,
-    required TResult Function(String? quality) getDefaultQuality,
-    required TResult Function(String? region) getDefaultRegion,
-    required TResult Function(String themeMode) changeTheme,
-    required TResult Function() toggleHistoryVisibility,
-    required TResult Function() toggleDislikeVisibility,
-    required TResult Function() toggleHlsPlayer,
-    required TResult Function() toggleCommentVisibility,
-    required TResult Function() toggleRelatedVideoVisibility,
-    required TResult Function(bool forceRefresh) fetchPipedInstances,
-    required TResult Function(bool forceRefresh) fetchInvidiousInstances,
-    required TResult Function(String instanceApi) setInstance,
-    required TResult Function(YouTubeServices service) setYTService,
-    required TResult Function() togglePipPlayer,
-    required TResult Function(String filter) setSearchFilter,
-    required TResult Function(String fitMode) setVideoFitMode,
-    required TResult Function(int seconds) setSkipInterval,
-    required TResult Function() toggleSponsorBlock,
-    required TResult Function(List<String> categories)
-        setSponsorBlockCategories,
-    required TResult Function() toggleOpenLinksInBrowser,
-    required TResult Function(String mode) setHomeFeedMode,
-    required TResult Function() toggleAudioFocus,
-    required TResult Function(String profileName) addProfile,
-    required TResult Function(String profileName) deleteProfile,
-    required TResult Function(String profileName) switchProfile,
-    required TResult Function(String oldName, String newName) renameProfile,
-    required TResult Function(String profileName) exportSubscriptions,
-    required TResult Function(String filePath, String profileName)
-        importSubscriptions,
-    required TResult Function(double size) setSubtitleSize,
-    required TResult Function() toggleSearchHistoryEnabled,
-    required TResult Function() toggleSearchHistoryVisibility,
-    required TResult Function(String filePath) setLastExportedFilePath,
-    required TResult Function() toggleAutoPip,
-  }) {
-    return toggleHistoryVisibility();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initializeSettings,
-    TResult? Function(String? language)? getDefaultLanguage,
-    TResult? Function(String? quality)? getDefaultQuality,
-    TResult? Function(String? region)? getDefaultRegion,
-    TResult? Function(String themeMode)? changeTheme,
-    TResult? Function()? toggleHistoryVisibility,
-    TResult? Function()? toggleDislikeVisibility,
-    TResult? Function()? toggleHlsPlayer,
-    TResult? Function()? toggleCommentVisibility,
-    TResult? Function()? toggleRelatedVideoVisibility,
-    TResult? Function(bool forceRefresh)? fetchPipedInstances,
-    TResult? Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult? Function(String instanceApi)? setInstance,
-    TResult? Function(YouTubeServices service)? setYTService,
-    TResult? Function()? togglePipPlayer,
-    TResult? Function(String filter)? setSearchFilter,
-    TResult? Function(String fitMode)? setVideoFitMode,
-    TResult? Function(int seconds)? setSkipInterval,
-    TResult? Function()? toggleSponsorBlock,
-    TResult? Function(List<String> categories)? setSponsorBlockCategories,
-    TResult? Function()? toggleOpenLinksInBrowser,
-    TResult? Function(String mode)? setHomeFeedMode,
-    TResult? Function()? toggleAudioFocus,
-    TResult? Function(String profileName)? addProfile,
-    TResult? Function(String profileName)? deleteProfile,
-    TResult? Function(String profileName)? switchProfile,
-    TResult? Function(String oldName, String newName)? renameProfile,
-    TResult? Function(String profileName)? exportSubscriptions,
-    TResult? Function(String filePath, String profileName)? importSubscriptions,
-    TResult? Function(double size)? setSubtitleSize,
-    TResult? Function()? toggleSearchHistoryEnabled,
-    TResult? Function()? toggleSearchHistoryVisibility,
-    TResult? Function(String filePath)? setLastExportedFilePath,
-    TResult? Function()? toggleAutoPip,
-  }) {
-    return toggleHistoryVisibility?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initializeSettings,
-    TResult Function(String? language)? getDefaultLanguage,
-    TResult Function(String? quality)? getDefaultQuality,
-    TResult Function(String? region)? getDefaultRegion,
-    TResult Function(String themeMode)? changeTheme,
-    TResult Function()? toggleHistoryVisibility,
-    TResult Function()? toggleDislikeVisibility,
-    TResult Function()? toggleHlsPlayer,
-    TResult Function()? toggleCommentVisibility,
-    TResult Function()? toggleRelatedVideoVisibility,
-    TResult Function(bool forceRefresh)? fetchPipedInstances,
-    TResult Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult Function(String instanceApi)? setInstance,
-    TResult Function(YouTubeServices service)? setYTService,
-    TResult Function()? togglePipPlayer,
-    TResult Function(String filter)? setSearchFilter,
-    TResult Function(String fitMode)? setVideoFitMode,
-    TResult Function(int seconds)? setSkipInterval,
-    TResult Function()? toggleSponsorBlock,
-    TResult Function(List<String> categories)? setSponsorBlockCategories,
-    TResult Function()? toggleOpenLinksInBrowser,
-    TResult Function(String mode)? setHomeFeedMode,
-    TResult Function()? toggleAudioFocus,
-    TResult Function(String profileName)? addProfile,
-    TResult Function(String profileName)? deleteProfile,
-    TResult Function(String profileName)? switchProfile,
-    TResult Function(String oldName, String newName)? renameProfile,
-    TResult Function(String profileName)? exportSubscriptions,
-    TResult Function(String filePath, String profileName)? importSubscriptions,
-    TResult Function(double size)? setSubtitleSize,
-    TResult Function()? toggleSearchHistoryEnabled,
-    TResult Function()? toggleSearchHistoryVisibility,
-    TResult Function(String filePath)? setLastExportedFilePath,
-    TResult Function()? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (toggleHistoryVisibility != null) {
-      return toggleHistoryVisibility();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(InitializeSettings value) initializeSettings,
-    required TResult Function(GetDefaultLanguage value) getDefaultLanguage,
-    required TResult Function(GetDefaultQuality value) getDefaultQuality,
-    required TResult Function(GetDefaultRegion value) getDefaultRegion,
-    required TResult Function(ChangeTheme value) changeTheme,
-    required TResult Function(ToggleHistoryVisibility value)
-        toggleHistoryVisibility,
-    required TResult Function(ToggleDislikeVisibility value)
-        toggleDislikeVisibility,
-    required TResult Function(ToggleHlsPlayer value) toggleHlsPlayer,
-    required TResult Function(ToggleCommentVisibility value)
-        toggleCommentVisibility,
-    required TResult Function(ToggleRelatedVideoVisibility value)
-        toggleRelatedVideoVisibility,
-    required TResult Function(FetchPipedInstances value) fetchPipedInstances,
-    required TResult Function(FetchInvidiousInstances value)
-        fetchInvidiousInstances,
-    required TResult Function(SetInstance value) setInstance,
-    required TResult Function(SetYTService value) setYTService,
-    required TResult Function(TogglePipPlayer value) togglePipPlayer,
-    required TResult Function(SetSearchFilter value) setSearchFilter,
-    required TResult Function(SetVideoFitMode value) setVideoFitMode,
-    required TResult Function(SetSkipInterval value) setSkipInterval,
-    required TResult Function(ToggleSponsorBlock value) toggleSponsorBlock,
-    required TResult Function(SetSponsorBlockCategories value)
-        setSponsorBlockCategories,
-    required TResult Function(ToggleOpenLinksInBrowser value)
-        toggleOpenLinksInBrowser,
-    required TResult Function(SetHomeFeedMode value) setHomeFeedMode,
-    required TResult Function(ToggleAudioFocus value) toggleAudioFocus,
-    required TResult Function(AddProfile value) addProfile,
-    required TResult Function(DeleteProfile value) deleteProfile,
-    required TResult Function(SwitchProfile value) switchProfile,
-    required TResult Function(RenameProfile value) renameProfile,
-    required TResult Function(ExportSubscriptions value) exportSubscriptions,
-    required TResult Function(ImportSubscriptions value) importSubscriptions,
-    required TResult Function(SetSubtitleSize value) setSubtitleSize,
-    required TResult Function(ToggleSearchHistoryEnabled value)
-        toggleSearchHistoryEnabled,
-    required TResult Function(ToggleSearchHistoryVisibility value)
-        toggleSearchHistoryVisibility,
-    required TResult Function(SetLastExportedFilePath value)
-        setLastExportedFilePath,
-    required TResult Function(ToggleAutoPip value) toggleAutoPip,
-  }) {
-    return toggleHistoryVisibility(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InitializeSettings value)? initializeSettings,
-    TResult? Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult? Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult? Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult? Function(ChangeTheme value)? changeTheme,
-    TResult? Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult? Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult? Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult? Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult? Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult? Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult? Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult? Function(SetInstance value)? setInstance,
-    TResult? Function(SetYTService value)? setYTService,
-    TResult? Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult? Function(SetSearchFilter value)? setSearchFilter,
-    TResult? Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult? Function(SetSkipInterval value)? setSkipInterval,
-    TResult? Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult? Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult? Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult? Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult? Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult? Function(AddProfile value)? addProfile,
-    TResult? Function(DeleteProfile value)? deleteProfile,
-    TResult? Function(SwitchProfile value)? switchProfile,
-    TResult? Function(RenameProfile value)? renameProfile,
-    TResult? Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult? Function(ImportSubscriptions value)? importSubscriptions,
-    TResult? Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult? Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult? Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult? Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult? Function(ToggleAutoPip value)? toggleAutoPip,
-  }) {
-    return toggleHistoryVisibility?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitializeSettings value)? initializeSettings,
-    TResult Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult Function(ChangeTheme value)? changeTheme,
-    TResult Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult Function(SetInstance value)? setInstance,
-    TResult Function(SetYTService value)? setYTService,
-    TResult Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult Function(SetSearchFilter value)? setSearchFilter,
-    TResult Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult Function(SetSkipInterval value)? setSkipInterval,
-    TResult Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult Function(AddProfile value)? addProfile,
-    TResult Function(DeleteProfile value)? deleteProfile,
-    TResult Function(SwitchProfile value)? switchProfile,
-    TResult Function(RenameProfile value)? renameProfile,
-    TResult Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult Function(ImportSubscriptions value)? importSubscriptions,
-    TResult Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult Function(ToggleAutoPip value)? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (toggleHistoryVisibility != null) {
-      return toggleHistoryVisibility(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ToggleHistoryVisibility implements SettingsEvent {
-  factory ToggleHistoryVisibility() = _$ToggleHistoryVisibilityImpl;
-}
-
-/// @nodoc
-abstract class _$$ToggleDislikeVisibilityImplCopyWith<$Res> {
-  factory _$$ToggleDislikeVisibilityImplCopyWith(
-          _$ToggleDislikeVisibilityImpl value,
-          $Res Function(_$ToggleDislikeVisibilityImpl) then) =
-      __$$ToggleDislikeVisibilityImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ToggleDislikeVisibilityImplCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res, _$ToggleDislikeVisibilityImpl>
-    implements _$$ToggleDislikeVisibilityImplCopyWith<$Res> {
-  __$$ToggleDislikeVisibilityImplCopyWithImpl(
-      _$ToggleDislikeVisibilityImpl _value,
-      $Res Function(_$ToggleDislikeVisibilityImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$ToggleDislikeVisibilityImpl implements ToggleDislikeVisibility {
-  _$ToggleDislikeVisibilityImpl();
-
-  @override
-  String toString() {
-    return 'SettingsEvent.toggleDislikeVisibility()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ToggleDislikeVisibilityImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initializeSettings,
-    required TResult Function(String? language) getDefaultLanguage,
-    required TResult Function(String? quality) getDefaultQuality,
-    required TResult Function(String? region) getDefaultRegion,
-    required TResult Function(String themeMode) changeTheme,
-    required TResult Function() toggleHistoryVisibility,
-    required TResult Function() toggleDislikeVisibility,
-    required TResult Function() toggleHlsPlayer,
-    required TResult Function() toggleCommentVisibility,
-    required TResult Function() toggleRelatedVideoVisibility,
-    required TResult Function(bool forceRefresh) fetchPipedInstances,
-    required TResult Function(bool forceRefresh) fetchInvidiousInstances,
-    required TResult Function(String instanceApi) setInstance,
-    required TResult Function(YouTubeServices service) setYTService,
-    required TResult Function() togglePipPlayer,
-    required TResult Function(String filter) setSearchFilter,
-    required TResult Function(String fitMode) setVideoFitMode,
-    required TResult Function(int seconds) setSkipInterval,
-    required TResult Function() toggleSponsorBlock,
-    required TResult Function(List<String> categories)
-        setSponsorBlockCategories,
-    required TResult Function() toggleOpenLinksInBrowser,
-    required TResult Function(String mode) setHomeFeedMode,
-    required TResult Function() toggleAudioFocus,
-    required TResult Function(String profileName) addProfile,
-    required TResult Function(String profileName) deleteProfile,
-    required TResult Function(String profileName) switchProfile,
-    required TResult Function(String oldName, String newName) renameProfile,
-    required TResult Function(String profileName) exportSubscriptions,
-    required TResult Function(String filePath, String profileName)
-        importSubscriptions,
-    required TResult Function(double size) setSubtitleSize,
-    required TResult Function() toggleSearchHistoryEnabled,
-    required TResult Function() toggleSearchHistoryVisibility,
-    required TResult Function(String filePath) setLastExportedFilePath,
-    required TResult Function() toggleAutoPip,
-  }) {
-    return toggleDislikeVisibility();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initializeSettings,
-    TResult? Function(String? language)? getDefaultLanguage,
-    TResult? Function(String? quality)? getDefaultQuality,
-    TResult? Function(String? region)? getDefaultRegion,
-    TResult? Function(String themeMode)? changeTheme,
-    TResult? Function()? toggleHistoryVisibility,
-    TResult? Function()? toggleDislikeVisibility,
-    TResult? Function()? toggleHlsPlayer,
-    TResult? Function()? toggleCommentVisibility,
-    TResult? Function()? toggleRelatedVideoVisibility,
-    TResult? Function(bool forceRefresh)? fetchPipedInstances,
-    TResult? Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult? Function(String instanceApi)? setInstance,
-    TResult? Function(YouTubeServices service)? setYTService,
-    TResult? Function()? togglePipPlayer,
-    TResult? Function(String filter)? setSearchFilter,
-    TResult? Function(String fitMode)? setVideoFitMode,
-    TResult? Function(int seconds)? setSkipInterval,
-    TResult? Function()? toggleSponsorBlock,
-    TResult? Function(List<String> categories)? setSponsorBlockCategories,
-    TResult? Function()? toggleOpenLinksInBrowser,
-    TResult? Function(String mode)? setHomeFeedMode,
-    TResult? Function()? toggleAudioFocus,
-    TResult? Function(String profileName)? addProfile,
-    TResult? Function(String profileName)? deleteProfile,
-    TResult? Function(String profileName)? switchProfile,
-    TResult? Function(String oldName, String newName)? renameProfile,
-    TResult? Function(String profileName)? exportSubscriptions,
-    TResult? Function(String filePath, String profileName)? importSubscriptions,
-    TResult? Function(double size)? setSubtitleSize,
-    TResult? Function()? toggleSearchHistoryEnabled,
-    TResult? Function()? toggleSearchHistoryVisibility,
-    TResult? Function(String filePath)? setLastExportedFilePath,
-    TResult? Function()? toggleAutoPip,
-  }) {
-    return toggleDislikeVisibility?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initializeSettings,
-    TResult Function(String? language)? getDefaultLanguage,
-    TResult Function(String? quality)? getDefaultQuality,
-    TResult Function(String? region)? getDefaultRegion,
-    TResult Function(String themeMode)? changeTheme,
-    TResult Function()? toggleHistoryVisibility,
-    TResult Function()? toggleDislikeVisibility,
-    TResult Function()? toggleHlsPlayer,
-    TResult Function()? toggleCommentVisibility,
-    TResult Function()? toggleRelatedVideoVisibility,
-    TResult Function(bool forceRefresh)? fetchPipedInstances,
-    TResult Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult Function(String instanceApi)? setInstance,
-    TResult Function(YouTubeServices service)? setYTService,
-    TResult Function()? togglePipPlayer,
-    TResult Function(String filter)? setSearchFilter,
-    TResult Function(String fitMode)? setVideoFitMode,
-    TResult Function(int seconds)? setSkipInterval,
-    TResult Function()? toggleSponsorBlock,
-    TResult Function(List<String> categories)? setSponsorBlockCategories,
-    TResult Function()? toggleOpenLinksInBrowser,
-    TResult Function(String mode)? setHomeFeedMode,
-    TResult Function()? toggleAudioFocus,
-    TResult Function(String profileName)? addProfile,
-    TResult Function(String profileName)? deleteProfile,
-    TResult Function(String profileName)? switchProfile,
-    TResult Function(String oldName, String newName)? renameProfile,
-    TResult Function(String profileName)? exportSubscriptions,
-    TResult Function(String filePath, String profileName)? importSubscriptions,
-    TResult Function(double size)? setSubtitleSize,
-    TResult Function()? toggleSearchHistoryEnabled,
-    TResult Function()? toggleSearchHistoryVisibility,
-    TResult Function(String filePath)? setLastExportedFilePath,
-    TResult Function()? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (toggleDislikeVisibility != null) {
-      return toggleDislikeVisibility();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(InitializeSettings value) initializeSettings,
-    required TResult Function(GetDefaultLanguage value) getDefaultLanguage,
-    required TResult Function(GetDefaultQuality value) getDefaultQuality,
-    required TResult Function(GetDefaultRegion value) getDefaultRegion,
-    required TResult Function(ChangeTheme value) changeTheme,
-    required TResult Function(ToggleHistoryVisibility value)
-        toggleHistoryVisibility,
-    required TResult Function(ToggleDislikeVisibility value)
-        toggleDislikeVisibility,
-    required TResult Function(ToggleHlsPlayer value) toggleHlsPlayer,
-    required TResult Function(ToggleCommentVisibility value)
-        toggleCommentVisibility,
-    required TResult Function(ToggleRelatedVideoVisibility value)
-        toggleRelatedVideoVisibility,
-    required TResult Function(FetchPipedInstances value) fetchPipedInstances,
-    required TResult Function(FetchInvidiousInstances value)
-        fetchInvidiousInstances,
-    required TResult Function(SetInstance value) setInstance,
-    required TResult Function(SetYTService value) setYTService,
-    required TResult Function(TogglePipPlayer value) togglePipPlayer,
-    required TResult Function(SetSearchFilter value) setSearchFilter,
-    required TResult Function(SetVideoFitMode value) setVideoFitMode,
-    required TResult Function(SetSkipInterval value) setSkipInterval,
-    required TResult Function(ToggleSponsorBlock value) toggleSponsorBlock,
-    required TResult Function(SetSponsorBlockCategories value)
-        setSponsorBlockCategories,
-    required TResult Function(ToggleOpenLinksInBrowser value)
-        toggleOpenLinksInBrowser,
-    required TResult Function(SetHomeFeedMode value) setHomeFeedMode,
-    required TResult Function(ToggleAudioFocus value) toggleAudioFocus,
-    required TResult Function(AddProfile value) addProfile,
-    required TResult Function(DeleteProfile value) deleteProfile,
-    required TResult Function(SwitchProfile value) switchProfile,
-    required TResult Function(RenameProfile value) renameProfile,
-    required TResult Function(ExportSubscriptions value) exportSubscriptions,
-    required TResult Function(ImportSubscriptions value) importSubscriptions,
-    required TResult Function(SetSubtitleSize value) setSubtitleSize,
-    required TResult Function(ToggleSearchHistoryEnabled value)
-        toggleSearchHistoryEnabled,
-    required TResult Function(ToggleSearchHistoryVisibility value)
-        toggleSearchHistoryVisibility,
-    required TResult Function(SetLastExportedFilePath value)
-        setLastExportedFilePath,
-    required TResult Function(ToggleAutoPip value) toggleAutoPip,
-  }) {
-    return toggleDislikeVisibility(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InitializeSettings value)? initializeSettings,
-    TResult? Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult? Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult? Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult? Function(ChangeTheme value)? changeTheme,
-    TResult? Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult? Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult? Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult? Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult? Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult? Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult? Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult? Function(SetInstance value)? setInstance,
-    TResult? Function(SetYTService value)? setYTService,
-    TResult? Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult? Function(SetSearchFilter value)? setSearchFilter,
-    TResult? Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult? Function(SetSkipInterval value)? setSkipInterval,
-    TResult? Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult? Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult? Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult? Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult? Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult? Function(AddProfile value)? addProfile,
-    TResult? Function(DeleteProfile value)? deleteProfile,
-    TResult? Function(SwitchProfile value)? switchProfile,
-    TResult? Function(RenameProfile value)? renameProfile,
-    TResult? Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult? Function(ImportSubscriptions value)? importSubscriptions,
-    TResult? Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult? Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult? Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult? Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult? Function(ToggleAutoPip value)? toggleAutoPip,
-  }) {
-    return toggleDislikeVisibility?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitializeSettings value)? initializeSettings,
-    TResult Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult Function(ChangeTheme value)? changeTheme,
-    TResult Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult Function(SetInstance value)? setInstance,
-    TResult Function(SetYTService value)? setYTService,
-    TResult Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult Function(SetSearchFilter value)? setSearchFilter,
-    TResult Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult Function(SetSkipInterval value)? setSkipInterval,
-    TResult Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult Function(AddProfile value)? addProfile,
-    TResult Function(DeleteProfile value)? deleteProfile,
-    TResult Function(SwitchProfile value)? switchProfile,
-    TResult Function(RenameProfile value)? renameProfile,
-    TResult Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult Function(ImportSubscriptions value)? importSubscriptions,
-    TResult Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult Function(ToggleAutoPip value)? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (toggleDislikeVisibility != null) {
-      return toggleDislikeVisibility(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ToggleDislikeVisibility implements SettingsEvent {
-  factory ToggleDislikeVisibility() = _$ToggleDislikeVisibilityImpl;
-}
-
-/// @nodoc
-abstract class _$$ToggleHlsPlayerImplCopyWith<$Res> {
-  factory _$$ToggleHlsPlayerImplCopyWith(_$ToggleHlsPlayerImpl value,
-          $Res Function(_$ToggleHlsPlayerImpl) then) =
-      __$$ToggleHlsPlayerImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ToggleHlsPlayerImplCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res, _$ToggleHlsPlayerImpl>
-    implements _$$ToggleHlsPlayerImplCopyWith<$Res> {
-  __$$ToggleHlsPlayerImplCopyWithImpl(
-      _$ToggleHlsPlayerImpl _value, $Res Function(_$ToggleHlsPlayerImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$ToggleHlsPlayerImpl implements ToggleHlsPlayer {
-  _$ToggleHlsPlayerImpl();
-
-  @override
-  String toString() {
-    return 'SettingsEvent.toggleHlsPlayer()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ToggleHlsPlayerImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initializeSettings,
-    required TResult Function(String? language) getDefaultLanguage,
-    required TResult Function(String? quality) getDefaultQuality,
-    required TResult Function(String? region) getDefaultRegion,
-    required TResult Function(String themeMode) changeTheme,
-    required TResult Function() toggleHistoryVisibility,
-    required TResult Function() toggleDislikeVisibility,
-    required TResult Function() toggleHlsPlayer,
-    required TResult Function() toggleCommentVisibility,
-    required TResult Function() toggleRelatedVideoVisibility,
-    required TResult Function(bool forceRefresh) fetchPipedInstances,
-    required TResult Function(bool forceRefresh) fetchInvidiousInstances,
-    required TResult Function(String instanceApi) setInstance,
-    required TResult Function(YouTubeServices service) setYTService,
-    required TResult Function() togglePipPlayer,
-    required TResult Function(String filter) setSearchFilter,
-    required TResult Function(String fitMode) setVideoFitMode,
-    required TResult Function(int seconds) setSkipInterval,
-    required TResult Function() toggleSponsorBlock,
-    required TResult Function(List<String> categories)
-        setSponsorBlockCategories,
-    required TResult Function() toggleOpenLinksInBrowser,
-    required TResult Function(String mode) setHomeFeedMode,
-    required TResult Function() toggleAudioFocus,
-    required TResult Function(String profileName) addProfile,
-    required TResult Function(String profileName) deleteProfile,
-    required TResult Function(String profileName) switchProfile,
-    required TResult Function(String oldName, String newName) renameProfile,
-    required TResult Function(String profileName) exportSubscriptions,
-    required TResult Function(String filePath, String profileName)
-        importSubscriptions,
-    required TResult Function(double size) setSubtitleSize,
-    required TResult Function() toggleSearchHistoryEnabled,
-    required TResult Function() toggleSearchHistoryVisibility,
-    required TResult Function(String filePath) setLastExportedFilePath,
-    required TResult Function() toggleAutoPip,
-  }) {
-    return toggleHlsPlayer();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initializeSettings,
-    TResult? Function(String? language)? getDefaultLanguage,
-    TResult? Function(String? quality)? getDefaultQuality,
-    TResult? Function(String? region)? getDefaultRegion,
-    TResult? Function(String themeMode)? changeTheme,
-    TResult? Function()? toggleHistoryVisibility,
-    TResult? Function()? toggleDislikeVisibility,
-    TResult? Function()? toggleHlsPlayer,
-    TResult? Function()? toggleCommentVisibility,
-    TResult? Function()? toggleRelatedVideoVisibility,
-    TResult? Function(bool forceRefresh)? fetchPipedInstances,
-    TResult? Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult? Function(String instanceApi)? setInstance,
-    TResult? Function(YouTubeServices service)? setYTService,
-    TResult? Function()? togglePipPlayer,
-    TResult? Function(String filter)? setSearchFilter,
-    TResult? Function(String fitMode)? setVideoFitMode,
-    TResult? Function(int seconds)? setSkipInterval,
-    TResult? Function()? toggleSponsorBlock,
-    TResult? Function(List<String> categories)? setSponsorBlockCategories,
-    TResult? Function()? toggleOpenLinksInBrowser,
-    TResult? Function(String mode)? setHomeFeedMode,
-    TResult? Function()? toggleAudioFocus,
-    TResult? Function(String profileName)? addProfile,
-    TResult? Function(String profileName)? deleteProfile,
-    TResult? Function(String profileName)? switchProfile,
-    TResult? Function(String oldName, String newName)? renameProfile,
-    TResult? Function(String profileName)? exportSubscriptions,
-    TResult? Function(String filePath, String profileName)? importSubscriptions,
-    TResult? Function(double size)? setSubtitleSize,
-    TResult? Function()? toggleSearchHistoryEnabled,
-    TResult? Function()? toggleSearchHistoryVisibility,
-    TResult? Function(String filePath)? setLastExportedFilePath,
-    TResult? Function()? toggleAutoPip,
-  }) {
-    return toggleHlsPlayer?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initializeSettings,
-    TResult Function(String? language)? getDefaultLanguage,
-    TResult Function(String? quality)? getDefaultQuality,
-    TResult Function(String? region)? getDefaultRegion,
-    TResult Function(String themeMode)? changeTheme,
-    TResult Function()? toggleHistoryVisibility,
-    TResult Function()? toggleDislikeVisibility,
-    TResult Function()? toggleHlsPlayer,
-    TResult Function()? toggleCommentVisibility,
-    TResult Function()? toggleRelatedVideoVisibility,
-    TResult Function(bool forceRefresh)? fetchPipedInstances,
-    TResult Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult Function(String instanceApi)? setInstance,
-    TResult Function(YouTubeServices service)? setYTService,
-    TResult Function()? togglePipPlayer,
-    TResult Function(String filter)? setSearchFilter,
-    TResult Function(String fitMode)? setVideoFitMode,
-    TResult Function(int seconds)? setSkipInterval,
-    TResult Function()? toggleSponsorBlock,
-    TResult Function(List<String> categories)? setSponsorBlockCategories,
-    TResult Function()? toggleOpenLinksInBrowser,
-    TResult Function(String mode)? setHomeFeedMode,
-    TResult Function()? toggleAudioFocus,
-    TResult Function(String profileName)? addProfile,
-    TResult Function(String profileName)? deleteProfile,
-    TResult Function(String profileName)? switchProfile,
-    TResult Function(String oldName, String newName)? renameProfile,
-    TResult Function(String profileName)? exportSubscriptions,
-    TResult Function(String filePath, String profileName)? importSubscriptions,
-    TResult Function(double size)? setSubtitleSize,
-    TResult Function()? toggleSearchHistoryEnabled,
-    TResult Function()? toggleSearchHistoryVisibility,
-    TResult Function(String filePath)? setLastExportedFilePath,
-    TResult Function()? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (toggleHlsPlayer != null) {
-      return toggleHlsPlayer();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(InitializeSettings value) initializeSettings,
-    required TResult Function(GetDefaultLanguage value) getDefaultLanguage,
-    required TResult Function(GetDefaultQuality value) getDefaultQuality,
-    required TResult Function(GetDefaultRegion value) getDefaultRegion,
-    required TResult Function(ChangeTheme value) changeTheme,
-    required TResult Function(ToggleHistoryVisibility value)
-        toggleHistoryVisibility,
-    required TResult Function(ToggleDislikeVisibility value)
-        toggleDislikeVisibility,
-    required TResult Function(ToggleHlsPlayer value) toggleHlsPlayer,
-    required TResult Function(ToggleCommentVisibility value)
-        toggleCommentVisibility,
-    required TResult Function(ToggleRelatedVideoVisibility value)
-        toggleRelatedVideoVisibility,
-    required TResult Function(FetchPipedInstances value) fetchPipedInstances,
-    required TResult Function(FetchInvidiousInstances value)
-        fetchInvidiousInstances,
-    required TResult Function(SetInstance value) setInstance,
-    required TResult Function(SetYTService value) setYTService,
-    required TResult Function(TogglePipPlayer value) togglePipPlayer,
-    required TResult Function(SetSearchFilter value) setSearchFilter,
-    required TResult Function(SetVideoFitMode value) setVideoFitMode,
-    required TResult Function(SetSkipInterval value) setSkipInterval,
-    required TResult Function(ToggleSponsorBlock value) toggleSponsorBlock,
-    required TResult Function(SetSponsorBlockCategories value)
-        setSponsorBlockCategories,
-    required TResult Function(ToggleOpenLinksInBrowser value)
-        toggleOpenLinksInBrowser,
-    required TResult Function(SetHomeFeedMode value) setHomeFeedMode,
-    required TResult Function(ToggleAudioFocus value) toggleAudioFocus,
-    required TResult Function(AddProfile value) addProfile,
-    required TResult Function(DeleteProfile value) deleteProfile,
-    required TResult Function(SwitchProfile value) switchProfile,
-    required TResult Function(RenameProfile value) renameProfile,
-    required TResult Function(ExportSubscriptions value) exportSubscriptions,
-    required TResult Function(ImportSubscriptions value) importSubscriptions,
-    required TResult Function(SetSubtitleSize value) setSubtitleSize,
-    required TResult Function(ToggleSearchHistoryEnabled value)
-        toggleSearchHistoryEnabled,
-    required TResult Function(ToggleSearchHistoryVisibility value)
-        toggleSearchHistoryVisibility,
-    required TResult Function(SetLastExportedFilePath value)
-        setLastExportedFilePath,
-    required TResult Function(ToggleAutoPip value) toggleAutoPip,
-  }) {
-    return toggleHlsPlayer(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InitializeSettings value)? initializeSettings,
-    TResult? Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult? Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult? Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult? Function(ChangeTheme value)? changeTheme,
-    TResult? Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult? Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult? Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult? Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult? Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult? Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult? Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult? Function(SetInstance value)? setInstance,
-    TResult? Function(SetYTService value)? setYTService,
-    TResult? Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult? Function(SetSearchFilter value)? setSearchFilter,
-    TResult? Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult? Function(SetSkipInterval value)? setSkipInterval,
-    TResult? Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult? Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult? Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult? Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult? Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult? Function(AddProfile value)? addProfile,
-    TResult? Function(DeleteProfile value)? deleteProfile,
-    TResult? Function(SwitchProfile value)? switchProfile,
-    TResult? Function(RenameProfile value)? renameProfile,
-    TResult? Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult? Function(ImportSubscriptions value)? importSubscriptions,
-    TResult? Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult? Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult? Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult? Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult? Function(ToggleAutoPip value)? toggleAutoPip,
-  }) {
-    return toggleHlsPlayer?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitializeSettings value)? initializeSettings,
-    TResult Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult Function(ChangeTheme value)? changeTheme,
-    TResult Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult Function(SetInstance value)? setInstance,
-    TResult Function(SetYTService value)? setYTService,
-    TResult Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult Function(SetSearchFilter value)? setSearchFilter,
-    TResult Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult Function(SetSkipInterval value)? setSkipInterval,
-    TResult Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult Function(AddProfile value)? addProfile,
-    TResult Function(DeleteProfile value)? deleteProfile,
-    TResult Function(SwitchProfile value)? switchProfile,
-    TResult Function(RenameProfile value)? renameProfile,
-    TResult Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult Function(ImportSubscriptions value)? importSubscriptions,
-    TResult Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult Function(ToggleAutoPip value)? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (toggleHlsPlayer != null) {
-      return toggleHlsPlayer(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ToggleHlsPlayer implements SettingsEvent {
-  factory ToggleHlsPlayer() = _$ToggleHlsPlayerImpl;
-}
-
-/// @nodoc
-abstract class _$$ToggleCommentVisibilityImplCopyWith<$Res> {
-  factory _$$ToggleCommentVisibilityImplCopyWith(
-          _$ToggleCommentVisibilityImpl value,
-          $Res Function(_$ToggleCommentVisibilityImpl) then) =
-      __$$ToggleCommentVisibilityImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ToggleCommentVisibilityImplCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res, _$ToggleCommentVisibilityImpl>
-    implements _$$ToggleCommentVisibilityImplCopyWith<$Res> {
-  __$$ToggleCommentVisibilityImplCopyWithImpl(
-      _$ToggleCommentVisibilityImpl _value,
-      $Res Function(_$ToggleCommentVisibilityImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$ToggleCommentVisibilityImpl implements ToggleCommentVisibility {
-  _$ToggleCommentVisibilityImpl();
-
-  @override
-  String toString() {
-    return 'SettingsEvent.toggleCommentVisibility()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ToggleCommentVisibilityImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initializeSettings,
-    required TResult Function(String? language) getDefaultLanguage,
-    required TResult Function(String? quality) getDefaultQuality,
-    required TResult Function(String? region) getDefaultRegion,
-    required TResult Function(String themeMode) changeTheme,
-    required TResult Function() toggleHistoryVisibility,
-    required TResult Function() toggleDislikeVisibility,
-    required TResult Function() toggleHlsPlayer,
-    required TResult Function() toggleCommentVisibility,
-    required TResult Function() toggleRelatedVideoVisibility,
-    required TResult Function(bool forceRefresh) fetchPipedInstances,
-    required TResult Function(bool forceRefresh) fetchInvidiousInstances,
-    required TResult Function(String instanceApi) setInstance,
-    required TResult Function(YouTubeServices service) setYTService,
-    required TResult Function() togglePipPlayer,
-    required TResult Function(String filter) setSearchFilter,
-    required TResult Function(String fitMode) setVideoFitMode,
-    required TResult Function(int seconds) setSkipInterval,
-    required TResult Function() toggleSponsorBlock,
-    required TResult Function(List<String> categories)
-        setSponsorBlockCategories,
-    required TResult Function() toggleOpenLinksInBrowser,
-    required TResult Function(String mode) setHomeFeedMode,
-    required TResult Function() toggleAudioFocus,
-    required TResult Function(String profileName) addProfile,
-    required TResult Function(String profileName) deleteProfile,
-    required TResult Function(String profileName) switchProfile,
-    required TResult Function(String oldName, String newName) renameProfile,
-    required TResult Function(String profileName) exportSubscriptions,
-    required TResult Function(String filePath, String profileName)
-        importSubscriptions,
-    required TResult Function(double size) setSubtitleSize,
-    required TResult Function() toggleSearchHistoryEnabled,
-    required TResult Function() toggleSearchHistoryVisibility,
-    required TResult Function(String filePath) setLastExportedFilePath,
-    required TResult Function() toggleAutoPip,
-  }) {
-    return toggleCommentVisibility();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initializeSettings,
-    TResult? Function(String? language)? getDefaultLanguage,
-    TResult? Function(String? quality)? getDefaultQuality,
-    TResult? Function(String? region)? getDefaultRegion,
-    TResult? Function(String themeMode)? changeTheme,
-    TResult? Function()? toggleHistoryVisibility,
-    TResult? Function()? toggleDislikeVisibility,
-    TResult? Function()? toggleHlsPlayer,
-    TResult? Function()? toggleCommentVisibility,
-    TResult? Function()? toggleRelatedVideoVisibility,
-    TResult? Function(bool forceRefresh)? fetchPipedInstances,
-    TResult? Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult? Function(String instanceApi)? setInstance,
-    TResult? Function(YouTubeServices service)? setYTService,
-    TResult? Function()? togglePipPlayer,
-    TResult? Function(String filter)? setSearchFilter,
-    TResult? Function(String fitMode)? setVideoFitMode,
-    TResult? Function(int seconds)? setSkipInterval,
-    TResult? Function()? toggleSponsorBlock,
-    TResult? Function(List<String> categories)? setSponsorBlockCategories,
-    TResult? Function()? toggleOpenLinksInBrowser,
-    TResult? Function(String mode)? setHomeFeedMode,
-    TResult? Function()? toggleAudioFocus,
-    TResult? Function(String profileName)? addProfile,
-    TResult? Function(String profileName)? deleteProfile,
-    TResult? Function(String profileName)? switchProfile,
-    TResult? Function(String oldName, String newName)? renameProfile,
-    TResult? Function(String profileName)? exportSubscriptions,
-    TResult? Function(String filePath, String profileName)? importSubscriptions,
-    TResult? Function(double size)? setSubtitleSize,
-    TResult? Function()? toggleSearchHistoryEnabled,
-    TResult? Function()? toggleSearchHistoryVisibility,
-    TResult? Function(String filePath)? setLastExportedFilePath,
-    TResult? Function()? toggleAutoPip,
-  }) {
-    return toggleCommentVisibility?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initializeSettings,
-    TResult Function(String? language)? getDefaultLanguage,
-    TResult Function(String? quality)? getDefaultQuality,
-    TResult Function(String? region)? getDefaultRegion,
-    TResult Function(String themeMode)? changeTheme,
-    TResult Function()? toggleHistoryVisibility,
-    TResult Function()? toggleDislikeVisibility,
-    TResult Function()? toggleHlsPlayer,
-    TResult Function()? toggleCommentVisibility,
-    TResult Function()? toggleRelatedVideoVisibility,
-    TResult Function(bool forceRefresh)? fetchPipedInstances,
-    TResult Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult Function(String instanceApi)? setInstance,
-    TResult Function(YouTubeServices service)? setYTService,
-    TResult Function()? togglePipPlayer,
-    TResult Function(String filter)? setSearchFilter,
-    TResult Function(String fitMode)? setVideoFitMode,
-    TResult Function(int seconds)? setSkipInterval,
-    TResult Function()? toggleSponsorBlock,
-    TResult Function(List<String> categories)? setSponsorBlockCategories,
-    TResult Function()? toggleOpenLinksInBrowser,
-    TResult Function(String mode)? setHomeFeedMode,
-    TResult Function()? toggleAudioFocus,
-    TResult Function(String profileName)? addProfile,
-    TResult Function(String profileName)? deleteProfile,
-    TResult Function(String profileName)? switchProfile,
-    TResult Function(String oldName, String newName)? renameProfile,
-    TResult Function(String profileName)? exportSubscriptions,
-    TResult Function(String filePath, String profileName)? importSubscriptions,
-    TResult Function(double size)? setSubtitleSize,
-    TResult Function()? toggleSearchHistoryEnabled,
-    TResult Function()? toggleSearchHistoryVisibility,
-    TResult Function(String filePath)? setLastExportedFilePath,
-    TResult Function()? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (toggleCommentVisibility != null) {
-      return toggleCommentVisibility();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(InitializeSettings value) initializeSettings,
-    required TResult Function(GetDefaultLanguage value) getDefaultLanguage,
-    required TResult Function(GetDefaultQuality value) getDefaultQuality,
-    required TResult Function(GetDefaultRegion value) getDefaultRegion,
-    required TResult Function(ChangeTheme value) changeTheme,
-    required TResult Function(ToggleHistoryVisibility value)
-        toggleHistoryVisibility,
-    required TResult Function(ToggleDislikeVisibility value)
-        toggleDislikeVisibility,
-    required TResult Function(ToggleHlsPlayer value) toggleHlsPlayer,
-    required TResult Function(ToggleCommentVisibility value)
-        toggleCommentVisibility,
-    required TResult Function(ToggleRelatedVideoVisibility value)
-        toggleRelatedVideoVisibility,
-    required TResult Function(FetchPipedInstances value) fetchPipedInstances,
-    required TResult Function(FetchInvidiousInstances value)
-        fetchInvidiousInstances,
-    required TResult Function(SetInstance value) setInstance,
-    required TResult Function(SetYTService value) setYTService,
-    required TResult Function(TogglePipPlayer value) togglePipPlayer,
-    required TResult Function(SetSearchFilter value) setSearchFilter,
-    required TResult Function(SetVideoFitMode value) setVideoFitMode,
-    required TResult Function(SetSkipInterval value) setSkipInterval,
-    required TResult Function(ToggleSponsorBlock value) toggleSponsorBlock,
-    required TResult Function(SetSponsorBlockCategories value)
-        setSponsorBlockCategories,
-    required TResult Function(ToggleOpenLinksInBrowser value)
-        toggleOpenLinksInBrowser,
-    required TResult Function(SetHomeFeedMode value) setHomeFeedMode,
-    required TResult Function(ToggleAudioFocus value) toggleAudioFocus,
-    required TResult Function(AddProfile value) addProfile,
-    required TResult Function(DeleteProfile value) deleteProfile,
-    required TResult Function(SwitchProfile value) switchProfile,
-    required TResult Function(RenameProfile value) renameProfile,
-    required TResult Function(ExportSubscriptions value) exportSubscriptions,
-    required TResult Function(ImportSubscriptions value) importSubscriptions,
-    required TResult Function(SetSubtitleSize value) setSubtitleSize,
-    required TResult Function(ToggleSearchHistoryEnabled value)
-        toggleSearchHistoryEnabled,
-    required TResult Function(ToggleSearchHistoryVisibility value)
-        toggleSearchHistoryVisibility,
-    required TResult Function(SetLastExportedFilePath value)
-        setLastExportedFilePath,
-    required TResult Function(ToggleAutoPip value) toggleAutoPip,
-  }) {
-    return toggleCommentVisibility(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InitializeSettings value)? initializeSettings,
-    TResult? Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult? Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult? Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult? Function(ChangeTheme value)? changeTheme,
-    TResult? Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult? Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult? Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult? Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult? Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult? Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult? Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult? Function(SetInstance value)? setInstance,
-    TResult? Function(SetYTService value)? setYTService,
-    TResult? Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult? Function(SetSearchFilter value)? setSearchFilter,
-    TResult? Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult? Function(SetSkipInterval value)? setSkipInterval,
-    TResult? Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult? Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult? Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult? Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult? Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult? Function(AddProfile value)? addProfile,
-    TResult? Function(DeleteProfile value)? deleteProfile,
-    TResult? Function(SwitchProfile value)? switchProfile,
-    TResult? Function(RenameProfile value)? renameProfile,
-    TResult? Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult? Function(ImportSubscriptions value)? importSubscriptions,
-    TResult? Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult? Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult? Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult? Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult? Function(ToggleAutoPip value)? toggleAutoPip,
-  }) {
-    return toggleCommentVisibility?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitializeSettings value)? initializeSettings,
-    TResult Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult Function(ChangeTheme value)? changeTheme,
-    TResult Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult Function(SetInstance value)? setInstance,
-    TResult Function(SetYTService value)? setYTService,
-    TResult Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult Function(SetSearchFilter value)? setSearchFilter,
-    TResult Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult Function(SetSkipInterval value)? setSkipInterval,
-    TResult Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult Function(AddProfile value)? addProfile,
-    TResult Function(DeleteProfile value)? deleteProfile,
-    TResult Function(SwitchProfile value)? switchProfile,
-    TResult Function(RenameProfile value)? renameProfile,
-    TResult Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult Function(ImportSubscriptions value)? importSubscriptions,
-    TResult Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult Function(ToggleAutoPip value)? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (toggleCommentVisibility != null) {
-      return toggleCommentVisibility(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ToggleCommentVisibility implements SettingsEvent {
-  factory ToggleCommentVisibility() = _$ToggleCommentVisibilityImpl;
-}
-
-/// @nodoc
-abstract class _$$ToggleRelatedVideoVisibilityImplCopyWith<$Res> {
-  factory _$$ToggleRelatedVideoVisibilityImplCopyWith(
-          _$ToggleRelatedVideoVisibilityImpl value,
-          $Res Function(_$ToggleRelatedVideoVisibilityImpl) then) =
-      __$$ToggleRelatedVideoVisibilityImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ToggleRelatedVideoVisibilityImplCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res,
-        _$ToggleRelatedVideoVisibilityImpl>
-    implements _$$ToggleRelatedVideoVisibilityImplCopyWith<$Res> {
-  __$$ToggleRelatedVideoVisibilityImplCopyWithImpl(
-      _$ToggleRelatedVideoVisibilityImpl _value,
-      $Res Function(_$ToggleRelatedVideoVisibilityImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$ToggleRelatedVideoVisibilityImpl
-    implements ToggleRelatedVideoVisibility {
-  _$ToggleRelatedVideoVisibilityImpl();
-
-  @override
-  String toString() {
-    return 'SettingsEvent.toggleRelatedVideoVisibility()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ToggleRelatedVideoVisibilityImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initializeSettings,
-    required TResult Function(String? language) getDefaultLanguage,
-    required TResult Function(String? quality) getDefaultQuality,
-    required TResult Function(String? region) getDefaultRegion,
-    required TResult Function(String themeMode) changeTheme,
-    required TResult Function() toggleHistoryVisibility,
-    required TResult Function() toggleDislikeVisibility,
-    required TResult Function() toggleHlsPlayer,
-    required TResult Function() toggleCommentVisibility,
-    required TResult Function() toggleRelatedVideoVisibility,
-    required TResult Function(bool forceRefresh) fetchPipedInstances,
-    required TResult Function(bool forceRefresh) fetchInvidiousInstances,
-    required TResult Function(String instanceApi) setInstance,
-    required TResult Function(YouTubeServices service) setYTService,
-    required TResult Function() togglePipPlayer,
-    required TResult Function(String filter) setSearchFilter,
-    required TResult Function(String fitMode) setVideoFitMode,
-    required TResult Function(int seconds) setSkipInterval,
-    required TResult Function() toggleSponsorBlock,
-    required TResult Function(List<String> categories)
-        setSponsorBlockCategories,
-    required TResult Function() toggleOpenLinksInBrowser,
-    required TResult Function(String mode) setHomeFeedMode,
-    required TResult Function() toggleAudioFocus,
-    required TResult Function(String profileName) addProfile,
-    required TResult Function(String profileName) deleteProfile,
-    required TResult Function(String profileName) switchProfile,
-    required TResult Function(String oldName, String newName) renameProfile,
-    required TResult Function(String profileName) exportSubscriptions,
-    required TResult Function(String filePath, String profileName)
-        importSubscriptions,
-    required TResult Function(double size) setSubtitleSize,
-    required TResult Function() toggleSearchHistoryEnabled,
-    required TResult Function() toggleSearchHistoryVisibility,
-    required TResult Function(String filePath) setLastExportedFilePath,
-    required TResult Function() toggleAutoPip,
-  }) {
-    return toggleRelatedVideoVisibility();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initializeSettings,
-    TResult? Function(String? language)? getDefaultLanguage,
-    TResult? Function(String? quality)? getDefaultQuality,
-    TResult? Function(String? region)? getDefaultRegion,
-    TResult? Function(String themeMode)? changeTheme,
-    TResult? Function()? toggleHistoryVisibility,
-    TResult? Function()? toggleDislikeVisibility,
-    TResult? Function()? toggleHlsPlayer,
-    TResult? Function()? toggleCommentVisibility,
-    TResult? Function()? toggleRelatedVideoVisibility,
-    TResult? Function(bool forceRefresh)? fetchPipedInstances,
-    TResult? Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult? Function(String instanceApi)? setInstance,
-    TResult? Function(YouTubeServices service)? setYTService,
-    TResult? Function()? togglePipPlayer,
-    TResult? Function(String filter)? setSearchFilter,
-    TResult? Function(String fitMode)? setVideoFitMode,
-    TResult? Function(int seconds)? setSkipInterval,
-    TResult? Function()? toggleSponsorBlock,
-    TResult? Function(List<String> categories)? setSponsorBlockCategories,
-    TResult? Function()? toggleOpenLinksInBrowser,
-    TResult? Function(String mode)? setHomeFeedMode,
-    TResult? Function()? toggleAudioFocus,
-    TResult? Function(String profileName)? addProfile,
-    TResult? Function(String profileName)? deleteProfile,
-    TResult? Function(String profileName)? switchProfile,
-    TResult? Function(String oldName, String newName)? renameProfile,
-    TResult? Function(String profileName)? exportSubscriptions,
-    TResult? Function(String filePath, String profileName)? importSubscriptions,
-    TResult? Function(double size)? setSubtitleSize,
-    TResult? Function()? toggleSearchHistoryEnabled,
-    TResult? Function()? toggleSearchHistoryVisibility,
-    TResult? Function(String filePath)? setLastExportedFilePath,
-    TResult? Function()? toggleAutoPip,
-  }) {
-    return toggleRelatedVideoVisibility?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initializeSettings,
-    TResult Function(String? language)? getDefaultLanguage,
-    TResult Function(String? quality)? getDefaultQuality,
-    TResult Function(String? region)? getDefaultRegion,
-    TResult Function(String themeMode)? changeTheme,
-    TResult Function()? toggleHistoryVisibility,
-    TResult Function()? toggleDislikeVisibility,
-    TResult Function()? toggleHlsPlayer,
-    TResult Function()? toggleCommentVisibility,
-    TResult Function()? toggleRelatedVideoVisibility,
-    TResult Function(bool forceRefresh)? fetchPipedInstances,
-    TResult Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult Function(String instanceApi)? setInstance,
-    TResult Function(YouTubeServices service)? setYTService,
-    TResult Function()? togglePipPlayer,
-    TResult Function(String filter)? setSearchFilter,
-    TResult Function(String fitMode)? setVideoFitMode,
-    TResult Function(int seconds)? setSkipInterval,
-    TResult Function()? toggleSponsorBlock,
-    TResult Function(List<String> categories)? setSponsorBlockCategories,
-    TResult Function()? toggleOpenLinksInBrowser,
-    TResult Function(String mode)? setHomeFeedMode,
-    TResult Function()? toggleAudioFocus,
-    TResult Function(String profileName)? addProfile,
-    TResult Function(String profileName)? deleteProfile,
-    TResult Function(String profileName)? switchProfile,
-    TResult Function(String oldName, String newName)? renameProfile,
-    TResult Function(String profileName)? exportSubscriptions,
-    TResult Function(String filePath, String profileName)? importSubscriptions,
-    TResult Function(double size)? setSubtitleSize,
-    TResult Function()? toggleSearchHistoryEnabled,
-    TResult Function()? toggleSearchHistoryVisibility,
-    TResult Function(String filePath)? setLastExportedFilePath,
-    TResult Function()? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (toggleRelatedVideoVisibility != null) {
-      return toggleRelatedVideoVisibility();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(InitializeSettings value) initializeSettings,
-    required TResult Function(GetDefaultLanguage value) getDefaultLanguage,
-    required TResult Function(GetDefaultQuality value) getDefaultQuality,
-    required TResult Function(GetDefaultRegion value) getDefaultRegion,
-    required TResult Function(ChangeTheme value) changeTheme,
-    required TResult Function(ToggleHistoryVisibility value)
-        toggleHistoryVisibility,
-    required TResult Function(ToggleDislikeVisibility value)
-        toggleDislikeVisibility,
-    required TResult Function(ToggleHlsPlayer value) toggleHlsPlayer,
-    required TResult Function(ToggleCommentVisibility value)
-        toggleCommentVisibility,
-    required TResult Function(ToggleRelatedVideoVisibility value)
-        toggleRelatedVideoVisibility,
-    required TResult Function(FetchPipedInstances value) fetchPipedInstances,
-    required TResult Function(FetchInvidiousInstances value)
-        fetchInvidiousInstances,
-    required TResult Function(SetInstance value) setInstance,
-    required TResult Function(SetYTService value) setYTService,
-    required TResult Function(TogglePipPlayer value) togglePipPlayer,
-    required TResult Function(SetSearchFilter value) setSearchFilter,
-    required TResult Function(SetVideoFitMode value) setVideoFitMode,
-    required TResult Function(SetSkipInterval value) setSkipInterval,
-    required TResult Function(ToggleSponsorBlock value) toggleSponsorBlock,
-    required TResult Function(SetSponsorBlockCategories value)
-        setSponsorBlockCategories,
-    required TResult Function(ToggleOpenLinksInBrowser value)
-        toggleOpenLinksInBrowser,
-    required TResult Function(SetHomeFeedMode value) setHomeFeedMode,
-    required TResult Function(ToggleAudioFocus value) toggleAudioFocus,
-    required TResult Function(AddProfile value) addProfile,
-    required TResult Function(DeleteProfile value) deleteProfile,
-    required TResult Function(SwitchProfile value) switchProfile,
-    required TResult Function(RenameProfile value) renameProfile,
-    required TResult Function(ExportSubscriptions value) exportSubscriptions,
-    required TResult Function(ImportSubscriptions value) importSubscriptions,
-    required TResult Function(SetSubtitleSize value) setSubtitleSize,
-    required TResult Function(ToggleSearchHistoryEnabled value)
-        toggleSearchHistoryEnabled,
-    required TResult Function(ToggleSearchHistoryVisibility value)
-        toggleSearchHistoryVisibility,
-    required TResult Function(SetLastExportedFilePath value)
-        setLastExportedFilePath,
-    required TResult Function(ToggleAutoPip value) toggleAutoPip,
-  }) {
-    return toggleRelatedVideoVisibility(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InitializeSettings value)? initializeSettings,
-    TResult? Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult? Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult? Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult? Function(ChangeTheme value)? changeTheme,
-    TResult? Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult? Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult? Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult? Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult? Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult? Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult? Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult? Function(SetInstance value)? setInstance,
-    TResult? Function(SetYTService value)? setYTService,
-    TResult? Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult? Function(SetSearchFilter value)? setSearchFilter,
-    TResult? Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult? Function(SetSkipInterval value)? setSkipInterval,
-    TResult? Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult? Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult? Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult? Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult? Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult? Function(AddProfile value)? addProfile,
-    TResult? Function(DeleteProfile value)? deleteProfile,
-    TResult? Function(SwitchProfile value)? switchProfile,
-    TResult? Function(RenameProfile value)? renameProfile,
-    TResult? Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult? Function(ImportSubscriptions value)? importSubscriptions,
-    TResult? Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult? Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult? Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult? Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult? Function(ToggleAutoPip value)? toggleAutoPip,
-  }) {
-    return toggleRelatedVideoVisibility?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitializeSettings value)? initializeSettings,
-    TResult Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult Function(ChangeTheme value)? changeTheme,
-    TResult Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult Function(SetInstance value)? setInstance,
-    TResult Function(SetYTService value)? setYTService,
-    TResult Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult Function(SetSearchFilter value)? setSearchFilter,
-    TResult Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult Function(SetSkipInterval value)? setSkipInterval,
-    TResult Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult Function(AddProfile value)? addProfile,
-    TResult Function(DeleteProfile value)? deleteProfile,
-    TResult Function(SwitchProfile value)? switchProfile,
-    TResult Function(RenameProfile value)? renameProfile,
-    TResult Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult Function(ImportSubscriptions value)? importSubscriptions,
-    TResult Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult Function(ToggleAutoPip value)? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (toggleRelatedVideoVisibility != null) {
-      return toggleRelatedVideoVisibility(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ToggleRelatedVideoVisibility implements SettingsEvent {
-  factory ToggleRelatedVideoVisibility() = _$ToggleRelatedVideoVisibilityImpl;
-}
-
-/// @nodoc
-abstract class _$$FetchPipedInstancesImplCopyWith<$Res> {
-  factory _$$FetchPipedInstancesImplCopyWith(_$FetchPipedInstancesImpl value,
-          $Res Function(_$FetchPipedInstancesImpl) then) =
-      __$$FetchPipedInstancesImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({bool forceRefresh});
-}
-
-/// @nodoc
-class __$$FetchPipedInstancesImplCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res, _$FetchPipedInstancesImpl>
-    implements _$$FetchPipedInstancesImplCopyWith<$Res> {
-  __$$FetchPipedInstancesImplCopyWithImpl(_$FetchPipedInstancesImpl _value,
-      $Res Function(_$FetchPipedInstancesImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? forceRefresh = null,
-  }) {
-    return _then(_$FetchPipedInstancesImpl(
-      forceRefresh: null == forceRefresh
-          ? _value.forceRefresh
-          : forceRefresh // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$FetchPipedInstancesImpl implements FetchPipedInstances {
-  _$FetchPipedInstancesImpl({this.forceRefresh = false});
-
-  @override
-  @JsonKey()
-  final bool forceRefresh;
-
-  @override
-  String toString() {
-    return 'SettingsEvent.fetchPipedInstances(forceRefresh: $forceRefresh)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FetchPipedInstancesImpl &&
-            (identical(other.forceRefresh, forceRefresh) ||
-                other.forceRefresh == forceRefresh));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, forceRefresh);
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$FetchPipedInstancesImplCopyWith<_$FetchPipedInstancesImpl> get copyWith =>
-      __$$FetchPipedInstancesImplCopyWithImpl<_$FetchPipedInstancesImpl>(
+  $ToggleHistoryVisibilityCopyWith<ToggleHistoryVisibility> get copyWith =>
+      _$ToggleHistoryVisibilityCopyWithImpl<ToggleHistoryVisibility>(
           this, _$identity);
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initializeSettings,
-    required TResult Function(String? language) getDefaultLanguage,
-    required TResult Function(String? quality) getDefaultQuality,
-    required TResult Function(String? region) getDefaultRegion,
-    required TResult Function(String themeMode) changeTheme,
-    required TResult Function() toggleHistoryVisibility,
-    required TResult Function() toggleDislikeVisibility,
-    required TResult Function() toggleHlsPlayer,
-    required TResult Function() toggleCommentVisibility,
-    required TResult Function() toggleRelatedVideoVisibility,
-    required TResult Function(bool forceRefresh) fetchPipedInstances,
-    required TResult Function(bool forceRefresh) fetchInvidiousInstances,
-    required TResult Function(String instanceApi) setInstance,
-    required TResult Function(YouTubeServices service) setYTService,
-    required TResult Function() togglePipPlayer,
-    required TResult Function(String filter) setSearchFilter,
-    required TResult Function(String fitMode) setVideoFitMode,
-    required TResult Function(int seconds) setSkipInterval,
-    required TResult Function() toggleSponsorBlock,
-    required TResult Function(List<String> categories)
-        setSponsorBlockCategories,
-    required TResult Function() toggleOpenLinksInBrowser,
-    required TResult Function(String mode) setHomeFeedMode,
-    required TResult Function() toggleAudioFocus,
-    required TResult Function(String profileName) addProfile,
-    required TResult Function(String profileName) deleteProfile,
-    required TResult Function(String profileName) switchProfile,
-    required TResult Function(String oldName, String newName) renameProfile,
-    required TResult Function(String profileName) exportSubscriptions,
-    required TResult Function(String filePath, String profileName)
-        importSubscriptions,
-    required TResult Function(double size) setSubtitleSize,
-    required TResult Function() toggleSearchHistoryEnabled,
-    required TResult Function() toggleSearchHistoryVisibility,
-    required TResult Function(String filePath) setLastExportedFilePath,
-    required TResult Function() toggleAutoPip,
-  }) {
-    return fetchPipedInstances(forceRefresh);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ToggleHistoryVisibility &&
+            (identical(other.isHistoryVisible, isHistoryVisible) ||
+                other.isHistoryVisible == isHistoryVisible));
   }
 
   @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initializeSettings,
-    TResult? Function(String? language)? getDefaultLanguage,
-    TResult? Function(String? quality)? getDefaultQuality,
-    TResult? Function(String? region)? getDefaultRegion,
-    TResult? Function(String themeMode)? changeTheme,
-    TResult? Function()? toggleHistoryVisibility,
-    TResult? Function()? toggleDislikeVisibility,
-    TResult? Function()? toggleHlsPlayer,
-    TResult? Function()? toggleCommentVisibility,
-    TResult? Function()? toggleRelatedVideoVisibility,
-    TResult? Function(bool forceRefresh)? fetchPipedInstances,
-    TResult? Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult? Function(String instanceApi)? setInstance,
-    TResult? Function(YouTubeServices service)? setYTService,
-    TResult? Function()? togglePipPlayer,
-    TResult? Function(String filter)? setSearchFilter,
-    TResult? Function(String fitMode)? setVideoFitMode,
-    TResult? Function(int seconds)? setSkipInterval,
-    TResult? Function()? toggleSponsorBlock,
-    TResult? Function(List<String> categories)? setSponsorBlockCategories,
-    TResult? Function()? toggleOpenLinksInBrowser,
-    TResult? Function(String mode)? setHomeFeedMode,
-    TResult? Function()? toggleAudioFocus,
-    TResult? Function(String profileName)? addProfile,
-    TResult? Function(String profileName)? deleteProfile,
-    TResult? Function(String profileName)? switchProfile,
-    TResult? Function(String oldName, String newName)? renameProfile,
-    TResult? Function(String profileName)? exportSubscriptions,
-    TResult? Function(String filePath, String profileName)? importSubscriptions,
-    TResult? Function(double size)? setSubtitleSize,
-    TResult? Function()? toggleSearchHistoryEnabled,
-    TResult? Function()? toggleSearchHistoryVisibility,
-    TResult? Function(String filePath)? setLastExportedFilePath,
-    TResult? Function()? toggleAutoPip,
-  }) {
-    return fetchPipedInstances?.call(forceRefresh);
-  }
+  int get hashCode => Object.hash(runtimeType, isHistoryVisible);
 
   @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initializeSettings,
-    TResult Function(String? language)? getDefaultLanguage,
-    TResult Function(String? quality)? getDefaultQuality,
-    TResult Function(String? region)? getDefaultRegion,
-    TResult Function(String themeMode)? changeTheme,
-    TResult Function()? toggleHistoryVisibility,
-    TResult Function()? toggleDislikeVisibility,
-    TResult Function()? toggleHlsPlayer,
-    TResult Function()? toggleCommentVisibility,
-    TResult Function()? toggleRelatedVideoVisibility,
-    TResult Function(bool forceRefresh)? fetchPipedInstances,
-    TResult Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult Function(String instanceApi)? setInstance,
-    TResult Function(YouTubeServices service)? setYTService,
-    TResult Function()? togglePipPlayer,
-    TResult Function(String filter)? setSearchFilter,
-    TResult Function(String fitMode)? setVideoFitMode,
-    TResult Function(int seconds)? setSkipInterval,
-    TResult Function()? toggleSponsorBlock,
-    TResult Function(List<String> categories)? setSponsorBlockCategories,
-    TResult Function()? toggleOpenLinksInBrowser,
-    TResult Function(String mode)? setHomeFeedMode,
-    TResult Function()? toggleAudioFocus,
-    TResult Function(String profileName)? addProfile,
-    TResult Function(String profileName)? deleteProfile,
-    TResult Function(String profileName)? switchProfile,
-    TResult Function(String oldName, String newName)? renameProfile,
-    TResult Function(String profileName)? exportSubscriptions,
-    TResult Function(String filePath, String profileName)? importSubscriptions,
-    TResult Function(double size)? setSubtitleSize,
-    TResult Function()? toggleSearchHistoryEnabled,
-    TResult Function()? toggleSearchHistoryVisibility,
-    TResult Function(String filePath)? setLastExportedFilePath,
-    TResult Function()? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (fetchPipedInstances != null) {
-      return fetchPipedInstances(forceRefresh);
-    }
-    return orElse();
+  String toString() {
+    return 'SettingsEvent.toggleHistoryVisibility(isHistoryVisible: $isHistoryVisible)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(InitializeSettings value) initializeSettings,
-    required TResult Function(GetDefaultLanguage value) getDefaultLanguage,
-    required TResult Function(GetDefaultQuality value) getDefaultQuality,
-    required TResult Function(GetDefaultRegion value) getDefaultRegion,
-    required TResult Function(ChangeTheme value) changeTheme,
-    required TResult Function(ToggleHistoryVisibility value)
-        toggleHistoryVisibility,
-    required TResult Function(ToggleDislikeVisibility value)
-        toggleDislikeVisibility,
-    required TResult Function(ToggleHlsPlayer value) toggleHlsPlayer,
-    required TResult Function(ToggleCommentVisibility value)
-        toggleCommentVisibility,
-    required TResult Function(ToggleRelatedVideoVisibility value)
-        toggleRelatedVideoVisibility,
-    required TResult Function(FetchPipedInstances value) fetchPipedInstances,
-    required TResult Function(FetchInvidiousInstances value)
-        fetchInvidiousInstances,
-    required TResult Function(SetInstance value) setInstance,
-    required TResult Function(SetYTService value) setYTService,
-    required TResult Function(TogglePipPlayer value) togglePipPlayer,
-    required TResult Function(SetSearchFilter value) setSearchFilter,
-    required TResult Function(SetVideoFitMode value) setVideoFitMode,
-    required TResult Function(SetSkipInterval value) setSkipInterval,
-    required TResult Function(ToggleSponsorBlock value) toggleSponsorBlock,
-    required TResult Function(SetSponsorBlockCategories value)
-        setSponsorBlockCategories,
-    required TResult Function(ToggleOpenLinksInBrowser value)
-        toggleOpenLinksInBrowser,
-    required TResult Function(SetHomeFeedMode value) setHomeFeedMode,
-    required TResult Function(ToggleAudioFocus value) toggleAudioFocus,
-    required TResult Function(AddProfile value) addProfile,
-    required TResult Function(DeleteProfile value) deleteProfile,
-    required TResult Function(SwitchProfile value) switchProfile,
-    required TResult Function(RenameProfile value) renameProfile,
-    required TResult Function(ExportSubscriptions value) exportSubscriptions,
-    required TResult Function(ImportSubscriptions value) importSubscriptions,
-    required TResult Function(SetSubtitleSize value) setSubtitleSize,
-    required TResult Function(ToggleSearchHistoryEnabled value)
-        toggleSearchHistoryEnabled,
-    required TResult Function(ToggleSearchHistoryVisibility value)
-        toggleSearchHistoryVisibility,
-    required TResult Function(SetLastExportedFilePath value)
-        setLastExportedFilePath,
-    required TResult Function(ToggleAutoPip value) toggleAutoPip,
-  }) {
-    return fetchPipedInstances(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InitializeSettings value)? initializeSettings,
-    TResult? Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult? Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult? Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult? Function(ChangeTheme value)? changeTheme,
-    TResult? Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult? Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult? Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult? Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult? Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult? Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult? Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult? Function(SetInstance value)? setInstance,
-    TResult? Function(SetYTService value)? setYTService,
-    TResult? Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult? Function(SetSearchFilter value)? setSearchFilter,
-    TResult? Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult? Function(SetSkipInterval value)? setSkipInterval,
-    TResult? Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult? Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult? Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult? Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult? Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult? Function(AddProfile value)? addProfile,
-    TResult? Function(DeleteProfile value)? deleteProfile,
-    TResult? Function(SwitchProfile value)? switchProfile,
-    TResult? Function(RenameProfile value)? renameProfile,
-    TResult? Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult? Function(ImportSubscriptions value)? importSubscriptions,
-    TResult? Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult? Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult? Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult? Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult? Function(ToggleAutoPip value)? toggleAutoPip,
-  }) {
-    return fetchPipedInstances?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitializeSettings value)? initializeSettings,
-    TResult Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult Function(ChangeTheme value)? changeTheme,
-    TResult Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult Function(SetInstance value)? setInstance,
-    TResult Function(SetYTService value)? setYTService,
-    TResult Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult Function(SetSearchFilter value)? setSearchFilter,
-    TResult Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult Function(SetSkipInterval value)? setSkipInterval,
-    TResult Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult Function(AddProfile value)? addProfile,
-    TResult Function(DeleteProfile value)? deleteProfile,
-    TResult Function(SwitchProfile value)? switchProfile,
-    TResult Function(RenameProfile value)? renameProfile,
-    TResult Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult Function(ImportSubscriptions value)? importSubscriptions,
-    TResult Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult Function(ToggleAutoPip value)? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (fetchPipedInstances != null) {
-      return fetchPipedInstances(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class FetchPipedInstances implements SettingsEvent {
-  factory FetchPipedInstances({final bool forceRefresh}) =
-      _$FetchPipedInstancesImpl;
-
-  bool get forceRefresh;
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FetchPipedInstancesImplCopyWith<_$FetchPipedInstancesImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchInvidiousInstancesImplCopyWith<$Res> {
-  factory _$$FetchInvidiousInstancesImplCopyWith(
-          _$FetchInvidiousInstancesImpl value,
-          $Res Function(_$FetchInvidiousInstancesImpl) then) =
-      __$$FetchInvidiousInstancesImplCopyWithImpl<$Res>;
+abstract mixin class $ToggleHistoryVisibilityCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleHistoryVisibilityCopyWith(ToggleHistoryVisibility value,
+          $Res Function(ToggleHistoryVisibility) _then) =
+      _$ToggleHistoryVisibilityCopyWithImpl;
   @useResult
-  $Res call({bool forceRefresh});
+  $Res call({bool isHistoryVisible});
 }
 
 /// @nodoc
-class __$$FetchInvidiousInstancesImplCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res, _$FetchInvidiousInstancesImpl>
-    implements _$$FetchInvidiousInstancesImplCopyWith<$Res> {
-  __$$FetchInvidiousInstancesImplCopyWithImpl(
-      _$FetchInvidiousInstancesImpl _value,
-      $Res Function(_$FetchInvidiousInstancesImpl) _then)
-      : super(_value, _then);
+class _$ToggleHistoryVisibilityCopyWithImpl<$Res>
+    implements $ToggleHistoryVisibilityCopyWith<$Res> {
+  _$ToggleHistoryVisibilityCopyWithImpl(this._self, this._then);
+
+  final ToggleHistoryVisibility _self;
+  final $Res Function(ToggleHistoryVisibility) _then;
 
   /// Create a copy of SettingsEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
-    Object? forceRefresh = null,
+    Object? isHistoryVisible = null,
   }) {
-    return _then(_$FetchInvidiousInstancesImpl(
-      forceRefresh: null == forceRefresh
-          ? _value.forceRefresh
-          : forceRefresh // ignore: cast_nullable_to_non_nullable
+    return _then(ToggleHistoryVisibility(
+      isHistoryVisible: null == isHistoryVisible
+          ? _self.isHistoryVisible
+          : isHistoryVisible // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -4014,354 +1994,326 @@ class __$$FetchInvidiousInstancesImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchInvidiousInstancesImpl implements FetchInvidiousInstances {
-  _$FetchInvidiousInstancesImpl({this.forceRefresh = false});
+class ToggleDislikeVisibility implements SettingsEvent {
+  const ToggleDislikeVisibility({required this.isDislikeVisible});
 
-  @override
-  @JsonKey()
-  final bool forceRefresh;
+  final bool isDislikeVisible;
 
-  @override
-  String toString() {
-    return 'SettingsEvent.fetchInvidiousInstances(forceRefresh: $forceRefresh)';
-  }
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ToggleDislikeVisibilityCopyWith<ToggleDislikeVisibility> get copyWith =>
+      _$ToggleDislikeVisibilityCopyWithImpl<ToggleDislikeVisibility>(
+          this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchInvidiousInstancesImpl &&
-            (identical(other.forceRefresh, forceRefresh) ||
-                other.forceRefresh == forceRefresh));
+            other is ToggleDislikeVisibility &&
+            (identical(other.isDislikeVisible, isDislikeVisible) ||
+                other.isDislikeVisible == isDislikeVisible));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, forceRefresh);
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$FetchInvidiousInstancesImplCopyWith<_$FetchInvidiousInstancesImpl>
-      get copyWith => __$$FetchInvidiousInstancesImplCopyWithImpl<
-          _$FetchInvidiousInstancesImpl>(this, _$identity);
+  int get hashCode => Object.hash(runtimeType, isDislikeVisible);
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initializeSettings,
-    required TResult Function(String? language) getDefaultLanguage,
-    required TResult Function(String? quality) getDefaultQuality,
-    required TResult Function(String? region) getDefaultRegion,
-    required TResult Function(String themeMode) changeTheme,
-    required TResult Function() toggleHistoryVisibility,
-    required TResult Function() toggleDislikeVisibility,
-    required TResult Function() toggleHlsPlayer,
-    required TResult Function() toggleCommentVisibility,
-    required TResult Function() toggleRelatedVideoVisibility,
-    required TResult Function(bool forceRefresh) fetchPipedInstances,
-    required TResult Function(bool forceRefresh) fetchInvidiousInstances,
-    required TResult Function(String instanceApi) setInstance,
-    required TResult Function(YouTubeServices service) setYTService,
-    required TResult Function() togglePipPlayer,
-    required TResult Function(String filter) setSearchFilter,
-    required TResult Function(String fitMode) setVideoFitMode,
-    required TResult Function(int seconds) setSkipInterval,
-    required TResult Function() toggleSponsorBlock,
-    required TResult Function(List<String> categories)
-        setSponsorBlockCategories,
-    required TResult Function() toggleOpenLinksInBrowser,
-    required TResult Function(String mode) setHomeFeedMode,
-    required TResult Function() toggleAudioFocus,
-    required TResult Function(String profileName) addProfile,
-    required TResult Function(String profileName) deleteProfile,
-    required TResult Function(String profileName) switchProfile,
-    required TResult Function(String oldName, String newName) renameProfile,
-    required TResult Function(String profileName) exportSubscriptions,
-    required TResult Function(String filePath, String profileName)
-        importSubscriptions,
-    required TResult Function(double size) setSubtitleSize,
-    required TResult Function() toggleSearchHistoryEnabled,
-    required TResult Function() toggleSearchHistoryVisibility,
-    required TResult Function(String filePath) setLastExportedFilePath,
-    required TResult Function() toggleAutoPip,
-  }) {
-    return fetchInvidiousInstances(forceRefresh);
+  String toString() {
+    return 'SettingsEvent.toggleDislikeVisibility(isDislikeVisible: $isDislikeVisible)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initializeSettings,
-    TResult? Function(String? language)? getDefaultLanguage,
-    TResult? Function(String? quality)? getDefaultQuality,
-    TResult? Function(String? region)? getDefaultRegion,
-    TResult? Function(String themeMode)? changeTheme,
-    TResult? Function()? toggleHistoryVisibility,
-    TResult? Function()? toggleDislikeVisibility,
-    TResult? Function()? toggleHlsPlayer,
-    TResult? Function()? toggleCommentVisibility,
-    TResult? Function()? toggleRelatedVideoVisibility,
-    TResult? Function(bool forceRefresh)? fetchPipedInstances,
-    TResult? Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult? Function(String instanceApi)? setInstance,
-    TResult? Function(YouTubeServices service)? setYTService,
-    TResult? Function()? togglePipPlayer,
-    TResult? Function(String filter)? setSearchFilter,
-    TResult? Function(String fitMode)? setVideoFitMode,
-    TResult? Function(int seconds)? setSkipInterval,
-    TResult? Function()? toggleSponsorBlock,
-    TResult? Function(List<String> categories)? setSponsorBlockCategories,
-    TResult? Function()? toggleOpenLinksInBrowser,
-    TResult? Function(String mode)? setHomeFeedMode,
-    TResult? Function()? toggleAudioFocus,
-    TResult? Function(String profileName)? addProfile,
-    TResult? Function(String profileName)? deleteProfile,
-    TResult? Function(String profileName)? switchProfile,
-    TResult? Function(String oldName, String newName)? renameProfile,
-    TResult? Function(String profileName)? exportSubscriptions,
-    TResult? Function(String filePath, String profileName)? importSubscriptions,
-    TResult? Function(double size)? setSubtitleSize,
-    TResult? Function()? toggleSearchHistoryEnabled,
-    TResult? Function()? toggleSearchHistoryVisibility,
-    TResult? Function(String filePath)? setLastExportedFilePath,
-    TResult? Function()? toggleAutoPip,
-  }) {
-    return fetchInvidiousInstances?.call(forceRefresh);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initializeSettings,
-    TResult Function(String? language)? getDefaultLanguage,
-    TResult Function(String? quality)? getDefaultQuality,
-    TResult Function(String? region)? getDefaultRegion,
-    TResult Function(String themeMode)? changeTheme,
-    TResult Function()? toggleHistoryVisibility,
-    TResult Function()? toggleDislikeVisibility,
-    TResult Function()? toggleHlsPlayer,
-    TResult Function()? toggleCommentVisibility,
-    TResult Function()? toggleRelatedVideoVisibility,
-    TResult Function(bool forceRefresh)? fetchPipedInstances,
-    TResult Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult Function(String instanceApi)? setInstance,
-    TResult Function(YouTubeServices service)? setYTService,
-    TResult Function()? togglePipPlayer,
-    TResult Function(String filter)? setSearchFilter,
-    TResult Function(String fitMode)? setVideoFitMode,
-    TResult Function(int seconds)? setSkipInterval,
-    TResult Function()? toggleSponsorBlock,
-    TResult Function(List<String> categories)? setSponsorBlockCategories,
-    TResult Function()? toggleOpenLinksInBrowser,
-    TResult Function(String mode)? setHomeFeedMode,
-    TResult Function()? toggleAudioFocus,
-    TResult Function(String profileName)? addProfile,
-    TResult Function(String profileName)? deleteProfile,
-    TResult Function(String profileName)? switchProfile,
-    TResult Function(String oldName, String newName)? renameProfile,
-    TResult Function(String profileName)? exportSubscriptions,
-    TResult Function(String filePath, String profileName)? importSubscriptions,
-    TResult Function(double size)? setSubtitleSize,
-    TResult Function()? toggleSearchHistoryEnabled,
-    TResult Function()? toggleSearchHistoryVisibility,
-    TResult Function(String filePath)? setLastExportedFilePath,
-    TResult Function()? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (fetchInvidiousInstances != null) {
-      return fetchInvidiousInstances(forceRefresh);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(InitializeSettings value) initializeSettings,
-    required TResult Function(GetDefaultLanguage value) getDefaultLanguage,
-    required TResult Function(GetDefaultQuality value) getDefaultQuality,
-    required TResult Function(GetDefaultRegion value) getDefaultRegion,
-    required TResult Function(ChangeTheme value) changeTheme,
-    required TResult Function(ToggleHistoryVisibility value)
-        toggleHistoryVisibility,
-    required TResult Function(ToggleDislikeVisibility value)
-        toggleDislikeVisibility,
-    required TResult Function(ToggleHlsPlayer value) toggleHlsPlayer,
-    required TResult Function(ToggleCommentVisibility value)
-        toggleCommentVisibility,
-    required TResult Function(ToggleRelatedVideoVisibility value)
-        toggleRelatedVideoVisibility,
-    required TResult Function(FetchPipedInstances value) fetchPipedInstances,
-    required TResult Function(FetchInvidiousInstances value)
-        fetchInvidiousInstances,
-    required TResult Function(SetInstance value) setInstance,
-    required TResult Function(SetYTService value) setYTService,
-    required TResult Function(TogglePipPlayer value) togglePipPlayer,
-    required TResult Function(SetSearchFilter value) setSearchFilter,
-    required TResult Function(SetVideoFitMode value) setVideoFitMode,
-    required TResult Function(SetSkipInterval value) setSkipInterval,
-    required TResult Function(ToggleSponsorBlock value) toggleSponsorBlock,
-    required TResult Function(SetSponsorBlockCategories value)
-        setSponsorBlockCategories,
-    required TResult Function(ToggleOpenLinksInBrowser value)
-        toggleOpenLinksInBrowser,
-    required TResult Function(SetHomeFeedMode value) setHomeFeedMode,
-    required TResult Function(ToggleAudioFocus value) toggleAudioFocus,
-    required TResult Function(AddProfile value) addProfile,
-    required TResult Function(DeleteProfile value) deleteProfile,
-    required TResult Function(SwitchProfile value) switchProfile,
-    required TResult Function(RenameProfile value) renameProfile,
-    required TResult Function(ExportSubscriptions value) exportSubscriptions,
-    required TResult Function(ImportSubscriptions value) importSubscriptions,
-    required TResult Function(SetSubtitleSize value) setSubtitleSize,
-    required TResult Function(ToggleSearchHistoryEnabled value)
-        toggleSearchHistoryEnabled,
-    required TResult Function(ToggleSearchHistoryVisibility value)
-        toggleSearchHistoryVisibility,
-    required TResult Function(SetLastExportedFilePath value)
-        setLastExportedFilePath,
-    required TResult Function(ToggleAutoPip value) toggleAutoPip,
-  }) {
-    return fetchInvidiousInstances(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InitializeSettings value)? initializeSettings,
-    TResult? Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult? Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult? Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult? Function(ChangeTheme value)? changeTheme,
-    TResult? Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult? Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult? Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult? Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult? Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult? Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult? Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult? Function(SetInstance value)? setInstance,
-    TResult? Function(SetYTService value)? setYTService,
-    TResult? Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult? Function(SetSearchFilter value)? setSearchFilter,
-    TResult? Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult? Function(SetSkipInterval value)? setSkipInterval,
-    TResult? Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult? Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult? Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult? Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult? Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult? Function(AddProfile value)? addProfile,
-    TResult? Function(DeleteProfile value)? deleteProfile,
-    TResult? Function(SwitchProfile value)? switchProfile,
-    TResult? Function(RenameProfile value)? renameProfile,
-    TResult? Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult? Function(ImportSubscriptions value)? importSubscriptions,
-    TResult? Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult? Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult? Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult? Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult? Function(ToggleAutoPip value)? toggleAutoPip,
-  }) {
-    return fetchInvidiousInstances?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitializeSettings value)? initializeSettings,
-    TResult Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult Function(ChangeTheme value)? changeTheme,
-    TResult Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult Function(SetInstance value)? setInstance,
-    TResult Function(SetYTService value)? setYTService,
-    TResult Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult Function(SetSearchFilter value)? setSearchFilter,
-    TResult Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult Function(SetSkipInterval value)? setSkipInterval,
-    TResult Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult Function(AddProfile value)? addProfile,
-    TResult Function(DeleteProfile value)? deleteProfile,
-    TResult Function(SwitchProfile value)? switchProfile,
-    TResult Function(RenameProfile value)? renameProfile,
-    TResult Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult Function(ImportSubscriptions value)? importSubscriptions,
-    TResult Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult Function(ToggleAutoPip value)? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (fetchInvidiousInstances != null) {
-      return fetchInvidiousInstances(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class FetchInvidiousInstances implements SettingsEvent {
-  factory FetchInvidiousInstances({final bool forceRefresh}) =
-      _$FetchInvidiousInstancesImpl;
-
-  bool get forceRefresh;
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FetchInvidiousInstancesImplCopyWith<_$FetchInvidiousInstancesImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SetInstanceImplCopyWith<$Res> {
-  factory _$$SetInstanceImplCopyWith(
-          _$SetInstanceImpl value, $Res Function(_$SetInstanceImpl) then) =
-      __$$SetInstanceImplCopyWithImpl<$Res>;
+abstract mixin class $ToggleDislikeVisibilityCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleDislikeVisibilityCopyWith(ToggleDislikeVisibility value,
+          $Res Function(ToggleDislikeVisibility) _then) =
+      _$ToggleDislikeVisibilityCopyWithImpl;
+  @useResult
+  $Res call({bool isDislikeVisible});
+}
+
+/// @nodoc
+class _$ToggleDislikeVisibilityCopyWithImpl<$Res>
+    implements $ToggleDislikeVisibilityCopyWith<$Res> {
+  _$ToggleDislikeVisibilityCopyWithImpl(this._self, this._then);
+
+  final ToggleDislikeVisibility _self;
+  final $Res Function(ToggleDislikeVisibility) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? isDislikeVisible = null,
+  }) {
+    return _then(ToggleDislikeVisibility(
+      isDislikeVisible: null == isDislikeVisible
+          ? _self.isDislikeVisible
+          : isDislikeVisible // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ToggleHlsPlayer implements SettingsEvent {
+  const ToggleHlsPlayer({required this.isHlsPlayer});
+
+  final bool isHlsPlayer;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ToggleHlsPlayerCopyWith<ToggleHlsPlayer> get copyWith =>
+      _$ToggleHlsPlayerCopyWithImpl<ToggleHlsPlayer>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ToggleHlsPlayer &&
+            (identical(other.isHlsPlayer, isHlsPlayer) ||
+                other.isHlsPlayer == isHlsPlayer));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, isHlsPlayer);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.toggleHlsPlayer(isHlsPlayer: $isHlsPlayer)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ToggleHlsPlayerCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleHlsPlayerCopyWith(
+          ToggleHlsPlayer value, $Res Function(ToggleHlsPlayer) _then) =
+      _$ToggleHlsPlayerCopyWithImpl;
+  @useResult
+  $Res call({bool isHlsPlayer});
+}
+
+/// @nodoc
+class _$ToggleHlsPlayerCopyWithImpl<$Res>
+    implements $ToggleHlsPlayerCopyWith<$Res> {
+  _$ToggleHlsPlayerCopyWithImpl(this._self, this._then);
+
+  final ToggleHlsPlayer _self;
+  final $Res Function(ToggleHlsPlayer) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? isHlsPlayer = null,
+  }) {
+    return _then(ToggleHlsPlayer(
+      isHlsPlayer: null == isHlsPlayer
+          ? _self.isHlsPlayer
+          : isHlsPlayer // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ToggleCommentVisibility implements SettingsEvent {
+  const ToggleCommentVisibility({required this.isHideComments});
+
+  final bool isHideComments;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ToggleCommentVisibilityCopyWith<ToggleCommentVisibility> get copyWith =>
+      _$ToggleCommentVisibilityCopyWithImpl<ToggleCommentVisibility>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ToggleCommentVisibility &&
+            (identical(other.isHideComments, isHideComments) ||
+                other.isHideComments == isHideComments));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, isHideComments);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.toggleCommentVisibility(isHideComments: $isHideComments)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ToggleCommentVisibilityCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleCommentVisibilityCopyWith(ToggleCommentVisibility value,
+          $Res Function(ToggleCommentVisibility) _then) =
+      _$ToggleCommentVisibilityCopyWithImpl;
+  @useResult
+  $Res call({bool isHideComments});
+}
+
+/// @nodoc
+class _$ToggleCommentVisibilityCopyWithImpl<$Res>
+    implements $ToggleCommentVisibilityCopyWith<$Res> {
+  _$ToggleCommentVisibilityCopyWithImpl(this._self, this._then);
+
+  final ToggleCommentVisibility _self;
+  final $Res Function(ToggleCommentVisibility) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? isHideComments = null,
+  }) {
+    return _then(ToggleCommentVisibility(
+      isHideComments: null == isHideComments
+          ? _self.isHideComments
+          : isHideComments // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ToggleRelatedVideoVisibility implements SettingsEvent {
+  const ToggleRelatedVideoVisibility({required this.isHideRelated});
+
+  final bool isHideRelated;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ToggleRelatedVideoVisibilityCopyWith<ToggleRelatedVideoVisibility>
+      get copyWith => _$ToggleRelatedVideoVisibilityCopyWithImpl<
+          ToggleRelatedVideoVisibility>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ToggleRelatedVideoVisibility &&
+            (identical(other.isHideRelated, isHideRelated) ||
+                other.isHideRelated == isHideRelated));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, isHideRelated);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.toggleRelatedVideoVisibility(isHideRelated: $isHideRelated)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ToggleRelatedVideoVisibilityCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleRelatedVideoVisibilityCopyWith(
+          ToggleRelatedVideoVisibility value,
+          $Res Function(ToggleRelatedVideoVisibility) _then) =
+      _$ToggleRelatedVideoVisibilityCopyWithImpl;
+  @useResult
+  $Res call({bool isHideRelated});
+}
+
+/// @nodoc
+class _$ToggleRelatedVideoVisibilityCopyWithImpl<$Res>
+    implements $ToggleRelatedVideoVisibilityCopyWith<$Res> {
+  _$ToggleRelatedVideoVisibilityCopyWithImpl(this._self, this._then);
+
+  final ToggleRelatedVideoVisibility _self;
+  final $Res Function(ToggleRelatedVideoVisibility) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? isHideRelated = null,
+  }) {
+    return _then(ToggleRelatedVideoVisibility(
+      isHideRelated: null == isHideRelated
+          ? _self.isHideRelated
+          : isHideRelated // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class SetInstance implements SettingsEvent {
+  const SetInstance({required this.instanceApi});
+
+  final String instanceApi;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $SetInstanceCopyWith<SetInstance> get copyWith =>
+      _$SetInstanceCopyWithImpl<SetInstance>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SetInstance &&
+            (identical(other.instanceApi, instanceApi) ||
+                other.instanceApi == instanceApi));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, instanceApi);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.setInstance(instanceApi: $instanceApi)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $SetInstanceCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $SetInstanceCopyWith(
+          SetInstance value, $Res Function(SetInstance) _then) =
+      _$SetInstanceCopyWithImpl;
   @useResult
   $Res call({String instanceApi});
 }
 
 /// @nodoc
-class __$$SetInstanceImplCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res, _$SetInstanceImpl>
-    implements _$$SetInstanceImplCopyWith<$Res> {
-  __$$SetInstanceImplCopyWithImpl(
-      _$SetInstanceImpl _value, $Res Function(_$SetInstanceImpl) _then)
-      : super(_value, _then);
+class _$SetInstanceCopyWithImpl<$Res> implements $SetInstanceCopyWith<$Res> {
+  _$SetInstanceCopyWithImpl(this._self, this._then);
+
+  final SetInstance _self;
+  final $Res Function(SetInstance) _then;
 
   /// Create a copy of SettingsEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? instanceApi = null,
   }) {
-    return _then(_$SetInstanceImpl(
+    return _then(SetInstance(
       instanceApi: null == instanceApi
-          ? _value.instanceApi
+          ? _self.instanceApi
           : instanceApi // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -4370,351 +2322,61 @@ class __$$SetInstanceImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SetInstanceImpl implements SetInstance {
-  _$SetInstanceImpl({required this.instanceApi});
+class SetYTService implements SettingsEvent {
+  const SetYTService({required this.service});
 
-  @override
-  final String instanceApi;
+  final YouTubeServices service;
 
-  @override
-  String toString() {
-    return 'SettingsEvent.setInstance(instanceApi: $instanceApi)';
-  }
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $SetYTServiceCopyWith<SetYTService> get copyWith =>
+      _$SetYTServiceCopyWithImpl<SetYTService>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SetInstanceImpl &&
-            (identical(other.instanceApi, instanceApi) ||
-                other.instanceApi == instanceApi));
+            other is SetYTService &&
+            (identical(other.service, service) || other.service == service));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, instanceApi);
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SetInstanceImplCopyWith<_$SetInstanceImpl> get copyWith =>
-      __$$SetInstanceImplCopyWithImpl<_$SetInstanceImpl>(this, _$identity);
+  int get hashCode => Object.hash(runtimeType, service);
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initializeSettings,
-    required TResult Function(String? language) getDefaultLanguage,
-    required TResult Function(String? quality) getDefaultQuality,
-    required TResult Function(String? region) getDefaultRegion,
-    required TResult Function(String themeMode) changeTheme,
-    required TResult Function() toggleHistoryVisibility,
-    required TResult Function() toggleDislikeVisibility,
-    required TResult Function() toggleHlsPlayer,
-    required TResult Function() toggleCommentVisibility,
-    required TResult Function() toggleRelatedVideoVisibility,
-    required TResult Function(bool forceRefresh) fetchPipedInstances,
-    required TResult Function(bool forceRefresh) fetchInvidiousInstances,
-    required TResult Function(String instanceApi) setInstance,
-    required TResult Function(YouTubeServices service) setYTService,
-    required TResult Function() togglePipPlayer,
-    required TResult Function(String filter) setSearchFilter,
-    required TResult Function(String fitMode) setVideoFitMode,
-    required TResult Function(int seconds) setSkipInterval,
-    required TResult Function() toggleSponsorBlock,
-    required TResult Function(List<String> categories)
-        setSponsorBlockCategories,
-    required TResult Function() toggleOpenLinksInBrowser,
-    required TResult Function(String mode) setHomeFeedMode,
-    required TResult Function() toggleAudioFocus,
-    required TResult Function(String profileName) addProfile,
-    required TResult Function(String profileName) deleteProfile,
-    required TResult Function(String profileName) switchProfile,
-    required TResult Function(String oldName, String newName) renameProfile,
-    required TResult Function(String profileName) exportSubscriptions,
-    required TResult Function(String filePath, String profileName)
-        importSubscriptions,
-    required TResult Function(double size) setSubtitleSize,
-    required TResult Function() toggleSearchHistoryEnabled,
-    required TResult Function() toggleSearchHistoryVisibility,
-    required TResult Function(String filePath) setLastExportedFilePath,
-    required TResult Function() toggleAutoPip,
-  }) {
-    return setInstance(instanceApi);
+  String toString() {
+    return 'SettingsEvent.setYTService(service: $service)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initializeSettings,
-    TResult? Function(String? language)? getDefaultLanguage,
-    TResult? Function(String? quality)? getDefaultQuality,
-    TResult? Function(String? region)? getDefaultRegion,
-    TResult? Function(String themeMode)? changeTheme,
-    TResult? Function()? toggleHistoryVisibility,
-    TResult? Function()? toggleDislikeVisibility,
-    TResult? Function()? toggleHlsPlayer,
-    TResult? Function()? toggleCommentVisibility,
-    TResult? Function()? toggleRelatedVideoVisibility,
-    TResult? Function(bool forceRefresh)? fetchPipedInstances,
-    TResult? Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult? Function(String instanceApi)? setInstance,
-    TResult? Function(YouTubeServices service)? setYTService,
-    TResult? Function()? togglePipPlayer,
-    TResult? Function(String filter)? setSearchFilter,
-    TResult? Function(String fitMode)? setVideoFitMode,
-    TResult? Function(int seconds)? setSkipInterval,
-    TResult? Function()? toggleSponsorBlock,
-    TResult? Function(List<String> categories)? setSponsorBlockCategories,
-    TResult? Function()? toggleOpenLinksInBrowser,
-    TResult? Function(String mode)? setHomeFeedMode,
-    TResult? Function()? toggleAudioFocus,
-    TResult? Function(String profileName)? addProfile,
-    TResult? Function(String profileName)? deleteProfile,
-    TResult? Function(String profileName)? switchProfile,
-    TResult? Function(String oldName, String newName)? renameProfile,
-    TResult? Function(String profileName)? exportSubscriptions,
-    TResult? Function(String filePath, String profileName)? importSubscriptions,
-    TResult? Function(double size)? setSubtitleSize,
-    TResult? Function()? toggleSearchHistoryEnabled,
-    TResult? Function()? toggleSearchHistoryVisibility,
-    TResult? Function(String filePath)? setLastExportedFilePath,
-    TResult? Function()? toggleAutoPip,
-  }) {
-    return setInstance?.call(instanceApi);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initializeSettings,
-    TResult Function(String? language)? getDefaultLanguage,
-    TResult Function(String? quality)? getDefaultQuality,
-    TResult Function(String? region)? getDefaultRegion,
-    TResult Function(String themeMode)? changeTheme,
-    TResult Function()? toggleHistoryVisibility,
-    TResult Function()? toggleDislikeVisibility,
-    TResult Function()? toggleHlsPlayer,
-    TResult Function()? toggleCommentVisibility,
-    TResult Function()? toggleRelatedVideoVisibility,
-    TResult Function(bool forceRefresh)? fetchPipedInstances,
-    TResult Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult Function(String instanceApi)? setInstance,
-    TResult Function(YouTubeServices service)? setYTService,
-    TResult Function()? togglePipPlayer,
-    TResult Function(String filter)? setSearchFilter,
-    TResult Function(String fitMode)? setVideoFitMode,
-    TResult Function(int seconds)? setSkipInterval,
-    TResult Function()? toggleSponsorBlock,
-    TResult Function(List<String> categories)? setSponsorBlockCategories,
-    TResult Function()? toggleOpenLinksInBrowser,
-    TResult Function(String mode)? setHomeFeedMode,
-    TResult Function()? toggleAudioFocus,
-    TResult Function(String profileName)? addProfile,
-    TResult Function(String profileName)? deleteProfile,
-    TResult Function(String profileName)? switchProfile,
-    TResult Function(String oldName, String newName)? renameProfile,
-    TResult Function(String profileName)? exportSubscriptions,
-    TResult Function(String filePath, String profileName)? importSubscriptions,
-    TResult Function(double size)? setSubtitleSize,
-    TResult Function()? toggleSearchHistoryEnabled,
-    TResult Function()? toggleSearchHistoryVisibility,
-    TResult Function(String filePath)? setLastExportedFilePath,
-    TResult Function()? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (setInstance != null) {
-      return setInstance(instanceApi);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(InitializeSettings value) initializeSettings,
-    required TResult Function(GetDefaultLanguage value) getDefaultLanguage,
-    required TResult Function(GetDefaultQuality value) getDefaultQuality,
-    required TResult Function(GetDefaultRegion value) getDefaultRegion,
-    required TResult Function(ChangeTheme value) changeTheme,
-    required TResult Function(ToggleHistoryVisibility value)
-        toggleHistoryVisibility,
-    required TResult Function(ToggleDislikeVisibility value)
-        toggleDislikeVisibility,
-    required TResult Function(ToggleHlsPlayer value) toggleHlsPlayer,
-    required TResult Function(ToggleCommentVisibility value)
-        toggleCommentVisibility,
-    required TResult Function(ToggleRelatedVideoVisibility value)
-        toggleRelatedVideoVisibility,
-    required TResult Function(FetchPipedInstances value) fetchPipedInstances,
-    required TResult Function(FetchInvidiousInstances value)
-        fetchInvidiousInstances,
-    required TResult Function(SetInstance value) setInstance,
-    required TResult Function(SetYTService value) setYTService,
-    required TResult Function(TogglePipPlayer value) togglePipPlayer,
-    required TResult Function(SetSearchFilter value) setSearchFilter,
-    required TResult Function(SetVideoFitMode value) setVideoFitMode,
-    required TResult Function(SetSkipInterval value) setSkipInterval,
-    required TResult Function(ToggleSponsorBlock value) toggleSponsorBlock,
-    required TResult Function(SetSponsorBlockCategories value)
-        setSponsorBlockCategories,
-    required TResult Function(ToggleOpenLinksInBrowser value)
-        toggleOpenLinksInBrowser,
-    required TResult Function(SetHomeFeedMode value) setHomeFeedMode,
-    required TResult Function(ToggleAudioFocus value) toggleAudioFocus,
-    required TResult Function(AddProfile value) addProfile,
-    required TResult Function(DeleteProfile value) deleteProfile,
-    required TResult Function(SwitchProfile value) switchProfile,
-    required TResult Function(RenameProfile value) renameProfile,
-    required TResult Function(ExportSubscriptions value) exportSubscriptions,
-    required TResult Function(ImportSubscriptions value) importSubscriptions,
-    required TResult Function(SetSubtitleSize value) setSubtitleSize,
-    required TResult Function(ToggleSearchHistoryEnabled value)
-        toggleSearchHistoryEnabled,
-    required TResult Function(ToggleSearchHistoryVisibility value)
-        toggleSearchHistoryVisibility,
-    required TResult Function(SetLastExportedFilePath value)
-        setLastExportedFilePath,
-    required TResult Function(ToggleAutoPip value) toggleAutoPip,
-  }) {
-    return setInstance(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InitializeSettings value)? initializeSettings,
-    TResult? Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult? Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult? Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult? Function(ChangeTheme value)? changeTheme,
-    TResult? Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult? Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult? Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult? Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult? Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult? Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult? Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult? Function(SetInstance value)? setInstance,
-    TResult? Function(SetYTService value)? setYTService,
-    TResult? Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult? Function(SetSearchFilter value)? setSearchFilter,
-    TResult? Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult? Function(SetSkipInterval value)? setSkipInterval,
-    TResult? Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult? Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult? Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult? Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult? Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult? Function(AddProfile value)? addProfile,
-    TResult? Function(DeleteProfile value)? deleteProfile,
-    TResult? Function(SwitchProfile value)? switchProfile,
-    TResult? Function(RenameProfile value)? renameProfile,
-    TResult? Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult? Function(ImportSubscriptions value)? importSubscriptions,
-    TResult? Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult? Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult? Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult? Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult? Function(ToggleAutoPip value)? toggleAutoPip,
-  }) {
-    return setInstance?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitializeSettings value)? initializeSettings,
-    TResult Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult Function(ChangeTheme value)? changeTheme,
-    TResult Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult Function(SetInstance value)? setInstance,
-    TResult Function(SetYTService value)? setYTService,
-    TResult Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult Function(SetSearchFilter value)? setSearchFilter,
-    TResult Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult Function(SetSkipInterval value)? setSkipInterval,
-    TResult Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult Function(AddProfile value)? addProfile,
-    TResult Function(DeleteProfile value)? deleteProfile,
-    TResult Function(SwitchProfile value)? switchProfile,
-    TResult Function(RenameProfile value)? renameProfile,
-    TResult Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult Function(ImportSubscriptions value)? importSubscriptions,
-    TResult Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult Function(ToggleAutoPip value)? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (setInstance != null) {
-      return setInstance(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class SetInstance implements SettingsEvent {
-  factory SetInstance({required final String instanceApi}) = _$SetInstanceImpl;
-
-  String get instanceApi;
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SetInstanceImplCopyWith<_$SetInstanceImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SetYTServiceImplCopyWith<$Res> {
-  factory _$$SetYTServiceImplCopyWith(
-          _$SetYTServiceImpl value, $Res Function(_$SetYTServiceImpl) then) =
-      __$$SetYTServiceImplCopyWithImpl<$Res>;
+abstract mixin class $SetYTServiceCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $SetYTServiceCopyWith(
+          SetYTService value, $Res Function(SetYTService) _then) =
+      _$SetYTServiceCopyWithImpl;
   @useResult
   $Res call({YouTubeServices service});
 }
 
 /// @nodoc
-class __$$SetYTServiceImplCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res, _$SetYTServiceImpl>
-    implements _$$SetYTServiceImplCopyWith<$Res> {
-  __$$SetYTServiceImplCopyWithImpl(
-      _$SetYTServiceImpl _value, $Res Function(_$SetYTServiceImpl) _then)
-      : super(_value, _then);
+class _$SetYTServiceCopyWithImpl<$Res> implements $SetYTServiceCopyWith<$Res> {
+  _$SetYTServiceCopyWithImpl(this._self, this._then);
+
+  final SetYTService _self;
+  final $Res Function(SetYTService) _then;
 
   /// Create a copy of SettingsEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? service = null,
   }) {
-    return _then(_$SetYTServiceImpl(
+    return _then(SetYTService(
       service: null == service
-          ? _value.service
+          ? _self.service
           : service // ignore: cast_nullable_to_non_nullable
               as YouTubeServices,
     ));
@@ -4723,668 +2385,127 @@ class __$$SetYTServiceImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SetYTServiceImpl implements SetYTService {
-  _$SetYTServiceImpl({required this.service});
+class TogglePipPlayer implements SettingsEvent {
+  const TogglePipPlayer({required this.isPipDisabled});
 
-  @override
-  final YouTubeServices service;
+  final bool isPipDisabled;
 
-  @override
-  String toString() {
-    return 'SettingsEvent.setYTService(service: $service)';
-  }
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $TogglePipPlayerCopyWith<TogglePipPlayer> get copyWith =>
+      _$TogglePipPlayerCopyWithImpl<TogglePipPlayer>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SetYTServiceImpl &&
-            (identical(other.service, service) || other.service == service));
+            other is TogglePipPlayer &&
+            (identical(other.isPipDisabled, isPipDisabled) ||
+                other.isPipDisabled == isPipDisabled));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, service);
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SetYTServiceImplCopyWith<_$SetYTServiceImpl> get copyWith =>
-      __$$SetYTServiceImplCopyWithImpl<_$SetYTServiceImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initializeSettings,
-    required TResult Function(String? language) getDefaultLanguage,
-    required TResult Function(String? quality) getDefaultQuality,
-    required TResult Function(String? region) getDefaultRegion,
-    required TResult Function(String themeMode) changeTheme,
-    required TResult Function() toggleHistoryVisibility,
-    required TResult Function() toggleDislikeVisibility,
-    required TResult Function() toggleHlsPlayer,
-    required TResult Function() toggleCommentVisibility,
-    required TResult Function() toggleRelatedVideoVisibility,
-    required TResult Function(bool forceRefresh) fetchPipedInstances,
-    required TResult Function(bool forceRefresh) fetchInvidiousInstances,
-    required TResult Function(String instanceApi) setInstance,
-    required TResult Function(YouTubeServices service) setYTService,
-    required TResult Function() togglePipPlayer,
-    required TResult Function(String filter) setSearchFilter,
-    required TResult Function(String fitMode) setVideoFitMode,
-    required TResult Function(int seconds) setSkipInterval,
-    required TResult Function() toggleSponsorBlock,
-    required TResult Function(List<String> categories)
-        setSponsorBlockCategories,
-    required TResult Function() toggleOpenLinksInBrowser,
-    required TResult Function(String mode) setHomeFeedMode,
-    required TResult Function() toggleAudioFocus,
-    required TResult Function(String profileName) addProfile,
-    required TResult Function(String profileName) deleteProfile,
-    required TResult Function(String profileName) switchProfile,
-    required TResult Function(String oldName, String newName) renameProfile,
-    required TResult Function(String profileName) exportSubscriptions,
-    required TResult Function(String filePath, String profileName)
-        importSubscriptions,
-    required TResult Function(double size) setSubtitleSize,
-    required TResult Function() toggleSearchHistoryEnabled,
-    required TResult Function() toggleSearchHistoryVisibility,
-    required TResult Function(String filePath) setLastExportedFilePath,
-    required TResult Function() toggleAutoPip,
-  }) {
-    return setYTService(service);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initializeSettings,
-    TResult? Function(String? language)? getDefaultLanguage,
-    TResult? Function(String? quality)? getDefaultQuality,
-    TResult? Function(String? region)? getDefaultRegion,
-    TResult? Function(String themeMode)? changeTheme,
-    TResult? Function()? toggleHistoryVisibility,
-    TResult? Function()? toggleDislikeVisibility,
-    TResult? Function()? toggleHlsPlayer,
-    TResult? Function()? toggleCommentVisibility,
-    TResult? Function()? toggleRelatedVideoVisibility,
-    TResult? Function(bool forceRefresh)? fetchPipedInstances,
-    TResult? Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult? Function(String instanceApi)? setInstance,
-    TResult? Function(YouTubeServices service)? setYTService,
-    TResult? Function()? togglePipPlayer,
-    TResult? Function(String filter)? setSearchFilter,
-    TResult? Function(String fitMode)? setVideoFitMode,
-    TResult? Function(int seconds)? setSkipInterval,
-    TResult? Function()? toggleSponsorBlock,
-    TResult? Function(List<String> categories)? setSponsorBlockCategories,
-    TResult? Function()? toggleOpenLinksInBrowser,
-    TResult? Function(String mode)? setHomeFeedMode,
-    TResult? Function()? toggleAudioFocus,
-    TResult? Function(String profileName)? addProfile,
-    TResult? Function(String profileName)? deleteProfile,
-    TResult? Function(String profileName)? switchProfile,
-    TResult? Function(String oldName, String newName)? renameProfile,
-    TResult? Function(String profileName)? exportSubscriptions,
-    TResult? Function(String filePath, String profileName)? importSubscriptions,
-    TResult? Function(double size)? setSubtitleSize,
-    TResult? Function()? toggleSearchHistoryEnabled,
-    TResult? Function()? toggleSearchHistoryVisibility,
-    TResult? Function(String filePath)? setLastExportedFilePath,
-    TResult? Function()? toggleAutoPip,
-  }) {
-    return setYTService?.call(service);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initializeSettings,
-    TResult Function(String? language)? getDefaultLanguage,
-    TResult Function(String? quality)? getDefaultQuality,
-    TResult Function(String? region)? getDefaultRegion,
-    TResult Function(String themeMode)? changeTheme,
-    TResult Function()? toggleHistoryVisibility,
-    TResult Function()? toggleDislikeVisibility,
-    TResult Function()? toggleHlsPlayer,
-    TResult Function()? toggleCommentVisibility,
-    TResult Function()? toggleRelatedVideoVisibility,
-    TResult Function(bool forceRefresh)? fetchPipedInstances,
-    TResult Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult Function(String instanceApi)? setInstance,
-    TResult Function(YouTubeServices service)? setYTService,
-    TResult Function()? togglePipPlayer,
-    TResult Function(String filter)? setSearchFilter,
-    TResult Function(String fitMode)? setVideoFitMode,
-    TResult Function(int seconds)? setSkipInterval,
-    TResult Function()? toggleSponsorBlock,
-    TResult Function(List<String> categories)? setSponsorBlockCategories,
-    TResult Function()? toggleOpenLinksInBrowser,
-    TResult Function(String mode)? setHomeFeedMode,
-    TResult Function()? toggleAudioFocus,
-    TResult Function(String profileName)? addProfile,
-    TResult Function(String profileName)? deleteProfile,
-    TResult Function(String profileName)? switchProfile,
-    TResult Function(String oldName, String newName)? renameProfile,
-    TResult Function(String profileName)? exportSubscriptions,
-    TResult Function(String filePath, String profileName)? importSubscriptions,
-    TResult Function(double size)? setSubtitleSize,
-    TResult Function()? toggleSearchHistoryEnabled,
-    TResult Function()? toggleSearchHistoryVisibility,
-    TResult Function(String filePath)? setLastExportedFilePath,
-    TResult Function()? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (setYTService != null) {
-      return setYTService(service);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(InitializeSettings value) initializeSettings,
-    required TResult Function(GetDefaultLanguage value) getDefaultLanguage,
-    required TResult Function(GetDefaultQuality value) getDefaultQuality,
-    required TResult Function(GetDefaultRegion value) getDefaultRegion,
-    required TResult Function(ChangeTheme value) changeTheme,
-    required TResult Function(ToggleHistoryVisibility value)
-        toggleHistoryVisibility,
-    required TResult Function(ToggleDislikeVisibility value)
-        toggleDislikeVisibility,
-    required TResult Function(ToggleHlsPlayer value) toggleHlsPlayer,
-    required TResult Function(ToggleCommentVisibility value)
-        toggleCommentVisibility,
-    required TResult Function(ToggleRelatedVideoVisibility value)
-        toggleRelatedVideoVisibility,
-    required TResult Function(FetchPipedInstances value) fetchPipedInstances,
-    required TResult Function(FetchInvidiousInstances value)
-        fetchInvidiousInstances,
-    required TResult Function(SetInstance value) setInstance,
-    required TResult Function(SetYTService value) setYTService,
-    required TResult Function(TogglePipPlayer value) togglePipPlayer,
-    required TResult Function(SetSearchFilter value) setSearchFilter,
-    required TResult Function(SetVideoFitMode value) setVideoFitMode,
-    required TResult Function(SetSkipInterval value) setSkipInterval,
-    required TResult Function(ToggleSponsorBlock value) toggleSponsorBlock,
-    required TResult Function(SetSponsorBlockCategories value)
-        setSponsorBlockCategories,
-    required TResult Function(ToggleOpenLinksInBrowser value)
-        toggleOpenLinksInBrowser,
-    required TResult Function(SetHomeFeedMode value) setHomeFeedMode,
-    required TResult Function(ToggleAudioFocus value) toggleAudioFocus,
-    required TResult Function(AddProfile value) addProfile,
-    required TResult Function(DeleteProfile value) deleteProfile,
-    required TResult Function(SwitchProfile value) switchProfile,
-    required TResult Function(RenameProfile value) renameProfile,
-    required TResult Function(ExportSubscriptions value) exportSubscriptions,
-    required TResult Function(ImportSubscriptions value) importSubscriptions,
-    required TResult Function(SetSubtitleSize value) setSubtitleSize,
-    required TResult Function(ToggleSearchHistoryEnabled value)
-        toggleSearchHistoryEnabled,
-    required TResult Function(ToggleSearchHistoryVisibility value)
-        toggleSearchHistoryVisibility,
-    required TResult Function(SetLastExportedFilePath value)
-        setLastExportedFilePath,
-    required TResult Function(ToggleAutoPip value) toggleAutoPip,
-  }) {
-    return setYTService(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InitializeSettings value)? initializeSettings,
-    TResult? Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult? Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult? Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult? Function(ChangeTheme value)? changeTheme,
-    TResult? Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult? Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult? Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult? Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult? Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult? Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult? Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult? Function(SetInstance value)? setInstance,
-    TResult? Function(SetYTService value)? setYTService,
-    TResult? Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult? Function(SetSearchFilter value)? setSearchFilter,
-    TResult? Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult? Function(SetSkipInterval value)? setSkipInterval,
-    TResult? Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult? Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult? Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult? Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult? Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult? Function(AddProfile value)? addProfile,
-    TResult? Function(DeleteProfile value)? deleteProfile,
-    TResult? Function(SwitchProfile value)? switchProfile,
-    TResult? Function(RenameProfile value)? renameProfile,
-    TResult? Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult? Function(ImportSubscriptions value)? importSubscriptions,
-    TResult? Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult? Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult? Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult? Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult? Function(ToggleAutoPip value)? toggleAutoPip,
-  }) {
-    return setYTService?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitializeSettings value)? initializeSettings,
-    TResult Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult Function(ChangeTheme value)? changeTheme,
-    TResult Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult Function(SetInstance value)? setInstance,
-    TResult Function(SetYTService value)? setYTService,
-    TResult Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult Function(SetSearchFilter value)? setSearchFilter,
-    TResult Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult Function(SetSkipInterval value)? setSkipInterval,
-    TResult Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult Function(AddProfile value)? addProfile,
-    TResult Function(DeleteProfile value)? deleteProfile,
-    TResult Function(SwitchProfile value)? switchProfile,
-    TResult Function(RenameProfile value)? renameProfile,
-    TResult Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult Function(ImportSubscriptions value)? importSubscriptions,
-    TResult Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult Function(ToggleAutoPip value)? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (setYTService != null) {
-      return setYTService(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class SetYTService implements SettingsEvent {
-  factory SetYTService({required final YouTubeServices service}) =
-      _$SetYTServiceImpl;
-
-  YouTubeServices get service;
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SetYTServiceImplCopyWith<_$SetYTServiceImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$TogglePipPlayerImplCopyWith<$Res> {
-  factory _$$TogglePipPlayerImplCopyWith(_$TogglePipPlayerImpl value,
-          $Res Function(_$TogglePipPlayerImpl) then) =
-      __$$TogglePipPlayerImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$TogglePipPlayerImplCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res, _$TogglePipPlayerImpl>
-    implements _$$TogglePipPlayerImplCopyWith<$Res> {
-  __$$TogglePipPlayerImplCopyWithImpl(
-      _$TogglePipPlayerImpl _value, $Res Function(_$TogglePipPlayerImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$TogglePipPlayerImpl implements TogglePipPlayer {
-  _$TogglePipPlayerImpl();
+  int get hashCode => Object.hash(runtimeType, isPipDisabled);
 
   @override
   String toString() {
-    return 'SettingsEvent.togglePipPlayer()';
+    return 'SettingsEvent.togglePipPlayer(isPipDisabled: $isPipDisabled)';
   }
+}
+
+/// @nodoc
+abstract mixin class $TogglePipPlayerCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $TogglePipPlayerCopyWith(
+          TogglePipPlayer value, $Res Function(TogglePipPlayer) _then) =
+      _$TogglePipPlayerCopyWithImpl;
+  @useResult
+  $Res call({bool isPipDisabled});
+}
+
+/// @nodoc
+class _$TogglePipPlayerCopyWithImpl<$Res>
+    implements $TogglePipPlayerCopyWith<$Res> {
+  _$TogglePipPlayerCopyWithImpl(this._self, this._then);
+
+  final TogglePipPlayer _self;
+  final $Res Function(TogglePipPlayer) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? isPipDisabled = null,
+  }) {
+    return _then(TogglePipPlayer(
+      isPipDisabled: null == isPipDisabled
+          ? _self.isPipDisabled
+          : isPipDisabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class SetSearchFilter implements SettingsEvent {
+  const SetSearchFilter({required this.filter});
+
+  final String filter;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $SetSearchFilterCopyWith<SetSearchFilter> get copyWith =>
+      _$SetSearchFilterCopyWithImpl<SetSearchFilter>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$TogglePipPlayerImpl);
+        (other.runtimeType == runtimeType &&
+            other is SetSearchFilter &&
+            (identical(other.filter, filter) || other.filter == filter));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, filter);
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initializeSettings,
-    required TResult Function(String? language) getDefaultLanguage,
-    required TResult Function(String? quality) getDefaultQuality,
-    required TResult Function(String? region) getDefaultRegion,
-    required TResult Function(String themeMode) changeTheme,
-    required TResult Function() toggleHistoryVisibility,
-    required TResult Function() toggleDislikeVisibility,
-    required TResult Function() toggleHlsPlayer,
-    required TResult Function() toggleCommentVisibility,
-    required TResult Function() toggleRelatedVideoVisibility,
-    required TResult Function(bool forceRefresh) fetchPipedInstances,
-    required TResult Function(bool forceRefresh) fetchInvidiousInstances,
-    required TResult Function(String instanceApi) setInstance,
-    required TResult Function(YouTubeServices service) setYTService,
-    required TResult Function() togglePipPlayer,
-    required TResult Function(String filter) setSearchFilter,
-    required TResult Function(String fitMode) setVideoFitMode,
-    required TResult Function(int seconds) setSkipInterval,
-    required TResult Function() toggleSponsorBlock,
-    required TResult Function(List<String> categories)
-        setSponsorBlockCategories,
-    required TResult Function() toggleOpenLinksInBrowser,
-    required TResult Function(String mode) setHomeFeedMode,
-    required TResult Function() toggleAudioFocus,
-    required TResult Function(String profileName) addProfile,
-    required TResult Function(String profileName) deleteProfile,
-    required TResult Function(String profileName) switchProfile,
-    required TResult Function(String oldName, String newName) renameProfile,
-    required TResult Function(String profileName) exportSubscriptions,
-    required TResult Function(String filePath, String profileName)
-        importSubscriptions,
-    required TResult Function(double size) setSubtitleSize,
-    required TResult Function() toggleSearchHistoryEnabled,
-    required TResult Function() toggleSearchHistoryVisibility,
-    required TResult Function(String filePath) setLastExportedFilePath,
-    required TResult Function() toggleAutoPip,
-  }) {
-    return togglePipPlayer();
+  String toString() {
+    return 'SettingsEvent.setSearchFilter(filter: $filter)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initializeSettings,
-    TResult? Function(String? language)? getDefaultLanguage,
-    TResult? Function(String? quality)? getDefaultQuality,
-    TResult? Function(String? region)? getDefaultRegion,
-    TResult? Function(String themeMode)? changeTheme,
-    TResult? Function()? toggleHistoryVisibility,
-    TResult? Function()? toggleDislikeVisibility,
-    TResult? Function()? toggleHlsPlayer,
-    TResult? Function()? toggleCommentVisibility,
-    TResult? Function()? toggleRelatedVideoVisibility,
-    TResult? Function(bool forceRefresh)? fetchPipedInstances,
-    TResult? Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult? Function(String instanceApi)? setInstance,
-    TResult? Function(YouTubeServices service)? setYTService,
-    TResult? Function()? togglePipPlayer,
-    TResult? Function(String filter)? setSearchFilter,
-    TResult? Function(String fitMode)? setVideoFitMode,
-    TResult? Function(int seconds)? setSkipInterval,
-    TResult? Function()? toggleSponsorBlock,
-    TResult? Function(List<String> categories)? setSponsorBlockCategories,
-    TResult? Function()? toggleOpenLinksInBrowser,
-    TResult? Function(String mode)? setHomeFeedMode,
-    TResult? Function()? toggleAudioFocus,
-    TResult? Function(String profileName)? addProfile,
-    TResult? Function(String profileName)? deleteProfile,
-    TResult? Function(String profileName)? switchProfile,
-    TResult? Function(String oldName, String newName)? renameProfile,
-    TResult? Function(String profileName)? exportSubscriptions,
-    TResult? Function(String filePath, String profileName)? importSubscriptions,
-    TResult? Function(double size)? setSubtitleSize,
-    TResult? Function()? toggleSearchHistoryEnabled,
-    TResult? Function()? toggleSearchHistoryVisibility,
-    TResult? Function(String filePath)? setLastExportedFilePath,
-    TResult? Function()? toggleAutoPip,
-  }) {
-    return togglePipPlayer?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initializeSettings,
-    TResult Function(String? language)? getDefaultLanguage,
-    TResult Function(String? quality)? getDefaultQuality,
-    TResult Function(String? region)? getDefaultRegion,
-    TResult Function(String themeMode)? changeTheme,
-    TResult Function()? toggleHistoryVisibility,
-    TResult Function()? toggleDislikeVisibility,
-    TResult Function()? toggleHlsPlayer,
-    TResult Function()? toggleCommentVisibility,
-    TResult Function()? toggleRelatedVideoVisibility,
-    TResult Function(bool forceRefresh)? fetchPipedInstances,
-    TResult Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult Function(String instanceApi)? setInstance,
-    TResult Function(YouTubeServices service)? setYTService,
-    TResult Function()? togglePipPlayer,
-    TResult Function(String filter)? setSearchFilter,
-    TResult Function(String fitMode)? setVideoFitMode,
-    TResult Function(int seconds)? setSkipInterval,
-    TResult Function()? toggleSponsorBlock,
-    TResult Function(List<String> categories)? setSponsorBlockCategories,
-    TResult Function()? toggleOpenLinksInBrowser,
-    TResult Function(String mode)? setHomeFeedMode,
-    TResult Function()? toggleAudioFocus,
-    TResult Function(String profileName)? addProfile,
-    TResult Function(String profileName)? deleteProfile,
-    TResult Function(String profileName)? switchProfile,
-    TResult Function(String oldName, String newName)? renameProfile,
-    TResult Function(String profileName)? exportSubscriptions,
-    TResult Function(String filePath, String profileName)? importSubscriptions,
-    TResult Function(double size)? setSubtitleSize,
-    TResult Function()? toggleSearchHistoryEnabled,
-    TResult Function()? toggleSearchHistoryVisibility,
-    TResult Function(String filePath)? setLastExportedFilePath,
-    TResult Function()? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (togglePipPlayer != null) {
-      return togglePipPlayer();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(InitializeSettings value) initializeSettings,
-    required TResult Function(GetDefaultLanguage value) getDefaultLanguage,
-    required TResult Function(GetDefaultQuality value) getDefaultQuality,
-    required TResult Function(GetDefaultRegion value) getDefaultRegion,
-    required TResult Function(ChangeTheme value) changeTheme,
-    required TResult Function(ToggleHistoryVisibility value)
-        toggleHistoryVisibility,
-    required TResult Function(ToggleDislikeVisibility value)
-        toggleDislikeVisibility,
-    required TResult Function(ToggleHlsPlayer value) toggleHlsPlayer,
-    required TResult Function(ToggleCommentVisibility value)
-        toggleCommentVisibility,
-    required TResult Function(ToggleRelatedVideoVisibility value)
-        toggleRelatedVideoVisibility,
-    required TResult Function(FetchPipedInstances value) fetchPipedInstances,
-    required TResult Function(FetchInvidiousInstances value)
-        fetchInvidiousInstances,
-    required TResult Function(SetInstance value) setInstance,
-    required TResult Function(SetYTService value) setYTService,
-    required TResult Function(TogglePipPlayer value) togglePipPlayer,
-    required TResult Function(SetSearchFilter value) setSearchFilter,
-    required TResult Function(SetVideoFitMode value) setVideoFitMode,
-    required TResult Function(SetSkipInterval value) setSkipInterval,
-    required TResult Function(ToggleSponsorBlock value) toggleSponsorBlock,
-    required TResult Function(SetSponsorBlockCategories value)
-        setSponsorBlockCategories,
-    required TResult Function(ToggleOpenLinksInBrowser value)
-        toggleOpenLinksInBrowser,
-    required TResult Function(SetHomeFeedMode value) setHomeFeedMode,
-    required TResult Function(ToggleAudioFocus value) toggleAudioFocus,
-    required TResult Function(AddProfile value) addProfile,
-    required TResult Function(DeleteProfile value) deleteProfile,
-    required TResult Function(SwitchProfile value) switchProfile,
-    required TResult Function(RenameProfile value) renameProfile,
-    required TResult Function(ExportSubscriptions value) exportSubscriptions,
-    required TResult Function(ImportSubscriptions value) importSubscriptions,
-    required TResult Function(SetSubtitleSize value) setSubtitleSize,
-    required TResult Function(ToggleSearchHistoryEnabled value)
-        toggleSearchHistoryEnabled,
-    required TResult Function(ToggleSearchHistoryVisibility value)
-        toggleSearchHistoryVisibility,
-    required TResult Function(SetLastExportedFilePath value)
-        setLastExportedFilePath,
-    required TResult Function(ToggleAutoPip value) toggleAutoPip,
-  }) {
-    return togglePipPlayer(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InitializeSettings value)? initializeSettings,
-    TResult? Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult? Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult? Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult? Function(ChangeTheme value)? changeTheme,
-    TResult? Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult? Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult? Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult? Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult? Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult? Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult? Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult? Function(SetInstance value)? setInstance,
-    TResult? Function(SetYTService value)? setYTService,
-    TResult? Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult? Function(SetSearchFilter value)? setSearchFilter,
-    TResult? Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult? Function(SetSkipInterval value)? setSkipInterval,
-    TResult? Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult? Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult? Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult? Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult? Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult? Function(AddProfile value)? addProfile,
-    TResult? Function(DeleteProfile value)? deleteProfile,
-    TResult? Function(SwitchProfile value)? switchProfile,
-    TResult? Function(RenameProfile value)? renameProfile,
-    TResult? Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult? Function(ImportSubscriptions value)? importSubscriptions,
-    TResult? Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult? Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult? Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult? Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult? Function(ToggleAutoPip value)? toggleAutoPip,
-  }) {
-    return togglePipPlayer?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitializeSettings value)? initializeSettings,
-    TResult Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult Function(ChangeTheme value)? changeTheme,
-    TResult Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult Function(SetInstance value)? setInstance,
-    TResult Function(SetYTService value)? setYTService,
-    TResult Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult Function(SetSearchFilter value)? setSearchFilter,
-    TResult Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult Function(SetSkipInterval value)? setSkipInterval,
-    TResult Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult Function(AddProfile value)? addProfile,
-    TResult Function(DeleteProfile value)? deleteProfile,
-    TResult Function(SwitchProfile value)? switchProfile,
-    TResult Function(RenameProfile value)? renameProfile,
-    TResult Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult Function(ImportSubscriptions value)? importSubscriptions,
-    TResult Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult Function(ToggleAutoPip value)? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (togglePipPlayer != null) {
-      return togglePipPlayer(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class TogglePipPlayer implements SettingsEvent {
-  factory TogglePipPlayer() = _$TogglePipPlayerImpl;
 }
 
 /// @nodoc
-abstract class _$$SetSearchFilterImplCopyWith<$Res> {
-  factory _$$SetSearchFilterImplCopyWith(_$SetSearchFilterImpl value,
-          $Res Function(_$SetSearchFilterImpl) then) =
-      __$$SetSearchFilterImplCopyWithImpl<$Res>;
+abstract mixin class $SetSearchFilterCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $SetSearchFilterCopyWith(
+          SetSearchFilter value, $Res Function(SetSearchFilter) _then) =
+      _$SetSearchFilterCopyWithImpl;
   @useResult
   $Res call({String filter});
 }
 
 /// @nodoc
-class __$$SetSearchFilterImplCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res, _$SetSearchFilterImpl>
-    implements _$$SetSearchFilterImplCopyWith<$Res> {
-  __$$SetSearchFilterImplCopyWithImpl(
-      _$SetSearchFilterImpl _value, $Res Function(_$SetSearchFilterImpl) _then)
-      : super(_value, _then);
+class _$SetSearchFilterCopyWithImpl<$Res>
+    implements $SetSearchFilterCopyWith<$Res> {
+  _$SetSearchFilterCopyWithImpl(this._self, this._then);
+
+  final SetSearchFilter _self;
+  final $Res Function(SetSearchFilter) _then;
 
   /// Create a copy of SettingsEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? filter = null,
   }) {
-    return _then(_$SetSearchFilterImpl(
+    return _then(SetSearchFilter(
       filter: null == filter
-          ? _value.filter
+          ? _self.filter
           : filter // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -5393,352 +2514,62 @@ class __$$SetSearchFilterImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SetSearchFilterImpl implements SetSearchFilter {
-  _$SetSearchFilterImpl({required this.filter});
+class SetVideoFitMode implements SettingsEvent {
+  const SetVideoFitMode({required this.fitMode});
 
-  @override
-  final String filter;
+  final String fitMode;
 
-  @override
-  String toString() {
-    return 'SettingsEvent.setSearchFilter(filter: $filter)';
-  }
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $SetVideoFitModeCopyWith<SetVideoFitMode> get copyWith =>
+      _$SetVideoFitModeCopyWithImpl<SetVideoFitMode>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SetSearchFilterImpl &&
-            (identical(other.filter, filter) || other.filter == filter));
+            other is SetVideoFitMode &&
+            (identical(other.fitMode, fitMode) || other.fitMode == fitMode));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, filter);
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SetSearchFilterImplCopyWith<_$SetSearchFilterImpl> get copyWith =>
-      __$$SetSearchFilterImplCopyWithImpl<_$SetSearchFilterImpl>(
-          this, _$identity);
+  int get hashCode => Object.hash(runtimeType, fitMode);
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initializeSettings,
-    required TResult Function(String? language) getDefaultLanguage,
-    required TResult Function(String? quality) getDefaultQuality,
-    required TResult Function(String? region) getDefaultRegion,
-    required TResult Function(String themeMode) changeTheme,
-    required TResult Function() toggleHistoryVisibility,
-    required TResult Function() toggleDislikeVisibility,
-    required TResult Function() toggleHlsPlayer,
-    required TResult Function() toggleCommentVisibility,
-    required TResult Function() toggleRelatedVideoVisibility,
-    required TResult Function(bool forceRefresh) fetchPipedInstances,
-    required TResult Function(bool forceRefresh) fetchInvidiousInstances,
-    required TResult Function(String instanceApi) setInstance,
-    required TResult Function(YouTubeServices service) setYTService,
-    required TResult Function() togglePipPlayer,
-    required TResult Function(String filter) setSearchFilter,
-    required TResult Function(String fitMode) setVideoFitMode,
-    required TResult Function(int seconds) setSkipInterval,
-    required TResult Function() toggleSponsorBlock,
-    required TResult Function(List<String> categories)
-        setSponsorBlockCategories,
-    required TResult Function() toggleOpenLinksInBrowser,
-    required TResult Function(String mode) setHomeFeedMode,
-    required TResult Function() toggleAudioFocus,
-    required TResult Function(String profileName) addProfile,
-    required TResult Function(String profileName) deleteProfile,
-    required TResult Function(String profileName) switchProfile,
-    required TResult Function(String oldName, String newName) renameProfile,
-    required TResult Function(String profileName) exportSubscriptions,
-    required TResult Function(String filePath, String profileName)
-        importSubscriptions,
-    required TResult Function(double size) setSubtitleSize,
-    required TResult Function() toggleSearchHistoryEnabled,
-    required TResult Function() toggleSearchHistoryVisibility,
-    required TResult Function(String filePath) setLastExportedFilePath,
-    required TResult Function() toggleAutoPip,
-  }) {
-    return setSearchFilter(filter);
+  String toString() {
+    return 'SettingsEvent.setVideoFitMode(fitMode: $fitMode)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initializeSettings,
-    TResult? Function(String? language)? getDefaultLanguage,
-    TResult? Function(String? quality)? getDefaultQuality,
-    TResult? Function(String? region)? getDefaultRegion,
-    TResult? Function(String themeMode)? changeTheme,
-    TResult? Function()? toggleHistoryVisibility,
-    TResult? Function()? toggleDislikeVisibility,
-    TResult? Function()? toggleHlsPlayer,
-    TResult? Function()? toggleCommentVisibility,
-    TResult? Function()? toggleRelatedVideoVisibility,
-    TResult? Function(bool forceRefresh)? fetchPipedInstances,
-    TResult? Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult? Function(String instanceApi)? setInstance,
-    TResult? Function(YouTubeServices service)? setYTService,
-    TResult? Function()? togglePipPlayer,
-    TResult? Function(String filter)? setSearchFilter,
-    TResult? Function(String fitMode)? setVideoFitMode,
-    TResult? Function(int seconds)? setSkipInterval,
-    TResult? Function()? toggleSponsorBlock,
-    TResult? Function(List<String> categories)? setSponsorBlockCategories,
-    TResult? Function()? toggleOpenLinksInBrowser,
-    TResult? Function(String mode)? setHomeFeedMode,
-    TResult? Function()? toggleAudioFocus,
-    TResult? Function(String profileName)? addProfile,
-    TResult? Function(String profileName)? deleteProfile,
-    TResult? Function(String profileName)? switchProfile,
-    TResult? Function(String oldName, String newName)? renameProfile,
-    TResult? Function(String profileName)? exportSubscriptions,
-    TResult? Function(String filePath, String profileName)? importSubscriptions,
-    TResult? Function(double size)? setSubtitleSize,
-    TResult? Function()? toggleSearchHistoryEnabled,
-    TResult? Function()? toggleSearchHistoryVisibility,
-    TResult? Function(String filePath)? setLastExportedFilePath,
-    TResult? Function()? toggleAutoPip,
-  }) {
-    return setSearchFilter?.call(filter);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initializeSettings,
-    TResult Function(String? language)? getDefaultLanguage,
-    TResult Function(String? quality)? getDefaultQuality,
-    TResult Function(String? region)? getDefaultRegion,
-    TResult Function(String themeMode)? changeTheme,
-    TResult Function()? toggleHistoryVisibility,
-    TResult Function()? toggleDislikeVisibility,
-    TResult Function()? toggleHlsPlayer,
-    TResult Function()? toggleCommentVisibility,
-    TResult Function()? toggleRelatedVideoVisibility,
-    TResult Function(bool forceRefresh)? fetchPipedInstances,
-    TResult Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult Function(String instanceApi)? setInstance,
-    TResult Function(YouTubeServices service)? setYTService,
-    TResult Function()? togglePipPlayer,
-    TResult Function(String filter)? setSearchFilter,
-    TResult Function(String fitMode)? setVideoFitMode,
-    TResult Function(int seconds)? setSkipInterval,
-    TResult Function()? toggleSponsorBlock,
-    TResult Function(List<String> categories)? setSponsorBlockCategories,
-    TResult Function()? toggleOpenLinksInBrowser,
-    TResult Function(String mode)? setHomeFeedMode,
-    TResult Function()? toggleAudioFocus,
-    TResult Function(String profileName)? addProfile,
-    TResult Function(String profileName)? deleteProfile,
-    TResult Function(String profileName)? switchProfile,
-    TResult Function(String oldName, String newName)? renameProfile,
-    TResult Function(String profileName)? exportSubscriptions,
-    TResult Function(String filePath, String profileName)? importSubscriptions,
-    TResult Function(double size)? setSubtitleSize,
-    TResult Function()? toggleSearchHistoryEnabled,
-    TResult Function()? toggleSearchHistoryVisibility,
-    TResult Function(String filePath)? setLastExportedFilePath,
-    TResult Function()? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (setSearchFilter != null) {
-      return setSearchFilter(filter);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(InitializeSettings value) initializeSettings,
-    required TResult Function(GetDefaultLanguage value) getDefaultLanguage,
-    required TResult Function(GetDefaultQuality value) getDefaultQuality,
-    required TResult Function(GetDefaultRegion value) getDefaultRegion,
-    required TResult Function(ChangeTheme value) changeTheme,
-    required TResult Function(ToggleHistoryVisibility value)
-        toggleHistoryVisibility,
-    required TResult Function(ToggleDislikeVisibility value)
-        toggleDislikeVisibility,
-    required TResult Function(ToggleHlsPlayer value) toggleHlsPlayer,
-    required TResult Function(ToggleCommentVisibility value)
-        toggleCommentVisibility,
-    required TResult Function(ToggleRelatedVideoVisibility value)
-        toggleRelatedVideoVisibility,
-    required TResult Function(FetchPipedInstances value) fetchPipedInstances,
-    required TResult Function(FetchInvidiousInstances value)
-        fetchInvidiousInstances,
-    required TResult Function(SetInstance value) setInstance,
-    required TResult Function(SetYTService value) setYTService,
-    required TResult Function(TogglePipPlayer value) togglePipPlayer,
-    required TResult Function(SetSearchFilter value) setSearchFilter,
-    required TResult Function(SetVideoFitMode value) setVideoFitMode,
-    required TResult Function(SetSkipInterval value) setSkipInterval,
-    required TResult Function(ToggleSponsorBlock value) toggleSponsorBlock,
-    required TResult Function(SetSponsorBlockCategories value)
-        setSponsorBlockCategories,
-    required TResult Function(ToggleOpenLinksInBrowser value)
-        toggleOpenLinksInBrowser,
-    required TResult Function(SetHomeFeedMode value) setHomeFeedMode,
-    required TResult Function(ToggleAudioFocus value) toggleAudioFocus,
-    required TResult Function(AddProfile value) addProfile,
-    required TResult Function(DeleteProfile value) deleteProfile,
-    required TResult Function(SwitchProfile value) switchProfile,
-    required TResult Function(RenameProfile value) renameProfile,
-    required TResult Function(ExportSubscriptions value) exportSubscriptions,
-    required TResult Function(ImportSubscriptions value) importSubscriptions,
-    required TResult Function(SetSubtitleSize value) setSubtitleSize,
-    required TResult Function(ToggleSearchHistoryEnabled value)
-        toggleSearchHistoryEnabled,
-    required TResult Function(ToggleSearchHistoryVisibility value)
-        toggleSearchHistoryVisibility,
-    required TResult Function(SetLastExportedFilePath value)
-        setLastExportedFilePath,
-    required TResult Function(ToggleAutoPip value) toggleAutoPip,
-  }) {
-    return setSearchFilter(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InitializeSettings value)? initializeSettings,
-    TResult? Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult? Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult? Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult? Function(ChangeTheme value)? changeTheme,
-    TResult? Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult? Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult? Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult? Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult? Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult? Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult? Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult? Function(SetInstance value)? setInstance,
-    TResult? Function(SetYTService value)? setYTService,
-    TResult? Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult? Function(SetSearchFilter value)? setSearchFilter,
-    TResult? Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult? Function(SetSkipInterval value)? setSkipInterval,
-    TResult? Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult? Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult? Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult? Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult? Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult? Function(AddProfile value)? addProfile,
-    TResult? Function(DeleteProfile value)? deleteProfile,
-    TResult? Function(SwitchProfile value)? switchProfile,
-    TResult? Function(RenameProfile value)? renameProfile,
-    TResult? Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult? Function(ImportSubscriptions value)? importSubscriptions,
-    TResult? Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult? Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult? Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult? Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult? Function(ToggleAutoPip value)? toggleAutoPip,
-  }) {
-    return setSearchFilter?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitializeSettings value)? initializeSettings,
-    TResult Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult Function(ChangeTheme value)? changeTheme,
-    TResult Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult Function(SetInstance value)? setInstance,
-    TResult Function(SetYTService value)? setYTService,
-    TResult Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult Function(SetSearchFilter value)? setSearchFilter,
-    TResult Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult Function(SetSkipInterval value)? setSkipInterval,
-    TResult Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult Function(AddProfile value)? addProfile,
-    TResult Function(DeleteProfile value)? deleteProfile,
-    TResult Function(SwitchProfile value)? switchProfile,
-    TResult Function(RenameProfile value)? renameProfile,
-    TResult Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult Function(ImportSubscriptions value)? importSubscriptions,
-    TResult Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult Function(ToggleAutoPip value)? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (setSearchFilter != null) {
-      return setSearchFilter(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class SetSearchFilter implements SettingsEvent {
-  factory SetSearchFilter({required final String filter}) =
-      _$SetSearchFilterImpl;
-
-  String get filter;
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SetSearchFilterImplCopyWith<_$SetSearchFilterImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SetVideoFitModeImplCopyWith<$Res> {
-  factory _$$SetVideoFitModeImplCopyWith(_$SetVideoFitModeImpl value,
-          $Res Function(_$SetVideoFitModeImpl) then) =
-      __$$SetVideoFitModeImplCopyWithImpl<$Res>;
+abstract mixin class $SetVideoFitModeCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $SetVideoFitModeCopyWith(
+          SetVideoFitMode value, $Res Function(SetVideoFitMode) _then) =
+      _$SetVideoFitModeCopyWithImpl;
   @useResult
   $Res call({String fitMode});
 }
 
 /// @nodoc
-class __$$SetVideoFitModeImplCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res, _$SetVideoFitModeImpl>
-    implements _$$SetVideoFitModeImplCopyWith<$Res> {
-  __$$SetVideoFitModeImplCopyWithImpl(
-      _$SetVideoFitModeImpl _value, $Res Function(_$SetVideoFitModeImpl) _then)
-      : super(_value, _then);
+class _$SetVideoFitModeCopyWithImpl<$Res>
+    implements $SetVideoFitModeCopyWith<$Res> {
+  _$SetVideoFitModeCopyWithImpl(this._self, this._then);
+
+  final SetVideoFitMode _self;
+  final $Res Function(SetVideoFitMode) _then;
 
   /// Create a copy of SettingsEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? fitMode = null,
   }) {
-    return _then(_$SetVideoFitModeImpl(
+    return _then(SetVideoFitMode(
       fitMode: null == fitMode
-          ? _value.fitMode
+          ? _self.fitMode
           : fitMode // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -5747,352 +2578,62 @@ class __$$SetVideoFitModeImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SetVideoFitModeImpl implements SetVideoFitMode {
-  _$SetVideoFitModeImpl({required this.fitMode});
+class SetSkipInterval implements SettingsEvent {
+  const SetSkipInterval({required this.seconds});
 
-  @override
-  final String fitMode;
+  final int seconds;
 
-  @override
-  String toString() {
-    return 'SettingsEvent.setVideoFitMode(fitMode: $fitMode)';
-  }
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $SetSkipIntervalCopyWith<SetSkipInterval> get copyWith =>
+      _$SetSkipIntervalCopyWithImpl<SetSkipInterval>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SetVideoFitModeImpl &&
-            (identical(other.fitMode, fitMode) || other.fitMode == fitMode));
+            other is SetSkipInterval &&
+            (identical(other.seconds, seconds) || other.seconds == seconds));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, fitMode);
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SetVideoFitModeImplCopyWith<_$SetVideoFitModeImpl> get copyWith =>
-      __$$SetVideoFitModeImplCopyWithImpl<_$SetVideoFitModeImpl>(
-          this, _$identity);
+  int get hashCode => Object.hash(runtimeType, seconds);
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initializeSettings,
-    required TResult Function(String? language) getDefaultLanguage,
-    required TResult Function(String? quality) getDefaultQuality,
-    required TResult Function(String? region) getDefaultRegion,
-    required TResult Function(String themeMode) changeTheme,
-    required TResult Function() toggleHistoryVisibility,
-    required TResult Function() toggleDislikeVisibility,
-    required TResult Function() toggleHlsPlayer,
-    required TResult Function() toggleCommentVisibility,
-    required TResult Function() toggleRelatedVideoVisibility,
-    required TResult Function(bool forceRefresh) fetchPipedInstances,
-    required TResult Function(bool forceRefresh) fetchInvidiousInstances,
-    required TResult Function(String instanceApi) setInstance,
-    required TResult Function(YouTubeServices service) setYTService,
-    required TResult Function() togglePipPlayer,
-    required TResult Function(String filter) setSearchFilter,
-    required TResult Function(String fitMode) setVideoFitMode,
-    required TResult Function(int seconds) setSkipInterval,
-    required TResult Function() toggleSponsorBlock,
-    required TResult Function(List<String> categories)
-        setSponsorBlockCategories,
-    required TResult Function() toggleOpenLinksInBrowser,
-    required TResult Function(String mode) setHomeFeedMode,
-    required TResult Function() toggleAudioFocus,
-    required TResult Function(String profileName) addProfile,
-    required TResult Function(String profileName) deleteProfile,
-    required TResult Function(String profileName) switchProfile,
-    required TResult Function(String oldName, String newName) renameProfile,
-    required TResult Function(String profileName) exportSubscriptions,
-    required TResult Function(String filePath, String profileName)
-        importSubscriptions,
-    required TResult Function(double size) setSubtitleSize,
-    required TResult Function() toggleSearchHistoryEnabled,
-    required TResult Function() toggleSearchHistoryVisibility,
-    required TResult Function(String filePath) setLastExportedFilePath,
-    required TResult Function() toggleAutoPip,
-  }) {
-    return setVideoFitMode(fitMode);
+  String toString() {
+    return 'SettingsEvent.setSkipInterval(seconds: $seconds)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initializeSettings,
-    TResult? Function(String? language)? getDefaultLanguage,
-    TResult? Function(String? quality)? getDefaultQuality,
-    TResult? Function(String? region)? getDefaultRegion,
-    TResult? Function(String themeMode)? changeTheme,
-    TResult? Function()? toggleHistoryVisibility,
-    TResult? Function()? toggleDislikeVisibility,
-    TResult? Function()? toggleHlsPlayer,
-    TResult? Function()? toggleCommentVisibility,
-    TResult? Function()? toggleRelatedVideoVisibility,
-    TResult? Function(bool forceRefresh)? fetchPipedInstances,
-    TResult? Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult? Function(String instanceApi)? setInstance,
-    TResult? Function(YouTubeServices service)? setYTService,
-    TResult? Function()? togglePipPlayer,
-    TResult? Function(String filter)? setSearchFilter,
-    TResult? Function(String fitMode)? setVideoFitMode,
-    TResult? Function(int seconds)? setSkipInterval,
-    TResult? Function()? toggleSponsorBlock,
-    TResult? Function(List<String> categories)? setSponsorBlockCategories,
-    TResult? Function()? toggleOpenLinksInBrowser,
-    TResult? Function(String mode)? setHomeFeedMode,
-    TResult? Function()? toggleAudioFocus,
-    TResult? Function(String profileName)? addProfile,
-    TResult? Function(String profileName)? deleteProfile,
-    TResult? Function(String profileName)? switchProfile,
-    TResult? Function(String oldName, String newName)? renameProfile,
-    TResult? Function(String profileName)? exportSubscriptions,
-    TResult? Function(String filePath, String profileName)? importSubscriptions,
-    TResult? Function(double size)? setSubtitleSize,
-    TResult? Function()? toggleSearchHistoryEnabled,
-    TResult? Function()? toggleSearchHistoryVisibility,
-    TResult? Function(String filePath)? setLastExportedFilePath,
-    TResult? Function()? toggleAutoPip,
-  }) {
-    return setVideoFitMode?.call(fitMode);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initializeSettings,
-    TResult Function(String? language)? getDefaultLanguage,
-    TResult Function(String? quality)? getDefaultQuality,
-    TResult Function(String? region)? getDefaultRegion,
-    TResult Function(String themeMode)? changeTheme,
-    TResult Function()? toggleHistoryVisibility,
-    TResult Function()? toggleDislikeVisibility,
-    TResult Function()? toggleHlsPlayer,
-    TResult Function()? toggleCommentVisibility,
-    TResult Function()? toggleRelatedVideoVisibility,
-    TResult Function(bool forceRefresh)? fetchPipedInstances,
-    TResult Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult Function(String instanceApi)? setInstance,
-    TResult Function(YouTubeServices service)? setYTService,
-    TResult Function()? togglePipPlayer,
-    TResult Function(String filter)? setSearchFilter,
-    TResult Function(String fitMode)? setVideoFitMode,
-    TResult Function(int seconds)? setSkipInterval,
-    TResult Function()? toggleSponsorBlock,
-    TResult Function(List<String> categories)? setSponsorBlockCategories,
-    TResult Function()? toggleOpenLinksInBrowser,
-    TResult Function(String mode)? setHomeFeedMode,
-    TResult Function()? toggleAudioFocus,
-    TResult Function(String profileName)? addProfile,
-    TResult Function(String profileName)? deleteProfile,
-    TResult Function(String profileName)? switchProfile,
-    TResult Function(String oldName, String newName)? renameProfile,
-    TResult Function(String profileName)? exportSubscriptions,
-    TResult Function(String filePath, String profileName)? importSubscriptions,
-    TResult Function(double size)? setSubtitleSize,
-    TResult Function()? toggleSearchHistoryEnabled,
-    TResult Function()? toggleSearchHistoryVisibility,
-    TResult Function(String filePath)? setLastExportedFilePath,
-    TResult Function()? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (setVideoFitMode != null) {
-      return setVideoFitMode(fitMode);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(InitializeSettings value) initializeSettings,
-    required TResult Function(GetDefaultLanguage value) getDefaultLanguage,
-    required TResult Function(GetDefaultQuality value) getDefaultQuality,
-    required TResult Function(GetDefaultRegion value) getDefaultRegion,
-    required TResult Function(ChangeTheme value) changeTheme,
-    required TResult Function(ToggleHistoryVisibility value)
-        toggleHistoryVisibility,
-    required TResult Function(ToggleDislikeVisibility value)
-        toggleDislikeVisibility,
-    required TResult Function(ToggleHlsPlayer value) toggleHlsPlayer,
-    required TResult Function(ToggleCommentVisibility value)
-        toggleCommentVisibility,
-    required TResult Function(ToggleRelatedVideoVisibility value)
-        toggleRelatedVideoVisibility,
-    required TResult Function(FetchPipedInstances value) fetchPipedInstances,
-    required TResult Function(FetchInvidiousInstances value)
-        fetchInvidiousInstances,
-    required TResult Function(SetInstance value) setInstance,
-    required TResult Function(SetYTService value) setYTService,
-    required TResult Function(TogglePipPlayer value) togglePipPlayer,
-    required TResult Function(SetSearchFilter value) setSearchFilter,
-    required TResult Function(SetVideoFitMode value) setVideoFitMode,
-    required TResult Function(SetSkipInterval value) setSkipInterval,
-    required TResult Function(ToggleSponsorBlock value) toggleSponsorBlock,
-    required TResult Function(SetSponsorBlockCategories value)
-        setSponsorBlockCategories,
-    required TResult Function(ToggleOpenLinksInBrowser value)
-        toggleOpenLinksInBrowser,
-    required TResult Function(SetHomeFeedMode value) setHomeFeedMode,
-    required TResult Function(ToggleAudioFocus value) toggleAudioFocus,
-    required TResult Function(AddProfile value) addProfile,
-    required TResult Function(DeleteProfile value) deleteProfile,
-    required TResult Function(SwitchProfile value) switchProfile,
-    required TResult Function(RenameProfile value) renameProfile,
-    required TResult Function(ExportSubscriptions value) exportSubscriptions,
-    required TResult Function(ImportSubscriptions value) importSubscriptions,
-    required TResult Function(SetSubtitleSize value) setSubtitleSize,
-    required TResult Function(ToggleSearchHistoryEnabled value)
-        toggleSearchHistoryEnabled,
-    required TResult Function(ToggleSearchHistoryVisibility value)
-        toggleSearchHistoryVisibility,
-    required TResult Function(SetLastExportedFilePath value)
-        setLastExportedFilePath,
-    required TResult Function(ToggleAutoPip value) toggleAutoPip,
-  }) {
-    return setVideoFitMode(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InitializeSettings value)? initializeSettings,
-    TResult? Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult? Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult? Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult? Function(ChangeTheme value)? changeTheme,
-    TResult? Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult? Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult? Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult? Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult? Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult? Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult? Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult? Function(SetInstance value)? setInstance,
-    TResult? Function(SetYTService value)? setYTService,
-    TResult? Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult? Function(SetSearchFilter value)? setSearchFilter,
-    TResult? Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult? Function(SetSkipInterval value)? setSkipInterval,
-    TResult? Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult? Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult? Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult? Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult? Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult? Function(AddProfile value)? addProfile,
-    TResult? Function(DeleteProfile value)? deleteProfile,
-    TResult? Function(SwitchProfile value)? switchProfile,
-    TResult? Function(RenameProfile value)? renameProfile,
-    TResult? Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult? Function(ImportSubscriptions value)? importSubscriptions,
-    TResult? Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult? Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult? Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult? Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult? Function(ToggleAutoPip value)? toggleAutoPip,
-  }) {
-    return setVideoFitMode?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitializeSettings value)? initializeSettings,
-    TResult Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult Function(ChangeTheme value)? changeTheme,
-    TResult Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult Function(SetInstance value)? setInstance,
-    TResult Function(SetYTService value)? setYTService,
-    TResult Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult Function(SetSearchFilter value)? setSearchFilter,
-    TResult Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult Function(SetSkipInterval value)? setSkipInterval,
-    TResult Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult Function(AddProfile value)? addProfile,
-    TResult Function(DeleteProfile value)? deleteProfile,
-    TResult Function(SwitchProfile value)? switchProfile,
-    TResult Function(RenameProfile value)? renameProfile,
-    TResult Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult Function(ImportSubscriptions value)? importSubscriptions,
-    TResult Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult Function(ToggleAutoPip value)? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (setVideoFitMode != null) {
-      return setVideoFitMode(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class SetVideoFitMode implements SettingsEvent {
-  factory SetVideoFitMode({required final String fitMode}) =
-      _$SetVideoFitModeImpl;
-
-  String get fitMode;
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SetVideoFitModeImplCopyWith<_$SetVideoFitModeImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SetSkipIntervalImplCopyWith<$Res> {
-  factory _$$SetSkipIntervalImplCopyWith(_$SetSkipIntervalImpl value,
-          $Res Function(_$SetSkipIntervalImpl) then) =
-      __$$SetSkipIntervalImplCopyWithImpl<$Res>;
+abstract mixin class $SetSkipIntervalCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $SetSkipIntervalCopyWith(
+          SetSkipInterval value, $Res Function(SetSkipInterval) _then) =
+      _$SetSkipIntervalCopyWithImpl;
   @useResult
   $Res call({int seconds});
 }
 
 /// @nodoc
-class __$$SetSkipIntervalImplCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res, _$SetSkipIntervalImpl>
-    implements _$$SetSkipIntervalImplCopyWith<$Res> {
-  __$$SetSkipIntervalImplCopyWithImpl(
-      _$SetSkipIntervalImpl _value, $Res Function(_$SetSkipIntervalImpl) _then)
-      : super(_value, _then);
+class _$SetSkipIntervalCopyWithImpl<$Res>
+    implements $SetSkipIntervalCopyWith<$Res> {
+  _$SetSkipIntervalCopyWithImpl(this._self, this._then);
+
+  final SetSkipInterval _self;
+  final $Res Function(SetSkipInterval) _then;
 
   /// Create a copy of SettingsEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? seconds = null,
   }) {
-    return _then(_$SetSkipIntervalImpl(
+    return _then(SetSkipInterval(
       seconds: null == seconds
-          ? _value.seconds
+          ? _self.seconds
           : seconds // ignore: cast_nullable_to_non_nullable
               as int,
     ));
@@ -6101,700 +2642,95 @@ class __$$SetSkipIntervalImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SetSkipIntervalImpl implements SetSkipInterval {
-  _$SetSkipIntervalImpl({required this.seconds});
+class ToggleSponsorBlock implements SettingsEvent {
+  const ToggleSponsorBlock({required this.isEnabled});
 
-  @override
-  final int seconds;
+  final bool isEnabled;
 
-  @override
-  String toString() {
-    return 'SettingsEvent.setSkipInterval(seconds: $seconds)';
-  }
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ToggleSponsorBlockCopyWith<ToggleSponsorBlock> get copyWith =>
+      _$ToggleSponsorBlockCopyWithImpl<ToggleSponsorBlock>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SetSkipIntervalImpl &&
-            (identical(other.seconds, seconds) || other.seconds == seconds));
+            other is ToggleSponsorBlock &&
+            (identical(other.isEnabled, isEnabled) ||
+                other.isEnabled == isEnabled));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, seconds);
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SetSkipIntervalImplCopyWith<_$SetSkipIntervalImpl> get copyWith =>
-      __$$SetSkipIntervalImplCopyWithImpl<_$SetSkipIntervalImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initializeSettings,
-    required TResult Function(String? language) getDefaultLanguage,
-    required TResult Function(String? quality) getDefaultQuality,
-    required TResult Function(String? region) getDefaultRegion,
-    required TResult Function(String themeMode) changeTheme,
-    required TResult Function() toggleHistoryVisibility,
-    required TResult Function() toggleDislikeVisibility,
-    required TResult Function() toggleHlsPlayer,
-    required TResult Function() toggleCommentVisibility,
-    required TResult Function() toggleRelatedVideoVisibility,
-    required TResult Function(bool forceRefresh) fetchPipedInstances,
-    required TResult Function(bool forceRefresh) fetchInvidiousInstances,
-    required TResult Function(String instanceApi) setInstance,
-    required TResult Function(YouTubeServices service) setYTService,
-    required TResult Function() togglePipPlayer,
-    required TResult Function(String filter) setSearchFilter,
-    required TResult Function(String fitMode) setVideoFitMode,
-    required TResult Function(int seconds) setSkipInterval,
-    required TResult Function() toggleSponsorBlock,
-    required TResult Function(List<String> categories)
-        setSponsorBlockCategories,
-    required TResult Function() toggleOpenLinksInBrowser,
-    required TResult Function(String mode) setHomeFeedMode,
-    required TResult Function() toggleAudioFocus,
-    required TResult Function(String profileName) addProfile,
-    required TResult Function(String profileName) deleteProfile,
-    required TResult Function(String profileName) switchProfile,
-    required TResult Function(String oldName, String newName) renameProfile,
-    required TResult Function(String profileName) exportSubscriptions,
-    required TResult Function(String filePath, String profileName)
-        importSubscriptions,
-    required TResult Function(double size) setSubtitleSize,
-    required TResult Function() toggleSearchHistoryEnabled,
-    required TResult Function() toggleSearchHistoryVisibility,
-    required TResult Function(String filePath) setLastExportedFilePath,
-    required TResult Function() toggleAutoPip,
-  }) {
-    return setSkipInterval(seconds);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initializeSettings,
-    TResult? Function(String? language)? getDefaultLanguage,
-    TResult? Function(String? quality)? getDefaultQuality,
-    TResult? Function(String? region)? getDefaultRegion,
-    TResult? Function(String themeMode)? changeTheme,
-    TResult? Function()? toggleHistoryVisibility,
-    TResult? Function()? toggleDislikeVisibility,
-    TResult? Function()? toggleHlsPlayer,
-    TResult? Function()? toggleCommentVisibility,
-    TResult? Function()? toggleRelatedVideoVisibility,
-    TResult? Function(bool forceRefresh)? fetchPipedInstances,
-    TResult? Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult? Function(String instanceApi)? setInstance,
-    TResult? Function(YouTubeServices service)? setYTService,
-    TResult? Function()? togglePipPlayer,
-    TResult? Function(String filter)? setSearchFilter,
-    TResult? Function(String fitMode)? setVideoFitMode,
-    TResult? Function(int seconds)? setSkipInterval,
-    TResult? Function()? toggleSponsorBlock,
-    TResult? Function(List<String> categories)? setSponsorBlockCategories,
-    TResult? Function()? toggleOpenLinksInBrowser,
-    TResult? Function(String mode)? setHomeFeedMode,
-    TResult? Function()? toggleAudioFocus,
-    TResult? Function(String profileName)? addProfile,
-    TResult? Function(String profileName)? deleteProfile,
-    TResult? Function(String profileName)? switchProfile,
-    TResult? Function(String oldName, String newName)? renameProfile,
-    TResult? Function(String profileName)? exportSubscriptions,
-    TResult? Function(String filePath, String profileName)? importSubscriptions,
-    TResult? Function(double size)? setSubtitleSize,
-    TResult? Function()? toggleSearchHistoryEnabled,
-    TResult? Function()? toggleSearchHistoryVisibility,
-    TResult? Function(String filePath)? setLastExportedFilePath,
-    TResult? Function()? toggleAutoPip,
-  }) {
-    return setSkipInterval?.call(seconds);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initializeSettings,
-    TResult Function(String? language)? getDefaultLanguage,
-    TResult Function(String? quality)? getDefaultQuality,
-    TResult Function(String? region)? getDefaultRegion,
-    TResult Function(String themeMode)? changeTheme,
-    TResult Function()? toggleHistoryVisibility,
-    TResult Function()? toggleDislikeVisibility,
-    TResult Function()? toggleHlsPlayer,
-    TResult Function()? toggleCommentVisibility,
-    TResult Function()? toggleRelatedVideoVisibility,
-    TResult Function(bool forceRefresh)? fetchPipedInstances,
-    TResult Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult Function(String instanceApi)? setInstance,
-    TResult Function(YouTubeServices service)? setYTService,
-    TResult Function()? togglePipPlayer,
-    TResult Function(String filter)? setSearchFilter,
-    TResult Function(String fitMode)? setVideoFitMode,
-    TResult Function(int seconds)? setSkipInterval,
-    TResult Function()? toggleSponsorBlock,
-    TResult Function(List<String> categories)? setSponsorBlockCategories,
-    TResult Function()? toggleOpenLinksInBrowser,
-    TResult Function(String mode)? setHomeFeedMode,
-    TResult Function()? toggleAudioFocus,
-    TResult Function(String profileName)? addProfile,
-    TResult Function(String profileName)? deleteProfile,
-    TResult Function(String profileName)? switchProfile,
-    TResult Function(String oldName, String newName)? renameProfile,
-    TResult Function(String profileName)? exportSubscriptions,
-    TResult Function(String filePath, String profileName)? importSubscriptions,
-    TResult Function(double size)? setSubtitleSize,
-    TResult Function()? toggleSearchHistoryEnabled,
-    TResult Function()? toggleSearchHistoryVisibility,
-    TResult Function(String filePath)? setLastExportedFilePath,
-    TResult Function()? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (setSkipInterval != null) {
-      return setSkipInterval(seconds);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(InitializeSettings value) initializeSettings,
-    required TResult Function(GetDefaultLanguage value) getDefaultLanguage,
-    required TResult Function(GetDefaultQuality value) getDefaultQuality,
-    required TResult Function(GetDefaultRegion value) getDefaultRegion,
-    required TResult Function(ChangeTheme value) changeTheme,
-    required TResult Function(ToggleHistoryVisibility value)
-        toggleHistoryVisibility,
-    required TResult Function(ToggleDislikeVisibility value)
-        toggleDislikeVisibility,
-    required TResult Function(ToggleHlsPlayer value) toggleHlsPlayer,
-    required TResult Function(ToggleCommentVisibility value)
-        toggleCommentVisibility,
-    required TResult Function(ToggleRelatedVideoVisibility value)
-        toggleRelatedVideoVisibility,
-    required TResult Function(FetchPipedInstances value) fetchPipedInstances,
-    required TResult Function(FetchInvidiousInstances value)
-        fetchInvidiousInstances,
-    required TResult Function(SetInstance value) setInstance,
-    required TResult Function(SetYTService value) setYTService,
-    required TResult Function(TogglePipPlayer value) togglePipPlayer,
-    required TResult Function(SetSearchFilter value) setSearchFilter,
-    required TResult Function(SetVideoFitMode value) setVideoFitMode,
-    required TResult Function(SetSkipInterval value) setSkipInterval,
-    required TResult Function(ToggleSponsorBlock value) toggleSponsorBlock,
-    required TResult Function(SetSponsorBlockCategories value)
-        setSponsorBlockCategories,
-    required TResult Function(ToggleOpenLinksInBrowser value)
-        toggleOpenLinksInBrowser,
-    required TResult Function(SetHomeFeedMode value) setHomeFeedMode,
-    required TResult Function(ToggleAudioFocus value) toggleAudioFocus,
-    required TResult Function(AddProfile value) addProfile,
-    required TResult Function(DeleteProfile value) deleteProfile,
-    required TResult Function(SwitchProfile value) switchProfile,
-    required TResult Function(RenameProfile value) renameProfile,
-    required TResult Function(ExportSubscriptions value) exportSubscriptions,
-    required TResult Function(ImportSubscriptions value) importSubscriptions,
-    required TResult Function(SetSubtitleSize value) setSubtitleSize,
-    required TResult Function(ToggleSearchHistoryEnabled value)
-        toggleSearchHistoryEnabled,
-    required TResult Function(ToggleSearchHistoryVisibility value)
-        toggleSearchHistoryVisibility,
-    required TResult Function(SetLastExportedFilePath value)
-        setLastExportedFilePath,
-    required TResult Function(ToggleAutoPip value) toggleAutoPip,
-  }) {
-    return setSkipInterval(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InitializeSettings value)? initializeSettings,
-    TResult? Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult? Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult? Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult? Function(ChangeTheme value)? changeTheme,
-    TResult? Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult? Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult? Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult? Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult? Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult? Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult? Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult? Function(SetInstance value)? setInstance,
-    TResult? Function(SetYTService value)? setYTService,
-    TResult? Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult? Function(SetSearchFilter value)? setSearchFilter,
-    TResult? Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult? Function(SetSkipInterval value)? setSkipInterval,
-    TResult? Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult? Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult? Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult? Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult? Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult? Function(AddProfile value)? addProfile,
-    TResult? Function(DeleteProfile value)? deleteProfile,
-    TResult? Function(SwitchProfile value)? switchProfile,
-    TResult? Function(RenameProfile value)? renameProfile,
-    TResult? Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult? Function(ImportSubscriptions value)? importSubscriptions,
-    TResult? Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult? Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult? Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult? Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult? Function(ToggleAutoPip value)? toggleAutoPip,
-  }) {
-    return setSkipInterval?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitializeSettings value)? initializeSettings,
-    TResult Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult Function(ChangeTheme value)? changeTheme,
-    TResult Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult Function(SetInstance value)? setInstance,
-    TResult Function(SetYTService value)? setYTService,
-    TResult Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult Function(SetSearchFilter value)? setSearchFilter,
-    TResult Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult Function(SetSkipInterval value)? setSkipInterval,
-    TResult Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult Function(AddProfile value)? addProfile,
-    TResult Function(DeleteProfile value)? deleteProfile,
-    TResult Function(SwitchProfile value)? switchProfile,
-    TResult Function(RenameProfile value)? renameProfile,
-    TResult Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult Function(ImportSubscriptions value)? importSubscriptions,
-    TResult Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult Function(ToggleAutoPip value)? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (setSkipInterval != null) {
-      return setSkipInterval(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class SetSkipInterval implements SettingsEvent {
-  factory SetSkipInterval({required final int seconds}) = _$SetSkipIntervalImpl;
-
-  int get seconds;
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SetSkipIntervalImplCopyWith<_$SetSkipIntervalImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$ToggleSponsorBlockImplCopyWith<$Res> {
-  factory _$$ToggleSponsorBlockImplCopyWith(_$ToggleSponsorBlockImpl value,
-          $Res Function(_$ToggleSponsorBlockImpl) then) =
-      __$$ToggleSponsorBlockImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ToggleSponsorBlockImplCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res, _$ToggleSponsorBlockImpl>
-    implements _$$ToggleSponsorBlockImplCopyWith<$Res> {
-  __$$ToggleSponsorBlockImplCopyWithImpl(_$ToggleSponsorBlockImpl _value,
-      $Res Function(_$ToggleSponsorBlockImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$ToggleSponsorBlockImpl implements ToggleSponsorBlock {
-  _$ToggleSponsorBlockImpl();
+  int get hashCode => Object.hash(runtimeType, isEnabled);
 
   @override
   String toString() {
-    return 'SettingsEvent.toggleSponsorBlock()';
+    return 'SettingsEvent.toggleSponsorBlock(isEnabled: $isEnabled)';
   }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ToggleSponsorBlockImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initializeSettings,
-    required TResult Function(String? language) getDefaultLanguage,
-    required TResult Function(String? quality) getDefaultQuality,
-    required TResult Function(String? region) getDefaultRegion,
-    required TResult Function(String themeMode) changeTheme,
-    required TResult Function() toggleHistoryVisibility,
-    required TResult Function() toggleDislikeVisibility,
-    required TResult Function() toggleHlsPlayer,
-    required TResult Function() toggleCommentVisibility,
-    required TResult Function() toggleRelatedVideoVisibility,
-    required TResult Function(bool forceRefresh) fetchPipedInstances,
-    required TResult Function(bool forceRefresh) fetchInvidiousInstances,
-    required TResult Function(String instanceApi) setInstance,
-    required TResult Function(YouTubeServices service) setYTService,
-    required TResult Function() togglePipPlayer,
-    required TResult Function(String filter) setSearchFilter,
-    required TResult Function(String fitMode) setVideoFitMode,
-    required TResult Function(int seconds) setSkipInterval,
-    required TResult Function() toggleSponsorBlock,
-    required TResult Function(List<String> categories)
-        setSponsorBlockCategories,
-    required TResult Function() toggleOpenLinksInBrowser,
-    required TResult Function(String mode) setHomeFeedMode,
-    required TResult Function() toggleAudioFocus,
-    required TResult Function(String profileName) addProfile,
-    required TResult Function(String profileName) deleteProfile,
-    required TResult Function(String profileName) switchProfile,
-    required TResult Function(String oldName, String newName) renameProfile,
-    required TResult Function(String profileName) exportSubscriptions,
-    required TResult Function(String filePath, String profileName)
-        importSubscriptions,
-    required TResult Function(double size) setSubtitleSize,
-    required TResult Function() toggleSearchHistoryEnabled,
-    required TResult Function() toggleSearchHistoryVisibility,
-    required TResult Function(String filePath) setLastExportedFilePath,
-    required TResult Function() toggleAutoPip,
-  }) {
-    return toggleSponsorBlock();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initializeSettings,
-    TResult? Function(String? language)? getDefaultLanguage,
-    TResult? Function(String? quality)? getDefaultQuality,
-    TResult? Function(String? region)? getDefaultRegion,
-    TResult? Function(String themeMode)? changeTheme,
-    TResult? Function()? toggleHistoryVisibility,
-    TResult? Function()? toggleDislikeVisibility,
-    TResult? Function()? toggleHlsPlayer,
-    TResult? Function()? toggleCommentVisibility,
-    TResult? Function()? toggleRelatedVideoVisibility,
-    TResult? Function(bool forceRefresh)? fetchPipedInstances,
-    TResult? Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult? Function(String instanceApi)? setInstance,
-    TResult? Function(YouTubeServices service)? setYTService,
-    TResult? Function()? togglePipPlayer,
-    TResult? Function(String filter)? setSearchFilter,
-    TResult? Function(String fitMode)? setVideoFitMode,
-    TResult? Function(int seconds)? setSkipInterval,
-    TResult? Function()? toggleSponsorBlock,
-    TResult? Function(List<String> categories)? setSponsorBlockCategories,
-    TResult? Function()? toggleOpenLinksInBrowser,
-    TResult? Function(String mode)? setHomeFeedMode,
-    TResult? Function()? toggleAudioFocus,
-    TResult? Function(String profileName)? addProfile,
-    TResult? Function(String profileName)? deleteProfile,
-    TResult? Function(String profileName)? switchProfile,
-    TResult? Function(String oldName, String newName)? renameProfile,
-    TResult? Function(String profileName)? exportSubscriptions,
-    TResult? Function(String filePath, String profileName)? importSubscriptions,
-    TResult? Function(double size)? setSubtitleSize,
-    TResult? Function()? toggleSearchHistoryEnabled,
-    TResult? Function()? toggleSearchHistoryVisibility,
-    TResult? Function(String filePath)? setLastExportedFilePath,
-    TResult? Function()? toggleAutoPip,
-  }) {
-    return toggleSponsorBlock?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initializeSettings,
-    TResult Function(String? language)? getDefaultLanguage,
-    TResult Function(String? quality)? getDefaultQuality,
-    TResult Function(String? region)? getDefaultRegion,
-    TResult Function(String themeMode)? changeTheme,
-    TResult Function()? toggleHistoryVisibility,
-    TResult Function()? toggleDislikeVisibility,
-    TResult Function()? toggleHlsPlayer,
-    TResult Function()? toggleCommentVisibility,
-    TResult Function()? toggleRelatedVideoVisibility,
-    TResult Function(bool forceRefresh)? fetchPipedInstances,
-    TResult Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult Function(String instanceApi)? setInstance,
-    TResult Function(YouTubeServices service)? setYTService,
-    TResult Function()? togglePipPlayer,
-    TResult Function(String filter)? setSearchFilter,
-    TResult Function(String fitMode)? setVideoFitMode,
-    TResult Function(int seconds)? setSkipInterval,
-    TResult Function()? toggleSponsorBlock,
-    TResult Function(List<String> categories)? setSponsorBlockCategories,
-    TResult Function()? toggleOpenLinksInBrowser,
-    TResult Function(String mode)? setHomeFeedMode,
-    TResult Function()? toggleAudioFocus,
-    TResult Function(String profileName)? addProfile,
-    TResult Function(String profileName)? deleteProfile,
-    TResult Function(String profileName)? switchProfile,
-    TResult Function(String oldName, String newName)? renameProfile,
-    TResult Function(String profileName)? exportSubscriptions,
-    TResult Function(String filePath, String profileName)? importSubscriptions,
-    TResult Function(double size)? setSubtitleSize,
-    TResult Function()? toggleSearchHistoryEnabled,
-    TResult Function()? toggleSearchHistoryVisibility,
-    TResult Function(String filePath)? setLastExportedFilePath,
-    TResult Function()? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (toggleSponsorBlock != null) {
-      return toggleSponsorBlock();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(InitializeSettings value) initializeSettings,
-    required TResult Function(GetDefaultLanguage value) getDefaultLanguage,
-    required TResult Function(GetDefaultQuality value) getDefaultQuality,
-    required TResult Function(GetDefaultRegion value) getDefaultRegion,
-    required TResult Function(ChangeTheme value) changeTheme,
-    required TResult Function(ToggleHistoryVisibility value)
-        toggleHistoryVisibility,
-    required TResult Function(ToggleDislikeVisibility value)
-        toggleDislikeVisibility,
-    required TResult Function(ToggleHlsPlayer value) toggleHlsPlayer,
-    required TResult Function(ToggleCommentVisibility value)
-        toggleCommentVisibility,
-    required TResult Function(ToggleRelatedVideoVisibility value)
-        toggleRelatedVideoVisibility,
-    required TResult Function(FetchPipedInstances value) fetchPipedInstances,
-    required TResult Function(FetchInvidiousInstances value)
-        fetchInvidiousInstances,
-    required TResult Function(SetInstance value) setInstance,
-    required TResult Function(SetYTService value) setYTService,
-    required TResult Function(TogglePipPlayer value) togglePipPlayer,
-    required TResult Function(SetSearchFilter value) setSearchFilter,
-    required TResult Function(SetVideoFitMode value) setVideoFitMode,
-    required TResult Function(SetSkipInterval value) setSkipInterval,
-    required TResult Function(ToggleSponsorBlock value) toggleSponsorBlock,
-    required TResult Function(SetSponsorBlockCategories value)
-        setSponsorBlockCategories,
-    required TResult Function(ToggleOpenLinksInBrowser value)
-        toggleOpenLinksInBrowser,
-    required TResult Function(SetHomeFeedMode value) setHomeFeedMode,
-    required TResult Function(ToggleAudioFocus value) toggleAudioFocus,
-    required TResult Function(AddProfile value) addProfile,
-    required TResult Function(DeleteProfile value) deleteProfile,
-    required TResult Function(SwitchProfile value) switchProfile,
-    required TResult Function(RenameProfile value) renameProfile,
-    required TResult Function(ExportSubscriptions value) exportSubscriptions,
-    required TResult Function(ImportSubscriptions value) importSubscriptions,
-    required TResult Function(SetSubtitleSize value) setSubtitleSize,
-    required TResult Function(ToggleSearchHistoryEnabled value)
-        toggleSearchHistoryEnabled,
-    required TResult Function(ToggleSearchHistoryVisibility value)
-        toggleSearchHistoryVisibility,
-    required TResult Function(SetLastExportedFilePath value)
-        setLastExportedFilePath,
-    required TResult Function(ToggleAutoPip value) toggleAutoPip,
-  }) {
-    return toggleSponsorBlock(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InitializeSettings value)? initializeSettings,
-    TResult? Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult? Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult? Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult? Function(ChangeTheme value)? changeTheme,
-    TResult? Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult? Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult? Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult? Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult? Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult? Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult? Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult? Function(SetInstance value)? setInstance,
-    TResult? Function(SetYTService value)? setYTService,
-    TResult? Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult? Function(SetSearchFilter value)? setSearchFilter,
-    TResult? Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult? Function(SetSkipInterval value)? setSkipInterval,
-    TResult? Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult? Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult? Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult? Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult? Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult? Function(AddProfile value)? addProfile,
-    TResult? Function(DeleteProfile value)? deleteProfile,
-    TResult? Function(SwitchProfile value)? switchProfile,
-    TResult? Function(RenameProfile value)? renameProfile,
-    TResult? Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult? Function(ImportSubscriptions value)? importSubscriptions,
-    TResult? Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult? Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult? Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult? Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult? Function(ToggleAutoPip value)? toggleAutoPip,
-  }) {
-    return toggleSponsorBlock?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitializeSettings value)? initializeSettings,
-    TResult Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult Function(ChangeTheme value)? changeTheme,
-    TResult Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult Function(SetInstance value)? setInstance,
-    TResult Function(SetYTService value)? setYTService,
-    TResult Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult Function(SetSearchFilter value)? setSearchFilter,
-    TResult Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult Function(SetSkipInterval value)? setSkipInterval,
-    TResult Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult Function(AddProfile value)? addProfile,
-    TResult Function(DeleteProfile value)? deleteProfile,
-    TResult Function(SwitchProfile value)? switchProfile,
-    TResult Function(RenameProfile value)? renameProfile,
-    TResult Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult Function(ImportSubscriptions value)? importSubscriptions,
-    TResult Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult Function(ToggleAutoPip value)? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (toggleSponsorBlock != null) {
-      return toggleSponsorBlock(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ToggleSponsorBlock implements SettingsEvent {
-  factory ToggleSponsorBlock() = _$ToggleSponsorBlockImpl;
 }
 
 /// @nodoc
-abstract class _$$SetSponsorBlockCategoriesImplCopyWith<$Res> {
-  factory _$$SetSponsorBlockCategoriesImplCopyWith(
-          _$SetSponsorBlockCategoriesImpl value,
-          $Res Function(_$SetSponsorBlockCategoriesImpl) then) =
-      __$$SetSponsorBlockCategoriesImplCopyWithImpl<$Res>;
+abstract mixin class $ToggleSponsorBlockCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleSponsorBlockCopyWith(
+          ToggleSponsorBlock value, $Res Function(ToggleSponsorBlock) _then) =
+      _$ToggleSponsorBlockCopyWithImpl;
   @useResult
-  $Res call({List<String> categories});
+  $Res call({bool isEnabled});
 }
 
 /// @nodoc
-class __$$SetSponsorBlockCategoriesImplCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res, _$SetSponsorBlockCategoriesImpl>
-    implements _$$SetSponsorBlockCategoriesImplCopyWith<$Res> {
-  __$$SetSponsorBlockCategoriesImplCopyWithImpl(
-      _$SetSponsorBlockCategoriesImpl _value,
-      $Res Function(_$SetSponsorBlockCategoriesImpl) _then)
-      : super(_value, _then);
+class _$ToggleSponsorBlockCopyWithImpl<$Res>
+    implements $ToggleSponsorBlockCopyWith<$Res> {
+  _$ToggleSponsorBlockCopyWithImpl(this._self, this._then);
+
+  final ToggleSponsorBlock _self;
+  final $Res Function(ToggleSponsorBlock) _then;
 
   /// Create a copy of SettingsEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
-    Object? categories = null,
+    Object? isEnabled = null,
   }) {
-    return _then(_$SetSponsorBlockCategoriesImpl(
-      categories: null == categories
-          ? _value._categories
-          : categories // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+    return _then(ToggleSponsorBlock(
+      isEnabled: null == isEnabled
+          ? _self.isEnabled
+          : isEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
 
 /// @nodoc
 
-class _$SetSponsorBlockCategoriesImpl implements SetSponsorBlockCategories {
-  _$SetSponsorBlockCategoriesImpl({required final List<String> categories})
+class SetSponsorBlockCategories implements SettingsEvent {
+  const SetSponsorBlockCategories({required final List<String> categories})
       : _categories = categories;
 
   final List<String> _categories;
-  @override
   List<String> get categories {
     if (_categories is EqualUnmodifiableListView) return _categories;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_categories);
   }
 
-  @override
-  String toString() {
-    return 'SettingsEvent.setSponsorBlockCategories(categories: $categories)';
-  }
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $SetSponsorBlockCategoriesCopyWith<SetSponsorBlockCategories> get copyWith =>
+      _$SetSponsorBlockCategoriesCopyWithImpl<SetSponsorBlockCategories>(
+          this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SetSponsorBlockCategoriesImpl &&
+            other is SetSponsorBlockCategories &&
             const DeepCollectionEquality()
                 .equals(other._categories, _categories));
   }
@@ -6803,650 +2739,169 @@ class _$SetSponsorBlockCategoriesImpl implements SetSponsorBlockCategories {
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_categories));
 
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SetSponsorBlockCategoriesImplCopyWith<_$SetSponsorBlockCategoriesImpl>
-      get copyWith => __$$SetSponsorBlockCategoriesImplCopyWithImpl<
-          _$SetSponsorBlockCategoriesImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initializeSettings,
-    required TResult Function(String? language) getDefaultLanguage,
-    required TResult Function(String? quality) getDefaultQuality,
-    required TResult Function(String? region) getDefaultRegion,
-    required TResult Function(String themeMode) changeTheme,
-    required TResult Function() toggleHistoryVisibility,
-    required TResult Function() toggleDislikeVisibility,
-    required TResult Function() toggleHlsPlayer,
-    required TResult Function() toggleCommentVisibility,
-    required TResult Function() toggleRelatedVideoVisibility,
-    required TResult Function(bool forceRefresh) fetchPipedInstances,
-    required TResult Function(bool forceRefresh) fetchInvidiousInstances,
-    required TResult Function(String instanceApi) setInstance,
-    required TResult Function(YouTubeServices service) setYTService,
-    required TResult Function() togglePipPlayer,
-    required TResult Function(String filter) setSearchFilter,
-    required TResult Function(String fitMode) setVideoFitMode,
-    required TResult Function(int seconds) setSkipInterval,
-    required TResult Function() toggleSponsorBlock,
-    required TResult Function(List<String> categories)
-        setSponsorBlockCategories,
-    required TResult Function() toggleOpenLinksInBrowser,
-    required TResult Function(String mode) setHomeFeedMode,
-    required TResult Function() toggleAudioFocus,
-    required TResult Function(String profileName) addProfile,
-    required TResult Function(String profileName) deleteProfile,
-    required TResult Function(String profileName) switchProfile,
-    required TResult Function(String oldName, String newName) renameProfile,
-    required TResult Function(String profileName) exportSubscriptions,
-    required TResult Function(String filePath, String profileName)
-        importSubscriptions,
-    required TResult Function(double size) setSubtitleSize,
-    required TResult Function() toggleSearchHistoryEnabled,
-    required TResult Function() toggleSearchHistoryVisibility,
-    required TResult Function(String filePath) setLastExportedFilePath,
-    required TResult Function() toggleAutoPip,
-  }) {
-    return setSponsorBlockCategories(categories);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initializeSettings,
-    TResult? Function(String? language)? getDefaultLanguage,
-    TResult? Function(String? quality)? getDefaultQuality,
-    TResult? Function(String? region)? getDefaultRegion,
-    TResult? Function(String themeMode)? changeTheme,
-    TResult? Function()? toggleHistoryVisibility,
-    TResult? Function()? toggleDislikeVisibility,
-    TResult? Function()? toggleHlsPlayer,
-    TResult? Function()? toggleCommentVisibility,
-    TResult? Function()? toggleRelatedVideoVisibility,
-    TResult? Function(bool forceRefresh)? fetchPipedInstances,
-    TResult? Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult? Function(String instanceApi)? setInstance,
-    TResult? Function(YouTubeServices service)? setYTService,
-    TResult? Function()? togglePipPlayer,
-    TResult? Function(String filter)? setSearchFilter,
-    TResult? Function(String fitMode)? setVideoFitMode,
-    TResult? Function(int seconds)? setSkipInterval,
-    TResult? Function()? toggleSponsorBlock,
-    TResult? Function(List<String> categories)? setSponsorBlockCategories,
-    TResult? Function()? toggleOpenLinksInBrowser,
-    TResult? Function(String mode)? setHomeFeedMode,
-    TResult? Function()? toggleAudioFocus,
-    TResult? Function(String profileName)? addProfile,
-    TResult? Function(String profileName)? deleteProfile,
-    TResult? Function(String profileName)? switchProfile,
-    TResult? Function(String oldName, String newName)? renameProfile,
-    TResult? Function(String profileName)? exportSubscriptions,
-    TResult? Function(String filePath, String profileName)? importSubscriptions,
-    TResult? Function(double size)? setSubtitleSize,
-    TResult? Function()? toggleSearchHistoryEnabled,
-    TResult? Function()? toggleSearchHistoryVisibility,
-    TResult? Function(String filePath)? setLastExportedFilePath,
-    TResult? Function()? toggleAutoPip,
-  }) {
-    return setSponsorBlockCategories?.call(categories);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initializeSettings,
-    TResult Function(String? language)? getDefaultLanguage,
-    TResult Function(String? quality)? getDefaultQuality,
-    TResult Function(String? region)? getDefaultRegion,
-    TResult Function(String themeMode)? changeTheme,
-    TResult Function()? toggleHistoryVisibility,
-    TResult Function()? toggleDislikeVisibility,
-    TResult Function()? toggleHlsPlayer,
-    TResult Function()? toggleCommentVisibility,
-    TResult Function()? toggleRelatedVideoVisibility,
-    TResult Function(bool forceRefresh)? fetchPipedInstances,
-    TResult Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult Function(String instanceApi)? setInstance,
-    TResult Function(YouTubeServices service)? setYTService,
-    TResult Function()? togglePipPlayer,
-    TResult Function(String filter)? setSearchFilter,
-    TResult Function(String fitMode)? setVideoFitMode,
-    TResult Function(int seconds)? setSkipInterval,
-    TResult Function()? toggleSponsorBlock,
-    TResult Function(List<String> categories)? setSponsorBlockCategories,
-    TResult Function()? toggleOpenLinksInBrowser,
-    TResult Function(String mode)? setHomeFeedMode,
-    TResult Function()? toggleAudioFocus,
-    TResult Function(String profileName)? addProfile,
-    TResult Function(String profileName)? deleteProfile,
-    TResult Function(String profileName)? switchProfile,
-    TResult Function(String oldName, String newName)? renameProfile,
-    TResult Function(String profileName)? exportSubscriptions,
-    TResult Function(String filePath, String profileName)? importSubscriptions,
-    TResult Function(double size)? setSubtitleSize,
-    TResult Function()? toggleSearchHistoryEnabled,
-    TResult Function()? toggleSearchHistoryVisibility,
-    TResult Function(String filePath)? setLastExportedFilePath,
-    TResult Function()? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (setSponsorBlockCategories != null) {
-      return setSponsorBlockCategories(categories);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(InitializeSettings value) initializeSettings,
-    required TResult Function(GetDefaultLanguage value) getDefaultLanguage,
-    required TResult Function(GetDefaultQuality value) getDefaultQuality,
-    required TResult Function(GetDefaultRegion value) getDefaultRegion,
-    required TResult Function(ChangeTheme value) changeTheme,
-    required TResult Function(ToggleHistoryVisibility value)
-        toggleHistoryVisibility,
-    required TResult Function(ToggleDislikeVisibility value)
-        toggleDislikeVisibility,
-    required TResult Function(ToggleHlsPlayer value) toggleHlsPlayer,
-    required TResult Function(ToggleCommentVisibility value)
-        toggleCommentVisibility,
-    required TResult Function(ToggleRelatedVideoVisibility value)
-        toggleRelatedVideoVisibility,
-    required TResult Function(FetchPipedInstances value) fetchPipedInstances,
-    required TResult Function(FetchInvidiousInstances value)
-        fetchInvidiousInstances,
-    required TResult Function(SetInstance value) setInstance,
-    required TResult Function(SetYTService value) setYTService,
-    required TResult Function(TogglePipPlayer value) togglePipPlayer,
-    required TResult Function(SetSearchFilter value) setSearchFilter,
-    required TResult Function(SetVideoFitMode value) setVideoFitMode,
-    required TResult Function(SetSkipInterval value) setSkipInterval,
-    required TResult Function(ToggleSponsorBlock value) toggleSponsorBlock,
-    required TResult Function(SetSponsorBlockCategories value)
-        setSponsorBlockCategories,
-    required TResult Function(ToggleOpenLinksInBrowser value)
-        toggleOpenLinksInBrowser,
-    required TResult Function(SetHomeFeedMode value) setHomeFeedMode,
-    required TResult Function(ToggleAudioFocus value) toggleAudioFocus,
-    required TResult Function(AddProfile value) addProfile,
-    required TResult Function(DeleteProfile value) deleteProfile,
-    required TResult Function(SwitchProfile value) switchProfile,
-    required TResult Function(RenameProfile value) renameProfile,
-    required TResult Function(ExportSubscriptions value) exportSubscriptions,
-    required TResult Function(ImportSubscriptions value) importSubscriptions,
-    required TResult Function(SetSubtitleSize value) setSubtitleSize,
-    required TResult Function(ToggleSearchHistoryEnabled value)
-        toggleSearchHistoryEnabled,
-    required TResult Function(ToggleSearchHistoryVisibility value)
-        toggleSearchHistoryVisibility,
-    required TResult Function(SetLastExportedFilePath value)
-        setLastExportedFilePath,
-    required TResult Function(ToggleAutoPip value) toggleAutoPip,
-  }) {
-    return setSponsorBlockCategories(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InitializeSettings value)? initializeSettings,
-    TResult? Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult? Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult? Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult? Function(ChangeTheme value)? changeTheme,
-    TResult? Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult? Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult? Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult? Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult? Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult? Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult? Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult? Function(SetInstance value)? setInstance,
-    TResult? Function(SetYTService value)? setYTService,
-    TResult? Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult? Function(SetSearchFilter value)? setSearchFilter,
-    TResult? Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult? Function(SetSkipInterval value)? setSkipInterval,
-    TResult? Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult? Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult? Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult? Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult? Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult? Function(AddProfile value)? addProfile,
-    TResult? Function(DeleteProfile value)? deleteProfile,
-    TResult? Function(SwitchProfile value)? switchProfile,
-    TResult? Function(RenameProfile value)? renameProfile,
-    TResult? Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult? Function(ImportSubscriptions value)? importSubscriptions,
-    TResult? Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult? Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult? Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult? Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult? Function(ToggleAutoPip value)? toggleAutoPip,
-  }) {
-    return setSponsorBlockCategories?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitializeSettings value)? initializeSettings,
-    TResult Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult Function(ChangeTheme value)? changeTheme,
-    TResult Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult Function(SetInstance value)? setInstance,
-    TResult Function(SetYTService value)? setYTService,
-    TResult Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult Function(SetSearchFilter value)? setSearchFilter,
-    TResult Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult Function(SetSkipInterval value)? setSkipInterval,
-    TResult Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult Function(AddProfile value)? addProfile,
-    TResult Function(DeleteProfile value)? deleteProfile,
-    TResult Function(SwitchProfile value)? switchProfile,
-    TResult Function(RenameProfile value)? renameProfile,
-    TResult Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult Function(ImportSubscriptions value)? importSubscriptions,
-    TResult Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult Function(ToggleAutoPip value)? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (setSponsorBlockCategories != null) {
-      return setSponsorBlockCategories(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class SetSponsorBlockCategories implements SettingsEvent {
-  factory SetSponsorBlockCategories({required final List<String> categories}) =
-      _$SetSponsorBlockCategoriesImpl;
-
-  List<String> get categories;
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SetSponsorBlockCategoriesImplCopyWith<_$SetSponsorBlockCategoriesImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$ToggleOpenLinksInBrowserImplCopyWith<$Res> {
-  factory _$$ToggleOpenLinksInBrowserImplCopyWith(
-          _$ToggleOpenLinksInBrowserImpl value,
-          $Res Function(_$ToggleOpenLinksInBrowserImpl) then) =
-      __$$ToggleOpenLinksInBrowserImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ToggleOpenLinksInBrowserImplCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res, _$ToggleOpenLinksInBrowserImpl>
-    implements _$$ToggleOpenLinksInBrowserImplCopyWith<$Res> {
-  __$$ToggleOpenLinksInBrowserImplCopyWithImpl(
-      _$ToggleOpenLinksInBrowserImpl _value,
-      $Res Function(_$ToggleOpenLinksInBrowserImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$ToggleOpenLinksInBrowserImpl implements ToggleOpenLinksInBrowser {
-  _$ToggleOpenLinksInBrowserImpl();
-
   @override
   String toString() {
-    return 'SettingsEvent.toggleOpenLinksInBrowser()';
+    return 'SettingsEvent.setSponsorBlockCategories(categories: $categories)';
   }
+}
+
+/// @nodoc
+abstract mixin class $SetSponsorBlockCategoriesCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $SetSponsorBlockCategoriesCopyWith(SetSponsorBlockCategories value,
+          $Res Function(SetSponsorBlockCategories) _then) =
+      _$SetSponsorBlockCategoriesCopyWithImpl;
+  @useResult
+  $Res call({List<String> categories});
+}
+
+/// @nodoc
+class _$SetSponsorBlockCategoriesCopyWithImpl<$Res>
+    implements $SetSponsorBlockCategoriesCopyWith<$Res> {
+  _$SetSponsorBlockCategoriesCopyWithImpl(this._self, this._then);
+
+  final SetSponsorBlockCategories _self;
+  final $Res Function(SetSponsorBlockCategories) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? categories = null,
+  }) {
+    return _then(SetSponsorBlockCategories(
+      categories: null == categories
+          ? _self._categories
+          : categories // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ToggleOpenLinksInBrowser implements SettingsEvent {
+  const ToggleOpenLinksInBrowser({required this.openInBrowser});
+
+  final bool openInBrowser;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ToggleOpenLinksInBrowserCopyWith<ToggleOpenLinksInBrowser> get copyWith =>
+      _$ToggleOpenLinksInBrowserCopyWithImpl<ToggleOpenLinksInBrowser>(
+          this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ToggleOpenLinksInBrowserImpl);
+            other is ToggleOpenLinksInBrowser &&
+            (identical(other.openInBrowser, openInBrowser) ||
+                other.openInBrowser == openInBrowser));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, openInBrowser);
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initializeSettings,
-    required TResult Function(String? language) getDefaultLanguage,
-    required TResult Function(String? quality) getDefaultQuality,
-    required TResult Function(String? region) getDefaultRegion,
-    required TResult Function(String themeMode) changeTheme,
-    required TResult Function() toggleHistoryVisibility,
-    required TResult Function() toggleDislikeVisibility,
-    required TResult Function() toggleHlsPlayer,
-    required TResult Function() toggleCommentVisibility,
-    required TResult Function() toggleRelatedVideoVisibility,
-    required TResult Function(bool forceRefresh) fetchPipedInstances,
-    required TResult Function(bool forceRefresh) fetchInvidiousInstances,
-    required TResult Function(String instanceApi) setInstance,
-    required TResult Function(YouTubeServices service) setYTService,
-    required TResult Function() togglePipPlayer,
-    required TResult Function(String filter) setSearchFilter,
-    required TResult Function(String fitMode) setVideoFitMode,
-    required TResult Function(int seconds) setSkipInterval,
-    required TResult Function() toggleSponsorBlock,
-    required TResult Function(List<String> categories)
-        setSponsorBlockCategories,
-    required TResult Function() toggleOpenLinksInBrowser,
-    required TResult Function(String mode) setHomeFeedMode,
-    required TResult Function() toggleAudioFocus,
-    required TResult Function(String profileName) addProfile,
-    required TResult Function(String profileName) deleteProfile,
-    required TResult Function(String profileName) switchProfile,
-    required TResult Function(String oldName, String newName) renameProfile,
-    required TResult Function(String profileName) exportSubscriptions,
-    required TResult Function(String filePath, String profileName)
-        importSubscriptions,
-    required TResult Function(double size) setSubtitleSize,
-    required TResult Function() toggleSearchHistoryEnabled,
-    required TResult Function() toggleSearchHistoryVisibility,
-    required TResult Function(String filePath) setLastExportedFilePath,
-    required TResult Function() toggleAutoPip,
-  }) {
-    return toggleOpenLinksInBrowser();
+  String toString() {
+    return 'SettingsEvent.toggleOpenLinksInBrowser(openInBrowser: $openInBrowser)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initializeSettings,
-    TResult? Function(String? language)? getDefaultLanguage,
-    TResult? Function(String? quality)? getDefaultQuality,
-    TResult? Function(String? region)? getDefaultRegion,
-    TResult? Function(String themeMode)? changeTheme,
-    TResult? Function()? toggleHistoryVisibility,
-    TResult? Function()? toggleDislikeVisibility,
-    TResult? Function()? toggleHlsPlayer,
-    TResult? Function()? toggleCommentVisibility,
-    TResult? Function()? toggleRelatedVideoVisibility,
-    TResult? Function(bool forceRefresh)? fetchPipedInstances,
-    TResult? Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult? Function(String instanceApi)? setInstance,
-    TResult? Function(YouTubeServices service)? setYTService,
-    TResult? Function()? togglePipPlayer,
-    TResult? Function(String filter)? setSearchFilter,
-    TResult? Function(String fitMode)? setVideoFitMode,
-    TResult? Function(int seconds)? setSkipInterval,
-    TResult? Function()? toggleSponsorBlock,
-    TResult? Function(List<String> categories)? setSponsorBlockCategories,
-    TResult? Function()? toggleOpenLinksInBrowser,
-    TResult? Function(String mode)? setHomeFeedMode,
-    TResult? Function()? toggleAudioFocus,
-    TResult? Function(String profileName)? addProfile,
-    TResult? Function(String profileName)? deleteProfile,
-    TResult? Function(String profileName)? switchProfile,
-    TResult? Function(String oldName, String newName)? renameProfile,
-    TResult? Function(String profileName)? exportSubscriptions,
-    TResult? Function(String filePath, String profileName)? importSubscriptions,
-    TResult? Function(double size)? setSubtitleSize,
-    TResult? Function()? toggleSearchHistoryEnabled,
-    TResult? Function()? toggleSearchHistoryVisibility,
-    TResult? Function(String filePath)? setLastExportedFilePath,
-    TResult? Function()? toggleAutoPip,
-  }) {
-    return toggleOpenLinksInBrowser?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initializeSettings,
-    TResult Function(String? language)? getDefaultLanguage,
-    TResult Function(String? quality)? getDefaultQuality,
-    TResult Function(String? region)? getDefaultRegion,
-    TResult Function(String themeMode)? changeTheme,
-    TResult Function()? toggleHistoryVisibility,
-    TResult Function()? toggleDislikeVisibility,
-    TResult Function()? toggleHlsPlayer,
-    TResult Function()? toggleCommentVisibility,
-    TResult Function()? toggleRelatedVideoVisibility,
-    TResult Function(bool forceRefresh)? fetchPipedInstances,
-    TResult Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult Function(String instanceApi)? setInstance,
-    TResult Function(YouTubeServices service)? setYTService,
-    TResult Function()? togglePipPlayer,
-    TResult Function(String filter)? setSearchFilter,
-    TResult Function(String fitMode)? setVideoFitMode,
-    TResult Function(int seconds)? setSkipInterval,
-    TResult Function()? toggleSponsorBlock,
-    TResult Function(List<String> categories)? setSponsorBlockCategories,
-    TResult Function()? toggleOpenLinksInBrowser,
-    TResult Function(String mode)? setHomeFeedMode,
-    TResult Function()? toggleAudioFocus,
-    TResult Function(String profileName)? addProfile,
-    TResult Function(String profileName)? deleteProfile,
-    TResult Function(String profileName)? switchProfile,
-    TResult Function(String oldName, String newName)? renameProfile,
-    TResult Function(String profileName)? exportSubscriptions,
-    TResult Function(String filePath, String profileName)? importSubscriptions,
-    TResult Function(double size)? setSubtitleSize,
-    TResult Function()? toggleSearchHistoryEnabled,
-    TResult Function()? toggleSearchHistoryVisibility,
-    TResult Function(String filePath)? setLastExportedFilePath,
-    TResult Function()? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (toggleOpenLinksInBrowser != null) {
-      return toggleOpenLinksInBrowser();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(InitializeSettings value) initializeSettings,
-    required TResult Function(GetDefaultLanguage value) getDefaultLanguage,
-    required TResult Function(GetDefaultQuality value) getDefaultQuality,
-    required TResult Function(GetDefaultRegion value) getDefaultRegion,
-    required TResult Function(ChangeTheme value) changeTheme,
-    required TResult Function(ToggleHistoryVisibility value)
-        toggleHistoryVisibility,
-    required TResult Function(ToggleDislikeVisibility value)
-        toggleDislikeVisibility,
-    required TResult Function(ToggleHlsPlayer value) toggleHlsPlayer,
-    required TResult Function(ToggleCommentVisibility value)
-        toggleCommentVisibility,
-    required TResult Function(ToggleRelatedVideoVisibility value)
-        toggleRelatedVideoVisibility,
-    required TResult Function(FetchPipedInstances value) fetchPipedInstances,
-    required TResult Function(FetchInvidiousInstances value)
-        fetchInvidiousInstances,
-    required TResult Function(SetInstance value) setInstance,
-    required TResult Function(SetYTService value) setYTService,
-    required TResult Function(TogglePipPlayer value) togglePipPlayer,
-    required TResult Function(SetSearchFilter value) setSearchFilter,
-    required TResult Function(SetVideoFitMode value) setVideoFitMode,
-    required TResult Function(SetSkipInterval value) setSkipInterval,
-    required TResult Function(ToggleSponsorBlock value) toggleSponsorBlock,
-    required TResult Function(SetSponsorBlockCategories value)
-        setSponsorBlockCategories,
-    required TResult Function(ToggleOpenLinksInBrowser value)
-        toggleOpenLinksInBrowser,
-    required TResult Function(SetHomeFeedMode value) setHomeFeedMode,
-    required TResult Function(ToggleAudioFocus value) toggleAudioFocus,
-    required TResult Function(AddProfile value) addProfile,
-    required TResult Function(DeleteProfile value) deleteProfile,
-    required TResult Function(SwitchProfile value) switchProfile,
-    required TResult Function(RenameProfile value) renameProfile,
-    required TResult Function(ExportSubscriptions value) exportSubscriptions,
-    required TResult Function(ImportSubscriptions value) importSubscriptions,
-    required TResult Function(SetSubtitleSize value) setSubtitleSize,
-    required TResult Function(ToggleSearchHistoryEnabled value)
-        toggleSearchHistoryEnabled,
-    required TResult Function(ToggleSearchHistoryVisibility value)
-        toggleSearchHistoryVisibility,
-    required TResult Function(SetLastExportedFilePath value)
-        setLastExportedFilePath,
-    required TResult Function(ToggleAutoPip value) toggleAutoPip,
-  }) {
-    return toggleOpenLinksInBrowser(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InitializeSettings value)? initializeSettings,
-    TResult? Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult? Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult? Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult? Function(ChangeTheme value)? changeTheme,
-    TResult? Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult? Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult? Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult? Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult? Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult? Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult? Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult? Function(SetInstance value)? setInstance,
-    TResult? Function(SetYTService value)? setYTService,
-    TResult? Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult? Function(SetSearchFilter value)? setSearchFilter,
-    TResult? Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult? Function(SetSkipInterval value)? setSkipInterval,
-    TResult? Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult? Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult? Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult? Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult? Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult? Function(AddProfile value)? addProfile,
-    TResult? Function(DeleteProfile value)? deleteProfile,
-    TResult? Function(SwitchProfile value)? switchProfile,
-    TResult? Function(RenameProfile value)? renameProfile,
-    TResult? Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult? Function(ImportSubscriptions value)? importSubscriptions,
-    TResult? Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult? Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult? Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult? Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult? Function(ToggleAutoPip value)? toggleAutoPip,
-  }) {
-    return toggleOpenLinksInBrowser?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitializeSettings value)? initializeSettings,
-    TResult Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult Function(ChangeTheme value)? changeTheme,
-    TResult Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult Function(SetInstance value)? setInstance,
-    TResult Function(SetYTService value)? setYTService,
-    TResult Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult Function(SetSearchFilter value)? setSearchFilter,
-    TResult Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult Function(SetSkipInterval value)? setSkipInterval,
-    TResult Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult Function(AddProfile value)? addProfile,
-    TResult Function(DeleteProfile value)? deleteProfile,
-    TResult Function(SwitchProfile value)? switchProfile,
-    TResult Function(RenameProfile value)? renameProfile,
-    TResult Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult Function(ImportSubscriptions value)? importSubscriptions,
-    TResult Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult Function(ToggleAutoPip value)? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (toggleOpenLinksInBrowser != null) {
-      return toggleOpenLinksInBrowser(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ToggleOpenLinksInBrowser implements SettingsEvent {
-  factory ToggleOpenLinksInBrowser() = _$ToggleOpenLinksInBrowserImpl;
 }
 
 /// @nodoc
-abstract class _$$SetHomeFeedModeImplCopyWith<$Res> {
-  factory _$$SetHomeFeedModeImplCopyWith(_$SetHomeFeedModeImpl value,
-          $Res Function(_$SetHomeFeedModeImpl) then) =
-      __$$SetHomeFeedModeImplCopyWithImpl<$Res>;
+abstract mixin class $ToggleOpenLinksInBrowserCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleOpenLinksInBrowserCopyWith(ToggleOpenLinksInBrowser value,
+          $Res Function(ToggleOpenLinksInBrowser) _then) =
+      _$ToggleOpenLinksInBrowserCopyWithImpl;
+  @useResult
+  $Res call({bool openInBrowser});
+}
+
+/// @nodoc
+class _$ToggleOpenLinksInBrowserCopyWithImpl<$Res>
+    implements $ToggleOpenLinksInBrowserCopyWith<$Res> {
+  _$ToggleOpenLinksInBrowserCopyWithImpl(this._self, this._then);
+
+  final ToggleOpenLinksInBrowser _self;
+  final $Res Function(ToggleOpenLinksInBrowser) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? openInBrowser = null,
+  }) {
+    return _then(ToggleOpenLinksInBrowser(
+      openInBrowser: null == openInBrowser
+          ? _self.openInBrowser
+          : openInBrowser // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class SetHomeFeedMode implements SettingsEvent {
+  const SetHomeFeedMode({required this.mode});
+
+  final String mode;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $SetHomeFeedModeCopyWith<SetHomeFeedMode> get copyWith =>
+      _$SetHomeFeedModeCopyWithImpl<SetHomeFeedMode>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SetHomeFeedMode &&
+            (identical(other.mode, mode) || other.mode == mode));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, mode);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.setHomeFeedMode(mode: $mode)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $SetHomeFeedModeCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $SetHomeFeedModeCopyWith(
+          SetHomeFeedMode value, $Res Function(SetHomeFeedMode) _then) =
+      _$SetHomeFeedModeCopyWithImpl;
   @useResult
   $Res call({String mode});
 }
 
 /// @nodoc
-class __$$SetHomeFeedModeImplCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res, _$SetHomeFeedModeImpl>
-    implements _$$SetHomeFeedModeImplCopyWith<$Res> {
-  __$$SetHomeFeedModeImplCopyWithImpl(
-      _$SetHomeFeedModeImpl _value, $Res Function(_$SetHomeFeedModeImpl) _then)
-      : super(_value, _then);
+class _$SetHomeFeedModeCopyWithImpl<$Res>
+    implements $SetHomeFeedModeCopyWith<$Res> {
+  _$SetHomeFeedModeCopyWithImpl(this._self, this._then);
+
+  final SetHomeFeedMode _self;
+  final $Res Function(SetHomeFeedMode) _then;
 
   /// Create a copy of SettingsEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? mode = null,
   }) {
-    return _then(_$SetHomeFeedModeImpl(
+    return _then(SetHomeFeedMode(
       mode: null == mode
-          ? _value.mode
+          ? _self.mode
           : mode // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -7455,1021 +2910,127 @@ class __$$SetHomeFeedModeImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SetHomeFeedModeImpl implements SetHomeFeedMode {
-  _$SetHomeFeedModeImpl({required this.mode});
+class ToggleAudioFocus implements SettingsEvent {
+  const ToggleAudioFocus({required this.isEnabled});
 
-  @override
-  final String mode;
+  final bool isEnabled;
 
-  @override
-  String toString() {
-    return 'SettingsEvent.setHomeFeedMode(mode: $mode)';
-  }
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ToggleAudioFocusCopyWith<ToggleAudioFocus> get copyWith =>
+      _$ToggleAudioFocusCopyWithImpl<ToggleAudioFocus>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SetHomeFeedModeImpl &&
-            (identical(other.mode, mode) || other.mode == mode));
+            other is ToggleAudioFocus &&
+            (identical(other.isEnabled, isEnabled) ||
+                other.isEnabled == isEnabled));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, mode);
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SetHomeFeedModeImplCopyWith<_$SetHomeFeedModeImpl> get copyWith =>
-      __$$SetHomeFeedModeImplCopyWithImpl<_$SetHomeFeedModeImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initializeSettings,
-    required TResult Function(String? language) getDefaultLanguage,
-    required TResult Function(String? quality) getDefaultQuality,
-    required TResult Function(String? region) getDefaultRegion,
-    required TResult Function(String themeMode) changeTheme,
-    required TResult Function() toggleHistoryVisibility,
-    required TResult Function() toggleDislikeVisibility,
-    required TResult Function() toggleHlsPlayer,
-    required TResult Function() toggleCommentVisibility,
-    required TResult Function() toggleRelatedVideoVisibility,
-    required TResult Function(bool forceRefresh) fetchPipedInstances,
-    required TResult Function(bool forceRefresh) fetchInvidiousInstances,
-    required TResult Function(String instanceApi) setInstance,
-    required TResult Function(YouTubeServices service) setYTService,
-    required TResult Function() togglePipPlayer,
-    required TResult Function(String filter) setSearchFilter,
-    required TResult Function(String fitMode) setVideoFitMode,
-    required TResult Function(int seconds) setSkipInterval,
-    required TResult Function() toggleSponsorBlock,
-    required TResult Function(List<String> categories)
-        setSponsorBlockCategories,
-    required TResult Function() toggleOpenLinksInBrowser,
-    required TResult Function(String mode) setHomeFeedMode,
-    required TResult Function() toggleAudioFocus,
-    required TResult Function(String profileName) addProfile,
-    required TResult Function(String profileName) deleteProfile,
-    required TResult Function(String profileName) switchProfile,
-    required TResult Function(String oldName, String newName) renameProfile,
-    required TResult Function(String profileName) exportSubscriptions,
-    required TResult Function(String filePath, String profileName)
-        importSubscriptions,
-    required TResult Function(double size) setSubtitleSize,
-    required TResult Function() toggleSearchHistoryEnabled,
-    required TResult Function() toggleSearchHistoryVisibility,
-    required TResult Function(String filePath) setLastExportedFilePath,
-    required TResult Function() toggleAutoPip,
-  }) {
-    return setHomeFeedMode(mode);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initializeSettings,
-    TResult? Function(String? language)? getDefaultLanguage,
-    TResult? Function(String? quality)? getDefaultQuality,
-    TResult? Function(String? region)? getDefaultRegion,
-    TResult? Function(String themeMode)? changeTheme,
-    TResult? Function()? toggleHistoryVisibility,
-    TResult? Function()? toggleDislikeVisibility,
-    TResult? Function()? toggleHlsPlayer,
-    TResult? Function()? toggleCommentVisibility,
-    TResult? Function()? toggleRelatedVideoVisibility,
-    TResult? Function(bool forceRefresh)? fetchPipedInstances,
-    TResult? Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult? Function(String instanceApi)? setInstance,
-    TResult? Function(YouTubeServices service)? setYTService,
-    TResult? Function()? togglePipPlayer,
-    TResult? Function(String filter)? setSearchFilter,
-    TResult? Function(String fitMode)? setVideoFitMode,
-    TResult? Function(int seconds)? setSkipInterval,
-    TResult? Function()? toggleSponsorBlock,
-    TResult? Function(List<String> categories)? setSponsorBlockCategories,
-    TResult? Function()? toggleOpenLinksInBrowser,
-    TResult? Function(String mode)? setHomeFeedMode,
-    TResult? Function()? toggleAudioFocus,
-    TResult? Function(String profileName)? addProfile,
-    TResult? Function(String profileName)? deleteProfile,
-    TResult? Function(String profileName)? switchProfile,
-    TResult? Function(String oldName, String newName)? renameProfile,
-    TResult? Function(String profileName)? exportSubscriptions,
-    TResult? Function(String filePath, String profileName)? importSubscriptions,
-    TResult? Function(double size)? setSubtitleSize,
-    TResult? Function()? toggleSearchHistoryEnabled,
-    TResult? Function()? toggleSearchHistoryVisibility,
-    TResult? Function(String filePath)? setLastExportedFilePath,
-    TResult? Function()? toggleAutoPip,
-  }) {
-    return setHomeFeedMode?.call(mode);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initializeSettings,
-    TResult Function(String? language)? getDefaultLanguage,
-    TResult Function(String? quality)? getDefaultQuality,
-    TResult Function(String? region)? getDefaultRegion,
-    TResult Function(String themeMode)? changeTheme,
-    TResult Function()? toggleHistoryVisibility,
-    TResult Function()? toggleDislikeVisibility,
-    TResult Function()? toggleHlsPlayer,
-    TResult Function()? toggleCommentVisibility,
-    TResult Function()? toggleRelatedVideoVisibility,
-    TResult Function(bool forceRefresh)? fetchPipedInstances,
-    TResult Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult Function(String instanceApi)? setInstance,
-    TResult Function(YouTubeServices service)? setYTService,
-    TResult Function()? togglePipPlayer,
-    TResult Function(String filter)? setSearchFilter,
-    TResult Function(String fitMode)? setVideoFitMode,
-    TResult Function(int seconds)? setSkipInterval,
-    TResult Function()? toggleSponsorBlock,
-    TResult Function(List<String> categories)? setSponsorBlockCategories,
-    TResult Function()? toggleOpenLinksInBrowser,
-    TResult Function(String mode)? setHomeFeedMode,
-    TResult Function()? toggleAudioFocus,
-    TResult Function(String profileName)? addProfile,
-    TResult Function(String profileName)? deleteProfile,
-    TResult Function(String profileName)? switchProfile,
-    TResult Function(String oldName, String newName)? renameProfile,
-    TResult Function(String profileName)? exportSubscriptions,
-    TResult Function(String filePath, String profileName)? importSubscriptions,
-    TResult Function(double size)? setSubtitleSize,
-    TResult Function()? toggleSearchHistoryEnabled,
-    TResult Function()? toggleSearchHistoryVisibility,
-    TResult Function(String filePath)? setLastExportedFilePath,
-    TResult Function()? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (setHomeFeedMode != null) {
-      return setHomeFeedMode(mode);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(InitializeSettings value) initializeSettings,
-    required TResult Function(GetDefaultLanguage value) getDefaultLanguage,
-    required TResult Function(GetDefaultQuality value) getDefaultQuality,
-    required TResult Function(GetDefaultRegion value) getDefaultRegion,
-    required TResult Function(ChangeTheme value) changeTheme,
-    required TResult Function(ToggleHistoryVisibility value)
-        toggleHistoryVisibility,
-    required TResult Function(ToggleDislikeVisibility value)
-        toggleDislikeVisibility,
-    required TResult Function(ToggleHlsPlayer value) toggleHlsPlayer,
-    required TResult Function(ToggleCommentVisibility value)
-        toggleCommentVisibility,
-    required TResult Function(ToggleRelatedVideoVisibility value)
-        toggleRelatedVideoVisibility,
-    required TResult Function(FetchPipedInstances value) fetchPipedInstances,
-    required TResult Function(FetchInvidiousInstances value)
-        fetchInvidiousInstances,
-    required TResult Function(SetInstance value) setInstance,
-    required TResult Function(SetYTService value) setYTService,
-    required TResult Function(TogglePipPlayer value) togglePipPlayer,
-    required TResult Function(SetSearchFilter value) setSearchFilter,
-    required TResult Function(SetVideoFitMode value) setVideoFitMode,
-    required TResult Function(SetSkipInterval value) setSkipInterval,
-    required TResult Function(ToggleSponsorBlock value) toggleSponsorBlock,
-    required TResult Function(SetSponsorBlockCategories value)
-        setSponsorBlockCategories,
-    required TResult Function(ToggleOpenLinksInBrowser value)
-        toggleOpenLinksInBrowser,
-    required TResult Function(SetHomeFeedMode value) setHomeFeedMode,
-    required TResult Function(ToggleAudioFocus value) toggleAudioFocus,
-    required TResult Function(AddProfile value) addProfile,
-    required TResult Function(DeleteProfile value) deleteProfile,
-    required TResult Function(SwitchProfile value) switchProfile,
-    required TResult Function(RenameProfile value) renameProfile,
-    required TResult Function(ExportSubscriptions value) exportSubscriptions,
-    required TResult Function(ImportSubscriptions value) importSubscriptions,
-    required TResult Function(SetSubtitleSize value) setSubtitleSize,
-    required TResult Function(ToggleSearchHistoryEnabled value)
-        toggleSearchHistoryEnabled,
-    required TResult Function(ToggleSearchHistoryVisibility value)
-        toggleSearchHistoryVisibility,
-    required TResult Function(SetLastExportedFilePath value)
-        setLastExportedFilePath,
-    required TResult Function(ToggleAutoPip value) toggleAutoPip,
-  }) {
-    return setHomeFeedMode(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InitializeSettings value)? initializeSettings,
-    TResult? Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult? Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult? Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult? Function(ChangeTheme value)? changeTheme,
-    TResult? Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult? Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult? Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult? Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult? Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult? Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult? Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult? Function(SetInstance value)? setInstance,
-    TResult? Function(SetYTService value)? setYTService,
-    TResult? Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult? Function(SetSearchFilter value)? setSearchFilter,
-    TResult? Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult? Function(SetSkipInterval value)? setSkipInterval,
-    TResult? Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult? Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult? Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult? Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult? Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult? Function(AddProfile value)? addProfile,
-    TResult? Function(DeleteProfile value)? deleteProfile,
-    TResult? Function(SwitchProfile value)? switchProfile,
-    TResult? Function(RenameProfile value)? renameProfile,
-    TResult? Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult? Function(ImportSubscriptions value)? importSubscriptions,
-    TResult? Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult? Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult? Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult? Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult? Function(ToggleAutoPip value)? toggleAutoPip,
-  }) {
-    return setHomeFeedMode?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitializeSettings value)? initializeSettings,
-    TResult Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult Function(ChangeTheme value)? changeTheme,
-    TResult Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult Function(SetInstance value)? setInstance,
-    TResult Function(SetYTService value)? setYTService,
-    TResult Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult Function(SetSearchFilter value)? setSearchFilter,
-    TResult Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult Function(SetSkipInterval value)? setSkipInterval,
-    TResult Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult Function(AddProfile value)? addProfile,
-    TResult Function(DeleteProfile value)? deleteProfile,
-    TResult Function(SwitchProfile value)? switchProfile,
-    TResult Function(RenameProfile value)? renameProfile,
-    TResult Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult Function(ImportSubscriptions value)? importSubscriptions,
-    TResult Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult Function(ToggleAutoPip value)? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (setHomeFeedMode != null) {
-      return setHomeFeedMode(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class SetHomeFeedMode implements SettingsEvent {
-  factory SetHomeFeedMode({required final String mode}) = _$SetHomeFeedModeImpl;
-
-  String get mode;
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SetHomeFeedModeImplCopyWith<_$SetHomeFeedModeImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$ToggleAudioFocusImplCopyWith<$Res> {
-  factory _$$ToggleAudioFocusImplCopyWith(_$ToggleAudioFocusImpl value,
-          $Res Function(_$ToggleAudioFocusImpl) then) =
-      __$$ToggleAudioFocusImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ToggleAudioFocusImplCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res, _$ToggleAudioFocusImpl>
-    implements _$$ToggleAudioFocusImplCopyWith<$Res> {
-  __$$ToggleAudioFocusImplCopyWithImpl(_$ToggleAudioFocusImpl _value,
-      $Res Function(_$ToggleAudioFocusImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$ToggleAudioFocusImpl implements ToggleAudioFocus {
-  _$ToggleAudioFocusImpl();
+  int get hashCode => Object.hash(runtimeType, isEnabled);
 
   @override
   String toString() {
-    return 'SettingsEvent.toggleAudioFocus()';
+    return 'SettingsEvent.toggleAudioFocus(isEnabled: $isEnabled)';
   }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ToggleAudioFocusImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initializeSettings,
-    required TResult Function(String? language) getDefaultLanguage,
-    required TResult Function(String? quality) getDefaultQuality,
-    required TResult Function(String? region) getDefaultRegion,
-    required TResult Function(String themeMode) changeTheme,
-    required TResult Function() toggleHistoryVisibility,
-    required TResult Function() toggleDislikeVisibility,
-    required TResult Function() toggleHlsPlayer,
-    required TResult Function() toggleCommentVisibility,
-    required TResult Function() toggleRelatedVideoVisibility,
-    required TResult Function(bool forceRefresh) fetchPipedInstances,
-    required TResult Function(bool forceRefresh) fetchInvidiousInstances,
-    required TResult Function(String instanceApi) setInstance,
-    required TResult Function(YouTubeServices service) setYTService,
-    required TResult Function() togglePipPlayer,
-    required TResult Function(String filter) setSearchFilter,
-    required TResult Function(String fitMode) setVideoFitMode,
-    required TResult Function(int seconds) setSkipInterval,
-    required TResult Function() toggleSponsorBlock,
-    required TResult Function(List<String> categories)
-        setSponsorBlockCategories,
-    required TResult Function() toggleOpenLinksInBrowser,
-    required TResult Function(String mode) setHomeFeedMode,
-    required TResult Function() toggleAudioFocus,
-    required TResult Function(String profileName) addProfile,
-    required TResult Function(String profileName) deleteProfile,
-    required TResult Function(String profileName) switchProfile,
-    required TResult Function(String oldName, String newName) renameProfile,
-    required TResult Function(String profileName) exportSubscriptions,
-    required TResult Function(String filePath, String profileName)
-        importSubscriptions,
-    required TResult Function(double size) setSubtitleSize,
-    required TResult Function() toggleSearchHistoryEnabled,
-    required TResult Function() toggleSearchHistoryVisibility,
-    required TResult Function(String filePath) setLastExportedFilePath,
-    required TResult Function() toggleAutoPip,
-  }) {
-    return toggleAudioFocus();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initializeSettings,
-    TResult? Function(String? language)? getDefaultLanguage,
-    TResult? Function(String? quality)? getDefaultQuality,
-    TResult? Function(String? region)? getDefaultRegion,
-    TResult? Function(String themeMode)? changeTheme,
-    TResult? Function()? toggleHistoryVisibility,
-    TResult? Function()? toggleDislikeVisibility,
-    TResult? Function()? toggleHlsPlayer,
-    TResult? Function()? toggleCommentVisibility,
-    TResult? Function()? toggleRelatedVideoVisibility,
-    TResult? Function(bool forceRefresh)? fetchPipedInstances,
-    TResult? Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult? Function(String instanceApi)? setInstance,
-    TResult? Function(YouTubeServices service)? setYTService,
-    TResult? Function()? togglePipPlayer,
-    TResult? Function(String filter)? setSearchFilter,
-    TResult? Function(String fitMode)? setVideoFitMode,
-    TResult? Function(int seconds)? setSkipInterval,
-    TResult? Function()? toggleSponsorBlock,
-    TResult? Function(List<String> categories)? setSponsorBlockCategories,
-    TResult? Function()? toggleOpenLinksInBrowser,
-    TResult? Function(String mode)? setHomeFeedMode,
-    TResult? Function()? toggleAudioFocus,
-    TResult? Function(String profileName)? addProfile,
-    TResult? Function(String profileName)? deleteProfile,
-    TResult? Function(String profileName)? switchProfile,
-    TResult? Function(String oldName, String newName)? renameProfile,
-    TResult? Function(String profileName)? exportSubscriptions,
-    TResult? Function(String filePath, String profileName)? importSubscriptions,
-    TResult? Function(double size)? setSubtitleSize,
-    TResult? Function()? toggleSearchHistoryEnabled,
-    TResult? Function()? toggleSearchHistoryVisibility,
-    TResult? Function(String filePath)? setLastExportedFilePath,
-    TResult? Function()? toggleAutoPip,
-  }) {
-    return toggleAudioFocus?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initializeSettings,
-    TResult Function(String? language)? getDefaultLanguage,
-    TResult Function(String? quality)? getDefaultQuality,
-    TResult Function(String? region)? getDefaultRegion,
-    TResult Function(String themeMode)? changeTheme,
-    TResult Function()? toggleHistoryVisibility,
-    TResult Function()? toggleDislikeVisibility,
-    TResult Function()? toggleHlsPlayer,
-    TResult Function()? toggleCommentVisibility,
-    TResult Function()? toggleRelatedVideoVisibility,
-    TResult Function(bool forceRefresh)? fetchPipedInstances,
-    TResult Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult Function(String instanceApi)? setInstance,
-    TResult Function(YouTubeServices service)? setYTService,
-    TResult Function()? togglePipPlayer,
-    TResult Function(String filter)? setSearchFilter,
-    TResult Function(String fitMode)? setVideoFitMode,
-    TResult Function(int seconds)? setSkipInterval,
-    TResult Function()? toggleSponsorBlock,
-    TResult Function(List<String> categories)? setSponsorBlockCategories,
-    TResult Function()? toggleOpenLinksInBrowser,
-    TResult Function(String mode)? setHomeFeedMode,
-    TResult Function()? toggleAudioFocus,
-    TResult Function(String profileName)? addProfile,
-    TResult Function(String profileName)? deleteProfile,
-    TResult Function(String profileName)? switchProfile,
-    TResult Function(String oldName, String newName)? renameProfile,
-    TResult Function(String profileName)? exportSubscriptions,
-    TResult Function(String filePath, String profileName)? importSubscriptions,
-    TResult Function(double size)? setSubtitleSize,
-    TResult Function()? toggleSearchHistoryEnabled,
-    TResult Function()? toggleSearchHistoryVisibility,
-    TResult Function(String filePath)? setLastExportedFilePath,
-    TResult Function()? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (toggleAudioFocus != null) {
-      return toggleAudioFocus();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(InitializeSettings value) initializeSettings,
-    required TResult Function(GetDefaultLanguage value) getDefaultLanguage,
-    required TResult Function(GetDefaultQuality value) getDefaultQuality,
-    required TResult Function(GetDefaultRegion value) getDefaultRegion,
-    required TResult Function(ChangeTheme value) changeTheme,
-    required TResult Function(ToggleHistoryVisibility value)
-        toggleHistoryVisibility,
-    required TResult Function(ToggleDislikeVisibility value)
-        toggleDislikeVisibility,
-    required TResult Function(ToggleHlsPlayer value) toggleHlsPlayer,
-    required TResult Function(ToggleCommentVisibility value)
-        toggleCommentVisibility,
-    required TResult Function(ToggleRelatedVideoVisibility value)
-        toggleRelatedVideoVisibility,
-    required TResult Function(FetchPipedInstances value) fetchPipedInstances,
-    required TResult Function(FetchInvidiousInstances value)
-        fetchInvidiousInstances,
-    required TResult Function(SetInstance value) setInstance,
-    required TResult Function(SetYTService value) setYTService,
-    required TResult Function(TogglePipPlayer value) togglePipPlayer,
-    required TResult Function(SetSearchFilter value) setSearchFilter,
-    required TResult Function(SetVideoFitMode value) setVideoFitMode,
-    required TResult Function(SetSkipInterval value) setSkipInterval,
-    required TResult Function(ToggleSponsorBlock value) toggleSponsorBlock,
-    required TResult Function(SetSponsorBlockCategories value)
-        setSponsorBlockCategories,
-    required TResult Function(ToggleOpenLinksInBrowser value)
-        toggleOpenLinksInBrowser,
-    required TResult Function(SetHomeFeedMode value) setHomeFeedMode,
-    required TResult Function(ToggleAudioFocus value) toggleAudioFocus,
-    required TResult Function(AddProfile value) addProfile,
-    required TResult Function(DeleteProfile value) deleteProfile,
-    required TResult Function(SwitchProfile value) switchProfile,
-    required TResult Function(RenameProfile value) renameProfile,
-    required TResult Function(ExportSubscriptions value) exportSubscriptions,
-    required TResult Function(ImportSubscriptions value) importSubscriptions,
-    required TResult Function(SetSubtitleSize value) setSubtitleSize,
-    required TResult Function(ToggleSearchHistoryEnabled value)
-        toggleSearchHistoryEnabled,
-    required TResult Function(ToggleSearchHistoryVisibility value)
-        toggleSearchHistoryVisibility,
-    required TResult Function(SetLastExportedFilePath value)
-        setLastExportedFilePath,
-    required TResult Function(ToggleAutoPip value) toggleAutoPip,
-  }) {
-    return toggleAudioFocus(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InitializeSettings value)? initializeSettings,
-    TResult? Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult? Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult? Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult? Function(ChangeTheme value)? changeTheme,
-    TResult? Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult? Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult? Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult? Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult? Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult? Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult? Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult? Function(SetInstance value)? setInstance,
-    TResult? Function(SetYTService value)? setYTService,
-    TResult? Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult? Function(SetSearchFilter value)? setSearchFilter,
-    TResult? Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult? Function(SetSkipInterval value)? setSkipInterval,
-    TResult? Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult? Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult? Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult? Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult? Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult? Function(AddProfile value)? addProfile,
-    TResult? Function(DeleteProfile value)? deleteProfile,
-    TResult? Function(SwitchProfile value)? switchProfile,
-    TResult? Function(RenameProfile value)? renameProfile,
-    TResult? Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult? Function(ImportSubscriptions value)? importSubscriptions,
-    TResult? Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult? Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult? Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult? Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult? Function(ToggleAutoPip value)? toggleAutoPip,
-  }) {
-    return toggleAudioFocus?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitializeSettings value)? initializeSettings,
-    TResult Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult Function(ChangeTheme value)? changeTheme,
-    TResult Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult Function(SetInstance value)? setInstance,
-    TResult Function(SetYTService value)? setYTService,
-    TResult Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult Function(SetSearchFilter value)? setSearchFilter,
-    TResult Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult Function(SetSkipInterval value)? setSkipInterval,
-    TResult Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult Function(AddProfile value)? addProfile,
-    TResult Function(DeleteProfile value)? deleteProfile,
-    TResult Function(SwitchProfile value)? switchProfile,
-    TResult Function(RenameProfile value)? renameProfile,
-    TResult Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult Function(ImportSubscriptions value)? importSubscriptions,
-    TResult Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult Function(ToggleAutoPip value)? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (toggleAudioFocus != null) {
-      return toggleAudioFocus(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ToggleAudioFocus implements SettingsEvent {
-  factory ToggleAudioFocus() = _$ToggleAudioFocusImpl;
 }
 
 /// @nodoc
-abstract class _$$AddProfileImplCopyWith<$Res> {
-  factory _$$AddProfileImplCopyWith(
-          _$AddProfileImpl value, $Res Function(_$AddProfileImpl) then) =
-      __$$AddProfileImplCopyWithImpl<$Res>;
+abstract mixin class $ToggleAudioFocusCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleAudioFocusCopyWith(
+          ToggleAudioFocus value, $Res Function(ToggleAudioFocus) _then) =
+      _$ToggleAudioFocusCopyWithImpl;
   @useResult
-  $Res call({String profileName});
+  $Res call({bool isEnabled});
 }
 
 /// @nodoc
-class __$$AddProfileImplCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res, _$AddProfileImpl>
-    implements _$$AddProfileImplCopyWith<$Res> {
-  __$$AddProfileImplCopyWithImpl(
-      _$AddProfileImpl _value, $Res Function(_$AddProfileImpl) _then)
-      : super(_value, _then);
+class _$ToggleAudioFocusCopyWithImpl<$Res>
+    implements $ToggleAudioFocusCopyWith<$Res> {
+  _$ToggleAudioFocusCopyWithImpl(this._self, this._then);
+
+  final ToggleAudioFocus _self;
+  final $Res Function(ToggleAudioFocus) _then;
 
   /// Create a copy of SettingsEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
-    Object? profileName = null,
+    Object? isEnabled = null,
   }) {
-    return _then(_$AddProfileImpl(
-      profileName: null == profileName
-          ? _value.profileName
-          : profileName // ignore: cast_nullable_to_non_nullable
-              as String,
+    return _then(ToggleAudioFocus(
+      isEnabled: null == isEnabled
+          ? _self.isEnabled
+          : isEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
 
 /// @nodoc
 
-class _$AddProfileImpl implements AddProfile {
-  _$AddProfileImpl({required this.profileName});
+class AddProfile implements SettingsEvent {
+  const AddProfile({required this.profileName});
+
+  final String profileName;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $AddProfileCopyWith<AddProfile> get copyWith =>
+      _$AddProfileCopyWithImpl<AddProfile>(this, _$identity);
 
   @override
-  final String profileName;
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is AddProfile &&
+            (identical(other.profileName, profileName) ||
+                other.profileName == profileName));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, profileName);
 
   @override
   String toString() {
     return 'SettingsEvent.addProfile(profileName: $profileName)';
   }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AddProfileImpl &&
-            (identical(other.profileName, profileName) ||
-                other.profileName == profileName));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, profileName);
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$AddProfileImplCopyWith<_$AddProfileImpl> get copyWith =>
-      __$$AddProfileImplCopyWithImpl<_$AddProfileImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initializeSettings,
-    required TResult Function(String? language) getDefaultLanguage,
-    required TResult Function(String? quality) getDefaultQuality,
-    required TResult Function(String? region) getDefaultRegion,
-    required TResult Function(String themeMode) changeTheme,
-    required TResult Function() toggleHistoryVisibility,
-    required TResult Function() toggleDislikeVisibility,
-    required TResult Function() toggleHlsPlayer,
-    required TResult Function() toggleCommentVisibility,
-    required TResult Function() toggleRelatedVideoVisibility,
-    required TResult Function(bool forceRefresh) fetchPipedInstances,
-    required TResult Function(bool forceRefresh) fetchInvidiousInstances,
-    required TResult Function(String instanceApi) setInstance,
-    required TResult Function(YouTubeServices service) setYTService,
-    required TResult Function() togglePipPlayer,
-    required TResult Function(String filter) setSearchFilter,
-    required TResult Function(String fitMode) setVideoFitMode,
-    required TResult Function(int seconds) setSkipInterval,
-    required TResult Function() toggleSponsorBlock,
-    required TResult Function(List<String> categories)
-        setSponsorBlockCategories,
-    required TResult Function() toggleOpenLinksInBrowser,
-    required TResult Function(String mode) setHomeFeedMode,
-    required TResult Function() toggleAudioFocus,
-    required TResult Function(String profileName) addProfile,
-    required TResult Function(String profileName) deleteProfile,
-    required TResult Function(String profileName) switchProfile,
-    required TResult Function(String oldName, String newName) renameProfile,
-    required TResult Function(String profileName) exportSubscriptions,
-    required TResult Function(String filePath, String profileName)
-        importSubscriptions,
-    required TResult Function(double size) setSubtitleSize,
-    required TResult Function() toggleSearchHistoryEnabled,
-    required TResult Function() toggleSearchHistoryVisibility,
-    required TResult Function(String filePath) setLastExportedFilePath,
-    required TResult Function() toggleAutoPip,
-  }) {
-    return addProfile(profileName);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initializeSettings,
-    TResult? Function(String? language)? getDefaultLanguage,
-    TResult? Function(String? quality)? getDefaultQuality,
-    TResult? Function(String? region)? getDefaultRegion,
-    TResult? Function(String themeMode)? changeTheme,
-    TResult? Function()? toggleHistoryVisibility,
-    TResult? Function()? toggleDislikeVisibility,
-    TResult? Function()? toggleHlsPlayer,
-    TResult? Function()? toggleCommentVisibility,
-    TResult? Function()? toggleRelatedVideoVisibility,
-    TResult? Function(bool forceRefresh)? fetchPipedInstances,
-    TResult? Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult? Function(String instanceApi)? setInstance,
-    TResult? Function(YouTubeServices service)? setYTService,
-    TResult? Function()? togglePipPlayer,
-    TResult? Function(String filter)? setSearchFilter,
-    TResult? Function(String fitMode)? setVideoFitMode,
-    TResult? Function(int seconds)? setSkipInterval,
-    TResult? Function()? toggleSponsorBlock,
-    TResult? Function(List<String> categories)? setSponsorBlockCategories,
-    TResult? Function()? toggleOpenLinksInBrowser,
-    TResult? Function(String mode)? setHomeFeedMode,
-    TResult? Function()? toggleAudioFocus,
-    TResult? Function(String profileName)? addProfile,
-    TResult? Function(String profileName)? deleteProfile,
-    TResult? Function(String profileName)? switchProfile,
-    TResult? Function(String oldName, String newName)? renameProfile,
-    TResult? Function(String profileName)? exportSubscriptions,
-    TResult? Function(String filePath, String profileName)? importSubscriptions,
-    TResult? Function(double size)? setSubtitleSize,
-    TResult? Function()? toggleSearchHistoryEnabled,
-    TResult? Function()? toggleSearchHistoryVisibility,
-    TResult? Function(String filePath)? setLastExportedFilePath,
-    TResult? Function()? toggleAutoPip,
-  }) {
-    return addProfile?.call(profileName);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initializeSettings,
-    TResult Function(String? language)? getDefaultLanguage,
-    TResult Function(String? quality)? getDefaultQuality,
-    TResult Function(String? region)? getDefaultRegion,
-    TResult Function(String themeMode)? changeTheme,
-    TResult Function()? toggleHistoryVisibility,
-    TResult Function()? toggleDislikeVisibility,
-    TResult Function()? toggleHlsPlayer,
-    TResult Function()? toggleCommentVisibility,
-    TResult Function()? toggleRelatedVideoVisibility,
-    TResult Function(bool forceRefresh)? fetchPipedInstances,
-    TResult Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult Function(String instanceApi)? setInstance,
-    TResult Function(YouTubeServices service)? setYTService,
-    TResult Function()? togglePipPlayer,
-    TResult Function(String filter)? setSearchFilter,
-    TResult Function(String fitMode)? setVideoFitMode,
-    TResult Function(int seconds)? setSkipInterval,
-    TResult Function()? toggleSponsorBlock,
-    TResult Function(List<String> categories)? setSponsorBlockCategories,
-    TResult Function()? toggleOpenLinksInBrowser,
-    TResult Function(String mode)? setHomeFeedMode,
-    TResult Function()? toggleAudioFocus,
-    TResult Function(String profileName)? addProfile,
-    TResult Function(String profileName)? deleteProfile,
-    TResult Function(String profileName)? switchProfile,
-    TResult Function(String oldName, String newName)? renameProfile,
-    TResult Function(String profileName)? exportSubscriptions,
-    TResult Function(String filePath, String profileName)? importSubscriptions,
-    TResult Function(double size)? setSubtitleSize,
-    TResult Function()? toggleSearchHistoryEnabled,
-    TResult Function()? toggleSearchHistoryVisibility,
-    TResult Function(String filePath)? setLastExportedFilePath,
-    TResult Function()? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (addProfile != null) {
-      return addProfile(profileName);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(InitializeSettings value) initializeSettings,
-    required TResult Function(GetDefaultLanguage value) getDefaultLanguage,
-    required TResult Function(GetDefaultQuality value) getDefaultQuality,
-    required TResult Function(GetDefaultRegion value) getDefaultRegion,
-    required TResult Function(ChangeTheme value) changeTheme,
-    required TResult Function(ToggleHistoryVisibility value)
-        toggleHistoryVisibility,
-    required TResult Function(ToggleDislikeVisibility value)
-        toggleDislikeVisibility,
-    required TResult Function(ToggleHlsPlayer value) toggleHlsPlayer,
-    required TResult Function(ToggleCommentVisibility value)
-        toggleCommentVisibility,
-    required TResult Function(ToggleRelatedVideoVisibility value)
-        toggleRelatedVideoVisibility,
-    required TResult Function(FetchPipedInstances value) fetchPipedInstances,
-    required TResult Function(FetchInvidiousInstances value)
-        fetchInvidiousInstances,
-    required TResult Function(SetInstance value) setInstance,
-    required TResult Function(SetYTService value) setYTService,
-    required TResult Function(TogglePipPlayer value) togglePipPlayer,
-    required TResult Function(SetSearchFilter value) setSearchFilter,
-    required TResult Function(SetVideoFitMode value) setVideoFitMode,
-    required TResult Function(SetSkipInterval value) setSkipInterval,
-    required TResult Function(ToggleSponsorBlock value) toggleSponsorBlock,
-    required TResult Function(SetSponsorBlockCategories value)
-        setSponsorBlockCategories,
-    required TResult Function(ToggleOpenLinksInBrowser value)
-        toggleOpenLinksInBrowser,
-    required TResult Function(SetHomeFeedMode value) setHomeFeedMode,
-    required TResult Function(ToggleAudioFocus value) toggleAudioFocus,
-    required TResult Function(AddProfile value) addProfile,
-    required TResult Function(DeleteProfile value) deleteProfile,
-    required TResult Function(SwitchProfile value) switchProfile,
-    required TResult Function(RenameProfile value) renameProfile,
-    required TResult Function(ExportSubscriptions value) exportSubscriptions,
-    required TResult Function(ImportSubscriptions value) importSubscriptions,
-    required TResult Function(SetSubtitleSize value) setSubtitleSize,
-    required TResult Function(ToggleSearchHistoryEnabled value)
-        toggleSearchHistoryEnabled,
-    required TResult Function(ToggleSearchHistoryVisibility value)
-        toggleSearchHistoryVisibility,
-    required TResult Function(SetLastExportedFilePath value)
-        setLastExportedFilePath,
-    required TResult Function(ToggleAutoPip value) toggleAutoPip,
-  }) {
-    return addProfile(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InitializeSettings value)? initializeSettings,
-    TResult? Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult? Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult? Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult? Function(ChangeTheme value)? changeTheme,
-    TResult? Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult? Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult? Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult? Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult? Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult? Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult? Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult? Function(SetInstance value)? setInstance,
-    TResult? Function(SetYTService value)? setYTService,
-    TResult? Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult? Function(SetSearchFilter value)? setSearchFilter,
-    TResult? Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult? Function(SetSkipInterval value)? setSkipInterval,
-    TResult? Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult? Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult? Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult? Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult? Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult? Function(AddProfile value)? addProfile,
-    TResult? Function(DeleteProfile value)? deleteProfile,
-    TResult? Function(SwitchProfile value)? switchProfile,
-    TResult? Function(RenameProfile value)? renameProfile,
-    TResult? Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult? Function(ImportSubscriptions value)? importSubscriptions,
-    TResult? Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult? Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult? Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult? Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult? Function(ToggleAutoPip value)? toggleAutoPip,
-  }) {
-    return addProfile?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitializeSettings value)? initializeSettings,
-    TResult Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult Function(ChangeTheme value)? changeTheme,
-    TResult Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult Function(SetInstance value)? setInstance,
-    TResult Function(SetYTService value)? setYTService,
-    TResult Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult Function(SetSearchFilter value)? setSearchFilter,
-    TResult Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult Function(SetSkipInterval value)? setSkipInterval,
-    TResult Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult Function(AddProfile value)? addProfile,
-    TResult Function(DeleteProfile value)? deleteProfile,
-    TResult Function(SwitchProfile value)? switchProfile,
-    TResult Function(RenameProfile value)? renameProfile,
-    TResult Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult Function(ImportSubscriptions value)? importSubscriptions,
-    TResult Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult Function(ToggleAutoPip value)? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (addProfile != null) {
-      return addProfile(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class AddProfile implements SettingsEvent {
-  factory AddProfile({required final String profileName}) = _$AddProfileImpl;
-
-  String get profileName;
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AddProfileImplCopyWith<_$AddProfileImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$DeleteProfileImplCopyWith<$Res> {
-  factory _$$DeleteProfileImplCopyWith(
-          _$DeleteProfileImpl value, $Res Function(_$DeleteProfileImpl) then) =
-      __$$DeleteProfileImplCopyWithImpl<$Res>;
+abstract mixin class $AddProfileCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $AddProfileCopyWith(
+          AddProfile value, $Res Function(AddProfile) _then) =
+      _$AddProfileCopyWithImpl;
   @useResult
   $Res call({String profileName});
 }
 
 /// @nodoc
-class __$$DeleteProfileImplCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res, _$DeleteProfileImpl>
-    implements _$$DeleteProfileImplCopyWith<$Res> {
-  __$$DeleteProfileImplCopyWithImpl(
-      _$DeleteProfileImpl _value, $Res Function(_$DeleteProfileImpl) _then)
-      : super(_value, _then);
+class _$AddProfileCopyWithImpl<$Res> implements $AddProfileCopyWith<$Res> {
+  _$AddProfileCopyWithImpl(this._self, this._then);
+
+  final AddProfile _self;
+  final $Res Function(AddProfile) _then;
 
   /// Create a copy of SettingsEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? profileName = null,
   }) {
-    return _then(_$DeleteProfileImpl(
+    return _then(AddProfile(
       profileName: null == profileName
-          ? _value.profileName
+          ? _self.profileName
           : profileName // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -8478,352 +3039,63 @@ class __$$DeleteProfileImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DeleteProfileImpl implements DeleteProfile {
-  _$DeleteProfileImpl({required this.profileName});
+class DeleteProfile implements SettingsEvent {
+  const DeleteProfile({required this.profileName});
+
+  final String profileName;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $DeleteProfileCopyWith<DeleteProfile> get copyWith =>
+      _$DeleteProfileCopyWithImpl<DeleteProfile>(this, _$identity);
 
   @override
-  final String profileName;
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is DeleteProfile &&
+            (identical(other.profileName, profileName) ||
+                other.profileName == profileName));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, profileName);
 
   @override
   String toString() {
     return 'SettingsEvent.deleteProfile(profileName: $profileName)';
   }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$DeleteProfileImpl &&
-            (identical(other.profileName, profileName) ||
-                other.profileName == profileName));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, profileName);
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$DeleteProfileImplCopyWith<_$DeleteProfileImpl> get copyWith =>
-      __$$DeleteProfileImplCopyWithImpl<_$DeleteProfileImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initializeSettings,
-    required TResult Function(String? language) getDefaultLanguage,
-    required TResult Function(String? quality) getDefaultQuality,
-    required TResult Function(String? region) getDefaultRegion,
-    required TResult Function(String themeMode) changeTheme,
-    required TResult Function() toggleHistoryVisibility,
-    required TResult Function() toggleDislikeVisibility,
-    required TResult Function() toggleHlsPlayer,
-    required TResult Function() toggleCommentVisibility,
-    required TResult Function() toggleRelatedVideoVisibility,
-    required TResult Function(bool forceRefresh) fetchPipedInstances,
-    required TResult Function(bool forceRefresh) fetchInvidiousInstances,
-    required TResult Function(String instanceApi) setInstance,
-    required TResult Function(YouTubeServices service) setYTService,
-    required TResult Function() togglePipPlayer,
-    required TResult Function(String filter) setSearchFilter,
-    required TResult Function(String fitMode) setVideoFitMode,
-    required TResult Function(int seconds) setSkipInterval,
-    required TResult Function() toggleSponsorBlock,
-    required TResult Function(List<String> categories)
-        setSponsorBlockCategories,
-    required TResult Function() toggleOpenLinksInBrowser,
-    required TResult Function(String mode) setHomeFeedMode,
-    required TResult Function() toggleAudioFocus,
-    required TResult Function(String profileName) addProfile,
-    required TResult Function(String profileName) deleteProfile,
-    required TResult Function(String profileName) switchProfile,
-    required TResult Function(String oldName, String newName) renameProfile,
-    required TResult Function(String profileName) exportSubscriptions,
-    required TResult Function(String filePath, String profileName)
-        importSubscriptions,
-    required TResult Function(double size) setSubtitleSize,
-    required TResult Function() toggleSearchHistoryEnabled,
-    required TResult Function() toggleSearchHistoryVisibility,
-    required TResult Function(String filePath) setLastExportedFilePath,
-    required TResult Function() toggleAutoPip,
-  }) {
-    return deleteProfile(profileName);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initializeSettings,
-    TResult? Function(String? language)? getDefaultLanguage,
-    TResult? Function(String? quality)? getDefaultQuality,
-    TResult? Function(String? region)? getDefaultRegion,
-    TResult? Function(String themeMode)? changeTheme,
-    TResult? Function()? toggleHistoryVisibility,
-    TResult? Function()? toggleDislikeVisibility,
-    TResult? Function()? toggleHlsPlayer,
-    TResult? Function()? toggleCommentVisibility,
-    TResult? Function()? toggleRelatedVideoVisibility,
-    TResult? Function(bool forceRefresh)? fetchPipedInstances,
-    TResult? Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult? Function(String instanceApi)? setInstance,
-    TResult? Function(YouTubeServices service)? setYTService,
-    TResult? Function()? togglePipPlayer,
-    TResult? Function(String filter)? setSearchFilter,
-    TResult? Function(String fitMode)? setVideoFitMode,
-    TResult? Function(int seconds)? setSkipInterval,
-    TResult? Function()? toggleSponsorBlock,
-    TResult? Function(List<String> categories)? setSponsorBlockCategories,
-    TResult? Function()? toggleOpenLinksInBrowser,
-    TResult? Function(String mode)? setHomeFeedMode,
-    TResult? Function()? toggleAudioFocus,
-    TResult? Function(String profileName)? addProfile,
-    TResult? Function(String profileName)? deleteProfile,
-    TResult? Function(String profileName)? switchProfile,
-    TResult? Function(String oldName, String newName)? renameProfile,
-    TResult? Function(String profileName)? exportSubscriptions,
-    TResult? Function(String filePath, String profileName)? importSubscriptions,
-    TResult? Function(double size)? setSubtitleSize,
-    TResult? Function()? toggleSearchHistoryEnabled,
-    TResult? Function()? toggleSearchHistoryVisibility,
-    TResult? Function(String filePath)? setLastExportedFilePath,
-    TResult? Function()? toggleAutoPip,
-  }) {
-    return deleteProfile?.call(profileName);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initializeSettings,
-    TResult Function(String? language)? getDefaultLanguage,
-    TResult Function(String? quality)? getDefaultQuality,
-    TResult Function(String? region)? getDefaultRegion,
-    TResult Function(String themeMode)? changeTheme,
-    TResult Function()? toggleHistoryVisibility,
-    TResult Function()? toggleDislikeVisibility,
-    TResult Function()? toggleHlsPlayer,
-    TResult Function()? toggleCommentVisibility,
-    TResult Function()? toggleRelatedVideoVisibility,
-    TResult Function(bool forceRefresh)? fetchPipedInstances,
-    TResult Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult Function(String instanceApi)? setInstance,
-    TResult Function(YouTubeServices service)? setYTService,
-    TResult Function()? togglePipPlayer,
-    TResult Function(String filter)? setSearchFilter,
-    TResult Function(String fitMode)? setVideoFitMode,
-    TResult Function(int seconds)? setSkipInterval,
-    TResult Function()? toggleSponsorBlock,
-    TResult Function(List<String> categories)? setSponsorBlockCategories,
-    TResult Function()? toggleOpenLinksInBrowser,
-    TResult Function(String mode)? setHomeFeedMode,
-    TResult Function()? toggleAudioFocus,
-    TResult Function(String profileName)? addProfile,
-    TResult Function(String profileName)? deleteProfile,
-    TResult Function(String profileName)? switchProfile,
-    TResult Function(String oldName, String newName)? renameProfile,
-    TResult Function(String profileName)? exportSubscriptions,
-    TResult Function(String filePath, String profileName)? importSubscriptions,
-    TResult Function(double size)? setSubtitleSize,
-    TResult Function()? toggleSearchHistoryEnabled,
-    TResult Function()? toggleSearchHistoryVisibility,
-    TResult Function(String filePath)? setLastExportedFilePath,
-    TResult Function()? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (deleteProfile != null) {
-      return deleteProfile(profileName);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(InitializeSettings value) initializeSettings,
-    required TResult Function(GetDefaultLanguage value) getDefaultLanguage,
-    required TResult Function(GetDefaultQuality value) getDefaultQuality,
-    required TResult Function(GetDefaultRegion value) getDefaultRegion,
-    required TResult Function(ChangeTheme value) changeTheme,
-    required TResult Function(ToggleHistoryVisibility value)
-        toggleHistoryVisibility,
-    required TResult Function(ToggleDislikeVisibility value)
-        toggleDislikeVisibility,
-    required TResult Function(ToggleHlsPlayer value) toggleHlsPlayer,
-    required TResult Function(ToggleCommentVisibility value)
-        toggleCommentVisibility,
-    required TResult Function(ToggleRelatedVideoVisibility value)
-        toggleRelatedVideoVisibility,
-    required TResult Function(FetchPipedInstances value) fetchPipedInstances,
-    required TResult Function(FetchInvidiousInstances value)
-        fetchInvidiousInstances,
-    required TResult Function(SetInstance value) setInstance,
-    required TResult Function(SetYTService value) setYTService,
-    required TResult Function(TogglePipPlayer value) togglePipPlayer,
-    required TResult Function(SetSearchFilter value) setSearchFilter,
-    required TResult Function(SetVideoFitMode value) setVideoFitMode,
-    required TResult Function(SetSkipInterval value) setSkipInterval,
-    required TResult Function(ToggleSponsorBlock value) toggleSponsorBlock,
-    required TResult Function(SetSponsorBlockCategories value)
-        setSponsorBlockCategories,
-    required TResult Function(ToggleOpenLinksInBrowser value)
-        toggleOpenLinksInBrowser,
-    required TResult Function(SetHomeFeedMode value) setHomeFeedMode,
-    required TResult Function(ToggleAudioFocus value) toggleAudioFocus,
-    required TResult Function(AddProfile value) addProfile,
-    required TResult Function(DeleteProfile value) deleteProfile,
-    required TResult Function(SwitchProfile value) switchProfile,
-    required TResult Function(RenameProfile value) renameProfile,
-    required TResult Function(ExportSubscriptions value) exportSubscriptions,
-    required TResult Function(ImportSubscriptions value) importSubscriptions,
-    required TResult Function(SetSubtitleSize value) setSubtitleSize,
-    required TResult Function(ToggleSearchHistoryEnabled value)
-        toggleSearchHistoryEnabled,
-    required TResult Function(ToggleSearchHistoryVisibility value)
-        toggleSearchHistoryVisibility,
-    required TResult Function(SetLastExportedFilePath value)
-        setLastExportedFilePath,
-    required TResult Function(ToggleAutoPip value) toggleAutoPip,
-  }) {
-    return deleteProfile(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InitializeSettings value)? initializeSettings,
-    TResult? Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult? Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult? Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult? Function(ChangeTheme value)? changeTheme,
-    TResult? Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult? Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult? Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult? Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult? Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult? Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult? Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult? Function(SetInstance value)? setInstance,
-    TResult? Function(SetYTService value)? setYTService,
-    TResult? Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult? Function(SetSearchFilter value)? setSearchFilter,
-    TResult? Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult? Function(SetSkipInterval value)? setSkipInterval,
-    TResult? Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult? Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult? Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult? Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult? Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult? Function(AddProfile value)? addProfile,
-    TResult? Function(DeleteProfile value)? deleteProfile,
-    TResult? Function(SwitchProfile value)? switchProfile,
-    TResult? Function(RenameProfile value)? renameProfile,
-    TResult? Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult? Function(ImportSubscriptions value)? importSubscriptions,
-    TResult? Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult? Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult? Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult? Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult? Function(ToggleAutoPip value)? toggleAutoPip,
-  }) {
-    return deleteProfile?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitializeSettings value)? initializeSettings,
-    TResult Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult Function(ChangeTheme value)? changeTheme,
-    TResult Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult Function(SetInstance value)? setInstance,
-    TResult Function(SetYTService value)? setYTService,
-    TResult Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult Function(SetSearchFilter value)? setSearchFilter,
-    TResult Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult Function(SetSkipInterval value)? setSkipInterval,
-    TResult Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult Function(AddProfile value)? addProfile,
-    TResult Function(DeleteProfile value)? deleteProfile,
-    TResult Function(SwitchProfile value)? switchProfile,
-    TResult Function(RenameProfile value)? renameProfile,
-    TResult Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult Function(ImportSubscriptions value)? importSubscriptions,
-    TResult Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult Function(ToggleAutoPip value)? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (deleteProfile != null) {
-      return deleteProfile(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class DeleteProfile implements SettingsEvent {
-  factory DeleteProfile({required final String profileName}) =
-      _$DeleteProfileImpl;
-
-  String get profileName;
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$DeleteProfileImplCopyWith<_$DeleteProfileImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SwitchProfileImplCopyWith<$Res> {
-  factory _$$SwitchProfileImplCopyWith(
-          _$SwitchProfileImpl value, $Res Function(_$SwitchProfileImpl) then) =
-      __$$SwitchProfileImplCopyWithImpl<$Res>;
+abstract mixin class $DeleteProfileCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $DeleteProfileCopyWith(
+          DeleteProfile value, $Res Function(DeleteProfile) _then) =
+      _$DeleteProfileCopyWithImpl;
   @useResult
   $Res call({String profileName});
 }
 
 /// @nodoc
-class __$$SwitchProfileImplCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res, _$SwitchProfileImpl>
-    implements _$$SwitchProfileImplCopyWith<$Res> {
-  __$$SwitchProfileImplCopyWithImpl(
-      _$SwitchProfileImpl _value, $Res Function(_$SwitchProfileImpl) _then)
-      : super(_value, _then);
+class _$DeleteProfileCopyWithImpl<$Res>
+    implements $DeleteProfileCopyWith<$Res> {
+  _$DeleteProfileCopyWithImpl(this._self, this._then);
+
+  final DeleteProfile _self;
+  final $Res Function(DeleteProfile) _then;
 
   /// Create a copy of SettingsEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? profileName = null,
   }) {
-    return _then(_$SwitchProfileImpl(
+    return _then(DeleteProfile(
       profileName: null == profileName
-          ? _value.profileName
+          ? _self.profileName
           : profileName // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -8832,22 +3104,23 @@ class __$$SwitchProfileImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SwitchProfileImpl implements SwitchProfile {
-  _$SwitchProfileImpl({required this.profileName});
+class SwitchProfile implements SettingsEvent {
+  const SwitchProfile({required this.profileName});
 
-  @override
   final String profileName;
 
-  @override
-  String toString() {
-    return 'SettingsEvent.switchProfile(profileName: $profileName)';
-  }
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $SwitchProfileCopyWith<SwitchProfile> get copyWith =>
+      _$SwitchProfileCopyWithImpl<SwitchProfile>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SwitchProfileImpl &&
+            other is SwitchProfile &&
             (identical(other.profileName, profileName) ||
                 other.profileName == profileName));
   }
@@ -8855,334 +3128,110 @@ class _$SwitchProfileImpl implements SwitchProfile {
   @override
   int get hashCode => Object.hash(runtimeType, profileName);
 
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$SwitchProfileImplCopyWith<_$SwitchProfileImpl> get copyWith =>
-      __$$SwitchProfileImplCopyWithImpl<_$SwitchProfileImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initializeSettings,
-    required TResult Function(String? language) getDefaultLanguage,
-    required TResult Function(String? quality) getDefaultQuality,
-    required TResult Function(String? region) getDefaultRegion,
-    required TResult Function(String themeMode) changeTheme,
-    required TResult Function() toggleHistoryVisibility,
-    required TResult Function() toggleDislikeVisibility,
-    required TResult Function() toggleHlsPlayer,
-    required TResult Function() toggleCommentVisibility,
-    required TResult Function() toggleRelatedVideoVisibility,
-    required TResult Function(bool forceRefresh) fetchPipedInstances,
-    required TResult Function(bool forceRefresh) fetchInvidiousInstances,
-    required TResult Function(String instanceApi) setInstance,
-    required TResult Function(YouTubeServices service) setYTService,
-    required TResult Function() togglePipPlayer,
-    required TResult Function(String filter) setSearchFilter,
-    required TResult Function(String fitMode) setVideoFitMode,
-    required TResult Function(int seconds) setSkipInterval,
-    required TResult Function() toggleSponsorBlock,
-    required TResult Function(List<String> categories)
-        setSponsorBlockCategories,
-    required TResult Function() toggleOpenLinksInBrowser,
-    required TResult Function(String mode) setHomeFeedMode,
-    required TResult Function() toggleAudioFocus,
-    required TResult Function(String profileName) addProfile,
-    required TResult Function(String profileName) deleteProfile,
-    required TResult Function(String profileName) switchProfile,
-    required TResult Function(String oldName, String newName) renameProfile,
-    required TResult Function(String profileName) exportSubscriptions,
-    required TResult Function(String filePath, String profileName)
-        importSubscriptions,
-    required TResult Function(double size) setSubtitleSize,
-    required TResult Function() toggleSearchHistoryEnabled,
-    required TResult Function() toggleSearchHistoryVisibility,
-    required TResult Function(String filePath) setLastExportedFilePath,
-    required TResult Function() toggleAutoPip,
-  }) {
-    return switchProfile(profileName);
+  String toString() {
+    return 'SettingsEvent.switchProfile(profileName: $profileName)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initializeSettings,
-    TResult? Function(String? language)? getDefaultLanguage,
-    TResult? Function(String? quality)? getDefaultQuality,
-    TResult? Function(String? region)? getDefaultRegion,
-    TResult? Function(String themeMode)? changeTheme,
-    TResult? Function()? toggleHistoryVisibility,
-    TResult? Function()? toggleDislikeVisibility,
-    TResult? Function()? toggleHlsPlayer,
-    TResult? Function()? toggleCommentVisibility,
-    TResult? Function()? toggleRelatedVideoVisibility,
-    TResult? Function(bool forceRefresh)? fetchPipedInstances,
-    TResult? Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult? Function(String instanceApi)? setInstance,
-    TResult? Function(YouTubeServices service)? setYTService,
-    TResult? Function()? togglePipPlayer,
-    TResult? Function(String filter)? setSearchFilter,
-    TResult? Function(String fitMode)? setVideoFitMode,
-    TResult? Function(int seconds)? setSkipInterval,
-    TResult? Function()? toggleSponsorBlock,
-    TResult? Function(List<String> categories)? setSponsorBlockCategories,
-    TResult? Function()? toggleOpenLinksInBrowser,
-    TResult? Function(String mode)? setHomeFeedMode,
-    TResult? Function()? toggleAudioFocus,
-    TResult? Function(String profileName)? addProfile,
-    TResult? Function(String profileName)? deleteProfile,
-    TResult? Function(String profileName)? switchProfile,
-    TResult? Function(String oldName, String newName)? renameProfile,
-    TResult? Function(String profileName)? exportSubscriptions,
-    TResult? Function(String filePath, String profileName)? importSubscriptions,
-    TResult? Function(double size)? setSubtitleSize,
-    TResult? Function()? toggleSearchHistoryEnabled,
-    TResult? Function()? toggleSearchHistoryVisibility,
-    TResult? Function(String filePath)? setLastExportedFilePath,
-    TResult? Function()? toggleAutoPip,
-  }) {
-    return switchProfile?.call(profileName);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initializeSettings,
-    TResult Function(String? language)? getDefaultLanguage,
-    TResult Function(String? quality)? getDefaultQuality,
-    TResult Function(String? region)? getDefaultRegion,
-    TResult Function(String themeMode)? changeTheme,
-    TResult Function()? toggleHistoryVisibility,
-    TResult Function()? toggleDislikeVisibility,
-    TResult Function()? toggleHlsPlayer,
-    TResult Function()? toggleCommentVisibility,
-    TResult Function()? toggleRelatedVideoVisibility,
-    TResult Function(bool forceRefresh)? fetchPipedInstances,
-    TResult Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult Function(String instanceApi)? setInstance,
-    TResult Function(YouTubeServices service)? setYTService,
-    TResult Function()? togglePipPlayer,
-    TResult Function(String filter)? setSearchFilter,
-    TResult Function(String fitMode)? setVideoFitMode,
-    TResult Function(int seconds)? setSkipInterval,
-    TResult Function()? toggleSponsorBlock,
-    TResult Function(List<String> categories)? setSponsorBlockCategories,
-    TResult Function()? toggleOpenLinksInBrowser,
-    TResult Function(String mode)? setHomeFeedMode,
-    TResult Function()? toggleAudioFocus,
-    TResult Function(String profileName)? addProfile,
-    TResult Function(String profileName)? deleteProfile,
-    TResult Function(String profileName)? switchProfile,
-    TResult Function(String oldName, String newName)? renameProfile,
-    TResult Function(String profileName)? exportSubscriptions,
-    TResult Function(String filePath, String profileName)? importSubscriptions,
-    TResult Function(double size)? setSubtitleSize,
-    TResult Function()? toggleSearchHistoryEnabled,
-    TResult Function()? toggleSearchHistoryVisibility,
-    TResult Function(String filePath)? setLastExportedFilePath,
-    TResult Function()? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (switchProfile != null) {
-      return switchProfile(profileName);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(InitializeSettings value) initializeSettings,
-    required TResult Function(GetDefaultLanguage value) getDefaultLanguage,
-    required TResult Function(GetDefaultQuality value) getDefaultQuality,
-    required TResult Function(GetDefaultRegion value) getDefaultRegion,
-    required TResult Function(ChangeTheme value) changeTheme,
-    required TResult Function(ToggleHistoryVisibility value)
-        toggleHistoryVisibility,
-    required TResult Function(ToggleDislikeVisibility value)
-        toggleDislikeVisibility,
-    required TResult Function(ToggleHlsPlayer value) toggleHlsPlayer,
-    required TResult Function(ToggleCommentVisibility value)
-        toggleCommentVisibility,
-    required TResult Function(ToggleRelatedVideoVisibility value)
-        toggleRelatedVideoVisibility,
-    required TResult Function(FetchPipedInstances value) fetchPipedInstances,
-    required TResult Function(FetchInvidiousInstances value)
-        fetchInvidiousInstances,
-    required TResult Function(SetInstance value) setInstance,
-    required TResult Function(SetYTService value) setYTService,
-    required TResult Function(TogglePipPlayer value) togglePipPlayer,
-    required TResult Function(SetSearchFilter value) setSearchFilter,
-    required TResult Function(SetVideoFitMode value) setVideoFitMode,
-    required TResult Function(SetSkipInterval value) setSkipInterval,
-    required TResult Function(ToggleSponsorBlock value) toggleSponsorBlock,
-    required TResult Function(SetSponsorBlockCategories value)
-        setSponsorBlockCategories,
-    required TResult Function(ToggleOpenLinksInBrowser value)
-        toggleOpenLinksInBrowser,
-    required TResult Function(SetHomeFeedMode value) setHomeFeedMode,
-    required TResult Function(ToggleAudioFocus value) toggleAudioFocus,
-    required TResult Function(AddProfile value) addProfile,
-    required TResult Function(DeleteProfile value) deleteProfile,
-    required TResult Function(SwitchProfile value) switchProfile,
-    required TResult Function(RenameProfile value) renameProfile,
-    required TResult Function(ExportSubscriptions value) exportSubscriptions,
-    required TResult Function(ImportSubscriptions value) importSubscriptions,
-    required TResult Function(SetSubtitleSize value) setSubtitleSize,
-    required TResult Function(ToggleSearchHistoryEnabled value)
-        toggleSearchHistoryEnabled,
-    required TResult Function(ToggleSearchHistoryVisibility value)
-        toggleSearchHistoryVisibility,
-    required TResult Function(SetLastExportedFilePath value)
-        setLastExportedFilePath,
-    required TResult Function(ToggleAutoPip value) toggleAutoPip,
-  }) {
-    return switchProfile(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InitializeSettings value)? initializeSettings,
-    TResult? Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult? Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult? Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult? Function(ChangeTheme value)? changeTheme,
-    TResult? Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult? Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult? Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult? Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult? Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult? Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult? Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult? Function(SetInstance value)? setInstance,
-    TResult? Function(SetYTService value)? setYTService,
-    TResult? Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult? Function(SetSearchFilter value)? setSearchFilter,
-    TResult? Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult? Function(SetSkipInterval value)? setSkipInterval,
-    TResult? Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult? Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult? Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult? Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult? Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult? Function(AddProfile value)? addProfile,
-    TResult? Function(DeleteProfile value)? deleteProfile,
-    TResult? Function(SwitchProfile value)? switchProfile,
-    TResult? Function(RenameProfile value)? renameProfile,
-    TResult? Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult? Function(ImportSubscriptions value)? importSubscriptions,
-    TResult? Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult? Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult? Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult? Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult? Function(ToggleAutoPip value)? toggleAutoPip,
-  }) {
-    return switchProfile?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitializeSettings value)? initializeSettings,
-    TResult Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult Function(ChangeTheme value)? changeTheme,
-    TResult Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult Function(SetInstance value)? setInstance,
-    TResult Function(SetYTService value)? setYTService,
-    TResult Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult Function(SetSearchFilter value)? setSearchFilter,
-    TResult Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult Function(SetSkipInterval value)? setSkipInterval,
-    TResult Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult Function(AddProfile value)? addProfile,
-    TResult Function(DeleteProfile value)? deleteProfile,
-    TResult Function(SwitchProfile value)? switchProfile,
-    TResult Function(RenameProfile value)? renameProfile,
-    TResult Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult Function(ImportSubscriptions value)? importSubscriptions,
-    TResult Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult Function(ToggleAutoPip value)? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (switchProfile != null) {
-      return switchProfile(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class SwitchProfile implements SettingsEvent {
-  factory SwitchProfile({required final String profileName}) =
-      _$SwitchProfileImpl;
-
-  String get profileName;
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SwitchProfileImplCopyWith<_$SwitchProfileImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$RenameProfileImplCopyWith<$Res> {
-  factory _$$RenameProfileImplCopyWith(
-          _$RenameProfileImpl value, $Res Function(_$RenameProfileImpl) then) =
-      __$$RenameProfileImplCopyWithImpl<$Res>;
+abstract mixin class $SwitchProfileCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $SwitchProfileCopyWith(
+          SwitchProfile value, $Res Function(SwitchProfile) _then) =
+      _$SwitchProfileCopyWithImpl;
+  @useResult
+  $Res call({String profileName});
+}
+
+/// @nodoc
+class _$SwitchProfileCopyWithImpl<$Res>
+    implements $SwitchProfileCopyWith<$Res> {
+  _$SwitchProfileCopyWithImpl(this._self, this._then);
+
+  final SwitchProfile _self;
+  final $Res Function(SwitchProfile) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? profileName = null,
+  }) {
+    return _then(SwitchProfile(
+      profileName: null == profileName
+          ? _self.profileName
+          : profileName // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class RenameProfile implements SettingsEvent {
+  const RenameProfile({required this.oldName, required this.newName});
+
+  final String oldName;
+  final String newName;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $RenameProfileCopyWith<RenameProfile> get copyWith =>
+      _$RenameProfileCopyWithImpl<RenameProfile>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is RenameProfile &&
+            (identical(other.oldName, oldName) || other.oldName == oldName) &&
+            (identical(other.newName, newName) || other.newName == newName));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, oldName, newName);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.renameProfile(oldName: $oldName, newName: $newName)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $RenameProfileCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $RenameProfileCopyWith(
+          RenameProfile value, $Res Function(RenameProfile) _then) =
+      _$RenameProfileCopyWithImpl;
   @useResult
   $Res call({String oldName, String newName});
 }
 
 /// @nodoc
-class __$$RenameProfileImplCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res, _$RenameProfileImpl>
-    implements _$$RenameProfileImplCopyWith<$Res> {
-  __$$RenameProfileImplCopyWithImpl(
-      _$RenameProfileImpl _value, $Res Function(_$RenameProfileImpl) _then)
-      : super(_value, _then);
+class _$RenameProfileCopyWithImpl<$Res>
+    implements $RenameProfileCopyWith<$Res> {
+  _$RenameProfileCopyWithImpl(this._self, this._then);
+
+  final RenameProfile _self;
+  final $Res Function(RenameProfile) _then;
 
   /// Create a copy of SettingsEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? oldName = null,
     Object? newName = null,
   }) {
-    return _then(_$RenameProfileImpl(
+    return _then(RenameProfile(
       oldName: null == oldName
-          ? _value.oldName
+          ? _self.oldName
           : oldName // ignore: cast_nullable_to_non_nullable
               as String,
       newName: null == newName
-          ? _value.newName
+          ? _self.newName
           : newName // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -9191,381 +3240,24 @@ class __$$RenameProfileImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$RenameProfileImpl implements RenameProfile {
-  _$RenameProfileImpl({required this.oldName, required this.newName});
+class ExportSubscriptions implements SettingsEvent {
+  const ExportSubscriptions({this.profileName = 'default'});
 
-  @override
-  final String oldName;
-  @override
-  final String newName;
-
-  @override
-  String toString() {
-    return 'SettingsEvent.renameProfile(oldName: $oldName, newName: $newName)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$RenameProfileImpl &&
-            (identical(other.oldName, oldName) || other.oldName == oldName) &&
-            (identical(other.newName, newName) || other.newName == newName));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, oldName, newName);
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$RenameProfileImplCopyWith<_$RenameProfileImpl> get copyWith =>
-      __$$RenameProfileImplCopyWithImpl<_$RenameProfileImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initializeSettings,
-    required TResult Function(String? language) getDefaultLanguage,
-    required TResult Function(String? quality) getDefaultQuality,
-    required TResult Function(String? region) getDefaultRegion,
-    required TResult Function(String themeMode) changeTheme,
-    required TResult Function() toggleHistoryVisibility,
-    required TResult Function() toggleDislikeVisibility,
-    required TResult Function() toggleHlsPlayer,
-    required TResult Function() toggleCommentVisibility,
-    required TResult Function() toggleRelatedVideoVisibility,
-    required TResult Function(bool forceRefresh) fetchPipedInstances,
-    required TResult Function(bool forceRefresh) fetchInvidiousInstances,
-    required TResult Function(String instanceApi) setInstance,
-    required TResult Function(YouTubeServices service) setYTService,
-    required TResult Function() togglePipPlayer,
-    required TResult Function(String filter) setSearchFilter,
-    required TResult Function(String fitMode) setVideoFitMode,
-    required TResult Function(int seconds) setSkipInterval,
-    required TResult Function() toggleSponsorBlock,
-    required TResult Function(List<String> categories)
-        setSponsorBlockCategories,
-    required TResult Function() toggleOpenLinksInBrowser,
-    required TResult Function(String mode) setHomeFeedMode,
-    required TResult Function() toggleAudioFocus,
-    required TResult Function(String profileName) addProfile,
-    required TResult Function(String profileName) deleteProfile,
-    required TResult Function(String profileName) switchProfile,
-    required TResult Function(String oldName, String newName) renameProfile,
-    required TResult Function(String profileName) exportSubscriptions,
-    required TResult Function(String filePath, String profileName)
-        importSubscriptions,
-    required TResult Function(double size) setSubtitleSize,
-    required TResult Function() toggleSearchHistoryEnabled,
-    required TResult Function() toggleSearchHistoryVisibility,
-    required TResult Function(String filePath) setLastExportedFilePath,
-    required TResult Function() toggleAutoPip,
-  }) {
-    return renameProfile(oldName, newName);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initializeSettings,
-    TResult? Function(String? language)? getDefaultLanguage,
-    TResult? Function(String? quality)? getDefaultQuality,
-    TResult? Function(String? region)? getDefaultRegion,
-    TResult? Function(String themeMode)? changeTheme,
-    TResult? Function()? toggleHistoryVisibility,
-    TResult? Function()? toggleDislikeVisibility,
-    TResult? Function()? toggleHlsPlayer,
-    TResult? Function()? toggleCommentVisibility,
-    TResult? Function()? toggleRelatedVideoVisibility,
-    TResult? Function(bool forceRefresh)? fetchPipedInstances,
-    TResult? Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult? Function(String instanceApi)? setInstance,
-    TResult? Function(YouTubeServices service)? setYTService,
-    TResult? Function()? togglePipPlayer,
-    TResult? Function(String filter)? setSearchFilter,
-    TResult? Function(String fitMode)? setVideoFitMode,
-    TResult? Function(int seconds)? setSkipInterval,
-    TResult? Function()? toggleSponsorBlock,
-    TResult? Function(List<String> categories)? setSponsorBlockCategories,
-    TResult? Function()? toggleOpenLinksInBrowser,
-    TResult? Function(String mode)? setHomeFeedMode,
-    TResult? Function()? toggleAudioFocus,
-    TResult? Function(String profileName)? addProfile,
-    TResult? Function(String profileName)? deleteProfile,
-    TResult? Function(String profileName)? switchProfile,
-    TResult? Function(String oldName, String newName)? renameProfile,
-    TResult? Function(String profileName)? exportSubscriptions,
-    TResult? Function(String filePath, String profileName)? importSubscriptions,
-    TResult? Function(double size)? setSubtitleSize,
-    TResult? Function()? toggleSearchHistoryEnabled,
-    TResult? Function()? toggleSearchHistoryVisibility,
-    TResult? Function(String filePath)? setLastExportedFilePath,
-    TResult? Function()? toggleAutoPip,
-  }) {
-    return renameProfile?.call(oldName, newName);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initializeSettings,
-    TResult Function(String? language)? getDefaultLanguage,
-    TResult Function(String? quality)? getDefaultQuality,
-    TResult Function(String? region)? getDefaultRegion,
-    TResult Function(String themeMode)? changeTheme,
-    TResult Function()? toggleHistoryVisibility,
-    TResult Function()? toggleDislikeVisibility,
-    TResult Function()? toggleHlsPlayer,
-    TResult Function()? toggleCommentVisibility,
-    TResult Function()? toggleRelatedVideoVisibility,
-    TResult Function(bool forceRefresh)? fetchPipedInstances,
-    TResult Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult Function(String instanceApi)? setInstance,
-    TResult Function(YouTubeServices service)? setYTService,
-    TResult Function()? togglePipPlayer,
-    TResult Function(String filter)? setSearchFilter,
-    TResult Function(String fitMode)? setVideoFitMode,
-    TResult Function(int seconds)? setSkipInterval,
-    TResult Function()? toggleSponsorBlock,
-    TResult Function(List<String> categories)? setSponsorBlockCategories,
-    TResult Function()? toggleOpenLinksInBrowser,
-    TResult Function(String mode)? setHomeFeedMode,
-    TResult Function()? toggleAudioFocus,
-    TResult Function(String profileName)? addProfile,
-    TResult Function(String profileName)? deleteProfile,
-    TResult Function(String profileName)? switchProfile,
-    TResult Function(String oldName, String newName)? renameProfile,
-    TResult Function(String profileName)? exportSubscriptions,
-    TResult Function(String filePath, String profileName)? importSubscriptions,
-    TResult Function(double size)? setSubtitleSize,
-    TResult Function()? toggleSearchHistoryEnabled,
-    TResult Function()? toggleSearchHistoryVisibility,
-    TResult Function(String filePath)? setLastExportedFilePath,
-    TResult Function()? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (renameProfile != null) {
-      return renameProfile(oldName, newName);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(InitializeSettings value) initializeSettings,
-    required TResult Function(GetDefaultLanguage value) getDefaultLanguage,
-    required TResult Function(GetDefaultQuality value) getDefaultQuality,
-    required TResult Function(GetDefaultRegion value) getDefaultRegion,
-    required TResult Function(ChangeTheme value) changeTheme,
-    required TResult Function(ToggleHistoryVisibility value)
-        toggleHistoryVisibility,
-    required TResult Function(ToggleDislikeVisibility value)
-        toggleDislikeVisibility,
-    required TResult Function(ToggleHlsPlayer value) toggleHlsPlayer,
-    required TResult Function(ToggleCommentVisibility value)
-        toggleCommentVisibility,
-    required TResult Function(ToggleRelatedVideoVisibility value)
-        toggleRelatedVideoVisibility,
-    required TResult Function(FetchPipedInstances value) fetchPipedInstances,
-    required TResult Function(FetchInvidiousInstances value)
-        fetchInvidiousInstances,
-    required TResult Function(SetInstance value) setInstance,
-    required TResult Function(SetYTService value) setYTService,
-    required TResult Function(TogglePipPlayer value) togglePipPlayer,
-    required TResult Function(SetSearchFilter value) setSearchFilter,
-    required TResult Function(SetVideoFitMode value) setVideoFitMode,
-    required TResult Function(SetSkipInterval value) setSkipInterval,
-    required TResult Function(ToggleSponsorBlock value) toggleSponsorBlock,
-    required TResult Function(SetSponsorBlockCategories value)
-        setSponsorBlockCategories,
-    required TResult Function(ToggleOpenLinksInBrowser value)
-        toggleOpenLinksInBrowser,
-    required TResult Function(SetHomeFeedMode value) setHomeFeedMode,
-    required TResult Function(ToggleAudioFocus value) toggleAudioFocus,
-    required TResult Function(AddProfile value) addProfile,
-    required TResult Function(DeleteProfile value) deleteProfile,
-    required TResult Function(SwitchProfile value) switchProfile,
-    required TResult Function(RenameProfile value) renameProfile,
-    required TResult Function(ExportSubscriptions value) exportSubscriptions,
-    required TResult Function(ImportSubscriptions value) importSubscriptions,
-    required TResult Function(SetSubtitleSize value) setSubtitleSize,
-    required TResult Function(ToggleSearchHistoryEnabled value)
-        toggleSearchHistoryEnabled,
-    required TResult Function(ToggleSearchHistoryVisibility value)
-        toggleSearchHistoryVisibility,
-    required TResult Function(SetLastExportedFilePath value)
-        setLastExportedFilePath,
-    required TResult Function(ToggleAutoPip value) toggleAutoPip,
-  }) {
-    return renameProfile(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InitializeSettings value)? initializeSettings,
-    TResult? Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult? Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult? Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult? Function(ChangeTheme value)? changeTheme,
-    TResult? Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult? Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult? Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult? Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult? Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult? Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult? Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult? Function(SetInstance value)? setInstance,
-    TResult? Function(SetYTService value)? setYTService,
-    TResult? Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult? Function(SetSearchFilter value)? setSearchFilter,
-    TResult? Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult? Function(SetSkipInterval value)? setSkipInterval,
-    TResult? Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult? Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult? Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult? Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult? Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult? Function(AddProfile value)? addProfile,
-    TResult? Function(DeleteProfile value)? deleteProfile,
-    TResult? Function(SwitchProfile value)? switchProfile,
-    TResult? Function(RenameProfile value)? renameProfile,
-    TResult? Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult? Function(ImportSubscriptions value)? importSubscriptions,
-    TResult? Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult? Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult? Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult? Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult? Function(ToggleAutoPip value)? toggleAutoPip,
-  }) {
-    return renameProfile?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitializeSettings value)? initializeSettings,
-    TResult Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult Function(ChangeTheme value)? changeTheme,
-    TResult Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult Function(SetInstance value)? setInstance,
-    TResult Function(SetYTService value)? setYTService,
-    TResult Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult Function(SetSearchFilter value)? setSearchFilter,
-    TResult Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult Function(SetSkipInterval value)? setSkipInterval,
-    TResult Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult Function(AddProfile value)? addProfile,
-    TResult Function(DeleteProfile value)? deleteProfile,
-    TResult Function(SwitchProfile value)? switchProfile,
-    TResult Function(RenameProfile value)? renameProfile,
-    TResult Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult Function(ImportSubscriptions value)? importSubscriptions,
-    TResult Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult Function(ToggleAutoPip value)? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (renameProfile != null) {
-      return renameProfile(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class RenameProfile implements SettingsEvent {
-  factory RenameProfile(
-      {required final String oldName,
-      required final String newName}) = _$RenameProfileImpl;
-
-  String get oldName;
-  String get newName;
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$RenameProfileImplCopyWith<_$RenameProfileImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$ExportSubscriptionsImplCopyWith<$Res> {
-  factory _$$ExportSubscriptionsImplCopyWith(_$ExportSubscriptionsImpl value,
-          $Res Function(_$ExportSubscriptionsImpl) then) =
-      __$$ExportSubscriptionsImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String profileName});
-}
-
-/// @nodoc
-class __$$ExportSubscriptionsImplCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res, _$ExportSubscriptionsImpl>
-    implements _$$ExportSubscriptionsImplCopyWith<$Res> {
-  __$$ExportSubscriptionsImplCopyWithImpl(_$ExportSubscriptionsImpl _value,
-      $Res Function(_$ExportSubscriptionsImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? profileName = null,
-  }) {
-    return _then(_$ExportSubscriptionsImpl(
-      profileName: null == profileName
-          ? _value.profileName
-          : profileName // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$ExportSubscriptionsImpl implements ExportSubscriptions {
-  _$ExportSubscriptionsImpl({this.profileName = 'default'});
-
-  @override
   @JsonKey()
   final String profileName;
 
-  @override
-  String toString() {
-    return 'SettingsEvent.exportSubscriptions(profileName: $profileName)';
-  }
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ExportSubscriptionsCopyWith<ExportSubscriptions> get copyWith =>
+      _$ExportSubscriptionsCopyWithImpl<ExportSubscriptions>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ExportSubscriptionsImpl &&
+            other is ExportSubscriptions &&
             (identical(other.profileName, profileName) ||
                 other.profileName == profileName));
   }
@@ -9573,335 +3265,39 @@ class _$ExportSubscriptionsImpl implements ExportSubscriptions {
   @override
   int get hashCode => Object.hash(runtimeType, profileName);
 
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ExportSubscriptionsImplCopyWith<_$ExportSubscriptionsImpl> get copyWith =>
-      __$$ExportSubscriptionsImplCopyWithImpl<_$ExportSubscriptionsImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initializeSettings,
-    required TResult Function(String? language) getDefaultLanguage,
-    required TResult Function(String? quality) getDefaultQuality,
-    required TResult Function(String? region) getDefaultRegion,
-    required TResult Function(String themeMode) changeTheme,
-    required TResult Function() toggleHistoryVisibility,
-    required TResult Function() toggleDislikeVisibility,
-    required TResult Function() toggleHlsPlayer,
-    required TResult Function() toggleCommentVisibility,
-    required TResult Function() toggleRelatedVideoVisibility,
-    required TResult Function(bool forceRefresh) fetchPipedInstances,
-    required TResult Function(bool forceRefresh) fetchInvidiousInstances,
-    required TResult Function(String instanceApi) setInstance,
-    required TResult Function(YouTubeServices service) setYTService,
-    required TResult Function() togglePipPlayer,
-    required TResult Function(String filter) setSearchFilter,
-    required TResult Function(String fitMode) setVideoFitMode,
-    required TResult Function(int seconds) setSkipInterval,
-    required TResult Function() toggleSponsorBlock,
-    required TResult Function(List<String> categories)
-        setSponsorBlockCategories,
-    required TResult Function() toggleOpenLinksInBrowser,
-    required TResult Function(String mode) setHomeFeedMode,
-    required TResult Function() toggleAudioFocus,
-    required TResult Function(String profileName) addProfile,
-    required TResult Function(String profileName) deleteProfile,
-    required TResult Function(String profileName) switchProfile,
-    required TResult Function(String oldName, String newName) renameProfile,
-    required TResult Function(String profileName) exportSubscriptions,
-    required TResult Function(String filePath, String profileName)
-        importSubscriptions,
-    required TResult Function(double size) setSubtitleSize,
-    required TResult Function() toggleSearchHistoryEnabled,
-    required TResult Function() toggleSearchHistoryVisibility,
-    required TResult Function(String filePath) setLastExportedFilePath,
-    required TResult Function() toggleAutoPip,
-  }) {
-    return exportSubscriptions(profileName);
+  String toString() {
+    return 'SettingsEvent.exportSubscriptions(profileName: $profileName)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initializeSettings,
-    TResult? Function(String? language)? getDefaultLanguage,
-    TResult? Function(String? quality)? getDefaultQuality,
-    TResult? Function(String? region)? getDefaultRegion,
-    TResult? Function(String themeMode)? changeTheme,
-    TResult? Function()? toggleHistoryVisibility,
-    TResult? Function()? toggleDislikeVisibility,
-    TResult? Function()? toggleHlsPlayer,
-    TResult? Function()? toggleCommentVisibility,
-    TResult? Function()? toggleRelatedVideoVisibility,
-    TResult? Function(bool forceRefresh)? fetchPipedInstances,
-    TResult? Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult? Function(String instanceApi)? setInstance,
-    TResult? Function(YouTubeServices service)? setYTService,
-    TResult? Function()? togglePipPlayer,
-    TResult? Function(String filter)? setSearchFilter,
-    TResult? Function(String fitMode)? setVideoFitMode,
-    TResult? Function(int seconds)? setSkipInterval,
-    TResult? Function()? toggleSponsorBlock,
-    TResult? Function(List<String> categories)? setSponsorBlockCategories,
-    TResult? Function()? toggleOpenLinksInBrowser,
-    TResult? Function(String mode)? setHomeFeedMode,
-    TResult? Function()? toggleAudioFocus,
-    TResult? Function(String profileName)? addProfile,
-    TResult? Function(String profileName)? deleteProfile,
-    TResult? Function(String profileName)? switchProfile,
-    TResult? Function(String oldName, String newName)? renameProfile,
-    TResult? Function(String profileName)? exportSubscriptions,
-    TResult? Function(String filePath, String profileName)? importSubscriptions,
-    TResult? Function(double size)? setSubtitleSize,
-    TResult? Function()? toggleSearchHistoryEnabled,
-    TResult? Function()? toggleSearchHistoryVisibility,
-    TResult? Function(String filePath)? setLastExportedFilePath,
-    TResult? Function()? toggleAutoPip,
-  }) {
-    return exportSubscriptions?.call(profileName);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initializeSettings,
-    TResult Function(String? language)? getDefaultLanguage,
-    TResult Function(String? quality)? getDefaultQuality,
-    TResult Function(String? region)? getDefaultRegion,
-    TResult Function(String themeMode)? changeTheme,
-    TResult Function()? toggleHistoryVisibility,
-    TResult Function()? toggleDislikeVisibility,
-    TResult Function()? toggleHlsPlayer,
-    TResult Function()? toggleCommentVisibility,
-    TResult Function()? toggleRelatedVideoVisibility,
-    TResult Function(bool forceRefresh)? fetchPipedInstances,
-    TResult Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult Function(String instanceApi)? setInstance,
-    TResult Function(YouTubeServices service)? setYTService,
-    TResult Function()? togglePipPlayer,
-    TResult Function(String filter)? setSearchFilter,
-    TResult Function(String fitMode)? setVideoFitMode,
-    TResult Function(int seconds)? setSkipInterval,
-    TResult Function()? toggleSponsorBlock,
-    TResult Function(List<String> categories)? setSponsorBlockCategories,
-    TResult Function()? toggleOpenLinksInBrowser,
-    TResult Function(String mode)? setHomeFeedMode,
-    TResult Function()? toggleAudioFocus,
-    TResult Function(String profileName)? addProfile,
-    TResult Function(String profileName)? deleteProfile,
-    TResult Function(String profileName)? switchProfile,
-    TResult Function(String oldName, String newName)? renameProfile,
-    TResult Function(String profileName)? exportSubscriptions,
-    TResult Function(String filePath, String profileName)? importSubscriptions,
-    TResult Function(double size)? setSubtitleSize,
-    TResult Function()? toggleSearchHistoryEnabled,
-    TResult Function()? toggleSearchHistoryVisibility,
-    TResult Function(String filePath)? setLastExportedFilePath,
-    TResult Function()? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (exportSubscriptions != null) {
-      return exportSubscriptions(profileName);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(InitializeSettings value) initializeSettings,
-    required TResult Function(GetDefaultLanguage value) getDefaultLanguage,
-    required TResult Function(GetDefaultQuality value) getDefaultQuality,
-    required TResult Function(GetDefaultRegion value) getDefaultRegion,
-    required TResult Function(ChangeTheme value) changeTheme,
-    required TResult Function(ToggleHistoryVisibility value)
-        toggleHistoryVisibility,
-    required TResult Function(ToggleDislikeVisibility value)
-        toggleDislikeVisibility,
-    required TResult Function(ToggleHlsPlayer value) toggleHlsPlayer,
-    required TResult Function(ToggleCommentVisibility value)
-        toggleCommentVisibility,
-    required TResult Function(ToggleRelatedVideoVisibility value)
-        toggleRelatedVideoVisibility,
-    required TResult Function(FetchPipedInstances value) fetchPipedInstances,
-    required TResult Function(FetchInvidiousInstances value)
-        fetchInvidiousInstances,
-    required TResult Function(SetInstance value) setInstance,
-    required TResult Function(SetYTService value) setYTService,
-    required TResult Function(TogglePipPlayer value) togglePipPlayer,
-    required TResult Function(SetSearchFilter value) setSearchFilter,
-    required TResult Function(SetVideoFitMode value) setVideoFitMode,
-    required TResult Function(SetSkipInterval value) setSkipInterval,
-    required TResult Function(ToggleSponsorBlock value) toggleSponsorBlock,
-    required TResult Function(SetSponsorBlockCategories value)
-        setSponsorBlockCategories,
-    required TResult Function(ToggleOpenLinksInBrowser value)
-        toggleOpenLinksInBrowser,
-    required TResult Function(SetHomeFeedMode value) setHomeFeedMode,
-    required TResult Function(ToggleAudioFocus value) toggleAudioFocus,
-    required TResult Function(AddProfile value) addProfile,
-    required TResult Function(DeleteProfile value) deleteProfile,
-    required TResult Function(SwitchProfile value) switchProfile,
-    required TResult Function(RenameProfile value) renameProfile,
-    required TResult Function(ExportSubscriptions value) exportSubscriptions,
-    required TResult Function(ImportSubscriptions value) importSubscriptions,
-    required TResult Function(SetSubtitleSize value) setSubtitleSize,
-    required TResult Function(ToggleSearchHistoryEnabled value)
-        toggleSearchHistoryEnabled,
-    required TResult Function(ToggleSearchHistoryVisibility value)
-        toggleSearchHistoryVisibility,
-    required TResult Function(SetLastExportedFilePath value)
-        setLastExportedFilePath,
-    required TResult Function(ToggleAutoPip value) toggleAutoPip,
-  }) {
-    return exportSubscriptions(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InitializeSettings value)? initializeSettings,
-    TResult? Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult? Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult? Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult? Function(ChangeTheme value)? changeTheme,
-    TResult? Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult? Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult? Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult? Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult? Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult? Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult? Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult? Function(SetInstance value)? setInstance,
-    TResult? Function(SetYTService value)? setYTService,
-    TResult? Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult? Function(SetSearchFilter value)? setSearchFilter,
-    TResult? Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult? Function(SetSkipInterval value)? setSkipInterval,
-    TResult? Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult? Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult? Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult? Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult? Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult? Function(AddProfile value)? addProfile,
-    TResult? Function(DeleteProfile value)? deleteProfile,
-    TResult? Function(SwitchProfile value)? switchProfile,
-    TResult? Function(RenameProfile value)? renameProfile,
-    TResult? Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult? Function(ImportSubscriptions value)? importSubscriptions,
-    TResult? Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult? Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult? Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult? Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult? Function(ToggleAutoPip value)? toggleAutoPip,
-  }) {
-    return exportSubscriptions?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitializeSettings value)? initializeSettings,
-    TResult Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult Function(ChangeTheme value)? changeTheme,
-    TResult Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult Function(SetInstance value)? setInstance,
-    TResult Function(SetYTService value)? setYTService,
-    TResult Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult Function(SetSearchFilter value)? setSearchFilter,
-    TResult Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult Function(SetSkipInterval value)? setSkipInterval,
-    TResult Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult Function(AddProfile value)? addProfile,
-    TResult Function(DeleteProfile value)? deleteProfile,
-    TResult Function(SwitchProfile value)? switchProfile,
-    TResult Function(RenameProfile value)? renameProfile,
-    TResult Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult Function(ImportSubscriptions value)? importSubscriptions,
-    TResult Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult Function(ToggleAutoPip value)? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (exportSubscriptions != null) {
-      return exportSubscriptions(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ExportSubscriptions implements SettingsEvent {
-  factory ExportSubscriptions({final String profileName}) =
-      _$ExportSubscriptionsImpl;
-
-  String get profileName;
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ExportSubscriptionsImplCopyWith<_$ExportSubscriptionsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ImportSubscriptionsImplCopyWith<$Res> {
-  factory _$$ImportSubscriptionsImplCopyWith(_$ImportSubscriptionsImpl value,
-          $Res Function(_$ImportSubscriptionsImpl) then) =
-      __$$ImportSubscriptionsImplCopyWithImpl<$Res>;
+abstract mixin class $ExportSubscriptionsCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ExportSubscriptionsCopyWith(
+          ExportSubscriptions value, $Res Function(ExportSubscriptions) _then) =
+      _$ExportSubscriptionsCopyWithImpl;
   @useResult
-  $Res call({String filePath, String profileName});
+  $Res call({String profileName});
 }
 
 /// @nodoc
-class __$$ImportSubscriptionsImplCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res, _$ImportSubscriptionsImpl>
-    implements _$$ImportSubscriptionsImplCopyWith<$Res> {
-  __$$ImportSubscriptionsImplCopyWithImpl(_$ImportSubscriptionsImpl _value,
-      $Res Function(_$ImportSubscriptionsImpl) _then)
-      : super(_value, _then);
+class _$ExportSubscriptionsCopyWithImpl<$Res>
+    implements $ExportSubscriptionsCopyWith<$Res> {
+  _$ExportSubscriptionsCopyWithImpl(this._self, this._then);
+
+  final ExportSubscriptions _self;
+  final $Res Function(ExportSubscriptions) _then;
 
   /// Create a copy of SettingsEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
-    Object? filePath = null,
     Object? profileName = null,
   }) {
-    return _then(_$ImportSubscriptionsImpl(
-      filePath: null == filePath
-          ? _value.filePath
-          : filePath // ignore: cast_nullable_to_non_nullable
-              as String,
+    return _then(ExportSubscriptions(
       profileName: null == profileName
-          ? _value.profileName
+          ? _self.profileName
           : profileName // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -9910,26 +3306,26 @@ class __$$ImportSubscriptionsImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ImportSubscriptionsImpl implements ImportSubscriptions {
-  _$ImportSubscriptionsImpl(
+class ImportSubscriptions implements SettingsEvent {
+  const ImportSubscriptions(
       {required this.filePath, this.profileName = 'default'});
 
-  @override
   final String filePath;
-  @override
   @JsonKey()
   final String profileName;
 
-  @override
-  String toString() {
-    return 'SettingsEvent.importSubscriptions(filePath: $filePath, profileName: $profileName)';
-  }
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ImportSubscriptionsCopyWith<ImportSubscriptions> get copyWith =>
+      _$ImportSubscriptionsCopyWithImpl<ImportSubscriptions>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ImportSubscriptionsImpl &&
+            other is ImportSubscriptions &&
             (identical(other.filePath, filePath) ||
                 other.filePath == filePath) &&
             (identical(other.profileName, profileName) ||
@@ -9939,332 +3335,108 @@ class _$ImportSubscriptionsImpl implements ImportSubscriptions {
   @override
   int get hashCode => Object.hash(runtimeType, filePath, profileName);
 
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ImportSubscriptionsImplCopyWith<_$ImportSubscriptionsImpl> get copyWith =>
-      __$$ImportSubscriptionsImplCopyWithImpl<_$ImportSubscriptionsImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initializeSettings,
-    required TResult Function(String? language) getDefaultLanguage,
-    required TResult Function(String? quality) getDefaultQuality,
-    required TResult Function(String? region) getDefaultRegion,
-    required TResult Function(String themeMode) changeTheme,
-    required TResult Function() toggleHistoryVisibility,
-    required TResult Function() toggleDislikeVisibility,
-    required TResult Function() toggleHlsPlayer,
-    required TResult Function() toggleCommentVisibility,
-    required TResult Function() toggleRelatedVideoVisibility,
-    required TResult Function(bool forceRefresh) fetchPipedInstances,
-    required TResult Function(bool forceRefresh) fetchInvidiousInstances,
-    required TResult Function(String instanceApi) setInstance,
-    required TResult Function(YouTubeServices service) setYTService,
-    required TResult Function() togglePipPlayer,
-    required TResult Function(String filter) setSearchFilter,
-    required TResult Function(String fitMode) setVideoFitMode,
-    required TResult Function(int seconds) setSkipInterval,
-    required TResult Function() toggleSponsorBlock,
-    required TResult Function(List<String> categories)
-        setSponsorBlockCategories,
-    required TResult Function() toggleOpenLinksInBrowser,
-    required TResult Function(String mode) setHomeFeedMode,
-    required TResult Function() toggleAudioFocus,
-    required TResult Function(String profileName) addProfile,
-    required TResult Function(String profileName) deleteProfile,
-    required TResult Function(String profileName) switchProfile,
-    required TResult Function(String oldName, String newName) renameProfile,
-    required TResult Function(String profileName) exportSubscriptions,
-    required TResult Function(String filePath, String profileName)
-        importSubscriptions,
-    required TResult Function(double size) setSubtitleSize,
-    required TResult Function() toggleSearchHistoryEnabled,
-    required TResult Function() toggleSearchHistoryVisibility,
-    required TResult Function(String filePath) setLastExportedFilePath,
-    required TResult Function() toggleAutoPip,
-  }) {
-    return importSubscriptions(filePath, profileName);
+  String toString() {
+    return 'SettingsEvent.importSubscriptions(filePath: $filePath, profileName: $profileName)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initializeSettings,
-    TResult? Function(String? language)? getDefaultLanguage,
-    TResult? Function(String? quality)? getDefaultQuality,
-    TResult? Function(String? region)? getDefaultRegion,
-    TResult? Function(String themeMode)? changeTheme,
-    TResult? Function()? toggleHistoryVisibility,
-    TResult? Function()? toggleDislikeVisibility,
-    TResult? Function()? toggleHlsPlayer,
-    TResult? Function()? toggleCommentVisibility,
-    TResult? Function()? toggleRelatedVideoVisibility,
-    TResult? Function(bool forceRefresh)? fetchPipedInstances,
-    TResult? Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult? Function(String instanceApi)? setInstance,
-    TResult? Function(YouTubeServices service)? setYTService,
-    TResult? Function()? togglePipPlayer,
-    TResult? Function(String filter)? setSearchFilter,
-    TResult? Function(String fitMode)? setVideoFitMode,
-    TResult? Function(int seconds)? setSkipInterval,
-    TResult? Function()? toggleSponsorBlock,
-    TResult? Function(List<String> categories)? setSponsorBlockCategories,
-    TResult? Function()? toggleOpenLinksInBrowser,
-    TResult? Function(String mode)? setHomeFeedMode,
-    TResult? Function()? toggleAudioFocus,
-    TResult? Function(String profileName)? addProfile,
-    TResult? Function(String profileName)? deleteProfile,
-    TResult? Function(String profileName)? switchProfile,
-    TResult? Function(String oldName, String newName)? renameProfile,
-    TResult? Function(String profileName)? exportSubscriptions,
-    TResult? Function(String filePath, String profileName)? importSubscriptions,
-    TResult? Function(double size)? setSubtitleSize,
-    TResult? Function()? toggleSearchHistoryEnabled,
-    TResult? Function()? toggleSearchHistoryVisibility,
-    TResult? Function(String filePath)? setLastExportedFilePath,
-    TResult? Function()? toggleAutoPip,
-  }) {
-    return importSubscriptions?.call(filePath, profileName);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initializeSettings,
-    TResult Function(String? language)? getDefaultLanguage,
-    TResult Function(String? quality)? getDefaultQuality,
-    TResult Function(String? region)? getDefaultRegion,
-    TResult Function(String themeMode)? changeTheme,
-    TResult Function()? toggleHistoryVisibility,
-    TResult Function()? toggleDislikeVisibility,
-    TResult Function()? toggleHlsPlayer,
-    TResult Function()? toggleCommentVisibility,
-    TResult Function()? toggleRelatedVideoVisibility,
-    TResult Function(bool forceRefresh)? fetchPipedInstances,
-    TResult Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult Function(String instanceApi)? setInstance,
-    TResult Function(YouTubeServices service)? setYTService,
-    TResult Function()? togglePipPlayer,
-    TResult Function(String filter)? setSearchFilter,
-    TResult Function(String fitMode)? setVideoFitMode,
-    TResult Function(int seconds)? setSkipInterval,
-    TResult Function()? toggleSponsorBlock,
-    TResult Function(List<String> categories)? setSponsorBlockCategories,
-    TResult Function()? toggleOpenLinksInBrowser,
-    TResult Function(String mode)? setHomeFeedMode,
-    TResult Function()? toggleAudioFocus,
-    TResult Function(String profileName)? addProfile,
-    TResult Function(String profileName)? deleteProfile,
-    TResult Function(String profileName)? switchProfile,
-    TResult Function(String oldName, String newName)? renameProfile,
-    TResult Function(String profileName)? exportSubscriptions,
-    TResult Function(String filePath, String profileName)? importSubscriptions,
-    TResult Function(double size)? setSubtitleSize,
-    TResult Function()? toggleSearchHistoryEnabled,
-    TResult Function()? toggleSearchHistoryVisibility,
-    TResult Function(String filePath)? setLastExportedFilePath,
-    TResult Function()? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (importSubscriptions != null) {
-      return importSubscriptions(filePath, profileName);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(InitializeSettings value) initializeSettings,
-    required TResult Function(GetDefaultLanguage value) getDefaultLanguage,
-    required TResult Function(GetDefaultQuality value) getDefaultQuality,
-    required TResult Function(GetDefaultRegion value) getDefaultRegion,
-    required TResult Function(ChangeTheme value) changeTheme,
-    required TResult Function(ToggleHistoryVisibility value)
-        toggleHistoryVisibility,
-    required TResult Function(ToggleDislikeVisibility value)
-        toggleDislikeVisibility,
-    required TResult Function(ToggleHlsPlayer value) toggleHlsPlayer,
-    required TResult Function(ToggleCommentVisibility value)
-        toggleCommentVisibility,
-    required TResult Function(ToggleRelatedVideoVisibility value)
-        toggleRelatedVideoVisibility,
-    required TResult Function(FetchPipedInstances value) fetchPipedInstances,
-    required TResult Function(FetchInvidiousInstances value)
-        fetchInvidiousInstances,
-    required TResult Function(SetInstance value) setInstance,
-    required TResult Function(SetYTService value) setYTService,
-    required TResult Function(TogglePipPlayer value) togglePipPlayer,
-    required TResult Function(SetSearchFilter value) setSearchFilter,
-    required TResult Function(SetVideoFitMode value) setVideoFitMode,
-    required TResult Function(SetSkipInterval value) setSkipInterval,
-    required TResult Function(ToggleSponsorBlock value) toggleSponsorBlock,
-    required TResult Function(SetSponsorBlockCategories value)
-        setSponsorBlockCategories,
-    required TResult Function(ToggleOpenLinksInBrowser value)
-        toggleOpenLinksInBrowser,
-    required TResult Function(SetHomeFeedMode value) setHomeFeedMode,
-    required TResult Function(ToggleAudioFocus value) toggleAudioFocus,
-    required TResult Function(AddProfile value) addProfile,
-    required TResult Function(DeleteProfile value) deleteProfile,
-    required TResult Function(SwitchProfile value) switchProfile,
-    required TResult Function(RenameProfile value) renameProfile,
-    required TResult Function(ExportSubscriptions value) exportSubscriptions,
-    required TResult Function(ImportSubscriptions value) importSubscriptions,
-    required TResult Function(SetSubtitleSize value) setSubtitleSize,
-    required TResult Function(ToggleSearchHistoryEnabled value)
-        toggleSearchHistoryEnabled,
-    required TResult Function(ToggleSearchHistoryVisibility value)
-        toggleSearchHistoryVisibility,
-    required TResult Function(SetLastExportedFilePath value)
-        setLastExportedFilePath,
-    required TResult Function(ToggleAutoPip value) toggleAutoPip,
-  }) {
-    return importSubscriptions(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InitializeSettings value)? initializeSettings,
-    TResult? Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult? Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult? Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult? Function(ChangeTheme value)? changeTheme,
-    TResult? Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult? Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult? Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult? Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult? Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult? Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult? Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult? Function(SetInstance value)? setInstance,
-    TResult? Function(SetYTService value)? setYTService,
-    TResult? Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult? Function(SetSearchFilter value)? setSearchFilter,
-    TResult? Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult? Function(SetSkipInterval value)? setSkipInterval,
-    TResult? Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult? Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult? Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult? Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult? Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult? Function(AddProfile value)? addProfile,
-    TResult? Function(DeleteProfile value)? deleteProfile,
-    TResult? Function(SwitchProfile value)? switchProfile,
-    TResult? Function(RenameProfile value)? renameProfile,
-    TResult? Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult? Function(ImportSubscriptions value)? importSubscriptions,
-    TResult? Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult? Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult? Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult? Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult? Function(ToggleAutoPip value)? toggleAutoPip,
-  }) {
-    return importSubscriptions?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitializeSettings value)? initializeSettings,
-    TResult Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult Function(ChangeTheme value)? changeTheme,
-    TResult Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult Function(SetInstance value)? setInstance,
-    TResult Function(SetYTService value)? setYTService,
-    TResult Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult Function(SetSearchFilter value)? setSearchFilter,
-    TResult Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult Function(SetSkipInterval value)? setSkipInterval,
-    TResult Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult Function(AddProfile value)? addProfile,
-    TResult Function(DeleteProfile value)? deleteProfile,
-    TResult Function(SwitchProfile value)? switchProfile,
-    TResult Function(RenameProfile value)? renameProfile,
-    TResult Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult Function(ImportSubscriptions value)? importSubscriptions,
-    TResult Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult Function(ToggleAutoPip value)? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (importSubscriptions != null) {
-      return importSubscriptions(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ImportSubscriptions implements SettingsEvent {
-  factory ImportSubscriptions(
-      {required final String filePath,
-      final String profileName}) = _$ImportSubscriptionsImpl;
-
-  String get filePath;
-  String get profileName;
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ImportSubscriptionsImplCopyWith<_$ImportSubscriptionsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SetSubtitleSizeImplCopyWith<$Res> {
-  factory _$$SetSubtitleSizeImplCopyWith(_$SetSubtitleSizeImpl value,
-          $Res Function(_$SetSubtitleSizeImpl) then) =
-      __$$SetSubtitleSizeImplCopyWithImpl<$Res>;
+abstract mixin class $ImportSubscriptionsCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ImportSubscriptionsCopyWith(
+          ImportSubscriptions value, $Res Function(ImportSubscriptions) _then) =
+      _$ImportSubscriptionsCopyWithImpl;
+  @useResult
+  $Res call({String filePath, String profileName});
+}
+
+/// @nodoc
+class _$ImportSubscriptionsCopyWithImpl<$Res>
+    implements $ImportSubscriptionsCopyWith<$Res> {
+  _$ImportSubscriptionsCopyWithImpl(this._self, this._then);
+
+  final ImportSubscriptions _self;
+  final $Res Function(ImportSubscriptions) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? filePath = null,
+    Object? profileName = null,
+  }) {
+    return _then(ImportSubscriptions(
+      filePath: null == filePath
+          ? _self.filePath
+          : filePath // ignore: cast_nullable_to_non_nullable
+              as String,
+      profileName: null == profileName
+          ? _self.profileName
+          : profileName // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class SetSubtitleSize implements SettingsEvent {
+  const SetSubtitleSize({required this.size});
+
+  final double size;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $SetSubtitleSizeCopyWith<SetSubtitleSize> get copyWith =>
+      _$SetSubtitleSizeCopyWithImpl<SetSubtitleSize>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SetSubtitleSize &&
+            (identical(other.size, size) || other.size == size));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, size);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.setSubtitleSize(size: $size)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $SetSubtitleSizeCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $SetSubtitleSizeCopyWith(
+          SetSubtitleSize value, $Res Function(SetSubtitleSize) _then) =
+      _$SetSubtitleSizeCopyWithImpl;
   @useResult
   $Res call({double size});
 }
 
 /// @nodoc
-class __$$SetSubtitleSizeImplCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res, _$SetSubtitleSizeImpl>
-    implements _$$SetSubtitleSizeImplCopyWith<$Res> {
-  __$$SetSubtitleSizeImplCopyWithImpl(
-      _$SetSubtitleSizeImpl _value, $Res Function(_$SetSubtitleSizeImpl) _then)
-      : super(_value, _then);
+class _$SetSubtitleSizeCopyWithImpl<$Res>
+    implements $SetSubtitleSizeCopyWith<$Res> {
+  _$SetSubtitleSizeCopyWithImpl(this._self, this._then);
+
+  final SetSubtitleSize _self;
+  final $Res Function(SetSubtitleSize) _then;
 
   /// Create a copy of SettingsEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? size = null,
   }) {
-    return _then(_$SetSubtitleSizeImpl(
+    return _then(SetSubtitleSize(
       size: null == size
-          ? _value.size
+          ? _self.size
           : size // ignore: cast_nullable_to_non_nullable
               as double,
     ));
@@ -10273,1019 +3445,356 @@ class __$$SetSubtitleSizeImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SetSubtitleSizeImpl implements SetSubtitleSize {
-  _$SetSubtitleSizeImpl({required this.size});
+class ToggleSearchHistoryEnabled implements SettingsEvent {
+  const ToggleSearchHistoryEnabled({required this.isEnabled});
 
-  @override
-  final double size;
-
-  @override
-  String toString() {
-    return 'SettingsEvent.setSubtitleSize(size: $size)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SetSubtitleSizeImpl &&
-            (identical(other.size, size) || other.size == size));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, size);
+  final bool isEnabled;
 
   /// Create a copy of SettingsEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
   @pragma('vm:prefer-inline')
-  _$$SetSubtitleSizeImplCopyWith<_$SetSubtitleSizeImpl> get copyWith =>
-      __$$SetSubtitleSizeImplCopyWithImpl<_$SetSubtitleSizeImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initializeSettings,
-    required TResult Function(String? language) getDefaultLanguage,
-    required TResult Function(String? quality) getDefaultQuality,
-    required TResult Function(String? region) getDefaultRegion,
-    required TResult Function(String themeMode) changeTheme,
-    required TResult Function() toggleHistoryVisibility,
-    required TResult Function() toggleDislikeVisibility,
-    required TResult Function() toggleHlsPlayer,
-    required TResult Function() toggleCommentVisibility,
-    required TResult Function() toggleRelatedVideoVisibility,
-    required TResult Function(bool forceRefresh) fetchPipedInstances,
-    required TResult Function(bool forceRefresh) fetchInvidiousInstances,
-    required TResult Function(String instanceApi) setInstance,
-    required TResult Function(YouTubeServices service) setYTService,
-    required TResult Function() togglePipPlayer,
-    required TResult Function(String filter) setSearchFilter,
-    required TResult Function(String fitMode) setVideoFitMode,
-    required TResult Function(int seconds) setSkipInterval,
-    required TResult Function() toggleSponsorBlock,
-    required TResult Function(List<String> categories)
-        setSponsorBlockCategories,
-    required TResult Function() toggleOpenLinksInBrowser,
-    required TResult Function(String mode) setHomeFeedMode,
-    required TResult Function() toggleAudioFocus,
-    required TResult Function(String profileName) addProfile,
-    required TResult Function(String profileName) deleteProfile,
-    required TResult Function(String profileName) switchProfile,
-    required TResult Function(String oldName, String newName) renameProfile,
-    required TResult Function(String profileName) exportSubscriptions,
-    required TResult Function(String filePath, String profileName)
-        importSubscriptions,
-    required TResult Function(double size) setSubtitleSize,
-    required TResult Function() toggleSearchHistoryEnabled,
-    required TResult Function() toggleSearchHistoryVisibility,
-    required TResult Function(String filePath) setLastExportedFilePath,
-    required TResult Function() toggleAutoPip,
-  }) {
-    return setSubtitleSize(size);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initializeSettings,
-    TResult? Function(String? language)? getDefaultLanguage,
-    TResult? Function(String? quality)? getDefaultQuality,
-    TResult? Function(String? region)? getDefaultRegion,
-    TResult? Function(String themeMode)? changeTheme,
-    TResult? Function()? toggleHistoryVisibility,
-    TResult? Function()? toggleDislikeVisibility,
-    TResult? Function()? toggleHlsPlayer,
-    TResult? Function()? toggleCommentVisibility,
-    TResult? Function()? toggleRelatedVideoVisibility,
-    TResult? Function(bool forceRefresh)? fetchPipedInstances,
-    TResult? Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult? Function(String instanceApi)? setInstance,
-    TResult? Function(YouTubeServices service)? setYTService,
-    TResult? Function()? togglePipPlayer,
-    TResult? Function(String filter)? setSearchFilter,
-    TResult? Function(String fitMode)? setVideoFitMode,
-    TResult? Function(int seconds)? setSkipInterval,
-    TResult? Function()? toggleSponsorBlock,
-    TResult? Function(List<String> categories)? setSponsorBlockCategories,
-    TResult? Function()? toggleOpenLinksInBrowser,
-    TResult? Function(String mode)? setHomeFeedMode,
-    TResult? Function()? toggleAudioFocus,
-    TResult? Function(String profileName)? addProfile,
-    TResult? Function(String profileName)? deleteProfile,
-    TResult? Function(String profileName)? switchProfile,
-    TResult? Function(String oldName, String newName)? renameProfile,
-    TResult? Function(String profileName)? exportSubscriptions,
-    TResult? Function(String filePath, String profileName)? importSubscriptions,
-    TResult? Function(double size)? setSubtitleSize,
-    TResult? Function()? toggleSearchHistoryEnabled,
-    TResult? Function()? toggleSearchHistoryVisibility,
-    TResult? Function(String filePath)? setLastExportedFilePath,
-    TResult? Function()? toggleAutoPip,
-  }) {
-    return setSubtitleSize?.call(size);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initializeSettings,
-    TResult Function(String? language)? getDefaultLanguage,
-    TResult Function(String? quality)? getDefaultQuality,
-    TResult Function(String? region)? getDefaultRegion,
-    TResult Function(String themeMode)? changeTheme,
-    TResult Function()? toggleHistoryVisibility,
-    TResult Function()? toggleDislikeVisibility,
-    TResult Function()? toggleHlsPlayer,
-    TResult Function()? toggleCommentVisibility,
-    TResult Function()? toggleRelatedVideoVisibility,
-    TResult Function(bool forceRefresh)? fetchPipedInstances,
-    TResult Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult Function(String instanceApi)? setInstance,
-    TResult Function(YouTubeServices service)? setYTService,
-    TResult Function()? togglePipPlayer,
-    TResult Function(String filter)? setSearchFilter,
-    TResult Function(String fitMode)? setVideoFitMode,
-    TResult Function(int seconds)? setSkipInterval,
-    TResult Function()? toggleSponsorBlock,
-    TResult Function(List<String> categories)? setSponsorBlockCategories,
-    TResult Function()? toggleOpenLinksInBrowser,
-    TResult Function(String mode)? setHomeFeedMode,
-    TResult Function()? toggleAudioFocus,
-    TResult Function(String profileName)? addProfile,
-    TResult Function(String profileName)? deleteProfile,
-    TResult Function(String profileName)? switchProfile,
-    TResult Function(String oldName, String newName)? renameProfile,
-    TResult Function(String profileName)? exportSubscriptions,
-    TResult Function(String filePath, String profileName)? importSubscriptions,
-    TResult Function(double size)? setSubtitleSize,
-    TResult Function()? toggleSearchHistoryEnabled,
-    TResult Function()? toggleSearchHistoryVisibility,
-    TResult Function(String filePath)? setLastExportedFilePath,
-    TResult Function()? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (setSubtitleSize != null) {
-      return setSubtitleSize(size);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(InitializeSettings value) initializeSettings,
-    required TResult Function(GetDefaultLanguage value) getDefaultLanguage,
-    required TResult Function(GetDefaultQuality value) getDefaultQuality,
-    required TResult Function(GetDefaultRegion value) getDefaultRegion,
-    required TResult Function(ChangeTheme value) changeTheme,
-    required TResult Function(ToggleHistoryVisibility value)
-        toggleHistoryVisibility,
-    required TResult Function(ToggleDislikeVisibility value)
-        toggleDislikeVisibility,
-    required TResult Function(ToggleHlsPlayer value) toggleHlsPlayer,
-    required TResult Function(ToggleCommentVisibility value)
-        toggleCommentVisibility,
-    required TResult Function(ToggleRelatedVideoVisibility value)
-        toggleRelatedVideoVisibility,
-    required TResult Function(FetchPipedInstances value) fetchPipedInstances,
-    required TResult Function(FetchInvidiousInstances value)
-        fetchInvidiousInstances,
-    required TResult Function(SetInstance value) setInstance,
-    required TResult Function(SetYTService value) setYTService,
-    required TResult Function(TogglePipPlayer value) togglePipPlayer,
-    required TResult Function(SetSearchFilter value) setSearchFilter,
-    required TResult Function(SetVideoFitMode value) setVideoFitMode,
-    required TResult Function(SetSkipInterval value) setSkipInterval,
-    required TResult Function(ToggleSponsorBlock value) toggleSponsorBlock,
-    required TResult Function(SetSponsorBlockCategories value)
-        setSponsorBlockCategories,
-    required TResult Function(ToggleOpenLinksInBrowser value)
-        toggleOpenLinksInBrowser,
-    required TResult Function(SetHomeFeedMode value) setHomeFeedMode,
-    required TResult Function(ToggleAudioFocus value) toggleAudioFocus,
-    required TResult Function(AddProfile value) addProfile,
-    required TResult Function(DeleteProfile value) deleteProfile,
-    required TResult Function(SwitchProfile value) switchProfile,
-    required TResult Function(RenameProfile value) renameProfile,
-    required TResult Function(ExportSubscriptions value) exportSubscriptions,
-    required TResult Function(ImportSubscriptions value) importSubscriptions,
-    required TResult Function(SetSubtitleSize value) setSubtitleSize,
-    required TResult Function(ToggleSearchHistoryEnabled value)
-        toggleSearchHistoryEnabled,
-    required TResult Function(ToggleSearchHistoryVisibility value)
-        toggleSearchHistoryVisibility,
-    required TResult Function(SetLastExportedFilePath value)
-        setLastExportedFilePath,
-    required TResult Function(ToggleAutoPip value) toggleAutoPip,
-  }) {
-    return setSubtitleSize(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InitializeSettings value)? initializeSettings,
-    TResult? Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult? Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult? Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult? Function(ChangeTheme value)? changeTheme,
-    TResult? Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult? Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult? Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult? Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult? Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult? Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult? Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult? Function(SetInstance value)? setInstance,
-    TResult? Function(SetYTService value)? setYTService,
-    TResult? Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult? Function(SetSearchFilter value)? setSearchFilter,
-    TResult? Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult? Function(SetSkipInterval value)? setSkipInterval,
-    TResult? Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult? Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult? Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult? Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult? Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult? Function(AddProfile value)? addProfile,
-    TResult? Function(DeleteProfile value)? deleteProfile,
-    TResult? Function(SwitchProfile value)? switchProfile,
-    TResult? Function(RenameProfile value)? renameProfile,
-    TResult? Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult? Function(ImportSubscriptions value)? importSubscriptions,
-    TResult? Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult? Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult? Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult? Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult? Function(ToggleAutoPip value)? toggleAutoPip,
-  }) {
-    return setSubtitleSize?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitializeSettings value)? initializeSettings,
-    TResult Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult Function(ChangeTheme value)? changeTheme,
-    TResult Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult Function(SetInstance value)? setInstance,
-    TResult Function(SetYTService value)? setYTService,
-    TResult Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult Function(SetSearchFilter value)? setSearchFilter,
-    TResult Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult Function(SetSkipInterval value)? setSkipInterval,
-    TResult Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult Function(AddProfile value)? addProfile,
-    TResult Function(DeleteProfile value)? deleteProfile,
-    TResult Function(SwitchProfile value)? switchProfile,
-    TResult Function(RenameProfile value)? renameProfile,
-    TResult Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult Function(ImportSubscriptions value)? importSubscriptions,
-    TResult Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult Function(ToggleAutoPip value)? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (setSubtitleSize != null) {
-      return setSubtitleSize(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class SetSubtitleSize implements SettingsEvent {
-  factory SetSubtitleSize({required final double size}) = _$SetSubtitleSizeImpl;
-
-  double get size;
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SetSubtitleSizeImplCopyWith<_$SetSubtitleSizeImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$ToggleSearchHistoryEnabledImplCopyWith<$Res> {
-  factory _$$ToggleSearchHistoryEnabledImplCopyWith(
-          _$ToggleSearchHistoryEnabledImpl value,
-          $Res Function(_$ToggleSearchHistoryEnabledImpl) then) =
-      __$$ToggleSearchHistoryEnabledImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ToggleSearchHistoryEnabledImplCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res, _$ToggleSearchHistoryEnabledImpl>
-    implements _$$ToggleSearchHistoryEnabledImplCopyWith<$Res> {
-  __$$ToggleSearchHistoryEnabledImplCopyWithImpl(
-      _$ToggleSearchHistoryEnabledImpl _value,
-      $Res Function(_$ToggleSearchHistoryEnabledImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$ToggleSearchHistoryEnabledImpl implements ToggleSearchHistoryEnabled {
-  _$ToggleSearchHistoryEnabledImpl();
-
-  @override
-  String toString() {
-    return 'SettingsEvent.toggleSearchHistoryEnabled()';
-  }
+  $ToggleSearchHistoryEnabledCopyWith<ToggleSearchHistoryEnabled>
+      get copyWith =>
+          _$ToggleSearchHistoryEnabledCopyWithImpl<ToggleSearchHistoryEnabled>(
+              this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ToggleSearchHistoryEnabledImpl);
+            other is ToggleSearchHistoryEnabled &&
+            (identical(other.isEnabled, isEnabled) ||
+                other.isEnabled == isEnabled));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initializeSettings,
-    required TResult Function(String? language) getDefaultLanguage,
-    required TResult Function(String? quality) getDefaultQuality,
-    required TResult Function(String? region) getDefaultRegion,
-    required TResult Function(String themeMode) changeTheme,
-    required TResult Function() toggleHistoryVisibility,
-    required TResult Function() toggleDislikeVisibility,
-    required TResult Function() toggleHlsPlayer,
-    required TResult Function() toggleCommentVisibility,
-    required TResult Function() toggleRelatedVideoVisibility,
-    required TResult Function(bool forceRefresh) fetchPipedInstances,
-    required TResult Function(bool forceRefresh) fetchInvidiousInstances,
-    required TResult Function(String instanceApi) setInstance,
-    required TResult Function(YouTubeServices service) setYTService,
-    required TResult Function() togglePipPlayer,
-    required TResult Function(String filter) setSearchFilter,
-    required TResult Function(String fitMode) setVideoFitMode,
-    required TResult Function(int seconds) setSkipInterval,
-    required TResult Function() toggleSponsorBlock,
-    required TResult Function(List<String> categories)
-        setSponsorBlockCategories,
-    required TResult Function() toggleOpenLinksInBrowser,
-    required TResult Function(String mode) setHomeFeedMode,
-    required TResult Function() toggleAudioFocus,
-    required TResult Function(String profileName) addProfile,
-    required TResult Function(String profileName) deleteProfile,
-    required TResult Function(String profileName) switchProfile,
-    required TResult Function(String oldName, String newName) renameProfile,
-    required TResult Function(String profileName) exportSubscriptions,
-    required TResult Function(String filePath, String profileName)
-        importSubscriptions,
-    required TResult Function(double size) setSubtitleSize,
-    required TResult Function() toggleSearchHistoryEnabled,
-    required TResult Function() toggleSearchHistoryVisibility,
-    required TResult Function(String filePath) setLastExportedFilePath,
-    required TResult Function() toggleAutoPip,
-  }) {
-    return toggleSearchHistoryEnabled();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initializeSettings,
-    TResult? Function(String? language)? getDefaultLanguage,
-    TResult? Function(String? quality)? getDefaultQuality,
-    TResult? Function(String? region)? getDefaultRegion,
-    TResult? Function(String themeMode)? changeTheme,
-    TResult? Function()? toggleHistoryVisibility,
-    TResult? Function()? toggleDislikeVisibility,
-    TResult? Function()? toggleHlsPlayer,
-    TResult? Function()? toggleCommentVisibility,
-    TResult? Function()? toggleRelatedVideoVisibility,
-    TResult? Function(bool forceRefresh)? fetchPipedInstances,
-    TResult? Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult? Function(String instanceApi)? setInstance,
-    TResult? Function(YouTubeServices service)? setYTService,
-    TResult? Function()? togglePipPlayer,
-    TResult? Function(String filter)? setSearchFilter,
-    TResult? Function(String fitMode)? setVideoFitMode,
-    TResult? Function(int seconds)? setSkipInterval,
-    TResult? Function()? toggleSponsorBlock,
-    TResult? Function(List<String> categories)? setSponsorBlockCategories,
-    TResult? Function()? toggleOpenLinksInBrowser,
-    TResult? Function(String mode)? setHomeFeedMode,
-    TResult? Function()? toggleAudioFocus,
-    TResult? Function(String profileName)? addProfile,
-    TResult? Function(String profileName)? deleteProfile,
-    TResult? Function(String profileName)? switchProfile,
-    TResult? Function(String oldName, String newName)? renameProfile,
-    TResult? Function(String profileName)? exportSubscriptions,
-    TResult? Function(String filePath, String profileName)? importSubscriptions,
-    TResult? Function(double size)? setSubtitleSize,
-    TResult? Function()? toggleSearchHistoryEnabled,
-    TResult? Function()? toggleSearchHistoryVisibility,
-    TResult? Function(String filePath)? setLastExportedFilePath,
-    TResult? Function()? toggleAutoPip,
-  }) {
-    return toggleSearchHistoryEnabled?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initializeSettings,
-    TResult Function(String? language)? getDefaultLanguage,
-    TResult Function(String? quality)? getDefaultQuality,
-    TResult Function(String? region)? getDefaultRegion,
-    TResult Function(String themeMode)? changeTheme,
-    TResult Function()? toggleHistoryVisibility,
-    TResult Function()? toggleDislikeVisibility,
-    TResult Function()? toggleHlsPlayer,
-    TResult Function()? toggleCommentVisibility,
-    TResult Function()? toggleRelatedVideoVisibility,
-    TResult Function(bool forceRefresh)? fetchPipedInstances,
-    TResult Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult Function(String instanceApi)? setInstance,
-    TResult Function(YouTubeServices service)? setYTService,
-    TResult Function()? togglePipPlayer,
-    TResult Function(String filter)? setSearchFilter,
-    TResult Function(String fitMode)? setVideoFitMode,
-    TResult Function(int seconds)? setSkipInterval,
-    TResult Function()? toggleSponsorBlock,
-    TResult Function(List<String> categories)? setSponsorBlockCategories,
-    TResult Function()? toggleOpenLinksInBrowser,
-    TResult Function(String mode)? setHomeFeedMode,
-    TResult Function()? toggleAudioFocus,
-    TResult Function(String profileName)? addProfile,
-    TResult Function(String profileName)? deleteProfile,
-    TResult Function(String profileName)? switchProfile,
-    TResult Function(String oldName, String newName)? renameProfile,
-    TResult Function(String profileName)? exportSubscriptions,
-    TResult Function(String filePath, String profileName)? importSubscriptions,
-    TResult Function(double size)? setSubtitleSize,
-    TResult Function()? toggleSearchHistoryEnabled,
-    TResult Function()? toggleSearchHistoryVisibility,
-    TResult Function(String filePath)? setLastExportedFilePath,
-    TResult Function()? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (toggleSearchHistoryEnabled != null) {
-      return toggleSearchHistoryEnabled();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(InitializeSettings value) initializeSettings,
-    required TResult Function(GetDefaultLanguage value) getDefaultLanguage,
-    required TResult Function(GetDefaultQuality value) getDefaultQuality,
-    required TResult Function(GetDefaultRegion value) getDefaultRegion,
-    required TResult Function(ChangeTheme value) changeTheme,
-    required TResult Function(ToggleHistoryVisibility value)
-        toggleHistoryVisibility,
-    required TResult Function(ToggleDislikeVisibility value)
-        toggleDislikeVisibility,
-    required TResult Function(ToggleHlsPlayer value) toggleHlsPlayer,
-    required TResult Function(ToggleCommentVisibility value)
-        toggleCommentVisibility,
-    required TResult Function(ToggleRelatedVideoVisibility value)
-        toggleRelatedVideoVisibility,
-    required TResult Function(FetchPipedInstances value) fetchPipedInstances,
-    required TResult Function(FetchInvidiousInstances value)
-        fetchInvidiousInstances,
-    required TResult Function(SetInstance value) setInstance,
-    required TResult Function(SetYTService value) setYTService,
-    required TResult Function(TogglePipPlayer value) togglePipPlayer,
-    required TResult Function(SetSearchFilter value) setSearchFilter,
-    required TResult Function(SetVideoFitMode value) setVideoFitMode,
-    required TResult Function(SetSkipInterval value) setSkipInterval,
-    required TResult Function(ToggleSponsorBlock value) toggleSponsorBlock,
-    required TResult Function(SetSponsorBlockCategories value)
-        setSponsorBlockCategories,
-    required TResult Function(ToggleOpenLinksInBrowser value)
-        toggleOpenLinksInBrowser,
-    required TResult Function(SetHomeFeedMode value) setHomeFeedMode,
-    required TResult Function(ToggleAudioFocus value) toggleAudioFocus,
-    required TResult Function(AddProfile value) addProfile,
-    required TResult Function(DeleteProfile value) deleteProfile,
-    required TResult Function(SwitchProfile value) switchProfile,
-    required TResult Function(RenameProfile value) renameProfile,
-    required TResult Function(ExportSubscriptions value) exportSubscriptions,
-    required TResult Function(ImportSubscriptions value) importSubscriptions,
-    required TResult Function(SetSubtitleSize value) setSubtitleSize,
-    required TResult Function(ToggleSearchHistoryEnabled value)
-        toggleSearchHistoryEnabled,
-    required TResult Function(ToggleSearchHistoryVisibility value)
-        toggleSearchHistoryVisibility,
-    required TResult Function(SetLastExportedFilePath value)
-        setLastExportedFilePath,
-    required TResult Function(ToggleAutoPip value) toggleAutoPip,
-  }) {
-    return toggleSearchHistoryEnabled(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InitializeSettings value)? initializeSettings,
-    TResult? Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult? Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult? Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult? Function(ChangeTheme value)? changeTheme,
-    TResult? Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult? Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult? Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult? Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult? Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult? Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult? Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult? Function(SetInstance value)? setInstance,
-    TResult? Function(SetYTService value)? setYTService,
-    TResult? Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult? Function(SetSearchFilter value)? setSearchFilter,
-    TResult? Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult? Function(SetSkipInterval value)? setSkipInterval,
-    TResult? Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult? Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult? Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult? Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult? Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult? Function(AddProfile value)? addProfile,
-    TResult? Function(DeleteProfile value)? deleteProfile,
-    TResult? Function(SwitchProfile value)? switchProfile,
-    TResult? Function(RenameProfile value)? renameProfile,
-    TResult? Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult? Function(ImportSubscriptions value)? importSubscriptions,
-    TResult? Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult? Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult? Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult? Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult? Function(ToggleAutoPip value)? toggleAutoPip,
-  }) {
-    return toggleSearchHistoryEnabled?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitializeSettings value)? initializeSettings,
-    TResult Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult Function(ChangeTheme value)? changeTheme,
-    TResult Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult Function(SetInstance value)? setInstance,
-    TResult Function(SetYTService value)? setYTService,
-    TResult Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult Function(SetSearchFilter value)? setSearchFilter,
-    TResult Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult Function(SetSkipInterval value)? setSkipInterval,
-    TResult Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult Function(AddProfile value)? addProfile,
-    TResult Function(DeleteProfile value)? deleteProfile,
-    TResult Function(SwitchProfile value)? switchProfile,
-    TResult Function(RenameProfile value)? renameProfile,
-    TResult Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult Function(ImportSubscriptions value)? importSubscriptions,
-    TResult Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult Function(ToggleAutoPip value)? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (toggleSearchHistoryEnabled != null) {
-      return toggleSearchHistoryEnabled(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ToggleSearchHistoryEnabled implements SettingsEvent {
-  factory ToggleSearchHistoryEnabled() = _$ToggleSearchHistoryEnabledImpl;
-}
-
-/// @nodoc
-abstract class _$$ToggleSearchHistoryVisibilityImplCopyWith<$Res> {
-  factory _$$ToggleSearchHistoryVisibilityImplCopyWith(
-          _$ToggleSearchHistoryVisibilityImpl value,
-          $Res Function(_$ToggleSearchHistoryVisibilityImpl) then) =
-      __$$ToggleSearchHistoryVisibilityImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ToggleSearchHistoryVisibilityImplCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res,
-        _$ToggleSearchHistoryVisibilityImpl>
-    implements _$$ToggleSearchHistoryVisibilityImplCopyWith<$Res> {
-  __$$ToggleSearchHistoryVisibilityImplCopyWithImpl(
-      _$ToggleSearchHistoryVisibilityImpl _value,
-      $Res Function(_$ToggleSearchHistoryVisibilityImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$ToggleSearchHistoryVisibilityImpl
-    implements ToggleSearchHistoryVisibility {
-  _$ToggleSearchHistoryVisibilityImpl();
+  int get hashCode => Object.hash(runtimeType, isEnabled);
 
   @override
   String toString() {
-    return 'SettingsEvent.toggleSearchHistoryVisibility()';
+    return 'SettingsEvent.toggleSearchHistoryEnabled(isEnabled: $isEnabled)';
   }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ToggleSearchHistoryVisibilityImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initializeSettings,
-    required TResult Function(String? language) getDefaultLanguage,
-    required TResult Function(String? quality) getDefaultQuality,
-    required TResult Function(String? region) getDefaultRegion,
-    required TResult Function(String themeMode) changeTheme,
-    required TResult Function() toggleHistoryVisibility,
-    required TResult Function() toggleDislikeVisibility,
-    required TResult Function() toggleHlsPlayer,
-    required TResult Function() toggleCommentVisibility,
-    required TResult Function() toggleRelatedVideoVisibility,
-    required TResult Function(bool forceRefresh) fetchPipedInstances,
-    required TResult Function(bool forceRefresh) fetchInvidiousInstances,
-    required TResult Function(String instanceApi) setInstance,
-    required TResult Function(YouTubeServices service) setYTService,
-    required TResult Function() togglePipPlayer,
-    required TResult Function(String filter) setSearchFilter,
-    required TResult Function(String fitMode) setVideoFitMode,
-    required TResult Function(int seconds) setSkipInterval,
-    required TResult Function() toggleSponsorBlock,
-    required TResult Function(List<String> categories)
-        setSponsorBlockCategories,
-    required TResult Function() toggleOpenLinksInBrowser,
-    required TResult Function(String mode) setHomeFeedMode,
-    required TResult Function() toggleAudioFocus,
-    required TResult Function(String profileName) addProfile,
-    required TResult Function(String profileName) deleteProfile,
-    required TResult Function(String profileName) switchProfile,
-    required TResult Function(String oldName, String newName) renameProfile,
-    required TResult Function(String profileName) exportSubscriptions,
-    required TResult Function(String filePath, String profileName)
-        importSubscriptions,
-    required TResult Function(double size) setSubtitleSize,
-    required TResult Function() toggleSearchHistoryEnabled,
-    required TResult Function() toggleSearchHistoryVisibility,
-    required TResult Function(String filePath) setLastExportedFilePath,
-    required TResult Function() toggleAutoPip,
-  }) {
-    return toggleSearchHistoryVisibility();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initializeSettings,
-    TResult? Function(String? language)? getDefaultLanguage,
-    TResult? Function(String? quality)? getDefaultQuality,
-    TResult? Function(String? region)? getDefaultRegion,
-    TResult? Function(String themeMode)? changeTheme,
-    TResult? Function()? toggleHistoryVisibility,
-    TResult? Function()? toggleDislikeVisibility,
-    TResult? Function()? toggleHlsPlayer,
-    TResult? Function()? toggleCommentVisibility,
-    TResult? Function()? toggleRelatedVideoVisibility,
-    TResult? Function(bool forceRefresh)? fetchPipedInstances,
-    TResult? Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult? Function(String instanceApi)? setInstance,
-    TResult? Function(YouTubeServices service)? setYTService,
-    TResult? Function()? togglePipPlayer,
-    TResult? Function(String filter)? setSearchFilter,
-    TResult? Function(String fitMode)? setVideoFitMode,
-    TResult? Function(int seconds)? setSkipInterval,
-    TResult? Function()? toggleSponsorBlock,
-    TResult? Function(List<String> categories)? setSponsorBlockCategories,
-    TResult? Function()? toggleOpenLinksInBrowser,
-    TResult? Function(String mode)? setHomeFeedMode,
-    TResult? Function()? toggleAudioFocus,
-    TResult? Function(String profileName)? addProfile,
-    TResult? Function(String profileName)? deleteProfile,
-    TResult? Function(String profileName)? switchProfile,
-    TResult? Function(String oldName, String newName)? renameProfile,
-    TResult? Function(String profileName)? exportSubscriptions,
-    TResult? Function(String filePath, String profileName)? importSubscriptions,
-    TResult? Function(double size)? setSubtitleSize,
-    TResult? Function()? toggleSearchHistoryEnabled,
-    TResult? Function()? toggleSearchHistoryVisibility,
-    TResult? Function(String filePath)? setLastExportedFilePath,
-    TResult? Function()? toggleAutoPip,
-  }) {
-    return toggleSearchHistoryVisibility?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initializeSettings,
-    TResult Function(String? language)? getDefaultLanguage,
-    TResult Function(String? quality)? getDefaultQuality,
-    TResult Function(String? region)? getDefaultRegion,
-    TResult Function(String themeMode)? changeTheme,
-    TResult Function()? toggleHistoryVisibility,
-    TResult Function()? toggleDislikeVisibility,
-    TResult Function()? toggleHlsPlayer,
-    TResult Function()? toggleCommentVisibility,
-    TResult Function()? toggleRelatedVideoVisibility,
-    TResult Function(bool forceRefresh)? fetchPipedInstances,
-    TResult Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult Function(String instanceApi)? setInstance,
-    TResult Function(YouTubeServices service)? setYTService,
-    TResult Function()? togglePipPlayer,
-    TResult Function(String filter)? setSearchFilter,
-    TResult Function(String fitMode)? setVideoFitMode,
-    TResult Function(int seconds)? setSkipInterval,
-    TResult Function()? toggleSponsorBlock,
-    TResult Function(List<String> categories)? setSponsorBlockCategories,
-    TResult Function()? toggleOpenLinksInBrowser,
-    TResult Function(String mode)? setHomeFeedMode,
-    TResult Function()? toggleAudioFocus,
-    TResult Function(String profileName)? addProfile,
-    TResult Function(String profileName)? deleteProfile,
-    TResult Function(String profileName)? switchProfile,
-    TResult Function(String oldName, String newName)? renameProfile,
-    TResult Function(String profileName)? exportSubscriptions,
-    TResult Function(String filePath, String profileName)? importSubscriptions,
-    TResult Function(double size)? setSubtitleSize,
-    TResult Function()? toggleSearchHistoryEnabled,
-    TResult Function()? toggleSearchHistoryVisibility,
-    TResult Function(String filePath)? setLastExportedFilePath,
-    TResult Function()? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (toggleSearchHistoryVisibility != null) {
-      return toggleSearchHistoryVisibility();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(InitializeSettings value) initializeSettings,
-    required TResult Function(GetDefaultLanguage value) getDefaultLanguage,
-    required TResult Function(GetDefaultQuality value) getDefaultQuality,
-    required TResult Function(GetDefaultRegion value) getDefaultRegion,
-    required TResult Function(ChangeTheme value) changeTheme,
-    required TResult Function(ToggleHistoryVisibility value)
-        toggleHistoryVisibility,
-    required TResult Function(ToggleDislikeVisibility value)
-        toggleDislikeVisibility,
-    required TResult Function(ToggleHlsPlayer value) toggleHlsPlayer,
-    required TResult Function(ToggleCommentVisibility value)
-        toggleCommentVisibility,
-    required TResult Function(ToggleRelatedVideoVisibility value)
-        toggleRelatedVideoVisibility,
-    required TResult Function(FetchPipedInstances value) fetchPipedInstances,
-    required TResult Function(FetchInvidiousInstances value)
-        fetchInvidiousInstances,
-    required TResult Function(SetInstance value) setInstance,
-    required TResult Function(SetYTService value) setYTService,
-    required TResult Function(TogglePipPlayer value) togglePipPlayer,
-    required TResult Function(SetSearchFilter value) setSearchFilter,
-    required TResult Function(SetVideoFitMode value) setVideoFitMode,
-    required TResult Function(SetSkipInterval value) setSkipInterval,
-    required TResult Function(ToggleSponsorBlock value) toggleSponsorBlock,
-    required TResult Function(SetSponsorBlockCategories value)
-        setSponsorBlockCategories,
-    required TResult Function(ToggleOpenLinksInBrowser value)
-        toggleOpenLinksInBrowser,
-    required TResult Function(SetHomeFeedMode value) setHomeFeedMode,
-    required TResult Function(ToggleAudioFocus value) toggleAudioFocus,
-    required TResult Function(AddProfile value) addProfile,
-    required TResult Function(DeleteProfile value) deleteProfile,
-    required TResult Function(SwitchProfile value) switchProfile,
-    required TResult Function(RenameProfile value) renameProfile,
-    required TResult Function(ExportSubscriptions value) exportSubscriptions,
-    required TResult Function(ImportSubscriptions value) importSubscriptions,
-    required TResult Function(SetSubtitleSize value) setSubtitleSize,
-    required TResult Function(ToggleSearchHistoryEnabled value)
-        toggleSearchHistoryEnabled,
-    required TResult Function(ToggleSearchHistoryVisibility value)
-        toggleSearchHistoryVisibility,
-    required TResult Function(SetLastExportedFilePath value)
-        setLastExportedFilePath,
-    required TResult Function(ToggleAutoPip value) toggleAutoPip,
-  }) {
-    return toggleSearchHistoryVisibility(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InitializeSettings value)? initializeSettings,
-    TResult? Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult? Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult? Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult? Function(ChangeTheme value)? changeTheme,
-    TResult? Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult? Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult? Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult? Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult? Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult? Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult? Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult? Function(SetInstance value)? setInstance,
-    TResult? Function(SetYTService value)? setYTService,
-    TResult? Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult? Function(SetSearchFilter value)? setSearchFilter,
-    TResult? Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult? Function(SetSkipInterval value)? setSkipInterval,
-    TResult? Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult? Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult? Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult? Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult? Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult? Function(AddProfile value)? addProfile,
-    TResult? Function(DeleteProfile value)? deleteProfile,
-    TResult? Function(SwitchProfile value)? switchProfile,
-    TResult? Function(RenameProfile value)? renameProfile,
-    TResult? Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult? Function(ImportSubscriptions value)? importSubscriptions,
-    TResult? Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult? Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult? Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult? Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult? Function(ToggleAutoPip value)? toggleAutoPip,
-  }) {
-    return toggleSearchHistoryVisibility?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitializeSettings value)? initializeSettings,
-    TResult Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult Function(ChangeTheme value)? changeTheme,
-    TResult Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult Function(SetInstance value)? setInstance,
-    TResult Function(SetYTService value)? setYTService,
-    TResult Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult Function(SetSearchFilter value)? setSearchFilter,
-    TResult Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult Function(SetSkipInterval value)? setSkipInterval,
-    TResult Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult Function(AddProfile value)? addProfile,
-    TResult Function(DeleteProfile value)? deleteProfile,
-    TResult Function(SwitchProfile value)? switchProfile,
-    TResult Function(RenameProfile value)? renameProfile,
-    TResult Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult Function(ImportSubscriptions value)? importSubscriptions,
-    TResult Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult Function(ToggleAutoPip value)? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (toggleSearchHistoryVisibility != null) {
-      return toggleSearchHistoryVisibility(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ToggleSearchHistoryVisibility implements SettingsEvent {
-  factory ToggleSearchHistoryVisibility() = _$ToggleSearchHistoryVisibilityImpl;
 }
 
 /// @nodoc
-abstract class _$$SetLastExportedFilePathImplCopyWith<$Res> {
-  factory _$$SetLastExportedFilePathImplCopyWith(
-          _$SetLastExportedFilePathImpl value,
-          $Res Function(_$SetLastExportedFilePathImpl) then) =
-      __$$SetLastExportedFilePathImplCopyWithImpl<$Res>;
+abstract mixin class $ToggleSearchHistoryEnabledCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleSearchHistoryEnabledCopyWith(ToggleSearchHistoryEnabled value,
+          $Res Function(ToggleSearchHistoryEnabled) _then) =
+      _$ToggleSearchHistoryEnabledCopyWithImpl;
   @useResult
-  $Res call({String filePath});
+  $Res call({bool isEnabled});
 }
 
 /// @nodoc
-class __$$SetLastExportedFilePathImplCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res, _$SetLastExportedFilePathImpl>
-    implements _$$SetLastExportedFilePathImplCopyWith<$Res> {
-  __$$SetLastExportedFilePathImplCopyWithImpl(
-      _$SetLastExportedFilePathImpl _value,
-      $Res Function(_$SetLastExportedFilePathImpl) _then)
-      : super(_value, _then);
+class _$ToggleSearchHistoryEnabledCopyWithImpl<$Res>
+    implements $ToggleSearchHistoryEnabledCopyWith<$Res> {
+  _$ToggleSearchHistoryEnabledCopyWithImpl(this._self, this._then);
+
+  final ToggleSearchHistoryEnabled _self;
+  final $Res Function(ToggleSearchHistoryEnabled) _then;
 
   /// Create a copy of SettingsEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
-    Object? filePath = null,
+    Object? isEnabled = null,
   }) {
-    return _then(_$SetLastExportedFilePathImpl(
-      filePath: null == filePath
-          ? _value.filePath
-          : filePath // ignore: cast_nullable_to_non_nullable
-              as String,
+    return _then(ToggleSearchHistoryEnabled(
+      isEnabled: null == isEnabled
+          ? _self.isEnabled
+          : isEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
 
 /// @nodoc
 
-class _$SetLastExportedFilePathImpl implements SetLastExportedFilePath {
-  _$SetLastExportedFilePathImpl({required this.filePath});
+class ToggleSearchHistoryVisibility implements SettingsEvent {
+  const ToggleSearchHistoryVisibility({required this.isVisible});
 
-  @override
-  final String filePath;
+  final bool isVisible;
 
-  @override
-  String toString() {
-    return 'SettingsEvent.setLastExportedFilePath(filePath: $filePath)';
-  }
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ToggleSearchHistoryVisibilityCopyWith<ToggleSearchHistoryVisibility>
+      get copyWith => _$ToggleSearchHistoryVisibilityCopyWithImpl<
+          ToggleSearchHistoryVisibility>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SetLastExportedFilePathImpl &&
+            other is ToggleSearchHistoryVisibility &&
+            (identical(other.isVisible, isVisible) ||
+                other.isVisible == isVisible));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, isVisible);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.toggleSearchHistoryVisibility(isVisible: $isVisible)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ToggleSearchHistoryVisibilityCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleSearchHistoryVisibilityCopyWith(
+          ToggleSearchHistoryVisibility value,
+          $Res Function(ToggleSearchHistoryVisibility) _then) =
+      _$ToggleSearchHistoryVisibilityCopyWithImpl;
+  @useResult
+  $Res call({bool isVisible});
+}
+
+/// @nodoc
+class _$ToggleSearchHistoryVisibilityCopyWithImpl<$Res>
+    implements $ToggleSearchHistoryVisibilityCopyWith<$Res> {
+  _$ToggleSearchHistoryVisibilityCopyWithImpl(this._self, this._then);
+
+  final ToggleSearchHistoryVisibility _self;
+  final $Res Function(ToggleSearchHistoryVisibility) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? isVisible = null,
+  }) {
+    return _then(ToggleSearchHistoryVisibility(
+      isVisible: null == isVisible
+          ? _self.isVisible
+          : isVisible // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ToggleAutoPip implements SettingsEvent {
+  const ToggleAutoPip({required this.isEnabled});
+
+  final bool isEnabled;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ToggleAutoPipCopyWith<ToggleAutoPip> get copyWith =>
+      _$ToggleAutoPipCopyWithImpl<ToggleAutoPip>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ToggleAutoPip &&
+            (identical(other.isEnabled, isEnabled) ||
+                other.isEnabled == isEnabled));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, isEnabled);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.toggleAutoPip(isEnabled: $isEnabled)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ToggleAutoPipCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleAutoPipCopyWith(
+          ToggleAutoPip value, $Res Function(ToggleAutoPip) _then) =
+      _$ToggleAutoPipCopyWithImpl;
+  @useResult
+  $Res call({bool isEnabled});
+}
+
+/// @nodoc
+class _$ToggleAutoPipCopyWithImpl<$Res>
+    implements $ToggleAutoPipCopyWith<$Res> {
+  _$ToggleAutoPipCopyWithImpl(this._self, this._then);
+
+  final ToggleAutoPip _self;
+  final $Res Function(ToggleAutoPip) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? isEnabled = null,
+  }) {
+    return _then(ToggleAutoPip(
+      isEnabled: null == isEnabled
+          ? _self.isEnabled
+          : isEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class FetchPipedInstances implements SettingsEvent {
+  const FetchPipedInstances({this.forceRefresh = false});
+
+  @JsonKey()
+  final bool forceRefresh;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $FetchPipedInstancesCopyWith<FetchPipedInstances> get copyWith =>
+      _$FetchPipedInstancesCopyWithImpl<FetchPipedInstances>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is FetchPipedInstances &&
+            (identical(other.forceRefresh, forceRefresh) ||
+                other.forceRefresh == forceRefresh));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, forceRefresh);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.fetchPipedInstances(forceRefresh: $forceRefresh)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $FetchPipedInstancesCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $FetchPipedInstancesCopyWith(
+          FetchPipedInstances value, $Res Function(FetchPipedInstances) _then) =
+      _$FetchPipedInstancesCopyWithImpl;
+  @useResult
+  $Res call({bool forceRefresh});
+}
+
+/// @nodoc
+class _$FetchPipedInstancesCopyWithImpl<$Res>
+    implements $FetchPipedInstancesCopyWith<$Res> {
+  _$FetchPipedInstancesCopyWithImpl(this._self, this._then);
+
+  final FetchPipedInstances _self;
+  final $Res Function(FetchPipedInstances) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? forceRefresh = null,
+  }) {
+    return _then(FetchPipedInstances(
+      forceRefresh: null == forceRefresh
+          ? _self.forceRefresh
+          : forceRefresh // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class FetchInvidiousInstances implements SettingsEvent {
+  const FetchInvidiousInstances({this.forceRefresh = false});
+
+  @JsonKey()
+  final bool forceRefresh;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $FetchInvidiousInstancesCopyWith<FetchInvidiousInstances> get copyWith =>
+      _$FetchInvidiousInstancesCopyWithImpl<FetchInvidiousInstances>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is FetchInvidiousInstances &&
+            (identical(other.forceRefresh, forceRefresh) ||
+                other.forceRefresh == forceRefresh));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, forceRefresh);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.fetchInvidiousInstances(forceRefresh: $forceRefresh)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $FetchInvidiousInstancesCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $FetchInvidiousInstancesCopyWith(FetchInvidiousInstances value,
+          $Res Function(FetchInvidiousInstances) _then) =
+      _$FetchInvidiousInstancesCopyWithImpl;
+  @useResult
+  $Res call({bool forceRefresh});
+}
+
+/// @nodoc
+class _$FetchInvidiousInstancesCopyWithImpl<$Res>
+    implements $FetchInvidiousInstancesCopyWith<$Res> {
+  _$FetchInvidiousInstancesCopyWithImpl(this._self, this._then);
+
+  final FetchInvidiousInstances _self;
+  final $Res Function(FetchInvidiousInstances) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? forceRefresh = null,
+  }) {
+    return _then(FetchInvidiousInstances(
+      forceRefresh: null == forceRefresh
+          ? _self.forceRefresh
+          : forceRefresh // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class SetLastExportedFilePath implements SettingsEvent {
+  const SetLastExportedFilePath({required this.filePath});
+
+  final String? filePath;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $SetLastExportedFilePathCopyWith<SetLastExportedFilePath> get copyWith =>
+      _$SetLastExportedFilePathCopyWithImpl<SetLastExportedFilePath>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SetLastExportedFilePath &&
             (identical(other.filePath, filePath) ||
                 other.filePath == filePath));
   }
@@ -11293,1193 +3802,188 @@ class _$SetLastExportedFilePathImpl implements SetLastExportedFilePath {
   @override
   int get hashCode => Object.hash(runtimeType, filePath);
 
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SetLastExportedFilePathImplCopyWith<_$SetLastExportedFilePathImpl>
-      get copyWith => __$$SetLastExportedFilePathImplCopyWithImpl<
-          _$SetLastExportedFilePathImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initializeSettings,
-    required TResult Function(String? language) getDefaultLanguage,
-    required TResult Function(String? quality) getDefaultQuality,
-    required TResult Function(String? region) getDefaultRegion,
-    required TResult Function(String themeMode) changeTheme,
-    required TResult Function() toggleHistoryVisibility,
-    required TResult Function() toggleDislikeVisibility,
-    required TResult Function() toggleHlsPlayer,
-    required TResult Function() toggleCommentVisibility,
-    required TResult Function() toggleRelatedVideoVisibility,
-    required TResult Function(bool forceRefresh) fetchPipedInstances,
-    required TResult Function(bool forceRefresh) fetchInvidiousInstances,
-    required TResult Function(String instanceApi) setInstance,
-    required TResult Function(YouTubeServices service) setYTService,
-    required TResult Function() togglePipPlayer,
-    required TResult Function(String filter) setSearchFilter,
-    required TResult Function(String fitMode) setVideoFitMode,
-    required TResult Function(int seconds) setSkipInterval,
-    required TResult Function() toggleSponsorBlock,
-    required TResult Function(List<String> categories)
-        setSponsorBlockCategories,
-    required TResult Function() toggleOpenLinksInBrowser,
-    required TResult Function(String mode) setHomeFeedMode,
-    required TResult Function() toggleAudioFocus,
-    required TResult Function(String profileName) addProfile,
-    required TResult Function(String profileName) deleteProfile,
-    required TResult Function(String profileName) switchProfile,
-    required TResult Function(String oldName, String newName) renameProfile,
-    required TResult Function(String profileName) exportSubscriptions,
-    required TResult Function(String filePath, String profileName)
-        importSubscriptions,
-    required TResult Function(double size) setSubtitleSize,
-    required TResult Function() toggleSearchHistoryEnabled,
-    required TResult Function() toggleSearchHistoryVisibility,
-    required TResult Function(String filePath) setLastExportedFilePath,
-    required TResult Function() toggleAutoPip,
-  }) {
-    return setLastExportedFilePath(filePath);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initializeSettings,
-    TResult? Function(String? language)? getDefaultLanguage,
-    TResult? Function(String? quality)? getDefaultQuality,
-    TResult? Function(String? region)? getDefaultRegion,
-    TResult? Function(String themeMode)? changeTheme,
-    TResult? Function()? toggleHistoryVisibility,
-    TResult? Function()? toggleDislikeVisibility,
-    TResult? Function()? toggleHlsPlayer,
-    TResult? Function()? toggleCommentVisibility,
-    TResult? Function()? toggleRelatedVideoVisibility,
-    TResult? Function(bool forceRefresh)? fetchPipedInstances,
-    TResult? Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult? Function(String instanceApi)? setInstance,
-    TResult? Function(YouTubeServices service)? setYTService,
-    TResult? Function()? togglePipPlayer,
-    TResult? Function(String filter)? setSearchFilter,
-    TResult? Function(String fitMode)? setVideoFitMode,
-    TResult? Function(int seconds)? setSkipInterval,
-    TResult? Function()? toggleSponsorBlock,
-    TResult? Function(List<String> categories)? setSponsorBlockCategories,
-    TResult? Function()? toggleOpenLinksInBrowser,
-    TResult? Function(String mode)? setHomeFeedMode,
-    TResult? Function()? toggleAudioFocus,
-    TResult? Function(String profileName)? addProfile,
-    TResult? Function(String profileName)? deleteProfile,
-    TResult? Function(String profileName)? switchProfile,
-    TResult? Function(String oldName, String newName)? renameProfile,
-    TResult? Function(String profileName)? exportSubscriptions,
-    TResult? Function(String filePath, String profileName)? importSubscriptions,
-    TResult? Function(double size)? setSubtitleSize,
-    TResult? Function()? toggleSearchHistoryEnabled,
-    TResult? Function()? toggleSearchHistoryVisibility,
-    TResult? Function(String filePath)? setLastExportedFilePath,
-    TResult? Function()? toggleAutoPip,
-  }) {
-    return setLastExportedFilePath?.call(filePath);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initializeSettings,
-    TResult Function(String? language)? getDefaultLanguage,
-    TResult Function(String? quality)? getDefaultQuality,
-    TResult Function(String? region)? getDefaultRegion,
-    TResult Function(String themeMode)? changeTheme,
-    TResult Function()? toggleHistoryVisibility,
-    TResult Function()? toggleDislikeVisibility,
-    TResult Function()? toggleHlsPlayer,
-    TResult Function()? toggleCommentVisibility,
-    TResult Function()? toggleRelatedVideoVisibility,
-    TResult Function(bool forceRefresh)? fetchPipedInstances,
-    TResult Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult Function(String instanceApi)? setInstance,
-    TResult Function(YouTubeServices service)? setYTService,
-    TResult Function()? togglePipPlayer,
-    TResult Function(String filter)? setSearchFilter,
-    TResult Function(String fitMode)? setVideoFitMode,
-    TResult Function(int seconds)? setSkipInterval,
-    TResult Function()? toggleSponsorBlock,
-    TResult Function(List<String> categories)? setSponsorBlockCategories,
-    TResult Function()? toggleOpenLinksInBrowser,
-    TResult Function(String mode)? setHomeFeedMode,
-    TResult Function()? toggleAudioFocus,
-    TResult Function(String profileName)? addProfile,
-    TResult Function(String profileName)? deleteProfile,
-    TResult Function(String profileName)? switchProfile,
-    TResult Function(String oldName, String newName)? renameProfile,
-    TResult Function(String profileName)? exportSubscriptions,
-    TResult Function(String filePath, String profileName)? importSubscriptions,
-    TResult Function(double size)? setSubtitleSize,
-    TResult Function()? toggleSearchHistoryEnabled,
-    TResult Function()? toggleSearchHistoryVisibility,
-    TResult Function(String filePath)? setLastExportedFilePath,
-    TResult Function()? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (setLastExportedFilePath != null) {
-      return setLastExportedFilePath(filePath);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(InitializeSettings value) initializeSettings,
-    required TResult Function(GetDefaultLanguage value) getDefaultLanguage,
-    required TResult Function(GetDefaultQuality value) getDefaultQuality,
-    required TResult Function(GetDefaultRegion value) getDefaultRegion,
-    required TResult Function(ChangeTheme value) changeTheme,
-    required TResult Function(ToggleHistoryVisibility value)
-        toggleHistoryVisibility,
-    required TResult Function(ToggleDislikeVisibility value)
-        toggleDislikeVisibility,
-    required TResult Function(ToggleHlsPlayer value) toggleHlsPlayer,
-    required TResult Function(ToggleCommentVisibility value)
-        toggleCommentVisibility,
-    required TResult Function(ToggleRelatedVideoVisibility value)
-        toggleRelatedVideoVisibility,
-    required TResult Function(FetchPipedInstances value) fetchPipedInstances,
-    required TResult Function(FetchInvidiousInstances value)
-        fetchInvidiousInstances,
-    required TResult Function(SetInstance value) setInstance,
-    required TResult Function(SetYTService value) setYTService,
-    required TResult Function(TogglePipPlayer value) togglePipPlayer,
-    required TResult Function(SetSearchFilter value) setSearchFilter,
-    required TResult Function(SetVideoFitMode value) setVideoFitMode,
-    required TResult Function(SetSkipInterval value) setSkipInterval,
-    required TResult Function(ToggleSponsorBlock value) toggleSponsorBlock,
-    required TResult Function(SetSponsorBlockCategories value)
-        setSponsorBlockCategories,
-    required TResult Function(ToggleOpenLinksInBrowser value)
-        toggleOpenLinksInBrowser,
-    required TResult Function(SetHomeFeedMode value) setHomeFeedMode,
-    required TResult Function(ToggleAudioFocus value) toggleAudioFocus,
-    required TResult Function(AddProfile value) addProfile,
-    required TResult Function(DeleteProfile value) deleteProfile,
-    required TResult Function(SwitchProfile value) switchProfile,
-    required TResult Function(RenameProfile value) renameProfile,
-    required TResult Function(ExportSubscriptions value) exportSubscriptions,
-    required TResult Function(ImportSubscriptions value) importSubscriptions,
-    required TResult Function(SetSubtitleSize value) setSubtitleSize,
-    required TResult Function(ToggleSearchHistoryEnabled value)
-        toggleSearchHistoryEnabled,
-    required TResult Function(ToggleSearchHistoryVisibility value)
-        toggleSearchHistoryVisibility,
-    required TResult Function(SetLastExportedFilePath value)
-        setLastExportedFilePath,
-    required TResult Function(ToggleAutoPip value) toggleAutoPip,
-  }) {
-    return setLastExportedFilePath(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InitializeSettings value)? initializeSettings,
-    TResult? Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult? Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult? Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult? Function(ChangeTheme value)? changeTheme,
-    TResult? Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult? Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult? Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult? Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult? Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult? Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult? Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult? Function(SetInstance value)? setInstance,
-    TResult? Function(SetYTService value)? setYTService,
-    TResult? Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult? Function(SetSearchFilter value)? setSearchFilter,
-    TResult? Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult? Function(SetSkipInterval value)? setSkipInterval,
-    TResult? Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult? Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult? Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult? Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult? Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult? Function(AddProfile value)? addProfile,
-    TResult? Function(DeleteProfile value)? deleteProfile,
-    TResult? Function(SwitchProfile value)? switchProfile,
-    TResult? Function(RenameProfile value)? renameProfile,
-    TResult? Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult? Function(ImportSubscriptions value)? importSubscriptions,
-    TResult? Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult? Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult? Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult? Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult? Function(ToggleAutoPip value)? toggleAutoPip,
-  }) {
-    return setLastExportedFilePath?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitializeSettings value)? initializeSettings,
-    TResult Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult Function(ChangeTheme value)? changeTheme,
-    TResult Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult Function(SetInstance value)? setInstance,
-    TResult Function(SetYTService value)? setYTService,
-    TResult Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult Function(SetSearchFilter value)? setSearchFilter,
-    TResult Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult Function(SetSkipInterval value)? setSkipInterval,
-    TResult Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult Function(AddProfile value)? addProfile,
-    TResult Function(DeleteProfile value)? deleteProfile,
-    TResult Function(SwitchProfile value)? switchProfile,
-    TResult Function(RenameProfile value)? renameProfile,
-    TResult Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult Function(ImportSubscriptions value)? importSubscriptions,
-    TResult Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult Function(ToggleAutoPip value)? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (setLastExportedFilePath != null) {
-      return setLastExportedFilePath(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class SetLastExportedFilePath implements SettingsEvent {
-  factory SetLastExportedFilePath({required final String filePath}) =
-      _$SetLastExportedFilePathImpl;
-
-  String get filePath;
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SetLastExportedFilePathImplCopyWith<_$SetLastExportedFilePathImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$ToggleAutoPipImplCopyWith<$Res> {
-  factory _$$ToggleAutoPipImplCopyWith(
-          _$ToggleAutoPipImpl value, $Res Function(_$ToggleAutoPipImpl) then) =
-      __$$ToggleAutoPipImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ToggleAutoPipImplCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res, _$ToggleAutoPipImpl>
-    implements _$$ToggleAutoPipImplCopyWith<$Res> {
-  __$$ToggleAutoPipImplCopyWithImpl(
-      _$ToggleAutoPipImpl _value, $Res Function(_$ToggleAutoPipImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of SettingsEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$ToggleAutoPipImpl implements ToggleAutoPip {
-  _$ToggleAutoPipImpl();
-
   @override
   String toString() {
-    return 'SettingsEvent.toggleAutoPip()';
+    return 'SettingsEvent.setLastExportedFilePath(filePath: $filePath)';
   }
+}
+
+/// @nodoc
+abstract mixin class $SetLastExportedFilePathCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $SetLastExportedFilePathCopyWith(SetLastExportedFilePath value,
+          $Res Function(SetLastExportedFilePath) _then) =
+      _$SetLastExportedFilePathCopyWithImpl;
+  @useResult
+  $Res call({String? filePath});
+}
+
+/// @nodoc
+class _$SetLastExportedFilePathCopyWithImpl<$Res>
+    implements $SetLastExportedFilePathCopyWith<$Res> {
+  _$SetLastExportedFilePathCopyWithImpl(this._self, this._then);
+
+  final SetLastExportedFilePath _self;
+  final $Res Function(SetLastExportedFilePath) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? filePath = freezed,
+  }) {
+    return _then(SetLastExportedFilePath(
+      filePath: freezed == filePath
+          ? _self.filePath
+          : filePath // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class SetSleepTimer implements SettingsEvent {
+  const SetSleepTimer({required this.seconds});
+
+  final int seconds;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $SetSleepTimerCopyWith<SetSleepTimer> get copyWith =>
+      _$SetSleepTimerCopyWithImpl<SetSleepTimer>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ToggleAutoPipImpl);
+        (other.runtimeType == runtimeType &&
+            other is SetSleepTimer &&
+            (identical(other.seconds, seconds) || other.seconds == seconds));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, seconds);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.setSleepTimer(seconds: $seconds)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $SetSleepTimerCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $SetSleepTimerCopyWith(
+          SetSleepTimer value, $Res Function(SetSleepTimer) _then) =
+      _$SetSleepTimerCopyWithImpl;
+  @useResult
+  $Res call({int seconds});
+}
+
+/// @nodoc
+class _$SetSleepTimerCopyWithImpl<$Res>
+    implements $SetSleepTimerCopyWith<$Res> {
+  _$SetSleepTimerCopyWithImpl(this._self, this._then);
+
+  final SetSleepTimer _self;
+  final $Res Function(SetSleepTimer) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? seconds = null,
+  }) {
+    return _then(SetSleepTimer(
+      seconds: null == seconds
+          ? _self.seconds
+          : seconds // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ClearSleepTimer implements SettingsEvent {
+  const ClearSleepTimer();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is ClearSleepTimer);
   }
 
   @override
   int get hashCode => runtimeType.hashCode;
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initializeSettings,
-    required TResult Function(String? language) getDefaultLanguage,
-    required TResult Function(String? quality) getDefaultQuality,
-    required TResult Function(String? region) getDefaultRegion,
-    required TResult Function(String themeMode) changeTheme,
-    required TResult Function() toggleHistoryVisibility,
-    required TResult Function() toggleDislikeVisibility,
-    required TResult Function() toggleHlsPlayer,
-    required TResult Function() toggleCommentVisibility,
-    required TResult Function() toggleRelatedVideoVisibility,
-    required TResult Function(bool forceRefresh) fetchPipedInstances,
-    required TResult Function(bool forceRefresh) fetchInvidiousInstances,
-    required TResult Function(String instanceApi) setInstance,
-    required TResult Function(YouTubeServices service) setYTService,
-    required TResult Function() togglePipPlayer,
-    required TResult Function(String filter) setSearchFilter,
-    required TResult Function(String fitMode) setVideoFitMode,
-    required TResult Function(int seconds) setSkipInterval,
-    required TResult Function() toggleSponsorBlock,
-    required TResult Function(List<String> categories)
-        setSponsorBlockCategories,
-    required TResult Function() toggleOpenLinksInBrowser,
-    required TResult Function(String mode) setHomeFeedMode,
-    required TResult Function() toggleAudioFocus,
-    required TResult Function(String profileName) addProfile,
-    required TResult Function(String profileName) deleteProfile,
-    required TResult Function(String profileName) switchProfile,
-    required TResult Function(String oldName, String newName) renameProfile,
-    required TResult Function(String profileName) exportSubscriptions,
-    required TResult Function(String filePath, String profileName)
-        importSubscriptions,
-    required TResult Function(double size) setSubtitleSize,
-    required TResult Function() toggleSearchHistoryEnabled,
-    required TResult Function() toggleSearchHistoryVisibility,
-    required TResult Function(String filePath) setLastExportedFilePath,
-    required TResult Function() toggleAutoPip,
-  }) {
-    return toggleAutoPip();
+  String toString() {
+    return 'SettingsEvent.clearSleepTimer()';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initializeSettings,
-    TResult? Function(String? language)? getDefaultLanguage,
-    TResult? Function(String? quality)? getDefaultQuality,
-    TResult? Function(String? region)? getDefaultRegion,
-    TResult? Function(String themeMode)? changeTheme,
-    TResult? Function()? toggleHistoryVisibility,
-    TResult? Function()? toggleDislikeVisibility,
-    TResult? Function()? toggleHlsPlayer,
-    TResult? Function()? toggleCommentVisibility,
-    TResult? Function()? toggleRelatedVideoVisibility,
-    TResult? Function(bool forceRefresh)? fetchPipedInstances,
-    TResult? Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult? Function(String instanceApi)? setInstance,
-    TResult? Function(YouTubeServices service)? setYTService,
-    TResult? Function()? togglePipPlayer,
-    TResult? Function(String filter)? setSearchFilter,
-    TResult? Function(String fitMode)? setVideoFitMode,
-    TResult? Function(int seconds)? setSkipInterval,
-    TResult? Function()? toggleSponsorBlock,
-    TResult? Function(List<String> categories)? setSponsorBlockCategories,
-    TResult? Function()? toggleOpenLinksInBrowser,
-    TResult? Function(String mode)? setHomeFeedMode,
-    TResult? Function()? toggleAudioFocus,
-    TResult? Function(String profileName)? addProfile,
-    TResult? Function(String profileName)? deleteProfile,
-    TResult? Function(String profileName)? switchProfile,
-    TResult? Function(String oldName, String newName)? renameProfile,
-    TResult? Function(String profileName)? exportSubscriptions,
-    TResult? Function(String filePath, String profileName)? importSubscriptions,
-    TResult? Function(double size)? setSubtitleSize,
-    TResult? Function()? toggleSearchHistoryEnabled,
-    TResult? Function()? toggleSearchHistoryVisibility,
-    TResult? Function(String filePath)? setLastExportedFilePath,
-    TResult? Function()? toggleAutoPip,
-  }) {
-    return toggleAutoPip?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initializeSettings,
-    TResult Function(String? language)? getDefaultLanguage,
-    TResult Function(String? quality)? getDefaultQuality,
-    TResult Function(String? region)? getDefaultRegion,
-    TResult Function(String themeMode)? changeTheme,
-    TResult Function()? toggleHistoryVisibility,
-    TResult Function()? toggleDislikeVisibility,
-    TResult Function()? toggleHlsPlayer,
-    TResult Function()? toggleCommentVisibility,
-    TResult Function()? toggleRelatedVideoVisibility,
-    TResult Function(bool forceRefresh)? fetchPipedInstances,
-    TResult Function(bool forceRefresh)? fetchInvidiousInstances,
-    TResult Function(String instanceApi)? setInstance,
-    TResult Function(YouTubeServices service)? setYTService,
-    TResult Function()? togglePipPlayer,
-    TResult Function(String filter)? setSearchFilter,
-    TResult Function(String fitMode)? setVideoFitMode,
-    TResult Function(int seconds)? setSkipInterval,
-    TResult Function()? toggleSponsorBlock,
-    TResult Function(List<String> categories)? setSponsorBlockCategories,
-    TResult Function()? toggleOpenLinksInBrowser,
-    TResult Function(String mode)? setHomeFeedMode,
-    TResult Function()? toggleAudioFocus,
-    TResult Function(String profileName)? addProfile,
-    TResult Function(String profileName)? deleteProfile,
-    TResult Function(String profileName)? switchProfile,
-    TResult Function(String oldName, String newName)? renameProfile,
-    TResult Function(String profileName)? exportSubscriptions,
-    TResult Function(String filePath, String profileName)? importSubscriptions,
-    TResult Function(double size)? setSubtitleSize,
-    TResult Function()? toggleSearchHistoryEnabled,
-    TResult Function()? toggleSearchHistoryVisibility,
-    TResult Function(String filePath)? setLastExportedFilePath,
-    TResult Function()? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (toggleAutoPip != null) {
-      return toggleAutoPip();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(InitializeSettings value) initializeSettings,
-    required TResult Function(GetDefaultLanguage value) getDefaultLanguage,
-    required TResult Function(GetDefaultQuality value) getDefaultQuality,
-    required TResult Function(GetDefaultRegion value) getDefaultRegion,
-    required TResult Function(ChangeTheme value) changeTheme,
-    required TResult Function(ToggleHistoryVisibility value)
-        toggleHistoryVisibility,
-    required TResult Function(ToggleDislikeVisibility value)
-        toggleDislikeVisibility,
-    required TResult Function(ToggleHlsPlayer value) toggleHlsPlayer,
-    required TResult Function(ToggleCommentVisibility value)
-        toggleCommentVisibility,
-    required TResult Function(ToggleRelatedVideoVisibility value)
-        toggleRelatedVideoVisibility,
-    required TResult Function(FetchPipedInstances value) fetchPipedInstances,
-    required TResult Function(FetchInvidiousInstances value)
-        fetchInvidiousInstances,
-    required TResult Function(SetInstance value) setInstance,
-    required TResult Function(SetYTService value) setYTService,
-    required TResult Function(TogglePipPlayer value) togglePipPlayer,
-    required TResult Function(SetSearchFilter value) setSearchFilter,
-    required TResult Function(SetVideoFitMode value) setVideoFitMode,
-    required TResult Function(SetSkipInterval value) setSkipInterval,
-    required TResult Function(ToggleSponsorBlock value) toggleSponsorBlock,
-    required TResult Function(SetSponsorBlockCategories value)
-        setSponsorBlockCategories,
-    required TResult Function(ToggleOpenLinksInBrowser value)
-        toggleOpenLinksInBrowser,
-    required TResult Function(SetHomeFeedMode value) setHomeFeedMode,
-    required TResult Function(ToggleAudioFocus value) toggleAudioFocus,
-    required TResult Function(AddProfile value) addProfile,
-    required TResult Function(DeleteProfile value) deleteProfile,
-    required TResult Function(SwitchProfile value) switchProfile,
-    required TResult Function(RenameProfile value) renameProfile,
-    required TResult Function(ExportSubscriptions value) exportSubscriptions,
-    required TResult Function(ImportSubscriptions value) importSubscriptions,
-    required TResult Function(SetSubtitleSize value) setSubtitleSize,
-    required TResult Function(ToggleSearchHistoryEnabled value)
-        toggleSearchHistoryEnabled,
-    required TResult Function(ToggleSearchHistoryVisibility value)
-        toggleSearchHistoryVisibility,
-    required TResult Function(SetLastExportedFilePath value)
-        setLastExportedFilePath,
-    required TResult Function(ToggleAutoPip value) toggleAutoPip,
-  }) {
-    return toggleAutoPip(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InitializeSettings value)? initializeSettings,
-    TResult? Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult? Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult? Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult? Function(ChangeTheme value)? changeTheme,
-    TResult? Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult? Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult? Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult? Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult? Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult? Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult? Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult? Function(SetInstance value)? setInstance,
-    TResult? Function(SetYTService value)? setYTService,
-    TResult? Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult? Function(SetSearchFilter value)? setSearchFilter,
-    TResult? Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult? Function(SetSkipInterval value)? setSkipInterval,
-    TResult? Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult? Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult? Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult? Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult? Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult? Function(AddProfile value)? addProfile,
-    TResult? Function(DeleteProfile value)? deleteProfile,
-    TResult? Function(SwitchProfile value)? switchProfile,
-    TResult? Function(RenameProfile value)? renameProfile,
-    TResult? Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult? Function(ImportSubscriptions value)? importSubscriptions,
-    TResult? Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult? Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult? Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult? Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult? Function(ToggleAutoPip value)? toggleAutoPip,
-  }) {
-    return toggleAutoPip?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitializeSettings value)? initializeSettings,
-    TResult Function(GetDefaultLanguage value)? getDefaultLanguage,
-    TResult Function(GetDefaultQuality value)? getDefaultQuality,
-    TResult Function(GetDefaultRegion value)? getDefaultRegion,
-    TResult Function(ChangeTheme value)? changeTheme,
-    TResult Function(ToggleHistoryVisibility value)? toggleHistoryVisibility,
-    TResult Function(ToggleDislikeVisibility value)? toggleDislikeVisibility,
-    TResult Function(ToggleHlsPlayer value)? toggleHlsPlayer,
-    TResult Function(ToggleCommentVisibility value)? toggleCommentVisibility,
-    TResult Function(ToggleRelatedVideoVisibility value)?
-        toggleRelatedVideoVisibility,
-    TResult Function(FetchPipedInstances value)? fetchPipedInstances,
-    TResult Function(FetchInvidiousInstances value)? fetchInvidiousInstances,
-    TResult Function(SetInstance value)? setInstance,
-    TResult Function(SetYTService value)? setYTService,
-    TResult Function(TogglePipPlayer value)? togglePipPlayer,
-    TResult Function(SetSearchFilter value)? setSearchFilter,
-    TResult Function(SetVideoFitMode value)? setVideoFitMode,
-    TResult Function(SetSkipInterval value)? setSkipInterval,
-    TResult Function(ToggleSponsorBlock value)? toggleSponsorBlock,
-    TResult Function(SetSponsorBlockCategories value)?
-        setSponsorBlockCategories,
-    TResult Function(ToggleOpenLinksInBrowser value)? toggleOpenLinksInBrowser,
-    TResult Function(SetHomeFeedMode value)? setHomeFeedMode,
-    TResult Function(ToggleAudioFocus value)? toggleAudioFocus,
-    TResult Function(AddProfile value)? addProfile,
-    TResult Function(DeleteProfile value)? deleteProfile,
-    TResult Function(SwitchProfile value)? switchProfile,
-    TResult Function(RenameProfile value)? renameProfile,
-    TResult Function(ExportSubscriptions value)? exportSubscriptions,
-    TResult Function(ImportSubscriptions value)? importSubscriptions,
-    TResult Function(SetSubtitleSize value)? setSubtitleSize,
-    TResult Function(ToggleSearchHistoryEnabled value)?
-        toggleSearchHistoryEnabled,
-    TResult Function(ToggleSearchHistoryVisibility value)?
-        toggleSearchHistoryVisibility,
-    TResult Function(SetLastExportedFilePath value)? setLastExportedFilePath,
-    TResult Function(ToggleAutoPip value)? toggleAutoPip,
-    required TResult orElse(),
-  }) {
-    if (toggleAutoPip != null) {
-      return toggleAutoPip(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ToggleAutoPip implements SettingsEvent {
-  factory ToggleAutoPip() = _$ToggleAutoPipImpl;
 }
 
 /// @nodoc
-mixin _$SettingsState {
-  String get defaultLanguage => throw _privateConstructorUsedError;
-  String get defaultQuality => throw _privateConstructorUsedError;
-  String get defaultRegion => throw _privateConstructorUsedError;
-  String get themeMode => throw _privateConstructorUsedError;
-  String? get version => throw _privateConstructorUsedError;
-  bool get isHistoryVisible => throw _privateConstructorUsedError;
-  bool get isDislikeVisible => throw _privateConstructorUsedError;
-  bool get isHlsPlayer => throw _privateConstructorUsedError;
-  bool get isHideComments => throw _privateConstructorUsedError;
-  bool get isHideRelated => throw _privateConstructorUsedError;
-  List<Instance> get pipedInstances => throw _privateConstructorUsedError;
-  ApiStatus get pipedInstanceStatus => throw _privateConstructorUsedError;
-  String get instance => throw _privateConstructorUsedError;
-  List<Instance> get invidiousInstances => throw _privateConstructorUsedError;
-  ApiStatus get invidiousInstanceStatus => throw _privateConstructorUsedError;
-  String get ytService => throw _privateConstructorUsedError;
-  bool get initialized => throw _privateConstructorUsedError;
-  ApiStatus get settingsStatus => throw _privateConstructorUsedError;
-  bool get isPipDisabled =>
-      throw _privateConstructorUsedError; // Connection status tracking for UI feedback
-  String? get connectingToInstance => throw _privateConstructorUsedError;
-  bool get isTestingConnection =>
-      throw _privateConstructorUsedError; // Track if user's preferred instance failed (for showing snackbar)
-  bool get userInstanceFailed => throw _privateConstructorUsedError;
-  String? get failedInstanceName =>
-      throw _privateConstructorUsedError; // Search filter
-  String get searchFilter =>
-      throw _privateConstructorUsedError; // Video fit mode (contain, cover, fill, fitWidth, fitHeight)
-  String get videoFitMode =>
-      throw _privateConstructorUsedError; // Skip interval in seconds (for double-tap skip)
-  int get skipInterval =>
-      throw _privateConstructorUsedError; // SponsorBlock settings
-  bool get isSponsorBlockEnabled => throw _privateConstructorUsedError;
-  List<String> get sponsorBlockCategories =>
-      throw _privateConstructorUsedError; // Open links in external browser
-  bool get openLinksInBrowser =>
-      throw _privateConstructorUsedError; // Home feed display mode
-  String get homeFeedMode =>
-      throw _privateConstructorUsedError; // Audio focus / pause on interruption
-  bool get isAudioFocusEnabled =>
-      throw _privateConstructorUsedError; // Profiles
-  String get currentProfile => throw _privateConstructorUsedError;
-  List<String> get profiles =>
-      throw _privateConstructorUsedError; // Subtitle size (font size in pixels)
-  double get subtitleSize =>
-      throw _privateConstructorUsedError; // Last exported file path (for sharing)
-  String? get lastExportedFilePath =>
-      throw _privateConstructorUsedError; // Search history privacy
-  bool get isSearchHistoryEnabled => throw _privateConstructorUsedError;
-  bool get isSearchHistoryVisible =>
-      throw _privateConstructorUsedError; // Auto PiP (enter PiP when pressing home button while video is playing)
-  bool get isAutoPipEnabled => throw _privateConstructorUsedError;
 
-  /// Create a copy of SettingsState
+class ToggleSwipeGestures implements SettingsEvent {
+  const ToggleSwipeGestures({required this.enabled});
+
+  final bool enabled;
+
+  /// Create a copy of SettingsEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $SettingsStateCopyWith<SettingsState> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $SettingsStateCopyWith<$Res> {
-  factory $SettingsStateCopyWith(
-          SettingsState value, $Res Function(SettingsState) then) =
-      _$SettingsStateCopyWithImpl<$Res, SettingsState>;
-  @useResult
-  $Res call(
-      {String defaultLanguage,
-      String defaultQuality,
-      String defaultRegion,
-      String themeMode,
-      String? version,
-      bool isHistoryVisible,
-      bool isDislikeVisible,
-      bool isHlsPlayer,
-      bool isHideComments,
-      bool isHideRelated,
-      List<Instance> pipedInstances,
-      ApiStatus pipedInstanceStatus,
-      String instance,
-      List<Instance> invidiousInstances,
-      ApiStatus invidiousInstanceStatus,
-      String ytService,
-      bool initialized,
-      ApiStatus settingsStatus,
-      bool isPipDisabled,
-      String? connectingToInstance,
-      bool isTestingConnection,
-      bool userInstanceFailed,
-      String? failedInstanceName,
-      String searchFilter,
-      String videoFitMode,
-      int skipInterval,
-      bool isSponsorBlockEnabled,
-      List<String> sponsorBlockCategories,
-      bool openLinksInBrowser,
-      String homeFeedMode,
-      bool isAudioFocusEnabled,
-      String currentProfile,
-      List<String> profiles,
-      double subtitleSize,
-      String? lastExportedFilePath,
-      bool isSearchHistoryEnabled,
-      bool isSearchHistoryVisible,
-      bool isAutoPipEnabled});
-}
-
-/// @nodoc
-class _$SettingsStateCopyWithImpl<$Res, $Val extends SettingsState>
-    implements $SettingsStateCopyWith<$Res> {
-  _$SettingsStateCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of SettingsState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $ToggleSwipeGesturesCopyWith<ToggleSwipeGestures> get copyWith =>
+      _$ToggleSwipeGesturesCopyWithImpl<ToggleSwipeGestures>(this, _$identity);
+
   @override
-  $Res call({
-    Object? defaultLanguage = null,
-    Object? defaultQuality = null,
-    Object? defaultRegion = null,
-    Object? themeMode = null,
-    Object? version = freezed,
-    Object? isHistoryVisible = null,
-    Object? isDislikeVisible = null,
-    Object? isHlsPlayer = null,
-    Object? isHideComments = null,
-    Object? isHideRelated = null,
-    Object? pipedInstances = null,
-    Object? pipedInstanceStatus = null,
-    Object? instance = null,
-    Object? invidiousInstances = null,
-    Object? invidiousInstanceStatus = null,
-    Object? ytService = null,
-    Object? initialized = null,
-    Object? settingsStatus = null,
-    Object? isPipDisabled = null,
-    Object? connectingToInstance = freezed,
-    Object? isTestingConnection = null,
-    Object? userInstanceFailed = null,
-    Object? failedInstanceName = freezed,
-    Object? searchFilter = null,
-    Object? videoFitMode = null,
-    Object? skipInterval = null,
-    Object? isSponsorBlockEnabled = null,
-    Object? sponsorBlockCategories = null,
-    Object? openLinksInBrowser = null,
-    Object? homeFeedMode = null,
-    Object? isAudioFocusEnabled = null,
-    Object? currentProfile = null,
-    Object? profiles = null,
-    Object? subtitleSize = null,
-    Object? lastExportedFilePath = freezed,
-    Object? isSearchHistoryEnabled = null,
-    Object? isSearchHistoryVisible = null,
-    Object? isAutoPipEnabled = null,
-  }) {
-    return _then(_value.copyWith(
-      defaultLanguage: null == defaultLanguage
-          ? _value.defaultLanguage
-          : defaultLanguage // ignore: cast_nullable_to_non_nullable
-              as String,
-      defaultQuality: null == defaultQuality
-          ? _value.defaultQuality
-          : defaultQuality // ignore: cast_nullable_to_non_nullable
-              as String,
-      defaultRegion: null == defaultRegion
-          ? _value.defaultRegion
-          : defaultRegion // ignore: cast_nullable_to_non_nullable
-              as String,
-      themeMode: null == themeMode
-          ? _value.themeMode
-          : themeMode // ignore: cast_nullable_to_non_nullable
-              as String,
-      version: freezed == version
-          ? _value.version
-          : version // ignore: cast_nullable_to_non_nullable
-              as String?,
-      isHistoryVisible: null == isHistoryVisible
-          ? _value.isHistoryVisible
-          : isHistoryVisible // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isDislikeVisible: null == isDislikeVisible
-          ? _value.isDislikeVisible
-          : isDislikeVisible // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isHlsPlayer: null == isHlsPlayer
-          ? _value.isHlsPlayer
-          : isHlsPlayer // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isHideComments: null == isHideComments
-          ? _value.isHideComments
-          : isHideComments // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isHideRelated: null == isHideRelated
-          ? _value.isHideRelated
-          : isHideRelated // ignore: cast_nullable_to_non_nullable
-              as bool,
-      pipedInstances: null == pipedInstances
-          ? _value.pipedInstances
-          : pipedInstances // ignore: cast_nullable_to_non_nullable
-              as List<Instance>,
-      pipedInstanceStatus: null == pipedInstanceStatus
-          ? _value.pipedInstanceStatus
-          : pipedInstanceStatus // ignore: cast_nullable_to_non_nullable
-              as ApiStatus,
-      instance: null == instance
-          ? _value.instance
-          : instance // ignore: cast_nullable_to_non_nullable
-              as String,
-      invidiousInstances: null == invidiousInstances
-          ? _value.invidiousInstances
-          : invidiousInstances // ignore: cast_nullable_to_non_nullable
-              as List<Instance>,
-      invidiousInstanceStatus: null == invidiousInstanceStatus
-          ? _value.invidiousInstanceStatus
-          : invidiousInstanceStatus // ignore: cast_nullable_to_non_nullable
-              as ApiStatus,
-      ytService: null == ytService
-          ? _value.ytService
-          : ytService // ignore: cast_nullable_to_non_nullable
-              as String,
-      initialized: null == initialized
-          ? _value.initialized
-          : initialized // ignore: cast_nullable_to_non_nullable
-              as bool,
-      settingsStatus: null == settingsStatus
-          ? _value.settingsStatus
-          : settingsStatus // ignore: cast_nullable_to_non_nullable
-              as ApiStatus,
-      isPipDisabled: null == isPipDisabled
-          ? _value.isPipDisabled
-          : isPipDisabled // ignore: cast_nullable_to_non_nullable
-              as bool,
-      connectingToInstance: freezed == connectingToInstance
-          ? _value.connectingToInstance
-          : connectingToInstance // ignore: cast_nullable_to_non_nullable
-              as String?,
-      isTestingConnection: null == isTestingConnection
-          ? _value.isTestingConnection
-          : isTestingConnection // ignore: cast_nullable_to_non_nullable
-              as bool,
-      userInstanceFailed: null == userInstanceFailed
-          ? _value.userInstanceFailed
-          : userInstanceFailed // ignore: cast_nullable_to_non_nullable
-              as bool,
-      failedInstanceName: freezed == failedInstanceName
-          ? _value.failedInstanceName
-          : failedInstanceName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      searchFilter: null == searchFilter
-          ? _value.searchFilter
-          : searchFilter // ignore: cast_nullable_to_non_nullable
-              as String,
-      videoFitMode: null == videoFitMode
-          ? _value.videoFitMode
-          : videoFitMode // ignore: cast_nullable_to_non_nullable
-              as String,
-      skipInterval: null == skipInterval
-          ? _value.skipInterval
-          : skipInterval // ignore: cast_nullable_to_non_nullable
-              as int,
-      isSponsorBlockEnabled: null == isSponsorBlockEnabled
-          ? _value.isSponsorBlockEnabled
-          : isSponsorBlockEnabled // ignore: cast_nullable_to_non_nullable
-              as bool,
-      sponsorBlockCategories: null == sponsorBlockCategories
-          ? _value.sponsorBlockCategories
-          : sponsorBlockCategories // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      openLinksInBrowser: null == openLinksInBrowser
-          ? _value.openLinksInBrowser
-          : openLinksInBrowser // ignore: cast_nullable_to_non_nullable
-              as bool,
-      homeFeedMode: null == homeFeedMode
-          ? _value.homeFeedMode
-          : homeFeedMode // ignore: cast_nullable_to_non_nullable
-              as String,
-      isAudioFocusEnabled: null == isAudioFocusEnabled
-          ? _value.isAudioFocusEnabled
-          : isAudioFocusEnabled // ignore: cast_nullable_to_non_nullable
-              as bool,
-      currentProfile: null == currentProfile
-          ? _value.currentProfile
-          : currentProfile // ignore: cast_nullable_to_non_nullable
-              as String,
-      profiles: null == profiles
-          ? _value.profiles
-          : profiles // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      subtitleSize: null == subtitleSize
-          ? _value.subtitleSize
-          : subtitleSize // ignore: cast_nullable_to_non_nullable
-              as double,
-      lastExportedFilePath: freezed == lastExportedFilePath
-          ? _value.lastExportedFilePath
-          : lastExportedFilePath // ignore: cast_nullable_to_non_nullable
-              as String?,
-      isSearchHistoryEnabled: null == isSearchHistoryEnabled
-          ? _value.isSearchHistoryEnabled
-          : isSearchHistoryEnabled // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isSearchHistoryVisible: null == isSearchHistoryVisible
-          ? _value.isSearchHistoryVisible
-          : isSearchHistoryVisible // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isAutoPipEnabled: null == isAutoPipEnabled
-          ? _value.isAutoPipEnabled
-          : isAutoPipEnabled // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ToggleSwipeGestures &&
+            (identical(other.enabled, enabled) || other.enabled == enabled));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, enabled);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.toggleSwipeGestures(enabled: $enabled)';
   }
 }
 
 /// @nodoc
-abstract class _$$InitialImplCopyWith<$Res>
-    implements $SettingsStateCopyWith<$Res> {
-  factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $ToggleSwipeGesturesCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleSwipeGesturesCopyWith(
+          ToggleSwipeGestures value, $Res Function(ToggleSwipeGestures) _then) =
+      _$ToggleSwipeGesturesCopyWithImpl;
   @useResult
-  $Res call(
-      {String defaultLanguage,
-      String defaultQuality,
-      String defaultRegion,
-      String themeMode,
-      String? version,
-      bool isHistoryVisible,
-      bool isDislikeVisible,
-      bool isHlsPlayer,
-      bool isHideComments,
-      bool isHideRelated,
-      List<Instance> pipedInstances,
-      ApiStatus pipedInstanceStatus,
-      String instance,
-      List<Instance> invidiousInstances,
-      ApiStatus invidiousInstanceStatus,
-      String ytService,
-      bool initialized,
-      ApiStatus settingsStatus,
-      bool isPipDisabled,
-      String? connectingToInstance,
-      bool isTestingConnection,
-      bool userInstanceFailed,
-      String? failedInstanceName,
-      String searchFilter,
-      String videoFitMode,
-      int skipInterval,
-      bool isSponsorBlockEnabled,
-      List<String> sponsorBlockCategories,
-      bool openLinksInBrowser,
-      String homeFeedMode,
-      bool isAudioFocusEnabled,
-      String currentProfile,
-      List<String> profiles,
-      double subtitleSize,
-      String? lastExportedFilePath,
-      bool isSearchHistoryEnabled,
-      bool isSearchHistoryVisible,
-      bool isAutoPipEnabled});
+  $Res call({bool enabled});
 }
 
 /// @nodoc
-class __$$InitialImplCopyWithImpl<$Res>
-    extends _$SettingsStateCopyWithImpl<$Res, _$InitialImpl>
-    implements _$$InitialImplCopyWith<$Res> {
-  __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
-      : super(_value, _then);
+class _$ToggleSwipeGesturesCopyWithImpl<$Res>
+    implements $ToggleSwipeGesturesCopyWith<$Res> {
+  _$ToggleSwipeGesturesCopyWithImpl(this._self, this._then);
 
-  /// Create a copy of SettingsState
+  final ToggleSwipeGestures _self;
+  final $Res Function(ToggleSwipeGestures) _then;
+
+  /// Create a copy of SettingsEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
-    Object? defaultLanguage = null,
-    Object? defaultQuality = null,
-    Object? defaultRegion = null,
-    Object? themeMode = null,
-    Object? version = freezed,
-    Object? isHistoryVisible = null,
-    Object? isDislikeVisible = null,
-    Object? isHlsPlayer = null,
-    Object? isHideComments = null,
-    Object? isHideRelated = null,
-    Object? pipedInstances = null,
-    Object? pipedInstanceStatus = null,
-    Object? instance = null,
-    Object? invidiousInstances = null,
-    Object? invidiousInstanceStatus = null,
-    Object? ytService = null,
-    Object? initialized = null,
-    Object? settingsStatus = null,
-    Object? isPipDisabled = null,
-    Object? connectingToInstance = freezed,
-    Object? isTestingConnection = null,
-    Object? userInstanceFailed = null,
-    Object? failedInstanceName = freezed,
-    Object? searchFilter = null,
-    Object? videoFitMode = null,
-    Object? skipInterval = null,
-    Object? isSponsorBlockEnabled = null,
-    Object? sponsorBlockCategories = null,
-    Object? openLinksInBrowser = null,
-    Object? homeFeedMode = null,
-    Object? isAudioFocusEnabled = null,
-    Object? currentProfile = null,
-    Object? profiles = null,
-    Object? subtitleSize = null,
-    Object? lastExportedFilePath = freezed,
-    Object? isSearchHistoryEnabled = null,
-    Object? isSearchHistoryVisible = null,
-    Object? isAutoPipEnabled = null,
+    Object? enabled = null,
   }) {
-    return _then(_$InitialImpl(
-      defaultLanguage: null == defaultLanguage
-          ? _value.defaultLanguage
-          : defaultLanguage // ignore: cast_nullable_to_non_nullable
-              as String,
-      defaultQuality: null == defaultQuality
-          ? _value.defaultQuality
-          : defaultQuality // ignore: cast_nullable_to_non_nullable
-              as String,
-      defaultRegion: null == defaultRegion
-          ? _value.defaultRegion
-          : defaultRegion // ignore: cast_nullable_to_non_nullable
-              as String,
-      themeMode: null == themeMode
-          ? _value.themeMode
-          : themeMode // ignore: cast_nullable_to_non_nullable
-              as String,
-      version: freezed == version
-          ? _value.version
-          : version // ignore: cast_nullable_to_non_nullable
-              as String?,
-      isHistoryVisible: null == isHistoryVisible
-          ? _value.isHistoryVisible
-          : isHistoryVisible // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isDislikeVisible: null == isDislikeVisible
-          ? _value.isDislikeVisible
-          : isDislikeVisible // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isHlsPlayer: null == isHlsPlayer
-          ? _value.isHlsPlayer
-          : isHlsPlayer // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isHideComments: null == isHideComments
-          ? _value.isHideComments
-          : isHideComments // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isHideRelated: null == isHideRelated
-          ? _value.isHideRelated
-          : isHideRelated // ignore: cast_nullable_to_non_nullable
-              as bool,
-      pipedInstances: null == pipedInstances
-          ? _value._pipedInstances
-          : pipedInstances // ignore: cast_nullable_to_non_nullable
-              as List<Instance>,
-      pipedInstanceStatus: null == pipedInstanceStatus
-          ? _value.pipedInstanceStatus
-          : pipedInstanceStatus // ignore: cast_nullable_to_non_nullable
-              as ApiStatus,
-      instance: null == instance
-          ? _value.instance
-          : instance // ignore: cast_nullable_to_non_nullable
-              as String,
-      invidiousInstances: null == invidiousInstances
-          ? _value._invidiousInstances
-          : invidiousInstances // ignore: cast_nullable_to_non_nullable
-              as List<Instance>,
-      invidiousInstanceStatus: null == invidiousInstanceStatus
-          ? _value.invidiousInstanceStatus
-          : invidiousInstanceStatus // ignore: cast_nullable_to_non_nullable
-              as ApiStatus,
-      ytService: null == ytService
-          ? _value.ytService
-          : ytService // ignore: cast_nullable_to_non_nullable
-              as String,
-      initialized: null == initialized
-          ? _value.initialized
-          : initialized // ignore: cast_nullable_to_non_nullable
-              as bool,
-      settingsStatus: null == settingsStatus
-          ? _value.settingsStatus
-          : settingsStatus // ignore: cast_nullable_to_non_nullable
-              as ApiStatus,
-      isPipDisabled: null == isPipDisabled
-          ? _value.isPipDisabled
-          : isPipDisabled // ignore: cast_nullable_to_non_nullable
-              as bool,
-      connectingToInstance: freezed == connectingToInstance
-          ? _value.connectingToInstance
-          : connectingToInstance // ignore: cast_nullable_to_non_nullable
-              as String?,
-      isTestingConnection: null == isTestingConnection
-          ? _value.isTestingConnection
-          : isTestingConnection // ignore: cast_nullable_to_non_nullable
-              as bool,
-      userInstanceFailed: null == userInstanceFailed
-          ? _value.userInstanceFailed
-          : userInstanceFailed // ignore: cast_nullable_to_non_nullable
-              as bool,
-      failedInstanceName: freezed == failedInstanceName
-          ? _value.failedInstanceName
-          : failedInstanceName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      searchFilter: null == searchFilter
-          ? _value.searchFilter
-          : searchFilter // ignore: cast_nullable_to_non_nullable
-              as String,
-      videoFitMode: null == videoFitMode
-          ? _value.videoFitMode
-          : videoFitMode // ignore: cast_nullable_to_non_nullable
-              as String,
-      skipInterval: null == skipInterval
-          ? _value.skipInterval
-          : skipInterval // ignore: cast_nullable_to_non_nullable
-              as int,
-      isSponsorBlockEnabled: null == isSponsorBlockEnabled
-          ? _value.isSponsorBlockEnabled
-          : isSponsorBlockEnabled // ignore: cast_nullable_to_non_nullable
-              as bool,
-      sponsorBlockCategories: null == sponsorBlockCategories
-          ? _value._sponsorBlockCategories
-          : sponsorBlockCategories // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      openLinksInBrowser: null == openLinksInBrowser
-          ? _value.openLinksInBrowser
-          : openLinksInBrowser // ignore: cast_nullable_to_non_nullable
-              as bool,
-      homeFeedMode: null == homeFeedMode
-          ? _value.homeFeedMode
-          : homeFeedMode // ignore: cast_nullable_to_non_nullable
-              as String,
-      isAudioFocusEnabled: null == isAudioFocusEnabled
-          ? _value.isAudioFocusEnabled
-          : isAudioFocusEnabled // ignore: cast_nullable_to_non_nullable
-              as bool,
-      currentProfile: null == currentProfile
-          ? _value.currentProfile
-          : currentProfile // ignore: cast_nullable_to_non_nullable
-              as String,
-      profiles: null == profiles
-          ? _value._profiles
-          : profiles // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      subtitleSize: null == subtitleSize
-          ? _value.subtitleSize
-          : subtitleSize // ignore: cast_nullable_to_non_nullable
-              as double,
-      lastExportedFilePath: freezed == lastExportedFilePath
-          ? _value.lastExportedFilePath
-          : lastExportedFilePath // ignore: cast_nullable_to_non_nullable
-              as String?,
-      isSearchHistoryEnabled: null == isSearchHistoryEnabled
-          ? _value.isSearchHistoryEnabled
-          : isSearchHistoryEnabled // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isSearchHistoryVisible: null == isSearchHistoryVisible
-          ? _value.isSearchHistoryVisible
-          : isSearchHistoryVisible // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isAutoPipEnabled: null == isAutoPipEnabled
-          ? _value.isAutoPipEnabled
-          : isAutoPipEnabled // ignore: cast_nullable_to_non_nullable
+    return _then(ToggleSwipeGestures(
+      enabled: null == enabled
+          ? _self.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -12487,8 +3991,3909 @@ class __$$InitialImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$InitialImpl implements _Initial {
-  const _$InitialImpl(
+class ToggleDeArrow implements SettingsEvent {
+  const ToggleDeArrow({required this.enabled});
+
+  final bool enabled;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ToggleDeArrowCopyWith<ToggleDeArrow> get copyWith =>
+      _$ToggleDeArrowCopyWithImpl<ToggleDeArrow>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ToggleDeArrow &&
+            (identical(other.enabled, enabled) || other.enabled == enabled));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, enabled);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.toggleDeArrow(enabled: $enabled)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ToggleDeArrowCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleDeArrowCopyWith(
+          ToggleDeArrow value, $Res Function(ToggleDeArrow) _then) =
+      _$ToggleDeArrowCopyWithImpl;
+  @useResult
+  $Res call({bool enabled});
+}
+
+/// @nodoc
+class _$ToggleDeArrowCopyWithImpl<$Res>
+    implements $ToggleDeArrowCopyWith<$Res> {
+  _$ToggleDeArrowCopyWithImpl(this._self, this._then);
+
+  final ToggleDeArrow _self;
+  final $Res Function(ToggleDeArrow) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? enabled = null,
+  }) {
+    return _then(ToggleDeArrow(
+      enabled: null == enabled
+          ? _self.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ToggleBookmarks implements SettingsEvent {
+  const ToggleBookmarks({required this.enabled});
+
+  final bool enabled;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ToggleBookmarksCopyWith<ToggleBookmarks> get copyWith =>
+      _$ToggleBookmarksCopyWithImpl<ToggleBookmarks>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ToggleBookmarks &&
+            (identical(other.enabled, enabled) || other.enabled == enabled));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, enabled);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.bookmarksToggled(enabled: $enabled)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ToggleBookmarksCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleBookmarksCopyWith(
+          ToggleBookmarks value, $Res Function(ToggleBookmarks) _then) =
+      _$ToggleBookmarksCopyWithImpl;
+  @useResult
+  $Res call({bool enabled});
+}
+
+/// @nodoc
+class _$ToggleBookmarksCopyWithImpl<$Res>
+    implements $ToggleBookmarksCopyWith<$Res> {
+  _$ToggleBookmarksCopyWithImpl(this._self, this._then);
+
+  final ToggleBookmarks _self;
+  final $Res Function(ToggleBookmarks) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? enabled = null,
+  }) {
+    return _then(ToggleBookmarks(
+      enabled: null == enabled
+          ? _self.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ToggleBookmarkPlaylist implements SettingsEvent {
+  const ToggleBookmarkPlaylist(
+      {required this.playlistId, required this.bookmarked});
+
+  final String playlistId;
+  final bool bookmarked;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ToggleBookmarkPlaylistCopyWith<ToggleBookmarkPlaylist> get copyWith =>
+      _$ToggleBookmarkPlaylistCopyWithImpl<ToggleBookmarkPlaylist>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ToggleBookmarkPlaylist &&
+            (identical(other.playlistId, playlistId) ||
+                other.playlistId == playlistId) &&
+            (identical(other.bookmarked, bookmarked) ||
+                other.bookmarked == bookmarked));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, playlistId, bookmarked);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.toggleBookmarkPlaylist(playlistId: $playlistId, bookmarked: $bookmarked)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ToggleBookmarkPlaylistCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleBookmarkPlaylistCopyWith(ToggleBookmarkPlaylist value,
+          $Res Function(ToggleBookmarkPlaylist) _then) =
+      _$ToggleBookmarkPlaylistCopyWithImpl;
+  @useResult
+  $Res call({String playlistId, bool bookmarked});
+}
+
+/// @nodoc
+class _$ToggleBookmarkPlaylistCopyWithImpl<$Res>
+    implements $ToggleBookmarkPlaylistCopyWith<$Res> {
+  _$ToggleBookmarkPlaylistCopyWithImpl(this._self, this._then);
+
+  final ToggleBookmarkPlaylist _self;
+  final $Res Function(ToggleBookmarkPlaylist) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? playlistId = null,
+    Object? bookmarked = null,
+  }) {
+    return _then(ToggleBookmarkPlaylist(
+      playlistId: null == playlistId
+          ? _self.playlistId
+          : playlistId // ignore: cast_nullable_to_non_nullable
+              as String,
+      bookmarked: null == bookmarked
+          ? _self.bookmarked
+          : bookmarked // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ToggleRestrictedMode implements SettingsEvent {
+  const ToggleRestrictedMode({required this.enabled});
+
+  final bool enabled;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ToggleRestrictedModeCopyWith<ToggleRestrictedMode> get copyWith =>
+      _$ToggleRestrictedModeCopyWithImpl<ToggleRestrictedMode>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ToggleRestrictedMode &&
+            (identical(other.enabled, enabled) || other.enabled == enabled));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, enabled);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.restrictedModeToggled(enabled: $enabled)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ToggleRestrictedModeCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleRestrictedModeCopyWith(ToggleRestrictedMode value,
+          $Res Function(ToggleRestrictedMode) _then) =
+      _$ToggleRestrictedModeCopyWithImpl;
+  @useResult
+  $Res call({bool enabled});
+}
+
+/// @nodoc
+class _$ToggleRestrictedModeCopyWithImpl<$Res>
+    implements $ToggleRestrictedModeCopyWith<$Res> {
+  _$ToggleRestrictedModeCopyWithImpl(this._self, this._then);
+
+  final ToggleRestrictedMode _self;
+  final $Res Function(ToggleRestrictedMode) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? enabled = null,
+  }) {
+    return _then(ToggleRestrictedMode(
+      enabled: null == enabled
+          ? _self.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ToggleMiniPlayer implements SettingsEvent {
+  const ToggleMiniPlayer({required this.enabled});
+
+  final bool enabled;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ToggleMiniPlayerCopyWith<ToggleMiniPlayer> get copyWith =>
+      _$ToggleMiniPlayerCopyWithImpl<ToggleMiniPlayer>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ToggleMiniPlayer &&
+            (identical(other.enabled, enabled) || other.enabled == enabled));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, enabled);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.miniPlayerToggled(enabled: $enabled)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ToggleMiniPlayerCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleMiniPlayerCopyWith(
+          ToggleMiniPlayer value, $Res Function(ToggleMiniPlayer) _then) =
+      _$ToggleMiniPlayerCopyWithImpl;
+  @useResult
+  $Res call({bool enabled});
+}
+
+/// @nodoc
+class _$ToggleMiniPlayerCopyWithImpl<$Res>
+    implements $ToggleMiniPlayerCopyWith<$Res> {
+  _$ToggleMiniPlayerCopyWithImpl(this._self, this._then);
+
+  final ToggleMiniPlayer _self;
+  final $Res Function(ToggleMiniPlayer) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? enabled = null,
+  }) {
+    return _then(ToggleMiniPlayer(
+      enabled: null == enabled
+          ? _self.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class SetDownloadQuality implements SettingsEvent {
+  const SetDownloadQuality({required this.quality});
+
+  final String quality;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $SetDownloadQualityCopyWith<SetDownloadQuality> get copyWith =>
+      _$SetDownloadQualityCopyWithImpl<SetDownloadQuality>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SetDownloadQuality &&
+            (identical(other.quality, quality) || other.quality == quality));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, quality);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.downloadQualityChanged(quality: $quality)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $SetDownloadQualityCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $SetDownloadQualityCopyWith(
+          SetDownloadQuality value, $Res Function(SetDownloadQuality) _then) =
+      _$SetDownloadQualityCopyWithImpl;
+  @useResult
+  $Res call({String quality});
+}
+
+/// @nodoc
+class _$SetDownloadQualityCopyWithImpl<$Res>
+    implements $SetDownloadQualityCopyWith<$Res> {
+  _$SetDownloadQualityCopyWithImpl(this._self, this._then);
+
+  final SetDownloadQuality _self;
+  final $Res Function(SetDownloadQuality) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? quality = null,
+  }) {
+    return _then(SetDownloadQuality(
+      quality: null == quality
+          ? _self.quality
+          : quality // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ToggleDownloadSubtitles implements SettingsEvent {
+  const ToggleDownloadSubtitles({required this.enabled});
+
+  final bool enabled;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ToggleDownloadSubtitlesCopyWith<ToggleDownloadSubtitles> get copyWith =>
+      _$ToggleDownloadSubtitlesCopyWithImpl<ToggleDownloadSubtitles>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ToggleDownloadSubtitles &&
+            (identical(other.enabled, enabled) || other.enabled == enabled));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, enabled);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.downloadSubtitlesToggled(enabled: $enabled)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ToggleDownloadSubtitlesCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleDownloadSubtitlesCopyWith(ToggleDownloadSubtitles value,
+          $Res Function(ToggleDownloadSubtitles) _then) =
+      _$ToggleDownloadSubtitlesCopyWithImpl;
+  @useResult
+  $Res call({bool enabled});
+}
+
+/// @nodoc
+class _$ToggleDownloadSubtitlesCopyWithImpl<$Res>
+    implements $ToggleDownloadSubtitlesCopyWith<$Res> {
+  _$ToggleDownloadSubtitlesCopyWithImpl(this._self, this._then);
+
+  final ToggleDownloadSubtitles _self;
+  final $Res Function(ToggleDownloadSubtitles) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? enabled = null,
+  }) {
+    return _then(ToggleDownloadSubtitles(
+      enabled: null == enabled
+          ? _self.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ToggleDownloadOverWifiOnly implements SettingsEvent {
+  const ToggleDownloadOverWifiOnly({required this.enabled});
+
+  final bool enabled;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ToggleDownloadOverWifiOnlyCopyWith<ToggleDownloadOverWifiOnly>
+      get copyWith =>
+          _$ToggleDownloadOverWifiOnlyCopyWithImpl<ToggleDownloadOverWifiOnly>(
+              this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ToggleDownloadOverWifiOnly &&
+            (identical(other.enabled, enabled) || other.enabled == enabled));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, enabled);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.downloadOverWifiOnlyToggled(enabled: $enabled)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ToggleDownloadOverWifiOnlyCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleDownloadOverWifiOnlyCopyWith(ToggleDownloadOverWifiOnly value,
+          $Res Function(ToggleDownloadOverWifiOnly) _then) =
+      _$ToggleDownloadOverWifiOnlyCopyWithImpl;
+  @useResult
+  $Res call({bool enabled});
+}
+
+/// @nodoc
+class _$ToggleDownloadOverWifiOnlyCopyWithImpl<$Res>
+    implements $ToggleDownloadOverWifiOnlyCopyWith<$Res> {
+  _$ToggleDownloadOverWifiOnlyCopyWithImpl(this._self, this._then);
+
+  final ToggleDownloadOverWifiOnly _self;
+  final $Res Function(ToggleDownloadOverWifiOnly) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? enabled = null,
+  }) {
+    return _then(ToggleDownloadOverWifiOnly(
+      enabled: null == enabled
+          ? _self.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ToggleDownloadAutoDelete implements SettingsEvent {
+  const ToggleDownloadAutoDelete({required this.enabled});
+
+  final bool enabled;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ToggleDownloadAutoDeleteCopyWith<ToggleDownloadAutoDelete> get copyWith =>
+      _$ToggleDownloadAutoDeleteCopyWithImpl<ToggleDownloadAutoDelete>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ToggleDownloadAutoDelete &&
+            (identical(other.enabled, enabled) || other.enabled == enabled));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, enabled);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.downloadAutoDeleteToggled(enabled: $enabled)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ToggleDownloadAutoDeleteCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleDownloadAutoDeleteCopyWith(ToggleDownloadAutoDelete value,
+          $Res Function(ToggleDownloadAutoDelete) _then) =
+      _$ToggleDownloadAutoDeleteCopyWithImpl;
+  @useResult
+  $Res call({bool enabled});
+}
+
+/// @nodoc
+class _$ToggleDownloadAutoDeleteCopyWithImpl<$Res>
+    implements $ToggleDownloadAutoDeleteCopyWith<$Res> {
+  _$ToggleDownloadAutoDeleteCopyWithImpl(this._self, this._then);
+
+  final ToggleDownloadAutoDelete _self;
+  final $Res Function(ToggleDownloadAutoDelete) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? enabled = null,
+  }) {
+    return _then(ToggleDownloadAutoDelete(
+      enabled: null == enabled
+          ? _self.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class SetPlaybackSpeed implements SettingsEvent {
+  const SetPlaybackSpeed({required this.speed});
+
+  final double speed;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $SetPlaybackSpeedCopyWith<SetPlaybackSpeed> get copyWith =>
+      _$SetPlaybackSpeedCopyWithImpl<SetPlaybackSpeed>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SetPlaybackSpeed &&
+            (identical(other.speed, speed) || other.speed == speed));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, speed);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.setPlaybackSpeed(speed: $speed)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $SetPlaybackSpeedCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $SetPlaybackSpeedCopyWith(
+          SetPlaybackSpeed value, $Res Function(SetPlaybackSpeed) _then) =
+      _$SetPlaybackSpeedCopyWithImpl;
+  @useResult
+  $Res call({double speed});
+}
+
+/// @nodoc
+class _$SetPlaybackSpeedCopyWithImpl<$Res>
+    implements $SetPlaybackSpeedCopyWith<$Res> {
+  _$SetPlaybackSpeedCopyWithImpl(this._self, this._then);
+
+  final SetPlaybackSpeed _self;
+  final $Res Function(SetPlaybackSpeed) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? speed = null,
+  }) {
+    return _then(SetPlaybackSpeed(
+      speed: null == speed
+          ? _self.speed
+          : speed // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ToggleAutoplayNextVideo implements SettingsEvent {
+  const ToggleAutoplayNextVideo({required this.enabled});
+
+  final bool enabled;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ToggleAutoplayNextVideoCopyWith<ToggleAutoplayNextVideo> get copyWith =>
+      _$ToggleAutoplayNextVideoCopyWithImpl<ToggleAutoplayNextVideo>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ToggleAutoplayNextVideo &&
+            (identical(other.enabled, enabled) || other.enabled == enabled));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, enabled);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.toggleAutoplayNextVideo(enabled: $enabled)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ToggleAutoplayNextVideoCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleAutoplayNextVideoCopyWith(ToggleAutoplayNextVideo value,
+          $Res Function(ToggleAutoplayNextVideo) _then) =
+      _$ToggleAutoplayNextVideoCopyWithImpl;
+  @useResult
+  $Res call({bool enabled});
+}
+
+/// @nodoc
+class _$ToggleAutoplayNextVideoCopyWithImpl<$Res>
+    implements $ToggleAutoplayNextVideoCopyWith<$Res> {
+  _$ToggleAutoplayNextVideoCopyWithImpl(this._self, this._then);
+
+  final ToggleAutoplayNextVideo _self;
+  final $Res Function(ToggleAutoplayNextVideo) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? enabled = null,
+  }) {
+    return _then(ToggleAutoplayNextVideo(
+      enabled: null == enabled
+          ? _self.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ToggleShowRelatedInQueue implements SettingsEvent {
+  const ToggleShowRelatedInQueue({required this.enabled});
+
+  final bool enabled;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ToggleShowRelatedInQueueCopyWith<ToggleShowRelatedInQueue> get copyWith =>
+      _$ToggleShowRelatedInQueueCopyWithImpl<ToggleShowRelatedInQueue>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ToggleShowRelatedInQueue &&
+            (identical(other.enabled, enabled) || other.enabled == enabled));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, enabled);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.toggleShowRelatedInQueue(enabled: $enabled)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ToggleShowRelatedInQueueCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleShowRelatedInQueueCopyWith(ToggleShowRelatedInQueue value,
+          $Res Function(ToggleShowRelatedInQueue) _then) =
+      _$ToggleShowRelatedInQueueCopyWithImpl;
+  @useResult
+  $Res call({bool enabled});
+}
+
+/// @nodoc
+class _$ToggleShowRelatedInQueueCopyWithImpl<$Res>
+    implements $ToggleShowRelatedInQueueCopyWith<$Res> {
+  _$ToggleShowRelatedInQueueCopyWithImpl(this._self, this._then);
+
+  final ToggleShowRelatedInQueue _self;
+  final $Res Function(ToggleShowRelatedInQueue) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? enabled = null,
+  }) {
+    return _then(ToggleShowRelatedInQueue(
+      enabled: null == enabled
+          ? _self.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class SetQueueDismissTime implements SettingsEvent {
+  const SetQueueDismissTime({required this.seconds});
+
+  final int seconds;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $SetQueueDismissTimeCopyWith<SetQueueDismissTime> get copyWith =>
+      _$SetQueueDismissTimeCopyWithImpl<SetQueueDismissTime>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SetQueueDismissTime &&
+            (identical(other.seconds, seconds) || other.seconds == seconds));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, seconds);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.setQueueDismissTime(seconds: $seconds)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $SetQueueDismissTimeCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $SetQueueDismissTimeCopyWith(
+          SetQueueDismissTime value, $Res Function(SetQueueDismissTime) _then) =
+      _$SetQueueDismissTimeCopyWithImpl;
+  @useResult
+  $Res call({int seconds});
+}
+
+/// @nodoc
+class _$SetQueueDismissTimeCopyWithImpl<$Res>
+    implements $SetQueueDismissTimeCopyWith<$Res> {
+  _$SetQueueDismissTimeCopyWithImpl(this._self, this._then);
+
+  final SetQueueDismissTime _self;
+  final $Res Function(SetQueueDismissTime) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? seconds = null,
+  }) {
+    return _then(SetQueueDismissTime(
+      seconds: null == seconds
+          ? _self.seconds
+          : seconds // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class SetAutoplayCountdown implements SettingsEvent {
+  const SetAutoplayCountdown({required this.seconds});
+
+  final int seconds;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $SetAutoplayCountdownCopyWith<SetAutoplayCountdown> get copyWith =>
+      _$SetAutoplayCountdownCopyWithImpl<SetAutoplayCountdown>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SetAutoplayCountdown &&
+            (identical(other.seconds, seconds) || other.seconds == seconds));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, seconds);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.setAutoplayCountdown(seconds: $seconds)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $SetAutoplayCountdownCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $SetAutoplayCountdownCopyWith(SetAutoplayCountdown value,
+          $Res Function(SetAutoplayCountdown) _then) =
+      _$SetAutoplayCountdownCopyWithImpl;
+  @useResult
+  $Res call({int seconds});
+}
+
+/// @nodoc
+class _$SetAutoplayCountdownCopyWithImpl<$Res>
+    implements $SetAutoplayCountdownCopyWith<$Res> {
+  _$SetAutoplayCountdownCopyWithImpl(this._self, this._then);
+
+  final SetAutoplayCountdown _self;
+  final $Res Function(SetAutoplayCountdown) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? seconds = null,
+  }) {
+    return _then(SetAutoplayCountdown(
+      seconds: null == seconds
+          ? _self.seconds
+          : seconds // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ToggleDisableAutoplayOnCellular implements SettingsEvent {
+  const ToggleDisableAutoplayOnCellular({required this.enabled});
+
+  final bool enabled;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ToggleDisableAutoplayOnCellularCopyWith<ToggleDisableAutoplayOnCellular>
+      get copyWith => _$ToggleDisableAutoplayOnCellularCopyWithImpl<
+          ToggleDisableAutoplayOnCellular>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ToggleDisableAutoplayOnCellular &&
+            (identical(other.enabled, enabled) || other.enabled == enabled));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, enabled);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.toggleDisableAutoplayOnCellular(enabled: $enabled)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ToggleDisableAutoplayOnCellularCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleDisableAutoplayOnCellularCopyWith(
+          ToggleDisableAutoplayOnCellular value,
+          $Res Function(ToggleDisableAutoplayOnCellular) _then) =
+      _$ToggleDisableAutoplayOnCellularCopyWithImpl;
+  @useResult
+  $Res call({bool enabled});
+}
+
+/// @nodoc
+class _$ToggleDisableAutoplayOnCellularCopyWithImpl<$Res>
+    implements $ToggleDisableAutoplayOnCellularCopyWith<$Res> {
+  _$ToggleDisableAutoplayOnCellularCopyWithImpl(this._self, this._then);
+
+  final ToggleDisableAutoplayOnCellular _self;
+  final $Res Function(ToggleDisableAutoplayOnCellular) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? enabled = null,
+  }) {
+    return _then(ToggleDisableAutoplayOnCellular(
+      enabled: null == enabled
+          ? _self.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ToggleAutoQueue implements SettingsEvent {
+  const ToggleAutoQueue({required this.enabled});
+
+  final bool enabled;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ToggleAutoQueueCopyWith<ToggleAutoQueue> get copyWith =>
+      _$ToggleAutoQueueCopyWithImpl<ToggleAutoQueue>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ToggleAutoQueue &&
+            (identical(other.enabled, enabled) || other.enabled == enabled));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, enabled);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.toggleAutoQueue(enabled: $enabled)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ToggleAutoQueueCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleAutoQueueCopyWith(
+          ToggleAutoQueue value, $Res Function(ToggleAutoQueue) _then) =
+      _$ToggleAutoQueueCopyWithImpl;
+  @useResult
+  $Res call({bool enabled});
+}
+
+/// @nodoc
+class _$ToggleAutoQueueCopyWithImpl<$Res>
+    implements $ToggleAutoQueueCopyWith<$Res> {
+  _$ToggleAutoQueueCopyWithImpl(this._self, this._then);
+
+  final ToggleAutoQueue _self;
+  final $Res Function(ToggleAutoQueue) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? enabled = null,
+  }) {
+    return _then(ToggleAutoQueue(
+      enabled: null == enabled
+          ? _self.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ToggleBufferPreload implements SettingsEvent {
+  const ToggleBufferPreload({required this.enabled});
+
+  final bool enabled;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ToggleBufferPreloadCopyWith<ToggleBufferPreload> get copyWith =>
+      _$ToggleBufferPreloadCopyWithImpl<ToggleBufferPreload>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ToggleBufferPreload &&
+            (identical(other.enabled, enabled) || other.enabled == enabled));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, enabled);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.toggleBufferPreload(enabled: $enabled)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ToggleBufferPreloadCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleBufferPreloadCopyWith(
+          ToggleBufferPreload value, $Res Function(ToggleBufferPreload) _then) =
+      _$ToggleBufferPreloadCopyWithImpl;
+  @useResult
+  $Res call({bool enabled});
+}
+
+/// @nodoc
+class _$ToggleBufferPreloadCopyWithImpl<$Res>
+    implements $ToggleBufferPreloadCopyWith<$Res> {
+  _$ToggleBufferPreloadCopyWithImpl(this._self, this._then);
+
+  final ToggleBufferPreload _self;
+  final $Res Function(ToggleBufferPreload) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? enabled = null,
+  }) {
+    return _then(ToggleBufferPreload(
+      enabled: null == enabled
+          ? _self.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ToggleAutoQualityAdjust implements SettingsEvent {
+  const ToggleAutoQualityAdjust({required this.enabled});
+
+  final bool enabled;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ToggleAutoQualityAdjustCopyWith<ToggleAutoQualityAdjust> get copyWith =>
+      _$ToggleAutoQualityAdjustCopyWithImpl<ToggleAutoQualityAdjust>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ToggleAutoQualityAdjust &&
+            (identical(other.enabled, enabled) || other.enabled == enabled));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, enabled);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.toggleAutoQualityAdjust(enabled: $enabled)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ToggleAutoQualityAdjustCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleAutoQualityAdjustCopyWith(ToggleAutoQualityAdjust value,
+          $Res Function(ToggleAutoQualityAdjust) _then) =
+      _$ToggleAutoQualityAdjustCopyWithImpl;
+  @useResult
+  $Res call({bool enabled});
+}
+
+/// @nodoc
+class _$ToggleAutoQualityAdjustCopyWithImpl<$Res>
+    implements $ToggleAutoQualityAdjustCopyWith<$Res> {
+  _$ToggleAutoQualityAdjustCopyWithImpl(this._self, this._then);
+
+  final ToggleAutoQualityAdjust _self;
+  final $Res Function(ToggleAutoQualityAdjust) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? enabled = null,
+  }) {
+    return _then(ToggleAutoQualityAdjust(
+      enabled: null == enabled
+          ? _self.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ToggleBackgroundPlayback implements SettingsEvent {
+  const ToggleBackgroundPlayback({required this.enabled});
+
+  final bool enabled;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ToggleBackgroundPlaybackCopyWith<ToggleBackgroundPlayback> get copyWith =>
+      _$ToggleBackgroundPlaybackCopyWithImpl<ToggleBackgroundPlayback>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ToggleBackgroundPlayback &&
+            (identical(other.enabled, enabled) || other.enabled == enabled));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, enabled);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.toggleBackgroundPlayback(enabled: $enabled)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ToggleBackgroundPlaybackCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleBackgroundPlaybackCopyWith(ToggleBackgroundPlayback value,
+          $Res Function(ToggleBackgroundPlayback) _then) =
+      _$ToggleBackgroundPlaybackCopyWithImpl;
+  @useResult
+  $Res call({bool enabled});
+}
+
+/// @nodoc
+class _$ToggleBackgroundPlaybackCopyWithImpl<$Res>
+    implements $ToggleBackgroundPlaybackCopyWith<$Res> {
+  _$ToggleBackgroundPlaybackCopyWithImpl(this._self, this._then);
+
+  final ToggleBackgroundPlayback _self;
+  final $Res Function(ToggleBackgroundPlayback) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? enabled = null,
+  }) {
+    return _then(ToggleBackgroundPlayback(
+      enabled: null == enabled
+          ? _self.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ToggleNotificationControls implements SettingsEvent {
+  const ToggleNotificationControls({required this.enabled});
+
+  final bool enabled;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ToggleNotificationControlsCopyWith<ToggleNotificationControls>
+      get copyWith =>
+          _$ToggleNotificationControlsCopyWithImpl<ToggleNotificationControls>(
+              this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ToggleNotificationControls &&
+            (identical(other.enabled, enabled) || other.enabled == enabled));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, enabled);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.toggleNotificationControls(enabled: $enabled)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ToggleNotificationControlsCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleNotificationControlsCopyWith(ToggleNotificationControls value,
+          $Res Function(ToggleNotificationControls) _then) =
+      _$ToggleNotificationControlsCopyWithImpl;
+  @useResult
+  $Res call({bool enabled});
+}
+
+/// @nodoc
+class _$ToggleNotificationControlsCopyWithImpl<$Res>
+    implements $ToggleNotificationControlsCopyWith<$Res> {
+  _$ToggleNotificationControlsCopyWithImpl(this._self, this._then);
+
+  final ToggleNotificationControls _self;
+  final $Res Function(ToggleNotificationControls) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? enabled = null,
+  }) {
+    return _then(ToggleNotificationControls(
+      enabled: null == enabled
+          ? _self.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ToggleDataSaver implements SettingsEvent {
+  const ToggleDataSaver({required this.enabled});
+
+  final bool enabled;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ToggleDataSaverCopyWith<ToggleDataSaver> get copyWith =>
+      _$ToggleDataSaverCopyWithImpl<ToggleDataSaver>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ToggleDataSaver &&
+            (identical(other.enabled, enabled) || other.enabled == enabled));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, enabled);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.toggleDataSaver(enabled: $enabled)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ToggleDataSaverCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleDataSaverCopyWith(
+          ToggleDataSaver value, $Res Function(ToggleDataSaver) _then) =
+      _$ToggleDataSaverCopyWithImpl;
+  @useResult
+  $Res call({bool enabled});
+}
+
+/// @nodoc
+class _$ToggleDataSaverCopyWithImpl<$Res>
+    implements $ToggleDataSaverCopyWith<$Res> {
+  _$ToggleDataSaverCopyWithImpl(this._self, this._then);
+
+  final ToggleDataSaver _self;
+  final $Res Function(ToggleDataSaver) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? enabled = null,
+  }) {
+    return _then(ToggleDataSaver(
+      enabled: null == enabled
+          ? _self.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ToggleHideWatchedVideos implements SettingsEvent {
+  const ToggleHideWatchedVideos({required this.enabled});
+
+  final bool enabled;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ToggleHideWatchedVideosCopyWith<ToggleHideWatchedVideos> get copyWith =>
+      _$ToggleHideWatchedVideosCopyWithImpl<ToggleHideWatchedVideos>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ToggleHideWatchedVideos &&
+            (identical(other.enabled, enabled) || other.enabled == enabled));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, enabled);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.toggleHideWatchedVideos(enabled: $enabled)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ToggleHideWatchedVideosCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleHideWatchedVideosCopyWith(ToggleHideWatchedVideos value,
+          $Res Function(ToggleHideWatchedVideos) _then) =
+      _$ToggleHideWatchedVideosCopyWithImpl;
+  @useResult
+  $Res call({bool enabled});
+}
+
+/// @nodoc
+class _$ToggleHideWatchedVideosCopyWithImpl<$Res>
+    implements $ToggleHideWatchedVideosCopyWith<$Res> {
+  _$ToggleHideWatchedVideosCopyWithImpl(this._self, this._then);
+
+  final ToggleHideWatchedVideos _self;
+  final $Res Function(ToggleHideWatchedVideos) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? enabled = null,
+  }) {
+    return _then(ToggleHideWatchedVideos(
+      enabled: null == enabled
+          ? _self.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class SetMobileDataQuality implements SettingsEvent {
+  const SetMobileDataQuality({required this.quality});
+
+  final int quality;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $SetMobileDataQualityCopyWith<SetMobileDataQuality> get copyWith =>
+      _$SetMobileDataQualityCopyWithImpl<SetMobileDataQuality>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SetMobileDataQuality &&
+            (identical(other.quality, quality) || other.quality == quality));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, quality);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.setMobileDataQuality(quality: $quality)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $SetMobileDataQualityCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $SetMobileDataQualityCopyWith(SetMobileDataQuality value,
+          $Res Function(SetMobileDataQuality) _then) =
+      _$SetMobileDataQualityCopyWithImpl;
+  @useResult
+  $Res call({int quality});
+}
+
+/// @nodoc
+class _$SetMobileDataQualityCopyWithImpl<$Res>
+    implements $SetMobileDataQualityCopyWith<$Res> {
+  _$SetMobileDataQualityCopyWithImpl(this._self, this._then);
+
+  final SetMobileDataQuality _self;
+  final $Res Function(SetMobileDataQuality) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? quality = null,
+  }) {
+    return _then(SetMobileDataQuality(
+      quality: null == quality
+          ? _self.quality
+          : quality // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ToggleDownloadQueueItems implements SettingsEvent {
+  const ToggleDownloadQueueItems({required this.enabled});
+
+  final bool enabled;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ToggleDownloadQueueItemsCopyWith<ToggleDownloadQueueItems> get copyWith =>
+      _$ToggleDownloadQueueItemsCopyWithImpl<ToggleDownloadQueueItems>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ToggleDownloadQueueItems &&
+            (identical(other.enabled, enabled) || other.enabled == enabled));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, enabled);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.toggleDownloadQueueItems(enabled: $enabled)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ToggleDownloadQueueItemsCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleDownloadQueueItemsCopyWith(ToggleDownloadQueueItems value,
+          $Res Function(ToggleDownloadQueueItems) _then) =
+      _$ToggleDownloadQueueItemsCopyWithImpl;
+  @useResult
+  $Res call({bool enabled});
+}
+
+/// @nodoc
+class _$ToggleDownloadQueueItemsCopyWithImpl<$Res>
+    implements $ToggleDownloadQueueItemsCopyWith<$Res> {
+  _$ToggleDownloadQueueItemsCopyWithImpl(this._self, this._then);
+
+  final ToggleDownloadQueueItems _self;
+  final $Res Function(ToggleDownloadQueueItems) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? enabled = null,
+  }) {
+    return _then(ToggleDownloadQueueItems(
+      enabled: null == enabled
+          ? _self.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ToggleRichCaptionRendering implements SettingsEvent {
+  const ToggleRichCaptionRendering({required this.enabled});
+
+  final bool enabled;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ToggleRichCaptionRenderingCopyWith<ToggleRichCaptionRendering>
+      get copyWith =>
+          _$ToggleRichCaptionRenderingCopyWithImpl<ToggleRichCaptionRendering>(
+              this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ToggleRichCaptionRendering &&
+            (identical(other.enabled, enabled) || other.enabled == enabled));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, enabled);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.toggleRichCaptionRendering(enabled: $enabled)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ToggleRichCaptionRenderingCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleRichCaptionRenderingCopyWith(ToggleRichCaptionRendering value,
+          $Res Function(ToggleRichCaptionRendering) _then) =
+      _$ToggleRichCaptionRenderingCopyWithImpl;
+  @useResult
+  $Res call({bool enabled});
+}
+
+/// @nodoc
+class _$ToggleRichCaptionRenderingCopyWithImpl<$Res>
+    implements $ToggleRichCaptionRenderingCopyWith<$Res> {
+  _$ToggleRichCaptionRenderingCopyWithImpl(this._self, this._then);
+
+  final ToggleRichCaptionRendering _self;
+  final $Res Function(ToggleRichCaptionRendering) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? enabled = null,
+  }) {
+    return _then(ToggleRichCaptionRendering(
+      enabled: null == enabled
+          ? _self.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ToggleBilibiliEnabled implements SettingsEvent {
+  const ToggleBilibiliEnabled({required this.enabled});
+
+  final bool enabled;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ToggleBilibiliEnabledCopyWith<ToggleBilibiliEnabled> get copyWith =>
+      _$ToggleBilibiliEnabledCopyWithImpl<ToggleBilibiliEnabled>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ToggleBilibiliEnabled &&
+            (identical(other.enabled, enabled) || other.enabled == enabled));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, enabled);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.toggleBilibiliEnabled(enabled: $enabled)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ToggleBilibiliEnabledCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleBilibiliEnabledCopyWith(ToggleBilibiliEnabled value,
+          $Res Function(ToggleBilibiliEnabled) _then) =
+      _$ToggleBilibiliEnabledCopyWithImpl;
+  @useResult
+  $Res call({bool enabled});
+}
+
+/// @nodoc
+class _$ToggleBilibiliEnabledCopyWithImpl<$Res>
+    implements $ToggleBilibiliEnabledCopyWith<$Res> {
+  _$ToggleBilibiliEnabledCopyWithImpl(this._self, this._then);
+
+  final ToggleBilibiliEnabled _self;
+  final $Res Function(ToggleBilibiliEnabled) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? enabled = null,
+  }) {
+    return _then(ToggleBilibiliEnabled(
+      enabled: null == enabled
+          ? _self.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class SetSwipeDirection implements SettingsEvent {
+  const SetSwipeDirection({required this.leftToRight});
+
+  final bool leftToRight;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $SetSwipeDirectionCopyWith<SetSwipeDirection> get copyWith =>
+      _$SetSwipeDirectionCopyWithImpl<SetSwipeDirection>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SetSwipeDirection &&
+            (identical(other.leftToRight, leftToRight) ||
+                other.leftToRight == leftToRight));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, leftToRight);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.setSwipeDirection(leftToRight: $leftToRight)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $SetSwipeDirectionCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $SetSwipeDirectionCopyWith(
+          SetSwipeDirection value, $Res Function(SetSwipeDirection) _then) =
+      _$SetSwipeDirectionCopyWithImpl;
+  @useResult
+  $Res call({bool leftToRight});
+}
+
+/// @nodoc
+class _$SetSwipeDirectionCopyWithImpl<$Res>
+    implements $SetSwipeDirectionCopyWith<$Res> {
+  _$SetSwipeDirectionCopyWithImpl(this._self, this._then);
+
+  final SetSwipeDirection _self;
+  final $Res Function(SetSwipeDirection) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? leftToRight = null,
+  }) {
+    return _then(SetSwipeDirection(
+      leftToRight: null == leftToRight
+          ? _self.leftToRight
+          : leftToRight // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class SetYoutubeService implements SettingsEvent {
+  const SetYoutubeService({required this.service});
+
+  final String service;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $SetYoutubeServiceCopyWith<SetYoutubeService> get copyWith =>
+      _$SetYoutubeServiceCopyWithImpl<SetYoutubeService>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SetYoutubeService &&
+            (identical(other.service, service) || other.service == service));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, service);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.setYoutubeService(service: $service)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $SetYoutubeServiceCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $SetYoutubeServiceCopyWith(
+          SetYoutubeService value, $Res Function(SetYoutubeService) _then) =
+      _$SetYoutubeServiceCopyWithImpl;
+  @useResult
+  $Res call({String service});
+}
+
+/// @nodoc
+class _$SetYoutubeServiceCopyWithImpl<$Res>
+    implements $SetYoutubeServiceCopyWith<$Res> {
+  _$SetYoutubeServiceCopyWithImpl(this._self, this._then);
+
+  final SetYoutubeService _self;
+  final $Res Function(SetYoutubeService) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? service = null,
+  }) {
+    return _then(SetYoutubeService(
+      service: null == service
+          ? _self.service
+          : service // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class BookmarksApplied implements SettingsEvent {
+  const BookmarksApplied({required final List<String> selectedPlaylists})
+      : _selectedPlaylists = selectedPlaylists;
+
+  final List<String> _selectedPlaylists;
+  List<String> get selectedPlaylists {
+    if (_selectedPlaylists is EqualUnmodifiableListView)
+      return _selectedPlaylists;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_selectedPlaylists);
+  }
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $BookmarksAppliedCopyWith<BookmarksApplied> get copyWith =>
+      _$BookmarksAppliedCopyWithImpl<BookmarksApplied>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is BookmarksApplied &&
+            const DeepCollectionEquality()
+                .equals(other._selectedPlaylists, _selectedPlaylists));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_selectedPlaylists));
+
+  @override
+  String toString() {
+    return 'SettingsEvent.bookmarksApplied(selectedPlaylists: $selectedPlaylists)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $BookmarksAppliedCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $BookmarksAppliedCopyWith(
+          BookmarksApplied value, $Res Function(BookmarksApplied) _then) =
+      _$BookmarksAppliedCopyWithImpl;
+  @useResult
+  $Res call({List<String> selectedPlaylists});
+}
+
+/// @nodoc
+class _$BookmarksAppliedCopyWithImpl<$Res>
+    implements $BookmarksAppliedCopyWith<$Res> {
+  _$BookmarksAppliedCopyWithImpl(this._self, this._then);
+
+  final BookmarksApplied _self;
+  final $Res Function(BookmarksApplied) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? selectedPlaylists = null,
+  }) {
+    return _then(BookmarksApplied(
+      selectedPlaylists: null == selectedPlaylists
+          ? _self._selectedPlaylists
+          : selectedPlaylists // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class RestrictedModeFilterChanged implements SettingsEvent {
+  const RestrictedModeFilterChanged({required this.level});
+
+  final RestrictedModeFilterLevel level;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $RestrictedModeFilterChangedCopyWith<RestrictedModeFilterChanged>
+      get copyWith => _$RestrictedModeFilterChangedCopyWithImpl<
+          RestrictedModeFilterChanged>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is RestrictedModeFilterChanged &&
+            (identical(other.level, level) || other.level == level));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, level);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.restrictedModeFilterChanged(level: $level)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $RestrictedModeFilterChangedCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $RestrictedModeFilterChangedCopyWith(
+          RestrictedModeFilterChanged value,
+          $Res Function(RestrictedModeFilterChanged) _then) =
+      _$RestrictedModeFilterChangedCopyWithImpl;
+  @useResult
+  $Res call({RestrictedModeFilterLevel level});
+}
+
+/// @nodoc
+class _$RestrictedModeFilterChangedCopyWithImpl<$Res>
+    implements $RestrictedModeFilterChangedCopyWith<$Res> {
+  _$RestrictedModeFilterChangedCopyWithImpl(this._self, this._then);
+
+  final RestrictedModeFilterChanged _self;
+  final $Res Function(RestrictedModeFilterChanged) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? level = null,
+  }) {
+    return _then(RestrictedModeFilterChanged(
+      level: null == level
+          ? _self.level
+          : level // ignore: cast_nullable_to_non_nullable
+              as RestrictedModeFilterLevel,
+    ));
+  }
+}
+
+/// @nodoc
+
+class MiniPlayerAutoExpandChanged implements SettingsEvent {
+  const MiniPlayerAutoExpandChanged({required this.enabled});
+
+  final bool enabled;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $MiniPlayerAutoExpandChangedCopyWith<MiniPlayerAutoExpandChanged>
+      get copyWith => _$MiniPlayerAutoExpandChangedCopyWithImpl<
+          MiniPlayerAutoExpandChanged>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is MiniPlayerAutoExpandChanged &&
+            (identical(other.enabled, enabled) || other.enabled == enabled));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, enabled);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.miniPlayerAutoExpandChanged(enabled: $enabled)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $MiniPlayerAutoExpandChangedCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $MiniPlayerAutoExpandChangedCopyWith(
+          MiniPlayerAutoExpandChanged value,
+          $Res Function(MiniPlayerAutoExpandChanged) _then) =
+      _$MiniPlayerAutoExpandChangedCopyWithImpl;
+  @useResult
+  $Res call({bool enabled});
+}
+
+/// @nodoc
+class _$MiniPlayerAutoExpandChangedCopyWithImpl<$Res>
+    implements $MiniPlayerAutoExpandChangedCopyWith<$Res> {
+  _$MiniPlayerAutoExpandChangedCopyWithImpl(this._self, this._then);
+
+  final MiniPlayerAutoExpandChanged _self;
+  final $Res Function(MiniPlayerAutoExpandChanged) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? enabled = null,
+  }) {
+    return _then(MiniPlayerAutoExpandChanged(
+      enabled: null == enabled
+          ? _self.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class MiniPlayerTapToExpandChanged implements SettingsEvent {
+  const MiniPlayerTapToExpandChanged({required this.enabled});
+
+  final bool enabled;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $MiniPlayerTapToExpandChangedCopyWith<MiniPlayerTapToExpandChanged>
+      get copyWith => _$MiniPlayerTapToExpandChangedCopyWithImpl<
+          MiniPlayerTapToExpandChanged>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is MiniPlayerTapToExpandChanged &&
+            (identical(other.enabled, enabled) || other.enabled == enabled));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, enabled);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.miniPlayerTapToExpandChanged(enabled: $enabled)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $MiniPlayerTapToExpandChangedCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $MiniPlayerTapToExpandChangedCopyWith(
+          MiniPlayerTapToExpandChanged value,
+          $Res Function(MiniPlayerTapToExpandChanged) _then) =
+      _$MiniPlayerTapToExpandChangedCopyWithImpl;
+  @useResult
+  $Res call({bool enabled});
+}
+
+/// @nodoc
+class _$MiniPlayerTapToExpandChangedCopyWithImpl<$Res>
+    implements $MiniPlayerTapToExpandChangedCopyWith<$Res> {
+  _$MiniPlayerTapToExpandChangedCopyWithImpl(this._self, this._then);
+
+  final MiniPlayerTapToExpandChanged _self;
+  final $Res Function(MiniPlayerTapToExpandChanged) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? enabled = null,
+  }) {
+    return _then(MiniPlayerTapToExpandChanged(
+      enabled: null == enabled
+          ? _self.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class MiniPlayerDoubleTapToExpandChanged implements SettingsEvent {
+  const MiniPlayerDoubleTapToExpandChanged({required this.enabled});
+
+  final bool enabled;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $MiniPlayerDoubleTapToExpandChangedCopyWith<
+          MiniPlayerDoubleTapToExpandChanged>
+      get copyWith => _$MiniPlayerDoubleTapToExpandChangedCopyWithImpl<
+          MiniPlayerDoubleTapToExpandChanged>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is MiniPlayerDoubleTapToExpandChanged &&
+            (identical(other.enabled, enabled) || other.enabled == enabled));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, enabled);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.miniPlayerDoubleTapToExpandChanged(enabled: $enabled)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $MiniPlayerDoubleTapToExpandChangedCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $MiniPlayerDoubleTapToExpandChangedCopyWith(
+          MiniPlayerDoubleTapToExpandChanged value,
+          $Res Function(MiniPlayerDoubleTapToExpandChanged) _then) =
+      _$MiniPlayerDoubleTapToExpandChangedCopyWithImpl;
+  @useResult
+  $Res call({bool enabled});
+}
+
+/// @nodoc
+class _$MiniPlayerDoubleTapToExpandChangedCopyWithImpl<$Res>
+    implements $MiniPlayerDoubleTapToExpandChangedCopyWith<$Res> {
+  _$MiniPlayerDoubleTapToExpandChangedCopyWithImpl(this._self, this._then);
+
+  final MiniPlayerDoubleTapToExpandChanged _self;
+  final $Res Function(MiniPlayerDoubleTapToExpandChanged) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? enabled = null,
+  }) {
+    return _then(MiniPlayerDoubleTapToExpandChanged(
+      enabled: null == enabled
+          ? _self.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class DownloadAutoDeleteDaysChanged implements SettingsEvent {
+  const DownloadAutoDeleteDaysChanged({required this.days});
+
+  final int days;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $DownloadAutoDeleteDaysChangedCopyWith<DownloadAutoDeleteDaysChanged>
+      get copyWith => _$DownloadAutoDeleteDaysChangedCopyWithImpl<
+          DownloadAutoDeleteDaysChanged>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is DownloadAutoDeleteDaysChanged &&
+            (identical(other.days, days) || other.days == days));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, days);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.downloadAutoDeleteDaysChanged(days: $days)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $DownloadAutoDeleteDaysChangedCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $DownloadAutoDeleteDaysChangedCopyWith(
+          DownloadAutoDeleteDaysChanged value,
+          $Res Function(DownloadAutoDeleteDaysChanged) _then) =
+      _$DownloadAutoDeleteDaysChangedCopyWithImpl;
+  @useResult
+  $Res call({int days});
+}
+
+/// @nodoc
+class _$DownloadAutoDeleteDaysChangedCopyWithImpl<$Res>
+    implements $DownloadAutoDeleteDaysChangedCopyWith<$Res> {
+  _$DownloadAutoDeleteDaysChangedCopyWithImpl(this._self, this._then);
+
+  final DownloadAutoDeleteDaysChanged _self;
+  final $Res Function(DownloadAutoDeleteDaysChanged) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? days = null,
+  }) {
+    return _then(DownloadAutoDeleteDaysChanged(
+      days: null == days
+          ? _self.days
+          : days // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ContentFilterKeywordsChanged implements SettingsEvent {
+  const ContentFilterKeywordsChanged({required final List<String> keywords})
+      : _keywords = keywords;
+
+  final List<String> _keywords;
+  List<String> get keywords {
+    if (_keywords is EqualUnmodifiableListView) return _keywords;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_keywords);
+  }
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ContentFilterKeywordsChangedCopyWith<ContentFilterKeywordsChanged>
+      get copyWith => _$ContentFilterKeywordsChangedCopyWithImpl<
+          ContentFilterKeywordsChanged>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ContentFilterKeywordsChanged &&
+            const DeepCollectionEquality().equals(other._keywords, _keywords));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_keywords));
+
+  @override
+  String toString() {
+    return 'SettingsEvent.contentFilterKeywordsChanged(keywords: $keywords)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ContentFilterKeywordsChangedCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ContentFilterKeywordsChangedCopyWith(
+          ContentFilterKeywordsChanged value,
+          $Res Function(ContentFilterKeywordsChanged) _then) =
+      _$ContentFilterKeywordsChangedCopyWithImpl;
+  @useResult
+  $Res call({List<String> keywords});
+}
+
+/// @nodoc
+class _$ContentFilterKeywordsChangedCopyWithImpl<$Res>
+    implements $ContentFilterKeywordsChangedCopyWith<$Res> {
+  _$ContentFilterKeywordsChangedCopyWithImpl(this._self, this._then);
+
+  final ContentFilterKeywordsChanged _self;
+  final $Res Function(ContentFilterKeywordsChanged) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? keywords = null,
+  }) {
+    return _then(ContentFilterKeywordsChanged(
+      keywords: null == keywords
+          ? _self._keywords
+          : keywords // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ContentFilterChannelsChanged implements SettingsEvent {
+  const ContentFilterChannelsChanged({required final List<String> channelIds})
+      : _channelIds = channelIds;
+
+  final List<String> _channelIds;
+  List<String> get channelIds {
+    if (_channelIds is EqualUnmodifiableListView) return _channelIds;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_channelIds);
+  }
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ContentFilterChannelsChangedCopyWith<ContentFilterChannelsChanged>
+      get copyWith => _$ContentFilterChannelsChangedCopyWithImpl<
+          ContentFilterChannelsChanged>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ContentFilterChannelsChanged &&
+            const DeepCollectionEquality()
+                .equals(other._channelIds, _channelIds));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_channelIds));
+
+  @override
+  String toString() {
+    return 'SettingsEvent.contentFilterChannelsChanged(channelIds: $channelIds)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ContentFilterChannelsChangedCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ContentFilterChannelsChangedCopyWith(
+          ContentFilterChannelsChanged value,
+          $Res Function(ContentFilterChannelsChanged) _then) =
+      _$ContentFilterChannelsChangedCopyWithImpl;
+  @useResult
+  $Res call({List<String> channelIds});
+}
+
+/// @nodoc
+class _$ContentFilterChannelsChangedCopyWithImpl<$Res>
+    implements $ContentFilterChannelsChangedCopyWith<$Res> {
+  _$ContentFilterChannelsChangedCopyWithImpl(this._self, this._then);
+
+  final ContentFilterChannelsChanged _self;
+  final $Res Function(ContentFilterChannelsChanged) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? channelIds = null,
+  }) {
+    return _then(ContentFilterChannelsChanged(
+      channelIds: null == channelIds
+          ? _self._channelIds
+          : channelIds // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ContentFilterHideShortsChanged implements SettingsEvent {
+  const ContentFilterHideShortsChanged({required this.enabled});
+
+  final bool enabled;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ContentFilterHideShortsChangedCopyWith<ContentFilterHideShortsChanged>
+      get copyWith => _$ContentFilterHideShortsChangedCopyWithImpl<
+          ContentFilterHideShortsChanged>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ContentFilterHideShortsChanged &&
+            (identical(other.enabled, enabled) || other.enabled == enabled));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, enabled);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.contentFilterHideShortsChanged(enabled: $enabled)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ContentFilterHideShortsChangedCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ContentFilterHideShortsChangedCopyWith(
+          ContentFilterHideShortsChanged value,
+          $Res Function(ContentFilterHideShortsChanged) _then) =
+      _$ContentFilterHideShortsChangedCopyWithImpl;
+  @useResult
+  $Res call({bool enabled});
+}
+
+/// @nodoc
+class _$ContentFilterHideShortsChangedCopyWithImpl<$Res>
+    implements $ContentFilterHideShortsChangedCopyWith<$Res> {
+  _$ContentFilterHideShortsChangedCopyWithImpl(this._self, this._then);
+
+  final ContentFilterHideShortsChanged _self;
+  final $Res Function(ContentFilterHideShortsChanged) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? enabled = null,
+  }) {
+    return _then(ContentFilterHideShortsChanged(
+      enabled: null == enabled
+          ? _self.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ContentFilterHidePaidChanged implements SettingsEvent {
+  const ContentFilterHidePaidChanged({required this.enabled});
+
+  final bool enabled;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ContentFilterHidePaidChangedCopyWith<ContentFilterHidePaidChanged>
+      get copyWith => _$ContentFilterHidePaidChangedCopyWithImpl<
+          ContentFilterHidePaidChanged>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ContentFilterHidePaidChanged &&
+            (identical(other.enabled, enabled) || other.enabled == enabled));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, enabled);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.contentFilterHidePaidChanged(enabled: $enabled)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ContentFilterHidePaidChangedCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ContentFilterHidePaidChangedCopyWith(
+          ContentFilterHidePaidChanged value,
+          $Res Function(ContentFilterHidePaidChanged) _then) =
+      _$ContentFilterHidePaidChangedCopyWithImpl;
+  @useResult
+  $Res call({bool enabled});
+}
+
+/// @nodoc
+class _$ContentFilterHidePaidChangedCopyWithImpl<$Res>
+    implements $ContentFilterHidePaidChangedCopyWith<$Res> {
+  _$ContentFilterHidePaidChangedCopyWithImpl(this._self, this._then);
+
+  final ContentFilterHidePaidChanged _self;
+  final $Res Function(ContentFilterHidePaidChanged) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? enabled = null,
+  }) {
+    return _then(ContentFilterHidePaidChanged(
+      enabled: null == enabled
+          ? _self.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+mixin _$SettingsState {
+  String get defaultLanguage;
+  String get defaultQuality;
+  String get defaultRegion;
+  String get themeMode;
+  String? get version;
+  bool get isHistoryVisible;
+  bool get isDislikeVisible;
+  bool get isHlsPlayer;
+  bool get isHideComments;
+  bool get isHideRelated;
+  List<Instance> get pipedInstances;
+  ApiStatus get pipedInstanceStatus;
+  String get instance;
+  List<Instance> get invidiousInstances;
+  ApiStatus get invidiousInstanceStatus;
+  String get ytService;
+  bool get initialized;
+  ApiStatus get settingsStatus;
+  bool get isPipDisabled; // Connection status tracking for UI feedback
+  String? get connectingToInstance;
+  bool
+      get isTestingConnection; // Track if user's preferred instance failed (for showing snackbar)
+  bool get userInstanceFailed;
+  String? get failedInstanceName; // Search filter
+  String
+      get searchFilter; // Video fit mode (contain, cover, fill, fitWidth, fitHeight)
+  String get videoFitMode; // Skip interval in seconds (for double-tap skip)
+  int get skipInterval; // SponsorBlock settings
+  bool get isSponsorBlockEnabled;
+  List<String> get sponsorBlockCategories; // Open links in external browser
+  bool get openLinksInBrowser; // Home feed display mode
+  String get homeFeedMode; // Audio focus / pause on interruption
+  bool get isAudioFocusEnabled; // Profiles
+  String get currentProfile;
+  List<String> get profiles; // Subtitle size (font size in pixels)
+  double get subtitleSize; // Last exported file path (for sharing)
+  String? get lastExportedFilePath; // Search history privacy
+  bool get isSearchHistoryEnabled;
+  bool
+      get isSearchHistoryVisible; // Auto PiP (enter PiP when pressing home button while video is playing)
+  bool get isAutoPipEnabled;
+  SleepTimerConfig? get sleepTimerConfig;
+  bool? get isSwipeGesturesEnabled;
+  bool? get isDeArrowEnabled;
+  bool? get isBookmarksEnabled;
+  List<String>? get bookmarkedPlaylists;
+  bool? get isRestrictedModeEnabled;
+  bool? get isMiniPlayerEnabled;
+  String? get downloadQuality;
+  bool? get isDownloadSubtitlesEnabled;
+  bool? get isDownloadOverWifiOnlyEnabled;
+  bool? get isDownloadAutoDeleteEnabled;
+  double? get playbackSpeed;
+  bool? get isAutoplayNextVideoEnabled;
+  bool? get isShowRelatedInQueueEnabled;
+  int? get queueDismissTime;
+  int? get autoplayCountdown;
+  bool? get isDisableAutoplayOnCellularEnabled;
+  bool? get isAutoQueueEnabled;
+  bool? get isBufferPreloadEnabled;
+  bool? get isAutoQualityAdjustEnabled;
+  bool? get isBackgroundPlaybackEnabled;
+  bool? get isNotificationControlsEnabled;
+  bool? get isDataSaverEnabled;
+  bool? get isHideWatchedVideosEnabled;
+  int? get mobileDataQuality;
+  bool? get isDownloadQueueItemsEnabled;
+  bool? get isRichCaptionRenderingEnabled;
+  bool? get isBilibiliEnabled;
+  bool? get isSwipeLeftToRight;
+  bool? get isMiniPlayerAutoExpandEnabled;
+  bool? get isMiniPlayerTapToExpandEnabled;
+  bool? get isMiniPlayerDoubleTapToExpandEnabled;
+  RestrictedModeFilterLevel? get restrictedModeFilterLevel;
+  int? get downloadAutoDeleteDays;
+  List<String>? get contentFilterKeywords;
+  List<String>? get contentFilterBlockedChannels;
+  bool? get contentFilterHideShorts;
+  bool? get contentFilterHidePaid;
+
+  /// Create a copy of SettingsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $SettingsStateCopyWith<SettingsState> get copyWith =>
+      _$SettingsStateCopyWithImpl<SettingsState>(
+          this as SettingsState, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SettingsState &&
+            (identical(other.defaultLanguage, defaultLanguage) ||
+                other.defaultLanguage == defaultLanguage) &&
+            (identical(other.defaultQuality, defaultQuality) ||
+                other.defaultQuality == defaultQuality) &&
+            (identical(other.defaultRegion, defaultRegion) ||
+                other.defaultRegion == defaultRegion) &&
+            (identical(other.themeMode, themeMode) ||
+                other.themeMode == themeMode) &&
+            (identical(other.version, version) || other.version == version) &&
+            (identical(other.isHistoryVisible, isHistoryVisible) ||
+                other.isHistoryVisible == isHistoryVisible) &&
+            (identical(other.isDislikeVisible, isDislikeVisible) ||
+                other.isDislikeVisible == isDislikeVisible) &&
+            (identical(other.isHlsPlayer, isHlsPlayer) ||
+                other.isHlsPlayer == isHlsPlayer) &&
+            (identical(other.isHideComments, isHideComments) ||
+                other.isHideComments == isHideComments) &&
+            (identical(other.isHideRelated, isHideRelated) ||
+                other.isHideRelated == isHideRelated) &&
+            const DeepCollectionEquality()
+                .equals(other.pipedInstances, pipedInstances) &&
+            (identical(other.pipedInstanceStatus, pipedInstanceStatus) ||
+                other.pipedInstanceStatus == pipedInstanceStatus) &&
+            (identical(other.instance, instance) ||
+                other.instance == instance) &&
+            const DeepCollectionEquality()
+                .equals(other.invidiousInstances, invidiousInstances) &&
+            (identical(other.invidiousInstanceStatus, invidiousInstanceStatus) ||
+                other.invidiousInstanceStatus == invidiousInstanceStatus) &&
+            (identical(other.ytService, ytService) ||
+                other.ytService == ytService) &&
+            (identical(other.initialized, initialized) ||
+                other.initialized == initialized) &&
+            (identical(other.settingsStatus, settingsStatus) ||
+                other.settingsStatus == settingsStatus) &&
+            (identical(other.isPipDisabled, isPipDisabled) ||
+                other.isPipDisabled == isPipDisabled) &&
+            (identical(other.connectingToInstance, connectingToInstance) ||
+                other.connectingToInstance == connectingToInstance) &&
+            (identical(other.isTestingConnection, isTestingConnection) ||
+                other.isTestingConnection == isTestingConnection) &&
+            (identical(other.userInstanceFailed, userInstanceFailed) ||
+                other.userInstanceFailed == userInstanceFailed) &&
+            (identical(other.failedInstanceName, failedInstanceName) ||
+                other.failedInstanceName == failedInstanceName) &&
+            (identical(other.searchFilter, searchFilter) ||
+                other.searchFilter == searchFilter) &&
+            (identical(other.videoFitMode, videoFitMode) ||
+                other.videoFitMode == videoFitMode) &&
+            (identical(other.skipInterval, skipInterval) ||
+                other.skipInterval == skipInterval) &&
+            (identical(other.isSponsorBlockEnabled, isSponsorBlockEnabled) ||
+                other.isSponsorBlockEnabled == isSponsorBlockEnabled) &&
+            const DeepCollectionEquality()
+                .equals(other.sponsorBlockCategories, sponsorBlockCategories) &&
+            (identical(other.openLinksInBrowser, openLinksInBrowser) ||
+                other.openLinksInBrowser == openLinksInBrowser) &&
+            (identical(other.homeFeedMode, homeFeedMode) ||
+                other.homeFeedMode == homeFeedMode) &&
+            (identical(other.isAudioFocusEnabled, isAudioFocusEnabled) ||
+                other.isAudioFocusEnabled == isAudioFocusEnabled) &&
+            (identical(other.currentProfile, currentProfile) ||
+                other.currentProfile == currentProfile) &&
+            const DeepCollectionEquality().equals(other.profiles, profiles) &&
+            (identical(other.subtitleSize, subtitleSize) ||
+                other.subtitleSize == subtitleSize) &&
+            (identical(other.lastExportedFilePath, lastExportedFilePath) ||
+                other.lastExportedFilePath == lastExportedFilePath) &&
+            (identical(other.isSearchHistoryEnabled, isSearchHistoryEnabled) ||
+                other.isSearchHistoryEnabled == isSearchHistoryEnabled) &&
+            (identical(other.isSearchHistoryVisible, isSearchHistoryVisible) ||
+                other.isSearchHistoryVisible == isSearchHistoryVisible) &&
+            (identical(other.isAutoPipEnabled, isAutoPipEnabled) ||
+                other.isAutoPipEnabled == isAutoPipEnabled) &&
+            (identical(other.sleepTimerConfig, sleepTimerConfig) || other.sleepTimerConfig == sleepTimerConfig) &&
+            (identical(other.isSwipeGesturesEnabled, isSwipeGesturesEnabled) || other.isSwipeGesturesEnabled == isSwipeGesturesEnabled) &&
+            (identical(other.isDeArrowEnabled, isDeArrowEnabled) || other.isDeArrowEnabled == isDeArrowEnabled) &&
+            (identical(other.isBookmarksEnabled, isBookmarksEnabled) || other.isBookmarksEnabled == isBookmarksEnabled) &&
+            const DeepCollectionEquality().equals(other.bookmarkedPlaylists, bookmarkedPlaylists) &&
+            (identical(other.isRestrictedModeEnabled, isRestrictedModeEnabled) || other.isRestrictedModeEnabled == isRestrictedModeEnabled) &&
+            (identical(other.isMiniPlayerEnabled, isMiniPlayerEnabled) || other.isMiniPlayerEnabled == isMiniPlayerEnabled) &&
+            (identical(other.downloadQuality, downloadQuality) || other.downloadQuality == downloadQuality) &&
+            (identical(other.isDownloadSubtitlesEnabled, isDownloadSubtitlesEnabled) || other.isDownloadSubtitlesEnabled == isDownloadSubtitlesEnabled) &&
+            (identical(other.isDownloadOverWifiOnlyEnabled, isDownloadOverWifiOnlyEnabled) || other.isDownloadOverWifiOnlyEnabled == isDownloadOverWifiOnlyEnabled) &&
+            (identical(other.isDownloadAutoDeleteEnabled, isDownloadAutoDeleteEnabled) || other.isDownloadAutoDeleteEnabled == isDownloadAutoDeleteEnabled) &&
+            (identical(other.playbackSpeed, playbackSpeed) || other.playbackSpeed == playbackSpeed) &&
+            (identical(other.isAutoplayNextVideoEnabled, isAutoplayNextVideoEnabled) || other.isAutoplayNextVideoEnabled == isAutoplayNextVideoEnabled) &&
+            (identical(other.isShowRelatedInQueueEnabled, isShowRelatedInQueueEnabled) || other.isShowRelatedInQueueEnabled == isShowRelatedInQueueEnabled) &&
+            (identical(other.queueDismissTime, queueDismissTime) || other.queueDismissTime == queueDismissTime) &&
+            (identical(other.autoplayCountdown, autoplayCountdown) || other.autoplayCountdown == autoplayCountdown) &&
+            (identical(other.isDisableAutoplayOnCellularEnabled, isDisableAutoplayOnCellularEnabled) || other.isDisableAutoplayOnCellularEnabled == isDisableAutoplayOnCellularEnabled) &&
+            (identical(other.isAutoQueueEnabled, isAutoQueueEnabled) || other.isAutoQueueEnabled == isAutoQueueEnabled) &&
+            (identical(other.isBufferPreloadEnabled, isBufferPreloadEnabled) || other.isBufferPreloadEnabled == isBufferPreloadEnabled) &&
+            (identical(other.isAutoQualityAdjustEnabled, isAutoQualityAdjustEnabled) || other.isAutoQualityAdjustEnabled == isAutoQualityAdjustEnabled) &&
+            (identical(other.isBackgroundPlaybackEnabled, isBackgroundPlaybackEnabled) || other.isBackgroundPlaybackEnabled == isBackgroundPlaybackEnabled) &&
+            (identical(other.isNotificationControlsEnabled, isNotificationControlsEnabled) || other.isNotificationControlsEnabled == isNotificationControlsEnabled) &&
+            (identical(other.isDataSaverEnabled, isDataSaverEnabled) || other.isDataSaverEnabled == isDataSaverEnabled) &&
+            (identical(other.isHideWatchedVideosEnabled, isHideWatchedVideosEnabled) || other.isHideWatchedVideosEnabled == isHideWatchedVideosEnabled) &&
+            (identical(other.mobileDataQuality, mobileDataQuality) || other.mobileDataQuality == mobileDataQuality) &&
+            (identical(other.isDownloadQueueItemsEnabled, isDownloadQueueItemsEnabled) || other.isDownloadQueueItemsEnabled == isDownloadQueueItemsEnabled) &&
+            (identical(other.isRichCaptionRenderingEnabled, isRichCaptionRenderingEnabled) || other.isRichCaptionRenderingEnabled == isRichCaptionRenderingEnabled) &&
+            (identical(other.isBilibiliEnabled, isBilibiliEnabled) || other.isBilibiliEnabled == isBilibiliEnabled) &&
+            (identical(other.isSwipeLeftToRight, isSwipeLeftToRight) || other.isSwipeLeftToRight == isSwipeLeftToRight) &&
+            (identical(other.isMiniPlayerAutoExpandEnabled, isMiniPlayerAutoExpandEnabled) || other.isMiniPlayerAutoExpandEnabled == isMiniPlayerAutoExpandEnabled) &&
+            (identical(other.isMiniPlayerTapToExpandEnabled, isMiniPlayerTapToExpandEnabled) || other.isMiniPlayerTapToExpandEnabled == isMiniPlayerTapToExpandEnabled) &&
+            (identical(other.isMiniPlayerDoubleTapToExpandEnabled, isMiniPlayerDoubleTapToExpandEnabled) || other.isMiniPlayerDoubleTapToExpandEnabled == isMiniPlayerDoubleTapToExpandEnabled) &&
+            (identical(other.restrictedModeFilterLevel, restrictedModeFilterLevel) || other.restrictedModeFilterLevel == restrictedModeFilterLevel) &&
+            (identical(other.downloadAutoDeleteDays, downloadAutoDeleteDays) || other.downloadAutoDeleteDays == downloadAutoDeleteDays) &&
+            const DeepCollectionEquality().equals(other.contentFilterKeywords, contentFilterKeywords) &&
+            const DeepCollectionEquality().equals(other.contentFilterBlockedChannels, contentFilterBlockedChannels) &&
+            (identical(other.contentFilterHideShorts, contentFilterHideShorts) || other.contentFilterHideShorts == contentFilterHideShorts) &&
+            (identical(other.contentFilterHidePaid, contentFilterHidePaid) || other.contentFilterHidePaid == contentFilterHidePaid));
+  }
+
+  @override
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        defaultLanguage,
+        defaultQuality,
+        defaultRegion,
+        themeMode,
+        version,
+        isHistoryVisible,
+        isDislikeVisible,
+        isHlsPlayer,
+        isHideComments,
+        isHideRelated,
+        const DeepCollectionEquality().hash(pipedInstances),
+        pipedInstanceStatus,
+        instance,
+        const DeepCollectionEquality().hash(invidiousInstances),
+        invidiousInstanceStatus,
+        ytService,
+        initialized,
+        settingsStatus,
+        isPipDisabled,
+        connectingToInstance,
+        isTestingConnection,
+        userInstanceFailed,
+        failedInstanceName,
+        searchFilter,
+        videoFitMode,
+        skipInterval,
+        isSponsorBlockEnabled,
+        const DeepCollectionEquality().hash(sponsorBlockCategories),
+        openLinksInBrowser,
+        homeFeedMode,
+        isAudioFocusEnabled,
+        currentProfile,
+        const DeepCollectionEquality().hash(profiles),
+        subtitleSize,
+        lastExportedFilePath,
+        isSearchHistoryEnabled,
+        isSearchHistoryVisible,
+        isAutoPipEnabled,
+        sleepTimerConfig,
+        isSwipeGesturesEnabled,
+        isDeArrowEnabled,
+        isBookmarksEnabled,
+        const DeepCollectionEquality().hash(bookmarkedPlaylists),
+        isRestrictedModeEnabled,
+        isMiniPlayerEnabled,
+        downloadQuality,
+        isDownloadSubtitlesEnabled,
+        isDownloadOverWifiOnlyEnabled,
+        isDownloadAutoDeleteEnabled,
+        playbackSpeed,
+        isAutoplayNextVideoEnabled,
+        isShowRelatedInQueueEnabled,
+        queueDismissTime,
+        autoplayCountdown,
+        isDisableAutoplayOnCellularEnabled,
+        isAutoQueueEnabled,
+        isBufferPreloadEnabled,
+        isAutoQualityAdjustEnabled,
+        isBackgroundPlaybackEnabled,
+        isNotificationControlsEnabled,
+        isDataSaverEnabled,
+        isHideWatchedVideosEnabled,
+        mobileDataQuality,
+        isDownloadQueueItemsEnabled,
+        isRichCaptionRenderingEnabled,
+        isBilibiliEnabled,
+        isSwipeLeftToRight,
+        isMiniPlayerAutoExpandEnabled,
+        isMiniPlayerTapToExpandEnabled,
+        isMiniPlayerDoubleTapToExpandEnabled,
+        restrictedModeFilterLevel,
+        downloadAutoDeleteDays,
+        const DeepCollectionEquality().hash(contentFilterKeywords),
+        const DeepCollectionEquality().hash(contentFilterBlockedChannels),
+        contentFilterHideShorts,
+        contentFilterHidePaid
+      ]);
+
+  @override
+  String toString() {
+    return 'SettingsState(defaultLanguage: $defaultLanguage, defaultQuality: $defaultQuality, defaultRegion: $defaultRegion, themeMode: $themeMode, version: $version, isHistoryVisible: $isHistoryVisible, isDislikeVisible: $isDislikeVisible, isHlsPlayer: $isHlsPlayer, isHideComments: $isHideComments, isHideRelated: $isHideRelated, pipedInstances: $pipedInstances, pipedInstanceStatus: $pipedInstanceStatus, instance: $instance, invidiousInstances: $invidiousInstances, invidiousInstanceStatus: $invidiousInstanceStatus, ytService: $ytService, initialized: $initialized, settingsStatus: $settingsStatus, isPipDisabled: $isPipDisabled, connectingToInstance: $connectingToInstance, isTestingConnection: $isTestingConnection, userInstanceFailed: $userInstanceFailed, failedInstanceName: $failedInstanceName, searchFilter: $searchFilter, videoFitMode: $videoFitMode, skipInterval: $skipInterval, isSponsorBlockEnabled: $isSponsorBlockEnabled, sponsorBlockCategories: $sponsorBlockCategories, openLinksInBrowser: $openLinksInBrowser, homeFeedMode: $homeFeedMode, isAudioFocusEnabled: $isAudioFocusEnabled, currentProfile: $currentProfile, profiles: $profiles, subtitleSize: $subtitleSize, lastExportedFilePath: $lastExportedFilePath, isSearchHistoryEnabled: $isSearchHistoryEnabled, isSearchHistoryVisible: $isSearchHistoryVisible, isAutoPipEnabled: $isAutoPipEnabled, sleepTimerConfig: $sleepTimerConfig, isSwipeGesturesEnabled: $isSwipeGesturesEnabled, isDeArrowEnabled: $isDeArrowEnabled, isBookmarksEnabled: $isBookmarksEnabled, bookmarkedPlaylists: $bookmarkedPlaylists, isRestrictedModeEnabled: $isRestrictedModeEnabled, isMiniPlayerEnabled: $isMiniPlayerEnabled, downloadQuality: $downloadQuality, isDownloadSubtitlesEnabled: $isDownloadSubtitlesEnabled, isDownloadOverWifiOnlyEnabled: $isDownloadOverWifiOnlyEnabled, isDownloadAutoDeleteEnabled: $isDownloadAutoDeleteEnabled, playbackSpeed: $playbackSpeed, isAutoplayNextVideoEnabled: $isAutoplayNextVideoEnabled, isShowRelatedInQueueEnabled: $isShowRelatedInQueueEnabled, queueDismissTime: $queueDismissTime, autoplayCountdown: $autoplayCountdown, isDisableAutoplayOnCellularEnabled: $isDisableAutoplayOnCellularEnabled, isAutoQueueEnabled: $isAutoQueueEnabled, isBufferPreloadEnabled: $isBufferPreloadEnabled, isAutoQualityAdjustEnabled: $isAutoQualityAdjustEnabled, isBackgroundPlaybackEnabled: $isBackgroundPlaybackEnabled, isNotificationControlsEnabled: $isNotificationControlsEnabled, isDataSaverEnabled: $isDataSaverEnabled, isHideWatchedVideosEnabled: $isHideWatchedVideosEnabled, mobileDataQuality: $mobileDataQuality, isDownloadQueueItemsEnabled: $isDownloadQueueItemsEnabled, isRichCaptionRenderingEnabled: $isRichCaptionRenderingEnabled, isBilibiliEnabled: $isBilibiliEnabled, isSwipeLeftToRight: $isSwipeLeftToRight, isMiniPlayerAutoExpandEnabled: $isMiniPlayerAutoExpandEnabled, isMiniPlayerTapToExpandEnabled: $isMiniPlayerTapToExpandEnabled, isMiniPlayerDoubleTapToExpandEnabled: $isMiniPlayerDoubleTapToExpandEnabled, restrictedModeFilterLevel: $restrictedModeFilterLevel, downloadAutoDeleteDays: $downloadAutoDeleteDays, contentFilterKeywords: $contentFilterKeywords, contentFilterBlockedChannels: $contentFilterBlockedChannels, contentFilterHideShorts: $contentFilterHideShorts, contentFilterHidePaid: $contentFilterHidePaid)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $SettingsStateCopyWith<$Res> {
+  factory $SettingsStateCopyWith(
+          SettingsState value, $Res Function(SettingsState) _then) =
+      _$SettingsStateCopyWithImpl;
+  @useResult
+  $Res call(
+      {String defaultLanguage,
+      String defaultQuality,
+      String defaultRegion,
+      String themeMode,
+      String? version,
+      bool isHistoryVisible,
+      bool isDislikeVisible,
+      bool isHlsPlayer,
+      bool isHideComments,
+      bool isHideRelated,
+      List<Instance> pipedInstances,
+      ApiStatus pipedInstanceStatus,
+      String instance,
+      List<Instance> invidiousInstances,
+      ApiStatus invidiousInstanceStatus,
+      String ytService,
+      bool initialized,
+      ApiStatus settingsStatus,
+      bool isPipDisabled,
+      String? connectingToInstance,
+      bool isTestingConnection,
+      bool userInstanceFailed,
+      String? failedInstanceName,
+      String searchFilter,
+      String videoFitMode,
+      int skipInterval,
+      bool isSponsorBlockEnabled,
+      List<String> sponsorBlockCategories,
+      bool openLinksInBrowser,
+      String homeFeedMode,
+      bool isAudioFocusEnabled,
+      String currentProfile,
+      List<String> profiles,
+      double subtitleSize,
+      String? lastExportedFilePath,
+      bool isSearchHistoryEnabled,
+      bool isSearchHistoryVisible,
+      bool isAutoPipEnabled,
+      SleepTimerConfig? sleepTimerConfig,
+      bool? isSwipeGesturesEnabled,
+      bool? isDeArrowEnabled,
+      bool? isBookmarksEnabled,
+      List<String>? bookmarkedPlaylists,
+      bool? isRestrictedModeEnabled,
+      bool? isMiniPlayerEnabled,
+      String? downloadQuality,
+      bool? isDownloadSubtitlesEnabled,
+      bool? isDownloadOverWifiOnlyEnabled,
+      bool? isDownloadAutoDeleteEnabled,
+      double? playbackSpeed,
+      bool? isAutoplayNextVideoEnabled,
+      bool? isShowRelatedInQueueEnabled,
+      int? queueDismissTime,
+      int? autoplayCountdown,
+      bool? isDisableAutoplayOnCellularEnabled,
+      bool? isAutoQueueEnabled,
+      bool? isBufferPreloadEnabled,
+      bool? isAutoQualityAdjustEnabled,
+      bool? isBackgroundPlaybackEnabled,
+      bool? isNotificationControlsEnabled,
+      bool? isDataSaverEnabled,
+      bool? isHideWatchedVideosEnabled,
+      int? mobileDataQuality,
+      bool? isDownloadQueueItemsEnabled,
+      bool? isRichCaptionRenderingEnabled,
+      bool? isBilibiliEnabled,
+      bool? isSwipeLeftToRight,
+      bool? isMiniPlayerAutoExpandEnabled,
+      bool? isMiniPlayerTapToExpandEnabled,
+      bool? isMiniPlayerDoubleTapToExpandEnabled,
+      RestrictedModeFilterLevel? restrictedModeFilterLevel,
+      int? downloadAutoDeleteDays,
+      List<String>? contentFilterKeywords,
+      List<String>? contentFilterBlockedChannels,
+      bool? contentFilterHideShorts,
+      bool? contentFilterHidePaid});
+}
+
+/// @nodoc
+class _$SettingsStateCopyWithImpl<$Res>
+    implements $SettingsStateCopyWith<$Res> {
+  _$SettingsStateCopyWithImpl(this._self, this._then);
+
+  final SettingsState _self;
+  final $Res Function(SettingsState) _then;
+
+  /// Create a copy of SettingsState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? defaultLanguage = null,
+    Object? defaultQuality = null,
+    Object? defaultRegion = null,
+    Object? themeMode = null,
+    Object? version = freezed,
+    Object? isHistoryVisible = null,
+    Object? isDislikeVisible = null,
+    Object? isHlsPlayer = null,
+    Object? isHideComments = null,
+    Object? isHideRelated = null,
+    Object? pipedInstances = null,
+    Object? pipedInstanceStatus = null,
+    Object? instance = null,
+    Object? invidiousInstances = null,
+    Object? invidiousInstanceStatus = null,
+    Object? ytService = null,
+    Object? initialized = null,
+    Object? settingsStatus = null,
+    Object? isPipDisabled = null,
+    Object? connectingToInstance = freezed,
+    Object? isTestingConnection = null,
+    Object? userInstanceFailed = null,
+    Object? failedInstanceName = freezed,
+    Object? searchFilter = null,
+    Object? videoFitMode = null,
+    Object? skipInterval = null,
+    Object? isSponsorBlockEnabled = null,
+    Object? sponsorBlockCategories = null,
+    Object? openLinksInBrowser = null,
+    Object? homeFeedMode = null,
+    Object? isAudioFocusEnabled = null,
+    Object? currentProfile = null,
+    Object? profiles = null,
+    Object? subtitleSize = null,
+    Object? lastExportedFilePath = freezed,
+    Object? isSearchHistoryEnabled = null,
+    Object? isSearchHistoryVisible = null,
+    Object? isAutoPipEnabled = null,
+    Object? sleepTimerConfig = freezed,
+    Object? isSwipeGesturesEnabled = freezed,
+    Object? isDeArrowEnabled = freezed,
+    Object? isBookmarksEnabled = freezed,
+    Object? bookmarkedPlaylists = freezed,
+    Object? isRestrictedModeEnabled = freezed,
+    Object? isMiniPlayerEnabled = freezed,
+    Object? downloadQuality = freezed,
+    Object? isDownloadSubtitlesEnabled = freezed,
+    Object? isDownloadOverWifiOnlyEnabled = freezed,
+    Object? isDownloadAutoDeleteEnabled = freezed,
+    Object? playbackSpeed = freezed,
+    Object? isAutoplayNextVideoEnabled = freezed,
+    Object? isShowRelatedInQueueEnabled = freezed,
+    Object? queueDismissTime = freezed,
+    Object? autoplayCountdown = freezed,
+    Object? isDisableAutoplayOnCellularEnabled = freezed,
+    Object? isAutoQueueEnabled = freezed,
+    Object? isBufferPreloadEnabled = freezed,
+    Object? isAutoQualityAdjustEnabled = freezed,
+    Object? isBackgroundPlaybackEnabled = freezed,
+    Object? isNotificationControlsEnabled = freezed,
+    Object? isDataSaverEnabled = freezed,
+    Object? isHideWatchedVideosEnabled = freezed,
+    Object? mobileDataQuality = freezed,
+    Object? isDownloadQueueItemsEnabled = freezed,
+    Object? isRichCaptionRenderingEnabled = freezed,
+    Object? isBilibiliEnabled = freezed,
+    Object? isSwipeLeftToRight = freezed,
+    Object? isMiniPlayerAutoExpandEnabled = freezed,
+    Object? isMiniPlayerTapToExpandEnabled = freezed,
+    Object? isMiniPlayerDoubleTapToExpandEnabled = freezed,
+    Object? restrictedModeFilterLevel = freezed,
+    Object? downloadAutoDeleteDays = freezed,
+    Object? contentFilterKeywords = freezed,
+    Object? contentFilterBlockedChannels = freezed,
+    Object? contentFilterHideShorts = freezed,
+    Object? contentFilterHidePaid = freezed,
+  }) {
+    return _then(_self.copyWith(
+      defaultLanguage: null == defaultLanguage
+          ? _self.defaultLanguage
+          : defaultLanguage // ignore: cast_nullable_to_non_nullable
+              as String,
+      defaultQuality: null == defaultQuality
+          ? _self.defaultQuality
+          : defaultQuality // ignore: cast_nullable_to_non_nullable
+              as String,
+      defaultRegion: null == defaultRegion
+          ? _self.defaultRegion
+          : defaultRegion // ignore: cast_nullable_to_non_nullable
+              as String,
+      themeMode: null == themeMode
+          ? _self.themeMode
+          : themeMode // ignore: cast_nullable_to_non_nullable
+              as String,
+      version: freezed == version
+          ? _self.version
+          : version // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isHistoryVisible: null == isHistoryVisible
+          ? _self.isHistoryVisible
+          : isHistoryVisible // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isDislikeVisible: null == isDislikeVisible
+          ? _self.isDislikeVisible
+          : isDislikeVisible // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isHlsPlayer: null == isHlsPlayer
+          ? _self.isHlsPlayer
+          : isHlsPlayer // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isHideComments: null == isHideComments
+          ? _self.isHideComments
+          : isHideComments // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isHideRelated: null == isHideRelated
+          ? _self.isHideRelated
+          : isHideRelated // ignore: cast_nullable_to_non_nullable
+              as bool,
+      pipedInstances: null == pipedInstances
+          ? _self.pipedInstances
+          : pipedInstances // ignore: cast_nullable_to_non_nullable
+              as List<Instance>,
+      pipedInstanceStatus: null == pipedInstanceStatus
+          ? _self.pipedInstanceStatus
+          : pipedInstanceStatus // ignore: cast_nullable_to_non_nullable
+              as ApiStatus,
+      instance: null == instance
+          ? _self.instance
+          : instance // ignore: cast_nullable_to_non_nullable
+              as String,
+      invidiousInstances: null == invidiousInstances
+          ? _self.invidiousInstances
+          : invidiousInstances // ignore: cast_nullable_to_non_nullable
+              as List<Instance>,
+      invidiousInstanceStatus: null == invidiousInstanceStatus
+          ? _self.invidiousInstanceStatus
+          : invidiousInstanceStatus // ignore: cast_nullable_to_non_nullable
+              as ApiStatus,
+      ytService: null == ytService
+          ? _self.ytService
+          : ytService // ignore: cast_nullable_to_non_nullable
+              as String,
+      initialized: null == initialized
+          ? _self.initialized
+          : initialized // ignore: cast_nullable_to_non_nullable
+              as bool,
+      settingsStatus: null == settingsStatus
+          ? _self.settingsStatus
+          : settingsStatus // ignore: cast_nullable_to_non_nullable
+              as ApiStatus,
+      isPipDisabled: null == isPipDisabled
+          ? _self.isPipDisabled
+          : isPipDisabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+      connectingToInstance: freezed == connectingToInstance
+          ? _self.connectingToInstance
+          : connectingToInstance // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isTestingConnection: null == isTestingConnection
+          ? _self.isTestingConnection
+          : isTestingConnection // ignore: cast_nullable_to_non_nullable
+              as bool,
+      userInstanceFailed: null == userInstanceFailed
+          ? _self.userInstanceFailed
+          : userInstanceFailed // ignore: cast_nullable_to_non_nullable
+              as bool,
+      failedInstanceName: freezed == failedInstanceName
+          ? _self.failedInstanceName
+          : failedInstanceName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      searchFilter: null == searchFilter
+          ? _self.searchFilter
+          : searchFilter // ignore: cast_nullable_to_non_nullable
+              as String,
+      videoFitMode: null == videoFitMode
+          ? _self.videoFitMode
+          : videoFitMode // ignore: cast_nullable_to_non_nullable
+              as String,
+      skipInterval: null == skipInterval
+          ? _self.skipInterval
+          : skipInterval // ignore: cast_nullable_to_non_nullable
+              as int,
+      isSponsorBlockEnabled: null == isSponsorBlockEnabled
+          ? _self.isSponsorBlockEnabled
+          : isSponsorBlockEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+      sponsorBlockCategories: null == sponsorBlockCategories
+          ? _self.sponsorBlockCategories
+          : sponsorBlockCategories // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      openLinksInBrowser: null == openLinksInBrowser
+          ? _self.openLinksInBrowser
+          : openLinksInBrowser // ignore: cast_nullable_to_non_nullable
+              as bool,
+      homeFeedMode: null == homeFeedMode
+          ? _self.homeFeedMode
+          : homeFeedMode // ignore: cast_nullable_to_non_nullable
+              as String,
+      isAudioFocusEnabled: null == isAudioFocusEnabled
+          ? _self.isAudioFocusEnabled
+          : isAudioFocusEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+      currentProfile: null == currentProfile
+          ? _self.currentProfile
+          : currentProfile // ignore: cast_nullable_to_non_nullable
+              as String,
+      profiles: null == profiles
+          ? _self.profiles
+          : profiles // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      subtitleSize: null == subtitleSize
+          ? _self.subtitleSize
+          : subtitleSize // ignore: cast_nullable_to_non_nullable
+              as double,
+      lastExportedFilePath: freezed == lastExportedFilePath
+          ? _self.lastExportedFilePath
+          : lastExportedFilePath // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isSearchHistoryEnabled: null == isSearchHistoryEnabled
+          ? _self.isSearchHistoryEnabled
+          : isSearchHistoryEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSearchHistoryVisible: null == isSearchHistoryVisible
+          ? _self.isSearchHistoryVisible
+          : isSearchHistoryVisible // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isAutoPipEnabled: null == isAutoPipEnabled
+          ? _self.isAutoPipEnabled
+          : isAutoPipEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+      sleepTimerConfig: freezed == sleepTimerConfig
+          ? _self.sleepTimerConfig
+          : sleepTimerConfig // ignore: cast_nullable_to_non_nullable
+              as SleepTimerConfig?,
+      isSwipeGesturesEnabled: freezed == isSwipeGesturesEnabled
+          ? _self.isSwipeGesturesEnabled
+          : isSwipeGesturesEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isDeArrowEnabled: freezed == isDeArrowEnabled
+          ? _self.isDeArrowEnabled
+          : isDeArrowEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isBookmarksEnabled: freezed == isBookmarksEnabled
+          ? _self.isBookmarksEnabled
+          : isBookmarksEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      bookmarkedPlaylists: freezed == bookmarkedPlaylists
+          ? _self.bookmarkedPlaylists
+          : bookmarkedPlaylists // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      isRestrictedModeEnabled: freezed == isRestrictedModeEnabled
+          ? _self.isRestrictedModeEnabled
+          : isRestrictedModeEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isMiniPlayerEnabled: freezed == isMiniPlayerEnabled
+          ? _self.isMiniPlayerEnabled
+          : isMiniPlayerEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      downloadQuality: freezed == downloadQuality
+          ? _self.downloadQuality
+          : downloadQuality // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isDownloadSubtitlesEnabled: freezed == isDownloadSubtitlesEnabled
+          ? _self.isDownloadSubtitlesEnabled
+          : isDownloadSubtitlesEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isDownloadOverWifiOnlyEnabled: freezed == isDownloadOverWifiOnlyEnabled
+          ? _self.isDownloadOverWifiOnlyEnabled
+          : isDownloadOverWifiOnlyEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isDownloadAutoDeleteEnabled: freezed == isDownloadAutoDeleteEnabled
+          ? _self.isDownloadAutoDeleteEnabled
+          : isDownloadAutoDeleteEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      playbackSpeed: freezed == playbackSpeed
+          ? _self.playbackSpeed
+          : playbackSpeed // ignore: cast_nullable_to_non_nullable
+              as double?,
+      isAutoplayNextVideoEnabled: freezed == isAutoplayNextVideoEnabled
+          ? _self.isAutoplayNextVideoEnabled
+          : isAutoplayNextVideoEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isShowRelatedInQueueEnabled: freezed == isShowRelatedInQueueEnabled
+          ? _self.isShowRelatedInQueueEnabled
+          : isShowRelatedInQueueEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      queueDismissTime: freezed == queueDismissTime
+          ? _self.queueDismissTime
+          : queueDismissTime // ignore: cast_nullable_to_non_nullable
+              as int?,
+      autoplayCountdown: freezed == autoplayCountdown
+          ? _self.autoplayCountdown
+          : autoplayCountdown // ignore: cast_nullable_to_non_nullable
+              as int?,
+      isDisableAutoplayOnCellularEnabled: freezed ==
+              isDisableAutoplayOnCellularEnabled
+          ? _self.isDisableAutoplayOnCellularEnabled
+          : isDisableAutoplayOnCellularEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isAutoQueueEnabled: freezed == isAutoQueueEnabled
+          ? _self.isAutoQueueEnabled
+          : isAutoQueueEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isBufferPreloadEnabled: freezed == isBufferPreloadEnabled
+          ? _self.isBufferPreloadEnabled
+          : isBufferPreloadEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isAutoQualityAdjustEnabled: freezed == isAutoQualityAdjustEnabled
+          ? _self.isAutoQualityAdjustEnabled
+          : isAutoQualityAdjustEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isBackgroundPlaybackEnabled: freezed == isBackgroundPlaybackEnabled
+          ? _self.isBackgroundPlaybackEnabled
+          : isBackgroundPlaybackEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isNotificationControlsEnabled: freezed == isNotificationControlsEnabled
+          ? _self.isNotificationControlsEnabled
+          : isNotificationControlsEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isDataSaverEnabled: freezed == isDataSaverEnabled
+          ? _self.isDataSaverEnabled
+          : isDataSaverEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isHideWatchedVideosEnabled: freezed == isHideWatchedVideosEnabled
+          ? _self.isHideWatchedVideosEnabled
+          : isHideWatchedVideosEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      mobileDataQuality: freezed == mobileDataQuality
+          ? _self.mobileDataQuality
+          : mobileDataQuality // ignore: cast_nullable_to_non_nullable
+              as int?,
+      isDownloadQueueItemsEnabled: freezed == isDownloadQueueItemsEnabled
+          ? _self.isDownloadQueueItemsEnabled
+          : isDownloadQueueItemsEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isRichCaptionRenderingEnabled: freezed == isRichCaptionRenderingEnabled
+          ? _self.isRichCaptionRenderingEnabled
+          : isRichCaptionRenderingEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isBilibiliEnabled: freezed == isBilibiliEnabled
+          ? _self.isBilibiliEnabled
+          : isBilibiliEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isSwipeLeftToRight: freezed == isSwipeLeftToRight
+          ? _self.isSwipeLeftToRight
+          : isSwipeLeftToRight // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isMiniPlayerAutoExpandEnabled: freezed == isMiniPlayerAutoExpandEnabled
+          ? _self.isMiniPlayerAutoExpandEnabled
+          : isMiniPlayerAutoExpandEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isMiniPlayerTapToExpandEnabled: freezed == isMiniPlayerTapToExpandEnabled
+          ? _self.isMiniPlayerTapToExpandEnabled
+          : isMiniPlayerTapToExpandEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isMiniPlayerDoubleTapToExpandEnabled: freezed ==
+              isMiniPlayerDoubleTapToExpandEnabled
+          ? _self.isMiniPlayerDoubleTapToExpandEnabled
+          : isMiniPlayerDoubleTapToExpandEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      restrictedModeFilterLevel: freezed == restrictedModeFilterLevel
+          ? _self.restrictedModeFilterLevel
+          : restrictedModeFilterLevel // ignore: cast_nullable_to_non_nullable
+              as RestrictedModeFilterLevel?,
+      downloadAutoDeleteDays: freezed == downloadAutoDeleteDays
+          ? _self.downloadAutoDeleteDays
+          : downloadAutoDeleteDays // ignore: cast_nullable_to_non_nullable
+              as int?,
+      contentFilterKeywords: freezed == contentFilterKeywords
+          ? _self.contentFilterKeywords
+          : contentFilterKeywords // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      contentFilterBlockedChannels: freezed == contentFilterBlockedChannels
+          ? _self.contentFilterBlockedChannels
+          : contentFilterBlockedChannels // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      contentFilterHideShorts: freezed == contentFilterHideShorts
+          ? _self.contentFilterHideShorts
+          : contentFilterHideShorts // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      contentFilterHidePaid: freezed == contentFilterHidePaid
+          ? _self.contentFilterHidePaid
+          : contentFilterHidePaid // ignore: cast_nullable_to_non_nullable
+              as bool?,
+    ));
+  }
+}
+
+/// Adds pattern-matching-related methods to [SettingsState].
+extension SettingsStatePatterns on SettingsState {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_Initial value)? $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Initial() when $default != null:
+        return $default(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_Initial value) $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Initial():
+        return $default(_that);
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_Initial value)? $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Initial() when $default != null:
+        return $default(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            String defaultLanguage,
+            String defaultQuality,
+            String defaultRegion,
+            String themeMode,
+            String? version,
+            bool isHistoryVisible,
+            bool isDislikeVisible,
+            bool isHlsPlayer,
+            bool isHideComments,
+            bool isHideRelated,
+            List<Instance> pipedInstances,
+            ApiStatus pipedInstanceStatus,
+            String instance,
+            List<Instance> invidiousInstances,
+            ApiStatus invidiousInstanceStatus,
+            String ytService,
+            bool initialized,
+            ApiStatus settingsStatus,
+            bool isPipDisabled,
+            String? connectingToInstance,
+            bool isTestingConnection,
+            bool userInstanceFailed,
+            String? failedInstanceName,
+            String searchFilter,
+            String videoFitMode,
+            int skipInterval,
+            bool isSponsorBlockEnabled,
+            List<String> sponsorBlockCategories,
+            bool openLinksInBrowser,
+            String homeFeedMode,
+            bool isAudioFocusEnabled,
+            String currentProfile,
+            List<String> profiles,
+            double subtitleSize,
+            String? lastExportedFilePath,
+            bool isSearchHistoryEnabled,
+            bool isSearchHistoryVisible,
+            bool isAutoPipEnabled,
+            SleepTimerConfig? sleepTimerConfig,
+            bool? isSwipeGesturesEnabled,
+            bool? isDeArrowEnabled,
+            bool? isBookmarksEnabled,
+            List<String>? bookmarkedPlaylists,
+            bool? isRestrictedModeEnabled,
+            bool? isMiniPlayerEnabled,
+            String? downloadQuality,
+            bool? isDownloadSubtitlesEnabled,
+            bool? isDownloadOverWifiOnlyEnabled,
+            bool? isDownloadAutoDeleteEnabled,
+            double? playbackSpeed,
+            bool? isAutoplayNextVideoEnabled,
+            bool? isShowRelatedInQueueEnabled,
+            int? queueDismissTime,
+            int? autoplayCountdown,
+            bool? isDisableAutoplayOnCellularEnabled,
+            bool? isAutoQueueEnabled,
+            bool? isBufferPreloadEnabled,
+            bool? isAutoQualityAdjustEnabled,
+            bool? isBackgroundPlaybackEnabled,
+            bool? isNotificationControlsEnabled,
+            bool? isDataSaverEnabled,
+            bool? isHideWatchedVideosEnabled,
+            int? mobileDataQuality,
+            bool? isDownloadQueueItemsEnabled,
+            bool? isRichCaptionRenderingEnabled,
+            bool? isBilibiliEnabled,
+            bool? isSwipeLeftToRight,
+            bool? isMiniPlayerAutoExpandEnabled,
+            bool? isMiniPlayerTapToExpandEnabled,
+            bool? isMiniPlayerDoubleTapToExpandEnabled,
+            RestrictedModeFilterLevel? restrictedModeFilterLevel,
+            int? downloadAutoDeleteDays,
+            List<String>? contentFilterKeywords,
+            List<String>? contentFilterBlockedChannels,
+            bool? contentFilterHideShorts,
+            bool? contentFilterHidePaid)?
+        $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Initial() when $default != null:
+        return $default(
+            _that.defaultLanguage,
+            _that.defaultQuality,
+            _that.defaultRegion,
+            _that.themeMode,
+            _that.version,
+            _that.isHistoryVisible,
+            _that.isDislikeVisible,
+            _that.isHlsPlayer,
+            _that.isHideComments,
+            _that.isHideRelated,
+            _that.pipedInstances,
+            _that.pipedInstanceStatus,
+            _that.instance,
+            _that.invidiousInstances,
+            _that.invidiousInstanceStatus,
+            _that.ytService,
+            _that.initialized,
+            _that.settingsStatus,
+            _that.isPipDisabled,
+            _that.connectingToInstance,
+            _that.isTestingConnection,
+            _that.userInstanceFailed,
+            _that.failedInstanceName,
+            _that.searchFilter,
+            _that.videoFitMode,
+            _that.skipInterval,
+            _that.isSponsorBlockEnabled,
+            _that.sponsorBlockCategories,
+            _that.openLinksInBrowser,
+            _that.homeFeedMode,
+            _that.isAudioFocusEnabled,
+            _that.currentProfile,
+            _that.profiles,
+            _that.subtitleSize,
+            _that.lastExportedFilePath,
+            _that.isSearchHistoryEnabled,
+            _that.isSearchHistoryVisible,
+            _that.isAutoPipEnabled,
+            _that.sleepTimerConfig,
+            _that.isSwipeGesturesEnabled,
+            _that.isDeArrowEnabled,
+            _that.isBookmarksEnabled,
+            _that.bookmarkedPlaylists,
+            _that.isRestrictedModeEnabled,
+            _that.isMiniPlayerEnabled,
+            _that.downloadQuality,
+            _that.isDownloadSubtitlesEnabled,
+            _that.isDownloadOverWifiOnlyEnabled,
+            _that.isDownloadAutoDeleteEnabled,
+            _that.playbackSpeed,
+            _that.isAutoplayNextVideoEnabled,
+            _that.isShowRelatedInQueueEnabled,
+            _that.queueDismissTime,
+            _that.autoplayCountdown,
+            _that.isDisableAutoplayOnCellularEnabled,
+            _that.isAutoQueueEnabled,
+            _that.isBufferPreloadEnabled,
+            _that.isAutoQualityAdjustEnabled,
+            _that.isBackgroundPlaybackEnabled,
+            _that.isNotificationControlsEnabled,
+            _that.isDataSaverEnabled,
+            _that.isHideWatchedVideosEnabled,
+            _that.mobileDataQuality,
+            _that.isDownloadQueueItemsEnabled,
+            _that.isRichCaptionRenderingEnabled,
+            _that.isBilibiliEnabled,
+            _that.isSwipeLeftToRight,
+            _that.isMiniPlayerAutoExpandEnabled,
+            _that.isMiniPlayerTapToExpandEnabled,
+            _that.isMiniPlayerDoubleTapToExpandEnabled,
+            _that.restrictedModeFilterLevel,
+            _that.downloadAutoDeleteDays,
+            _that.contentFilterKeywords,
+            _that.contentFilterBlockedChannels,
+            _that.contentFilterHideShorts,
+            _that.contentFilterHidePaid);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            String defaultLanguage,
+            String defaultQuality,
+            String defaultRegion,
+            String themeMode,
+            String? version,
+            bool isHistoryVisible,
+            bool isDislikeVisible,
+            bool isHlsPlayer,
+            bool isHideComments,
+            bool isHideRelated,
+            List<Instance> pipedInstances,
+            ApiStatus pipedInstanceStatus,
+            String instance,
+            List<Instance> invidiousInstances,
+            ApiStatus invidiousInstanceStatus,
+            String ytService,
+            bool initialized,
+            ApiStatus settingsStatus,
+            bool isPipDisabled,
+            String? connectingToInstance,
+            bool isTestingConnection,
+            bool userInstanceFailed,
+            String? failedInstanceName,
+            String searchFilter,
+            String videoFitMode,
+            int skipInterval,
+            bool isSponsorBlockEnabled,
+            List<String> sponsorBlockCategories,
+            bool openLinksInBrowser,
+            String homeFeedMode,
+            bool isAudioFocusEnabled,
+            String currentProfile,
+            List<String> profiles,
+            double subtitleSize,
+            String? lastExportedFilePath,
+            bool isSearchHistoryEnabled,
+            bool isSearchHistoryVisible,
+            bool isAutoPipEnabled,
+            SleepTimerConfig? sleepTimerConfig,
+            bool? isSwipeGesturesEnabled,
+            bool? isDeArrowEnabled,
+            bool? isBookmarksEnabled,
+            List<String>? bookmarkedPlaylists,
+            bool? isRestrictedModeEnabled,
+            bool? isMiniPlayerEnabled,
+            String? downloadQuality,
+            bool? isDownloadSubtitlesEnabled,
+            bool? isDownloadOverWifiOnlyEnabled,
+            bool? isDownloadAutoDeleteEnabled,
+            double? playbackSpeed,
+            bool? isAutoplayNextVideoEnabled,
+            bool? isShowRelatedInQueueEnabled,
+            int? queueDismissTime,
+            int? autoplayCountdown,
+            bool? isDisableAutoplayOnCellularEnabled,
+            bool? isAutoQueueEnabled,
+            bool? isBufferPreloadEnabled,
+            bool? isAutoQualityAdjustEnabled,
+            bool? isBackgroundPlaybackEnabled,
+            bool? isNotificationControlsEnabled,
+            bool? isDataSaverEnabled,
+            bool? isHideWatchedVideosEnabled,
+            int? mobileDataQuality,
+            bool? isDownloadQueueItemsEnabled,
+            bool? isRichCaptionRenderingEnabled,
+            bool? isBilibiliEnabled,
+            bool? isSwipeLeftToRight,
+            bool? isMiniPlayerAutoExpandEnabled,
+            bool? isMiniPlayerTapToExpandEnabled,
+            bool? isMiniPlayerDoubleTapToExpandEnabled,
+            RestrictedModeFilterLevel? restrictedModeFilterLevel,
+            int? downloadAutoDeleteDays,
+            List<String>? contentFilterKeywords,
+            List<String>? contentFilterBlockedChannels,
+            bool? contentFilterHideShorts,
+            bool? contentFilterHidePaid)
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Initial():
+        return $default(
+            _that.defaultLanguage,
+            _that.defaultQuality,
+            _that.defaultRegion,
+            _that.themeMode,
+            _that.version,
+            _that.isHistoryVisible,
+            _that.isDislikeVisible,
+            _that.isHlsPlayer,
+            _that.isHideComments,
+            _that.isHideRelated,
+            _that.pipedInstances,
+            _that.pipedInstanceStatus,
+            _that.instance,
+            _that.invidiousInstances,
+            _that.invidiousInstanceStatus,
+            _that.ytService,
+            _that.initialized,
+            _that.settingsStatus,
+            _that.isPipDisabled,
+            _that.connectingToInstance,
+            _that.isTestingConnection,
+            _that.userInstanceFailed,
+            _that.failedInstanceName,
+            _that.searchFilter,
+            _that.videoFitMode,
+            _that.skipInterval,
+            _that.isSponsorBlockEnabled,
+            _that.sponsorBlockCategories,
+            _that.openLinksInBrowser,
+            _that.homeFeedMode,
+            _that.isAudioFocusEnabled,
+            _that.currentProfile,
+            _that.profiles,
+            _that.subtitleSize,
+            _that.lastExportedFilePath,
+            _that.isSearchHistoryEnabled,
+            _that.isSearchHistoryVisible,
+            _that.isAutoPipEnabled,
+            _that.sleepTimerConfig,
+            _that.isSwipeGesturesEnabled,
+            _that.isDeArrowEnabled,
+            _that.isBookmarksEnabled,
+            _that.bookmarkedPlaylists,
+            _that.isRestrictedModeEnabled,
+            _that.isMiniPlayerEnabled,
+            _that.downloadQuality,
+            _that.isDownloadSubtitlesEnabled,
+            _that.isDownloadOverWifiOnlyEnabled,
+            _that.isDownloadAutoDeleteEnabled,
+            _that.playbackSpeed,
+            _that.isAutoplayNextVideoEnabled,
+            _that.isShowRelatedInQueueEnabled,
+            _that.queueDismissTime,
+            _that.autoplayCountdown,
+            _that.isDisableAutoplayOnCellularEnabled,
+            _that.isAutoQueueEnabled,
+            _that.isBufferPreloadEnabled,
+            _that.isAutoQualityAdjustEnabled,
+            _that.isBackgroundPlaybackEnabled,
+            _that.isNotificationControlsEnabled,
+            _that.isDataSaverEnabled,
+            _that.isHideWatchedVideosEnabled,
+            _that.mobileDataQuality,
+            _that.isDownloadQueueItemsEnabled,
+            _that.isRichCaptionRenderingEnabled,
+            _that.isBilibiliEnabled,
+            _that.isSwipeLeftToRight,
+            _that.isMiniPlayerAutoExpandEnabled,
+            _that.isMiniPlayerTapToExpandEnabled,
+            _that.isMiniPlayerDoubleTapToExpandEnabled,
+            _that.restrictedModeFilterLevel,
+            _that.downloadAutoDeleteDays,
+            _that.contentFilterKeywords,
+            _that.contentFilterBlockedChannels,
+            _that.contentFilterHideShorts,
+            _that.contentFilterHidePaid);
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(
+            String defaultLanguage,
+            String defaultQuality,
+            String defaultRegion,
+            String themeMode,
+            String? version,
+            bool isHistoryVisible,
+            bool isDislikeVisible,
+            bool isHlsPlayer,
+            bool isHideComments,
+            bool isHideRelated,
+            List<Instance> pipedInstances,
+            ApiStatus pipedInstanceStatus,
+            String instance,
+            List<Instance> invidiousInstances,
+            ApiStatus invidiousInstanceStatus,
+            String ytService,
+            bool initialized,
+            ApiStatus settingsStatus,
+            bool isPipDisabled,
+            String? connectingToInstance,
+            bool isTestingConnection,
+            bool userInstanceFailed,
+            String? failedInstanceName,
+            String searchFilter,
+            String videoFitMode,
+            int skipInterval,
+            bool isSponsorBlockEnabled,
+            List<String> sponsorBlockCategories,
+            bool openLinksInBrowser,
+            String homeFeedMode,
+            bool isAudioFocusEnabled,
+            String currentProfile,
+            List<String> profiles,
+            double subtitleSize,
+            String? lastExportedFilePath,
+            bool isSearchHistoryEnabled,
+            bool isSearchHistoryVisible,
+            bool isAutoPipEnabled,
+            SleepTimerConfig? sleepTimerConfig,
+            bool? isSwipeGesturesEnabled,
+            bool? isDeArrowEnabled,
+            bool? isBookmarksEnabled,
+            List<String>? bookmarkedPlaylists,
+            bool? isRestrictedModeEnabled,
+            bool? isMiniPlayerEnabled,
+            String? downloadQuality,
+            bool? isDownloadSubtitlesEnabled,
+            bool? isDownloadOverWifiOnlyEnabled,
+            bool? isDownloadAutoDeleteEnabled,
+            double? playbackSpeed,
+            bool? isAutoplayNextVideoEnabled,
+            bool? isShowRelatedInQueueEnabled,
+            int? queueDismissTime,
+            int? autoplayCountdown,
+            bool? isDisableAutoplayOnCellularEnabled,
+            bool? isAutoQueueEnabled,
+            bool? isBufferPreloadEnabled,
+            bool? isAutoQualityAdjustEnabled,
+            bool? isBackgroundPlaybackEnabled,
+            bool? isNotificationControlsEnabled,
+            bool? isDataSaverEnabled,
+            bool? isHideWatchedVideosEnabled,
+            int? mobileDataQuality,
+            bool? isDownloadQueueItemsEnabled,
+            bool? isRichCaptionRenderingEnabled,
+            bool? isBilibiliEnabled,
+            bool? isSwipeLeftToRight,
+            bool? isMiniPlayerAutoExpandEnabled,
+            bool? isMiniPlayerTapToExpandEnabled,
+            bool? isMiniPlayerDoubleTapToExpandEnabled,
+            RestrictedModeFilterLevel? restrictedModeFilterLevel,
+            int? downloadAutoDeleteDays,
+            List<String>? contentFilterKeywords,
+            List<String>? contentFilterBlockedChannels,
+            bool? contentFilterHideShorts,
+            bool? contentFilterHidePaid)?
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Initial() when $default != null:
+        return $default(
+            _that.defaultLanguage,
+            _that.defaultQuality,
+            _that.defaultRegion,
+            _that.themeMode,
+            _that.version,
+            _that.isHistoryVisible,
+            _that.isDislikeVisible,
+            _that.isHlsPlayer,
+            _that.isHideComments,
+            _that.isHideRelated,
+            _that.pipedInstances,
+            _that.pipedInstanceStatus,
+            _that.instance,
+            _that.invidiousInstances,
+            _that.invidiousInstanceStatus,
+            _that.ytService,
+            _that.initialized,
+            _that.settingsStatus,
+            _that.isPipDisabled,
+            _that.connectingToInstance,
+            _that.isTestingConnection,
+            _that.userInstanceFailed,
+            _that.failedInstanceName,
+            _that.searchFilter,
+            _that.videoFitMode,
+            _that.skipInterval,
+            _that.isSponsorBlockEnabled,
+            _that.sponsorBlockCategories,
+            _that.openLinksInBrowser,
+            _that.homeFeedMode,
+            _that.isAudioFocusEnabled,
+            _that.currentProfile,
+            _that.profiles,
+            _that.subtitleSize,
+            _that.lastExportedFilePath,
+            _that.isSearchHistoryEnabled,
+            _that.isSearchHistoryVisible,
+            _that.isAutoPipEnabled,
+            _that.sleepTimerConfig,
+            _that.isSwipeGesturesEnabled,
+            _that.isDeArrowEnabled,
+            _that.isBookmarksEnabled,
+            _that.bookmarkedPlaylists,
+            _that.isRestrictedModeEnabled,
+            _that.isMiniPlayerEnabled,
+            _that.downloadQuality,
+            _that.isDownloadSubtitlesEnabled,
+            _that.isDownloadOverWifiOnlyEnabled,
+            _that.isDownloadAutoDeleteEnabled,
+            _that.playbackSpeed,
+            _that.isAutoplayNextVideoEnabled,
+            _that.isShowRelatedInQueueEnabled,
+            _that.queueDismissTime,
+            _that.autoplayCountdown,
+            _that.isDisableAutoplayOnCellularEnabled,
+            _that.isAutoQueueEnabled,
+            _that.isBufferPreloadEnabled,
+            _that.isAutoQualityAdjustEnabled,
+            _that.isBackgroundPlaybackEnabled,
+            _that.isNotificationControlsEnabled,
+            _that.isDataSaverEnabled,
+            _that.isHideWatchedVideosEnabled,
+            _that.mobileDataQuality,
+            _that.isDownloadQueueItemsEnabled,
+            _that.isRichCaptionRenderingEnabled,
+            _that.isBilibiliEnabled,
+            _that.isSwipeLeftToRight,
+            _that.isMiniPlayerAutoExpandEnabled,
+            _that.isMiniPlayerTapToExpandEnabled,
+            _that.isMiniPlayerDoubleTapToExpandEnabled,
+            _that.restrictedModeFilterLevel,
+            _that.downloadAutoDeleteDays,
+            _that.contentFilterKeywords,
+            _that.contentFilterBlockedChannels,
+            _that.contentFilterHideShorts,
+            _that.contentFilterHidePaid);
+      case _:
+        return null;
+    }
+  }
+}
+
+/// @nodoc
+
+class _Initial extends SettingsState {
+  const _Initial(
       {required this.defaultLanguage,
       required this.defaultQuality,
       required this.defaultRegion,
@@ -12526,11 +7931,53 @@ class _$InitialImpl implements _Initial {
       required this.lastExportedFilePath,
       required this.isSearchHistoryEnabled,
       required this.isSearchHistoryVisible,
-      required this.isAutoPipEnabled})
+      required this.isAutoPipEnabled,
+      this.sleepTimerConfig,
+      this.isSwipeGesturesEnabled,
+      this.isDeArrowEnabled,
+      this.isBookmarksEnabled,
+      final List<String>? bookmarkedPlaylists,
+      this.isRestrictedModeEnabled,
+      this.isMiniPlayerEnabled,
+      this.downloadQuality,
+      this.isDownloadSubtitlesEnabled,
+      this.isDownloadOverWifiOnlyEnabled,
+      this.isDownloadAutoDeleteEnabled,
+      this.playbackSpeed,
+      this.isAutoplayNextVideoEnabled,
+      this.isShowRelatedInQueueEnabled,
+      this.queueDismissTime,
+      this.autoplayCountdown,
+      this.isDisableAutoplayOnCellularEnabled,
+      this.isAutoQueueEnabled,
+      this.isBufferPreloadEnabled,
+      this.isAutoQualityAdjustEnabled,
+      this.isBackgroundPlaybackEnabled,
+      this.isNotificationControlsEnabled,
+      this.isDataSaverEnabled,
+      this.isHideWatchedVideosEnabled,
+      this.mobileDataQuality,
+      this.isDownloadQueueItemsEnabled,
+      this.isRichCaptionRenderingEnabled,
+      this.isBilibiliEnabled,
+      this.isSwipeLeftToRight,
+      this.isMiniPlayerAutoExpandEnabled,
+      this.isMiniPlayerTapToExpandEnabled,
+      this.isMiniPlayerDoubleTapToExpandEnabled,
+      this.restrictedModeFilterLevel,
+      this.downloadAutoDeleteDays,
+      final List<String>? contentFilterKeywords,
+      final List<String>? contentFilterBlockedChannels,
+      this.contentFilterHideShorts,
+      this.contentFilterHidePaid})
       : _pipedInstances = pipedInstances,
         _invidiousInstances = invidiousInstances,
         _sponsorBlockCategories = sponsorBlockCategories,
-        _profiles = profiles;
+        _profiles = profiles,
+        _bookmarkedPlaylists = bookmarkedPlaylists,
+        _contentFilterKeywords = contentFilterKeywords,
+        _contentFilterBlockedChannels = contentFilterBlockedChannels,
+        super._();
 
   @override
   final String defaultLanguage;
@@ -12648,17 +8095,123 @@ class _$InitialImpl implements _Initial {
 // Auto PiP (enter PiP when pressing home button while video is playing)
   @override
   final bool isAutoPipEnabled;
+  @override
+  final SleepTimerConfig? sleepTimerConfig;
+  @override
+  final bool? isSwipeGesturesEnabled;
+  @override
+  final bool? isDeArrowEnabled;
+  @override
+  final bool? isBookmarksEnabled;
+  final List<String>? _bookmarkedPlaylists;
+  @override
+  List<String>? get bookmarkedPlaylists {
+    final value = _bookmarkedPlaylists;
+    if (value == null) return null;
+    if (_bookmarkedPlaylists is EqualUnmodifiableListView)
+      return _bookmarkedPlaylists;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
-  String toString() {
-    return 'SettingsState(defaultLanguage: $defaultLanguage, defaultQuality: $defaultQuality, defaultRegion: $defaultRegion, themeMode: $themeMode, version: $version, isHistoryVisible: $isHistoryVisible, isDislikeVisible: $isDislikeVisible, isHlsPlayer: $isHlsPlayer, isHideComments: $isHideComments, isHideRelated: $isHideRelated, pipedInstances: $pipedInstances, pipedInstanceStatus: $pipedInstanceStatus, instance: $instance, invidiousInstances: $invidiousInstances, invidiousInstanceStatus: $invidiousInstanceStatus, ytService: $ytService, initialized: $initialized, settingsStatus: $settingsStatus, isPipDisabled: $isPipDisabled, connectingToInstance: $connectingToInstance, isTestingConnection: $isTestingConnection, userInstanceFailed: $userInstanceFailed, failedInstanceName: $failedInstanceName, searchFilter: $searchFilter, videoFitMode: $videoFitMode, skipInterval: $skipInterval, isSponsorBlockEnabled: $isSponsorBlockEnabled, sponsorBlockCategories: $sponsorBlockCategories, openLinksInBrowser: $openLinksInBrowser, homeFeedMode: $homeFeedMode, isAudioFocusEnabled: $isAudioFocusEnabled, currentProfile: $currentProfile, profiles: $profiles, subtitleSize: $subtitleSize, lastExportedFilePath: $lastExportedFilePath, isSearchHistoryEnabled: $isSearchHistoryEnabled, isSearchHistoryVisible: $isSearchHistoryVisible, isAutoPipEnabled: $isAutoPipEnabled)';
+  final bool? isRestrictedModeEnabled;
+  @override
+  final bool? isMiniPlayerEnabled;
+  @override
+  final String? downloadQuality;
+  @override
+  final bool? isDownloadSubtitlesEnabled;
+  @override
+  final bool? isDownloadOverWifiOnlyEnabled;
+  @override
+  final bool? isDownloadAutoDeleteEnabled;
+  @override
+  final double? playbackSpeed;
+  @override
+  final bool? isAutoplayNextVideoEnabled;
+  @override
+  final bool? isShowRelatedInQueueEnabled;
+  @override
+  final int? queueDismissTime;
+  @override
+  final int? autoplayCountdown;
+  @override
+  final bool? isDisableAutoplayOnCellularEnabled;
+  @override
+  final bool? isAutoQueueEnabled;
+  @override
+  final bool? isBufferPreloadEnabled;
+  @override
+  final bool? isAutoQualityAdjustEnabled;
+  @override
+  final bool? isBackgroundPlaybackEnabled;
+  @override
+  final bool? isNotificationControlsEnabled;
+  @override
+  final bool? isDataSaverEnabled;
+  @override
+  final bool? isHideWatchedVideosEnabled;
+  @override
+  final int? mobileDataQuality;
+  @override
+  final bool? isDownloadQueueItemsEnabled;
+  @override
+  final bool? isRichCaptionRenderingEnabled;
+  @override
+  final bool? isBilibiliEnabled;
+  @override
+  final bool? isSwipeLeftToRight;
+  @override
+  final bool? isMiniPlayerAutoExpandEnabled;
+  @override
+  final bool? isMiniPlayerTapToExpandEnabled;
+  @override
+  final bool? isMiniPlayerDoubleTapToExpandEnabled;
+  @override
+  final RestrictedModeFilterLevel? restrictedModeFilterLevel;
+  @override
+  final int? downloadAutoDeleteDays;
+  final List<String>? _contentFilterKeywords;
+  @override
+  List<String>? get contentFilterKeywords {
+    final value = _contentFilterKeywords;
+    if (value == null) return null;
+    if (_contentFilterKeywords is EqualUnmodifiableListView)
+      return _contentFilterKeywords;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
   }
+
+  final List<String>? _contentFilterBlockedChannels;
+  @override
+  List<String>? get contentFilterBlockedChannels {
+    final value = _contentFilterBlockedChannels;
+    if (value == null) return null;
+    if (_contentFilterBlockedChannels is EqualUnmodifiableListView)
+      return _contentFilterBlockedChannels;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  final bool? contentFilterHideShorts;
+  @override
+  final bool? contentFilterHidePaid;
+
+  /// Create a copy of SettingsState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$InitialCopyWith<_Initial> get copyWith =>
+      __$InitialCopyWithImpl<_Initial>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$InitialImpl &&
+            other is _Initial &&
             (identical(other.defaultLanguage, defaultLanguage) ||
                 other.defaultLanguage == defaultLanguage) &&
             (identical(other.defaultQuality, defaultQuality) ||
@@ -12732,7 +8285,45 @@ class _$InitialImpl implements _Initial {
             (identical(other.isSearchHistoryVisible, isSearchHistoryVisible) ||
                 other.isSearchHistoryVisible == isSearchHistoryVisible) &&
             (identical(other.isAutoPipEnabled, isAutoPipEnabled) ||
-                other.isAutoPipEnabled == isAutoPipEnabled));
+                other.isAutoPipEnabled == isAutoPipEnabled) &&
+            (identical(other.sleepTimerConfig, sleepTimerConfig) || other.sleepTimerConfig == sleepTimerConfig) &&
+            (identical(other.isSwipeGesturesEnabled, isSwipeGesturesEnabled) || other.isSwipeGesturesEnabled == isSwipeGesturesEnabled) &&
+            (identical(other.isDeArrowEnabled, isDeArrowEnabled) || other.isDeArrowEnabled == isDeArrowEnabled) &&
+            (identical(other.isBookmarksEnabled, isBookmarksEnabled) || other.isBookmarksEnabled == isBookmarksEnabled) &&
+            const DeepCollectionEquality().equals(other._bookmarkedPlaylists, _bookmarkedPlaylists) &&
+            (identical(other.isRestrictedModeEnabled, isRestrictedModeEnabled) || other.isRestrictedModeEnabled == isRestrictedModeEnabled) &&
+            (identical(other.isMiniPlayerEnabled, isMiniPlayerEnabled) || other.isMiniPlayerEnabled == isMiniPlayerEnabled) &&
+            (identical(other.downloadQuality, downloadQuality) || other.downloadQuality == downloadQuality) &&
+            (identical(other.isDownloadSubtitlesEnabled, isDownloadSubtitlesEnabled) || other.isDownloadSubtitlesEnabled == isDownloadSubtitlesEnabled) &&
+            (identical(other.isDownloadOverWifiOnlyEnabled, isDownloadOverWifiOnlyEnabled) || other.isDownloadOverWifiOnlyEnabled == isDownloadOverWifiOnlyEnabled) &&
+            (identical(other.isDownloadAutoDeleteEnabled, isDownloadAutoDeleteEnabled) || other.isDownloadAutoDeleteEnabled == isDownloadAutoDeleteEnabled) &&
+            (identical(other.playbackSpeed, playbackSpeed) || other.playbackSpeed == playbackSpeed) &&
+            (identical(other.isAutoplayNextVideoEnabled, isAutoplayNextVideoEnabled) || other.isAutoplayNextVideoEnabled == isAutoplayNextVideoEnabled) &&
+            (identical(other.isShowRelatedInQueueEnabled, isShowRelatedInQueueEnabled) || other.isShowRelatedInQueueEnabled == isShowRelatedInQueueEnabled) &&
+            (identical(other.queueDismissTime, queueDismissTime) || other.queueDismissTime == queueDismissTime) &&
+            (identical(other.autoplayCountdown, autoplayCountdown) || other.autoplayCountdown == autoplayCountdown) &&
+            (identical(other.isDisableAutoplayOnCellularEnabled, isDisableAutoplayOnCellularEnabled) || other.isDisableAutoplayOnCellularEnabled == isDisableAutoplayOnCellularEnabled) &&
+            (identical(other.isAutoQueueEnabled, isAutoQueueEnabled) || other.isAutoQueueEnabled == isAutoQueueEnabled) &&
+            (identical(other.isBufferPreloadEnabled, isBufferPreloadEnabled) || other.isBufferPreloadEnabled == isBufferPreloadEnabled) &&
+            (identical(other.isAutoQualityAdjustEnabled, isAutoQualityAdjustEnabled) || other.isAutoQualityAdjustEnabled == isAutoQualityAdjustEnabled) &&
+            (identical(other.isBackgroundPlaybackEnabled, isBackgroundPlaybackEnabled) || other.isBackgroundPlaybackEnabled == isBackgroundPlaybackEnabled) &&
+            (identical(other.isNotificationControlsEnabled, isNotificationControlsEnabled) || other.isNotificationControlsEnabled == isNotificationControlsEnabled) &&
+            (identical(other.isDataSaverEnabled, isDataSaverEnabled) || other.isDataSaverEnabled == isDataSaverEnabled) &&
+            (identical(other.isHideWatchedVideosEnabled, isHideWatchedVideosEnabled) || other.isHideWatchedVideosEnabled == isHideWatchedVideosEnabled) &&
+            (identical(other.mobileDataQuality, mobileDataQuality) || other.mobileDataQuality == mobileDataQuality) &&
+            (identical(other.isDownloadQueueItemsEnabled, isDownloadQueueItemsEnabled) || other.isDownloadQueueItemsEnabled == isDownloadQueueItemsEnabled) &&
+            (identical(other.isRichCaptionRenderingEnabled, isRichCaptionRenderingEnabled) || other.isRichCaptionRenderingEnabled == isRichCaptionRenderingEnabled) &&
+            (identical(other.isBilibiliEnabled, isBilibiliEnabled) || other.isBilibiliEnabled == isBilibiliEnabled) &&
+            (identical(other.isSwipeLeftToRight, isSwipeLeftToRight) || other.isSwipeLeftToRight == isSwipeLeftToRight) &&
+            (identical(other.isMiniPlayerAutoExpandEnabled, isMiniPlayerAutoExpandEnabled) || other.isMiniPlayerAutoExpandEnabled == isMiniPlayerAutoExpandEnabled) &&
+            (identical(other.isMiniPlayerTapToExpandEnabled, isMiniPlayerTapToExpandEnabled) || other.isMiniPlayerTapToExpandEnabled == isMiniPlayerTapToExpandEnabled) &&
+            (identical(other.isMiniPlayerDoubleTapToExpandEnabled, isMiniPlayerDoubleTapToExpandEnabled) || other.isMiniPlayerDoubleTapToExpandEnabled == isMiniPlayerDoubleTapToExpandEnabled) &&
+            (identical(other.restrictedModeFilterLevel, restrictedModeFilterLevel) || other.restrictedModeFilterLevel == restrictedModeFilterLevel) &&
+            (identical(other.downloadAutoDeleteDays, downloadAutoDeleteDays) || other.downloadAutoDeleteDays == downloadAutoDeleteDays) &&
+            const DeepCollectionEquality().equals(other._contentFilterKeywords, _contentFilterKeywords) &&
+            const DeepCollectionEquality().equals(other._contentFilterBlockedChannels, _contentFilterBlockedChannels) &&
+            (identical(other.contentFilterHideShorts, contentFilterHideShorts) || other.contentFilterHideShorts == contentFilterHideShorts) &&
+            (identical(other.contentFilterHidePaid, contentFilterHidePaid) || other.contentFilterHidePaid == contentFilterHidePaid));
   }
 
   @override
@@ -12775,143 +8366,537 @@ class _$InitialImpl implements _Initial {
         lastExportedFilePath,
         isSearchHistoryEnabled,
         isSearchHistoryVisible,
-        isAutoPipEnabled
+        isAutoPipEnabled,
+        sleepTimerConfig,
+        isSwipeGesturesEnabled,
+        isDeArrowEnabled,
+        isBookmarksEnabled,
+        const DeepCollectionEquality().hash(_bookmarkedPlaylists),
+        isRestrictedModeEnabled,
+        isMiniPlayerEnabled,
+        downloadQuality,
+        isDownloadSubtitlesEnabled,
+        isDownloadOverWifiOnlyEnabled,
+        isDownloadAutoDeleteEnabled,
+        playbackSpeed,
+        isAutoplayNextVideoEnabled,
+        isShowRelatedInQueueEnabled,
+        queueDismissTime,
+        autoplayCountdown,
+        isDisableAutoplayOnCellularEnabled,
+        isAutoQueueEnabled,
+        isBufferPreloadEnabled,
+        isAutoQualityAdjustEnabled,
+        isBackgroundPlaybackEnabled,
+        isNotificationControlsEnabled,
+        isDataSaverEnabled,
+        isHideWatchedVideosEnabled,
+        mobileDataQuality,
+        isDownloadQueueItemsEnabled,
+        isRichCaptionRenderingEnabled,
+        isBilibiliEnabled,
+        isSwipeLeftToRight,
+        isMiniPlayerAutoExpandEnabled,
+        isMiniPlayerTapToExpandEnabled,
+        isMiniPlayerDoubleTapToExpandEnabled,
+        restrictedModeFilterLevel,
+        downloadAutoDeleteDays,
+        const DeepCollectionEquality().hash(_contentFilterKeywords),
+        const DeepCollectionEquality().hash(_contentFilterBlockedChannels),
+        contentFilterHideShorts,
+        contentFilterHidePaid
       ]);
 
+  @override
+  String toString() {
+    return 'SettingsState(defaultLanguage: $defaultLanguage, defaultQuality: $defaultQuality, defaultRegion: $defaultRegion, themeMode: $themeMode, version: $version, isHistoryVisible: $isHistoryVisible, isDislikeVisible: $isDislikeVisible, isHlsPlayer: $isHlsPlayer, isHideComments: $isHideComments, isHideRelated: $isHideRelated, pipedInstances: $pipedInstances, pipedInstanceStatus: $pipedInstanceStatus, instance: $instance, invidiousInstances: $invidiousInstances, invidiousInstanceStatus: $invidiousInstanceStatus, ytService: $ytService, initialized: $initialized, settingsStatus: $settingsStatus, isPipDisabled: $isPipDisabled, connectingToInstance: $connectingToInstance, isTestingConnection: $isTestingConnection, userInstanceFailed: $userInstanceFailed, failedInstanceName: $failedInstanceName, searchFilter: $searchFilter, videoFitMode: $videoFitMode, skipInterval: $skipInterval, isSponsorBlockEnabled: $isSponsorBlockEnabled, sponsorBlockCategories: $sponsorBlockCategories, openLinksInBrowser: $openLinksInBrowser, homeFeedMode: $homeFeedMode, isAudioFocusEnabled: $isAudioFocusEnabled, currentProfile: $currentProfile, profiles: $profiles, subtitleSize: $subtitleSize, lastExportedFilePath: $lastExportedFilePath, isSearchHistoryEnabled: $isSearchHistoryEnabled, isSearchHistoryVisible: $isSearchHistoryVisible, isAutoPipEnabled: $isAutoPipEnabled, sleepTimerConfig: $sleepTimerConfig, isSwipeGesturesEnabled: $isSwipeGesturesEnabled, isDeArrowEnabled: $isDeArrowEnabled, isBookmarksEnabled: $isBookmarksEnabled, bookmarkedPlaylists: $bookmarkedPlaylists, isRestrictedModeEnabled: $isRestrictedModeEnabled, isMiniPlayerEnabled: $isMiniPlayerEnabled, downloadQuality: $downloadQuality, isDownloadSubtitlesEnabled: $isDownloadSubtitlesEnabled, isDownloadOverWifiOnlyEnabled: $isDownloadOverWifiOnlyEnabled, isDownloadAutoDeleteEnabled: $isDownloadAutoDeleteEnabled, playbackSpeed: $playbackSpeed, isAutoplayNextVideoEnabled: $isAutoplayNextVideoEnabled, isShowRelatedInQueueEnabled: $isShowRelatedInQueueEnabled, queueDismissTime: $queueDismissTime, autoplayCountdown: $autoplayCountdown, isDisableAutoplayOnCellularEnabled: $isDisableAutoplayOnCellularEnabled, isAutoQueueEnabled: $isAutoQueueEnabled, isBufferPreloadEnabled: $isBufferPreloadEnabled, isAutoQualityAdjustEnabled: $isAutoQualityAdjustEnabled, isBackgroundPlaybackEnabled: $isBackgroundPlaybackEnabled, isNotificationControlsEnabled: $isNotificationControlsEnabled, isDataSaverEnabled: $isDataSaverEnabled, isHideWatchedVideosEnabled: $isHideWatchedVideosEnabled, mobileDataQuality: $mobileDataQuality, isDownloadQueueItemsEnabled: $isDownloadQueueItemsEnabled, isRichCaptionRenderingEnabled: $isRichCaptionRenderingEnabled, isBilibiliEnabled: $isBilibiliEnabled, isSwipeLeftToRight: $isSwipeLeftToRight, isMiniPlayerAutoExpandEnabled: $isMiniPlayerAutoExpandEnabled, isMiniPlayerTapToExpandEnabled: $isMiniPlayerTapToExpandEnabled, isMiniPlayerDoubleTapToExpandEnabled: $isMiniPlayerDoubleTapToExpandEnabled, restrictedModeFilterLevel: $restrictedModeFilterLevel, downloadAutoDeleteDays: $downloadAutoDeleteDays, contentFilterKeywords: $contentFilterKeywords, contentFilterBlockedChannels: $contentFilterBlockedChannels, contentFilterHideShorts: $contentFilterHideShorts, contentFilterHidePaid: $contentFilterHidePaid)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$InitialCopyWith<$Res>
+    implements $SettingsStateCopyWith<$Res> {
+  factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) _then) =
+      __$InitialCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String defaultLanguage,
+      String defaultQuality,
+      String defaultRegion,
+      String themeMode,
+      String? version,
+      bool isHistoryVisible,
+      bool isDislikeVisible,
+      bool isHlsPlayer,
+      bool isHideComments,
+      bool isHideRelated,
+      List<Instance> pipedInstances,
+      ApiStatus pipedInstanceStatus,
+      String instance,
+      List<Instance> invidiousInstances,
+      ApiStatus invidiousInstanceStatus,
+      String ytService,
+      bool initialized,
+      ApiStatus settingsStatus,
+      bool isPipDisabled,
+      String? connectingToInstance,
+      bool isTestingConnection,
+      bool userInstanceFailed,
+      String? failedInstanceName,
+      String searchFilter,
+      String videoFitMode,
+      int skipInterval,
+      bool isSponsorBlockEnabled,
+      List<String> sponsorBlockCategories,
+      bool openLinksInBrowser,
+      String homeFeedMode,
+      bool isAudioFocusEnabled,
+      String currentProfile,
+      List<String> profiles,
+      double subtitleSize,
+      String? lastExportedFilePath,
+      bool isSearchHistoryEnabled,
+      bool isSearchHistoryVisible,
+      bool isAutoPipEnabled,
+      SleepTimerConfig? sleepTimerConfig,
+      bool? isSwipeGesturesEnabled,
+      bool? isDeArrowEnabled,
+      bool? isBookmarksEnabled,
+      List<String>? bookmarkedPlaylists,
+      bool? isRestrictedModeEnabled,
+      bool? isMiniPlayerEnabled,
+      String? downloadQuality,
+      bool? isDownloadSubtitlesEnabled,
+      bool? isDownloadOverWifiOnlyEnabled,
+      bool? isDownloadAutoDeleteEnabled,
+      double? playbackSpeed,
+      bool? isAutoplayNextVideoEnabled,
+      bool? isShowRelatedInQueueEnabled,
+      int? queueDismissTime,
+      int? autoplayCountdown,
+      bool? isDisableAutoplayOnCellularEnabled,
+      bool? isAutoQueueEnabled,
+      bool? isBufferPreloadEnabled,
+      bool? isAutoQualityAdjustEnabled,
+      bool? isBackgroundPlaybackEnabled,
+      bool? isNotificationControlsEnabled,
+      bool? isDataSaverEnabled,
+      bool? isHideWatchedVideosEnabled,
+      int? mobileDataQuality,
+      bool? isDownloadQueueItemsEnabled,
+      bool? isRichCaptionRenderingEnabled,
+      bool? isBilibiliEnabled,
+      bool? isSwipeLeftToRight,
+      bool? isMiniPlayerAutoExpandEnabled,
+      bool? isMiniPlayerTapToExpandEnabled,
+      bool? isMiniPlayerDoubleTapToExpandEnabled,
+      RestrictedModeFilterLevel? restrictedModeFilterLevel,
+      int? downloadAutoDeleteDays,
+      List<String>? contentFilterKeywords,
+      List<String>? contentFilterBlockedChannels,
+      bool? contentFilterHideShorts,
+      bool? contentFilterHidePaid});
+}
+
+/// @nodoc
+class __$InitialCopyWithImpl<$Res> implements _$InitialCopyWith<$Res> {
+  __$InitialCopyWithImpl(this._self, this._then);
+
+  final _Initial _self;
+  final $Res Function(_Initial) _then;
+
   /// Create a copy of SettingsState
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
-      __$$InitialImplCopyWithImpl<_$InitialImpl>(this, _$identity);
+  $Res call({
+    Object? defaultLanguage = null,
+    Object? defaultQuality = null,
+    Object? defaultRegion = null,
+    Object? themeMode = null,
+    Object? version = freezed,
+    Object? isHistoryVisible = null,
+    Object? isDislikeVisible = null,
+    Object? isHlsPlayer = null,
+    Object? isHideComments = null,
+    Object? isHideRelated = null,
+    Object? pipedInstances = null,
+    Object? pipedInstanceStatus = null,
+    Object? instance = null,
+    Object? invidiousInstances = null,
+    Object? invidiousInstanceStatus = null,
+    Object? ytService = null,
+    Object? initialized = null,
+    Object? settingsStatus = null,
+    Object? isPipDisabled = null,
+    Object? connectingToInstance = freezed,
+    Object? isTestingConnection = null,
+    Object? userInstanceFailed = null,
+    Object? failedInstanceName = freezed,
+    Object? searchFilter = null,
+    Object? videoFitMode = null,
+    Object? skipInterval = null,
+    Object? isSponsorBlockEnabled = null,
+    Object? sponsorBlockCategories = null,
+    Object? openLinksInBrowser = null,
+    Object? homeFeedMode = null,
+    Object? isAudioFocusEnabled = null,
+    Object? currentProfile = null,
+    Object? profiles = null,
+    Object? subtitleSize = null,
+    Object? lastExportedFilePath = freezed,
+    Object? isSearchHistoryEnabled = null,
+    Object? isSearchHistoryVisible = null,
+    Object? isAutoPipEnabled = null,
+    Object? sleepTimerConfig = freezed,
+    Object? isSwipeGesturesEnabled = freezed,
+    Object? isDeArrowEnabled = freezed,
+    Object? isBookmarksEnabled = freezed,
+    Object? bookmarkedPlaylists = freezed,
+    Object? isRestrictedModeEnabled = freezed,
+    Object? isMiniPlayerEnabled = freezed,
+    Object? downloadQuality = freezed,
+    Object? isDownloadSubtitlesEnabled = freezed,
+    Object? isDownloadOverWifiOnlyEnabled = freezed,
+    Object? isDownloadAutoDeleteEnabled = freezed,
+    Object? playbackSpeed = freezed,
+    Object? isAutoplayNextVideoEnabled = freezed,
+    Object? isShowRelatedInQueueEnabled = freezed,
+    Object? queueDismissTime = freezed,
+    Object? autoplayCountdown = freezed,
+    Object? isDisableAutoplayOnCellularEnabled = freezed,
+    Object? isAutoQueueEnabled = freezed,
+    Object? isBufferPreloadEnabled = freezed,
+    Object? isAutoQualityAdjustEnabled = freezed,
+    Object? isBackgroundPlaybackEnabled = freezed,
+    Object? isNotificationControlsEnabled = freezed,
+    Object? isDataSaverEnabled = freezed,
+    Object? isHideWatchedVideosEnabled = freezed,
+    Object? mobileDataQuality = freezed,
+    Object? isDownloadQueueItemsEnabled = freezed,
+    Object? isRichCaptionRenderingEnabled = freezed,
+    Object? isBilibiliEnabled = freezed,
+    Object? isSwipeLeftToRight = freezed,
+    Object? isMiniPlayerAutoExpandEnabled = freezed,
+    Object? isMiniPlayerTapToExpandEnabled = freezed,
+    Object? isMiniPlayerDoubleTapToExpandEnabled = freezed,
+    Object? restrictedModeFilterLevel = freezed,
+    Object? downloadAutoDeleteDays = freezed,
+    Object? contentFilterKeywords = freezed,
+    Object? contentFilterBlockedChannels = freezed,
+    Object? contentFilterHideShorts = freezed,
+    Object? contentFilterHidePaid = freezed,
+  }) {
+    return _then(_Initial(
+      defaultLanguage: null == defaultLanguage
+          ? _self.defaultLanguage
+          : defaultLanguage // ignore: cast_nullable_to_non_nullable
+              as String,
+      defaultQuality: null == defaultQuality
+          ? _self.defaultQuality
+          : defaultQuality // ignore: cast_nullable_to_non_nullable
+              as String,
+      defaultRegion: null == defaultRegion
+          ? _self.defaultRegion
+          : defaultRegion // ignore: cast_nullable_to_non_nullable
+              as String,
+      themeMode: null == themeMode
+          ? _self.themeMode
+          : themeMode // ignore: cast_nullable_to_non_nullable
+              as String,
+      version: freezed == version
+          ? _self.version
+          : version // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isHistoryVisible: null == isHistoryVisible
+          ? _self.isHistoryVisible
+          : isHistoryVisible // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isDislikeVisible: null == isDislikeVisible
+          ? _self.isDislikeVisible
+          : isDislikeVisible // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isHlsPlayer: null == isHlsPlayer
+          ? _self.isHlsPlayer
+          : isHlsPlayer // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isHideComments: null == isHideComments
+          ? _self.isHideComments
+          : isHideComments // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isHideRelated: null == isHideRelated
+          ? _self.isHideRelated
+          : isHideRelated // ignore: cast_nullable_to_non_nullable
+              as bool,
+      pipedInstances: null == pipedInstances
+          ? _self._pipedInstances
+          : pipedInstances // ignore: cast_nullable_to_non_nullable
+              as List<Instance>,
+      pipedInstanceStatus: null == pipedInstanceStatus
+          ? _self.pipedInstanceStatus
+          : pipedInstanceStatus // ignore: cast_nullable_to_non_nullable
+              as ApiStatus,
+      instance: null == instance
+          ? _self.instance
+          : instance // ignore: cast_nullable_to_non_nullable
+              as String,
+      invidiousInstances: null == invidiousInstances
+          ? _self._invidiousInstances
+          : invidiousInstances // ignore: cast_nullable_to_non_nullable
+              as List<Instance>,
+      invidiousInstanceStatus: null == invidiousInstanceStatus
+          ? _self.invidiousInstanceStatus
+          : invidiousInstanceStatus // ignore: cast_nullable_to_non_nullable
+              as ApiStatus,
+      ytService: null == ytService
+          ? _self.ytService
+          : ytService // ignore: cast_nullable_to_non_nullable
+              as String,
+      initialized: null == initialized
+          ? _self.initialized
+          : initialized // ignore: cast_nullable_to_non_nullable
+              as bool,
+      settingsStatus: null == settingsStatus
+          ? _self.settingsStatus
+          : settingsStatus // ignore: cast_nullable_to_non_nullable
+              as ApiStatus,
+      isPipDisabled: null == isPipDisabled
+          ? _self.isPipDisabled
+          : isPipDisabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+      connectingToInstance: freezed == connectingToInstance
+          ? _self.connectingToInstance
+          : connectingToInstance // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isTestingConnection: null == isTestingConnection
+          ? _self.isTestingConnection
+          : isTestingConnection // ignore: cast_nullable_to_non_nullable
+              as bool,
+      userInstanceFailed: null == userInstanceFailed
+          ? _self.userInstanceFailed
+          : userInstanceFailed // ignore: cast_nullable_to_non_nullable
+              as bool,
+      failedInstanceName: freezed == failedInstanceName
+          ? _self.failedInstanceName
+          : failedInstanceName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      searchFilter: null == searchFilter
+          ? _self.searchFilter
+          : searchFilter // ignore: cast_nullable_to_non_nullable
+              as String,
+      videoFitMode: null == videoFitMode
+          ? _self.videoFitMode
+          : videoFitMode // ignore: cast_nullable_to_non_nullable
+              as String,
+      skipInterval: null == skipInterval
+          ? _self.skipInterval
+          : skipInterval // ignore: cast_nullable_to_non_nullable
+              as int,
+      isSponsorBlockEnabled: null == isSponsorBlockEnabled
+          ? _self.isSponsorBlockEnabled
+          : isSponsorBlockEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+      sponsorBlockCategories: null == sponsorBlockCategories
+          ? _self._sponsorBlockCategories
+          : sponsorBlockCategories // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      openLinksInBrowser: null == openLinksInBrowser
+          ? _self.openLinksInBrowser
+          : openLinksInBrowser // ignore: cast_nullable_to_non_nullable
+              as bool,
+      homeFeedMode: null == homeFeedMode
+          ? _self.homeFeedMode
+          : homeFeedMode // ignore: cast_nullable_to_non_nullable
+              as String,
+      isAudioFocusEnabled: null == isAudioFocusEnabled
+          ? _self.isAudioFocusEnabled
+          : isAudioFocusEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+      currentProfile: null == currentProfile
+          ? _self.currentProfile
+          : currentProfile // ignore: cast_nullable_to_non_nullable
+              as String,
+      profiles: null == profiles
+          ? _self._profiles
+          : profiles // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      subtitleSize: null == subtitleSize
+          ? _self.subtitleSize
+          : subtitleSize // ignore: cast_nullable_to_non_nullable
+              as double,
+      lastExportedFilePath: freezed == lastExportedFilePath
+          ? _self.lastExportedFilePath
+          : lastExportedFilePath // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isSearchHistoryEnabled: null == isSearchHistoryEnabled
+          ? _self.isSearchHistoryEnabled
+          : isSearchHistoryEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSearchHistoryVisible: null == isSearchHistoryVisible
+          ? _self.isSearchHistoryVisible
+          : isSearchHistoryVisible // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isAutoPipEnabled: null == isAutoPipEnabled
+          ? _self.isAutoPipEnabled
+          : isAutoPipEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+      sleepTimerConfig: freezed == sleepTimerConfig
+          ? _self.sleepTimerConfig
+          : sleepTimerConfig // ignore: cast_nullable_to_non_nullable
+              as SleepTimerConfig?,
+      isSwipeGesturesEnabled: freezed == isSwipeGesturesEnabled
+          ? _self.isSwipeGesturesEnabled
+          : isSwipeGesturesEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isDeArrowEnabled: freezed == isDeArrowEnabled
+          ? _self.isDeArrowEnabled
+          : isDeArrowEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isBookmarksEnabled: freezed == isBookmarksEnabled
+          ? _self.isBookmarksEnabled
+          : isBookmarksEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      bookmarkedPlaylists: freezed == bookmarkedPlaylists
+          ? _self._bookmarkedPlaylists
+          : bookmarkedPlaylists // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      isRestrictedModeEnabled: freezed == isRestrictedModeEnabled
+          ? _self.isRestrictedModeEnabled
+          : isRestrictedModeEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isMiniPlayerEnabled: freezed == isMiniPlayerEnabled
+          ? _self.isMiniPlayerEnabled
+          : isMiniPlayerEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      downloadQuality: freezed == downloadQuality
+          ? _self.downloadQuality
+          : downloadQuality // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isDownloadSubtitlesEnabled: freezed == isDownloadSubtitlesEnabled
+          ? _self.isDownloadSubtitlesEnabled
+          : isDownloadSubtitlesEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isDownloadOverWifiOnlyEnabled: freezed == isDownloadOverWifiOnlyEnabled
+          ? _self.isDownloadOverWifiOnlyEnabled
+          : isDownloadOverWifiOnlyEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isDownloadAutoDeleteEnabled: freezed == isDownloadAutoDeleteEnabled
+          ? _self.isDownloadAutoDeleteEnabled
+          : isDownloadAutoDeleteEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      playbackSpeed: freezed == playbackSpeed
+          ? _self.playbackSpeed
+          : playbackSpeed // ignore: cast_nullable_to_non_nullable
+              as double?,
+      isAutoplayNextVideoEnabled: freezed == isAutoplayNextVideoEnabled
+          ? _self.isAutoplayNextVideoEnabled
+          : isAutoplayNextVideoEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isShowRelatedInQueueEnabled: freezed == isShowRelatedInQueueEnabled
+          ? _self.isShowRelatedInQueueEnabled
+          : isShowRelatedInQueueEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      queueDismissTime: freezed == queueDismissTime
+          ? _self.queueDismissTime
+          : queueDismissTime // ignore: cast_nullable_to_non_nullable
+              as int?,
+      autoplayCountdown: freezed == autoplayCountdown
+          ? _self.autoplayCountdown
+          : autoplayCountdown // ignore: cast_nullable_to_non_nullable
+              as int?,
+      isDisableAutoplayOnCellularEnabled: freezed ==
+              isDisableAutoplayOnCellularEnabled
+          ? _self.isDisableAutoplayOnCellularEnabled
+          : isDisableAutoplayOnCellularEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isAutoQueueEnabled: freezed == isAutoQueueEnabled
+          ? _self.isAutoQueueEnabled
+          : isAutoQueueEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isBufferPreloadEnabled: freezed == isBufferPreloadEnabled
+          ? _self.isBufferPreloadEnabled
+          : isBufferPreloadEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isAutoQualityAdjustEnabled: freezed == isAutoQualityAdjustEnabled
+          ? _self.isAutoQualityAdjustEnabled
+          : isAutoQualityAdjustEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isBackgroundPlaybackEnabled: freezed == isBackgroundPlaybackEnabled
+          ? _self.isBackgroundPlaybackEnabled
+          : isBackgroundPlaybackEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isNotificationControlsEnabled: freezed == isNotificationControlsEnabled
+          ? _self.isNotificationControlsEnabled
+          : isNotificationControlsEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isDataSaverEnabled: freezed == isDataSaverEnabled
+          ? _self.isDataSaverEnabled
+          : isDataSaverEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isHideWatchedVideosEnabled: freezed == isHideWatchedVideosEnabled
+          ? _self.isHideWatchedVideosEnabled
+          : isHideWatchedVideosEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      mobileDataQuality: freezed == mobileDataQuality
+          ? _self.mobileDataQuality
+          : mobileDataQuality // ignore: cast_nullable_to_non_nullable
+              as int?,
+      isDownloadQueueItemsEnabled: freezed == isDownloadQueueItemsEnabled
+          ? _self.isDownloadQueueItemsEnabled
+          : isDownloadQueueItemsEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isRichCaptionRenderingEnabled: freezed == isRichCaptionRenderingEnabled
+          ? _self.isRichCaptionRenderingEnabled
+          : isRichCaptionRenderingEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isBilibiliEnabled: freezed == isBilibiliEnabled
+          ? _self.isBilibiliEnabled
+          : isBilibiliEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isSwipeLeftToRight: freezed == isSwipeLeftToRight
+          ? _self.isSwipeLeftToRight
+          : isSwipeLeftToRight // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isMiniPlayerAutoExpandEnabled: freezed == isMiniPlayerAutoExpandEnabled
+          ? _self.isMiniPlayerAutoExpandEnabled
+          : isMiniPlayerAutoExpandEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isMiniPlayerTapToExpandEnabled: freezed == isMiniPlayerTapToExpandEnabled
+          ? _self.isMiniPlayerTapToExpandEnabled
+          : isMiniPlayerTapToExpandEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isMiniPlayerDoubleTapToExpandEnabled: freezed ==
+              isMiniPlayerDoubleTapToExpandEnabled
+          ? _self.isMiniPlayerDoubleTapToExpandEnabled
+          : isMiniPlayerDoubleTapToExpandEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      restrictedModeFilterLevel: freezed == restrictedModeFilterLevel
+          ? _self.restrictedModeFilterLevel
+          : restrictedModeFilterLevel // ignore: cast_nullable_to_non_nullable
+              as RestrictedModeFilterLevel?,
+      downloadAutoDeleteDays: freezed == downloadAutoDeleteDays
+          ? _self.downloadAutoDeleteDays
+          : downloadAutoDeleteDays // ignore: cast_nullable_to_non_nullable
+              as int?,
+      contentFilterKeywords: freezed == contentFilterKeywords
+          ? _self._contentFilterKeywords
+          : contentFilterKeywords // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      contentFilterBlockedChannels: freezed == contentFilterBlockedChannels
+          ? _self._contentFilterBlockedChannels
+          : contentFilterBlockedChannels // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      contentFilterHideShorts: freezed == contentFilterHideShorts
+          ? _self.contentFilterHideShorts
+          : contentFilterHideShorts // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      contentFilterHidePaid: freezed == contentFilterHidePaid
+          ? _self.contentFilterHidePaid
+          : contentFilterHidePaid // ignore: cast_nullable_to_non_nullable
+              as bool?,
+    ));
+  }
 }
 
-abstract class _Initial implements SettingsState {
-  const factory _Initial(
-      {required final String defaultLanguage,
-      required final String defaultQuality,
-      required final String defaultRegion,
-      required final String themeMode,
-      required final String? version,
-      required final bool isHistoryVisible,
-      required final bool isDislikeVisible,
-      required final bool isHlsPlayer,
-      required final bool isHideComments,
-      required final bool isHideRelated,
-      required final List<Instance> pipedInstances,
-      required final ApiStatus pipedInstanceStatus,
-      required final String instance,
-      required final List<Instance> invidiousInstances,
-      required final ApiStatus invidiousInstanceStatus,
-      required final String ytService,
-      required final bool initialized,
-      required final ApiStatus settingsStatus,
-      required final bool isPipDisabled,
-      required final String? connectingToInstance,
-      required final bool isTestingConnection,
-      required final bool userInstanceFailed,
-      required final String? failedInstanceName,
-      required final String searchFilter,
-      required final String videoFitMode,
-      required final int skipInterval,
-      required final bool isSponsorBlockEnabled,
-      required final List<String> sponsorBlockCategories,
-      required final bool openLinksInBrowser,
-      required final String homeFeedMode,
-      required final bool isAudioFocusEnabled,
-      required final String currentProfile,
-      required final List<String> profiles,
-      required final double subtitleSize,
-      required final String? lastExportedFilePath,
-      required final bool isSearchHistoryEnabled,
-      required final bool isSearchHistoryVisible,
-      required final bool isAutoPipEnabled}) = _$InitialImpl;
-
-  @override
-  String get defaultLanguage;
-  @override
-  String get defaultQuality;
-  @override
-  String get defaultRegion;
-  @override
-  String get themeMode;
-  @override
-  String? get version;
-  @override
-  bool get isHistoryVisible;
-  @override
-  bool get isDislikeVisible;
-  @override
-  bool get isHlsPlayer;
-  @override
-  bool get isHideComments;
-  @override
-  bool get isHideRelated;
-  @override
-  List<Instance> get pipedInstances;
-  @override
-  ApiStatus get pipedInstanceStatus;
-  @override
-  String get instance;
-  @override
-  List<Instance> get invidiousInstances;
-  @override
-  ApiStatus get invidiousInstanceStatus;
-  @override
-  String get ytService;
-  @override
-  bool get initialized;
-  @override
-  ApiStatus get settingsStatus;
-  @override
-  bool get isPipDisabled; // Connection status tracking for UI feedback
-  @override
-  String? get connectingToInstance;
-  @override
-  bool
-      get isTestingConnection; // Track if user's preferred instance failed (for showing snackbar)
-  @override
-  bool get userInstanceFailed;
-  @override
-  String? get failedInstanceName; // Search filter
-  @override
-  String
-      get searchFilter; // Video fit mode (contain, cover, fill, fitWidth, fitHeight)
-  @override
-  String get videoFitMode; // Skip interval in seconds (for double-tap skip)
-  @override
-  int get skipInterval; // SponsorBlock settings
-  @override
-  bool get isSponsorBlockEnabled;
-  @override
-  List<String> get sponsorBlockCategories; // Open links in external browser
-  @override
-  bool get openLinksInBrowser; // Home feed display mode
-  @override
-  String get homeFeedMode; // Audio focus / pause on interruption
-  @override
-  bool get isAudioFocusEnabled; // Profiles
-  @override
-  String get currentProfile;
-  @override
-  List<String> get profiles; // Subtitle size (font size in pixels)
-  @override
-  double get subtitleSize; // Last exported file path (for sharing)
-  @override
-  String? get lastExportedFilePath; // Search history privacy
-  @override
-  bool get isSearchHistoryEnabled;
-  @override
-  bool
-      get isSearchHistoryVisible; // Auto PiP (enter PiP when pressing home button while video is playing)
-  @override
-  bool get isAutoPipEnabled;
-
-  /// Create a copy of SettingsState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on

@@ -95,6 +95,9 @@ class GlobalPlayerController extends ChangeNotifier {
   String? _currentAudioTrackId;
   String? _currentSubtitleCode;
   String? _nativeVideoId;
+
+  // Preferred playback speed to apply on initialize
+  double _preferredPlaybackSpeed = 1.0;
   String? _nativeQuality;
   String? _nativeAudioTrackId;
   String? _nativeSubtitleCode;
@@ -516,7 +519,9 @@ class GlobalPlayerController extends ChangeNotifier {
     String? audioUrl,
     int seekToSeconds = 0,
     Map<String, String>? httpHeaders,
+    double preferredPlaybackSpeed = 1.0,
   }) async {
+    _preferredPlaybackSpeed = preferredPlaybackSpeed;
     // STRICT: Validate before initializing
     await validateBeforePlay(videoId);
     clearNativeExoPlayerSession();
@@ -569,6 +574,11 @@ class GlobalPlayerController extends ChangeNotifier {
 
       // Start playback
       await _player!.play();
+
+      // Apply preferred playback speed
+      final clampedSpeed = clampSpeed(_preferredPlaybackSpeed);
+      await _player!.setRate(clampedSpeed);
+      _nativeSpeed = clampedSpeed;
 
       // Update state
       _currentVideoId = videoId;

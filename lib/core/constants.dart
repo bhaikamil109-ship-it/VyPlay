@@ -1,5 +1,24 @@
 import 'package:flutter/cupertino.dart';
 
+export 'package:vyplay/core/colors.dart';
+
+// Padding shortcuts (legacy names kept for compatibility)
+const double kPadding4 = 4.0;
+const double kPadding8 = 8.0;
+const double kPadding12 = 12.0;
+const double kPadding16 = 16.0;
+
+// Height spacing shortcuts (legacy names kept for compatibility)
+const kHeightBox4 = SizedBox(height: 4);
+const kHeightBox6 = SizedBox(height: 6);
+const kHeightBox8 = SizedBox(height: 8);
+const kHeightBox12 = SizedBox(height: 12);
+const kHeightBox16 = SizedBox(height: 16);
+
+// Corner radii
+const double kRadius8 = 8.0;
+const double kRadius12 = 12.0;
+
 // Legacy spacing (kept for compatibility)
 const kWidthBox5 = SizedBox(width: 5);
 const kWidthBox10 = SizedBox(width: 10);

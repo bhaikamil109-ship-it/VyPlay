@@ -36,7 +36,9 @@ class DistractionFreeSettingsSection extends StatelessWidget {
                 value: state.isHideComments,
                 onChanged: (_) {
                   BlocProvider.of<SettingsBloc>(context)
-                      .add(SettingsEvent.toggleCommentVisibility());
+                      .add(SettingsEvent.toggleCommentVisibility(
+                          isHideComments: !state.isHideComments,
+                        ));
                 },
               ),
             ),
@@ -49,7 +51,9 @@ class DistractionFreeSettingsSection extends StatelessWidget {
                 value: state.isHideRelated,
                 onChanged: (_) {
                   BlocProvider.of<SettingsBloc>(context)
-                      .add(SettingsEvent.toggleRelatedVideoVisibility());
+                      .add(SettingsEvent.toggleRelatedVideoVisibility(
+                          isHideRelated: !state.isHideRelated,
+                        ));
                 },
               ),
             ),
@@ -75,7 +79,9 @@ class DistractionFreeSettingsSection extends StatelessWidget {
 //         leading: const Icon(CupertinoIcons.bubble_left_bubble_right_fill),
 //         onToggle: (_) {
 //           BlocProvider.of<SettingsBloc>(context)
-//               .add(SettingsEvent.toggleCommentVisibility());
+//               .add(SettingsEvent.toggleCommentVisibility(
+//                   isHideComments: !state.isHideComments,
+//                 ));
 //         },
 //       ),
 //       SettingsTile.switchTile(
@@ -85,7 +91,9 @@ class DistractionFreeSettingsSection extends StatelessWidget {
 //         leading: const Icon(Icons.video_settings),
 //         onToggle: (_) {
 //           BlocProvider.of<SettingsBloc>(context)
-//               .add(SettingsEvent.toggleRelatedVideoVisibility());
+//               .add(SettingsEvent.toggleRelatedVideoVisibility(
+//                   isHideRelated: !state.isHideRelated,
+//                 ));
 //         },
 //       )
 //     ],

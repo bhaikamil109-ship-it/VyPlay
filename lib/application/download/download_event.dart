@@ -1,7 +1,7 @@
 part of 'download_bloc.dart';
 
 @freezed
-class DownloadEvent with _$DownloadEvent {
+sealed class DownloadEvent with _$DownloadEvent {
   /// Get available download options for a video (uses youtube_explode_dart - may fail with 403)
   const factory DownloadEvent.getDownloadOptions({
     required String videoId,

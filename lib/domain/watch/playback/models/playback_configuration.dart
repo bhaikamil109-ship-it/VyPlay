@@ -20,7 +20,7 @@ enum MediaSourceType {
 
 /// Configuration for video playback
 @freezed
-class PlaybackConfiguration with _$PlaybackConfiguration {
+abstract class PlaybackConfiguration with _$PlaybackConfiguration {
   const factory PlaybackConfiguration({
     /// Type of media source
     required MediaSourceType sourceType,

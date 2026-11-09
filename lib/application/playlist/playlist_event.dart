@@ -1,7 +1,7 @@
 part of 'playlist_bloc.dart';
 
 @freezed
-class PlaylistEvent with _$PlaylistEvent {
+sealed class PlaylistEvent with _$PlaylistEvent {
   const factory PlaylistEvent.getPlaylistData({
     required String playlistId,
     required String serviceType,

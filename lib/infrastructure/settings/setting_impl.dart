@@ -7,16 +7,18 @@ import 'package:dio/dio.dart';
 import 'package:vyplay/core/api_client.dart';
 import 'package:vyplay/core/enums.dart';
 import 'package:vyplay/core/strings.dart';
+import 'package:vyplay/domain/content_filter/content_filter_config.dart';
 import 'package:vyplay/domain/core/failure/main_failure.dart';
 import 'package:vyplay/domain/settings/models/instance.dart';
 import 'package:vyplay/domain/settings/settings_service.dart';
 import 'package:vyplay/infrastructure/database/database.dart';
 import 'package:injectable/injectable.dart';
+import 'package:drift/drift.dart' show Value;
 import 'package:path_provider/path_provider.dart';
+import 'package:vyplay/domain/sleep_timer/sleep_timer_config.dart';
 
 import '../../core/settings.dart';
 import '../../domain/subscription_groups/subscription_group.dart';
-import '../../domain/settings/settings_event.dart';
 
 @LazySingleton(as: SettingsService)
 class SettingImpl implements SettingsService {
@@ -24,7 +26,7 @@ class SettingImpl implements SettingsService {
   
   SettingImpl({AppDatabase? db}) : _db = db;
   
-  static AppDatabase get db => _db ?? AppDatabase.instance;
+  AppDatabase get db => _db ?? AppDatabase.instance;
 
   // Initialize the database
   static Future<void> initializeDB() async {
@@ -798,10 +800,10 @@ class SettingImpl implements SettingsService {
     try {
       final groups = await db.getAllGroups(profileName);
       return Right(groups.map((g) => {
-        'id': g.id.value,
+        'id': g.id,
         'groupName': g.groupName,
         'colorHex': g.colorHex,
-        'sortOrder': g.sortOrder.value,
+        'sortOrder': g.sortOrder,
       }).toList());
     } catch (e) {
       return const Left(MainFailure.serverFailure());
@@ -816,7 +818,7 @@ class SettingImpl implements SettingsService {
         groupName: groupName,
         profileName: profileName,
         colorHex: Value(colorHex),
-        sortOrder: 0,
+        sortOrder: const Value(0),
       );
       final id = await db.insertGroup(group);
       return Right(id);
@@ -1491,5 +1493,204 @@ class SettingImpl implements SettingsService {
     } catch (e) {
       return const Left(MainFailure.serverFailure());
     }
+  }
+
+  // Playlist bookmarks (multi-select)
+  @override
+  Future<Either<MainFailure, List<String>>> setBookmarkedPlaylists(
+      {required List<String> playlists}) async {
+    try {
+      await db.setSetting(bookmarkedPlaylistsKey, playlists.join(','));
+      return Right(playlists);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  // Mini player expansion behaviour
+  @override
+  Future<Either<MainFailure, bool>> setMiniPlayerAutoExpand(
+      {required bool enabled}) async {
+    return _setSetting(
+      settingName: miniPlayerAutoExpandKey,
+      value: enabled,
+      toStringValue: (v) => v.toString(),
+    );
+  }
+
+  @override
+  Future<Either<MainFailure, bool>> isMiniPlayerAutoExpandEnabled() async {
+    try {
+      final setting = await db.getSetting(miniPlayerAutoExpandKey);
+      return Right(setting != 'false');
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, bool>> setMiniPlayerTapToExpand(
+      {required bool enabled}) async {
+    return _setSetting(
+      settingName: miniPlayerTapToExpandKey,
+      value: enabled,
+      toStringValue: (v) => v.toString(),
+    );
+  }
+
+  @override
+  Future<Either<MainFailure, bool>> isMiniPlayerTapToExpandEnabled() async {
+    try {
+      final setting = await db.getSetting(miniPlayerTapToExpandKey);
+      return Right(setting != 'false');
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, bool>> setMiniPlayerDoubleTapToExpand(
+      {required bool enabled}) async {
+    return _setSetting(
+      settingName: miniPlayerDoubleTapToExpandKey,
+      value: enabled,
+      toStringValue: (v) => v.toString(),
+    );
+  }
+
+  @override
+  Future<Either<MainFailure, bool>> isMiniPlayerDoubleTapToExpandEnabled() async {
+    try {
+      final setting = await db.getSetting(miniPlayerDoubleTapToExpandKey);
+      return Right(setting == 'true');
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  // Restricted mode filter strictness
+  @override
+  Future<Either<MainFailure, RestrictedModeFilterLevel>>
+      setRestrictedModeFilterLevel(
+          {required RestrictedModeFilterLevel level}) async {
+    try {
+      await db.setSetting(restrictedModeFilterKey, level.name);
+      return Right(level);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, RestrictedModeFilterLevel>>
+      getRestrictedModeFilterLevel() async {
+    try {
+      final setting = await db.getSetting(restrictedModeFilterKey);
+      final level = RestrictedModeFilterLevel.values.firstWhere(
+        (v) => v.name == setting,
+        orElse: () => RestrictedModeFilterLevel.standard,
+      );
+      return Right(level);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  // Download auto-delete retention in days
+  @override
+  Future<Either<MainFailure, int>> setDownloadAutoDeleteDays(
+      {required int days}) async {
+    return _setSetting(
+      settingName: downloadAutoDeleteDaysKey,
+      value: days,
+      toStringValue: (v) => v.toString(),
+    );
+  }
+
+  @override
+  Future<Either<MainFailure, int>> getDownloadAutoDeleteDays() async {
+    try {
+      final setting = await db.getSetting(downloadAutoDeleteDaysKey);
+      return Right(int.tryParse(setting ?? '') ?? 7);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+
+  // Advanced content filter
+  @override
+  Future<Either<MainFailure, ContentFilterConfig>> getContentFilterConfig() async {
+    try {
+      final keywordsRaw = await db.getSetting(contentFilterKeywordsKey) ?? '';
+      final channelsRaw = await db.getSetting(contentFilterChannelsKey) ?? '';
+      final hideShorts =
+          await db.getSetting(contentFilterHideShortsKey) == 'true';
+      final hidePaid = await db.getSetting(contentFilterHidePaidKey) == 'true';
+      return Right(ContentFilterConfig(
+        keywords: keywordsRaw
+            .split('\n')
+            .map((k) => k.trim())
+            .where((k) => k.isNotEmpty)
+            .toList(),
+        blockedChannelIds: channelsRaw
+            .split(',')
+            .map((c) => c.trim())
+            .where((c) => c.isNotEmpty)
+            .toList(),
+        hideShorts: hideShorts,
+        hidePaidPromotions: hidePaid,
+      ));
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, List<String>>> setContentFilterKeywords(
+      {required List<String> keywords}) async {
+    final cleaned = keywords
+        .map((k) => k.trim())
+        .where((k) => k.isNotEmpty)
+        .toList();
+    return _setSetting(
+      settingName: contentFilterKeywordsKey,
+      value: cleaned,
+      toStringValue: (v) => v.join('\n'),
+    );
+  }
+
+  @override
+  Future<Either<MainFailure, List<String>>> setContentFilterBlockedChannels(
+      {required List<String> channelIds}) async {
+    final cleaned = channelIds
+        .map((c) => c.trim())
+        .where((c) => c.isNotEmpty)
+        .toList();
+    return _setSetting(
+      settingName: contentFilterChannelsKey,
+      value: cleaned,
+      toStringValue: (v) => v.join(','),
+    );
+  }
+
+  @override
+  Future<Either<MainFailure, bool>> setContentFilterHideShorts(
+      {required bool enabled}) async {
+    return _setSetting(
+      settingName: contentFilterHideShortsKey,
+      value: enabled,
+      toStringValue: (v) => v.toString(),
+    );
+  }
+
+  @override
+  Future<Either<MainFailure, bool>> setContentFilterHidePaid(
+      {required bool enabled}) async {
+    return _setSetting(
+      settingName: contentFilterHidePaidKey,
+      value: enabled,
+      toStringValue: (v) => v.toString(),
+    );
   }
 }

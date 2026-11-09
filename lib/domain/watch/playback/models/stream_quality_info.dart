@@ -5,7 +5,7 @@ part 'stream_quality_info.freezed.dart';
 
 /// Represents a quality option available for playback
 @freezed
-class StreamQualityInfo with _$StreamQualityInfo {
+abstract class StreamQualityInfo with _$StreamQualityInfo {
   const factory StreamQualityInfo({
     /// Quality label (e.g., "1080p", "720p 60fps", "360p")
     required String label,

@@ -1,7 +1,7 @@
 part of 'trending_bloc.dart';
 
 @freezed
-class TrendingState with _$TrendingState {
+sealed class TrendingState with _$TrendingState {
   const factory TrendingState({
     required String lastUsedRegion,
 

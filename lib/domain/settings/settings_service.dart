@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:vyplay/core/enums.dart';
+import 'package:vyplay/domain/content_filter/content_filter_config.dart';
 import 'package:vyplay/domain/core/failure/main_failure.dart';
 import 'package:vyplay/domain/settings/models/instance.dart';
 import 'package:vyplay/domain/sleep_timer/sleep_timer_config.dart';
@@ -181,4 +182,36 @@ abstract class SettingsService {
   // Content swipe direction (left-to-right = true, right-to-left = false)
   Future<Either<MainFailure, bool>> setSwipeDirection({required bool leftToRight});
   Future<Either<MainFailure, bool>> isSwipeLeftToRight();
+
+  // Playlist bookmarks (multi-select)
+  Future<Either<MainFailure, List<String>>> setBookmarkedPlaylists(
+      {required List<String> playlists});
+
+  // Mini player expansion behaviour
+  Future<Either<MainFailure, bool>> setMiniPlayerAutoExpand({required bool enabled});
+  Future<Either<MainFailure, bool>> isMiniPlayerAutoExpandEnabled();
+  Future<Either<MainFailure, bool>> setMiniPlayerTapToExpand({required bool enabled});
+  Future<Either<MainFailure, bool>> isMiniPlayerTapToExpandEnabled();
+  Future<Either<MainFailure, bool>> setMiniPlayerDoubleTapToExpand({required bool enabled});
+  Future<Either<MainFailure, bool>> isMiniPlayerDoubleTapToExpandEnabled();
+
+  // Restricted mode filter strictness
+  Future<Either<MainFailure, RestrictedModeFilterLevel>> setRestrictedModeFilterLevel(
+      {required RestrictedModeFilterLevel level});
+  Future<Either<MainFailure, RestrictedModeFilterLevel>> getRestrictedModeFilterLevel();
+
+  // Download auto-delete retention in days
+  Future<Either<MainFailure, int>> setDownloadAutoDeleteDays({required int days});
+  Future<Either<MainFailure, int>> getDownloadAutoDeleteDays();
+
+  // Advanced content filter (keywords, blocked channels, Shorts/paid hiding)
+  Future<Either<MainFailure, ContentFilterConfig>> getContentFilterConfig();
+  Future<Either<MainFailure, List<String>>> setContentFilterKeywords(
+      {required List<String> keywords});
+  Future<Either<MainFailure, List<String>>> setContentFilterBlockedChannels(
+      {required List<String> channelIds});
+  Future<Either<MainFailure, bool>> setContentFilterHideShorts(
+      {required bool enabled});
+  Future<Either<MainFailure, bool>> setContentFilterHidePaid(
+      {required bool enabled});
 }

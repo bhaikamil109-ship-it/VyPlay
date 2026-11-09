@@ -1,7 +1,7 @@
 part of 'channel_bloc.dart';
 
 @freezed
-class ChannelEvent with _$ChannelEvent {
+sealed class ChannelEvent with _$ChannelEvent {
   const factory ChannelEvent.getChannelData({
     required String serviceType,
     required String channelId,

@@ -5,6 +5,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:vyplay/application/application.dart';
 import 'package:vyplay/core/player/global_player_controller.dart';
+import 'package:vyplay/core/services/swipe_gesture_handler.dart';
+import 'package:vyplay/core/services/dearrow_service.dart';
+import 'package:vyplay/core/settings.dart';
+
 import 'package:vyplay/domain/saved/models/local_store.dart';
 import 'package:vyplay/domain/sponsorblock/models/sponsor_segment.dart';
 import 'package:vyplay/domain/watch/models/piped/video/video_stream.dart';
@@ -80,6 +84,8 @@ class _PipedMediaKitPlayerState extends State<PipedMediaKitPlayer> {
 
   late final SavedBloc _savedBloc;
   late final WatchBloc _watchBloc;
+  late final SwipeGestureHandler _swipeHandler;
+  bool _isDeArrowEnabled = false;
 
   @override
   void initState() {
@@ -88,6 +94,28 @@ class _PipedMediaKitPlayerState extends State<PipedMediaKitPlayer> {
     _savedBloc = BlocProvider.of<SavedBloc>(context);
     _watchBloc = BlocProvider.of<WatchBloc>(context);
     _currentFitMode = _getBoxFit(widget.videoFitMode);
+
+    // Initialize swipe gesture handler
+    _swipeHandler = SwipeGestureHandler();
+    _swipeHandler.setCallbacks(
+      seek: (duration) {
+        final player = _player;
+        final newPosition = player.state.position + duration;
+        if (newPosition <= player.state.duration) {
+          player.seek(newPosition);
+        }
+      },
+      brightness: (value) {
+        // Would need platform channel for brightness control
+      },
+      volume: (value) {
+        // Volume control through MediaKit
+      },
+    );
+
+    // Check DeArrow setting
+    final settingsBloc = context.read<SettingsBloc>();
+    _isDeArrowEnabled = settingsBloc.state.isDeArrowEnabled ?? false;
 
     // Defer initialization to next frame to handle async operations properly
     WidgetsBinding.instance.addPostFrameCallback((_) {

@@ -1,7 +1,7 @@
 part of 'watch_bloc.dart';
 
 @freezed
-class WatchState with _$WatchState {
+sealed class WatchState with _$WatchState {
   const factory WatchState({
     //
     String? oldId,

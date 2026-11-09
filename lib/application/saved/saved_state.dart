@@ -1,7 +1,7 @@
 part of 'saved_bloc.dart';
 
 @freezed
-class SavedState with _$SavedState {
+sealed class SavedState with _$SavedState {
   const factory SavedState({
     required ApiStatus savedVideosFetchStatus,
     required LocalStoreVideoInfo? videoInfo,

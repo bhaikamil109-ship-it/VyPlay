@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,3053 +9,175 @@ part of 'watch_bloc.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
 
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
-mixin _$WatchEvent {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String id) getWatchInfo,
-    required TResult Function(String id) getCommentData,
-    required TResult Function(String id) forceFetchCommentData,
-    required TResult Function(String id, String nextPage) getCommentRepliesData,
-    required TResult Function(String id, String? nextPage) getMoreCommentsData,
-    required TResult Function(String id, String? nextPage)
-        getMoreReplyCommentsData,
-    required TResult Function(String id) getSubtitles,
-    required TResult Function() tapDescription,
-    required TResult Function(bool value) togglePip,
-    required TResult Function(String title) assignTitle,
-    required TResult Function(String id) getExplodeWatchInfo,
-    required TResult Function(String id) getExplodeRelatedVideoInfo,
-    required TResult Function(String id) getExplodeMuxStreamInfo,
-    required TResult Function(String id) getExplodeLiveVideoInfo,
-    required TResult Function(VideoBasicInfo details)
-        setSelectedVideoBasicDetails,
-    required TResult Function(String id) getInvidiousWatchInfo,
-    required TResult Function(String id) getInvidiousComments,
-    required TResult Function(String id) forceFetchInvidiousComments,
-    required TResult Function(String id, String continuation)
-        getInvidiousCommentReplies,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousComments,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousReplyComments,
-    required TResult Function(int? playBack) updatePlayBack,
-    required TResult Function(String id) getNewPipeWatchInfo,
-    required TResult Function(String id, List<String> sponsorBlockCategories)
-        getNewPipeWatchInfoFast,
-    required TResult Function(String id) getNewPipeComments,
-    required TResult Function(String id) forceFetchNewPipeComments,
-    required TResult Function(String id, String? nextPage)
-        getMoreNewPipeComments,
-    required TResult Function(String videoId, String repliesPage)
-        getNewPipeCommentReplies,
-    required TResult Function(String videoId, String? nextPage)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(String videoId, List<String> categories)
-        getSponsorSegments,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String id)? getWatchInfo,
-    TResult? Function(String id)? getCommentData,
-    TResult? Function(String id)? forceFetchCommentData,
-    TResult? Function(String id, String nextPage)? getCommentRepliesData,
-    TResult? Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult? Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult? Function(String id)? getSubtitles,
-    TResult? Function()? tapDescription,
-    TResult? Function(bool value)? togglePip,
-    TResult? Function(String title)? assignTitle,
-    TResult? Function(String id)? getExplodeWatchInfo,
-    TResult? Function(String id)? getExplodeRelatedVideoInfo,
-    TResult? Function(String id)? getExplodeMuxStreamInfo,
-    TResult? Function(String id)? getExplodeLiveVideoInfo,
-    TResult? Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult? Function(String id)? getInvidiousWatchInfo,
-    TResult? Function(String id)? getInvidiousComments,
-    TResult? Function(String id)? forceFetchInvidiousComments,
-    TResult? Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousComments,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(int? playBack)? updatePlayBack,
-    TResult? Function(String id)? getNewPipeWatchInfo,
-    TResult? Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult? Function(String id)? getNewPipeComments,
-    TResult? Function(String id)? forceFetchNewPipeComments,
-    TResult? Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult? Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult? Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String id)? getWatchInfo,
-    TResult Function(String id)? getCommentData,
-    TResult Function(String id)? forceFetchCommentData,
-    TResult Function(String id, String nextPage)? getCommentRepliesData,
-    TResult Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult Function(String id)? getSubtitles,
-    TResult Function()? tapDescription,
-    TResult Function(bool value)? togglePip,
-    TResult Function(String title)? assignTitle,
-    TResult Function(String id)? getExplodeWatchInfo,
-    TResult Function(String id)? getExplodeRelatedVideoInfo,
-    TResult Function(String id)? getExplodeMuxStreamInfo,
-    TResult Function(String id)? getExplodeLiveVideoInfo,
-    TResult Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult Function(String id)? getInvidiousWatchInfo,
-    TResult Function(String id)? getInvidiousComments,
-    TResult Function(String id)? forceFetchInvidiousComments,
-    TResult Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult Function(String id, String? continuation)? getMoreInvidiousComments,
-    TResult Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult Function(int? playBack)? updatePlayBack,
-    TResult Function(String id)? getNewPipeWatchInfo,
-    TResult Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult Function(String id)? getNewPipeComments,
-    TResult Function(String id)? forceFetchNewPipeComments,
-    TResult Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GetWatchInfo value) getWatchInfo,
-    required TResult Function(GetCommentData value) getCommentData,
-    required TResult Function(ForceFetchCommentData value)
-        forceFetchCommentData,
-    required TResult Function(GetCommentRepliesData value)
-        getCommentRepliesData,
-    required TResult Function(GetMoreCommentsData value) getMoreCommentsData,
-    required TResult Function(GetMoreReplyCommentsData value)
-        getMoreReplyCommentsData,
-    required TResult Function(GetSubtitles value) getSubtitles,
-    required TResult Function(TapDescription value) tapDescription,
-    required TResult Function(TogglePip value) togglePip,
-    required TResult Function(AssignTitle value) assignTitle,
-    required TResult Function(GetExplodeWatchInfo value) getExplodeWatchInfo,
-    required TResult Function(GetExplodeRelatedVideoInfo value)
-        getExplodeRelatedVideoInfo,
-    required TResult Function(GetExplodeMuxStreamInfo value)
-        getExplodeMuxStreamInfo,
-    required TResult Function(GetExplodeLiveVideoInfo value)
-        getExplodeLiveVideoInfo,
-    required TResult Function(SetSelectedVideoBasicDetails value)
-        setSelectedVideoBasicDetails,
-    required TResult Function(GetInvidiousWatchInfo value)
-        getInvidiousWatchInfo,
-    required TResult Function(GetInvidiousComments value) getInvidiousComments,
-    required TResult Function(ForceFetchInvidiousComments value)
-        forceFetchInvidiousComments,
-    required TResult Function(GetInvidiousCommentReplies value)
-        getInvidiousCommentReplies,
-    required TResult Function(GetMoreInvidiousComments value)
-        getMoreInvidiousComments,
-    required TResult Function(GetMoreInvidiousReplyComments value)
-        getMoreInvidiousReplyComments,
-    required TResult Function(UpdatePlayBack value) updatePlayBack,
-    required TResult Function(GetNewPipeWatchInfo value) getNewPipeWatchInfo,
-    required TResult Function(GetNewPipeWatchInfoFast value)
-        getNewPipeWatchInfoFast,
-    required TResult Function(GetNewPipeComments value) getNewPipeComments,
-    required TResult Function(ForceFetchNewPipeComments value)
-        forceFetchNewPipeComments,
-    required TResult Function(GetMoreNewPipeComments value)
-        getMoreNewPipeComments,
-    required TResult Function(GetNewPipeCommentReplies value)
-        getNewPipeCommentReplies,
-    required TResult Function(GetMoreNewPipeCommentReplies value)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(GetSponsorSegments value) getSponsorSegments,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GetWatchInfo value)? getWatchInfo,
-    TResult? Function(GetCommentData value)? getCommentData,
-    TResult? Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult? Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult? Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult? Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult? Function(GetSubtitles value)? getSubtitles,
-    TResult? Function(TapDescription value)? tapDescription,
-    TResult? Function(TogglePip value)? togglePip,
-    TResult? Function(AssignTitle value)? assignTitle,
-    TResult? Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult? Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult? Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult? Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult? Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult? Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult? Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult? Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult? Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult? Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult? Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(UpdatePlayBack value)? updatePlayBack,
-    TResult? Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult? Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult? Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult? Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult? Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult? Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult? Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(GetSponsorSegments value)? getSponsorSegments,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetWatchInfo value)? getWatchInfo,
-    TResult Function(GetCommentData value)? getCommentData,
-    TResult Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult Function(GetSubtitles value)? getSubtitles,
-    TResult Function(TapDescription value)? tapDescription,
-    TResult Function(TogglePip value)? togglePip,
-    TResult Function(AssignTitle value)? assignTitle,
-    TResult Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult Function(UpdatePlayBack value)? updatePlayBack,
-    TResult Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(GetSponsorSegments value)? getSponsorSegments,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $WatchEventCopyWith<$Res> {
-  factory $WatchEventCopyWith(
-          WatchEvent value, $Res Function(WatchEvent) then) =
-      _$WatchEventCopyWithImpl<$Res, WatchEvent>;
-}
-
-/// @nodoc
-class _$WatchEventCopyWithImpl<$Res, $Val extends WatchEvent>
-    implements $WatchEventCopyWith<$Res> {
-  _$WatchEventCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-abstract class _$$GetWatchInfoImplCopyWith<$Res> {
-  factory _$$GetWatchInfoImplCopyWith(
-          _$GetWatchInfoImpl value, $Res Function(_$GetWatchInfoImpl) then) =
-      __$$GetWatchInfoImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String id});
-}
-
-/// @nodoc
-class __$$GetWatchInfoImplCopyWithImpl<$Res>
-    extends _$WatchEventCopyWithImpl<$Res, _$GetWatchInfoImpl>
-    implements _$$GetWatchInfoImplCopyWith<$Res> {
-  __$$GetWatchInfoImplCopyWithImpl(
-      _$GetWatchInfoImpl _value, $Res Function(_$GetWatchInfoImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
+mixin _$WatchEvent implements DiagnosticableTreeMixin {
   @override
-  $Res call({
-    Object? id = null,
-  }) {
-    return _then(_$GetWatchInfoImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$GetWatchInfoImpl implements GetWatchInfo {
-  _$GetWatchInfoImpl({required this.id});
-
-  @override
-  final String id;
-
-  @override
-  String toString() {
-    return 'WatchEvent.getWatchInfo(id: $id)';
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties..add(DiagnosticsProperty('type', 'WatchEvent'));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$GetWatchInfoImpl &&
-            (identical(other.id, id) || other.id == id));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, id);
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$GetWatchInfoImplCopyWith<_$GetWatchInfoImpl> get copyWith =>
-      __$$GetWatchInfoImplCopyWithImpl<_$GetWatchInfoImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String id) getWatchInfo,
-    required TResult Function(String id) getCommentData,
-    required TResult Function(String id) forceFetchCommentData,
-    required TResult Function(String id, String nextPage) getCommentRepliesData,
-    required TResult Function(String id, String? nextPage) getMoreCommentsData,
-    required TResult Function(String id, String? nextPage)
-        getMoreReplyCommentsData,
-    required TResult Function(String id) getSubtitles,
-    required TResult Function() tapDescription,
-    required TResult Function(bool value) togglePip,
-    required TResult Function(String title) assignTitle,
-    required TResult Function(String id) getExplodeWatchInfo,
-    required TResult Function(String id) getExplodeRelatedVideoInfo,
-    required TResult Function(String id) getExplodeMuxStreamInfo,
-    required TResult Function(String id) getExplodeLiveVideoInfo,
-    required TResult Function(VideoBasicInfo details)
-        setSelectedVideoBasicDetails,
-    required TResult Function(String id) getInvidiousWatchInfo,
-    required TResult Function(String id) getInvidiousComments,
-    required TResult Function(String id) forceFetchInvidiousComments,
-    required TResult Function(String id, String continuation)
-        getInvidiousCommentReplies,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousComments,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousReplyComments,
-    required TResult Function(int? playBack) updatePlayBack,
-    required TResult Function(String id) getNewPipeWatchInfo,
-    required TResult Function(String id, List<String> sponsorBlockCategories)
-        getNewPipeWatchInfoFast,
-    required TResult Function(String id) getNewPipeComments,
-    required TResult Function(String id) forceFetchNewPipeComments,
-    required TResult Function(String id, String? nextPage)
-        getMoreNewPipeComments,
-    required TResult Function(String videoId, String repliesPage)
-        getNewPipeCommentReplies,
-    required TResult Function(String videoId, String? nextPage)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(String videoId, List<String> categories)
-        getSponsorSegments,
-  }) {
-    return getWatchInfo(id);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String id)? getWatchInfo,
-    TResult? Function(String id)? getCommentData,
-    TResult? Function(String id)? forceFetchCommentData,
-    TResult? Function(String id, String nextPage)? getCommentRepliesData,
-    TResult? Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult? Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult? Function(String id)? getSubtitles,
-    TResult? Function()? tapDescription,
-    TResult? Function(bool value)? togglePip,
-    TResult? Function(String title)? assignTitle,
-    TResult? Function(String id)? getExplodeWatchInfo,
-    TResult? Function(String id)? getExplodeRelatedVideoInfo,
-    TResult? Function(String id)? getExplodeMuxStreamInfo,
-    TResult? Function(String id)? getExplodeLiveVideoInfo,
-    TResult? Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult? Function(String id)? getInvidiousWatchInfo,
-    TResult? Function(String id)? getInvidiousComments,
-    TResult? Function(String id)? forceFetchInvidiousComments,
-    TResult? Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousComments,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(int? playBack)? updatePlayBack,
-    TResult? Function(String id)? getNewPipeWatchInfo,
-    TResult? Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult? Function(String id)? getNewPipeComments,
-    TResult? Function(String id)? forceFetchNewPipeComments,
-    TResult? Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult? Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult? Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-  }) {
-    return getWatchInfo?.call(id);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String id)? getWatchInfo,
-    TResult Function(String id)? getCommentData,
-    TResult Function(String id)? forceFetchCommentData,
-    TResult Function(String id, String nextPage)? getCommentRepliesData,
-    TResult Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult Function(String id)? getSubtitles,
-    TResult Function()? tapDescription,
-    TResult Function(bool value)? togglePip,
-    TResult Function(String title)? assignTitle,
-    TResult Function(String id)? getExplodeWatchInfo,
-    TResult Function(String id)? getExplodeRelatedVideoInfo,
-    TResult Function(String id)? getExplodeMuxStreamInfo,
-    TResult Function(String id)? getExplodeLiveVideoInfo,
-    TResult Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult Function(String id)? getInvidiousWatchInfo,
-    TResult Function(String id)? getInvidiousComments,
-    TResult Function(String id)? forceFetchInvidiousComments,
-    TResult Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult Function(String id, String? continuation)? getMoreInvidiousComments,
-    TResult Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult Function(int? playBack)? updatePlayBack,
-    TResult Function(String id)? getNewPipeWatchInfo,
-    TResult Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult Function(String id)? getNewPipeComments,
-    TResult Function(String id)? forceFetchNewPipeComments,
-    TResult Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getWatchInfo != null) {
-      return getWatchInfo(id);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GetWatchInfo value) getWatchInfo,
-    required TResult Function(GetCommentData value) getCommentData,
-    required TResult Function(ForceFetchCommentData value)
-        forceFetchCommentData,
-    required TResult Function(GetCommentRepliesData value)
-        getCommentRepliesData,
-    required TResult Function(GetMoreCommentsData value) getMoreCommentsData,
-    required TResult Function(GetMoreReplyCommentsData value)
-        getMoreReplyCommentsData,
-    required TResult Function(GetSubtitles value) getSubtitles,
-    required TResult Function(TapDescription value) tapDescription,
-    required TResult Function(TogglePip value) togglePip,
-    required TResult Function(AssignTitle value) assignTitle,
-    required TResult Function(GetExplodeWatchInfo value) getExplodeWatchInfo,
-    required TResult Function(GetExplodeRelatedVideoInfo value)
-        getExplodeRelatedVideoInfo,
-    required TResult Function(GetExplodeMuxStreamInfo value)
-        getExplodeMuxStreamInfo,
-    required TResult Function(GetExplodeLiveVideoInfo value)
-        getExplodeLiveVideoInfo,
-    required TResult Function(SetSelectedVideoBasicDetails value)
-        setSelectedVideoBasicDetails,
-    required TResult Function(GetInvidiousWatchInfo value)
-        getInvidiousWatchInfo,
-    required TResult Function(GetInvidiousComments value) getInvidiousComments,
-    required TResult Function(ForceFetchInvidiousComments value)
-        forceFetchInvidiousComments,
-    required TResult Function(GetInvidiousCommentReplies value)
-        getInvidiousCommentReplies,
-    required TResult Function(GetMoreInvidiousComments value)
-        getMoreInvidiousComments,
-    required TResult Function(GetMoreInvidiousReplyComments value)
-        getMoreInvidiousReplyComments,
-    required TResult Function(UpdatePlayBack value) updatePlayBack,
-    required TResult Function(GetNewPipeWatchInfo value) getNewPipeWatchInfo,
-    required TResult Function(GetNewPipeWatchInfoFast value)
-        getNewPipeWatchInfoFast,
-    required TResult Function(GetNewPipeComments value) getNewPipeComments,
-    required TResult Function(ForceFetchNewPipeComments value)
-        forceFetchNewPipeComments,
-    required TResult Function(GetMoreNewPipeComments value)
-        getMoreNewPipeComments,
-    required TResult Function(GetNewPipeCommentReplies value)
-        getNewPipeCommentReplies,
-    required TResult Function(GetMoreNewPipeCommentReplies value)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(GetSponsorSegments value) getSponsorSegments,
-  }) {
-    return getWatchInfo(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GetWatchInfo value)? getWatchInfo,
-    TResult? Function(GetCommentData value)? getCommentData,
-    TResult? Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult? Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult? Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult? Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult? Function(GetSubtitles value)? getSubtitles,
-    TResult? Function(TapDescription value)? tapDescription,
-    TResult? Function(TogglePip value)? togglePip,
-    TResult? Function(AssignTitle value)? assignTitle,
-    TResult? Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult? Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult? Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult? Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult? Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult? Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult? Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult? Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult? Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult? Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult? Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(UpdatePlayBack value)? updatePlayBack,
-    TResult? Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult? Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult? Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult? Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult? Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult? Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult? Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(GetSponsorSegments value)? getSponsorSegments,
-  }) {
-    return getWatchInfo?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetWatchInfo value)? getWatchInfo,
-    TResult Function(GetCommentData value)? getCommentData,
-    TResult Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult Function(GetSubtitles value)? getSubtitles,
-    TResult Function(TapDescription value)? tapDescription,
-    TResult Function(TogglePip value)? togglePip,
-    TResult Function(AssignTitle value)? assignTitle,
-    TResult Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult Function(UpdatePlayBack value)? updatePlayBack,
-    TResult Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(GetSponsorSegments value)? getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getWatchInfo != null) {
-      return getWatchInfo(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class GetWatchInfo implements WatchEvent {
-  factory GetWatchInfo({required final String id}) = _$GetWatchInfoImpl;
-
-  String get id;
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetWatchInfoImplCopyWith<_$GetWatchInfoImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$GetCommentDataImplCopyWith<$Res> {
-  factory _$$GetCommentDataImplCopyWith(_$GetCommentDataImpl value,
-          $Res Function(_$GetCommentDataImpl) then) =
-      __$$GetCommentDataImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String id});
-}
-
-/// @nodoc
-class __$$GetCommentDataImplCopyWithImpl<$Res>
-    extends _$WatchEventCopyWithImpl<$Res, _$GetCommentDataImpl>
-    implements _$$GetCommentDataImplCopyWith<$Res> {
-  __$$GetCommentDataImplCopyWithImpl(
-      _$GetCommentDataImpl _value, $Res Function(_$GetCommentDataImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-  }) {
-    return _then(_$GetCommentDataImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$GetCommentDataImpl implements GetCommentData {
-  _$GetCommentDataImpl({required this.id});
-
-  @override
-  final String id;
-
-  @override
-  String toString() {
-    return 'WatchEvent.getCommentData(id: $id)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$GetCommentDataImpl &&
-            (identical(other.id, id) || other.id == id));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, id);
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$GetCommentDataImplCopyWith<_$GetCommentDataImpl> get copyWith =>
-      __$$GetCommentDataImplCopyWithImpl<_$GetCommentDataImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String id) getWatchInfo,
-    required TResult Function(String id) getCommentData,
-    required TResult Function(String id) forceFetchCommentData,
-    required TResult Function(String id, String nextPage) getCommentRepliesData,
-    required TResult Function(String id, String? nextPage) getMoreCommentsData,
-    required TResult Function(String id, String? nextPage)
-        getMoreReplyCommentsData,
-    required TResult Function(String id) getSubtitles,
-    required TResult Function() tapDescription,
-    required TResult Function(bool value) togglePip,
-    required TResult Function(String title) assignTitle,
-    required TResult Function(String id) getExplodeWatchInfo,
-    required TResult Function(String id) getExplodeRelatedVideoInfo,
-    required TResult Function(String id) getExplodeMuxStreamInfo,
-    required TResult Function(String id) getExplodeLiveVideoInfo,
-    required TResult Function(VideoBasicInfo details)
-        setSelectedVideoBasicDetails,
-    required TResult Function(String id) getInvidiousWatchInfo,
-    required TResult Function(String id) getInvidiousComments,
-    required TResult Function(String id) forceFetchInvidiousComments,
-    required TResult Function(String id, String continuation)
-        getInvidiousCommentReplies,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousComments,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousReplyComments,
-    required TResult Function(int? playBack) updatePlayBack,
-    required TResult Function(String id) getNewPipeWatchInfo,
-    required TResult Function(String id, List<String> sponsorBlockCategories)
-        getNewPipeWatchInfoFast,
-    required TResult Function(String id) getNewPipeComments,
-    required TResult Function(String id) forceFetchNewPipeComments,
-    required TResult Function(String id, String? nextPage)
-        getMoreNewPipeComments,
-    required TResult Function(String videoId, String repliesPage)
-        getNewPipeCommentReplies,
-    required TResult Function(String videoId, String? nextPage)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(String videoId, List<String> categories)
-        getSponsorSegments,
-  }) {
-    return getCommentData(id);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String id)? getWatchInfo,
-    TResult? Function(String id)? getCommentData,
-    TResult? Function(String id)? forceFetchCommentData,
-    TResult? Function(String id, String nextPage)? getCommentRepliesData,
-    TResult? Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult? Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult? Function(String id)? getSubtitles,
-    TResult? Function()? tapDescription,
-    TResult? Function(bool value)? togglePip,
-    TResult? Function(String title)? assignTitle,
-    TResult? Function(String id)? getExplodeWatchInfo,
-    TResult? Function(String id)? getExplodeRelatedVideoInfo,
-    TResult? Function(String id)? getExplodeMuxStreamInfo,
-    TResult? Function(String id)? getExplodeLiveVideoInfo,
-    TResult? Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult? Function(String id)? getInvidiousWatchInfo,
-    TResult? Function(String id)? getInvidiousComments,
-    TResult? Function(String id)? forceFetchInvidiousComments,
-    TResult? Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousComments,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(int? playBack)? updatePlayBack,
-    TResult? Function(String id)? getNewPipeWatchInfo,
-    TResult? Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult? Function(String id)? getNewPipeComments,
-    TResult? Function(String id)? forceFetchNewPipeComments,
-    TResult? Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult? Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult? Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-  }) {
-    return getCommentData?.call(id);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String id)? getWatchInfo,
-    TResult Function(String id)? getCommentData,
-    TResult Function(String id)? forceFetchCommentData,
-    TResult Function(String id, String nextPage)? getCommentRepliesData,
-    TResult Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult Function(String id)? getSubtitles,
-    TResult Function()? tapDescription,
-    TResult Function(bool value)? togglePip,
-    TResult Function(String title)? assignTitle,
-    TResult Function(String id)? getExplodeWatchInfo,
-    TResult Function(String id)? getExplodeRelatedVideoInfo,
-    TResult Function(String id)? getExplodeMuxStreamInfo,
-    TResult Function(String id)? getExplodeLiveVideoInfo,
-    TResult Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult Function(String id)? getInvidiousWatchInfo,
-    TResult Function(String id)? getInvidiousComments,
-    TResult Function(String id)? forceFetchInvidiousComments,
-    TResult Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult Function(String id, String? continuation)? getMoreInvidiousComments,
-    TResult Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult Function(int? playBack)? updatePlayBack,
-    TResult Function(String id)? getNewPipeWatchInfo,
-    TResult Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult Function(String id)? getNewPipeComments,
-    TResult Function(String id)? forceFetchNewPipeComments,
-    TResult Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getCommentData != null) {
-      return getCommentData(id);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GetWatchInfo value) getWatchInfo,
-    required TResult Function(GetCommentData value) getCommentData,
-    required TResult Function(ForceFetchCommentData value)
-        forceFetchCommentData,
-    required TResult Function(GetCommentRepliesData value)
-        getCommentRepliesData,
-    required TResult Function(GetMoreCommentsData value) getMoreCommentsData,
-    required TResult Function(GetMoreReplyCommentsData value)
-        getMoreReplyCommentsData,
-    required TResult Function(GetSubtitles value) getSubtitles,
-    required TResult Function(TapDescription value) tapDescription,
-    required TResult Function(TogglePip value) togglePip,
-    required TResult Function(AssignTitle value) assignTitle,
-    required TResult Function(GetExplodeWatchInfo value) getExplodeWatchInfo,
-    required TResult Function(GetExplodeRelatedVideoInfo value)
-        getExplodeRelatedVideoInfo,
-    required TResult Function(GetExplodeMuxStreamInfo value)
-        getExplodeMuxStreamInfo,
-    required TResult Function(GetExplodeLiveVideoInfo value)
-        getExplodeLiveVideoInfo,
-    required TResult Function(SetSelectedVideoBasicDetails value)
-        setSelectedVideoBasicDetails,
-    required TResult Function(GetInvidiousWatchInfo value)
-        getInvidiousWatchInfo,
-    required TResult Function(GetInvidiousComments value) getInvidiousComments,
-    required TResult Function(ForceFetchInvidiousComments value)
-        forceFetchInvidiousComments,
-    required TResult Function(GetInvidiousCommentReplies value)
-        getInvidiousCommentReplies,
-    required TResult Function(GetMoreInvidiousComments value)
-        getMoreInvidiousComments,
-    required TResult Function(GetMoreInvidiousReplyComments value)
-        getMoreInvidiousReplyComments,
-    required TResult Function(UpdatePlayBack value) updatePlayBack,
-    required TResult Function(GetNewPipeWatchInfo value) getNewPipeWatchInfo,
-    required TResult Function(GetNewPipeWatchInfoFast value)
-        getNewPipeWatchInfoFast,
-    required TResult Function(GetNewPipeComments value) getNewPipeComments,
-    required TResult Function(ForceFetchNewPipeComments value)
-        forceFetchNewPipeComments,
-    required TResult Function(GetMoreNewPipeComments value)
-        getMoreNewPipeComments,
-    required TResult Function(GetNewPipeCommentReplies value)
-        getNewPipeCommentReplies,
-    required TResult Function(GetMoreNewPipeCommentReplies value)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(GetSponsorSegments value) getSponsorSegments,
-  }) {
-    return getCommentData(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GetWatchInfo value)? getWatchInfo,
-    TResult? Function(GetCommentData value)? getCommentData,
-    TResult? Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult? Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult? Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult? Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult? Function(GetSubtitles value)? getSubtitles,
-    TResult? Function(TapDescription value)? tapDescription,
-    TResult? Function(TogglePip value)? togglePip,
-    TResult? Function(AssignTitle value)? assignTitle,
-    TResult? Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult? Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult? Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult? Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult? Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult? Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult? Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult? Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult? Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult? Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult? Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(UpdatePlayBack value)? updatePlayBack,
-    TResult? Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult? Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult? Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult? Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult? Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult? Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult? Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(GetSponsorSegments value)? getSponsorSegments,
-  }) {
-    return getCommentData?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetWatchInfo value)? getWatchInfo,
-    TResult Function(GetCommentData value)? getCommentData,
-    TResult Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult Function(GetSubtitles value)? getSubtitles,
-    TResult Function(TapDescription value)? tapDescription,
-    TResult Function(TogglePip value)? togglePip,
-    TResult Function(AssignTitle value)? assignTitle,
-    TResult Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult Function(UpdatePlayBack value)? updatePlayBack,
-    TResult Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(GetSponsorSegments value)? getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getCommentData != null) {
-      return getCommentData(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class GetCommentData implements WatchEvent {
-  factory GetCommentData({required final String id}) = _$GetCommentDataImpl;
-
-  String get id;
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetCommentDataImplCopyWith<_$GetCommentDataImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$ForceFetchCommentDataImplCopyWith<$Res> {
-  factory _$$ForceFetchCommentDataImplCopyWith(
-          _$ForceFetchCommentDataImpl value,
-          $Res Function(_$ForceFetchCommentDataImpl) then) =
-      __$$ForceFetchCommentDataImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String id});
-}
-
-/// @nodoc
-class __$$ForceFetchCommentDataImplCopyWithImpl<$Res>
-    extends _$WatchEventCopyWithImpl<$Res, _$ForceFetchCommentDataImpl>
-    implements _$$ForceFetchCommentDataImplCopyWith<$Res> {
-  __$$ForceFetchCommentDataImplCopyWithImpl(_$ForceFetchCommentDataImpl _value,
-      $Res Function(_$ForceFetchCommentDataImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-  }) {
-    return _then(_$ForceFetchCommentDataImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$ForceFetchCommentDataImpl implements ForceFetchCommentData {
-  _$ForceFetchCommentDataImpl({required this.id});
-
-  @override
-  final String id;
-
-  @override
-  String toString() {
-    return 'WatchEvent.forceFetchCommentData(id: $id)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ForceFetchCommentDataImpl &&
-            (identical(other.id, id) || other.id == id));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, id);
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ForceFetchCommentDataImplCopyWith<_$ForceFetchCommentDataImpl>
-      get copyWith => __$$ForceFetchCommentDataImplCopyWithImpl<
-          _$ForceFetchCommentDataImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String id) getWatchInfo,
-    required TResult Function(String id) getCommentData,
-    required TResult Function(String id) forceFetchCommentData,
-    required TResult Function(String id, String nextPage) getCommentRepliesData,
-    required TResult Function(String id, String? nextPage) getMoreCommentsData,
-    required TResult Function(String id, String? nextPage)
-        getMoreReplyCommentsData,
-    required TResult Function(String id) getSubtitles,
-    required TResult Function() tapDescription,
-    required TResult Function(bool value) togglePip,
-    required TResult Function(String title) assignTitle,
-    required TResult Function(String id) getExplodeWatchInfo,
-    required TResult Function(String id) getExplodeRelatedVideoInfo,
-    required TResult Function(String id) getExplodeMuxStreamInfo,
-    required TResult Function(String id) getExplodeLiveVideoInfo,
-    required TResult Function(VideoBasicInfo details)
-        setSelectedVideoBasicDetails,
-    required TResult Function(String id) getInvidiousWatchInfo,
-    required TResult Function(String id) getInvidiousComments,
-    required TResult Function(String id) forceFetchInvidiousComments,
-    required TResult Function(String id, String continuation)
-        getInvidiousCommentReplies,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousComments,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousReplyComments,
-    required TResult Function(int? playBack) updatePlayBack,
-    required TResult Function(String id) getNewPipeWatchInfo,
-    required TResult Function(String id, List<String> sponsorBlockCategories)
-        getNewPipeWatchInfoFast,
-    required TResult Function(String id) getNewPipeComments,
-    required TResult Function(String id) forceFetchNewPipeComments,
-    required TResult Function(String id, String? nextPage)
-        getMoreNewPipeComments,
-    required TResult Function(String videoId, String repliesPage)
-        getNewPipeCommentReplies,
-    required TResult Function(String videoId, String? nextPage)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(String videoId, List<String> categories)
-        getSponsorSegments,
-  }) {
-    return forceFetchCommentData(id);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String id)? getWatchInfo,
-    TResult? Function(String id)? getCommentData,
-    TResult? Function(String id)? forceFetchCommentData,
-    TResult? Function(String id, String nextPage)? getCommentRepliesData,
-    TResult? Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult? Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult? Function(String id)? getSubtitles,
-    TResult? Function()? tapDescription,
-    TResult? Function(bool value)? togglePip,
-    TResult? Function(String title)? assignTitle,
-    TResult? Function(String id)? getExplodeWatchInfo,
-    TResult? Function(String id)? getExplodeRelatedVideoInfo,
-    TResult? Function(String id)? getExplodeMuxStreamInfo,
-    TResult? Function(String id)? getExplodeLiveVideoInfo,
-    TResult? Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult? Function(String id)? getInvidiousWatchInfo,
-    TResult? Function(String id)? getInvidiousComments,
-    TResult? Function(String id)? forceFetchInvidiousComments,
-    TResult? Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousComments,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(int? playBack)? updatePlayBack,
-    TResult? Function(String id)? getNewPipeWatchInfo,
-    TResult? Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult? Function(String id)? getNewPipeComments,
-    TResult? Function(String id)? forceFetchNewPipeComments,
-    TResult? Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult? Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult? Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-  }) {
-    return forceFetchCommentData?.call(id);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String id)? getWatchInfo,
-    TResult Function(String id)? getCommentData,
-    TResult Function(String id)? forceFetchCommentData,
-    TResult Function(String id, String nextPage)? getCommentRepliesData,
-    TResult Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult Function(String id)? getSubtitles,
-    TResult Function()? tapDescription,
-    TResult Function(bool value)? togglePip,
-    TResult Function(String title)? assignTitle,
-    TResult Function(String id)? getExplodeWatchInfo,
-    TResult Function(String id)? getExplodeRelatedVideoInfo,
-    TResult Function(String id)? getExplodeMuxStreamInfo,
-    TResult Function(String id)? getExplodeLiveVideoInfo,
-    TResult Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult Function(String id)? getInvidiousWatchInfo,
-    TResult Function(String id)? getInvidiousComments,
-    TResult Function(String id)? forceFetchInvidiousComments,
-    TResult Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult Function(String id, String? continuation)? getMoreInvidiousComments,
-    TResult Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult Function(int? playBack)? updatePlayBack,
-    TResult Function(String id)? getNewPipeWatchInfo,
-    TResult Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult Function(String id)? getNewPipeComments,
-    TResult Function(String id)? forceFetchNewPipeComments,
-    TResult Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (forceFetchCommentData != null) {
-      return forceFetchCommentData(id);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GetWatchInfo value) getWatchInfo,
-    required TResult Function(GetCommentData value) getCommentData,
-    required TResult Function(ForceFetchCommentData value)
-        forceFetchCommentData,
-    required TResult Function(GetCommentRepliesData value)
-        getCommentRepliesData,
-    required TResult Function(GetMoreCommentsData value) getMoreCommentsData,
-    required TResult Function(GetMoreReplyCommentsData value)
-        getMoreReplyCommentsData,
-    required TResult Function(GetSubtitles value) getSubtitles,
-    required TResult Function(TapDescription value) tapDescription,
-    required TResult Function(TogglePip value) togglePip,
-    required TResult Function(AssignTitle value) assignTitle,
-    required TResult Function(GetExplodeWatchInfo value) getExplodeWatchInfo,
-    required TResult Function(GetExplodeRelatedVideoInfo value)
-        getExplodeRelatedVideoInfo,
-    required TResult Function(GetExplodeMuxStreamInfo value)
-        getExplodeMuxStreamInfo,
-    required TResult Function(GetExplodeLiveVideoInfo value)
-        getExplodeLiveVideoInfo,
-    required TResult Function(SetSelectedVideoBasicDetails value)
-        setSelectedVideoBasicDetails,
-    required TResult Function(GetInvidiousWatchInfo value)
-        getInvidiousWatchInfo,
-    required TResult Function(GetInvidiousComments value) getInvidiousComments,
-    required TResult Function(ForceFetchInvidiousComments value)
-        forceFetchInvidiousComments,
-    required TResult Function(GetInvidiousCommentReplies value)
-        getInvidiousCommentReplies,
-    required TResult Function(GetMoreInvidiousComments value)
-        getMoreInvidiousComments,
-    required TResult Function(GetMoreInvidiousReplyComments value)
-        getMoreInvidiousReplyComments,
-    required TResult Function(UpdatePlayBack value) updatePlayBack,
-    required TResult Function(GetNewPipeWatchInfo value) getNewPipeWatchInfo,
-    required TResult Function(GetNewPipeWatchInfoFast value)
-        getNewPipeWatchInfoFast,
-    required TResult Function(GetNewPipeComments value) getNewPipeComments,
-    required TResult Function(ForceFetchNewPipeComments value)
-        forceFetchNewPipeComments,
-    required TResult Function(GetMoreNewPipeComments value)
-        getMoreNewPipeComments,
-    required TResult Function(GetNewPipeCommentReplies value)
-        getNewPipeCommentReplies,
-    required TResult Function(GetMoreNewPipeCommentReplies value)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(GetSponsorSegments value) getSponsorSegments,
-  }) {
-    return forceFetchCommentData(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GetWatchInfo value)? getWatchInfo,
-    TResult? Function(GetCommentData value)? getCommentData,
-    TResult? Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult? Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult? Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult? Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult? Function(GetSubtitles value)? getSubtitles,
-    TResult? Function(TapDescription value)? tapDescription,
-    TResult? Function(TogglePip value)? togglePip,
-    TResult? Function(AssignTitle value)? assignTitle,
-    TResult? Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult? Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult? Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult? Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult? Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult? Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult? Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult? Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult? Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult? Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult? Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(UpdatePlayBack value)? updatePlayBack,
-    TResult? Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult? Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult? Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult? Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult? Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult? Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult? Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(GetSponsorSegments value)? getSponsorSegments,
-  }) {
-    return forceFetchCommentData?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetWatchInfo value)? getWatchInfo,
-    TResult Function(GetCommentData value)? getCommentData,
-    TResult Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult Function(GetSubtitles value)? getSubtitles,
-    TResult Function(TapDescription value)? tapDescription,
-    TResult Function(TogglePip value)? togglePip,
-    TResult Function(AssignTitle value)? assignTitle,
-    TResult Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult Function(UpdatePlayBack value)? updatePlayBack,
-    TResult Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(GetSponsorSegments value)? getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (forceFetchCommentData != null) {
-      return forceFetchCommentData(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ForceFetchCommentData implements WatchEvent {
-  factory ForceFetchCommentData({required final String id}) =
-      _$ForceFetchCommentDataImpl;
-
-  String get id;
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ForceFetchCommentDataImplCopyWith<_$ForceFetchCommentDataImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$GetCommentRepliesDataImplCopyWith<$Res> {
-  factory _$$GetCommentRepliesDataImplCopyWith(
-          _$GetCommentRepliesDataImpl value,
-          $Res Function(_$GetCommentRepliesDataImpl) then) =
-      __$$GetCommentRepliesDataImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String id, String nextPage});
-}
-
-/// @nodoc
-class __$$GetCommentRepliesDataImplCopyWithImpl<$Res>
-    extends _$WatchEventCopyWithImpl<$Res, _$GetCommentRepliesDataImpl>
-    implements _$$GetCommentRepliesDataImplCopyWith<$Res> {
-  __$$GetCommentRepliesDataImplCopyWithImpl(_$GetCommentRepliesDataImpl _value,
-      $Res Function(_$GetCommentRepliesDataImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? nextPage = null,
-  }) {
-    return _then(_$GetCommentRepliesDataImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      nextPage: null == nextPage
-          ? _value.nextPage
-          : nextPage // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$GetCommentRepliesDataImpl implements GetCommentRepliesData {
-  _$GetCommentRepliesDataImpl({required this.id, required this.nextPage});
-
-  @override
-  final String id;
-  @override
-  final String nextPage;
-
-  @override
-  String toString() {
-    return 'WatchEvent.getCommentRepliesData(id: $id, nextPage: $nextPage)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$GetCommentRepliesDataImpl &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.nextPage, nextPage) ||
-                other.nextPage == nextPage));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, id, nextPage);
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$GetCommentRepliesDataImplCopyWith<_$GetCommentRepliesDataImpl>
-      get copyWith => __$$GetCommentRepliesDataImplCopyWithImpl<
-          _$GetCommentRepliesDataImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String id) getWatchInfo,
-    required TResult Function(String id) getCommentData,
-    required TResult Function(String id) forceFetchCommentData,
-    required TResult Function(String id, String nextPage) getCommentRepliesData,
-    required TResult Function(String id, String? nextPage) getMoreCommentsData,
-    required TResult Function(String id, String? nextPage)
-        getMoreReplyCommentsData,
-    required TResult Function(String id) getSubtitles,
-    required TResult Function() tapDescription,
-    required TResult Function(bool value) togglePip,
-    required TResult Function(String title) assignTitle,
-    required TResult Function(String id) getExplodeWatchInfo,
-    required TResult Function(String id) getExplodeRelatedVideoInfo,
-    required TResult Function(String id) getExplodeMuxStreamInfo,
-    required TResult Function(String id) getExplodeLiveVideoInfo,
-    required TResult Function(VideoBasicInfo details)
-        setSelectedVideoBasicDetails,
-    required TResult Function(String id) getInvidiousWatchInfo,
-    required TResult Function(String id) getInvidiousComments,
-    required TResult Function(String id) forceFetchInvidiousComments,
-    required TResult Function(String id, String continuation)
-        getInvidiousCommentReplies,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousComments,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousReplyComments,
-    required TResult Function(int? playBack) updatePlayBack,
-    required TResult Function(String id) getNewPipeWatchInfo,
-    required TResult Function(String id, List<String> sponsorBlockCategories)
-        getNewPipeWatchInfoFast,
-    required TResult Function(String id) getNewPipeComments,
-    required TResult Function(String id) forceFetchNewPipeComments,
-    required TResult Function(String id, String? nextPage)
-        getMoreNewPipeComments,
-    required TResult Function(String videoId, String repliesPage)
-        getNewPipeCommentReplies,
-    required TResult Function(String videoId, String? nextPage)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(String videoId, List<String> categories)
-        getSponsorSegments,
-  }) {
-    return getCommentRepliesData(id, nextPage);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String id)? getWatchInfo,
-    TResult? Function(String id)? getCommentData,
-    TResult? Function(String id)? forceFetchCommentData,
-    TResult? Function(String id, String nextPage)? getCommentRepliesData,
-    TResult? Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult? Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult? Function(String id)? getSubtitles,
-    TResult? Function()? tapDescription,
-    TResult? Function(bool value)? togglePip,
-    TResult? Function(String title)? assignTitle,
-    TResult? Function(String id)? getExplodeWatchInfo,
-    TResult? Function(String id)? getExplodeRelatedVideoInfo,
-    TResult? Function(String id)? getExplodeMuxStreamInfo,
-    TResult? Function(String id)? getExplodeLiveVideoInfo,
-    TResult? Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult? Function(String id)? getInvidiousWatchInfo,
-    TResult? Function(String id)? getInvidiousComments,
-    TResult? Function(String id)? forceFetchInvidiousComments,
-    TResult? Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousComments,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(int? playBack)? updatePlayBack,
-    TResult? Function(String id)? getNewPipeWatchInfo,
-    TResult? Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult? Function(String id)? getNewPipeComments,
-    TResult? Function(String id)? forceFetchNewPipeComments,
-    TResult? Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult? Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult? Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-  }) {
-    return getCommentRepliesData?.call(id, nextPage);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String id)? getWatchInfo,
-    TResult Function(String id)? getCommentData,
-    TResult Function(String id)? forceFetchCommentData,
-    TResult Function(String id, String nextPage)? getCommentRepliesData,
-    TResult Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult Function(String id)? getSubtitles,
-    TResult Function()? tapDescription,
-    TResult Function(bool value)? togglePip,
-    TResult Function(String title)? assignTitle,
-    TResult Function(String id)? getExplodeWatchInfo,
-    TResult Function(String id)? getExplodeRelatedVideoInfo,
-    TResult Function(String id)? getExplodeMuxStreamInfo,
-    TResult Function(String id)? getExplodeLiveVideoInfo,
-    TResult Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult Function(String id)? getInvidiousWatchInfo,
-    TResult Function(String id)? getInvidiousComments,
-    TResult Function(String id)? forceFetchInvidiousComments,
-    TResult Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult Function(String id, String? continuation)? getMoreInvidiousComments,
-    TResult Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult Function(int? playBack)? updatePlayBack,
-    TResult Function(String id)? getNewPipeWatchInfo,
-    TResult Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult Function(String id)? getNewPipeComments,
-    TResult Function(String id)? forceFetchNewPipeComments,
-    TResult Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getCommentRepliesData != null) {
-      return getCommentRepliesData(id, nextPage);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GetWatchInfo value) getWatchInfo,
-    required TResult Function(GetCommentData value) getCommentData,
-    required TResult Function(ForceFetchCommentData value)
-        forceFetchCommentData,
-    required TResult Function(GetCommentRepliesData value)
-        getCommentRepliesData,
-    required TResult Function(GetMoreCommentsData value) getMoreCommentsData,
-    required TResult Function(GetMoreReplyCommentsData value)
-        getMoreReplyCommentsData,
-    required TResult Function(GetSubtitles value) getSubtitles,
-    required TResult Function(TapDescription value) tapDescription,
-    required TResult Function(TogglePip value) togglePip,
-    required TResult Function(AssignTitle value) assignTitle,
-    required TResult Function(GetExplodeWatchInfo value) getExplodeWatchInfo,
-    required TResult Function(GetExplodeRelatedVideoInfo value)
-        getExplodeRelatedVideoInfo,
-    required TResult Function(GetExplodeMuxStreamInfo value)
-        getExplodeMuxStreamInfo,
-    required TResult Function(GetExplodeLiveVideoInfo value)
-        getExplodeLiveVideoInfo,
-    required TResult Function(SetSelectedVideoBasicDetails value)
-        setSelectedVideoBasicDetails,
-    required TResult Function(GetInvidiousWatchInfo value)
-        getInvidiousWatchInfo,
-    required TResult Function(GetInvidiousComments value) getInvidiousComments,
-    required TResult Function(ForceFetchInvidiousComments value)
-        forceFetchInvidiousComments,
-    required TResult Function(GetInvidiousCommentReplies value)
-        getInvidiousCommentReplies,
-    required TResult Function(GetMoreInvidiousComments value)
-        getMoreInvidiousComments,
-    required TResult Function(GetMoreInvidiousReplyComments value)
-        getMoreInvidiousReplyComments,
-    required TResult Function(UpdatePlayBack value) updatePlayBack,
-    required TResult Function(GetNewPipeWatchInfo value) getNewPipeWatchInfo,
-    required TResult Function(GetNewPipeWatchInfoFast value)
-        getNewPipeWatchInfoFast,
-    required TResult Function(GetNewPipeComments value) getNewPipeComments,
-    required TResult Function(ForceFetchNewPipeComments value)
-        forceFetchNewPipeComments,
-    required TResult Function(GetMoreNewPipeComments value)
-        getMoreNewPipeComments,
-    required TResult Function(GetNewPipeCommentReplies value)
-        getNewPipeCommentReplies,
-    required TResult Function(GetMoreNewPipeCommentReplies value)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(GetSponsorSegments value) getSponsorSegments,
-  }) {
-    return getCommentRepliesData(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GetWatchInfo value)? getWatchInfo,
-    TResult? Function(GetCommentData value)? getCommentData,
-    TResult? Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult? Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult? Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult? Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult? Function(GetSubtitles value)? getSubtitles,
-    TResult? Function(TapDescription value)? tapDescription,
-    TResult? Function(TogglePip value)? togglePip,
-    TResult? Function(AssignTitle value)? assignTitle,
-    TResult? Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult? Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult? Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult? Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult? Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult? Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult? Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult? Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult? Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult? Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult? Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(UpdatePlayBack value)? updatePlayBack,
-    TResult? Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult? Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult? Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult? Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult? Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult? Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult? Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(GetSponsorSegments value)? getSponsorSegments,
-  }) {
-    return getCommentRepliesData?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetWatchInfo value)? getWatchInfo,
-    TResult Function(GetCommentData value)? getCommentData,
-    TResult Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult Function(GetSubtitles value)? getSubtitles,
-    TResult Function(TapDescription value)? tapDescription,
-    TResult Function(TogglePip value)? togglePip,
-    TResult Function(AssignTitle value)? assignTitle,
-    TResult Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult Function(UpdatePlayBack value)? updatePlayBack,
-    TResult Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(GetSponsorSegments value)? getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getCommentRepliesData != null) {
-      return getCommentRepliesData(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class GetCommentRepliesData implements WatchEvent {
-  factory GetCommentRepliesData(
-      {required final String id,
-      required final String nextPage}) = _$GetCommentRepliesDataImpl;
-
-  String get id;
-  String get nextPage;
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetCommentRepliesDataImplCopyWith<_$GetCommentRepliesDataImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$GetMoreCommentsDataImplCopyWith<$Res> {
-  factory _$$GetMoreCommentsDataImplCopyWith(_$GetMoreCommentsDataImpl value,
-          $Res Function(_$GetMoreCommentsDataImpl) then) =
-      __$$GetMoreCommentsDataImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String id, String? nextPage});
-}
-
-/// @nodoc
-class __$$GetMoreCommentsDataImplCopyWithImpl<$Res>
-    extends _$WatchEventCopyWithImpl<$Res, _$GetMoreCommentsDataImpl>
-    implements _$$GetMoreCommentsDataImplCopyWith<$Res> {
-  __$$GetMoreCommentsDataImplCopyWithImpl(_$GetMoreCommentsDataImpl _value,
-      $Res Function(_$GetMoreCommentsDataImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? nextPage = freezed,
-  }) {
-    return _then(_$GetMoreCommentsDataImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      nextPage: freezed == nextPage
-          ? _value.nextPage
-          : nextPage // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$GetMoreCommentsDataImpl implements GetMoreCommentsData {
-  _$GetMoreCommentsDataImpl({required this.id, required this.nextPage});
-
-  @override
-  final String id;
-  @override
-  final String? nextPage;
-
-  @override
-  String toString() {
-    return 'WatchEvent.getMoreCommentsData(id: $id, nextPage: $nextPage)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$GetMoreCommentsDataImpl &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.nextPage, nextPage) ||
-                other.nextPage == nextPage));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, id, nextPage);
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$GetMoreCommentsDataImplCopyWith<_$GetMoreCommentsDataImpl> get copyWith =>
-      __$$GetMoreCommentsDataImplCopyWithImpl<_$GetMoreCommentsDataImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String id) getWatchInfo,
-    required TResult Function(String id) getCommentData,
-    required TResult Function(String id) forceFetchCommentData,
-    required TResult Function(String id, String nextPage) getCommentRepliesData,
-    required TResult Function(String id, String? nextPage) getMoreCommentsData,
-    required TResult Function(String id, String? nextPage)
-        getMoreReplyCommentsData,
-    required TResult Function(String id) getSubtitles,
-    required TResult Function() tapDescription,
-    required TResult Function(bool value) togglePip,
-    required TResult Function(String title) assignTitle,
-    required TResult Function(String id) getExplodeWatchInfo,
-    required TResult Function(String id) getExplodeRelatedVideoInfo,
-    required TResult Function(String id) getExplodeMuxStreamInfo,
-    required TResult Function(String id) getExplodeLiveVideoInfo,
-    required TResult Function(VideoBasicInfo details)
-        setSelectedVideoBasicDetails,
-    required TResult Function(String id) getInvidiousWatchInfo,
-    required TResult Function(String id) getInvidiousComments,
-    required TResult Function(String id) forceFetchInvidiousComments,
-    required TResult Function(String id, String continuation)
-        getInvidiousCommentReplies,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousComments,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousReplyComments,
-    required TResult Function(int? playBack) updatePlayBack,
-    required TResult Function(String id) getNewPipeWatchInfo,
-    required TResult Function(String id, List<String> sponsorBlockCategories)
-        getNewPipeWatchInfoFast,
-    required TResult Function(String id) getNewPipeComments,
-    required TResult Function(String id) forceFetchNewPipeComments,
-    required TResult Function(String id, String? nextPage)
-        getMoreNewPipeComments,
-    required TResult Function(String videoId, String repliesPage)
-        getNewPipeCommentReplies,
-    required TResult Function(String videoId, String? nextPage)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(String videoId, List<String> categories)
-        getSponsorSegments,
-  }) {
-    return getMoreCommentsData(id, nextPage);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String id)? getWatchInfo,
-    TResult? Function(String id)? getCommentData,
-    TResult? Function(String id)? forceFetchCommentData,
-    TResult? Function(String id, String nextPage)? getCommentRepliesData,
-    TResult? Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult? Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult? Function(String id)? getSubtitles,
-    TResult? Function()? tapDescription,
-    TResult? Function(bool value)? togglePip,
-    TResult? Function(String title)? assignTitle,
-    TResult? Function(String id)? getExplodeWatchInfo,
-    TResult? Function(String id)? getExplodeRelatedVideoInfo,
-    TResult? Function(String id)? getExplodeMuxStreamInfo,
-    TResult? Function(String id)? getExplodeLiveVideoInfo,
-    TResult? Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult? Function(String id)? getInvidiousWatchInfo,
-    TResult? Function(String id)? getInvidiousComments,
-    TResult? Function(String id)? forceFetchInvidiousComments,
-    TResult? Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousComments,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(int? playBack)? updatePlayBack,
-    TResult? Function(String id)? getNewPipeWatchInfo,
-    TResult? Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult? Function(String id)? getNewPipeComments,
-    TResult? Function(String id)? forceFetchNewPipeComments,
-    TResult? Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult? Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult? Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-  }) {
-    return getMoreCommentsData?.call(id, nextPage);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String id)? getWatchInfo,
-    TResult Function(String id)? getCommentData,
-    TResult Function(String id)? forceFetchCommentData,
-    TResult Function(String id, String nextPage)? getCommentRepliesData,
-    TResult Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult Function(String id)? getSubtitles,
-    TResult Function()? tapDescription,
-    TResult Function(bool value)? togglePip,
-    TResult Function(String title)? assignTitle,
-    TResult Function(String id)? getExplodeWatchInfo,
-    TResult Function(String id)? getExplodeRelatedVideoInfo,
-    TResult Function(String id)? getExplodeMuxStreamInfo,
-    TResult Function(String id)? getExplodeLiveVideoInfo,
-    TResult Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult Function(String id)? getInvidiousWatchInfo,
-    TResult Function(String id)? getInvidiousComments,
-    TResult Function(String id)? forceFetchInvidiousComments,
-    TResult Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult Function(String id, String? continuation)? getMoreInvidiousComments,
-    TResult Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult Function(int? playBack)? updatePlayBack,
-    TResult Function(String id)? getNewPipeWatchInfo,
-    TResult Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult Function(String id)? getNewPipeComments,
-    TResult Function(String id)? forceFetchNewPipeComments,
-    TResult Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getMoreCommentsData != null) {
-      return getMoreCommentsData(id, nextPage);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GetWatchInfo value) getWatchInfo,
-    required TResult Function(GetCommentData value) getCommentData,
-    required TResult Function(ForceFetchCommentData value)
-        forceFetchCommentData,
-    required TResult Function(GetCommentRepliesData value)
-        getCommentRepliesData,
-    required TResult Function(GetMoreCommentsData value) getMoreCommentsData,
-    required TResult Function(GetMoreReplyCommentsData value)
-        getMoreReplyCommentsData,
-    required TResult Function(GetSubtitles value) getSubtitles,
-    required TResult Function(TapDescription value) tapDescription,
-    required TResult Function(TogglePip value) togglePip,
-    required TResult Function(AssignTitle value) assignTitle,
-    required TResult Function(GetExplodeWatchInfo value) getExplodeWatchInfo,
-    required TResult Function(GetExplodeRelatedVideoInfo value)
-        getExplodeRelatedVideoInfo,
-    required TResult Function(GetExplodeMuxStreamInfo value)
-        getExplodeMuxStreamInfo,
-    required TResult Function(GetExplodeLiveVideoInfo value)
-        getExplodeLiveVideoInfo,
-    required TResult Function(SetSelectedVideoBasicDetails value)
-        setSelectedVideoBasicDetails,
-    required TResult Function(GetInvidiousWatchInfo value)
-        getInvidiousWatchInfo,
-    required TResult Function(GetInvidiousComments value) getInvidiousComments,
-    required TResult Function(ForceFetchInvidiousComments value)
-        forceFetchInvidiousComments,
-    required TResult Function(GetInvidiousCommentReplies value)
-        getInvidiousCommentReplies,
-    required TResult Function(GetMoreInvidiousComments value)
-        getMoreInvidiousComments,
-    required TResult Function(GetMoreInvidiousReplyComments value)
-        getMoreInvidiousReplyComments,
-    required TResult Function(UpdatePlayBack value) updatePlayBack,
-    required TResult Function(GetNewPipeWatchInfo value) getNewPipeWatchInfo,
-    required TResult Function(GetNewPipeWatchInfoFast value)
-        getNewPipeWatchInfoFast,
-    required TResult Function(GetNewPipeComments value) getNewPipeComments,
-    required TResult Function(ForceFetchNewPipeComments value)
-        forceFetchNewPipeComments,
-    required TResult Function(GetMoreNewPipeComments value)
-        getMoreNewPipeComments,
-    required TResult Function(GetNewPipeCommentReplies value)
-        getNewPipeCommentReplies,
-    required TResult Function(GetMoreNewPipeCommentReplies value)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(GetSponsorSegments value) getSponsorSegments,
-  }) {
-    return getMoreCommentsData(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GetWatchInfo value)? getWatchInfo,
-    TResult? Function(GetCommentData value)? getCommentData,
-    TResult? Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult? Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult? Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult? Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult? Function(GetSubtitles value)? getSubtitles,
-    TResult? Function(TapDescription value)? tapDescription,
-    TResult? Function(TogglePip value)? togglePip,
-    TResult? Function(AssignTitle value)? assignTitle,
-    TResult? Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult? Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult? Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult? Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult? Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult? Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult? Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult? Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult? Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult? Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult? Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(UpdatePlayBack value)? updatePlayBack,
-    TResult? Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult? Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult? Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult? Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult? Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult? Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult? Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(GetSponsorSegments value)? getSponsorSegments,
-  }) {
-    return getMoreCommentsData?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetWatchInfo value)? getWatchInfo,
-    TResult Function(GetCommentData value)? getCommentData,
-    TResult Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult Function(GetSubtitles value)? getSubtitles,
-    TResult Function(TapDescription value)? tapDescription,
-    TResult Function(TogglePip value)? togglePip,
-    TResult Function(AssignTitle value)? assignTitle,
-    TResult Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult Function(UpdatePlayBack value)? updatePlayBack,
-    TResult Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(GetSponsorSegments value)? getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getMoreCommentsData != null) {
-      return getMoreCommentsData(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class GetMoreCommentsData implements WatchEvent {
-  factory GetMoreCommentsData(
-      {required final String id,
-      required final String? nextPage}) = _$GetMoreCommentsDataImpl;
-
-  String get id;
-  String? get nextPage;
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetMoreCommentsDataImplCopyWith<_$GetMoreCommentsDataImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$GetMoreReplyCommentsDataImplCopyWith<$Res> {
-  factory _$$GetMoreReplyCommentsDataImplCopyWith(
-          _$GetMoreReplyCommentsDataImpl value,
-          $Res Function(_$GetMoreReplyCommentsDataImpl) then) =
-      __$$GetMoreReplyCommentsDataImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String id, String? nextPage});
-}
-
-/// @nodoc
-class __$$GetMoreReplyCommentsDataImplCopyWithImpl<$Res>
-    extends _$WatchEventCopyWithImpl<$Res, _$GetMoreReplyCommentsDataImpl>
-    implements _$$GetMoreReplyCommentsDataImplCopyWith<$Res> {
-  __$$GetMoreReplyCommentsDataImplCopyWithImpl(
-      _$GetMoreReplyCommentsDataImpl _value,
-      $Res Function(_$GetMoreReplyCommentsDataImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? nextPage = freezed,
-  }) {
-    return _then(_$GetMoreReplyCommentsDataImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      nextPage: freezed == nextPage
-          ? _value.nextPage
-          : nextPage // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$GetMoreReplyCommentsDataImpl implements GetMoreReplyCommentsData {
-  _$GetMoreReplyCommentsDataImpl({required this.id, required this.nextPage});
-
-  @override
-  final String id;
-  @override
-  final String? nextPage;
-
-  @override
-  String toString() {
-    return 'WatchEvent.getMoreReplyCommentsData(id: $id, nextPage: $nextPage)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$GetMoreReplyCommentsDataImpl &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.nextPage, nextPage) ||
-                other.nextPage == nextPage));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, id, nextPage);
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$GetMoreReplyCommentsDataImplCopyWith<_$GetMoreReplyCommentsDataImpl>
-      get copyWith => __$$GetMoreReplyCommentsDataImplCopyWithImpl<
-          _$GetMoreReplyCommentsDataImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String id) getWatchInfo,
-    required TResult Function(String id) getCommentData,
-    required TResult Function(String id) forceFetchCommentData,
-    required TResult Function(String id, String nextPage) getCommentRepliesData,
-    required TResult Function(String id, String? nextPage) getMoreCommentsData,
-    required TResult Function(String id, String? nextPage)
-        getMoreReplyCommentsData,
-    required TResult Function(String id) getSubtitles,
-    required TResult Function() tapDescription,
-    required TResult Function(bool value) togglePip,
-    required TResult Function(String title) assignTitle,
-    required TResult Function(String id) getExplodeWatchInfo,
-    required TResult Function(String id) getExplodeRelatedVideoInfo,
-    required TResult Function(String id) getExplodeMuxStreamInfo,
-    required TResult Function(String id) getExplodeLiveVideoInfo,
-    required TResult Function(VideoBasicInfo details)
-        setSelectedVideoBasicDetails,
-    required TResult Function(String id) getInvidiousWatchInfo,
-    required TResult Function(String id) getInvidiousComments,
-    required TResult Function(String id) forceFetchInvidiousComments,
-    required TResult Function(String id, String continuation)
-        getInvidiousCommentReplies,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousComments,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousReplyComments,
-    required TResult Function(int? playBack) updatePlayBack,
-    required TResult Function(String id) getNewPipeWatchInfo,
-    required TResult Function(String id, List<String> sponsorBlockCategories)
-        getNewPipeWatchInfoFast,
-    required TResult Function(String id) getNewPipeComments,
-    required TResult Function(String id) forceFetchNewPipeComments,
-    required TResult Function(String id, String? nextPage)
-        getMoreNewPipeComments,
-    required TResult Function(String videoId, String repliesPage)
-        getNewPipeCommentReplies,
-    required TResult Function(String videoId, String? nextPage)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(String videoId, List<String> categories)
-        getSponsorSegments,
-  }) {
-    return getMoreReplyCommentsData(id, nextPage);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String id)? getWatchInfo,
-    TResult? Function(String id)? getCommentData,
-    TResult? Function(String id)? forceFetchCommentData,
-    TResult? Function(String id, String nextPage)? getCommentRepliesData,
-    TResult? Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult? Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult? Function(String id)? getSubtitles,
-    TResult? Function()? tapDescription,
-    TResult? Function(bool value)? togglePip,
-    TResult? Function(String title)? assignTitle,
-    TResult? Function(String id)? getExplodeWatchInfo,
-    TResult? Function(String id)? getExplodeRelatedVideoInfo,
-    TResult? Function(String id)? getExplodeMuxStreamInfo,
-    TResult? Function(String id)? getExplodeLiveVideoInfo,
-    TResult? Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult? Function(String id)? getInvidiousWatchInfo,
-    TResult? Function(String id)? getInvidiousComments,
-    TResult? Function(String id)? forceFetchInvidiousComments,
-    TResult? Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousComments,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(int? playBack)? updatePlayBack,
-    TResult? Function(String id)? getNewPipeWatchInfo,
-    TResult? Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult? Function(String id)? getNewPipeComments,
-    TResult? Function(String id)? forceFetchNewPipeComments,
-    TResult? Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult? Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult? Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-  }) {
-    return getMoreReplyCommentsData?.call(id, nextPage);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String id)? getWatchInfo,
-    TResult Function(String id)? getCommentData,
-    TResult Function(String id)? forceFetchCommentData,
-    TResult Function(String id, String nextPage)? getCommentRepliesData,
-    TResult Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult Function(String id)? getSubtitles,
-    TResult Function()? tapDescription,
-    TResult Function(bool value)? togglePip,
-    TResult Function(String title)? assignTitle,
-    TResult Function(String id)? getExplodeWatchInfo,
-    TResult Function(String id)? getExplodeRelatedVideoInfo,
-    TResult Function(String id)? getExplodeMuxStreamInfo,
-    TResult Function(String id)? getExplodeLiveVideoInfo,
-    TResult Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult Function(String id)? getInvidiousWatchInfo,
-    TResult Function(String id)? getInvidiousComments,
-    TResult Function(String id)? forceFetchInvidiousComments,
-    TResult Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult Function(String id, String? continuation)? getMoreInvidiousComments,
-    TResult Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult Function(int? playBack)? updatePlayBack,
-    TResult Function(String id)? getNewPipeWatchInfo,
-    TResult Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult Function(String id)? getNewPipeComments,
-    TResult Function(String id)? forceFetchNewPipeComments,
-    TResult Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getMoreReplyCommentsData != null) {
-      return getMoreReplyCommentsData(id, nextPage);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GetWatchInfo value) getWatchInfo,
-    required TResult Function(GetCommentData value) getCommentData,
-    required TResult Function(ForceFetchCommentData value)
-        forceFetchCommentData,
-    required TResult Function(GetCommentRepliesData value)
-        getCommentRepliesData,
-    required TResult Function(GetMoreCommentsData value) getMoreCommentsData,
-    required TResult Function(GetMoreReplyCommentsData value)
-        getMoreReplyCommentsData,
-    required TResult Function(GetSubtitles value) getSubtitles,
-    required TResult Function(TapDescription value) tapDescription,
-    required TResult Function(TogglePip value) togglePip,
-    required TResult Function(AssignTitle value) assignTitle,
-    required TResult Function(GetExplodeWatchInfo value) getExplodeWatchInfo,
-    required TResult Function(GetExplodeRelatedVideoInfo value)
-        getExplodeRelatedVideoInfo,
-    required TResult Function(GetExplodeMuxStreamInfo value)
-        getExplodeMuxStreamInfo,
-    required TResult Function(GetExplodeLiveVideoInfo value)
-        getExplodeLiveVideoInfo,
-    required TResult Function(SetSelectedVideoBasicDetails value)
-        setSelectedVideoBasicDetails,
-    required TResult Function(GetInvidiousWatchInfo value)
-        getInvidiousWatchInfo,
-    required TResult Function(GetInvidiousComments value) getInvidiousComments,
-    required TResult Function(ForceFetchInvidiousComments value)
-        forceFetchInvidiousComments,
-    required TResult Function(GetInvidiousCommentReplies value)
-        getInvidiousCommentReplies,
-    required TResult Function(GetMoreInvidiousComments value)
-        getMoreInvidiousComments,
-    required TResult Function(GetMoreInvidiousReplyComments value)
-        getMoreInvidiousReplyComments,
-    required TResult Function(UpdatePlayBack value) updatePlayBack,
-    required TResult Function(GetNewPipeWatchInfo value) getNewPipeWatchInfo,
-    required TResult Function(GetNewPipeWatchInfoFast value)
-        getNewPipeWatchInfoFast,
-    required TResult Function(GetNewPipeComments value) getNewPipeComments,
-    required TResult Function(ForceFetchNewPipeComments value)
-        forceFetchNewPipeComments,
-    required TResult Function(GetMoreNewPipeComments value)
-        getMoreNewPipeComments,
-    required TResult Function(GetNewPipeCommentReplies value)
-        getNewPipeCommentReplies,
-    required TResult Function(GetMoreNewPipeCommentReplies value)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(GetSponsorSegments value) getSponsorSegments,
-  }) {
-    return getMoreReplyCommentsData(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GetWatchInfo value)? getWatchInfo,
-    TResult? Function(GetCommentData value)? getCommentData,
-    TResult? Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult? Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult? Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult? Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult? Function(GetSubtitles value)? getSubtitles,
-    TResult? Function(TapDescription value)? tapDescription,
-    TResult? Function(TogglePip value)? togglePip,
-    TResult? Function(AssignTitle value)? assignTitle,
-    TResult? Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult? Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult? Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult? Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult? Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult? Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult? Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult? Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult? Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult? Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult? Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(UpdatePlayBack value)? updatePlayBack,
-    TResult? Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult? Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult? Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult? Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult? Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult? Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult? Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(GetSponsorSegments value)? getSponsorSegments,
-  }) {
-    return getMoreReplyCommentsData?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetWatchInfo value)? getWatchInfo,
-    TResult Function(GetCommentData value)? getCommentData,
-    TResult Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult Function(GetSubtitles value)? getSubtitles,
-    TResult Function(TapDescription value)? tapDescription,
-    TResult Function(TogglePip value)? togglePip,
-    TResult Function(AssignTitle value)? assignTitle,
-    TResult Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult Function(UpdatePlayBack value)? updatePlayBack,
-    TResult Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(GetSponsorSegments value)? getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getMoreReplyCommentsData != null) {
-      return getMoreReplyCommentsData(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class GetMoreReplyCommentsData implements WatchEvent {
-  factory GetMoreReplyCommentsData(
-      {required final String id,
-      required final String? nextPage}) = _$GetMoreReplyCommentsDataImpl;
-
-  String get id;
-  String? get nextPage;
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetMoreReplyCommentsDataImplCopyWith<_$GetMoreReplyCommentsDataImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$GetSubtitlesImplCopyWith<$Res> {
-  factory _$$GetSubtitlesImplCopyWith(
-          _$GetSubtitlesImpl value, $Res Function(_$GetSubtitlesImpl) then) =
-      __$$GetSubtitlesImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String id});
-}
-
-/// @nodoc
-class __$$GetSubtitlesImplCopyWithImpl<$Res>
-    extends _$WatchEventCopyWithImpl<$Res, _$GetSubtitlesImpl>
-    implements _$$GetSubtitlesImplCopyWith<$Res> {
-  __$$GetSubtitlesImplCopyWithImpl(
-      _$GetSubtitlesImpl _value, $Res Function(_$GetSubtitlesImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-  }) {
-    return _then(_$GetSubtitlesImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$GetSubtitlesImpl implements GetSubtitles {
-  _$GetSubtitlesImpl({required this.id});
-
-  @override
-  final String id;
-
-  @override
-  String toString() {
-    return 'WatchEvent.getSubtitles(id: $id)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$GetSubtitlesImpl &&
-            (identical(other.id, id) || other.id == id));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, id);
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$GetSubtitlesImplCopyWith<_$GetSubtitlesImpl> get copyWith =>
-      __$$GetSubtitlesImplCopyWithImpl<_$GetSubtitlesImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String id) getWatchInfo,
-    required TResult Function(String id) getCommentData,
-    required TResult Function(String id) forceFetchCommentData,
-    required TResult Function(String id, String nextPage) getCommentRepliesData,
-    required TResult Function(String id, String? nextPage) getMoreCommentsData,
-    required TResult Function(String id, String? nextPage)
-        getMoreReplyCommentsData,
-    required TResult Function(String id) getSubtitles,
-    required TResult Function() tapDescription,
-    required TResult Function(bool value) togglePip,
-    required TResult Function(String title) assignTitle,
-    required TResult Function(String id) getExplodeWatchInfo,
-    required TResult Function(String id) getExplodeRelatedVideoInfo,
-    required TResult Function(String id) getExplodeMuxStreamInfo,
-    required TResult Function(String id) getExplodeLiveVideoInfo,
-    required TResult Function(VideoBasicInfo details)
-        setSelectedVideoBasicDetails,
-    required TResult Function(String id) getInvidiousWatchInfo,
-    required TResult Function(String id) getInvidiousComments,
-    required TResult Function(String id) forceFetchInvidiousComments,
-    required TResult Function(String id, String continuation)
-        getInvidiousCommentReplies,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousComments,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousReplyComments,
-    required TResult Function(int? playBack) updatePlayBack,
-    required TResult Function(String id) getNewPipeWatchInfo,
-    required TResult Function(String id, List<String> sponsorBlockCategories)
-        getNewPipeWatchInfoFast,
-    required TResult Function(String id) getNewPipeComments,
-    required TResult Function(String id) forceFetchNewPipeComments,
-    required TResult Function(String id, String? nextPage)
-        getMoreNewPipeComments,
-    required TResult Function(String videoId, String repliesPage)
-        getNewPipeCommentReplies,
-    required TResult Function(String videoId, String? nextPage)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(String videoId, List<String> categories)
-        getSponsorSegments,
-  }) {
-    return getSubtitles(id);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String id)? getWatchInfo,
-    TResult? Function(String id)? getCommentData,
-    TResult? Function(String id)? forceFetchCommentData,
-    TResult? Function(String id, String nextPage)? getCommentRepliesData,
-    TResult? Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult? Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult? Function(String id)? getSubtitles,
-    TResult? Function()? tapDescription,
-    TResult? Function(bool value)? togglePip,
-    TResult? Function(String title)? assignTitle,
-    TResult? Function(String id)? getExplodeWatchInfo,
-    TResult? Function(String id)? getExplodeRelatedVideoInfo,
-    TResult? Function(String id)? getExplodeMuxStreamInfo,
-    TResult? Function(String id)? getExplodeLiveVideoInfo,
-    TResult? Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult? Function(String id)? getInvidiousWatchInfo,
-    TResult? Function(String id)? getInvidiousComments,
-    TResult? Function(String id)? forceFetchInvidiousComments,
-    TResult? Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousComments,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(int? playBack)? updatePlayBack,
-    TResult? Function(String id)? getNewPipeWatchInfo,
-    TResult? Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult? Function(String id)? getNewPipeComments,
-    TResult? Function(String id)? forceFetchNewPipeComments,
-    TResult? Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult? Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult? Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-  }) {
-    return getSubtitles?.call(id);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String id)? getWatchInfo,
-    TResult Function(String id)? getCommentData,
-    TResult Function(String id)? forceFetchCommentData,
-    TResult Function(String id, String nextPage)? getCommentRepliesData,
-    TResult Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult Function(String id)? getSubtitles,
-    TResult Function()? tapDescription,
-    TResult Function(bool value)? togglePip,
-    TResult Function(String title)? assignTitle,
-    TResult Function(String id)? getExplodeWatchInfo,
-    TResult Function(String id)? getExplodeRelatedVideoInfo,
-    TResult Function(String id)? getExplodeMuxStreamInfo,
-    TResult Function(String id)? getExplodeLiveVideoInfo,
-    TResult Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult Function(String id)? getInvidiousWatchInfo,
-    TResult Function(String id)? getInvidiousComments,
-    TResult Function(String id)? forceFetchInvidiousComments,
-    TResult Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult Function(String id, String? continuation)? getMoreInvidiousComments,
-    TResult Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult Function(int? playBack)? updatePlayBack,
-    TResult Function(String id)? getNewPipeWatchInfo,
-    TResult Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult Function(String id)? getNewPipeComments,
-    TResult Function(String id)? forceFetchNewPipeComments,
-    TResult Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getSubtitles != null) {
-      return getSubtitles(id);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GetWatchInfo value) getWatchInfo,
-    required TResult Function(GetCommentData value) getCommentData,
-    required TResult Function(ForceFetchCommentData value)
-        forceFetchCommentData,
-    required TResult Function(GetCommentRepliesData value)
-        getCommentRepliesData,
-    required TResult Function(GetMoreCommentsData value) getMoreCommentsData,
-    required TResult Function(GetMoreReplyCommentsData value)
-        getMoreReplyCommentsData,
-    required TResult Function(GetSubtitles value) getSubtitles,
-    required TResult Function(TapDescription value) tapDescription,
-    required TResult Function(TogglePip value) togglePip,
-    required TResult Function(AssignTitle value) assignTitle,
-    required TResult Function(GetExplodeWatchInfo value) getExplodeWatchInfo,
-    required TResult Function(GetExplodeRelatedVideoInfo value)
-        getExplodeRelatedVideoInfo,
-    required TResult Function(GetExplodeMuxStreamInfo value)
-        getExplodeMuxStreamInfo,
-    required TResult Function(GetExplodeLiveVideoInfo value)
-        getExplodeLiveVideoInfo,
-    required TResult Function(SetSelectedVideoBasicDetails value)
-        setSelectedVideoBasicDetails,
-    required TResult Function(GetInvidiousWatchInfo value)
-        getInvidiousWatchInfo,
-    required TResult Function(GetInvidiousComments value) getInvidiousComments,
-    required TResult Function(ForceFetchInvidiousComments value)
-        forceFetchInvidiousComments,
-    required TResult Function(GetInvidiousCommentReplies value)
-        getInvidiousCommentReplies,
-    required TResult Function(GetMoreInvidiousComments value)
-        getMoreInvidiousComments,
-    required TResult Function(GetMoreInvidiousReplyComments value)
-        getMoreInvidiousReplyComments,
-    required TResult Function(UpdatePlayBack value) updatePlayBack,
-    required TResult Function(GetNewPipeWatchInfo value) getNewPipeWatchInfo,
-    required TResult Function(GetNewPipeWatchInfoFast value)
-        getNewPipeWatchInfoFast,
-    required TResult Function(GetNewPipeComments value) getNewPipeComments,
-    required TResult Function(ForceFetchNewPipeComments value)
-        forceFetchNewPipeComments,
-    required TResult Function(GetMoreNewPipeComments value)
-        getMoreNewPipeComments,
-    required TResult Function(GetNewPipeCommentReplies value)
-        getNewPipeCommentReplies,
-    required TResult Function(GetMoreNewPipeCommentReplies value)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(GetSponsorSegments value) getSponsorSegments,
-  }) {
-    return getSubtitles(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GetWatchInfo value)? getWatchInfo,
-    TResult? Function(GetCommentData value)? getCommentData,
-    TResult? Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult? Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult? Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult? Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult? Function(GetSubtitles value)? getSubtitles,
-    TResult? Function(TapDescription value)? tapDescription,
-    TResult? Function(TogglePip value)? togglePip,
-    TResult? Function(AssignTitle value)? assignTitle,
-    TResult? Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult? Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult? Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult? Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult? Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult? Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult? Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult? Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult? Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult? Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult? Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(UpdatePlayBack value)? updatePlayBack,
-    TResult? Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult? Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult? Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult? Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult? Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult? Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult? Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(GetSponsorSegments value)? getSponsorSegments,
-  }) {
-    return getSubtitles?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetWatchInfo value)? getWatchInfo,
-    TResult Function(GetCommentData value)? getCommentData,
-    TResult Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult Function(GetSubtitles value)? getSubtitles,
-    TResult Function(TapDescription value)? tapDescription,
-    TResult Function(TogglePip value)? togglePip,
-    TResult Function(AssignTitle value)? assignTitle,
-    TResult Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult Function(UpdatePlayBack value)? updatePlayBack,
-    TResult Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(GetSponsorSegments value)? getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getSubtitles != null) {
-      return getSubtitles(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class GetSubtitles implements WatchEvent {
-  factory GetSubtitles({required final String id}) = _$GetSubtitlesImpl;
-
-  String get id;
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetSubtitlesImplCopyWith<_$GetSubtitlesImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$TapDescriptionImplCopyWith<$Res> {
-  factory _$$TapDescriptionImplCopyWith(_$TapDescriptionImpl value,
-          $Res Function(_$TapDescriptionImpl) then) =
-      __$$TapDescriptionImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$TapDescriptionImplCopyWithImpl<$Res>
-    extends _$WatchEventCopyWithImpl<$Res, _$TapDescriptionImpl>
-    implements _$$TapDescriptionImplCopyWith<$Res> {
-  __$$TapDescriptionImplCopyWithImpl(
-      _$TapDescriptionImpl _value, $Res Function(_$TapDescriptionImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$TapDescriptionImpl implements TapDescription {
-  _$TapDescriptionImpl();
-
-  @override
-  String toString() {
-    return 'WatchEvent.tapDescription()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$TapDescriptionImpl);
+        (other.runtimeType == runtimeType && other is WatchEvent);
   }
 
   @override
   int get hashCode => runtimeType.hashCode;
 
   @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'WatchEvent()';
+  }
+}
+
+/// @nodoc
+class $WatchEventCopyWith<$Res> {
+  $WatchEventCopyWith(WatchEvent _, $Res Function(WatchEvent) __);
+}
+
+/// Adds pattern-matching-related methods to [WatchEvent].
+extension WatchEventPatterns on WatchEvent {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
   @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String id) getWatchInfo,
-    required TResult Function(String id) getCommentData,
-    required TResult Function(String id) forceFetchCommentData,
-    required TResult Function(String id, String nextPage) getCommentRepliesData,
-    required TResult Function(String id, String? nextPage) getMoreCommentsData,
-    required TResult Function(String id, String? nextPage)
-        getMoreReplyCommentsData,
-    required TResult Function(String id) getSubtitles,
-    required TResult Function() tapDescription,
-    required TResult Function(bool value) togglePip,
-    required TResult Function(String title) assignTitle,
-    required TResult Function(String id) getExplodeWatchInfo,
-    required TResult Function(String id) getExplodeRelatedVideoInfo,
-    required TResult Function(String id) getExplodeMuxStreamInfo,
-    required TResult Function(String id) getExplodeLiveVideoInfo,
-    required TResult Function(VideoBasicInfo details)
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetWatchInfo value)? getWatchInfo,
+    TResult Function(GetCommentData value)? getCommentData,
+    TResult Function(ForceFetchCommentData value)? forceFetchCommentData,
+    TResult Function(GetCommentRepliesData value)? getCommentRepliesData,
+    TResult Function(GetMoreCommentsData value)? getMoreCommentsData,
+    TResult Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
+    TResult Function(GetSubtitles value)? getSubtitles,
+    TResult Function(TapDescription value)? tapDescription,
+    TResult Function(TogglePip value)? togglePip,
+    TResult Function(AssignTitle value)? assignTitle,
+    TResult Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
+    TResult Function(GetExplodeRelatedVideoInfo value)?
+        getExplodeRelatedVideoInfo,
+    TResult Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
+    TResult Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
+    TResult Function(SetSelectedVideoBasicDetails value)?
         setSelectedVideoBasicDetails,
-    required TResult Function(String id) getInvidiousWatchInfo,
-    required TResult Function(String id) getInvidiousComments,
-    required TResult Function(String id) forceFetchInvidiousComments,
-    required TResult Function(String id, String continuation)
+    TResult Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
+    TResult Function(GetInvidiousComments value)? getInvidiousComments,
+    TResult Function(ForceFetchInvidiousComments value)?
+        forceFetchInvidiousComments,
+    TResult Function(GetInvidiousCommentReplies value)?
         getInvidiousCommentReplies,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousComments,
-    required TResult Function(String id, String? continuation)
+    TResult Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
+    TResult Function(GetMoreInvidiousReplyComments value)?
         getMoreInvidiousReplyComments,
-    required TResult Function(int? playBack) updatePlayBack,
-    required TResult Function(String id) getNewPipeWatchInfo,
-    required TResult Function(String id, List<String> sponsorBlockCategories)
-        getNewPipeWatchInfoFast,
-    required TResult Function(String id) getNewPipeComments,
-    required TResult Function(String id) forceFetchNewPipeComments,
-    required TResult Function(String id, String? nextPage)
-        getMoreNewPipeComments,
-    required TResult Function(String videoId, String repliesPage)
-        getNewPipeCommentReplies,
-    required TResult Function(String videoId, String? nextPage)
+    TResult Function(UpdatePlayBack value)? updatePlayBack,
+    TResult Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
+    TResult Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
+    TResult Function(GetNewPipeComments value)? getNewPipeComments,
+    TResult Function(ForceFetchNewPipeComments value)?
+        forceFetchNewPipeComments,
+    TResult Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
+    TResult Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
+    TResult Function(GetMoreNewPipeCommentReplies value)?
         getMoreNewPipeCommentReplies,
-    required TResult Function(String videoId, List<String> categories)
-        getSponsorSegments,
-  }) {
-    return tapDescription();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String id)? getWatchInfo,
-    TResult? Function(String id)? getCommentData,
-    TResult? Function(String id)? forceFetchCommentData,
-    TResult? Function(String id, String nextPage)? getCommentRepliesData,
-    TResult? Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult? Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult? Function(String id)? getSubtitles,
-    TResult? Function()? tapDescription,
-    TResult? Function(bool value)? togglePip,
-    TResult? Function(String title)? assignTitle,
-    TResult? Function(String id)? getExplodeWatchInfo,
-    TResult? Function(String id)? getExplodeRelatedVideoInfo,
-    TResult? Function(String id)? getExplodeMuxStreamInfo,
-    TResult? Function(String id)? getExplodeLiveVideoInfo,
-    TResult? Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult? Function(String id)? getInvidiousWatchInfo,
-    TResult? Function(String id)? getInvidiousComments,
-    TResult? Function(String id)? forceFetchInvidiousComments,
-    TResult? Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousComments,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(int? playBack)? updatePlayBack,
-    TResult? Function(String id)? getNewPipeWatchInfo,
-    TResult? Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult? Function(String id)? getNewPipeComments,
-    TResult? Function(String id)? forceFetchNewPipeComments,
-    TResult? Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult? Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult? Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-  }) {
-    return tapDescription?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String id)? getWatchInfo,
-    TResult Function(String id)? getCommentData,
-    TResult Function(String id)? forceFetchCommentData,
-    TResult Function(String id, String nextPage)? getCommentRepliesData,
-    TResult Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult Function(String id)? getSubtitles,
-    TResult Function()? tapDescription,
-    TResult Function(bool value)? togglePip,
-    TResult Function(String title)? assignTitle,
-    TResult Function(String id)? getExplodeWatchInfo,
-    TResult Function(String id)? getExplodeRelatedVideoInfo,
-    TResult Function(String id)? getExplodeMuxStreamInfo,
-    TResult Function(String id)? getExplodeLiveVideoInfo,
-    TResult Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult Function(String id)? getInvidiousWatchInfo,
-    TResult Function(String id)? getInvidiousComments,
-    TResult Function(String id)? forceFetchInvidiousComments,
-    TResult Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult Function(String id, String? continuation)? getMoreInvidiousComments,
-    TResult Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult Function(int? playBack)? updatePlayBack,
-    TResult Function(String id)? getNewPipeWatchInfo,
-    TResult Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult Function(String id)? getNewPipeComments,
-    TResult Function(String id)? forceFetchNewPipeComments,
-    TResult Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(String videoId, List<String> categories)?
-        getSponsorSegments,
+    TResult Function(GetSponsorSegments value)? getSponsorSegments,
     required TResult orElse(),
   }) {
-    if (tapDescription != null) {
-      return tapDescription();
+    final _that = this;
+    switch (_that) {
+      case GetWatchInfo() when getWatchInfo != null:
+        return getWatchInfo(_that);
+      case GetCommentData() when getCommentData != null:
+        return getCommentData(_that);
+      case ForceFetchCommentData() when forceFetchCommentData != null:
+        return forceFetchCommentData(_that);
+      case GetCommentRepliesData() when getCommentRepliesData != null:
+        return getCommentRepliesData(_that);
+      case GetMoreCommentsData() when getMoreCommentsData != null:
+        return getMoreCommentsData(_that);
+      case GetMoreReplyCommentsData() when getMoreReplyCommentsData != null:
+        return getMoreReplyCommentsData(_that);
+      case GetSubtitles() when getSubtitles != null:
+        return getSubtitles(_that);
+      case TapDescription() when tapDescription != null:
+        return tapDescription(_that);
+      case TogglePip() when togglePip != null:
+        return togglePip(_that);
+      case AssignTitle() when assignTitle != null:
+        return assignTitle(_that);
+      case GetExplodeWatchInfo() when getExplodeWatchInfo != null:
+        return getExplodeWatchInfo(_that);
+      case GetExplodeRelatedVideoInfo() when getExplodeRelatedVideoInfo != null:
+        return getExplodeRelatedVideoInfo(_that);
+      case GetExplodeMuxStreamInfo() when getExplodeMuxStreamInfo != null:
+        return getExplodeMuxStreamInfo(_that);
+      case GetExplodeLiveVideoInfo() when getExplodeLiveVideoInfo != null:
+        return getExplodeLiveVideoInfo(_that);
+      case SetSelectedVideoBasicDetails()
+          when setSelectedVideoBasicDetails != null:
+        return setSelectedVideoBasicDetails(_that);
+      case GetInvidiousWatchInfo() when getInvidiousWatchInfo != null:
+        return getInvidiousWatchInfo(_that);
+      case GetInvidiousComments() when getInvidiousComments != null:
+        return getInvidiousComments(_that);
+      case ForceFetchInvidiousComments()
+          when forceFetchInvidiousComments != null:
+        return forceFetchInvidiousComments(_that);
+      case GetInvidiousCommentReplies() when getInvidiousCommentReplies != null:
+        return getInvidiousCommentReplies(_that);
+      case GetMoreInvidiousComments() when getMoreInvidiousComments != null:
+        return getMoreInvidiousComments(_that);
+      case GetMoreInvidiousReplyComments()
+          when getMoreInvidiousReplyComments != null:
+        return getMoreInvidiousReplyComments(_that);
+      case UpdatePlayBack() when updatePlayBack != null:
+        return updatePlayBack(_that);
+      case GetNewPipeWatchInfo() when getNewPipeWatchInfo != null:
+        return getNewPipeWatchInfo(_that);
+      case GetNewPipeWatchInfoFast() when getNewPipeWatchInfoFast != null:
+        return getNewPipeWatchInfoFast(_that);
+      case GetNewPipeComments() when getNewPipeComments != null:
+        return getNewPipeComments(_that);
+      case ForceFetchNewPipeComments() when forceFetchNewPipeComments != null:
+        return forceFetchNewPipeComments(_that);
+      case GetMoreNewPipeComments() when getMoreNewPipeComments != null:
+        return getMoreNewPipeComments(_that);
+      case GetNewPipeCommentReplies() when getNewPipeCommentReplies != null:
+        return getNewPipeCommentReplies(_that);
+      case GetMoreNewPipeCommentReplies()
+          when getMoreNewPipeCommentReplies != null:
+        return getMoreNewPipeCommentReplies(_that);
+      case GetSponsorSegments() when getSponsorSegments != null:
+        return getSponsorSegments(_that);
+      case _:
+        return orElse();
     }
-    return orElse();
   }
 
-  @override
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(GetWatchInfo value) getWatchInfo,
@@ -3106,10 +228,83 @@ class _$TapDescriptionImpl implements TapDescription {
         getMoreNewPipeCommentReplies,
     required TResult Function(GetSponsorSegments value) getSponsorSegments,
   }) {
-    return tapDescription(this);
+    final _that = this;
+    switch (_that) {
+      case GetWatchInfo():
+        return getWatchInfo(_that);
+      case GetCommentData():
+        return getCommentData(_that);
+      case ForceFetchCommentData():
+        return forceFetchCommentData(_that);
+      case GetCommentRepliesData():
+        return getCommentRepliesData(_that);
+      case GetMoreCommentsData():
+        return getMoreCommentsData(_that);
+      case GetMoreReplyCommentsData():
+        return getMoreReplyCommentsData(_that);
+      case GetSubtitles():
+        return getSubtitles(_that);
+      case TapDescription():
+        return tapDescription(_that);
+      case TogglePip():
+        return togglePip(_that);
+      case AssignTitle():
+        return assignTitle(_that);
+      case GetExplodeWatchInfo():
+        return getExplodeWatchInfo(_that);
+      case GetExplodeRelatedVideoInfo():
+        return getExplodeRelatedVideoInfo(_that);
+      case GetExplodeMuxStreamInfo():
+        return getExplodeMuxStreamInfo(_that);
+      case GetExplodeLiveVideoInfo():
+        return getExplodeLiveVideoInfo(_that);
+      case SetSelectedVideoBasicDetails():
+        return setSelectedVideoBasicDetails(_that);
+      case GetInvidiousWatchInfo():
+        return getInvidiousWatchInfo(_that);
+      case GetInvidiousComments():
+        return getInvidiousComments(_that);
+      case ForceFetchInvidiousComments():
+        return forceFetchInvidiousComments(_that);
+      case GetInvidiousCommentReplies():
+        return getInvidiousCommentReplies(_that);
+      case GetMoreInvidiousComments():
+        return getMoreInvidiousComments(_that);
+      case GetMoreInvidiousReplyComments():
+        return getMoreInvidiousReplyComments(_that);
+      case UpdatePlayBack():
+        return updatePlayBack(_that);
+      case GetNewPipeWatchInfo():
+        return getNewPipeWatchInfo(_that);
+      case GetNewPipeWatchInfoFast():
+        return getNewPipeWatchInfoFast(_that);
+      case GetNewPipeComments():
+        return getNewPipeComments(_that);
+      case ForceFetchNewPipeComments():
+        return forceFetchNewPipeComments(_that);
+      case GetMoreNewPipeComments():
+        return getMoreNewPipeComments(_that);
+      case GetNewPipeCommentReplies():
+        return getNewPipeCommentReplies(_that);
+      case GetMoreNewPipeCommentReplies():
+        return getMoreNewPipeCommentReplies(_that);
+      case GetSponsorSegments():
+        return getSponsorSegments(_that);
+    }
   }
 
-  @override
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GetWatchInfo value)? getWatchInfo,
@@ -3150,89 +345,1060 @@ class _$TapDescriptionImpl implements TapDescription {
         getMoreNewPipeCommentReplies,
     TResult? Function(GetSponsorSegments value)? getSponsorSegments,
   }) {
-    return tapDescription?.call(this);
+    final _that = this;
+    switch (_that) {
+      case GetWatchInfo() when getWatchInfo != null:
+        return getWatchInfo(_that);
+      case GetCommentData() when getCommentData != null:
+        return getCommentData(_that);
+      case ForceFetchCommentData() when forceFetchCommentData != null:
+        return forceFetchCommentData(_that);
+      case GetCommentRepliesData() when getCommentRepliesData != null:
+        return getCommentRepliesData(_that);
+      case GetMoreCommentsData() when getMoreCommentsData != null:
+        return getMoreCommentsData(_that);
+      case GetMoreReplyCommentsData() when getMoreReplyCommentsData != null:
+        return getMoreReplyCommentsData(_that);
+      case GetSubtitles() when getSubtitles != null:
+        return getSubtitles(_that);
+      case TapDescription() when tapDescription != null:
+        return tapDescription(_that);
+      case TogglePip() when togglePip != null:
+        return togglePip(_that);
+      case AssignTitle() when assignTitle != null:
+        return assignTitle(_that);
+      case GetExplodeWatchInfo() when getExplodeWatchInfo != null:
+        return getExplodeWatchInfo(_that);
+      case GetExplodeRelatedVideoInfo() when getExplodeRelatedVideoInfo != null:
+        return getExplodeRelatedVideoInfo(_that);
+      case GetExplodeMuxStreamInfo() when getExplodeMuxStreamInfo != null:
+        return getExplodeMuxStreamInfo(_that);
+      case GetExplodeLiveVideoInfo() when getExplodeLiveVideoInfo != null:
+        return getExplodeLiveVideoInfo(_that);
+      case SetSelectedVideoBasicDetails()
+          when setSelectedVideoBasicDetails != null:
+        return setSelectedVideoBasicDetails(_that);
+      case GetInvidiousWatchInfo() when getInvidiousWatchInfo != null:
+        return getInvidiousWatchInfo(_that);
+      case GetInvidiousComments() when getInvidiousComments != null:
+        return getInvidiousComments(_that);
+      case ForceFetchInvidiousComments()
+          when forceFetchInvidiousComments != null:
+        return forceFetchInvidiousComments(_that);
+      case GetInvidiousCommentReplies() when getInvidiousCommentReplies != null:
+        return getInvidiousCommentReplies(_that);
+      case GetMoreInvidiousComments() when getMoreInvidiousComments != null:
+        return getMoreInvidiousComments(_that);
+      case GetMoreInvidiousReplyComments()
+          when getMoreInvidiousReplyComments != null:
+        return getMoreInvidiousReplyComments(_that);
+      case UpdatePlayBack() when updatePlayBack != null:
+        return updatePlayBack(_that);
+      case GetNewPipeWatchInfo() when getNewPipeWatchInfo != null:
+        return getNewPipeWatchInfo(_that);
+      case GetNewPipeWatchInfoFast() when getNewPipeWatchInfoFast != null:
+        return getNewPipeWatchInfoFast(_that);
+      case GetNewPipeComments() when getNewPipeComments != null:
+        return getNewPipeComments(_that);
+      case ForceFetchNewPipeComments() when forceFetchNewPipeComments != null:
+        return forceFetchNewPipeComments(_that);
+      case GetMoreNewPipeComments() when getMoreNewPipeComments != null:
+        return getMoreNewPipeComments(_that);
+      case GetNewPipeCommentReplies() when getNewPipeCommentReplies != null:
+        return getNewPipeCommentReplies(_that);
+      case GetMoreNewPipeCommentReplies()
+          when getMoreNewPipeCommentReplies != null:
+        return getMoreNewPipeCommentReplies(_that);
+      case GetSponsorSegments() when getSponsorSegments != null:
+        return getSponsorSegments(_that);
+      case _:
+        return null;
+    }
   }
 
-  @override
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetWatchInfo value)? getWatchInfo,
-    TResult Function(GetCommentData value)? getCommentData,
-    TResult Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult Function(GetSubtitles value)? getSubtitles,
-    TResult Function(TapDescription value)? tapDescription,
-    TResult Function(TogglePip value)? togglePip,
-    TResult Function(AssignTitle value)? assignTitle,
-    TResult Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult Function(GetInvidiousCommentReplies value)?
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id)? getWatchInfo,
+    TResult Function(String id)? getCommentData,
+    TResult Function(String id)? forceFetchCommentData,
+    TResult Function(String id, String nextPage)? getCommentRepliesData,
+    TResult Function(String id, String? nextPage)? getMoreCommentsData,
+    TResult Function(String id, String? nextPage)? getMoreReplyCommentsData,
+    TResult Function(String id)? getSubtitles,
+    TResult Function()? tapDescription,
+    TResult Function(bool value)? togglePip,
+    TResult Function(String title)? assignTitle,
+    TResult Function(String id)? getExplodeWatchInfo,
+    TResult Function(String id)? getExplodeRelatedVideoInfo,
+    TResult Function(String id)? getExplodeMuxStreamInfo,
+    TResult Function(String id)? getExplodeLiveVideoInfo,
+    TResult Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
+    TResult Function(String id)? getInvidiousWatchInfo,
+    TResult Function(String id)? getInvidiousComments,
+    TResult Function(String id)? forceFetchInvidiousComments,
+    TResult Function(String id, String continuation)?
         getInvidiousCommentReplies,
-    TResult Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult Function(GetMoreInvidiousReplyComments value)?
+    TResult Function(String id, String? continuation)? getMoreInvidiousComments,
+    TResult Function(String id, String? continuation)?
         getMoreInvidiousReplyComments,
-    TResult Function(UpdatePlayBack value)? updatePlayBack,
-    TResult Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult Function(GetMoreNewPipeCommentReplies value)?
+    TResult Function(int? playBack)? updatePlayBack,
+    TResult Function(String id)? getNewPipeWatchInfo,
+    TResult Function(String id, List<String> sponsorBlockCategories)?
+        getNewPipeWatchInfoFast,
+    TResult Function(String id)? getNewPipeComments,
+    TResult Function(String id)? forceFetchNewPipeComments,
+    TResult Function(String id, String? nextPage)? getMoreNewPipeComments,
+    TResult Function(String videoId, String repliesPage)?
+        getNewPipeCommentReplies,
+    TResult Function(String videoId, String? nextPage)?
         getMoreNewPipeCommentReplies,
-    TResult Function(GetSponsorSegments value)? getSponsorSegments,
+    TResult Function(String videoId, List<String> categories)?
+        getSponsorSegments,
     required TResult orElse(),
   }) {
-    if (tapDescription != null) {
-      return tapDescription(this);
+    final _that = this;
+    switch (_that) {
+      case GetWatchInfo() when getWatchInfo != null:
+        return getWatchInfo(_that.id);
+      case GetCommentData() when getCommentData != null:
+        return getCommentData(_that.id);
+      case ForceFetchCommentData() when forceFetchCommentData != null:
+        return forceFetchCommentData(_that.id);
+      case GetCommentRepliesData() when getCommentRepliesData != null:
+        return getCommentRepliesData(_that.id, _that.nextPage);
+      case GetMoreCommentsData() when getMoreCommentsData != null:
+        return getMoreCommentsData(_that.id, _that.nextPage);
+      case GetMoreReplyCommentsData() when getMoreReplyCommentsData != null:
+        return getMoreReplyCommentsData(_that.id, _that.nextPage);
+      case GetSubtitles() when getSubtitles != null:
+        return getSubtitles(_that.id);
+      case TapDescription() when tapDescription != null:
+        return tapDescription();
+      case TogglePip() when togglePip != null:
+        return togglePip(_that.value);
+      case AssignTitle() when assignTitle != null:
+        return assignTitle(_that.title);
+      case GetExplodeWatchInfo() when getExplodeWatchInfo != null:
+        return getExplodeWatchInfo(_that.id);
+      case GetExplodeRelatedVideoInfo() when getExplodeRelatedVideoInfo != null:
+        return getExplodeRelatedVideoInfo(_that.id);
+      case GetExplodeMuxStreamInfo() when getExplodeMuxStreamInfo != null:
+        return getExplodeMuxStreamInfo(_that.id);
+      case GetExplodeLiveVideoInfo() when getExplodeLiveVideoInfo != null:
+        return getExplodeLiveVideoInfo(_that.id);
+      case SetSelectedVideoBasicDetails()
+          when setSelectedVideoBasicDetails != null:
+        return setSelectedVideoBasicDetails(_that.details);
+      case GetInvidiousWatchInfo() when getInvidiousWatchInfo != null:
+        return getInvidiousWatchInfo(_that.id);
+      case GetInvidiousComments() when getInvidiousComments != null:
+        return getInvidiousComments(_that.id);
+      case ForceFetchInvidiousComments()
+          when forceFetchInvidiousComments != null:
+        return forceFetchInvidiousComments(_that.id);
+      case GetInvidiousCommentReplies() when getInvidiousCommentReplies != null:
+        return getInvidiousCommentReplies(_that.id, _that.continuation);
+      case GetMoreInvidiousComments() when getMoreInvidiousComments != null:
+        return getMoreInvidiousComments(_that.id, _that.continuation);
+      case GetMoreInvidiousReplyComments()
+          when getMoreInvidiousReplyComments != null:
+        return getMoreInvidiousReplyComments(_that.id, _that.continuation);
+      case UpdatePlayBack() when updatePlayBack != null:
+        return updatePlayBack(_that.playBack);
+      case GetNewPipeWatchInfo() when getNewPipeWatchInfo != null:
+        return getNewPipeWatchInfo(_that.id);
+      case GetNewPipeWatchInfoFast() when getNewPipeWatchInfoFast != null:
+        return getNewPipeWatchInfoFast(_that.id, _that.sponsorBlockCategories);
+      case GetNewPipeComments() when getNewPipeComments != null:
+        return getNewPipeComments(_that.id);
+      case ForceFetchNewPipeComments() when forceFetchNewPipeComments != null:
+        return forceFetchNewPipeComments(_that.id);
+      case GetMoreNewPipeComments() when getMoreNewPipeComments != null:
+        return getMoreNewPipeComments(_that.id, _that.nextPage);
+      case GetNewPipeCommentReplies() when getNewPipeCommentReplies != null:
+        return getNewPipeCommentReplies(_that.videoId, _that.repliesPage);
+      case GetMoreNewPipeCommentReplies()
+          when getMoreNewPipeCommentReplies != null:
+        return getMoreNewPipeCommentReplies(_that.videoId, _that.nextPage);
+      case GetSponsorSegments() when getSponsorSegments != null:
+        return getSponsorSegments(_that.videoId, _that.categories);
+      case _:
+        return orElse();
     }
-    return orElse();
   }
-}
 
-abstract class TapDescription implements WatchEvent {
-  factory TapDescription() = _$TapDescriptionImpl;
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id) getWatchInfo,
+    required TResult Function(String id) getCommentData,
+    required TResult Function(String id) forceFetchCommentData,
+    required TResult Function(String id, String nextPage) getCommentRepliesData,
+    required TResult Function(String id, String? nextPage) getMoreCommentsData,
+    required TResult Function(String id, String? nextPage)
+        getMoreReplyCommentsData,
+    required TResult Function(String id) getSubtitles,
+    required TResult Function() tapDescription,
+    required TResult Function(bool value) togglePip,
+    required TResult Function(String title) assignTitle,
+    required TResult Function(String id) getExplodeWatchInfo,
+    required TResult Function(String id) getExplodeRelatedVideoInfo,
+    required TResult Function(String id) getExplodeMuxStreamInfo,
+    required TResult Function(String id) getExplodeLiveVideoInfo,
+    required TResult Function(VideoBasicInfo details)
+        setSelectedVideoBasicDetails,
+    required TResult Function(String id) getInvidiousWatchInfo,
+    required TResult Function(String id) getInvidiousComments,
+    required TResult Function(String id) forceFetchInvidiousComments,
+    required TResult Function(String id, String continuation)
+        getInvidiousCommentReplies,
+    required TResult Function(String id, String? continuation)
+        getMoreInvidiousComments,
+    required TResult Function(String id, String? continuation)
+        getMoreInvidiousReplyComments,
+    required TResult Function(int? playBack) updatePlayBack,
+    required TResult Function(String id) getNewPipeWatchInfo,
+    required TResult Function(String id, List<String> sponsorBlockCategories)
+        getNewPipeWatchInfoFast,
+    required TResult Function(String id) getNewPipeComments,
+    required TResult Function(String id) forceFetchNewPipeComments,
+    required TResult Function(String id, String? nextPage)
+        getMoreNewPipeComments,
+    required TResult Function(String videoId, String repliesPage)
+        getNewPipeCommentReplies,
+    required TResult Function(String videoId, String? nextPage)
+        getMoreNewPipeCommentReplies,
+    required TResult Function(String videoId, List<String> categories)
+        getSponsorSegments,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case GetWatchInfo():
+        return getWatchInfo(_that.id);
+      case GetCommentData():
+        return getCommentData(_that.id);
+      case ForceFetchCommentData():
+        return forceFetchCommentData(_that.id);
+      case GetCommentRepliesData():
+        return getCommentRepliesData(_that.id, _that.nextPage);
+      case GetMoreCommentsData():
+        return getMoreCommentsData(_that.id, _that.nextPage);
+      case GetMoreReplyCommentsData():
+        return getMoreReplyCommentsData(_that.id, _that.nextPage);
+      case GetSubtitles():
+        return getSubtitles(_that.id);
+      case TapDescription():
+        return tapDescription();
+      case TogglePip():
+        return togglePip(_that.value);
+      case AssignTitle():
+        return assignTitle(_that.title);
+      case GetExplodeWatchInfo():
+        return getExplodeWatchInfo(_that.id);
+      case GetExplodeRelatedVideoInfo():
+        return getExplodeRelatedVideoInfo(_that.id);
+      case GetExplodeMuxStreamInfo():
+        return getExplodeMuxStreamInfo(_that.id);
+      case GetExplodeLiveVideoInfo():
+        return getExplodeLiveVideoInfo(_that.id);
+      case SetSelectedVideoBasicDetails():
+        return setSelectedVideoBasicDetails(_that.details);
+      case GetInvidiousWatchInfo():
+        return getInvidiousWatchInfo(_that.id);
+      case GetInvidiousComments():
+        return getInvidiousComments(_that.id);
+      case ForceFetchInvidiousComments():
+        return forceFetchInvidiousComments(_that.id);
+      case GetInvidiousCommentReplies():
+        return getInvidiousCommentReplies(_that.id, _that.continuation);
+      case GetMoreInvidiousComments():
+        return getMoreInvidiousComments(_that.id, _that.continuation);
+      case GetMoreInvidiousReplyComments():
+        return getMoreInvidiousReplyComments(_that.id, _that.continuation);
+      case UpdatePlayBack():
+        return updatePlayBack(_that.playBack);
+      case GetNewPipeWatchInfo():
+        return getNewPipeWatchInfo(_that.id);
+      case GetNewPipeWatchInfoFast():
+        return getNewPipeWatchInfoFast(_that.id, _that.sponsorBlockCategories);
+      case GetNewPipeComments():
+        return getNewPipeComments(_that.id);
+      case ForceFetchNewPipeComments():
+        return forceFetchNewPipeComments(_that.id);
+      case GetMoreNewPipeComments():
+        return getMoreNewPipeComments(_that.id, _that.nextPage);
+      case GetNewPipeCommentReplies():
+        return getNewPipeCommentReplies(_that.videoId, _that.repliesPage);
+      case GetMoreNewPipeCommentReplies():
+        return getMoreNewPipeCommentReplies(_that.videoId, _that.nextPage);
+      case GetSponsorSegments():
+        return getSponsorSegments(_that.videoId, _that.categories);
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String id)? getWatchInfo,
+    TResult? Function(String id)? getCommentData,
+    TResult? Function(String id)? forceFetchCommentData,
+    TResult? Function(String id, String nextPage)? getCommentRepliesData,
+    TResult? Function(String id, String? nextPage)? getMoreCommentsData,
+    TResult? Function(String id, String? nextPage)? getMoreReplyCommentsData,
+    TResult? Function(String id)? getSubtitles,
+    TResult? Function()? tapDescription,
+    TResult? Function(bool value)? togglePip,
+    TResult? Function(String title)? assignTitle,
+    TResult? Function(String id)? getExplodeWatchInfo,
+    TResult? Function(String id)? getExplodeRelatedVideoInfo,
+    TResult? Function(String id)? getExplodeMuxStreamInfo,
+    TResult? Function(String id)? getExplodeLiveVideoInfo,
+    TResult? Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
+    TResult? Function(String id)? getInvidiousWatchInfo,
+    TResult? Function(String id)? getInvidiousComments,
+    TResult? Function(String id)? forceFetchInvidiousComments,
+    TResult? Function(String id, String continuation)?
+        getInvidiousCommentReplies,
+    TResult? Function(String id, String? continuation)?
+        getMoreInvidiousComments,
+    TResult? Function(String id, String? continuation)?
+        getMoreInvidiousReplyComments,
+    TResult? Function(int? playBack)? updatePlayBack,
+    TResult? Function(String id)? getNewPipeWatchInfo,
+    TResult? Function(String id, List<String> sponsorBlockCategories)?
+        getNewPipeWatchInfoFast,
+    TResult? Function(String id)? getNewPipeComments,
+    TResult? Function(String id)? forceFetchNewPipeComments,
+    TResult? Function(String id, String? nextPage)? getMoreNewPipeComments,
+    TResult? Function(String videoId, String repliesPage)?
+        getNewPipeCommentReplies,
+    TResult? Function(String videoId, String? nextPage)?
+        getMoreNewPipeCommentReplies,
+    TResult? Function(String videoId, List<String> categories)?
+        getSponsorSegments,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case GetWatchInfo() when getWatchInfo != null:
+        return getWatchInfo(_that.id);
+      case GetCommentData() when getCommentData != null:
+        return getCommentData(_that.id);
+      case ForceFetchCommentData() when forceFetchCommentData != null:
+        return forceFetchCommentData(_that.id);
+      case GetCommentRepliesData() when getCommentRepliesData != null:
+        return getCommentRepliesData(_that.id, _that.nextPage);
+      case GetMoreCommentsData() when getMoreCommentsData != null:
+        return getMoreCommentsData(_that.id, _that.nextPage);
+      case GetMoreReplyCommentsData() when getMoreReplyCommentsData != null:
+        return getMoreReplyCommentsData(_that.id, _that.nextPage);
+      case GetSubtitles() when getSubtitles != null:
+        return getSubtitles(_that.id);
+      case TapDescription() when tapDescription != null:
+        return tapDescription();
+      case TogglePip() when togglePip != null:
+        return togglePip(_that.value);
+      case AssignTitle() when assignTitle != null:
+        return assignTitle(_that.title);
+      case GetExplodeWatchInfo() when getExplodeWatchInfo != null:
+        return getExplodeWatchInfo(_that.id);
+      case GetExplodeRelatedVideoInfo() when getExplodeRelatedVideoInfo != null:
+        return getExplodeRelatedVideoInfo(_that.id);
+      case GetExplodeMuxStreamInfo() when getExplodeMuxStreamInfo != null:
+        return getExplodeMuxStreamInfo(_that.id);
+      case GetExplodeLiveVideoInfo() when getExplodeLiveVideoInfo != null:
+        return getExplodeLiveVideoInfo(_that.id);
+      case SetSelectedVideoBasicDetails()
+          when setSelectedVideoBasicDetails != null:
+        return setSelectedVideoBasicDetails(_that.details);
+      case GetInvidiousWatchInfo() when getInvidiousWatchInfo != null:
+        return getInvidiousWatchInfo(_that.id);
+      case GetInvidiousComments() when getInvidiousComments != null:
+        return getInvidiousComments(_that.id);
+      case ForceFetchInvidiousComments()
+          when forceFetchInvidiousComments != null:
+        return forceFetchInvidiousComments(_that.id);
+      case GetInvidiousCommentReplies() when getInvidiousCommentReplies != null:
+        return getInvidiousCommentReplies(_that.id, _that.continuation);
+      case GetMoreInvidiousComments() when getMoreInvidiousComments != null:
+        return getMoreInvidiousComments(_that.id, _that.continuation);
+      case GetMoreInvidiousReplyComments()
+          when getMoreInvidiousReplyComments != null:
+        return getMoreInvidiousReplyComments(_that.id, _that.continuation);
+      case UpdatePlayBack() when updatePlayBack != null:
+        return updatePlayBack(_that.playBack);
+      case GetNewPipeWatchInfo() when getNewPipeWatchInfo != null:
+        return getNewPipeWatchInfo(_that.id);
+      case GetNewPipeWatchInfoFast() when getNewPipeWatchInfoFast != null:
+        return getNewPipeWatchInfoFast(_that.id, _that.sponsorBlockCategories);
+      case GetNewPipeComments() when getNewPipeComments != null:
+        return getNewPipeComments(_that.id);
+      case ForceFetchNewPipeComments() when forceFetchNewPipeComments != null:
+        return forceFetchNewPipeComments(_that.id);
+      case GetMoreNewPipeComments() when getMoreNewPipeComments != null:
+        return getMoreNewPipeComments(_that.id, _that.nextPage);
+      case GetNewPipeCommentReplies() when getNewPipeCommentReplies != null:
+        return getNewPipeCommentReplies(_that.videoId, _that.repliesPage);
+      case GetMoreNewPipeCommentReplies()
+          when getMoreNewPipeCommentReplies != null:
+        return getMoreNewPipeCommentReplies(_that.videoId, _that.nextPage);
+      case GetSponsorSegments() when getSponsorSegments != null:
+        return getSponsorSegments(_that.videoId, _that.categories);
+      case _:
+        return null;
+    }
+  }
 }
 
 /// @nodoc
-abstract class _$$TogglePipImplCopyWith<$Res> {
-  factory _$$TogglePipImplCopyWith(
-          _$TogglePipImpl value, $Res Function(_$TogglePipImpl) then) =
-      __$$TogglePipImplCopyWithImpl<$Res>;
+
+class GetWatchInfo with DiagnosticableTreeMixin implements WatchEvent {
+  GetWatchInfo({required this.id});
+
+  final String id;
+
+  /// Create a copy of WatchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $GetWatchInfoCopyWith<GetWatchInfo> get copyWith =>
+      _$GetWatchInfoCopyWithImpl<GetWatchInfo>(this, _$identity);
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(DiagnosticsProperty('type', 'WatchEvent.getWatchInfo'))
+      ..add(DiagnosticsProperty('id', id));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is GetWatchInfo &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'WatchEvent.getWatchInfo(id: $id)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $GetWatchInfoCopyWith<$Res>
+    implements $WatchEventCopyWith<$Res> {
+  factory $GetWatchInfoCopyWith(
+          GetWatchInfo value, $Res Function(GetWatchInfo) _then) =
+      _$GetWatchInfoCopyWithImpl;
+  @useResult
+  $Res call({String id});
+}
+
+/// @nodoc
+class _$GetWatchInfoCopyWithImpl<$Res> implements $GetWatchInfoCopyWith<$Res> {
+  _$GetWatchInfoCopyWithImpl(this._self, this._then);
+
+  final GetWatchInfo _self;
+  final $Res Function(GetWatchInfo) _then;
+
+  /// Create a copy of WatchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(GetWatchInfo(
+      id: null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class GetCommentData with DiagnosticableTreeMixin implements WatchEvent {
+  GetCommentData({required this.id});
+
+  final String id;
+
+  /// Create a copy of WatchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $GetCommentDataCopyWith<GetCommentData> get copyWith =>
+      _$GetCommentDataCopyWithImpl<GetCommentData>(this, _$identity);
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(DiagnosticsProperty('type', 'WatchEvent.getCommentData'))
+      ..add(DiagnosticsProperty('id', id));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is GetCommentData &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'WatchEvent.getCommentData(id: $id)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $GetCommentDataCopyWith<$Res>
+    implements $WatchEventCopyWith<$Res> {
+  factory $GetCommentDataCopyWith(
+          GetCommentData value, $Res Function(GetCommentData) _then) =
+      _$GetCommentDataCopyWithImpl;
+  @useResult
+  $Res call({String id});
+}
+
+/// @nodoc
+class _$GetCommentDataCopyWithImpl<$Res>
+    implements $GetCommentDataCopyWith<$Res> {
+  _$GetCommentDataCopyWithImpl(this._self, this._then);
+
+  final GetCommentData _self;
+  final $Res Function(GetCommentData) _then;
+
+  /// Create a copy of WatchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(GetCommentData(
+      id: null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ForceFetchCommentData with DiagnosticableTreeMixin implements WatchEvent {
+  ForceFetchCommentData({required this.id});
+
+  final String id;
+
+  /// Create a copy of WatchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ForceFetchCommentDataCopyWith<ForceFetchCommentData> get copyWith =>
+      _$ForceFetchCommentDataCopyWithImpl<ForceFetchCommentData>(
+          this, _$identity);
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(DiagnosticsProperty('type', 'WatchEvent.forceFetchCommentData'))
+      ..add(DiagnosticsProperty('id', id));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ForceFetchCommentData &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'WatchEvent.forceFetchCommentData(id: $id)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ForceFetchCommentDataCopyWith<$Res>
+    implements $WatchEventCopyWith<$Res> {
+  factory $ForceFetchCommentDataCopyWith(ForceFetchCommentData value,
+          $Res Function(ForceFetchCommentData) _then) =
+      _$ForceFetchCommentDataCopyWithImpl;
+  @useResult
+  $Res call({String id});
+}
+
+/// @nodoc
+class _$ForceFetchCommentDataCopyWithImpl<$Res>
+    implements $ForceFetchCommentDataCopyWith<$Res> {
+  _$ForceFetchCommentDataCopyWithImpl(this._self, this._then);
+
+  final ForceFetchCommentData _self;
+  final $Res Function(ForceFetchCommentData) _then;
+
+  /// Create a copy of WatchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(ForceFetchCommentData(
+      id: null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class GetCommentRepliesData with DiagnosticableTreeMixin implements WatchEvent {
+  GetCommentRepliesData({required this.id, required this.nextPage});
+
+  final String id;
+  final String nextPage;
+
+  /// Create a copy of WatchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $GetCommentRepliesDataCopyWith<GetCommentRepliesData> get copyWith =>
+      _$GetCommentRepliesDataCopyWithImpl<GetCommentRepliesData>(
+          this, _$identity);
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(DiagnosticsProperty('type', 'WatchEvent.getCommentRepliesData'))
+      ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('nextPage', nextPage));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is GetCommentRepliesData &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.nextPage, nextPage) ||
+                other.nextPage == nextPage));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id, nextPage);
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'WatchEvent.getCommentRepliesData(id: $id, nextPage: $nextPage)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $GetCommentRepliesDataCopyWith<$Res>
+    implements $WatchEventCopyWith<$Res> {
+  factory $GetCommentRepliesDataCopyWith(GetCommentRepliesData value,
+          $Res Function(GetCommentRepliesData) _then) =
+      _$GetCommentRepliesDataCopyWithImpl;
+  @useResult
+  $Res call({String id, String nextPage});
+}
+
+/// @nodoc
+class _$GetCommentRepliesDataCopyWithImpl<$Res>
+    implements $GetCommentRepliesDataCopyWith<$Res> {
+  _$GetCommentRepliesDataCopyWithImpl(this._self, this._then);
+
+  final GetCommentRepliesData _self;
+  final $Res Function(GetCommentRepliesData) _then;
+
+  /// Create a copy of WatchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? id = null,
+    Object? nextPage = null,
+  }) {
+    return _then(GetCommentRepliesData(
+      id: null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      nextPage: null == nextPage
+          ? _self.nextPage
+          : nextPage // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class GetMoreCommentsData with DiagnosticableTreeMixin implements WatchEvent {
+  GetMoreCommentsData({required this.id, required this.nextPage});
+
+  final String id;
+  final String? nextPage;
+
+  /// Create a copy of WatchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $GetMoreCommentsDataCopyWith<GetMoreCommentsData> get copyWith =>
+      _$GetMoreCommentsDataCopyWithImpl<GetMoreCommentsData>(this, _$identity);
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(DiagnosticsProperty('type', 'WatchEvent.getMoreCommentsData'))
+      ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('nextPage', nextPage));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is GetMoreCommentsData &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.nextPage, nextPage) ||
+                other.nextPage == nextPage));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id, nextPage);
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'WatchEvent.getMoreCommentsData(id: $id, nextPage: $nextPage)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $GetMoreCommentsDataCopyWith<$Res>
+    implements $WatchEventCopyWith<$Res> {
+  factory $GetMoreCommentsDataCopyWith(
+          GetMoreCommentsData value, $Res Function(GetMoreCommentsData) _then) =
+      _$GetMoreCommentsDataCopyWithImpl;
+  @useResult
+  $Res call({String id, String? nextPage});
+}
+
+/// @nodoc
+class _$GetMoreCommentsDataCopyWithImpl<$Res>
+    implements $GetMoreCommentsDataCopyWith<$Res> {
+  _$GetMoreCommentsDataCopyWithImpl(this._self, this._then);
+
+  final GetMoreCommentsData _self;
+  final $Res Function(GetMoreCommentsData) _then;
+
+  /// Create a copy of WatchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? id = null,
+    Object? nextPage = freezed,
+  }) {
+    return _then(GetMoreCommentsData(
+      id: null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      nextPage: freezed == nextPage
+          ? _self.nextPage
+          : nextPage // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class GetMoreReplyCommentsData
+    with DiagnosticableTreeMixin
+    implements WatchEvent {
+  GetMoreReplyCommentsData({required this.id, required this.nextPage});
+
+  final String id;
+  final String? nextPage;
+
+  /// Create a copy of WatchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $GetMoreReplyCommentsDataCopyWith<GetMoreReplyCommentsData> get copyWith =>
+      _$GetMoreReplyCommentsDataCopyWithImpl<GetMoreReplyCommentsData>(
+          this, _$identity);
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(DiagnosticsProperty('type', 'WatchEvent.getMoreReplyCommentsData'))
+      ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('nextPage', nextPage));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is GetMoreReplyCommentsData &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.nextPage, nextPage) ||
+                other.nextPage == nextPage));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id, nextPage);
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'WatchEvent.getMoreReplyCommentsData(id: $id, nextPage: $nextPage)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $GetMoreReplyCommentsDataCopyWith<$Res>
+    implements $WatchEventCopyWith<$Res> {
+  factory $GetMoreReplyCommentsDataCopyWith(GetMoreReplyCommentsData value,
+          $Res Function(GetMoreReplyCommentsData) _then) =
+      _$GetMoreReplyCommentsDataCopyWithImpl;
+  @useResult
+  $Res call({String id, String? nextPage});
+}
+
+/// @nodoc
+class _$GetMoreReplyCommentsDataCopyWithImpl<$Res>
+    implements $GetMoreReplyCommentsDataCopyWith<$Res> {
+  _$GetMoreReplyCommentsDataCopyWithImpl(this._self, this._then);
+
+  final GetMoreReplyCommentsData _self;
+  final $Res Function(GetMoreReplyCommentsData) _then;
+
+  /// Create a copy of WatchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? id = null,
+    Object? nextPage = freezed,
+  }) {
+    return _then(GetMoreReplyCommentsData(
+      id: null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      nextPage: freezed == nextPage
+          ? _self.nextPage
+          : nextPage // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class GetSubtitles with DiagnosticableTreeMixin implements WatchEvent {
+  GetSubtitles({required this.id});
+
+  final String id;
+
+  /// Create a copy of WatchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $GetSubtitlesCopyWith<GetSubtitles> get copyWith =>
+      _$GetSubtitlesCopyWithImpl<GetSubtitles>(this, _$identity);
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(DiagnosticsProperty('type', 'WatchEvent.getSubtitles'))
+      ..add(DiagnosticsProperty('id', id));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is GetSubtitles &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'WatchEvent.getSubtitles(id: $id)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $GetSubtitlesCopyWith<$Res>
+    implements $WatchEventCopyWith<$Res> {
+  factory $GetSubtitlesCopyWith(
+          GetSubtitles value, $Res Function(GetSubtitles) _then) =
+      _$GetSubtitlesCopyWithImpl;
+  @useResult
+  $Res call({String id});
+}
+
+/// @nodoc
+class _$GetSubtitlesCopyWithImpl<$Res> implements $GetSubtitlesCopyWith<$Res> {
+  _$GetSubtitlesCopyWithImpl(this._self, this._then);
+
+  final GetSubtitles _self;
+  final $Res Function(GetSubtitles) _then;
+
+  /// Create a copy of WatchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(GetSubtitles(
+      id: null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class TapDescription with DiagnosticableTreeMixin implements WatchEvent {
+  TapDescription();
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties..add(DiagnosticsProperty('type', 'WatchEvent.tapDescription'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is TapDescription);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'WatchEvent.tapDescription()';
+  }
+}
+
+/// @nodoc
+
+class TogglePip with DiagnosticableTreeMixin implements WatchEvent {
+  TogglePip({required this.value});
+
+  final bool value;
+
+  /// Create a copy of WatchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $TogglePipCopyWith<TogglePip> get copyWith =>
+      _$TogglePipCopyWithImpl<TogglePip>(this, _$identity);
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(DiagnosticsProperty('type', 'WatchEvent.togglePip'))
+      ..add(DiagnosticsProperty('value', value));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is TogglePip &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, value);
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'WatchEvent.togglePip(value: $value)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $TogglePipCopyWith<$Res>
+    implements $WatchEventCopyWith<$Res> {
+  factory $TogglePipCopyWith(TogglePip value, $Res Function(TogglePip) _then) =
+      _$TogglePipCopyWithImpl;
   @useResult
   $Res call({bool value});
 }
 
 /// @nodoc
-class __$$TogglePipImplCopyWithImpl<$Res>
-    extends _$WatchEventCopyWithImpl<$Res, _$TogglePipImpl>
-    implements _$$TogglePipImplCopyWith<$Res> {
-  __$$TogglePipImplCopyWithImpl(
-      _$TogglePipImpl _value, $Res Function(_$TogglePipImpl) _then)
-      : super(_value, _then);
+class _$TogglePipCopyWithImpl<$Res> implements $TogglePipCopyWith<$Res> {
+  _$TogglePipCopyWithImpl(this._self, this._then);
+
+  final TogglePip _self;
+  final $Res Function(TogglePip) _then;
 
   /// Create a copy of WatchEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? value = null,
   }) {
-    return _then(_$TogglePipImpl(
+    return _then(TogglePip(
       value: null == value
-          ? _value.value
+          ? _self.value
           : value // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
@@ -3241,360 +1407,68 @@ class __$$TogglePipImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$TogglePipImpl implements TogglePip {
-  _$TogglePipImpl({required this.value});
+class AssignTitle with DiagnosticableTreeMixin implements WatchEvent {
+  AssignTitle({required this.title});
+
+  final String title;
+
+  /// Create a copy of WatchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $AssignTitleCopyWith<AssignTitle> get copyWith =>
+      _$AssignTitleCopyWithImpl<AssignTitle>(this, _$identity);
 
   @override
-  final bool value;
-
-  @override
-  String toString() {
-    return 'WatchEvent.togglePip(value: $value)';
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(DiagnosticsProperty('type', 'WatchEvent.assignTitle'))
+      ..add(DiagnosticsProperty('title', title));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TogglePipImpl &&
-            (identical(other.value, value) || other.value == value));
+            other is AssignTitle &&
+            (identical(other.title, title) || other.title == title));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, value);
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$TogglePipImplCopyWith<_$TogglePipImpl> get copyWith =>
-      __$$TogglePipImplCopyWithImpl<_$TogglePipImpl>(this, _$identity);
+  int get hashCode => Object.hash(runtimeType, title);
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String id) getWatchInfo,
-    required TResult Function(String id) getCommentData,
-    required TResult Function(String id) forceFetchCommentData,
-    required TResult Function(String id, String nextPage) getCommentRepliesData,
-    required TResult Function(String id, String? nextPage) getMoreCommentsData,
-    required TResult Function(String id, String? nextPage)
-        getMoreReplyCommentsData,
-    required TResult Function(String id) getSubtitles,
-    required TResult Function() tapDescription,
-    required TResult Function(bool value) togglePip,
-    required TResult Function(String title) assignTitle,
-    required TResult Function(String id) getExplodeWatchInfo,
-    required TResult Function(String id) getExplodeRelatedVideoInfo,
-    required TResult Function(String id) getExplodeMuxStreamInfo,
-    required TResult Function(String id) getExplodeLiveVideoInfo,
-    required TResult Function(VideoBasicInfo details)
-        setSelectedVideoBasicDetails,
-    required TResult Function(String id) getInvidiousWatchInfo,
-    required TResult Function(String id) getInvidiousComments,
-    required TResult Function(String id) forceFetchInvidiousComments,
-    required TResult Function(String id, String continuation)
-        getInvidiousCommentReplies,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousComments,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousReplyComments,
-    required TResult Function(int? playBack) updatePlayBack,
-    required TResult Function(String id) getNewPipeWatchInfo,
-    required TResult Function(String id, List<String> sponsorBlockCategories)
-        getNewPipeWatchInfoFast,
-    required TResult Function(String id) getNewPipeComments,
-    required TResult Function(String id) forceFetchNewPipeComments,
-    required TResult Function(String id, String? nextPage)
-        getMoreNewPipeComments,
-    required TResult Function(String videoId, String repliesPage)
-        getNewPipeCommentReplies,
-    required TResult Function(String videoId, String? nextPage)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(String videoId, List<String> categories)
-        getSponsorSegments,
-  }) {
-    return togglePip(value);
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'WatchEvent.assignTitle(title: $title)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String id)? getWatchInfo,
-    TResult? Function(String id)? getCommentData,
-    TResult? Function(String id)? forceFetchCommentData,
-    TResult? Function(String id, String nextPage)? getCommentRepliesData,
-    TResult? Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult? Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult? Function(String id)? getSubtitles,
-    TResult? Function()? tapDescription,
-    TResult? Function(bool value)? togglePip,
-    TResult? Function(String title)? assignTitle,
-    TResult? Function(String id)? getExplodeWatchInfo,
-    TResult? Function(String id)? getExplodeRelatedVideoInfo,
-    TResult? Function(String id)? getExplodeMuxStreamInfo,
-    TResult? Function(String id)? getExplodeLiveVideoInfo,
-    TResult? Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult? Function(String id)? getInvidiousWatchInfo,
-    TResult? Function(String id)? getInvidiousComments,
-    TResult? Function(String id)? forceFetchInvidiousComments,
-    TResult? Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousComments,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(int? playBack)? updatePlayBack,
-    TResult? Function(String id)? getNewPipeWatchInfo,
-    TResult? Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult? Function(String id)? getNewPipeComments,
-    TResult? Function(String id)? forceFetchNewPipeComments,
-    TResult? Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult? Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult? Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-  }) {
-    return togglePip?.call(value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String id)? getWatchInfo,
-    TResult Function(String id)? getCommentData,
-    TResult Function(String id)? forceFetchCommentData,
-    TResult Function(String id, String nextPage)? getCommentRepliesData,
-    TResult Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult Function(String id)? getSubtitles,
-    TResult Function()? tapDescription,
-    TResult Function(bool value)? togglePip,
-    TResult Function(String title)? assignTitle,
-    TResult Function(String id)? getExplodeWatchInfo,
-    TResult Function(String id)? getExplodeRelatedVideoInfo,
-    TResult Function(String id)? getExplodeMuxStreamInfo,
-    TResult Function(String id)? getExplodeLiveVideoInfo,
-    TResult Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult Function(String id)? getInvidiousWatchInfo,
-    TResult Function(String id)? getInvidiousComments,
-    TResult Function(String id)? forceFetchInvidiousComments,
-    TResult Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult Function(String id, String? continuation)? getMoreInvidiousComments,
-    TResult Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult Function(int? playBack)? updatePlayBack,
-    TResult Function(String id)? getNewPipeWatchInfo,
-    TResult Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult Function(String id)? getNewPipeComments,
-    TResult Function(String id)? forceFetchNewPipeComments,
-    TResult Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (togglePip != null) {
-      return togglePip(value);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GetWatchInfo value) getWatchInfo,
-    required TResult Function(GetCommentData value) getCommentData,
-    required TResult Function(ForceFetchCommentData value)
-        forceFetchCommentData,
-    required TResult Function(GetCommentRepliesData value)
-        getCommentRepliesData,
-    required TResult Function(GetMoreCommentsData value) getMoreCommentsData,
-    required TResult Function(GetMoreReplyCommentsData value)
-        getMoreReplyCommentsData,
-    required TResult Function(GetSubtitles value) getSubtitles,
-    required TResult Function(TapDescription value) tapDescription,
-    required TResult Function(TogglePip value) togglePip,
-    required TResult Function(AssignTitle value) assignTitle,
-    required TResult Function(GetExplodeWatchInfo value) getExplodeWatchInfo,
-    required TResult Function(GetExplodeRelatedVideoInfo value)
-        getExplodeRelatedVideoInfo,
-    required TResult Function(GetExplodeMuxStreamInfo value)
-        getExplodeMuxStreamInfo,
-    required TResult Function(GetExplodeLiveVideoInfo value)
-        getExplodeLiveVideoInfo,
-    required TResult Function(SetSelectedVideoBasicDetails value)
-        setSelectedVideoBasicDetails,
-    required TResult Function(GetInvidiousWatchInfo value)
-        getInvidiousWatchInfo,
-    required TResult Function(GetInvidiousComments value) getInvidiousComments,
-    required TResult Function(ForceFetchInvidiousComments value)
-        forceFetchInvidiousComments,
-    required TResult Function(GetInvidiousCommentReplies value)
-        getInvidiousCommentReplies,
-    required TResult Function(GetMoreInvidiousComments value)
-        getMoreInvidiousComments,
-    required TResult Function(GetMoreInvidiousReplyComments value)
-        getMoreInvidiousReplyComments,
-    required TResult Function(UpdatePlayBack value) updatePlayBack,
-    required TResult Function(GetNewPipeWatchInfo value) getNewPipeWatchInfo,
-    required TResult Function(GetNewPipeWatchInfoFast value)
-        getNewPipeWatchInfoFast,
-    required TResult Function(GetNewPipeComments value) getNewPipeComments,
-    required TResult Function(ForceFetchNewPipeComments value)
-        forceFetchNewPipeComments,
-    required TResult Function(GetMoreNewPipeComments value)
-        getMoreNewPipeComments,
-    required TResult Function(GetNewPipeCommentReplies value)
-        getNewPipeCommentReplies,
-    required TResult Function(GetMoreNewPipeCommentReplies value)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(GetSponsorSegments value) getSponsorSegments,
-  }) {
-    return togglePip(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GetWatchInfo value)? getWatchInfo,
-    TResult? Function(GetCommentData value)? getCommentData,
-    TResult? Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult? Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult? Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult? Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult? Function(GetSubtitles value)? getSubtitles,
-    TResult? Function(TapDescription value)? tapDescription,
-    TResult? Function(TogglePip value)? togglePip,
-    TResult? Function(AssignTitle value)? assignTitle,
-    TResult? Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult? Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult? Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult? Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult? Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult? Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult? Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult? Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult? Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult? Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult? Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(UpdatePlayBack value)? updatePlayBack,
-    TResult? Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult? Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult? Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult? Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult? Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult? Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult? Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(GetSponsorSegments value)? getSponsorSegments,
-  }) {
-    return togglePip?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetWatchInfo value)? getWatchInfo,
-    TResult Function(GetCommentData value)? getCommentData,
-    TResult Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult Function(GetSubtitles value)? getSubtitles,
-    TResult Function(TapDescription value)? tapDescription,
-    TResult Function(TogglePip value)? togglePip,
-    TResult Function(AssignTitle value)? assignTitle,
-    TResult Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult Function(UpdatePlayBack value)? updatePlayBack,
-    TResult Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(GetSponsorSegments value)? getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (togglePip != null) {
-      return togglePip(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class TogglePip implements WatchEvent {
-  factory TogglePip({required final bool value}) = _$TogglePipImpl;
-
-  bool get value;
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$TogglePipImplCopyWith<_$TogglePipImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$AssignTitleImplCopyWith<$Res> {
-  factory _$$AssignTitleImplCopyWith(
-          _$AssignTitleImpl value, $Res Function(_$AssignTitleImpl) then) =
-      __$$AssignTitleImplCopyWithImpl<$Res>;
+abstract mixin class $AssignTitleCopyWith<$Res>
+    implements $WatchEventCopyWith<$Res> {
+  factory $AssignTitleCopyWith(
+          AssignTitle value, $Res Function(AssignTitle) _then) =
+      _$AssignTitleCopyWithImpl;
   @useResult
   $Res call({String title});
 }
 
 /// @nodoc
-class __$$AssignTitleImplCopyWithImpl<$Res>
-    extends _$WatchEventCopyWithImpl<$Res, _$AssignTitleImpl>
-    implements _$$AssignTitleImplCopyWith<$Res> {
-  __$$AssignTitleImplCopyWithImpl(
-      _$AssignTitleImpl _value, $Res Function(_$AssignTitleImpl) _then)
-      : super(_value, _then);
+class _$AssignTitleCopyWithImpl<$Res> implements $AssignTitleCopyWith<$Res> {
+  _$AssignTitleCopyWithImpl(this._self, this._then);
+
+  final AssignTitle _self;
+  final $Res Function(AssignTitle) _then;
 
   /// Create a copy of WatchEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? title = null,
   }) {
-    return _then(_$AssignTitleImpl(
+    return _then(AssignTitle(
       title: null == title
-          ? _value.title
+          ? _self.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -3603,360 +1477,69 @@ class __$$AssignTitleImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AssignTitleImpl implements AssignTitle {
-  _$AssignTitleImpl({required this.title});
+class GetExplodeWatchInfo with DiagnosticableTreeMixin implements WatchEvent {
+  GetExplodeWatchInfo({required this.id});
+
+  final String id;
+
+  /// Create a copy of WatchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $GetExplodeWatchInfoCopyWith<GetExplodeWatchInfo> get copyWith =>
+      _$GetExplodeWatchInfoCopyWithImpl<GetExplodeWatchInfo>(this, _$identity);
 
   @override
-  final String title;
-
-  @override
-  String toString() {
-    return 'WatchEvent.assignTitle(title: $title)';
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(DiagnosticsProperty('type', 'WatchEvent.getExplodeWatchInfo'))
+      ..add(DiagnosticsProperty('id', id));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AssignTitleImpl &&
-            (identical(other.title, title) || other.title == title));
+            other is GetExplodeWatchInfo &&
+            (identical(other.id, id) || other.id == id));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, title);
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$AssignTitleImplCopyWith<_$AssignTitleImpl> get copyWith =>
-      __$$AssignTitleImplCopyWithImpl<_$AssignTitleImpl>(this, _$identity);
+  int get hashCode => Object.hash(runtimeType, id);
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String id) getWatchInfo,
-    required TResult Function(String id) getCommentData,
-    required TResult Function(String id) forceFetchCommentData,
-    required TResult Function(String id, String nextPage) getCommentRepliesData,
-    required TResult Function(String id, String? nextPage) getMoreCommentsData,
-    required TResult Function(String id, String? nextPage)
-        getMoreReplyCommentsData,
-    required TResult Function(String id) getSubtitles,
-    required TResult Function() tapDescription,
-    required TResult Function(bool value) togglePip,
-    required TResult Function(String title) assignTitle,
-    required TResult Function(String id) getExplodeWatchInfo,
-    required TResult Function(String id) getExplodeRelatedVideoInfo,
-    required TResult Function(String id) getExplodeMuxStreamInfo,
-    required TResult Function(String id) getExplodeLiveVideoInfo,
-    required TResult Function(VideoBasicInfo details)
-        setSelectedVideoBasicDetails,
-    required TResult Function(String id) getInvidiousWatchInfo,
-    required TResult Function(String id) getInvidiousComments,
-    required TResult Function(String id) forceFetchInvidiousComments,
-    required TResult Function(String id, String continuation)
-        getInvidiousCommentReplies,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousComments,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousReplyComments,
-    required TResult Function(int? playBack) updatePlayBack,
-    required TResult Function(String id) getNewPipeWatchInfo,
-    required TResult Function(String id, List<String> sponsorBlockCategories)
-        getNewPipeWatchInfoFast,
-    required TResult Function(String id) getNewPipeComments,
-    required TResult Function(String id) forceFetchNewPipeComments,
-    required TResult Function(String id, String? nextPage)
-        getMoreNewPipeComments,
-    required TResult Function(String videoId, String repliesPage)
-        getNewPipeCommentReplies,
-    required TResult Function(String videoId, String? nextPage)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(String videoId, List<String> categories)
-        getSponsorSegments,
-  }) {
-    return assignTitle(title);
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'WatchEvent.getExplodeWatchInfo(id: $id)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String id)? getWatchInfo,
-    TResult? Function(String id)? getCommentData,
-    TResult? Function(String id)? forceFetchCommentData,
-    TResult? Function(String id, String nextPage)? getCommentRepliesData,
-    TResult? Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult? Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult? Function(String id)? getSubtitles,
-    TResult? Function()? tapDescription,
-    TResult? Function(bool value)? togglePip,
-    TResult? Function(String title)? assignTitle,
-    TResult? Function(String id)? getExplodeWatchInfo,
-    TResult? Function(String id)? getExplodeRelatedVideoInfo,
-    TResult? Function(String id)? getExplodeMuxStreamInfo,
-    TResult? Function(String id)? getExplodeLiveVideoInfo,
-    TResult? Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult? Function(String id)? getInvidiousWatchInfo,
-    TResult? Function(String id)? getInvidiousComments,
-    TResult? Function(String id)? forceFetchInvidiousComments,
-    TResult? Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousComments,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(int? playBack)? updatePlayBack,
-    TResult? Function(String id)? getNewPipeWatchInfo,
-    TResult? Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult? Function(String id)? getNewPipeComments,
-    TResult? Function(String id)? forceFetchNewPipeComments,
-    TResult? Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult? Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult? Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-  }) {
-    return assignTitle?.call(title);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String id)? getWatchInfo,
-    TResult Function(String id)? getCommentData,
-    TResult Function(String id)? forceFetchCommentData,
-    TResult Function(String id, String nextPage)? getCommentRepliesData,
-    TResult Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult Function(String id)? getSubtitles,
-    TResult Function()? tapDescription,
-    TResult Function(bool value)? togglePip,
-    TResult Function(String title)? assignTitle,
-    TResult Function(String id)? getExplodeWatchInfo,
-    TResult Function(String id)? getExplodeRelatedVideoInfo,
-    TResult Function(String id)? getExplodeMuxStreamInfo,
-    TResult Function(String id)? getExplodeLiveVideoInfo,
-    TResult Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult Function(String id)? getInvidiousWatchInfo,
-    TResult Function(String id)? getInvidiousComments,
-    TResult Function(String id)? forceFetchInvidiousComments,
-    TResult Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult Function(String id, String? continuation)? getMoreInvidiousComments,
-    TResult Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult Function(int? playBack)? updatePlayBack,
-    TResult Function(String id)? getNewPipeWatchInfo,
-    TResult Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult Function(String id)? getNewPipeComments,
-    TResult Function(String id)? forceFetchNewPipeComments,
-    TResult Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (assignTitle != null) {
-      return assignTitle(title);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GetWatchInfo value) getWatchInfo,
-    required TResult Function(GetCommentData value) getCommentData,
-    required TResult Function(ForceFetchCommentData value)
-        forceFetchCommentData,
-    required TResult Function(GetCommentRepliesData value)
-        getCommentRepliesData,
-    required TResult Function(GetMoreCommentsData value) getMoreCommentsData,
-    required TResult Function(GetMoreReplyCommentsData value)
-        getMoreReplyCommentsData,
-    required TResult Function(GetSubtitles value) getSubtitles,
-    required TResult Function(TapDescription value) tapDescription,
-    required TResult Function(TogglePip value) togglePip,
-    required TResult Function(AssignTitle value) assignTitle,
-    required TResult Function(GetExplodeWatchInfo value) getExplodeWatchInfo,
-    required TResult Function(GetExplodeRelatedVideoInfo value)
-        getExplodeRelatedVideoInfo,
-    required TResult Function(GetExplodeMuxStreamInfo value)
-        getExplodeMuxStreamInfo,
-    required TResult Function(GetExplodeLiveVideoInfo value)
-        getExplodeLiveVideoInfo,
-    required TResult Function(SetSelectedVideoBasicDetails value)
-        setSelectedVideoBasicDetails,
-    required TResult Function(GetInvidiousWatchInfo value)
-        getInvidiousWatchInfo,
-    required TResult Function(GetInvidiousComments value) getInvidiousComments,
-    required TResult Function(ForceFetchInvidiousComments value)
-        forceFetchInvidiousComments,
-    required TResult Function(GetInvidiousCommentReplies value)
-        getInvidiousCommentReplies,
-    required TResult Function(GetMoreInvidiousComments value)
-        getMoreInvidiousComments,
-    required TResult Function(GetMoreInvidiousReplyComments value)
-        getMoreInvidiousReplyComments,
-    required TResult Function(UpdatePlayBack value) updatePlayBack,
-    required TResult Function(GetNewPipeWatchInfo value) getNewPipeWatchInfo,
-    required TResult Function(GetNewPipeWatchInfoFast value)
-        getNewPipeWatchInfoFast,
-    required TResult Function(GetNewPipeComments value) getNewPipeComments,
-    required TResult Function(ForceFetchNewPipeComments value)
-        forceFetchNewPipeComments,
-    required TResult Function(GetMoreNewPipeComments value)
-        getMoreNewPipeComments,
-    required TResult Function(GetNewPipeCommentReplies value)
-        getNewPipeCommentReplies,
-    required TResult Function(GetMoreNewPipeCommentReplies value)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(GetSponsorSegments value) getSponsorSegments,
-  }) {
-    return assignTitle(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GetWatchInfo value)? getWatchInfo,
-    TResult? Function(GetCommentData value)? getCommentData,
-    TResult? Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult? Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult? Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult? Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult? Function(GetSubtitles value)? getSubtitles,
-    TResult? Function(TapDescription value)? tapDescription,
-    TResult? Function(TogglePip value)? togglePip,
-    TResult? Function(AssignTitle value)? assignTitle,
-    TResult? Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult? Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult? Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult? Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult? Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult? Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult? Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult? Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult? Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult? Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult? Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(UpdatePlayBack value)? updatePlayBack,
-    TResult? Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult? Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult? Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult? Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult? Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult? Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult? Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(GetSponsorSegments value)? getSponsorSegments,
-  }) {
-    return assignTitle?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetWatchInfo value)? getWatchInfo,
-    TResult Function(GetCommentData value)? getCommentData,
-    TResult Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult Function(GetSubtitles value)? getSubtitles,
-    TResult Function(TapDescription value)? tapDescription,
-    TResult Function(TogglePip value)? togglePip,
-    TResult Function(AssignTitle value)? assignTitle,
-    TResult Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult Function(UpdatePlayBack value)? updatePlayBack,
-    TResult Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(GetSponsorSegments value)? getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (assignTitle != null) {
-      return assignTitle(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class AssignTitle implements WatchEvent {
-  factory AssignTitle({required final String title}) = _$AssignTitleImpl;
-
-  String get title;
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AssignTitleImplCopyWith<_$AssignTitleImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$GetExplodeWatchInfoImplCopyWith<$Res> {
-  factory _$$GetExplodeWatchInfoImplCopyWith(_$GetExplodeWatchInfoImpl value,
-          $Res Function(_$GetExplodeWatchInfoImpl) then) =
-      __$$GetExplodeWatchInfoImplCopyWithImpl<$Res>;
+abstract mixin class $GetExplodeWatchInfoCopyWith<$Res>
+    implements $WatchEventCopyWith<$Res> {
+  factory $GetExplodeWatchInfoCopyWith(
+          GetExplodeWatchInfo value, $Res Function(GetExplodeWatchInfo) _then) =
+      _$GetExplodeWatchInfoCopyWithImpl;
   @useResult
   $Res call({String id});
 }
 
 /// @nodoc
-class __$$GetExplodeWatchInfoImplCopyWithImpl<$Res>
-    extends _$WatchEventCopyWithImpl<$Res, _$GetExplodeWatchInfoImpl>
-    implements _$$GetExplodeWatchInfoImplCopyWith<$Res> {
-  __$$GetExplodeWatchInfoImplCopyWithImpl(_$GetExplodeWatchInfoImpl _value,
-      $Res Function(_$GetExplodeWatchInfoImpl) _then)
-      : super(_value, _then);
+class _$GetExplodeWatchInfoCopyWithImpl<$Res>
+    implements $GetExplodeWatchInfoCopyWith<$Res> {
+  _$GetExplodeWatchInfoCopyWithImpl(this._self, this._then);
+
+  final GetExplodeWatchInfo _self;
+  final $Res Function(GetExplodeWatchInfo) _then;
 
   /// Create a copy of WatchEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? id = null,
   }) {
-    return _then(_$GetExplodeWatchInfoImpl(
+    return _then(GetExplodeWatchInfo(
       id: null == id
-          ? _value.id
+          ? _self.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -3965,1096 +1548,148 @@ class __$$GetExplodeWatchInfoImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$GetExplodeWatchInfoImpl implements GetExplodeWatchInfo {
-  _$GetExplodeWatchInfoImpl({required this.id});
+class GetExplodeRelatedVideoInfo
+    with DiagnosticableTreeMixin
+    implements WatchEvent {
+  GetExplodeRelatedVideoInfo({required this.id});
 
-  @override
   final String id;
 
+  /// Create a copy of WatchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $GetExplodeRelatedVideoInfoCopyWith<GetExplodeRelatedVideoInfo>
+      get copyWith =>
+          _$GetExplodeRelatedVideoInfoCopyWithImpl<GetExplodeRelatedVideoInfo>(
+              this, _$identity);
+
   @override
-  String toString() {
-    return 'WatchEvent.getExplodeWatchInfo(id: $id)';
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(
+          DiagnosticsProperty('type', 'WatchEvent.getExplodeRelatedVideoInfo'))
+      ..add(DiagnosticsProperty('id', id));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetExplodeWatchInfoImpl &&
+            other is GetExplodeRelatedVideoInfo &&
             (identical(other.id, id) || other.id == id));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, id);
 
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'WatchEvent.getExplodeRelatedVideoInfo(id: $id)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $GetExplodeRelatedVideoInfoCopyWith<$Res>
+    implements $WatchEventCopyWith<$Res> {
+  factory $GetExplodeRelatedVideoInfoCopyWith(GetExplodeRelatedVideoInfo value,
+          $Res Function(GetExplodeRelatedVideoInfo) _then) =
+      _$GetExplodeRelatedVideoInfoCopyWithImpl;
+  @useResult
+  $Res call({String id});
+}
+
+/// @nodoc
+class _$GetExplodeRelatedVideoInfoCopyWithImpl<$Res>
+    implements $GetExplodeRelatedVideoInfoCopyWith<$Res> {
+  _$GetExplodeRelatedVideoInfoCopyWithImpl(this._self, this._then);
+
+  final GetExplodeRelatedVideoInfo _self;
+  final $Res Function(GetExplodeRelatedVideoInfo) _then;
+
+  /// Create a copy of WatchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(GetExplodeRelatedVideoInfo(
+      id: null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class GetExplodeMuxStreamInfo
+    with DiagnosticableTreeMixin
+    implements WatchEvent {
+  GetExplodeMuxStreamInfo({required this.id});
+
+  final String id;
+
   /// Create a copy of WatchEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
   @pragma('vm:prefer-inline')
-  _$$GetExplodeWatchInfoImplCopyWith<_$GetExplodeWatchInfoImpl> get copyWith =>
-      __$$GetExplodeWatchInfoImplCopyWithImpl<_$GetExplodeWatchInfoImpl>(
+  $GetExplodeMuxStreamInfoCopyWith<GetExplodeMuxStreamInfo> get copyWith =>
+      _$GetExplodeMuxStreamInfoCopyWithImpl<GetExplodeMuxStreamInfo>(
           this, _$identity);
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String id) getWatchInfo,
-    required TResult Function(String id) getCommentData,
-    required TResult Function(String id) forceFetchCommentData,
-    required TResult Function(String id, String nextPage) getCommentRepliesData,
-    required TResult Function(String id, String? nextPage) getMoreCommentsData,
-    required TResult Function(String id, String? nextPage)
-        getMoreReplyCommentsData,
-    required TResult Function(String id) getSubtitles,
-    required TResult Function() tapDescription,
-    required TResult Function(bool value) togglePip,
-    required TResult Function(String title) assignTitle,
-    required TResult Function(String id) getExplodeWatchInfo,
-    required TResult Function(String id) getExplodeRelatedVideoInfo,
-    required TResult Function(String id) getExplodeMuxStreamInfo,
-    required TResult Function(String id) getExplodeLiveVideoInfo,
-    required TResult Function(VideoBasicInfo details)
-        setSelectedVideoBasicDetails,
-    required TResult Function(String id) getInvidiousWatchInfo,
-    required TResult Function(String id) getInvidiousComments,
-    required TResult Function(String id) forceFetchInvidiousComments,
-    required TResult Function(String id, String continuation)
-        getInvidiousCommentReplies,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousComments,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousReplyComments,
-    required TResult Function(int? playBack) updatePlayBack,
-    required TResult Function(String id) getNewPipeWatchInfo,
-    required TResult Function(String id, List<String> sponsorBlockCategories)
-        getNewPipeWatchInfoFast,
-    required TResult Function(String id) getNewPipeComments,
-    required TResult Function(String id) forceFetchNewPipeComments,
-    required TResult Function(String id, String? nextPage)
-        getMoreNewPipeComments,
-    required TResult Function(String videoId, String repliesPage)
-        getNewPipeCommentReplies,
-    required TResult Function(String videoId, String? nextPage)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(String videoId, List<String> categories)
-        getSponsorSegments,
-  }) {
-    return getExplodeWatchInfo(id);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String id)? getWatchInfo,
-    TResult? Function(String id)? getCommentData,
-    TResult? Function(String id)? forceFetchCommentData,
-    TResult? Function(String id, String nextPage)? getCommentRepliesData,
-    TResult? Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult? Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult? Function(String id)? getSubtitles,
-    TResult? Function()? tapDescription,
-    TResult? Function(bool value)? togglePip,
-    TResult? Function(String title)? assignTitle,
-    TResult? Function(String id)? getExplodeWatchInfo,
-    TResult? Function(String id)? getExplodeRelatedVideoInfo,
-    TResult? Function(String id)? getExplodeMuxStreamInfo,
-    TResult? Function(String id)? getExplodeLiveVideoInfo,
-    TResult? Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult? Function(String id)? getInvidiousWatchInfo,
-    TResult? Function(String id)? getInvidiousComments,
-    TResult? Function(String id)? forceFetchInvidiousComments,
-    TResult? Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousComments,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(int? playBack)? updatePlayBack,
-    TResult? Function(String id)? getNewPipeWatchInfo,
-    TResult? Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult? Function(String id)? getNewPipeComments,
-    TResult? Function(String id)? forceFetchNewPipeComments,
-    TResult? Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult? Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult? Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-  }) {
-    return getExplodeWatchInfo?.call(id);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String id)? getWatchInfo,
-    TResult Function(String id)? getCommentData,
-    TResult Function(String id)? forceFetchCommentData,
-    TResult Function(String id, String nextPage)? getCommentRepliesData,
-    TResult Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult Function(String id)? getSubtitles,
-    TResult Function()? tapDescription,
-    TResult Function(bool value)? togglePip,
-    TResult Function(String title)? assignTitle,
-    TResult Function(String id)? getExplodeWatchInfo,
-    TResult Function(String id)? getExplodeRelatedVideoInfo,
-    TResult Function(String id)? getExplodeMuxStreamInfo,
-    TResult Function(String id)? getExplodeLiveVideoInfo,
-    TResult Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult Function(String id)? getInvidiousWatchInfo,
-    TResult Function(String id)? getInvidiousComments,
-    TResult Function(String id)? forceFetchInvidiousComments,
-    TResult Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult Function(String id, String? continuation)? getMoreInvidiousComments,
-    TResult Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult Function(int? playBack)? updatePlayBack,
-    TResult Function(String id)? getNewPipeWatchInfo,
-    TResult Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult Function(String id)? getNewPipeComments,
-    TResult Function(String id)? forceFetchNewPipeComments,
-    TResult Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getExplodeWatchInfo != null) {
-      return getExplodeWatchInfo(id);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GetWatchInfo value) getWatchInfo,
-    required TResult Function(GetCommentData value) getCommentData,
-    required TResult Function(ForceFetchCommentData value)
-        forceFetchCommentData,
-    required TResult Function(GetCommentRepliesData value)
-        getCommentRepliesData,
-    required TResult Function(GetMoreCommentsData value) getMoreCommentsData,
-    required TResult Function(GetMoreReplyCommentsData value)
-        getMoreReplyCommentsData,
-    required TResult Function(GetSubtitles value) getSubtitles,
-    required TResult Function(TapDescription value) tapDescription,
-    required TResult Function(TogglePip value) togglePip,
-    required TResult Function(AssignTitle value) assignTitle,
-    required TResult Function(GetExplodeWatchInfo value) getExplodeWatchInfo,
-    required TResult Function(GetExplodeRelatedVideoInfo value)
-        getExplodeRelatedVideoInfo,
-    required TResult Function(GetExplodeMuxStreamInfo value)
-        getExplodeMuxStreamInfo,
-    required TResult Function(GetExplodeLiveVideoInfo value)
-        getExplodeLiveVideoInfo,
-    required TResult Function(SetSelectedVideoBasicDetails value)
-        setSelectedVideoBasicDetails,
-    required TResult Function(GetInvidiousWatchInfo value)
-        getInvidiousWatchInfo,
-    required TResult Function(GetInvidiousComments value) getInvidiousComments,
-    required TResult Function(ForceFetchInvidiousComments value)
-        forceFetchInvidiousComments,
-    required TResult Function(GetInvidiousCommentReplies value)
-        getInvidiousCommentReplies,
-    required TResult Function(GetMoreInvidiousComments value)
-        getMoreInvidiousComments,
-    required TResult Function(GetMoreInvidiousReplyComments value)
-        getMoreInvidiousReplyComments,
-    required TResult Function(UpdatePlayBack value) updatePlayBack,
-    required TResult Function(GetNewPipeWatchInfo value) getNewPipeWatchInfo,
-    required TResult Function(GetNewPipeWatchInfoFast value)
-        getNewPipeWatchInfoFast,
-    required TResult Function(GetNewPipeComments value) getNewPipeComments,
-    required TResult Function(ForceFetchNewPipeComments value)
-        forceFetchNewPipeComments,
-    required TResult Function(GetMoreNewPipeComments value)
-        getMoreNewPipeComments,
-    required TResult Function(GetNewPipeCommentReplies value)
-        getNewPipeCommentReplies,
-    required TResult Function(GetMoreNewPipeCommentReplies value)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(GetSponsorSegments value) getSponsorSegments,
-  }) {
-    return getExplodeWatchInfo(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GetWatchInfo value)? getWatchInfo,
-    TResult? Function(GetCommentData value)? getCommentData,
-    TResult? Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult? Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult? Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult? Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult? Function(GetSubtitles value)? getSubtitles,
-    TResult? Function(TapDescription value)? tapDescription,
-    TResult? Function(TogglePip value)? togglePip,
-    TResult? Function(AssignTitle value)? assignTitle,
-    TResult? Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult? Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult? Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult? Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult? Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult? Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult? Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult? Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult? Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult? Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult? Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(UpdatePlayBack value)? updatePlayBack,
-    TResult? Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult? Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult? Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult? Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult? Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult? Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult? Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(GetSponsorSegments value)? getSponsorSegments,
-  }) {
-    return getExplodeWatchInfo?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetWatchInfo value)? getWatchInfo,
-    TResult Function(GetCommentData value)? getCommentData,
-    TResult Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult Function(GetSubtitles value)? getSubtitles,
-    TResult Function(TapDescription value)? tapDescription,
-    TResult Function(TogglePip value)? togglePip,
-    TResult Function(AssignTitle value)? assignTitle,
-    TResult Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult Function(UpdatePlayBack value)? updatePlayBack,
-    TResult Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(GetSponsorSegments value)? getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getExplodeWatchInfo != null) {
-      return getExplodeWatchInfo(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class GetExplodeWatchInfo implements WatchEvent {
-  factory GetExplodeWatchInfo({required final String id}) =
-      _$GetExplodeWatchInfoImpl;
-
-  String get id;
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetExplodeWatchInfoImplCopyWith<_$GetExplodeWatchInfoImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$GetExplodeRelatedVideoInfoImplCopyWith<$Res> {
-  factory _$$GetExplodeRelatedVideoInfoImplCopyWith(
-          _$GetExplodeRelatedVideoInfoImpl value,
-          $Res Function(_$GetExplodeRelatedVideoInfoImpl) then) =
-      __$$GetExplodeRelatedVideoInfoImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String id});
-}
-
-/// @nodoc
-class __$$GetExplodeRelatedVideoInfoImplCopyWithImpl<$Res>
-    extends _$WatchEventCopyWithImpl<$Res, _$GetExplodeRelatedVideoInfoImpl>
-    implements _$$GetExplodeRelatedVideoInfoImplCopyWith<$Res> {
-  __$$GetExplodeRelatedVideoInfoImplCopyWithImpl(
-      _$GetExplodeRelatedVideoInfoImpl _value,
-      $Res Function(_$GetExplodeRelatedVideoInfoImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-  }) {
-    return _then(_$GetExplodeRelatedVideoInfoImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$GetExplodeRelatedVideoInfoImpl implements GetExplodeRelatedVideoInfo {
-  _$GetExplodeRelatedVideoInfoImpl({required this.id});
-
-  @override
-  final String id;
-
-  @override
-  String toString() {
-    return 'WatchEvent.getExplodeRelatedVideoInfo(id: $id)';
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(DiagnosticsProperty('type', 'WatchEvent.getExplodeMuxStreamInfo'))
+      ..add(DiagnosticsProperty('id', id));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetExplodeRelatedVideoInfoImpl &&
+            other is GetExplodeMuxStreamInfo &&
             (identical(other.id, id) || other.id == id));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, id);
 
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$GetExplodeRelatedVideoInfoImplCopyWith<_$GetExplodeRelatedVideoInfoImpl>
-      get copyWith => __$$GetExplodeRelatedVideoInfoImplCopyWithImpl<
-          _$GetExplodeRelatedVideoInfoImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String id) getWatchInfo,
-    required TResult Function(String id) getCommentData,
-    required TResult Function(String id) forceFetchCommentData,
-    required TResult Function(String id, String nextPage) getCommentRepliesData,
-    required TResult Function(String id, String? nextPage) getMoreCommentsData,
-    required TResult Function(String id, String? nextPage)
-        getMoreReplyCommentsData,
-    required TResult Function(String id) getSubtitles,
-    required TResult Function() tapDescription,
-    required TResult Function(bool value) togglePip,
-    required TResult Function(String title) assignTitle,
-    required TResult Function(String id) getExplodeWatchInfo,
-    required TResult Function(String id) getExplodeRelatedVideoInfo,
-    required TResult Function(String id) getExplodeMuxStreamInfo,
-    required TResult Function(String id) getExplodeLiveVideoInfo,
-    required TResult Function(VideoBasicInfo details)
-        setSelectedVideoBasicDetails,
-    required TResult Function(String id) getInvidiousWatchInfo,
-    required TResult Function(String id) getInvidiousComments,
-    required TResult Function(String id) forceFetchInvidiousComments,
-    required TResult Function(String id, String continuation)
-        getInvidiousCommentReplies,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousComments,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousReplyComments,
-    required TResult Function(int? playBack) updatePlayBack,
-    required TResult Function(String id) getNewPipeWatchInfo,
-    required TResult Function(String id, List<String> sponsorBlockCategories)
-        getNewPipeWatchInfoFast,
-    required TResult Function(String id) getNewPipeComments,
-    required TResult Function(String id) forceFetchNewPipeComments,
-    required TResult Function(String id, String? nextPage)
-        getMoreNewPipeComments,
-    required TResult Function(String videoId, String repliesPage)
-        getNewPipeCommentReplies,
-    required TResult Function(String videoId, String? nextPage)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(String videoId, List<String> categories)
-        getSponsorSegments,
-  }) {
-    return getExplodeRelatedVideoInfo(id);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String id)? getWatchInfo,
-    TResult? Function(String id)? getCommentData,
-    TResult? Function(String id)? forceFetchCommentData,
-    TResult? Function(String id, String nextPage)? getCommentRepliesData,
-    TResult? Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult? Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult? Function(String id)? getSubtitles,
-    TResult? Function()? tapDescription,
-    TResult? Function(bool value)? togglePip,
-    TResult? Function(String title)? assignTitle,
-    TResult? Function(String id)? getExplodeWatchInfo,
-    TResult? Function(String id)? getExplodeRelatedVideoInfo,
-    TResult? Function(String id)? getExplodeMuxStreamInfo,
-    TResult? Function(String id)? getExplodeLiveVideoInfo,
-    TResult? Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult? Function(String id)? getInvidiousWatchInfo,
-    TResult? Function(String id)? getInvidiousComments,
-    TResult? Function(String id)? forceFetchInvidiousComments,
-    TResult? Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousComments,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(int? playBack)? updatePlayBack,
-    TResult? Function(String id)? getNewPipeWatchInfo,
-    TResult? Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult? Function(String id)? getNewPipeComments,
-    TResult? Function(String id)? forceFetchNewPipeComments,
-    TResult? Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult? Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult? Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-  }) {
-    return getExplodeRelatedVideoInfo?.call(id);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String id)? getWatchInfo,
-    TResult Function(String id)? getCommentData,
-    TResult Function(String id)? forceFetchCommentData,
-    TResult Function(String id, String nextPage)? getCommentRepliesData,
-    TResult Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult Function(String id)? getSubtitles,
-    TResult Function()? tapDescription,
-    TResult Function(bool value)? togglePip,
-    TResult Function(String title)? assignTitle,
-    TResult Function(String id)? getExplodeWatchInfo,
-    TResult Function(String id)? getExplodeRelatedVideoInfo,
-    TResult Function(String id)? getExplodeMuxStreamInfo,
-    TResult Function(String id)? getExplodeLiveVideoInfo,
-    TResult Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult Function(String id)? getInvidiousWatchInfo,
-    TResult Function(String id)? getInvidiousComments,
-    TResult Function(String id)? forceFetchInvidiousComments,
-    TResult Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult Function(String id, String? continuation)? getMoreInvidiousComments,
-    TResult Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult Function(int? playBack)? updatePlayBack,
-    TResult Function(String id)? getNewPipeWatchInfo,
-    TResult Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult Function(String id)? getNewPipeComments,
-    TResult Function(String id)? forceFetchNewPipeComments,
-    TResult Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getExplodeRelatedVideoInfo != null) {
-      return getExplodeRelatedVideoInfo(id);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GetWatchInfo value) getWatchInfo,
-    required TResult Function(GetCommentData value) getCommentData,
-    required TResult Function(ForceFetchCommentData value)
-        forceFetchCommentData,
-    required TResult Function(GetCommentRepliesData value)
-        getCommentRepliesData,
-    required TResult Function(GetMoreCommentsData value) getMoreCommentsData,
-    required TResult Function(GetMoreReplyCommentsData value)
-        getMoreReplyCommentsData,
-    required TResult Function(GetSubtitles value) getSubtitles,
-    required TResult Function(TapDescription value) tapDescription,
-    required TResult Function(TogglePip value) togglePip,
-    required TResult Function(AssignTitle value) assignTitle,
-    required TResult Function(GetExplodeWatchInfo value) getExplodeWatchInfo,
-    required TResult Function(GetExplodeRelatedVideoInfo value)
-        getExplodeRelatedVideoInfo,
-    required TResult Function(GetExplodeMuxStreamInfo value)
-        getExplodeMuxStreamInfo,
-    required TResult Function(GetExplodeLiveVideoInfo value)
-        getExplodeLiveVideoInfo,
-    required TResult Function(SetSelectedVideoBasicDetails value)
-        setSelectedVideoBasicDetails,
-    required TResult Function(GetInvidiousWatchInfo value)
-        getInvidiousWatchInfo,
-    required TResult Function(GetInvidiousComments value) getInvidiousComments,
-    required TResult Function(ForceFetchInvidiousComments value)
-        forceFetchInvidiousComments,
-    required TResult Function(GetInvidiousCommentReplies value)
-        getInvidiousCommentReplies,
-    required TResult Function(GetMoreInvidiousComments value)
-        getMoreInvidiousComments,
-    required TResult Function(GetMoreInvidiousReplyComments value)
-        getMoreInvidiousReplyComments,
-    required TResult Function(UpdatePlayBack value) updatePlayBack,
-    required TResult Function(GetNewPipeWatchInfo value) getNewPipeWatchInfo,
-    required TResult Function(GetNewPipeWatchInfoFast value)
-        getNewPipeWatchInfoFast,
-    required TResult Function(GetNewPipeComments value) getNewPipeComments,
-    required TResult Function(ForceFetchNewPipeComments value)
-        forceFetchNewPipeComments,
-    required TResult Function(GetMoreNewPipeComments value)
-        getMoreNewPipeComments,
-    required TResult Function(GetNewPipeCommentReplies value)
-        getNewPipeCommentReplies,
-    required TResult Function(GetMoreNewPipeCommentReplies value)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(GetSponsorSegments value) getSponsorSegments,
-  }) {
-    return getExplodeRelatedVideoInfo(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GetWatchInfo value)? getWatchInfo,
-    TResult? Function(GetCommentData value)? getCommentData,
-    TResult? Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult? Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult? Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult? Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult? Function(GetSubtitles value)? getSubtitles,
-    TResult? Function(TapDescription value)? tapDescription,
-    TResult? Function(TogglePip value)? togglePip,
-    TResult? Function(AssignTitle value)? assignTitle,
-    TResult? Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult? Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult? Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult? Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult? Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult? Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult? Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult? Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult? Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult? Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult? Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(UpdatePlayBack value)? updatePlayBack,
-    TResult? Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult? Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult? Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult? Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult? Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult? Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult? Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(GetSponsorSegments value)? getSponsorSegments,
-  }) {
-    return getExplodeRelatedVideoInfo?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetWatchInfo value)? getWatchInfo,
-    TResult Function(GetCommentData value)? getCommentData,
-    TResult Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult Function(GetSubtitles value)? getSubtitles,
-    TResult Function(TapDescription value)? tapDescription,
-    TResult Function(TogglePip value)? togglePip,
-    TResult Function(AssignTitle value)? assignTitle,
-    TResult Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult Function(UpdatePlayBack value)? updatePlayBack,
-    TResult Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(GetSponsorSegments value)? getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getExplodeRelatedVideoInfo != null) {
-      return getExplodeRelatedVideoInfo(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class GetExplodeRelatedVideoInfo implements WatchEvent {
-  factory GetExplodeRelatedVideoInfo({required final String id}) =
-      _$GetExplodeRelatedVideoInfoImpl;
-
-  String get id;
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetExplodeRelatedVideoInfoImplCopyWith<_$GetExplodeRelatedVideoInfoImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$GetExplodeMuxStreamInfoImplCopyWith<$Res> {
-  factory _$$GetExplodeMuxStreamInfoImplCopyWith(
-          _$GetExplodeMuxStreamInfoImpl value,
-          $Res Function(_$GetExplodeMuxStreamInfoImpl) then) =
-      __$$GetExplodeMuxStreamInfoImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String id});
-}
-
-/// @nodoc
-class __$$GetExplodeMuxStreamInfoImplCopyWithImpl<$Res>
-    extends _$WatchEventCopyWithImpl<$Res, _$GetExplodeMuxStreamInfoImpl>
-    implements _$$GetExplodeMuxStreamInfoImplCopyWith<$Res> {
-  __$$GetExplodeMuxStreamInfoImplCopyWithImpl(
-      _$GetExplodeMuxStreamInfoImpl _value,
-      $Res Function(_$GetExplodeMuxStreamInfoImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-  }) {
-    return _then(_$GetExplodeMuxStreamInfoImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$GetExplodeMuxStreamInfoImpl implements GetExplodeMuxStreamInfo {
-  _$GetExplodeMuxStreamInfoImpl({required this.id});
-
-  @override
-  final String id;
-
-  @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'WatchEvent.getExplodeMuxStreamInfo(id: $id)';
   }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$GetExplodeMuxStreamInfoImpl &&
-            (identical(other.id, id) || other.id == id));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, id);
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$GetExplodeMuxStreamInfoImplCopyWith<_$GetExplodeMuxStreamInfoImpl>
-      get copyWith => __$$GetExplodeMuxStreamInfoImplCopyWithImpl<
-          _$GetExplodeMuxStreamInfoImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String id) getWatchInfo,
-    required TResult Function(String id) getCommentData,
-    required TResult Function(String id) forceFetchCommentData,
-    required TResult Function(String id, String nextPage) getCommentRepliesData,
-    required TResult Function(String id, String? nextPage) getMoreCommentsData,
-    required TResult Function(String id, String? nextPage)
-        getMoreReplyCommentsData,
-    required TResult Function(String id) getSubtitles,
-    required TResult Function() tapDescription,
-    required TResult Function(bool value) togglePip,
-    required TResult Function(String title) assignTitle,
-    required TResult Function(String id) getExplodeWatchInfo,
-    required TResult Function(String id) getExplodeRelatedVideoInfo,
-    required TResult Function(String id) getExplodeMuxStreamInfo,
-    required TResult Function(String id) getExplodeLiveVideoInfo,
-    required TResult Function(VideoBasicInfo details)
-        setSelectedVideoBasicDetails,
-    required TResult Function(String id) getInvidiousWatchInfo,
-    required TResult Function(String id) getInvidiousComments,
-    required TResult Function(String id) forceFetchInvidiousComments,
-    required TResult Function(String id, String continuation)
-        getInvidiousCommentReplies,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousComments,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousReplyComments,
-    required TResult Function(int? playBack) updatePlayBack,
-    required TResult Function(String id) getNewPipeWatchInfo,
-    required TResult Function(String id, List<String> sponsorBlockCategories)
-        getNewPipeWatchInfoFast,
-    required TResult Function(String id) getNewPipeComments,
-    required TResult Function(String id) forceFetchNewPipeComments,
-    required TResult Function(String id, String? nextPage)
-        getMoreNewPipeComments,
-    required TResult Function(String videoId, String repliesPage)
-        getNewPipeCommentReplies,
-    required TResult Function(String videoId, String? nextPage)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(String videoId, List<String> categories)
-        getSponsorSegments,
-  }) {
-    return getExplodeMuxStreamInfo(id);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String id)? getWatchInfo,
-    TResult? Function(String id)? getCommentData,
-    TResult? Function(String id)? forceFetchCommentData,
-    TResult? Function(String id, String nextPage)? getCommentRepliesData,
-    TResult? Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult? Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult? Function(String id)? getSubtitles,
-    TResult? Function()? tapDescription,
-    TResult? Function(bool value)? togglePip,
-    TResult? Function(String title)? assignTitle,
-    TResult? Function(String id)? getExplodeWatchInfo,
-    TResult? Function(String id)? getExplodeRelatedVideoInfo,
-    TResult? Function(String id)? getExplodeMuxStreamInfo,
-    TResult? Function(String id)? getExplodeLiveVideoInfo,
-    TResult? Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult? Function(String id)? getInvidiousWatchInfo,
-    TResult? Function(String id)? getInvidiousComments,
-    TResult? Function(String id)? forceFetchInvidiousComments,
-    TResult? Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousComments,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(int? playBack)? updatePlayBack,
-    TResult? Function(String id)? getNewPipeWatchInfo,
-    TResult? Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult? Function(String id)? getNewPipeComments,
-    TResult? Function(String id)? forceFetchNewPipeComments,
-    TResult? Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult? Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult? Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-  }) {
-    return getExplodeMuxStreamInfo?.call(id);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String id)? getWatchInfo,
-    TResult Function(String id)? getCommentData,
-    TResult Function(String id)? forceFetchCommentData,
-    TResult Function(String id, String nextPage)? getCommentRepliesData,
-    TResult Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult Function(String id)? getSubtitles,
-    TResult Function()? tapDescription,
-    TResult Function(bool value)? togglePip,
-    TResult Function(String title)? assignTitle,
-    TResult Function(String id)? getExplodeWatchInfo,
-    TResult Function(String id)? getExplodeRelatedVideoInfo,
-    TResult Function(String id)? getExplodeMuxStreamInfo,
-    TResult Function(String id)? getExplodeLiveVideoInfo,
-    TResult Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult Function(String id)? getInvidiousWatchInfo,
-    TResult Function(String id)? getInvidiousComments,
-    TResult Function(String id)? forceFetchInvidiousComments,
-    TResult Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult Function(String id, String? continuation)? getMoreInvidiousComments,
-    TResult Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult Function(int? playBack)? updatePlayBack,
-    TResult Function(String id)? getNewPipeWatchInfo,
-    TResult Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult Function(String id)? getNewPipeComments,
-    TResult Function(String id)? forceFetchNewPipeComments,
-    TResult Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getExplodeMuxStreamInfo != null) {
-      return getExplodeMuxStreamInfo(id);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GetWatchInfo value) getWatchInfo,
-    required TResult Function(GetCommentData value) getCommentData,
-    required TResult Function(ForceFetchCommentData value)
-        forceFetchCommentData,
-    required TResult Function(GetCommentRepliesData value)
-        getCommentRepliesData,
-    required TResult Function(GetMoreCommentsData value) getMoreCommentsData,
-    required TResult Function(GetMoreReplyCommentsData value)
-        getMoreReplyCommentsData,
-    required TResult Function(GetSubtitles value) getSubtitles,
-    required TResult Function(TapDescription value) tapDescription,
-    required TResult Function(TogglePip value) togglePip,
-    required TResult Function(AssignTitle value) assignTitle,
-    required TResult Function(GetExplodeWatchInfo value) getExplodeWatchInfo,
-    required TResult Function(GetExplodeRelatedVideoInfo value)
-        getExplodeRelatedVideoInfo,
-    required TResult Function(GetExplodeMuxStreamInfo value)
-        getExplodeMuxStreamInfo,
-    required TResult Function(GetExplodeLiveVideoInfo value)
-        getExplodeLiveVideoInfo,
-    required TResult Function(SetSelectedVideoBasicDetails value)
-        setSelectedVideoBasicDetails,
-    required TResult Function(GetInvidiousWatchInfo value)
-        getInvidiousWatchInfo,
-    required TResult Function(GetInvidiousComments value) getInvidiousComments,
-    required TResult Function(ForceFetchInvidiousComments value)
-        forceFetchInvidiousComments,
-    required TResult Function(GetInvidiousCommentReplies value)
-        getInvidiousCommentReplies,
-    required TResult Function(GetMoreInvidiousComments value)
-        getMoreInvidiousComments,
-    required TResult Function(GetMoreInvidiousReplyComments value)
-        getMoreInvidiousReplyComments,
-    required TResult Function(UpdatePlayBack value) updatePlayBack,
-    required TResult Function(GetNewPipeWatchInfo value) getNewPipeWatchInfo,
-    required TResult Function(GetNewPipeWatchInfoFast value)
-        getNewPipeWatchInfoFast,
-    required TResult Function(GetNewPipeComments value) getNewPipeComments,
-    required TResult Function(ForceFetchNewPipeComments value)
-        forceFetchNewPipeComments,
-    required TResult Function(GetMoreNewPipeComments value)
-        getMoreNewPipeComments,
-    required TResult Function(GetNewPipeCommentReplies value)
-        getNewPipeCommentReplies,
-    required TResult Function(GetMoreNewPipeCommentReplies value)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(GetSponsorSegments value) getSponsorSegments,
-  }) {
-    return getExplodeMuxStreamInfo(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GetWatchInfo value)? getWatchInfo,
-    TResult? Function(GetCommentData value)? getCommentData,
-    TResult? Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult? Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult? Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult? Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult? Function(GetSubtitles value)? getSubtitles,
-    TResult? Function(TapDescription value)? tapDescription,
-    TResult? Function(TogglePip value)? togglePip,
-    TResult? Function(AssignTitle value)? assignTitle,
-    TResult? Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult? Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult? Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult? Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult? Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult? Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult? Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult? Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult? Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult? Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult? Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(UpdatePlayBack value)? updatePlayBack,
-    TResult? Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult? Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult? Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult? Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult? Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult? Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult? Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(GetSponsorSegments value)? getSponsorSegments,
-  }) {
-    return getExplodeMuxStreamInfo?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetWatchInfo value)? getWatchInfo,
-    TResult Function(GetCommentData value)? getCommentData,
-    TResult Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult Function(GetSubtitles value)? getSubtitles,
-    TResult Function(TapDescription value)? tapDescription,
-    TResult Function(TogglePip value)? togglePip,
-    TResult Function(AssignTitle value)? assignTitle,
-    TResult Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult Function(UpdatePlayBack value)? updatePlayBack,
-    TResult Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(GetSponsorSegments value)? getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getExplodeMuxStreamInfo != null) {
-      return getExplodeMuxStreamInfo(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class GetExplodeMuxStreamInfo implements WatchEvent {
-  factory GetExplodeMuxStreamInfo({required final String id}) =
-      _$GetExplodeMuxStreamInfoImpl;
-
-  String get id;
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetExplodeMuxStreamInfoImplCopyWith<_$GetExplodeMuxStreamInfoImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$GetExplodeLiveVideoInfoImplCopyWith<$Res> {
-  factory _$$GetExplodeLiveVideoInfoImplCopyWith(
-          _$GetExplodeLiveVideoInfoImpl value,
-          $Res Function(_$GetExplodeLiveVideoInfoImpl) then) =
-      __$$GetExplodeLiveVideoInfoImplCopyWithImpl<$Res>;
+abstract mixin class $GetExplodeMuxStreamInfoCopyWith<$Res>
+    implements $WatchEventCopyWith<$Res> {
+  factory $GetExplodeMuxStreamInfoCopyWith(GetExplodeMuxStreamInfo value,
+          $Res Function(GetExplodeMuxStreamInfo) _then) =
+      _$GetExplodeMuxStreamInfoCopyWithImpl;
   @useResult
   $Res call({String id});
 }
 
 /// @nodoc
-class __$$GetExplodeLiveVideoInfoImplCopyWithImpl<$Res>
-    extends _$WatchEventCopyWithImpl<$Res, _$GetExplodeLiveVideoInfoImpl>
-    implements _$$GetExplodeLiveVideoInfoImplCopyWith<$Res> {
-  __$$GetExplodeLiveVideoInfoImplCopyWithImpl(
-      _$GetExplodeLiveVideoInfoImpl _value,
-      $Res Function(_$GetExplodeLiveVideoInfoImpl) _then)
-      : super(_value, _then);
+class _$GetExplodeMuxStreamInfoCopyWithImpl<$Res>
+    implements $GetExplodeMuxStreamInfoCopyWith<$Res> {
+  _$GetExplodeMuxStreamInfoCopyWithImpl(this._self, this._then);
+
+  final GetExplodeMuxStreamInfo _self;
+  final $Res Function(GetExplodeMuxStreamInfo) _then;
 
   /// Create a copy of WatchEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? id = null,
   }) {
-    return _then(_$GetExplodeLiveVideoInfoImpl(
+    return _then(GetExplodeMuxStreamInfo(
       id: null == id
-          ? _value.id
+          ? _self.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -5063,364 +1698,148 @@ class __$$GetExplodeLiveVideoInfoImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$GetExplodeLiveVideoInfoImpl implements GetExplodeLiveVideoInfo {
-  _$GetExplodeLiveVideoInfoImpl({required this.id});
+class GetExplodeLiveVideoInfo
+    with DiagnosticableTreeMixin
+    implements WatchEvent {
+  GetExplodeLiveVideoInfo({required this.id});
 
-  @override
   final String id;
 
+  /// Create a copy of WatchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $GetExplodeLiveVideoInfoCopyWith<GetExplodeLiveVideoInfo> get copyWith =>
+      _$GetExplodeLiveVideoInfoCopyWithImpl<GetExplodeLiveVideoInfo>(
+          this, _$identity);
+
   @override
-  String toString() {
-    return 'WatchEvent.getExplodeLiveVideoInfo(id: $id)';
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(DiagnosticsProperty('type', 'WatchEvent.getExplodeLiveVideoInfo'))
+      ..add(DiagnosticsProperty('id', id));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetExplodeLiveVideoInfoImpl &&
+            other is GetExplodeLiveVideoInfo &&
             (identical(other.id, id) || other.id == id));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, id);
 
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$GetExplodeLiveVideoInfoImplCopyWith<_$GetExplodeLiveVideoInfoImpl>
-      get copyWith => __$$GetExplodeLiveVideoInfoImplCopyWithImpl<
-          _$GetExplodeLiveVideoInfoImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String id) getWatchInfo,
-    required TResult Function(String id) getCommentData,
-    required TResult Function(String id) forceFetchCommentData,
-    required TResult Function(String id, String nextPage) getCommentRepliesData,
-    required TResult Function(String id, String? nextPage) getMoreCommentsData,
-    required TResult Function(String id, String? nextPage)
-        getMoreReplyCommentsData,
-    required TResult Function(String id) getSubtitles,
-    required TResult Function() tapDescription,
-    required TResult Function(bool value) togglePip,
-    required TResult Function(String title) assignTitle,
-    required TResult Function(String id) getExplodeWatchInfo,
-    required TResult Function(String id) getExplodeRelatedVideoInfo,
-    required TResult Function(String id) getExplodeMuxStreamInfo,
-    required TResult Function(String id) getExplodeLiveVideoInfo,
-    required TResult Function(VideoBasicInfo details)
-        setSelectedVideoBasicDetails,
-    required TResult Function(String id) getInvidiousWatchInfo,
-    required TResult Function(String id) getInvidiousComments,
-    required TResult Function(String id) forceFetchInvidiousComments,
-    required TResult Function(String id, String continuation)
-        getInvidiousCommentReplies,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousComments,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousReplyComments,
-    required TResult Function(int? playBack) updatePlayBack,
-    required TResult Function(String id) getNewPipeWatchInfo,
-    required TResult Function(String id, List<String> sponsorBlockCategories)
-        getNewPipeWatchInfoFast,
-    required TResult Function(String id) getNewPipeComments,
-    required TResult Function(String id) forceFetchNewPipeComments,
-    required TResult Function(String id, String? nextPage)
-        getMoreNewPipeComments,
-    required TResult Function(String videoId, String repliesPage)
-        getNewPipeCommentReplies,
-    required TResult Function(String videoId, String? nextPage)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(String videoId, List<String> categories)
-        getSponsorSegments,
-  }) {
-    return getExplodeLiveVideoInfo(id);
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'WatchEvent.getExplodeLiveVideoInfo(id: $id)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String id)? getWatchInfo,
-    TResult? Function(String id)? getCommentData,
-    TResult? Function(String id)? forceFetchCommentData,
-    TResult? Function(String id, String nextPage)? getCommentRepliesData,
-    TResult? Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult? Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult? Function(String id)? getSubtitles,
-    TResult? Function()? tapDescription,
-    TResult? Function(bool value)? togglePip,
-    TResult? Function(String title)? assignTitle,
-    TResult? Function(String id)? getExplodeWatchInfo,
-    TResult? Function(String id)? getExplodeRelatedVideoInfo,
-    TResult? Function(String id)? getExplodeMuxStreamInfo,
-    TResult? Function(String id)? getExplodeLiveVideoInfo,
-    TResult? Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult? Function(String id)? getInvidiousWatchInfo,
-    TResult? Function(String id)? getInvidiousComments,
-    TResult? Function(String id)? forceFetchInvidiousComments,
-    TResult? Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousComments,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(int? playBack)? updatePlayBack,
-    TResult? Function(String id)? getNewPipeWatchInfo,
-    TResult? Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult? Function(String id)? getNewPipeComments,
-    TResult? Function(String id)? forceFetchNewPipeComments,
-    TResult? Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult? Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult? Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-  }) {
-    return getExplodeLiveVideoInfo?.call(id);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String id)? getWatchInfo,
-    TResult Function(String id)? getCommentData,
-    TResult Function(String id)? forceFetchCommentData,
-    TResult Function(String id, String nextPage)? getCommentRepliesData,
-    TResult Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult Function(String id)? getSubtitles,
-    TResult Function()? tapDescription,
-    TResult Function(bool value)? togglePip,
-    TResult Function(String title)? assignTitle,
-    TResult Function(String id)? getExplodeWatchInfo,
-    TResult Function(String id)? getExplodeRelatedVideoInfo,
-    TResult Function(String id)? getExplodeMuxStreamInfo,
-    TResult Function(String id)? getExplodeLiveVideoInfo,
-    TResult Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult Function(String id)? getInvidiousWatchInfo,
-    TResult Function(String id)? getInvidiousComments,
-    TResult Function(String id)? forceFetchInvidiousComments,
-    TResult Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult Function(String id, String? continuation)? getMoreInvidiousComments,
-    TResult Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult Function(int? playBack)? updatePlayBack,
-    TResult Function(String id)? getNewPipeWatchInfo,
-    TResult Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult Function(String id)? getNewPipeComments,
-    TResult Function(String id)? forceFetchNewPipeComments,
-    TResult Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getExplodeLiveVideoInfo != null) {
-      return getExplodeLiveVideoInfo(id);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GetWatchInfo value) getWatchInfo,
-    required TResult Function(GetCommentData value) getCommentData,
-    required TResult Function(ForceFetchCommentData value)
-        forceFetchCommentData,
-    required TResult Function(GetCommentRepliesData value)
-        getCommentRepliesData,
-    required TResult Function(GetMoreCommentsData value) getMoreCommentsData,
-    required TResult Function(GetMoreReplyCommentsData value)
-        getMoreReplyCommentsData,
-    required TResult Function(GetSubtitles value) getSubtitles,
-    required TResult Function(TapDescription value) tapDescription,
-    required TResult Function(TogglePip value) togglePip,
-    required TResult Function(AssignTitle value) assignTitle,
-    required TResult Function(GetExplodeWatchInfo value) getExplodeWatchInfo,
-    required TResult Function(GetExplodeRelatedVideoInfo value)
-        getExplodeRelatedVideoInfo,
-    required TResult Function(GetExplodeMuxStreamInfo value)
-        getExplodeMuxStreamInfo,
-    required TResult Function(GetExplodeLiveVideoInfo value)
-        getExplodeLiveVideoInfo,
-    required TResult Function(SetSelectedVideoBasicDetails value)
-        setSelectedVideoBasicDetails,
-    required TResult Function(GetInvidiousWatchInfo value)
-        getInvidiousWatchInfo,
-    required TResult Function(GetInvidiousComments value) getInvidiousComments,
-    required TResult Function(ForceFetchInvidiousComments value)
-        forceFetchInvidiousComments,
-    required TResult Function(GetInvidiousCommentReplies value)
-        getInvidiousCommentReplies,
-    required TResult Function(GetMoreInvidiousComments value)
-        getMoreInvidiousComments,
-    required TResult Function(GetMoreInvidiousReplyComments value)
-        getMoreInvidiousReplyComments,
-    required TResult Function(UpdatePlayBack value) updatePlayBack,
-    required TResult Function(GetNewPipeWatchInfo value) getNewPipeWatchInfo,
-    required TResult Function(GetNewPipeWatchInfoFast value)
-        getNewPipeWatchInfoFast,
-    required TResult Function(GetNewPipeComments value) getNewPipeComments,
-    required TResult Function(ForceFetchNewPipeComments value)
-        forceFetchNewPipeComments,
-    required TResult Function(GetMoreNewPipeComments value)
-        getMoreNewPipeComments,
-    required TResult Function(GetNewPipeCommentReplies value)
-        getNewPipeCommentReplies,
-    required TResult Function(GetMoreNewPipeCommentReplies value)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(GetSponsorSegments value) getSponsorSegments,
-  }) {
-    return getExplodeLiveVideoInfo(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GetWatchInfo value)? getWatchInfo,
-    TResult? Function(GetCommentData value)? getCommentData,
-    TResult? Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult? Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult? Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult? Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult? Function(GetSubtitles value)? getSubtitles,
-    TResult? Function(TapDescription value)? tapDescription,
-    TResult? Function(TogglePip value)? togglePip,
-    TResult? Function(AssignTitle value)? assignTitle,
-    TResult? Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult? Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult? Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult? Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult? Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult? Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult? Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult? Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult? Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult? Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult? Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(UpdatePlayBack value)? updatePlayBack,
-    TResult? Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult? Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult? Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult? Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult? Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult? Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult? Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(GetSponsorSegments value)? getSponsorSegments,
-  }) {
-    return getExplodeLiveVideoInfo?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetWatchInfo value)? getWatchInfo,
-    TResult Function(GetCommentData value)? getCommentData,
-    TResult Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult Function(GetSubtitles value)? getSubtitles,
-    TResult Function(TapDescription value)? tapDescription,
-    TResult Function(TogglePip value)? togglePip,
-    TResult Function(AssignTitle value)? assignTitle,
-    TResult Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult Function(UpdatePlayBack value)? updatePlayBack,
-    TResult Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(GetSponsorSegments value)? getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getExplodeLiveVideoInfo != null) {
-      return getExplodeLiveVideoInfo(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class GetExplodeLiveVideoInfo implements WatchEvent {
-  factory GetExplodeLiveVideoInfo({required final String id}) =
-      _$GetExplodeLiveVideoInfoImpl;
-
-  String get id;
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetExplodeLiveVideoInfoImplCopyWith<_$GetExplodeLiveVideoInfoImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SetSelectedVideoBasicDetailsImplCopyWith<$Res> {
-  factory _$$SetSelectedVideoBasicDetailsImplCopyWith(
-          _$SetSelectedVideoBasicDetailsImpl value,
-          $Res Function(_$SetSelectedVideoBasicDetailsImpl) then) =
-      __$$SetSelectedVideoBasicDetailsImplCopyWithImpl<$Res>;
+abstract mixin class $GetExplodeLiveVideoInfoCopyWith<$Res>
+    implements $WatchEventCopyWith<$Res> {
+  factory $GetExplodeLiveVideoInfoCopyWith(GetExplodeLiveVideoInfo value,
+          $Res Function(GetExplodeLiveVideoInfo) _then) =
+      _$GetExplodeLiveVideoInfoCopyWithImpl;
+  @useResult
+  $Res call({String id});
+}
+
+/// @nodoc
+class _$GetExplodeLiveVideoInfoCopyWithImpl<$Res>
+    implements $GetExplodeLiveVideoInfoCopyWith<$Res> {
+  _$GetExplodeLiveVideoInfoCopyWithImpl(this._self, this._then);
+
+  final GetExplodeLiveVideoInfo _self;
+  final $Res Function(GetExplodeLiveVideoInfo) _then;
+
+  /// Create a copy of WatchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(GetExplodeLiveVideoInfo(
+      id: null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class SetSelectedVideoBasicDetails
+    with DiagnosticableTreeMixin
+    implements WatchEvent {
+  SetSelectedVideoBasicDetails({required this.details});
+
+  final VideoBasicInfo details;
+
+  /// Create a copy of WatchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $SetSelectedVideoBasicDetailsCopyWith<SetSelectedVideoBasicDetails>
+      get copyWith => _$SetSelectedVideoBasicDetailsCopyWithImpl<
+          SetSelectedVideoBasicDetails>(this, _$identity);
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'WatchEvent.setSelectedVideoBasicDetails'))
+      ..add(DiagnosticsProperty('details', details));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SetSelectedVideoBasicDetails &&
+            (identical(other.details, details) || other.details == details));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, details);
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'WatchEvent.setSelectedVideoBasicDetails(details: $details)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $SetSelectedVideoBasicDetailsCopyWith<$Res>
+    implements $WatchEventCopyWith<$Res> {
+  factory $SetSelectedVideoBasicDetailsCopyWith(
+          SetSelectedVideoBasicDetails value,
+          $Res Function(SetSelectedVideoBasicDetails) _then) =
+      _$SetSelectedVideoBasicDetailsCopyWithImpl;
   @useResult
   $Res call({VideoBasicInfo details});
 }
 
 /// @nodoc
-class __$$SetSelectedVideoBasicDetailsImplCopyWithImpl<$Res>
-    extends _$WatchEventCopyWithImpl<$Res, _$SetSelectedVideoBasicDetailsImpl>
-    implements _$$SetSelectedVideoBasicDetailsImplCopyWith<$Res> {
-  __$$SetSelectedVideoBasicDetailsImplCopyWithImpl(
-      _$SetSelectedVideoBasicDetailsImpl _value,
-      $Res Function(_$SetSelectedVideoBasicDetailsImpl) _then)
-      : super(_value, _then);
+class _$SetSelectedVideoBasicDetailsCopyWithImpl<$Res>
+    implements $SetSelectedVideoBasicDetailsCopyWith<$Res> {
+  _$SetSelectedVideoBasicDetailsCopyWithImpl(this._self, this._then);
+
+  final SetSelectedVideoBasicDetails _self;
+  final $Res Function(SetSelectedVideoBasicDetails) _then;
 
   /// Create a copy of WatchEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? details = null,
   }) {
-    return _then(_$SetSelectedVideoBasicDetailsImpl(
+    return _then(SetSelectedVideoBasicDetails(
       details: null == details
-          ? _value.details
+          ? _self.details
           : details // ignore: cast_nullable_to_non_nullable
               as VideoBasicInfo,
     ));
@@ -5429,731 +1848,70 @@ class __$$SetSelectedVideoBasicDetailsImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SetSelectedVideoBasicDetailsImpl
-    implements SetSelectedVideoBasicDetails {
-  _$SetSelectedVideoBasicDetailsImpl({required this.details});
+class GetInvidiousWatchInfo with DiagnosticableTreeMixin implements WatchEvent {
+  GetInvidiousWatchInfo({required this.id});
+
+  final String id;
+
+  /// Create a copy of WatchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $GetInvidiousWatchInfoCopyWith<GetInvidiousWatchInfo> get copyWith =>
+      _$GetInvidiousWatchInfoCopyWithImpl<GetInvidiousWatchInfo>(
+          this, _$identity);
 
   @override
-  final VideoBasicInfo details;
-
-  @override
-  String toString() {
-    return 'WatchEvent.setSelectedVideoBasicDetails(details: $details)';
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(DiagnosticsProperty('type', 'WatchEvent.getInvidiousWatchInfo'))
+      ..add(DiagnosticsProperty('id', id));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SetSelectedVideoBasicDetailsImpl &&
-            (identical(other.details, details) || other.details == details));
+            other is GetInvidiousWatchInfo &&
+            (identical(other.id, id) || other.id == id));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, details);
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SetSelectedVideoBasicDetailsImplCopyWith<
-          _$SetSelectedVideoBasicDetailsImpl>
-      get copyWith => __$$SetSelectedVideoBasicDetailsImplCopyWithImpl<
-          _$SetSelectedVideoBasicDetailsImpl>(this, _$identity);
+  int get hashCode => Object.hash(runtimeType, id);
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String id) getWatchInfo,
-    required TResult Function(String id) getCommentData,
-    required TResult Function(String id) forceFetchCommentData,
-    required TResult Function(String id, String nextPage) getCommentRepliesData,
-    required TResult Function(String id, String? nextPage) getMoreCommentsData,
-    required TResult Function(String id, String? nextPage)
-        getMoreReplyCommentsData,
-    required TResult Function(String id) getSubtitles,
-    required TResult Function() tapDescription,
-    required TResult Function(bool value) togglePip,
-    required TResult Function(String title) assignTitle,
-    required TResult Function(String id) getExplodeWatchInfo,
-    required TResult Function(String id) getExplodeRelatedVideoInfo,
-    required TResult Function(String id) getExplodeMuxStreamInfo,
-    required TResult Function(String id) getExplodeLiveVideoInfo,
-    required TResult Function(VideoBasicInfo details)
-        setSelectedVideoBasicDetails,
-    required TResult Function(String id) getInvidiousWatchInfo,
-    required TResult Function(String id) getInvidiousComments,
-    required TResult Function(String id) forceFetchInvidiousComments,
-    required TResult Function(String id, String continuation)
-        getInvidiousCommentReplies,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousComments,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousReplyComments,
-    required TResult Function(int? playBack) updatePlayBack,
-    required TResult Function(String id) getNewPipeWatchInfo,
-    required TResult Function(String id, List<String> sponsorBlockCategories)
-        getNewPipeWatchInfoFast,
-    required TResult Function(String id) getNewPipeComments,
-    required TResult Function(String id) forceFetchNewPipeComments,
-    required TResult Function(String id, String? nextPage)
-        getMoreNewPipeComments,
-    required TResult Function(String videoId, String repliesPage)
-        getNewPipeCommentReplies,
-    required TResult Function(String videoId, String? nextPage)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(String videoId, List<String> categories)
-        getSponsorSegments,
-  }) {
-    return setSelectedVideoBasicDetails(details);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String id)? getWatchInfo,
-    TResult? Function(String id)? getCommentData,
-    TResult? Function(String id)? forceFetchCommentData,
-    TResult? Function(String id, String nextPage)? getCommentRepliesData,
-    TResult? Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult? Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult? Function(String id)? getSubtitles,
-    TResult? Function()? tapDescription,
-    TResult? Function(bool value)? togglePip,
-    TResult? Function(String title)? assignTitle,
-    TResult? Function(String id)? getExplodeWatchInfo,
-    TResult? Function(String id)? getExplodeRelatedVideoInfo,
-    TResult? Function(String id)? getExplodeMuxStreamInfo,
-    TResult? Function(String id)? getExplodeLiveVideoInfo,
-    TResult? Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult? Function(String id)? getInvidiousWatchInfo,
-    TResult? Function(String id)? getInvidiousComments,
-    TResult? Function(String id)? forceFetchInvidiousComments,
-    TResult? Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousComments,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(int? playBack)? updatePlayBack,
-    TResult? Function(String id)? getNewPipeWatchInfo,
-    TResult? Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult? Function(String id)? getNewPipeComments,
-    TResult? Function(String id)? forceFetchNewPipeComments,
-    TResult? Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult? Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult? Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-  }) {
-    return setSelectedVideoBasicDetails?.call(details);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String id)? getWatchInfo,
-    TResult Function(String id)? getCommentData,
-    TResult Function(String id)? forceFetchCommentData,
-    TResult Function(String id, String nextPage)? getCommentRepliesData,
-    TResult Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult Function(String id)? getSubtitles,
-    TResult Function()? tapDescription,
-    TResult Function(bool value)? togglePip,
-    TResult Function(String title)? assignTitle,
-    TResult Function(String id)? getExplodeWatchInfo,
-    TResult Function(String id)? getExplodeRelatedVideoInfo,
-    TResult Function(String id)? getExplodeMuxStreamInfo,
-    TResult Function(String id)? getExplodeLiveVideoInfo,
-    TResult Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult Function(String id)? getInvidiousWatchInfo,
-    TResult Function(String id)? getInvidiousComments,
-    TResult Function(String id)? forceFetchInvidiousComments,
-    TResult Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult Function(String id, String? continuation)? getMoreInvidiousComments,
-    TResult Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult Function(int? playBack)? updatePlayBack,
-    TResult Function(String id)? getNewPipeWatchInfo,
-    TResult Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult Function(String id)? getNewPipeComments,
-    TResult Function(String id)? forceFetchNewPipeComments,
-    TResult Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (setSelectedVideoBasicDetails != null) {
-      return setSelectedVideoBasicDetails(details);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GetWatchInfo value) getWatchInfo,
-    required TResult Function(GetCommentData value) getCommentData,
-    required TResult Function(ForceFetchCommentData value)
-        forceFetchCommentData,
-    required TResult Function(GetCommentRepliesData value)
-        getCommentRepliesData,
-    required TResult Function(GetMoreCommentsData value) getMoreCommentsData,
-    required TResult Function(GetMoreReplyCommentsData value)
-        getMoreReplyCommentsData,
-    required TResult Function(GetSubtitles value) getSubtitles,
-    required TResult Function(TapDescription value) tapDescription,
-    required TResult Function(TogglePip value) togglePip,
-    required TResult Function(AssignTitle value) assignTitle,
-    required TResult Function(GetExplodeWatchInfo value) getExplodeWatchInfo,
-    required TResult Function(GetExplodeRelatedVideoInfo value)
-        getExplodeRelatedVideoInfo,
-    required TResult Function(GetExplodeMuxStreamInfo value)
-        getExplodeMuxStreamInfo,
-    required TResult Function(GetExplodeLiveVideoInfo value)
-        getExplodeLiveVideoInfo,
-    required TResult Function(SetSelectedVideoBasicDetails value)
-        setSelectedVideoBasicDetails,
-    required TResult Function(GetInvidiousWatchInfo value)
-        getInvidiousWatchInfo,
-    required TResult Function(GetInvidiousComments value) getInvidiousComments,
-    required TResult Function(ForceFetchInvidiousComments value)
-        forceFetchInvidiousComments,
-    required TResult Function(GetInvidiousCommentReplies value)
-        getInvidiousCommentReplies,
-    required TResult Function(GetMoreInvidiousComments value)
-        getMoreInvidiousComments,
-    required TResult Function(GetMoreInvidiousReplyComments value)
-        getMoreInvidiousReplyComments,
-    required TResult Function(UpdatePlayBack value) updatePlayBack,
-    required TResult Function(GetNewPipeWatchInfo value) getNewPipeWatchInfo,
-    required TResult Function(GetNewPipeWatchInfoFast value)
-        getNewPipeWatchInfoFast,
-    required TResult Function(GetNewPipeComments value) getNewPipeComments,
-    required TResult Function(ForceFetchNewPipeComments value)
-        forceFetchNewPipeComments,
-    required TResult Function(GetMoreNewPipeComments value)
-        getMoreNewPipeComments,
-    required TResult Function(GetNewPipeCommentReplies value)
-        getNewPipeCommentReplies,
-    required TResult Function(GetMoreNewPipeCommentReplies value)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(GetSponsorSegments value) getSponsorSegments,
-  }) {
-    return setSelectedVideoBasicDetails(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GetWatchInfo value)? getWatchInfo,
-    TResult? Function(GetCommentData value)? getCommentData,
-    TResult? Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult? Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult? Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult? Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult? Function(GetSubtitles value)? getSubtitles,
-    TResult? Function(TapDescription value)? tapDescription,
-    TResult? Function(TogglePip value)? togglePip,
-    TResult? Function(AssignTitle value)? assignTitle,
-    TResult? Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult? Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult? Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult? Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult? Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult? Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult? Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult? Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult? Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult? Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult? Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(UpdatePlayBack value)? updatePlayBack,
-    TResult? Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult? Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult? Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult? Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult? Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult? Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult? Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(GetSponsorSegments value)? getSponsorSegments,
-  }) {
-    return setSelectedVideoBasicDetails?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetWatchInfo value)? getWatchInfo,
-    TResult Function(GetCommentData value)? getCommentData,
-    TResult Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult Function(GetSubtitles value)? getSubtitles,
-    TResult Function(TapDescription value)? tapDescription,
-    TResult Function(TogglePip value)? togglePip,
-    TResult Function(AssignTitle value)? assignTitle,
-    TResult Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult Function(UpdatePlayBack value)? updatePlayBack,
-    TResult Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(GetSponsorSegments value)? getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (setSelectedVideoBasicDetails != null) {
-      return setSelectedVideoBasicDetails(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class SetSelectedVideoBasicDetails implements WatchEvent {
-  factory SetSelectedVideoBasicDetails(
-          {required final VideoBasicInfo details}) =
-      _$SetSelectedVideoBasicDetailsImpl;
-
-  VideoBasicInfo get details;
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SetSelectedVideoBasicDetailsImplCopyWith<
-          _$SetSelectedVideoBasicDetailsImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$GetInvidiousWatchInfoImplCopyWith<$Res> {
-  factory _$$GetInvidiousWatchInfoImplCopyWith(
-          _$GetInvidiousWatchInfoImpl value,
-          $Res Function(_$GetInvidiousWatchInfoImpl) then) =
-      __$$GetInvidiousWatchInfoImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String id});
-}
-
-/// @nodoc
-class __$$GetInvidiousWatchInfoImplCopyWithImpl<$Res>
-    extends _$WatchEventCopyWithImpl<$Res, _$GetInvidiousWatchInfoImpl>
-    implements _$$GetInvidiousWatchInfoImplCopyWith<$Res> {
-  __$$GetInvidiousWatchInfoImplCopyWithImpl(_$GetInvidiousWatchInfoImpl _value,
-      $Res Function(_$GetInvidiousWatchInfoImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-  }) {
-    return _then(_$GetInvidiousWatchInfoImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$GetInvidiousWatchInfoImpl implements GetInvidiousWatchInfo {
-  _$GetInvidiousWatchInfoImpl({required this.id});
-
-  @override
-  final String id;
-
-  @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'WatchEvent.getInvidiousWatchInfo(id: $id)';
   }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$GetInvidiousWatchInfoImpl &&
-            (identical(other.id, id) || other.id == id));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, id);
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$GetInvidiousWatchInfoImplCopyWith<_$GetInvidiousWatchInfoImpl>
-      get copyWith => __$$GetInvidiousWatchInfoImplCopyWithImpl<
-          _$GetInvidiousWatchInfoImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String id) getWatchInfo,
-    required TResult Function(String id) getCommentData,
-    required TResult Function(String id) forceFetchCommentData,
-    required TResult Function(String id, String nextPage) getCommentRepliesData,
-    required TResult Function(String id, String? nextPage) getMoreCommentsData,
-    required TResult Function(String id, String? nextPage)
-        getMoreReplyCommentsData,
-    required TResult Function(String id) getSubtitles,
-    required TResult Function() tapDescription,
-    required TResult Function(bool value) togglePip,
-    required TResult Function(String title) assignTitle,
-    required TResult Function(String id) getExplodeWatchInfo,
-    required TResult Function(String id) getExplodeRelatedVideoInfo,
-    required TResult Function(String id) getExplodeMuxStreamInfo,
-    required TResult Function(String id) getExplodeLiveVideoInfo,
-    required TResult Function(VideoBasicInfo details)
-        setSelectedVideoBasicDetails,
-    required TResult Function(String id) getInvidiousWatchInfo,
-    required TResult Function(String id) getInvidiousComments,
-    required TResult Function(String id) forceFetchInvidiousComments,
-    required TResult Function(String id, String continuation)
-        getInvidiousCommentReplies,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousComments,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousReplyComments,
-    required TResult Function(int? playBack) updatePlayBack,
-    required TResult Function(String id) getNewPipeWatchInfo,
-    required TResult Function(String id, List<String> sponsorBlockCategories)
-        getNewPipeWatchInfoFast,
-    required TResult Function(String id) getNewPipeComments,
-    required TResult Function(String id) forceFetchNewPipeComments,
-    required TResult Function(String id, String? nextPage)
-        getMoreNewPipeComments,
-    required TResult Function(String videoId, String repliesPage)
-        getNewPipeCommentReplies,
-    required TResult Function(String videoId, String? nextPage)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(String videoId, List<String> categories)
-        getSponsorSegments,
-  }) {
-    return getInvidiousWatchInfo(id);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String id)? getWatchInfo,
-    TResult? Function(String id)? getCommentData,
-    TResult? Function(String id)? forceFetchCommentData,
-    TResult? Function(String id, String nextPage)? getCommentRepliesData,
-    TResult? Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult? Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult? Function(String id)? getSubtitles,
-    TResult? Function()? tapDescription,
-    TResult? Function(bool value)? togglePip,
-    TResult? Function(String title)? assignTitle,
-    TResult? Function(String id)? getExplodeWatchInfo,
-    TResult? Function(String id)? getExplodeRelatedVideoInfo,
-    TResult? Function(String id)? getExplodeMuxStreamInfo,
-    TResult? Function(String id)? getExplodeLiveVideoInfo,
-    TResult? Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult? Function(String id)? getInvidiousWatchInfo,
-    TResult? Function(String id)? getInvidiousComments,
-    TResult? Function(String id)? forceFetchInvidiousComments,
-    TResult? Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousComments,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(int? playBack)? updatePlayBack,
-    TResult? Function(String id)? getNewPipeWatchInfo,
-    TResult? Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult? Function(String id)? getNewPipeComments,
-    TResult? Function(String id)? forceFetchNewPipeComments,
-    TResult? Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult? Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult? Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-  }) {
-    return getInvidiousWatchInfo?.call(id);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String id)? getWatchInfo,
-    TResult Function(String id)? getCommentData,
-    TResult Function(String id)? forceFetchCommentData,
-    TResult Function(String id, String nextPage)? getCommentRepliesData,
-    TResult Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult Function(String id)? getSubtitles,
-    TResult Function()? tapDescription,
-    TResult Function(bool value)? togglePip,
-    TResult Function(String title)? assignTitle,
-    TResult Function(String id)? getExplodeWatchInfo,
-    TResult Function(String id)? getExplodeRelatedVideoInfo,
-    TResult Function(String id)? getExplodeMuxStreamInfo,
-    TResult Function(String id)? getExplodeLiveVideoInfo,
-    TResult Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult Function(String id)? getInvidiousWatchInfo,
-    TResult Function(String id)? getInvidiousComments,
-    TResult Function(String id)? forceFetchInvidiousComments,
-    TResult Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult Function(String id, String? continuation)? getMoreInvidiousComments,
-    TResult Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult Function(int? playBack)? updatePlayBack,
-    TResult Function(String id)? getNewPipeWatchInfo,
-    TResult Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult Function(String id)? getNewPipeComments,
-    TResult Function(String id)? forceFetchNewPipeComments,
-    TResult Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getInvidiousWatchInfo != null) {
-      return getInvidiousWatchInfo(id);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GetWatchInfo value) getWatchInfo,
-    required TResult Function(GetCommentData value) getCommentData,
-    required TResult Function(ForceFetchCommentData value)
-        forceFetchCommentData,
-    required TResult Function(GetCommentRepliesData value)
-        getCommentRepliesData,
-    required TResult Function(GetMoreCommentsData value) getMoreCommentsData,
-    required TResult Function(GetMoreReplyCommentsData value)
-        getMoreReplyCommentsData,
-    required TResult Function(GetSubtitles value) getSubtitles,
-    required TResult Function(TapDescription value) tapDescription,
-    required TResult Function(TogglePip value) togglePip,
-    required TResult Function(AssignTitle value) assignTitle,
-    required TResult Function(GetExplodeWatchInfo value) getExplodeWatchInfo,
-    required TResult Function(GetExplodeRelatedVideoInfo value)
-        getExplodeRelatedVideoInfo,
-    required TResult Function(GetExplodeMuxStreamInfo value)
-        getExplodeMuxStreamInfo,
-    required TResult Function(GetExplodeLiveVideoInfo value)
-        getExplodeLiveVideoInfo,
-    required TResult Function(SetSelectedVideoBasicDetails value)
-        setSelectedVideoBasicDetails,
-    required TResult Function(GetInvidiousWatchInfo value)
-        getInvidiousWatchInfo,
-    required TResult Function(GetInvidiousComments value) getInvidiousComments,
-    required TResult Function(ForceFetchInvidiousComments value)
-        forceFetchInvidiousComments,
-    required TResult Function(GetInvidiousCommentReplies value)
-        getInvidiousCommentReplies,
-    required TResult Function(GetMoreInvidiousComments value)
-        getMoreInvidiousComments,
-    required TResult Function(GetMoreInvidiousReplyComments value)
-        getMoreInvidiousReplyComments,
-    required TResult Function(UpdatePlayBack value) updatePlayBack,
-    required TResult Function(GetNewPipeWatchInfo value) getNewPipeWatchInfo,
-    required TResult Function(GetNewPipeWatchInfoFast value)
-        getNewPipeWatchInfoFast,
-    required TResult Function(GetNewPipeComments value) getNewPipeComments,
-    required TResult Function(ForceFetchNewPipeComments value)
-        forceFetchNewPipeComments,
-    required TResult Function(GetMoreNewPipeComments value)
-        getMoreNewPipeComments,
-    required TResult Function(GetNewPipeCommentReplies value)
-        getNewPipeCommentReplies,
-    required TResult Function(GetMoreNewPipeCommentReplies value)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(GetSponsorSegments value) getSponsorSegments,
-  }) {
-    return getInvidiousWatchInfo(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GetWatchInfo value)? getWatchInfo,
-    TResult? Function(GetCommentData value)? getCommentData,
-    TResult? Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult? Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult? Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult? Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult? Function(GetSubtitles value)? getSubtitles,
-    TResult? Function(TapDescription value)? tapDescription,
-    TResult? Function(TogglePip value)? togglePip,
-    TResult? Function(AssignTitle value)? assignTitle,
-    TResult? Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult? Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult? Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult? Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult? Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult? Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult? Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult? Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult? Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult? Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult? Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(UpdatePlayBack value)? updatePlayBack,
-    TResult? Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult? Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult? Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult? Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult? Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult? Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult? Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(GetSponsorSegments value)? getSponsorSegments,
-  }) {
-    return getInvidiousWatchInfo?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetWatchInfo value)? getWatchInfo,
-    TResult Function(GetCommentData value)? getCommentData,
-    TResult Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult Function(GetSubtitles value)? getSubtitles,
-    TResult Function(TapDescription value)? tapDescription,
-    TResult Function(TogglePip value)? togglePip,
-    TResult Function(AssignTitle value)? assignTitle,
-    TResult Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult Function(UpdatePlayBack value)? updatePlayBack,
-    TResult Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(GetSponsorSegments value)? getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getInvidiousWatchInfo != null) {
-      return getInvidiousWatchInfo(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class GetInvidiousWatchInfo implements WatchEvent {
-  factory GetInvidiousWatchInfo({required final String id}) =
-      _$GetInvidiousWatchInfoImpl;
-
-  String get id;
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetInvidiousWatchInfoImplCopyWith<_$GetInvidiousWatchInfoImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$GetInvidiousCommentsImplCopyWith<$Res> {
-  factory _$$GetInvidiousCommentsImplCopyWith(_$GetInvidiousCommentsImpl value,
-          $Res Function(_$GetInvidiousCommentsImpl) then) =
-      __$$GetInvidiousCommentsImplCopyWithImpl<$Res>;
+abstract mixin class $GetInvidiousWatchInfoCopyWith<$Res>
+    implements $WatchEventCopyWith<$Res> {
+  factory $GetInvidiousWatchInfoCopyWith(GetInvidiousWatchInfo value,
+          $Res Function(GetInvidiousWatchInfo) _then) =
+      _$GetInvidiousWatchInfoCopyWithImpl;
   @useResult
   $Res call({String id});
 }
 
 /// @nodoc
-class __$$GetInvidiousCommentsImplCopyWithImpl<$Res>
-    extends _$WatchEventCopyWithImpl<$Res, _$GetInvidiousCommentsImpl>
-    implements _$$GetInvidiousCommentsImplCopyWith<$Res> {
-  __$$GetInvidiousCommentsImplCopyWithImpl(_$GetInvidiousCommentsImpl _value,
-      $Res Function(_$GetInvidiousCommentsImpl) _then)
-      : super(_value, _then);
+class _$GetInvidiousWatchInfoCopyWithImpl<$Res>
+    implements $GetInvidiousWatchInfoCopyWith<$Res> {
+  _$GetInvidiousWatchInfoCopyWithImpl(this._self, this._then);
+
+  final GetInvidiousWatchInfo _self;
+  final $Res Function(GetInvidiousWatchInfo) _then;
 
   /// Create a copy of WatchEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? id = null,
   }) {
-    return _then(_$GetInvidiousCommentsImpl(
+    return _then(GetInvidiousWatchInfo(
       id: null == id
-          ? _value.id
+          ? _self.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -6162,736 +1920,231 @@ class __$$GetInvidiousCommentsImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$GetInvidiousCommentsImpl implements GetInvidiousComments {
-  _$GetInvidiousCommentsImpl({required this.id});
+class GetInvidiousComments with DiagnosticableTreeMixin implements WatchEvent {
+  GetInvidiousComments({required this.id});
 
-  @override
   final String id;
 
+  /// Create a copy of WatchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $GetInvidiousCommentsCopyWith<GetInvidiousComments> get copyWith =>
+      _$GetInvidiousCommentsCopyWithImpl<GetInvidiousComments>(
+          this, _$identity);
+
   @override
-  String toString() {
-    return 'WatchEvent.getInvidiousComments(id: $id)';
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(DiagnosticsProperty('type', 'WatchEvent.getInvidiousComments'))
+      ..add(DiagnosticsProperty('id', id));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetInvidiousCommentsImpl &&
+            other is GetInvidiousComments &&
             (identical(other.id, id) || other.id == id));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, id);
 
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'WatchEvent.getInvidiousComments(id: $id)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $GetInvidiousCommentsCopyWith<$Res>
+    implements $WatchEventCopyWith<$Res> {
+  factory $GetInvidiousCommentsCopyWith(GetInvidiousComments value,
+          $Res Function(GetInvidiousComments) _then) =
+      _$GetInvidiousCommentsCopyWithImpl;
+  @useResult
+  $Res call({String id});
+}
+
+/// @nodoc
+class _$GetInvidiousCommentsCopyWithImpl<$Res>
+    implements $GetInvidiousCommentsCopyWith<$Res> {
+  _$GetInvidiousCommentsCopyWithImpl(this._self, this._then);
+
+  final GetInvidiousComments _self;
+  final $Res Function(GetInvidiousComments) _then;
+
+  /// Create a copy of WatchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(GetInvidiousComments(
+      id: null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ForceFetchInvidiousComments
+    with DiagnosticableTreeMixin
+    implements WatchEvent {
+  ForceFetchInvidiousComments({required this.id});
+
+  final String id;
+
   /// Create a copy of WatchEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
   @pragma('vm:prefer-inline')
-  _$$GetInvidiousCommentsImplCopyWith<_$GetInvidiousCommentsImpl>
+  $ForceFetchInvidiousCommentsCopyWith<ForceFetchInvidiousComments>
+      get copyWith => _$ForceFetchInvidiousCommentsCopyWithImpl<
+          ForceFetchInvidiousComments>(this, _$identity);
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(
+          DiagnosticsProperty('type', 'WatchEvent.forceFetchInvidiousComments'))
+      ..add(DiagnosticsProperty('id', id));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ForceFetchInvidiousComments &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'WatchEvent.forceFetchInvidiousComments(id: $id)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ForceFetchInvidiousCommentsCopyWith<$Res>
+    implements $WatchEventCopyWith<$Res> {
+  factory $ForceFetchInvidiousCommentsCopyWith(
+          ForceFetchInvidiousComments value,
+          $Res Function(ForceFetchInvidiousComments) _then) =
+      _$ForceFetchInvidiousCommentsCopyWithImpl;
+  @useResult
+  $Res call({String id});
+}
+
+/// @nodoc
+class _$ForceFetchInvidiousCommentsCopyWithImpl<$Res>
+    implements $ForceFetchInvidiousCommentsCopyWith<$Res> {
+  _$ForceFetchInvidiousCommentsCopyWithImpl(this._self, this._then);
+
+  final ForceFetchInvidiousComments _self;
+  final $Res Function(ForceFetchInvidiousComments) _then;
+
+  /// Create a copy of WatchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(ForceFetchInvidiousComments(
+      id: null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class GetInvidiousCommentReplies
+    with DiagnosticableTreeMixin
+    implements WatchEvent {
+  GetInvidiousCommentReplies({required this.id, required this.continuation});
+
+  final String id;
+  final String continuation;
+
+  /// Create a copy of WatchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $GetInvidiousCommentRepliesCopyWith<GetInvidiousCommentReplies>
       get copyWith =>
-          __$$GetInvidiousCommentsImplCopyWithImpl<_$GetInvidiousCommentsImpl>(
+          _$GetInvidiousCommentRepliesCopyWithImpl<GetInvidiousCommentReplies>(
               this, _$identity);
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String id) getWatchInfo,
-    required TResult Function(String id) getCommentData,
-    required TResult Function(String id) forceFetchCommentData,
-    required TResult Function(String id, String nextPage) getCommentRepliesData,
-    required TResult Function(String id, String? nextPage) getMoreCommentsData,
-    required TResult Function(String id, String? nextPage)
-        getMoreReplyCommentsData,
-    required TResult Function(String id) getSubtitles,
-    required TResult Function() tapDescription,
-    required TResult Function(bool value) togglePip,
-    required TResult Function(String title) assignTitle,
-    required TResult Function(String id) getExplodeWatchInfo,
-    required TResult Function(String id) getExplodeRelatedVideoInfo,
-    required TResult Function(String id) getExplodeMuxStreamInfo,
-    required TResult Function(String id) getExplodeLiveVideoInfo,
-    required TResult Function(VideoBasicInfo details)
-        setSelectedVideoBasicDetails,
-    required TResult Function(String id) getInvidiousWatchInfo,
-    required TResult Function(String id) getInvidiousComments,
-    required TResult Function(String id) forceFetchInvidiousComments,
-    required TResult Function(String id, String continuation)
-        getInvidiousCommentReplies,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousComments,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousReplyComments,
-    required TResult Function(int? playBack) updatePlayBack,
-    required TResult Function(String id) getNewPipeWatchInfo,
-    required TResult Function(String id, List<String> sponsorBlockCategories)
-        getNewPipeWatchInfoFast,
-    required TResult Function(String id) getNewPipeComments,
-    required TResult Function(String id) forceFetchNewPipeComments,
-    required TResult Function(String id, String? nextPage)
-        getMoreNewPipeComments,
-    required TResult Function(String videoId, String repliesPage)
-        getNewPipeCommentReplies,
-    required TResult Function(String videoId, String? nextPage)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(String videoId, List<String> categories)
-        getSponsorSegments,
-  }) {
-    return getInvidiousComments(id);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String id)? getWatchInfo,
-    TResult? Function(String id)? getCommentData,
-    TResult? Function(String id)? forceFetchCommentData,
-    TResult? Function(String id, String nextPage)? getCommentRepliesData,
-    TResult? Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult? Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult? Function(String id)? getSubtitles,
-    TResult? Function()? tapDescription,
-    TResult? Function(bool value)? togglePip,
-    TResult? Function(String title)? assignTitle,
-    TResult? Function(String id)? getExplodeWatchInfo,
-    TResult? Function(String id)? getExplodeRelatedVideoInfo,
-    TResult? Function(String id)? getExplodeMuxStreamInfo,
-    TResult? Function(String id)? getExplodeLiveVideoInfo,
-    TResult? Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult? Function(String id)? getInvidiousWatchInfo,
-    TResult? Function(String id)? getInvidiousComments,
-    TResult? Function(String id)? forceFetchInvidiousComments,
-    TResult? Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousComments,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(int? playBack)? updatePlayBack,
-    TResult? Function(String id)? getNewPipeWatchInfo,
-    TResult? Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult? Function(String id)? getNewPipeComments,
-    TResult? Function(String id)? forceFetchNewPipeComments,
-    TResult? Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult? Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult? Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-  }) {
-    return getInvidiousComments?.call(id);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String id)? getWatchInfo,
-    TResult Function(String id)? getCommentData,
-    TResult Function(String id)? forceFetchCommentData,
-    TResult Function(String id, String nextPage)? getCommentRepliesData,
-    TResult Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult Function(String id)? getSubtitles,
-    TResult Function()? tapDescription,
-    TResult Function(bool value)? togglePip,
-    TResult Function(String title)? assignTitle,
-    TResult Function(String id)? getExplodeWatchInfo,
-    TResult Function(String id)? getExplodeRelatedVideoInfo,
-    TResult Function(String id)? getExplodeMuxStreamInfo,
-    TResult Function(String id)? getExplodeLiveVideoInfo,
-    TResult Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult Function(String id)? getInvidiousWatchInfo,
-    TResult Function(String id)? getInvidiousComments,
-    TResult Function(String id)? forceFetchInvidiousComments,
-    TResult Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult Function(String id, String? continuation)? getMoreInvidiousComments,
-    TResult Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult Function(int? playBack)? updatePlayBack,
-    TResult Function(String id)? getNewPipeWatchInfo,
-    TResult Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult Function(String id)? getNewPipeComments,
-    TResult Function(String id)? forceFetchNewPipeComments,
-    TResult Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getInvidiousComments != null) {
-      return getInvidiousComments(id);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GetWatchInfo value) getWatchInfo,
-    required TResult Function(GetCommentData value) getCommentData,
-    required TResult Function(ForceFetchCommentData value)
-        forceFetchCommentData,
-    required TResult Function(GetCommentRepliesData value)
-        getCommentRepliesData,
-    required TResult Function(GetMoreCommentsData value) getMoreCommentsData,
-    required TResult Function(GetMoreReplyCommentsData value)
-        getMoreReplyCommentsData,
-    required TResult Function(GetSubtitles value) getSubtitles,
-    required TResult Function(TapDescription value) tapDescription,
-    required TResult Function(TogglePip value) togglePip,
-    required TResult Function(AssignTitle value) assignTitle,
-    required TResult Function(GetExplodeWatchInfo value) getExplodeWatchInfo,
-    required TResult Function(GetExplodeRelatedVideoInfo value)
-        getExplodeRelatedVideoInfo,
-    required TResult Function(GetExplodeMuxStreamInfo value)
-        getExplodeMuxStreamInfo,
-    required TResult Function(GetExplodeLiveVideoInfo value)
-        getExplodeLiveVideoInfo,
-    required TResult Function(SetSelectedVideoBasicDetails value)
-        setSelectedVideoBasicDetails,
-    required TResult Function(GetInvidiousWatchInfo value)
-        getInvidiousWatchInfo,
-    required TResult Function(GetInvidiousComments value) getInvidiousComments,
-    required TResult Function(ForceFetchInvidiousComments value)
-        forceFetchInvidiousComments,
-    required TResult Function(GetInvidiousCommentReplies value)
-        getInvidiousCommentReplies,
-    required TResult Function(GetMoreInvidiousComments value)
-        getMoreInvidiousComments,
-    required TResult Function(GetMoreInvidiousReplyComments value)
-        getMoreInvidiousReplyComments,
-    required TResult Function(UpdatePlayBack value) updatePlayBack,
-    required TResult Function(GetNewPipeWatchInfo value) getNewPipeWatchInfo,
-    required TResult Function(GetNewPipeWatchInfoFast value)
-        getNewPipeWatchInfoFast,
-    required TResult Function(GetNewPipeComments value) getNewPipeComments,
-    required TResult Function(ForceFetchNewPipeComments value)
-        forceFetchNewPipeComments,
-    required TResult Function(GetMoreNewPipeComments value)
-        getMoreNewPipeComments,
-    required TResult Function(GetNewPipeCommentReplies value)
-        getNewPipeCommentReplies,
-    required TResult Function(GetMoreNewPipeCommentReplies value)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(GetSponsorSegments value) getSponsorSegments,
-  }) {
-    return getInvidiousComments(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GetWatchInfo value)? getWatchInfo,
-    TResult? Function(GetCommentData value)? getCommentData,
-    TResult? Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult? Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult? Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult? Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult? Function(GetSubtitles value)? getSubtitles,
-    TResult? Function(TapDescription value)? tapDescription,
-    TResult? Function(TogglePip value)? togglePip,
-    TResult? Function(AssignTitle value)? assignTitle,
-    TResult? Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult? Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult? Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult? Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult? Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult? Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult? Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult? Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult? Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult? Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult? Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(UpdatePlayBack value)? updatePlayBack,
-    TResult? Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult? Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult? Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult? Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult? Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult? Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult? Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(GetSponsorSegments value)? getSponsorSegments,
-  }) {
-    return getInvidiousComments?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetWatchInfo value)? getWatchInfo,
-    TResult Function(GetCommentData value)? getCommentData,
-    TResult Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult Function(GetSubtitles value)? getSubtitles,
-    TResult Function(TapDescription value)? tapDescription,
-    TResult Function(TogglePip value)? togglePip,
-    TResult Function(AssignTitle value)? assignTitle,
-    TResult Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult Function(UpdatePlayBack value)? updatePlayBack,
-    TResult Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(GetSponsorSegments value)? getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getInvidiousComments != null) {
-      return getInvidiousComments(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class GetInvidiousComments implements WatchEvent {
-  factory GetInvidiousComments({required final String id}) =
-      _$GetInvidiousCommentsImpl;
-
-  String get id;
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetInvidiousCommentsImplCopyWith<_$GetInvidiousCommentsImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$ForceFetchInvidiousCommentsImplCopyWith<$Res> {
-  factory _$$ForceFetchInvidiousCommentsImplCopyWith(
-          _$ForceFetchInvidiousCommentsImpl value,
-          $Res Function(_$ForceFetchInvidiousCommentsImpl) then) =
-      __$$ForceFetchInvidiousCommentsImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String id});
-}
-
-/// @nodoc
-class __$$ForceFetchInvidiousCommentsImplCopyWithImpl<$Res>
-    extends _$WatchEventCopyWithImpl<$Res, _$ForceFetchInvidiousCommentsImpl>
-    implements _$$ForceFetchInvidiousCommentsImplCopyWith<$Res> {
-  __$$ForceFetchInvidiousCommentsImplCopyWithImpl(
-      _$ForceFetchInvidiousCommentsImpl _value,
-      $Res Function(_$ForceFetchInvidiousCommentsImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-  }) {
-    return _then(_$ForceFetchInvidiousCommentsImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$ForceFetchInvidiousCommentsImpl implements ForceFetchInvidiousComments {
-  _$ForceFetchInvidiousCommentsImpl({required this.id});
-
-  @override
-  final String id;
-
-  @override
-  String toString() {
-    return 'WatchEvent.forceFetchInvidiousComments(id: $id)';
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(
+          DiagnosticsProperty('type', 'WatchEvent.getInvidiousCommentReplies'))
+      ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('continuation', continuation));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ForceFetchInvidiousCommentsImpl &&
-            (identical(other.id, id) || other.id == id));
+            other is GetInvidiousCommentReplies &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.continuation, continuation) ||
+                other.continuation == continuation));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id);
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ForceFetchInvidiousCommentsImplCopyWith<_$ForceFetchInvidiousCommentsImpl>
-      get copyWith => __$$ForceFetchInvidiousCommentsImplCopyWithImpl<
-          _$ForceFetchInvidiousCommentsImpl>(this, _$identity);
+  int get hashCode => Object.hash(runtimeType, id, continuation);
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String id) getWatchInfo,
-    required TResult Function(String id) getCommentData,
-    required TResult Function(String id) forceFetchCommentData,
-    required TResult Function(String id, String nextPage) getCommentRepliesData,
-    required TResult Function(String id, String? nextPage) getMoreCommentsData,
-    required TResult Function(String id, String? nextPage)
-        getMoreReplyCommentsData,
-    required TResult Function(String id) getSubtitles,
-    required TResult Function() tapDescription,
-    required TResult Function(bool value) togglePip,
-    required TResult Function(String title) assignTitle,
-    required TResult Function(String id) getExplodeWatchInfo,
-    required TResult Function(String id) getExplodeRelatedVideoInfo,
-    required TResult Function(String id) getExplodeMuxStreamInfo,
-    required TResult Function(String id) getExplodeLiveVideoInfo,
-    required TResult Function(VideoBasicInfo details)
-        setSelectedVideoBasicDetails,
-    required TResult Function(String id) getInvidiousWatchInfo,
-    required TResult Function(String id) getInvidiousComments,
-    required TResult Function(String id) forceFetchInvidiousComments,
-    required TResult Function(String id, String continuation)
-        getInvidiousCommentReplies,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousComments,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousReplyComments,
-    required TResult Function(int? playBack) updatePlayBack,
-    required TResult Function(String id) getNewPipeWatchInfo,
-    required TResult Function(String id, List<String> sponsorBlockCategories)
-        getNewPipeWatchInfoFast,
-    required TResult Function(String id) getNewPipeComments,
-    required TResult Function(String id) forceFetchNewPipeComments,
-    required TResult Function(String id, String? nextPage)
-        getMoreNewPipeComments,
-    required TResult Function(String videoId, String repliesPage)
-        getNewPipeCommentReplies,
-    required TResult Function(String videoId, String? nextPage)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(String videoId, List<String> categories)
-        getSponsorSegments,
-  }) {
-    return forceFetchInvidiousComments(id);
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'WatchEvent.getInvidiousCommentReplies(id: $id, continuation: $continuation)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String id)? getWatchInfo,
-    TResult? Function(String id)? getCommentData,
-    TResult? Function(String id)? forceFetchCommentData,
-    TResult? Function(String id, String nextPage)? getCommentRepliesData,
-    TResult? Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult? Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult? Function(String id)? getSubtitles,
-    TResult? Function()? tapDescription,
-    TResult? Function(bool value)? togglePip,
-    TResult? Function(String title)? assignTitle,
-    TResult? Function(String id)? getExplodeWatchInfo,
-    TResult? Function(String id)? getExplodeRelatedVideoInfo,
-    TResult? Function(String id)? getExplodeMuxStreamInfo,
-    TResult? Function(String id)? getExplodeLiveVideoInfo,
-    TResult? Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult? Function(String id)? getInvidiousWatchInfo,
-    TResult? Function(String id)? getInvidiousComments,
-    TResult? Function(String id)? forceFetchInvidiousComments,
-    TResult? Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousComments,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(int? playBack)? updatePlayBack,
-    TResult? Function(String id)? getNewPipeWatchInfo,
-    TResult? Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult? Function(String id)? getNewPipeComments,
-    TResult? Function(String id)? forceFetchNewPipeComments,
-    TResult? Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult? Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult? Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-  }) {
-    return forceFetchInvidiousComments?.call(id);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String id)? getWatchInfo,
-    TResult Function(String id)? getCommentData,
-    TResult Function(String id)? forceFetchCommentData,
-    TResult Function(String id, String nextPage)? getCommentRepliesData,
-    TResult Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult Function(String id)? getSubtitles,
-    TResult Function()? tapDescription,
-    TResult Function(bool value)? togglePip,
-    TResult Function(String title)? assignTitle,
-    TResult Function(String id)? getExplodeWatchInfo,
-    TResult Function(String id)? getExplodeRelatedVideoInfo,
-    TResult Function(String id)? getExplodeMuxStreamInfo,
-    TResult Function(String id)? getExplodeLiveVideoInfo,
-    TResult Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult Function(String id)? getInvidiousWatchInfo,
-    TResult Function(String id)? getInvidiousComments,
-    TResult Function(String id)? forceFetchInvidiousComments,
-    TResult Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult Function(String id, String? continuation)? getMoreInvidiousComments,
-    TResult Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult Function(int? playBack)? updatePlayBack,
-    TResult Function(String id)? getNewPipeWatchInfo,
-    TResult Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult Function(String id)? getNewPipeComments,
-    TResult Function(String id)? forceFetchNewPipeComments,
-    TResult Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (forceFetchInvidiousComments != null) {
-      return forceFetchInvidiousComments(id);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GetWatchInfo value) getWatchInfo,
-    required TResult Function(GetCommentData value) getCommentData,
-    required TResult Function(ForceFetchCommentData value)
-        forceFetchCommentData,
-    required TResult Function(GetCommentRepliesData value)
-        getCommentRepliesData,
-    required TResult Function(GetMoreCommentsData value) getMoreCommentsData,
-    required TResult Function(GetMoreReplyCommentsData value)
-        getMoreReplyCommentsData,
-    required TResult Function(GetSubtitles value) getSubtitles,
-    required TResult Function(TapDescription value) tapDescription,
-    required TResult Function(TogglePip value) togglePip,
-    required TResult Function(AssignTitle value) assignTitle,
-    required TResult Function(GetExplodeWatchInfo value) getExplodeWatchInfo,
-    required TResult Function(GetExplodeRelatedVideoInfo value)
-        getExplodeRelatedVideoInfo,
-    required TResult Function(GetExplodeMuxStreamInfo value)
-        getExplodeMuxStreamInfo,
-    required TResult Function(GetExplodeLiveVideoInfo value)
-        getExplodeLiveVideoInfo,
-    required TResult Function(SetSelectedVideoBasicDetails value)
-        setSelectedVideoBasicDetails,
-    required TResult Function(GetInvidiousWatchInfo value)
-        getInvidiousWatchInfo,
-    required TResult Function(GetInvidiousComments value) getInvidiousComments,
-    required TResult Function(ForceFetchInvidiousComments value)
-        forceFetchInvidiousComments,
-    required TResult Function(GetInvidiousCommentReplies value)
-        getInvidiousCommentReplies,
-    required TResult Function(GetMoreInvidiousComments value)
-        getMoreInvidiousComments,
-    required TResult Function(GetMoreInvidiousReplyComments value)
-        getMoreInvidiousReplyComments,
-    required TResult Function(UpdatePlayBack value) updatePlayBack,
-    required TResult Function(GetNewPipeWatchInfo value) getNewPipeWatchInfo,
-    required TResult Function(GetNewPipeWatchInfoFast value)
-        getNewPipeWatchInfoFast,
-    required TResult Function(GetNewPipeComments value) getNewPipeComments,
-    required TResult Function(ForceFetchNewPipeComments value)
-        forceFetchNewPipeComments,
-    required TResult Function(GetMoreNewPipeComments value)
-        getMoreNewPipeComments,
-    required TResult Function(GetNewPipeCommentReplies value)
-        getNewPipeCommentReplies,
-    required TResult Function(GetMoreNewPipeCommentReplies value)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(GetSponsorSegments value) getSponsorSegments,
-  }) {
-    return forceFetchInvidiousComments(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GetWatchInfo value)? getWatchInfo,
-    TResult? Function(GetCommentData value)? getCommentData,
-    TResult? Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult? Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult? Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult? Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult? Function(GetSubtitles value)? getSubtitles,
-    TResult? Function(TapDescription value)? tapDescription,
-    TResult? Function(TogglePip value)? togglePip,
-    TResult? Function(AssignTitle value)? assignTitle,
-    TResult? Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult? Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult? Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult? Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult? Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult? Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult? Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult? Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult? Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult? Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult? Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(UpdatePlayBack value)? updatePlayBack,
-    TResult? Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult? Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult? Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult? Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult? Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult? Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult? Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(GetSponsorSegments value)? getSponsorSegments,
-  }) {
-    return forceFetchInvidiousComments?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetWatchInfo value)? getWatchInfo,
-    TResult Function(GetCommentData value)? getCommentData,
-    TResult Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult Function(GetSubtitles value)? getSubtitles,
-    TResult Function(TapDescription value)? tapDescription,
-    TResult Function(TogglePip value)? togglePip,
-    TResult Function(AssignTitle value)? assignTitle,
-    TResult Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult Function(UpdatePlayBack value)? updatePlayBack,
-    TResult Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(GetSponsorSegments value)? getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (forceFetchInvidiousComments != null) {
-      return forceFetchInvidiousComments(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ForceFetchInvidiousComments implements WatchEvent {
-  factory ForceFetchInvidiousComments({required final String id}) =
-      _$ForceFetchInvidiousCommentsImpl;
-
-  String get id;
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ForceFetchInvidiousCommentsImplCopyWith<_$ForceFetchInvidiousCommentsImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$GetInvidiousCommentRepliesImplCopyWith<$Res> {
-  factory _$$GetInvidiousCommentRepliesImplCopyWith(
-          _$GetInvidiousCommentRepliesImpl value,
-          $Res Function(_$GetInvidiousCommentRepliesImpl) then) =
-      __$$GetInvidiousCommentRepliesImplCopyWithImpl<$Res>;
+abstract mixin class $GetInvidiousCommentRepliesCopyWith<$Res>
+    implements $WatchEventCopyWith<$Res> {
+  factory $GetInvidiousCommentRepliesCopyWith(GetInvidiousCommentReplies value,
+          $Res Function(GetInvidiousCommentReplies) _then) =
+      _$GetInvidiousCommentRepliesCopyWithImpl;
   @useResult
   $Res call({String id, String continuation});
 }
 
 /// @nodoc
-class __$$GetInvidiousCommentRepliesImplCopyWithImpl<$Res>
-    extends _$WatchEventCopyWithImpl<$Res, _$GetInvidiousCommentRepliesImpl>
-    implements _$$GetInvidiousCommentRepliesImplCopyWith<$Res> {
-  __$$GetInvidiousCommentRepliesImplCopyWithImpl(
-      _$GetInvidiousCommentRepliesImpl _value,
-      $Res Function(_$GetInvidiousCommentRepliesImpl) _then)
-      : super(_value, _then);
+class _$GetInvidiousCommentRepliesCopyWithImpl<$Res>
+    implements $GetInvidiousCommentRepliesCopyWith<$Res> {
+  _$GetInvidiousCommentRepliesCopyWithImpl(this._self, this._then);
+
+  final GetInvidiousCommentReplies _self;
+  final $Res Function(GetInvidiousCommentReplies) _then;
 
   /// Create a copy of WatchEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? id = null,
     Object? continuation = null,
   }) {
-    return _then(_$GetInvidiousCommentRepliesImpl(
+    return _then(GetInvidiousCommentReplies(
       id: null == id
-          ? _value.id
+          ? _self.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
       continuation: null == continuation
-          ? _value.continuation
+          ? _self.continuation
           : continuation // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -6900,25 +2153,35 @@ class __$$GetInvidiousCommentRepliesImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$GetInvidiousCommentRepliesImpl implements GetInvidiousCommentReplies {
-  _$GetInvidiousCommentRepliesImpl(
-      {required this.id, required this.continuation});
+class GetMoreInvidiousComments
+    with DiagnosticableTreeMixin
+    implements WatchEvent {
+  GetMoreInvidiousComments({required this.id, required this.continuation});
 
-  @override
   final String id;
-  @override
-  final String continuation;
+  final String? continuation;
+
+  /// Create a copy of WatchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $GetMoreInvidiousCommentsCopyWith<GetMoreInvidiousComments> get copyWith =>
+      _$GetMoreInvidiousCommentsCopyWithImpl<GetMoreInvidiousComments>(
+          this, _$identity);
 
   @override
-  String toString() {
-    return 'WatchEvent.getInvidiousCommentReplies(id: $id, continuation: $continuation)';
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(DiagnosticsProperty('type', 'WatchEvent.getMoreInvidiousComments'))
+      ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('continuation', continuation));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetInvidiousCommentRepliesImpl &&
+            other is GetMoreInvidiousComments &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.continuation, continuation) ||
                 other.continuation == continuation));
@@ -6927,727 +2190,44 @@ class _$GetInvidiousCommentRepliesImpl implements GetInvidiousCommentReplies {
   @override
   int get hashCode => Object.hash(runtimeType, id, continuation);
 
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$GetInvidiousCommentRepliesImplCopyWith<_$GetInvidiousCommentRepliesImpl>
-      get copyWith => __$$GetInvidiousCommentRepliesImplCopyWithImpl<
-          _$GetInvidiousCommentRepliesImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String id) getWatchInfo,
-    required TResult Function(String id) getCommentData,
-    required TResult Function(String id) forceFetchCommentData,
-    required TResult Function(String id, String nextPage) getCommentRepliesData,
-    required TResult Function(String id, String? nextPage) getMoreCommentsData,
-    required TResult Function(String id, String? nextPage)
-        getMoreReplyCommentsData,
-    required TResult Function(String id) getSubtitles,
-    required TResult Function() tapDescription,
-    required TResult Function(bool value) togglePip,
-    required TResult Function(String title) assignTitle,
-    required TResult Function(String id) getExplodeWatchInfo,
-    required TResult Function(String id) getExplodeRelatedVideoInfo,
-    required TResult Function(String id) getExplodeMuxStreamInfo,
-    required TResult Function(String id) getExplodeLiveVideoInfo,
-    required TResult Function(VideoBasicInfo details)
-        setSelectedVideoBasicDetails,
-    required TResult Function(String id) getInvidiousWatchInfo,
-    required TResult Function(String id) getInvidiousComments,
-    required TResult Function(String id) forceFetchInvidiousComments,
-    required TResult Function(String id, String continuation)
-        getInvidiousCommentReplies,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousComments,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousReplyComments,
-    required TResult Function(int? playBack) updatePlayBack,
-    required TResult Function(String id) getNewPipeWatchInfo,
-    required TResult Function(String id, List<String> sponsorBlockCategories)
-        getNewPipeWatchInfoFast,
-    required TResult Function(String id) getNewPipeComments,
-    required TResult Function(String id) forceFetchNewPipeComments,
-    required TResult Function(String id, String? nextPage)
-        getMoreNewPipeComments,
-    required TResult Function(String videoId, String repliesPage)
-        getNewPipeCommentReplies,
-    required TResult Function(String videoId, String? nextPage)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(String videoId, List<String> categories)
-        getSponsorSegments,
-  }) {
-    return getInvidiousCommentReplies(id, continuation);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String id)? getWatchInfo,
-    TResult? Function(String id)? getCommentData,
-    TResult? Function(String id)? forceFetchCommentData,
-    TResult? Function(String id, String nextPage)? getCommentRepliesData,
-    TResult? Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult? Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult? Function(String id)? getSubtitles,
-    TResult? Function()? tapDescription,
-    TResult? Function(bool value)? togglePip,
-    TResult? Function(String title)? assignTitle,
-    TResult? Function(String id)? getExplodeWatchInfo,
-    TResult? Function(String id)? getExplodeRelatedVideoInfo,
-    TResult? Function(String id)? getExplodeMuxStreamInfo,
-    TResult? Function(String id)? getExplodeLiveVideoInfo,
-    TResult? Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult? Function(String id)? getInvidiousWatchInfo,
-    TResult? Function(String id)? getInvidiousComments,
-    TResult? Function(String id)? forceFetchInvidiousComments,
-    TResult? Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousComments,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(int? playBack)? updatePlayBack,
-    TResult? Function(String id)? getNewPipeWatchInfo,
-    TResult? Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult? Function(String id)? getNewPipeComments,
-    TResult? Function(String id)? forceFetchNewPipeComments,
-    TResult? Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult? Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult? Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-  }) {
-    return getInvidiousCommentReplies?.call(id, continuation);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String id)? getWatchInfo,
-    TResult Function(String id)? getCommentData,
-    TResult Function(String id)? forceFetchCommentData,
-    TResult Function(String id, String nextPage)? getCommentRepliesData,
-    TResult Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult Function(String id)? getSubtitles,
-    TResult Function()? tapDescription,
-    TResult Function(bool value)? togglePip,
-    TResult Function(String title)? assignTitle,
-    TResult Function(String id)? getExplodeWatchInfo,
-    TResult Function(String id)? getExplodeRelatedVideoInfo,
-    TResult Function(String id)? getExplodeMuxStreamInfo,
-    TResult Function(String id)? getExplodeLiveVideoInfo,
-    TResult Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult Function(String id)? getInvidiousWatchInfo,
-    TResult Function(String id)? getInvidiousComments,
-    TResult Function(String id)? forceFetchInvidiousComments,
-    TResult Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult Function(String id, String? continuation)? getMoreInvidiousComments,
-    TResult Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult Function(int? playBack)? updatePlayBack,
-    TResult Function(String id)? getNewPipeWatchInfo,
-    TResult Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult Function(String id)? getNewPipeComments,
-    TResult Function(String id)? forceFetchNewPipeComments,
-    TResult Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getInvidiousCommentReplies != null) {
-      return getInvidiousCommentReplies(id, continuation);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GetWatchInfo value) getWatchInfo,
-    required TResult Function(GetCommentData value) getCommentData,
-    required TResult Function(ForceFetchCommentData value)
-        forceFetchCommentData,
-    required TResult Function(GetCommentRepliesData value)
-        getCommentRepliesData,
-    required TResult Function(GetMoreCommentsData value) getMoreCommentsData,
-    required TResult Function(GetMoreReplyCommentsData value)
-        getMoreReplyCommentsData,
-    required TResult Function(GetSubtitles value) getSubtitles,
-    required TResult Function(TapDescription value) tapDescription,
-    required TResult Function(TogglePip value) togglePip,
-    required TResult Function(AssignTitle value) assignTitle,
-    required TResult Function(GetExplodeWatchInfo value) getExplodeWatchInfo,
-    required TResult Function(GetExplodeRelatedVideoInfo value)
-        getExplodeRelatedVideoInfo,
-    required TResult Function(GetExplodeMuxStreamInfo value)
-        getExplodeMuxStreamInfo,
-    required TResult Function(GetExplodeLiveVideoInfo value)
-        getExplodeLiveVideoInfo,
-    required TResult Function(SetSelectedVideoBasicDetails value)
-        setSelectedVideoBasicDetails,
-    required TResult Function(GetInvidiousWatchInfo value)
-        getInvidiousWatchInfo,
-    required TResult Function(GetInvidiousComments value) getInvidiousComments,
-    required TResult Function(ForceFetchInvidiousComments value)
-        forceFetchInvidiousComments,
-    required TResult Function(GetInvidiousCommentReplies value)
-        getInvidiousCommentReplies,
-    required TResult Function(GetMoreInvidiousComments value)
-        getMoreInvidiousComments,
-    required TResult Function(GetMoreInvidiousReplyComments value)
-        getMoreInvidiousReplyComments,
-    required TResult Function(UpdatePlayBack value) updatePlayBack,
-    required TResult Function(GetNewPipeWatchInfo value) getNewPipeWatchInfo,
-    required TResult Function(GetNewPipeWatchInfoFast value)
-        getNewPipeWatchInfoFast,
-    required TResult Function(GetNewPipeComments value) getNewPipeComments,
-    required TResult Function(ForceFetchNewPipeComments value)
-        forceFetchNewPipeComments,
-    required TResult Function(GetMoreNewPipeComments value)
-        getMoreNewPipeComments,
-    required TResult Function(GetNewPipeCommentReplies value)
-        getNewPipeCommentReplies,
-    required TResult Function(GetMoreNewPipeCommentReplies value)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(GetSponsorSegments value) getSponsorSegments,
-  }) {
-    return getInvidiousCommentReplies(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GetWatchInfo value)? getWatchInfo,
-    TResult? Function(GetCommentData value)? getCommentData,
-    TResult? Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult? Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult? Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult? Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult? Function(GetSubtitles value)? getSubtitles,
-    TResult? Function(TapDescription value)? tapDescription,
-    TResult? Function(TogglePip value)? togglePip,
-    TResult? Function(AssignTitle value)? assignTitle,
-    TResult? Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult? Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult? Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult? Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult? Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult? Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult? Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult? Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult? Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult? Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult? Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(UpdatePlayBack value)? updatePlayBack,
-    TResult? Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult? Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult? Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult? Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult? Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult? Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult? Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(GetSponsorSegments value)? getSponsorSegments,
-  }) {
-    return getInvidiousCommentReplies?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetWatchInfo value)? getWatchInfo,
-    TResult Function(GetCommentData value)? getCommentData,
-    TResult Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult Function(GetSubtitles value)? getSubtitles,
-    TResult Function(TapDescription value)? tapDescription,
-    TResult Function(TogglePip value)? togglePip,
-    TResult Function(AssignTitle value)? assignTitle,
-    TResult Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult Function(UpdatePlayBack value)? updatePlayBack,
-    TResult Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(GetSponsorSegments value)? getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getInvidiousCommentReplies != null) {
-      return getInvidiousCommentReplies(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class GetInvidiousCommentReplies implements WatchEvent {
-  factory GetInvidiousCommentReplies(
-      {required final String id,
-      required final String continuation}) = _$GetInvidiousCommentRepliesImpl;
-
-  String get id;
-  String get continuation;
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetInvidiousCommentRepliesImplCopyWith<_$GetInvidiousCommentRepliesImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$GetMoreInvidiousCommentsImplCopyWith<$Res> {
-  factory _$$GetMoreInvidiousCommentsImplCopyWith(
-          _$GetMoreInvidiousCommentsImpl value,
-          $Res Function(_$GetMoreInvidiousCommentsImpl) then) =
-      __$$GetMoreInvidiousCommentsImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String id, String? continuation});
-}
-
-/// @nodoc
-class __$$GetMoreInvidiousCommentsImplCopyWithImpl<$Res>
-    extends _$WatchEventCopyWithImpl<$Res, _$GetMoreInvidiousCommentsImpl>
-    implements _$$GetMoreInvidiousCommentsImplCopyWith<$Res> {
-  __$$GetMoreInvidiousCommentsImplCopyWithImpl(
-      _$GetMoreInvidiousCommentsImpl _value,
-      $Res Function(_$GetMoreInvidiousCommentsImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? continuation = freezed,
-  }) {
-    return _then(_$GetMoreInvidiousCommentsImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      continuation: freezed == continuation
-          ? _value.continuation
-          : continuation // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$GetMoreInvidiousCommentsImpl implements GetMoreInvidiousComments {
-  _$GetMoreInvidiousCommentsImpl(
-      {required this.id, required this.continuation});
-
-  @override
-  final String id;
-  @override
-  final String? continuation;
-
-  @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'WatchEvent.getMoreInvidiousComments(id: $id, continuation: $continuation)';
   }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$GetMoreInvidiousCommentsImpl &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.continuation, continuation) ||
-                other.continuation == continuation));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, id, continuation);
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$GetMoreInvidiousCommentsImplCopyWith<_$GetMoreInvidiousCommentsImpl>
-      get copyWith => __$$GetMoreInvidiousCommentsImplCopyWithImpl<
-          _$GetMoreInvidiousCommentsImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String id) getWatchInfo,
-    required TResult Function(String id) getCommentData,
-    required TResult Function(String id) forceFetchCommentData,
-    required TResult Function(String id, String nextPage) getCommentRepliesData,
-    required TResult Function(String id, String? nextPage) getMoreCommentsData,
-    required TResult Function(String id, String? nextPage)
-        getMoreReplyCommentsData,
-    required TResult Function(String id) getSubtitles,
-    required TResult Function() tapDescription,
-    required TResult Function(bool value) togglePip,
-    required TResult Function(String title) assignTitle,
-    required TResult Function(String id) getExplodeWatchInfo,
-    required TResult Function(String id) getExplodeRelatedVideoInfo,
-    required TResult Function(String id) getExplodeMuxStreamInfo,
-    required TResult Function(String id) getExplodeLiveVideoInfo,
-    required TResult Function(VideoBasicInfo details)
-        setSelectedVideoBasicDetails,
-    required TResult Function(String id) getInvidiousWatchInfo,
-    required TResult Function(String id) getInvidiousComments,
-    required TResult Function(String id) forceFetchInvidiousComments,
-    required TResult Function(String id, String continuation)
-        getInvidiousCommentReplies,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousComments,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousReplyComments,
-    required TResult Function(int? playBack) updatePlayBack,
-    required TResult Function(String id) getNewPipeWatchInfo,
-    required TResult Function(String id, List<String> sponsorBlockCategories)
-        getNewPipeWatchInfoFast,
-    required TResult Function(String id) getNewPipeComments,
-    required TResult Function(String id) forceFetchNewPipeComments,
-    required TResult Function(String id, String? nextPage)
-        getMoreNewPipeComments,
-    required TResult Function(String videoId, String repliesPage)
-        getNewPipeCommentReplies,
-    required TResult Function(String videoId, String? nextPage)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(String videoId, List<String> categories)
-        getSponsorSegments,
-  }) {
-    return getMoreInvidiousComments(id, continuation);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String id)? getWatchInfo,
-    TResult? Function(String id)? getCommentData,
-    TResult? Function(String id)? forceFetchCommentData,
-    TResult? Function(String id, String nextPage)? getCommentRepliesData,
-    TResult? Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult? Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult? Function(String id)? getSubtitles,
-    TResult? Function()? tapDescription,
-    TResult? Function(bool value)? togglePip,
-    TResult? Function(String title)? assignTitle,
-    TResult? Function(String id)? getExplodeWatchInfo,
-    TResult? Function(String id)? getExplodeRelatedVideoInfo,
-    TResult? Function(String id)? getExplodeMuxStreamInfo,
-    TResult? Function(String id)? getExplodeLiveVideoInfo,
-    TResult? Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult? Function(String id)? getInvidiousWatchInfo,
-    TResult? Function(String id)? getInvidiousComments,
-    TResult? Function(String id)? forceFetchInvidiousComments,
-    TResult? Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousComments,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(int? playBack)? updatePlayBack,
-    TResult? Function(String id)? getNewPipeWatchInfo,
-    TResult? Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult? Function(String id)? getNewPipeComments,
-    TResult? Function(String id)? forceFetchNewPipeComments,
-    TResult? Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult? Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult? Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-  }) {
-    return getMoreInvidiousComments?.call(id, continuation);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String id)? getWatchInfo,
-    TResult Function(String id)? getCommentData,
-    TResult Function(String id)? forceFetchCommentData,
-    TResult Function(String id, String nextPage)? getCommentRepliesData,
-    TResult Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult Function(String id)? getSubtitles,
-    TResult Function()? tapDescription,
-    TResult Function(bool value)? togglePip,
-    TResult Function(String title)? assignTitle,
-    TResult Function(String id)? getExplodeWatchInfo,
-    TResult Function(String id)? getExplodeRelatedVideoInfo,
-    TResult Function(String id)? getExplodeMuxStreamInfo,
-    TResult Function(String id)? getExplodeLiveVideoInfo,
-    TResult Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult Function(String id)? getInvidiousWatchInfo,
-    TResult Function(String id)? getInvidiousComments,
-    TResult Function(String id)? forceFetchInvidiousComments,
-    TResult Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult Function(String id, String? continuation)? getMoreInvidiousComments,
-    TResult Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult Function(int? playBack)? updatePlayBack,
-    TResult Function(String id)? getNewPipeWatchInfo,
-    TResult Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult Function(String id)? getNewPipeComments,
-    TResult Function(String id)? forceFetchNewPipeComments,
-    TResult Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getMoreInvidiousComments != null) {
-      return getMoreInvidiousComments(id, continuation);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GetWatchInfo value) getWatchInfo,
-    required TResult Function(GetCommentData value) getCommentData,
-    required TResult Function(ForceFetchCommentData value)
-        forceFetchCommentData,
-    required TResult Function(GetCommentRepliesData value)
-        getCommentRepliesData,
-    required TResult Function(GetMoreCommentsData value) getMoreCommentsData,
-    required TResult Function(GetMoreReplyCommentsData value)
-        getMoreReplyCommentsData,
-    required TResult Function(GetSubtitles value) getSubtitles,
-    required TResult Function(TapDescription value) tapDescription,
-    required TResult Function(TogglePip value) togglePip,
-    required TResult Function(AssignTitle value) assignTitle,
-    required TResult Function(GetExplodeWatchInfo value) getExplodeWatchInfo,
-    required TResult Function(GetExplodeRelatedVideoInfo value)
-        getExplodeRelatedVideoInfo,
-    required TResult Function(GetExplodeMuxStreamInfo value)
-        getExplodeMuxStreamInfo,
-    required TResult Function(GetExplodeLiveVideoInfo value)
-        getExplodeLiveVideoInfo,
-    required TResult Function(SetSelectedVideoBasicDetails value)
-        setSelectedVideoBasicDetails,
-    required TResult Function(GetInvidiousWatchInfo value)
-        getInvidiousWatchInfo,
-    required TResult Function(GetInvidiousComments value) getInvidiousComments,
-    required TResult Function(ForceFetchInvidiousComments value)
-        forceFetchInvidiousComments,
-    required TResult Function(GetInvidiousCommentReplies value)
-        getInvidiousCommentReplies,
-    required TResult Function(GetMoreInvidiousComments value)
-        getMoreInvidiousComments,
-    required TResult Function(GetMoreInvidiousReplyComments value)
-        getMoreInvidiousReplyComments,
-    required TResult Function(UpdatePlayBack value) updatePlayBack,
-    required TResult Function(GetNewPipeWatchInfo value) getNewPipeWatchInfo,
-    required TResult Function(GetNewPipeWatchInfoFast value)
-        getNewPipeWatchInfoFast,
-    required TResult Function(GetNewPipeComments value) getNewPipeComments,
-    required TResult Function(ForceFetchNewPipeComments value)
-        forceFetchNewPipeComments,
-    required TResult Function(GetMoreNewPipeComments value)
-        getMoreNewPipeComments,
-    required TResult Function(GetNewPipeCommentReplies value)
-        getNewPipeCommentReplies,
-    required TResult Function(GetMoreNewPipeCommentReplies value)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(GetSponsorSegments value) getSponsorSegments,
-  }) {
-    return getMoreInvidiousComments(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GetWatchInfo value)? getWatchInfo,
-    TResult? Function(GetCommentData value)? getCommentData,
-    TResult? Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult? Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult? Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult? Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult? Function(GetSubtitles value)? getSubtitles,
-    TResult? Function(TapDescription value)? tapDescription,
-    TResult? Function(TogglePip value)? togglePip,
-    TResult? Function(AssignTitle value)? assignTitle,
-    TResult? Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult? Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult? Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult? Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult? Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult? Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult? Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult? Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult? Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult? Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult? Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(UpdatePlayBack value)? updatePlayBack,
-    TResult? Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult? Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult? Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult? Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult? Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult? Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult? Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(GetSponsorSegments value)? getSponsorSegments,
-  }) {
-    return getMoreInvidiousComments?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetWatchInfo value)? getWatchInfo,
-    TResult Function(GetCommentData value)? getCommentData,
-    TResult Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult Function(GetSubtitles value)? getSubtitles,
-    TResult Function(TapDescription value)? tapDescription,
-    TResult Function(TogglePip value)? togglePip,
-    TResult Function(AssignTitle value)? assignTitle,
-    TResult Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult Function(UpdatePlayBack value)? updatePlayBack,
-    TResult Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(GetSponsorSegments value)? getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getMoreInvidiousComments != null) {
-      return getMoreInvidiousComments(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class GetMoreInvidiousComments implements WatchEvent {
-  factory GetMoreInvidiousComments(
-      {required final String id,
-      required final String? continuation}) = _$GetMoreInvidiousCommentsImpl;
-
-  String get id;
-  String? get continuation;
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetMoreInvidiousCommentsImplCopyWith<_$GetMoreInvidiousCommentsImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$GetMoreInvidiousReplyCommentsImplCopyWith<$Res> {
-  factory _$$GetMoreInvidiousReplyCommentsImplCopyWith(
-          _$GetMoreInvidiousReplyCommentsImpl value,
-          $Res Function(_$GetMoreInvidiousReplyCommentsImpl) then) =
-      __$$GetMoreInvidiousReplyCommentsImplCopyWithImpl<$Res>;
+abstract mixin class $GetMoreInvidiousCommentsCopyWith<$Res>
+    implements $WatchEventCopyWith<$Res> {
+  factory $GetMoreInvidiousCommentsCopyWith(GetMoreInvidiousComments value,
+          $Res Function(GetMoreInvidiousComments) _then) =
+      _$GetMoreInvidiousCommentsCopyWithImpl;
   @useResult
   $Res call({String id, String? continuation});
 }
 
 /// @nodoc
-class __$$GetMoreInvidiousReplyCommentsImplCopyWithImpl<$Res>
-    extends _$WatchEventCopyWithImpl<$Res, _$GetMoreInvidiousReplyCommentsImpl>
-    implements _$$GetMoreInvidiousReplyCommentsImplCopyWith<$Res> {
-  __$$GetMoreInvidiousReplyCommentsImplCopyWithImpl(
-      _$GetMoreInvidiousReplyCommentsImpl _value,
-      $Res Function(_$GetMoreInvidiousReplyCommentsImpl) _then)
-      : super(_value, _then);
+class _$GetMoreInvidiousCommentsCopyWithImpl<$Res>
+    implements $GetMoreInvidiousCommentsCopyWith<$Res> {
+  _$GetMoreInvidiousCommentsCopyWithImpl(this._self, this._then);
+
+  final GetMoreInvidiousComments _self;
+  final $Res Function(GetMoreInvidiousComments) _then;
 
   /// Create a copy of WatchEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? id = null,
     Object? continuation = freezed,
   }) {
-    return _then(_$GetMoreInvidiousReplyCommentsImpl(
+    return _then(GetMoreInvidiousComments(
       id: null == id
-          ? _value.id
+          ? _self.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
       continuation: freezed == continuation
-          ? _value.continuation
+          ? _self.continuation
           : continuation // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
@@ -7656,26 +2236,36 @@ class __$$GetMoreInvidiousReplyCommentsImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$GetMoreInvidiousReplyCommentsImpl
-    implements GetMoreInvidiousReplyComments {
-  _$GetMoreInvidiousReplyCommentsImpl(
-      {required this.id, required this.continuation});
+class GetMoreInvidiousReplyComments
+    with DiagnosticableTreeMixin
+    implements WatchEvent {
+  GetMoreInvidiousReplyComments({required this.id, required this.continuation});
 
-  @override
   final String id;
-  @override
   final String? continuation;
 
+  /// Create a copy of WatchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $GetMoreInvidiousReplyCommentsCopyWith<GetMoreInvidiousReplyComments>
+      get copyWith => _$GetMoreInvidiousReplyCommentsCopyWithImpl<
+          GetMoreInvidiousReplyComments>(this, _$identity);
+
   @override
-  String toString() {
-    return 'WatchEvent.getMoreInvidiousReplyComments(id: $id, continuation: $continuation)';
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'WatchEvent.getMoreInvidiousReplyComments'))
+      ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('continuation', continuation));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetMoreInvidiousReplyCommentsImpl &&
+            other is GetMoreInvidiousReplyComments &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.continuation, continuation) ||
                 other.continuation == continuation));
@@ -7684,344 +2274,117 @@ class _$GetMoreInvidiousReplyCommentsImpl
   @override
   int get hashCode => Object.hash(runtimeType, id, continuation);
 
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$GetMoreInvidiousReplyCommentsImplCopyWith<
-          _$GetMoreInvidiousReplyCommentsImpl>
-      get copyWith => __$$GetMoreInvidiousReplyCommentsImplCopyWithImpl<
-          _$GetMoreInvidiousReplyCommentsImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String id) getWatchInfo,
-    required TResult Function(String id) getCommentData,
-    required TResult Function(String id) forceFetchCommentData,
-    required TResult Function(String id, String nextPage) getCommentRepliesData,
-    required TResult Function(String id, String? nextPage) getMoreCommentsData,
-    required TResult Function(String id, String? nextPage)
-        getMoreReplyCommentsData,
-    required TResult Function(String id) getSubtitles,
-    required TResult Function() tapDescription,
-    required TResult Function(bool value) togglePip,
-    required TResult Function(String title) assignTitle,
-    required TResult Function(String id) getExplodeWatchInfo,
-    required TResult Function(String id) getExplodeRelatedVideoInfo,
-    required TResult Function(String id) getExplodeMuxStreamInfo,
-    required TResult Function(String id) getExplodeLiveVideoInfo,
-    required TResult Function(VideoBasicInfo details)
-        setSelectedVideoBasicDetails,
-    required TResult Function(String id) getInvidiousWatchInfo,
-    required TResult Function(String id) getInvidiousComments,
-    required TResult Function(String id) forceFetchInvidiousComments,
-    required TResult Function(String id, String continuation)
-        getInvidiousCommentReplies,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousComments,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousReplyComments,
-    required TResult Function(int? playBack) updatePlayBack,
-    required TResult Function(String id) getNewPipeWatchInfo,
-    required TResult Function(String id, List<String> sponsorBlockCategories)
-        getNewPipeWatchInfoFast,
-    required TResult Function(String id) getNewPipeComments,
-    required TResult Function(String id) forceFetchNewPipeComments,
-    required TResult Function(String id, String? nextPage)
-        getMoreNewPipeComments,
-    required TResult Function(String videoId, String repliesPage)
-        getNewPipeCommentReplies,
-    required TResult Function(String videoId, String? nextPage)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(String videoId, List<String> categories)
-        getSponsorSegments,
-  }) {
-    return getMoreInvidiousReplyComments(id, continuation);
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'WatchEvent.getMoreInvidiousReplyComments(id: $id, continuation: $continuation)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String id)? getWatchInfo,
-    TResult? Function(String id)? getCommentData,
-    TResult? Function(String id)? forceFetchCommentData,
-    TResult? Function(String id, String nextPage)? getCommentRepliesData,
-    TResult? Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult? Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult? Function(String id)? getSubtitles,
-    TResult? Function()? tapDescription,
-    TResult? Function(bool value)? togglePip,
-    TResult? Function(String title)? assignTitle,
-    TResult? Function(String id)? getExplodeWatchInfo,
-    TResult? Function(String id)? getExplodeRelatedVideoInfo,
-    TResult? Function(String id)? getExplodeMuxStreamInfo,
-    TResult? Function(String id)? getExplodeLiveVideoInfo,
-    TResult? Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult? Function(String id)? getInvidiousWatchInfo,
-    TResult? Function(String id)? getInvidiousComments,
-    TResult? Function(String id)? forceFetchInvidiousComments,
-    TResult? Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousComments,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(int? playBack)? updatePlayBack,
-    TResult? Function(String id)? getNewPipeWatchInfo,
-    TResult? Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult? Function(String id)? getNewPipeComments,
-    TResult? Function(String id)? forceFetchNewPipeComments,
-    TResult? Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult? Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult? Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-  }) {
-    return getMoreInvidiousReplyComments?.call(id, continuation);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String id)? getWatchInfo,
-    TResult Function(String id)? getCommentData,
-    TResult Function(String id)? forceFetchCommentData,
-    TResult Function(String id, String nextPage)? getCommentRepliesData,
-    TResult Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult Function(String id)? getSubtitles,
-    TResult Function()? tapDescription,
-    TResult Function(bool value)? togglePip,
-    TResult Function(String title)? assignTitle,
-    TResult Function(String id)? getExplodeWatchInfo,
-    TResult Function(String id)? getExplodeRelatedVideoInfo,
-    TResult Function(String id)? getExplodeMuxStreamInfo,
-    TResult Function(String id)? getExplodeLiveVideoInfo,
-    TResult Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult Function(String id)? getInvidiousWatchInfo,
-    TResult Function(String id)? getInvidiousComments,
-    TResult Function(String id)? forceFetchInvidiousComments,
-    TResult Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult Function(String id, String? continuation)? getMoreInvidiousComments,
-    TResult Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult Function(int? playBack)? updatePlayBack,
-    TResult Function(String id)? getNewPipeWatchInfo,
-    TResult Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult Function(String id)? getNewPipeComments,
-    TResult Function(String id)? forceFetchNewPipeComments,
-    TResult Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getMoreInvidiousReplyComments != null) {
-      return getMoreInvidiousReplyComments(id, continuation);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GetWatchInfo value) getWatchInfo,
-    required TResult Function(GetCommentData value) getCommentData,
-    required TResult Function(ForceFetchCommentData value)
-        forceFetchCommentData,
-    required TResult Function(GetCommentRepliesData value)
-        getCommentRepliesData,
-    required TResult Function(GetMoreCommentsData value) getMoreCommentsData,
-    required TResult Function(GetMoreReplyCommentsData value)
-        getMoreReplyCommentsData,
-    required TResult Function(GetSubtitles value) getSubtitles,
-    required TResult Function(TapDescription value) tapDescription,
-    required TResult Function(TogglePip value) togglePip,
-    required TResult Function(AssignTitle value) assignTitle,
-    required TResult Function(GetExplodeWatchInfo value) getExplodeWatchInfo,
-    required TResult Function(GetExplodeRelatedVideoInfo value)
-        getExplodeRelatedVideoInfo,
-    required TResult Function(GetExplodeMuxStreamInfo value)
-        getExplodeMuxStreamInfo,
-    required TResult Function(GetExplodeLiveVideoInfo value)
-        getExplodeLiveVideoInfo,
-    required TResult Function(SetSelectedVideoBasicDetails value)
-        setSelectedVideoBasicDetails,
-    required TResult Function(GetInvidiousWatchInfo value)
-        getInvidiousWatchInfo,
-    required TResult Function(GetInvidiousComments value) getInvidiousComments,
-    required TResult Function(ForceFetchInvidiousComments value)
-        forceFetchInvidiousComments,
-    required TResult Function(GetInvidiousCommentReplies value)
-        getInvidiousCommentReplies,
-    required TResult Function(GetMoreInvidiousComments value)
-        getMoreInvidiousComments,
-    required TResult Function(GetMoreInvidiousReplyComments value)
-        getMoreInvidiousReplyComments,
-    required TResult Function(UpdatePlayBack value) updatePlayBack,
-    required TResult Function(GetNewPipeWatchInfo value) getNewPipeWatchInfo,
-    required TResult Function(GetNewPipeWatchInfoFast value)
-        getNewPipeWatchInfoFast,
-    required TResult Function(GetNewPipeComments value) getNewPipeComments,
-    required TResult Function(ForceFetchNewPipeComments value)
-        forceFetchNewPipeComments,
-    required TResult Function(GetMoreNewPipeComments value)
-        getMoreNewPipeComments,
-    required TResult Function(GetNewPipeCommentReplies value)
-        getNewPipeCommentReplies,
-    required TResult Function(GetMoreNewPipeCommentReplies value)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(GetSponsorSegments value) getSponsorSegments,
-  }) {
-    return getMoreInvidiousReplyComments(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GetWatchInfo value)? getWatchInfo,
-    TResult? Function(GetCommentData value)? getCommentData,
-    TResult? Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult? Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult? Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult? Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult? Function(GetSubtitles value)? getSubtitles,
-    TResult? Function(TapDescription value)? tapDescription,
-    TResult? Function(TogglePip value)? togglePip,
-    TResult? Function(AssignTitle value)? assignTitle,
-    TResult? Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult? Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult? Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult? Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult? Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult? Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult? Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult? Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult? Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult? Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult? Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(UpdatePlayBack value)? updatePlayBack,
-    TResult? Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult? Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult? Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult? Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult? Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult? Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult? Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(GetSponsorSegments value)? getSponsorSegments,
-  }) {
-    return getMoreInvidiousReplyComments?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetWatchInfo value)? getWatchInfo,
-    TResult Function(GetCommentData value)? getCommentData,
-    TResult Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult Function(GetSubtitles value)? getSubtitles,
-    TResult Function(TapDescription value)? tapDescription,
-    TResult Function(TogglePip value)? togglePip,
-    TResult Function(AssignTitle value)? assignTitle,
-    TResult Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult Function(UpdatePlayBack value)? updatePlayBack,
-    TResult Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(GetSponsorSegments value)? getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getMoreInvidiousReplyComments != null) {
-      return getMoreInvidiousReplyComments(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class GetMoreInvidiousReplyComments implements WatchEvent {
-  factory GetMoreInvidiousReplyComments(
-          {required final String id, required final String? continuation}) =
-      _$GetMoreInvidiousReplyCommentsImpl;
-
-  String get id;
-  String? get continuation;
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetMoreInvidiousReplyCommentsImplCopyWith<
-          _$GetMoreInvidiousReplyCommentsImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UpdatePlayBackImplCopyWith<$Res> {
-  factory _$$UpdatePlayBackImplCopyWith(_$UpdatePlayBackImpl value,
-          $Res Function(_$UpdatePlayBackImpl) then) =
-      __$$UpdatePlayBackImplCopyWithImpl<$Res>;
+abstract mixin class $GetMoreInvidiousReplyCommentsCopyWith<$Res>
+    implements $WatchEventCopyWith<$Res> {
+  factory $GetMoreInvidiousReplyCommentsCopyWith(
+          GetMoreInvidiousReplyComments value,
+          $Res Function(GetMoreInvidiousReplyComments) _then) =
+      _$GetMoreInvidiousReplyCommentsCopyWithImpl;
+  @useResult
+  $Res call({String id, String? continuation});
+}
+
+/// @nodoc
+class _$GetMoreInvidiousReplyCommentsCopyWithImpl<$Res>
+    implements $GetMoreInvidiousReplyCommentsCopyWith<$Res> {
+  _$GetMoreInvidiousReplyCommentsCopyWithImpl(this._self, this._then);
+
+  final GetMoreInvidiousReplyComments _self;
+  final $Res Function(GetMoreInvidiousReplyComments) _then;
+
+  /// Create a copy of WatchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? id = null,
+    Object? continuation = freezed,
+  }) {
+    return _then(GetMoreInvidiousReplyComments(
+      id: null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      continuation: freezed == continuation
+          ? _self.continuation
+          : continuation // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class UpdatePlayBack with DiagnosticableTreeMixin implements WatchEvent {
+  UpdatePlayBack({required this.playBack});
+
+  final int? playBack;
+
+  /// Create a copy of WatchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UpdatePlayBackCopyWith<UpdatePlayBack> get copyWith =>
+      _$UpdatePlayBackCopyWithImpl<UpdatePlayBack>(this, _$identity);
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(DiagnosticsProperty('type', 'WatchEvent.updatePlayBack'))
+      ..add(DiagnosticsProperty('playBack', playBack));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is UpdatePlayBack &&
+            (identical(other.playBack, playBack) ||
+                other.playBack == playBack));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, playBack);
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'WatchEvent.updatePlayBack(playBack: $playBack)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $UpdatePlayBackCopyWith<$Res>
+    implements $WatchEventCopyWith<$Res> {
+  factory $UpdatePlayBackCopyWith(
+          UpdatePlayBack value, $Res Function(UpdatePlayBack) _then) =
+      _$UpdatePlayBackCopyWithImpl;
   @useResult
   $Res call({int? playBack});
 }
 
 /// @nodoc
-class __$$UpdatePlayBackImplCopyWithImpl<$Res>
-    extends _$WatchEventCopyWithImpl<$Res, _$UpdatePlayBackImpl>
-    implements _$$UpdatePlayBackImplCopyWith<$Res> {
-  __$$UpdatePlayBackImplCopyWithImpl(
-      _$UpdatePlayBackImpl _value, $Res Function(_$UpdatePlayBackImpl) _then)
-      : super(_value, _then);
+class _$UpdatePlayBackCopyWithImpl<$Res>
+    implements $UpdatePlayBackCopyWith<$Res> {
+  _$UpdatePlayBackCopyWithImpl(this._self, this._then);
+
+  final UpdatePlayBack _self;
+  final $Res Function(UpdatePlayBack) _then;
 
   /// Create a copy of WatchEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? playBack = freezed,
   }) {
-    return _then(_$UpdatePlayBackImpl(
+    return _then(UpdatePlayBack(
       playBack: freezed == playBack
-          ? _value.playBack
+          ? _self.playBack
           : playBack // ignore: cast_nullable_to_non_nullable
               as int?,
     ));
@@ -8030,750 +2393,86 @@ class __$$UpdatePlayBackImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UpdatePlayBackImpl implements UpdatePlayBack {
-  _$UpdatePlayBackImpl({required this.playBack});
+class GetNewPipeWatchInfo with DiagnosticableTreeMixin implements WatchEvent {
+  GetNewPipeWatchInfo({required this.id});
 
-  @override
-  final int? playBack;
-
-  @override
-  String toString() {
-    return 'WatchEvent.updatePlayBack(playBack: $playBack)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UpdatePlayBackImpl &&
-            (identical(other.playBack, playBack) ||
-                other.playBack == playBack));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, playBack);
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UpdatePlayBackImplCopyWith<_$UpdatePlayBackImpl> get copyWith =>
-      __$$UpdatePlayBackImplCopyWithImpl<_$UpdatePlayBackImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String id) getWatchInfo,
-    required TResult Function(String id) getCommentData,
-    required TResult Function(String id) forceFetchCommentData,
-    required TResult Function(String id, String nextPage) getCommentRepliesData,
-    required TResult Function(String id, String? nextPage) getMoreCommentsData,
-    required TResult Function(String id, String? nextPage)
-        getMoreReplyCommentsData,
-    required TResult Function(String id) getSubtitles,
-    required TResult Function() tapDescription,
-    required TResult Function(bool value) togglePip,
-    required TResult Function(String title) assignTitle,
-    required TResult Function(String id) getExplodeWatchInfo,
-    required TResult Function(String id) getExplodeRelatedVideoInfo,
-    required TResult Function(String id) getExplodeMuxStreamInfo,
-    required TResult Function(String id) getExplodeLiveVideoInfo,
-    required TResult Function(VideoBasicInfo details)
-        setSelectedVideoBasicDetails,
-    required TResult Function(String id) getInvidiousWatchInfo,
-    required TResult Function(String id) getInvidiousComments,
-    required TResult Function(String id) forceFetchInvidiousComments,
-    required TResult Function(String id, String continuation)
-        getInvidiousCommentReplies,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousComments,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousReplyComments,
-    required TResult Function(int? playBack) updatePlayBack,
-    required TResult Function(String id) getNewPipeWatchInfo,
-    required TResult Function(String id, List<String> sponsorBlockCategories)
-        getNewPipeWatchInfoFast,
-    required TResult Function(String id) getNewPipeComments,
-    required TResult Function(String id) forceFetchNewPipeComments,
-    required TResult Function(String id, String? nextPage)
-        getMoreNewPipeComments,
-    required TResult Function(String videoId, String repliesPage)
-        getNewPipeCommentReplies,
-    required TResult Function(String videoId, String? nextPage)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(String videoId, List<String> categories)
-        getSponsorSegments,
-  }) {
-    return updatePlayBack(playBack);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String id)? getWatchInfo,
-    TResult? Function(String id)? getCommentData,
-    TResult? Function(String id)? forceFetchCommentData,
-    TResult? Function(String id, String nextPage)? getCommentRepliesData,
-    TResult? Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult? Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult? Function(String id)? getSubtitles,
-    TResult? Function()? tapDescription,
-    TResult? Function(bool value)? togglePip,
-    TResult? Function(String title)? assignTitle,
-    TResult? Function(String id)? getExplodeWatchInfo,
-    TResult? Function(String id)? getExplodeRelatedVideoInfo,
-    TResult? Function(String id)? getExplodeMuxStreamInfo,
-    TResult? Function(String id)? getExplodeLiveVideoInfo,
-    TResult? Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult? Function(String id)? getInvidiousWatchInfo,
-    TResult? Function(String id)? getInvidiousComments,
-    TResult? Function(String id)? forceFetchInvidiousComments,
-    TResult? Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousComments,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(int? playBack)? updatePlayBack,
-    TResult? Function(String id)? getNewPipeWatchInfo,
-    TResult? Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult? Function(String id)? getNewPipeComments,
-    TResult? Function(String id)? forceFetchNewPipeComments,
-    TResult? Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult? Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult? Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-  }) {
-    return updatePlayBack?.call(playBack);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String id)? getWatchInfo,
-    TResult Function(String id)? getCommentData,
-    TResult Function(String id)? forceFetchCommentData,
-    TResult Function(String id, String nextPage)? getCommentRepliesData,
-    TResult Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult Function(String id)? getSubtitles,
-    TResult Function()? tapDescription,
-    TResult Function(bool value)? togglePip,
-    TResult Function(String title)? assignTitle,
-    TResult Function(String id)? getExplodeWatchInfo,
-    TResult Function(String id)? getExplodeRelatedVideoInfo,
-    TResult Function(String id)? getExplodeMuxStreamInfo,
-    TResult Function(String id)? getExplodeLiveVideoInfo,
-    TResult Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult Function(String id)? getInvidiousWatchInfo,
-    TResult Function(String id)? getInvidiousComments,
-    TResult Function(String id)? forceFetchInvidiousComments,
-    TResult Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult Function(String id, String? continuation)? getMoreInvidiousComments,
-    TResult Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult Function(int? playBack)? updatePlayBack,
-    TResult Function(String id)? getNewPipeWatchInfo,
-    TResult Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult Function(String id)? getNewPipeComments,
-    TResult Function(String id)? forceFetchNewPipeComments,
-    TResult Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (updatePlayBack != null) {
-      return updatePlayBack(playBack);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GetWatchInfo value) getWatchInfo,
-    required TResult Function(GetCommentData value) getCommentData,
-    required TResult Function(ForceFetchCommentData value)
-        forceFetchCommentData,
-    required TResult Function(GetCommentRepliesData value)
-        getCommentRepliesData,
-    required TResult Function(GetMoreCommentsData value) getMoreCommentsData,
-    required TResult Function(GetMoreReplyCommentsData value)
-        getMoreReplyCommentsData,
-    required TResult Function(GetSubtitles value) getSubtitles,
-    required TResult Function(TapDescription value) tapDescription,
-    required TResult Function(TogglePip value) togglePip,
-    required TResult Function(AssignTitle value) assignTitle,
-    required TResult Function(GetExplodeWatchInfo value) getExplodeWatchInfo,
-    required TResult Function(GetExplodeRelatedVideoInfo value)
-        getExplodeRelatedVideoInfo,
-    required TResult Function(GetExplodeMuxStreamInfo value)
-        getExplodeMuxStreamInfo,
-    required TResult Function(GetExplodeLiveVideoInfo value)
-        getExplodeLiveVideoInfo,
-    required TResult Function(SetSelectedVideoBasicDetails value)
-        setSelectedVideoBasicDetails,
-    required TResult Function(GetInvidiousWatchInfo value)
-        getInvidiousWatchInfo,
-    required TResult Function(GetInvidiousComments value) getInvidiousComments,
-    required TResult Function(ForceFetchInvidiousComments value)
-        forceFetchInvidiousComments,
-    required TResult Function(GetInvidiousCommentReplies value)
-        getInvidiousCommentReplies,
-    required TResult Function(GetMoreInvidiousComments value)
-        getMoreInvidiousComments,
-    required TResult Function(GetMoreInvidiousReplyComments value)
-        getMoreInvidiousReplyComments,
-    required TResult Function(UpdatePlayBack value) updatePlayBack,
-    required TResult Function(GetNewPipeWatchInfo value) getNewPipeWatchInfo,
-    required TResult Function(GetNewPipeWatchInfoFast value)
-        getNewPipeWatchInfoFast,
-    required TResult Function(GetNewPipeComments value) getNewPipeComments,
-    required TResult Function(ForceFetchNewPipeComments value)
-        forceFetchNewPipeComments,
-    required TResult Function(GetMoreNewPipeComments value)
-        getMoreNewPipeComments,
-    required TResult Function(GetNewPipeCommentReplies value)
-        getNewPipeCommentReplies,
-    required TResult Function(GetMoreNewPipeCommentReplies value)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(GetSponsorSegments value) getSponsorSegments,
-  }) {
-    return updatePlayBack(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GetWatchInfo value)? getWatchInfo,
-    TResult? Function(GetCommentData value)? getCommentData,
-    TResult? Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult? Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult? Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult? Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult? Function(GetSubtitles value)? getSubtitles,
-    TResult? Function(TapDescription value)? tapDescription,
-    TResult? Function(TogglePip value)? togglePip,
-    TResult? Function(AssignTitle value)? assignTitle,
-    TResult? Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult? Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult? Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult? Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult? Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult? Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult? Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult? Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult? Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult? Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult? Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(UpdatePlayBack value)? updatePlayBack,
-    TResult? Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult? Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult? Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult? Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult? Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult? Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult? Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(GetSponsorSegments value)? getSponsorSegments,
-  }) {
-    return updatePlayBack?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetWatchInfo value)? getWatchInfo,
-    TResult Function(GetCommentData value)? getCommentData,
-    TResult Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult Function(GetSubtitles value)? getSubtitles,
-    TResult Function(TapDescription value)? tapDescription,
-    TResult Function(TogglePip value)? togglePip,
-    TResult Function(AssignTitle value)? assignTitle,
-    TResult Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult Function(UpdatePlayBack value)? updatePlayBack,
-    TResult Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(GetSponsorSegments value)? getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (updatePlayBack != null) {
-      return updatePlayBack(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UpdatePlayBack implements WatchEvent {
-  factory UpdatePlayBack({required final int? playBack}) = _$UpdatePlayBackImpl;
-
-  int? get playBack;
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UpdatePlayBackImplCopyWith<_$UpdatePlayBackImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$GetNewPipeWatchInfoImplCopyWith<$Res> {
-  factory _$$GetNewPipeWatchInfoImplCopyWith(_$GetNewPipeWatchInfoImpl value,
-          $Res Function(_$GetNewPipeWatchInfoImpl) then) =
-      __$$GetNewPipeWatchInfoImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String id});
-}
-
-/// @nodoc
-class __$$GetNewPipeWatchInfoImplCopyWithImpl<$Res>
-    extends _$WatchEventCopyWithImpl<$Res, _$GetNewPipeWatchInfoImpl>
-    implements _$$GetNewPipeWatchInfoImplCopyWith<$Res> {
-  __$$GetNewPipeWatchInfoImplCopyWithImpl(_$GetNewPipeWatchInfoImpl _value,
-      $Res Function(_$GetNewPipeWatchInfoImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-  }) {
-    return _then(_$GetNewPipeWatchInfoImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$GetNewPipeWatchInfoImpl implements GetNewPipeWatchInfo {
-  _$GetNewPipeWatchInfoImpl({required this.id});
-
-  @override
   final String id;
 
+  /// Create a copy of WatchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $GetNewPipeWatchInfoCopyWith<GetNewPipeWatchInfo> get copyWith =>
+      _$GetNewPipeWatchInfoCopyWithImpl<GetNewPipeWatchInfo>(this, _$identity);
+
   @override
-  String toString() {
-    return 'WatchEvent.getNewPipeWatchInfo(id: $id)';
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(DiagnosticsProperty('type', 'WatchEvent.getNewPipeWatchInfo'))
+      ..add(DiagnosticsProperty('id', id));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetNewPipeWatchInfoImpl &&
+            other is GetNewPipeWatchInfo &&
             (identical(other.id, id) || other.id == id));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, id);
 
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$GetNewPipeWatchInfoImplCopyWith<_$GetNewPipeWatchInfoImpl> get copyWith =>
-      __$$GetNewPipeWatchInfoImplCopyWithImpl<_$GetNewPipeWatchInfoImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String id) getWatchInfo,
-    required TResult Function(String id) getCommentData,
-    required TResult Function(String id) forceFetchCommentData,
-    required TResult Function(String id, String nextPage) getCommentRepliesData,
-    required TResult Function(String id, String? nextPage) getMoreCommentsData,
-    required TResult Function(String id, String? nextPage)
-        getMoreReplyCommentsData,
-    required TResult Function(String id) getSubtitles,
-    required TResult Function() tapDescription,
-    required TResult Function(bool value) togglePip,
-    required TResult Function(String title) assignTitle,
-    required TResult Function(String id) getExplodeWatchInfo,
-    required TResult Function(String id) getExplodeRelatedVideoInfo,
-    required TResult Function(String id) getExplodeMuxStreamInfo,
-    required TResult Function(String id) getExplodeLiveVideoInfo,
-    required TResult Function(VideoBasicInfo details)
-        setSelectedVideoBasicDetails,
-    required TResult Function(String id) getInvidiousWatchInfo,
-    required TResult Function(String id) getInvidiousComments,
-    required TResult Function(String id) forceFetchInvidiousComments,
-    required TResult Function(String id, String continuation)
-        getInvidiousCommentReplies,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousComments,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousReplyComments,
-    required TResult Function(int? playBack) updatePlayBack,
-    required TResult Function(String id) getNewPipeWatchInfo,
-    required TResult Function(String id, List<String> sponsorBlockCategories)
-        getNewPipeWatchInfoFast,
-    required TResult Function(String id) getNewPipeComments,
-    required TResult Function(String id) forceFetchNewPipeComments,
-    required TResult Function(String id, String? nextPage)
-        getMoreNewPipeComments,
-    required TResult Function(String videoId, String repliesPage)
-        getNewPipeCommentReplies,
-    required TResult Function(String videoId, String? nextPage)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(String videoId, List<String> categories)
-        getSponsorSegments,
-  }) {
-    return getNewPipeWatchInfo(id);
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'WatchEvent.getNewPipeWatchInfo(id: $id)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String id)? getWatchInfo,
-    TResult? Function(String id)? getCommentData,
-    TResult? Function(String id)? forceFetchCommentData,
-    TResult? Function(String id, String nextPage)? getCommentRepliesData,
-    TResult? Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult? Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult? Function(String id)? getSubtitles,
-    TResult? Function()? tapDescription,
-    TResult? Function(bool value)? togglePip,
-    TResult? Function(String title)? assignTitle,
-    TResult? Function(String id)? getExplodeWatchInfo,
-    TResult? Function(String id)? getExplodeRelatedVideoInfo,
-    TResult? Function(String id)? getExplodeMuxStreamInfo,
-    TResult? Function(String id)? getExplodeLiveVideoInfo,
-    TResult? Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult? Function(String id)? getInvidiousWatchInfo,
-    TResult? Function(String id)? getInvidiousComments,
-    TResult? Function(String id)? forceFetchInvidiousComments,
-    TResult? Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousComments,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(int? playBack)? updatePlayBack,
-    TResult? Function(String id)? getNewPipeWatchInfo,
-    TResult? Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult? Function(String id)? getNewPipeComments,
-    TResult? Function(String id)? forceFetchNewPipeComments,
-    TResult? Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult? Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult? Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-  }) {
-    return getNewPipeWatchInfo?.call(id);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String id)? getWatchInfo,
-    TResult Function(String id)? getCommentData,
-    TResult Function(String id)? forceFetchCommentData,
-    TResult Function(String id, String nextPage)? getCommentRepliesData,
-    TResult Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult Function(String id)? getSubtitles,
-    TResult Function()? tapDescription,
-    TResult Function(bool value)? togglePip,
-    TResult Function(String title)? assignTitle,
-    TResult Function(String id)? getExplodeWatchInfo,
-    TResult Function(String id)? getExplodeRelatedVideoInfo,
-    TResult Function(String id)? getExplodeMuxStreamInfo,
-    TResult Function(String id)? getExplodeLiveVideoInfo,
-    TResult Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult Function(String id)? getInvidiousWatchInfo,
-    TResult Function(String id)? getInvidiousComments,
-    TResult Function(String id)? forceFetchInvidiousComments,
-    TResult Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult Function(String id, String? continuation)? getMoreInvidiousComments,
-    TResult Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult Function(int? playBack)? updatePlayBack,
-    TResult Function(String id)? getNewPipeWatchInfo,
-    TResult Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult Function(String id)? getNewPipeComments,
-    TResult Function(String id)? forceFetchNewPipeComments,
-    TResult Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getNewPipeWatchInfo != null) {
-      return getNewPipeWatchInfo(id);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GetWatchInfo value) getWatchInfo,
-    required TResult Function(GetCommentData value) getCommentData,
-    required TResult Function(ForceFetchCommentData value)
-        forceFetchCommentData,
-    required TResult Function(GetCommentRepliesData value)
-        getCommentRepliesData,
-    required TResult Function(GetMoreCommentsData value) getMoreCommentsData,
-    required TResult Function(GetMoreReplyCommentsData value)
-        getMoreReplyCommentsData,
-    required TResult Function(GetSubtitles value) getSubtitles,
-    required TResult Function(TapDescription value) tapDescription,
-    required TResult Function(TogglePip value) togglePip,
-    required TResult Function(AssignTitle value) assignTitle,
-    required TResult Function(GetExplodeWatchInfo value) getExplodeWatchInfo,
-    required TResult Function(GetExplodeRelatedVideoInfo value)
-        getExplodeRelatedVideoInfo,
-    required TResult Function(GetExplodeMuxStreamInfo value)
-        getExplodeMuxStreamInfo,
-    required TResult Function(GetExplodeLiveVideoInfo value)
-        getExplodeLiveVideoInfo,
-    required TResult Function(SetSelectedVideoBasicDetails value)
-        setSelectedVideoBasicDetails,
-    required TResult Function(GetInvidiousWatchInfo value)
-        getInvidiousWatchInfo,
-    required TResult Function(GetInvidiousComments value) getInvidiousComments,
-    required TResult Function(ForceFetchInvidiousComments value)
-        forceFetchInvidiousComments,
-    required TResult Function(GetInvidiousCommentReplies value)
-        getInvidiousCommentReplies,
-    required TResult Function(GetMoreInvidiousComments value)
-        getMoreInvidiousComments,
-    required TResult Function(GetMoreInvidiousReplyComments value)
-        getMoreInvidiousReplyComments,
-    required TResult Function(UpdatePlayBack value) updatePlayBack,
-    required TResult Function(GetNewPipeWatchInfo value) getNewPipeWatchInfo,
-    required TResult Function(GetNewPipeWatchInfoFast value)
-        getNewPipeWatchInfoFast,
-    required TResult Function(GetNewPipeComments value) getNewPipeComments,
-    required TResult Function(ForceFetchNewPipeComments value)
-        forceFetchNewPipeComments,
-    required TResult Function(GetMoreNewPipeComments value)
-        getMoreNewPipeComments,
-    required TResult Function(GetNewPipeCommentReplies value)
-        getNewPipeCommentReplies,
-    required TResult Function(GetMoreNewPipeCommentReplies value)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(GetSponsorSegments value) getSponsorSegments,
-  }) {
-    return getNewPipeWatchInfo(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GetWatchInfo value)? getWatchInfo,
-    TResult? Function(GetCommentData value)? getCommentData,
-    TResult? Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult? Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult? Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult? Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult? Function(GetSubtitles value)? getSubtitles,
-    TResult? Function(TapDescription value)? tapDescription,
-    TResult? Function(TogglePip value)? togglePip,
-    TResult? Function(AssignTitle value)? assignTitle,
-    TResult? Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult? Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult? Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult? Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult? Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult? Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult? Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult? Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult? Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult? Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult? Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(UpdatePlayBack value)? updatePlayBack,
-    TResult? Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult? Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult? Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult? Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult? Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult? Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult? Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(GetSponsorSegments value)? getSponsorSegments,
-  }) {
-    return getNewPipeWatchInfo?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetWatchInfo value)? getWatchInfo,
-    TResult Function(GetCommentData value)? getCommentData,
-    TResult Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult Function(GetSubtitles value)? getSubtitles,
-    TResult Function(TapDescription value)? tapDescription,
-    TResult Function(TogglePip value)? togglePip,
-    TResult Function(AssignTitle value)? assignTitle,
-    TResult Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult Function(UpdatePlayBack value)? updatePlayBack,
-    TResult Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(GetSponsorSegments value)? getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getNewPipeWatchInfo != null) {
-      return getNewPipeWatchInfo(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class GetNewPipeWatchInfo implements WatchEvent {
-  factory GetNewPipeWatchInfo({required final String id}) =
-      _$GetNewPipeWatchInfoImpl;
-
-  String get id;
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetNewPipeWatchInfoImplCopyWith<_$GetNewPipeWatchInfoImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$GetNewPipeWatchInfoFastImplCopyWith<$Res> {
-  factory _$$GetNewPipeWatchInfoFastImplCopyWith(
-          _$GetNewPipeWatchInfoFastImpl value,
-          $Res Function(_$GetNewPipeWatchInfoFastImpl) then) =
-      __$$GetNewPipeWatchInfoFastImplCopyWithImpl<$Res>;
+abstract mixin class $GetNewPipeWatchInfoCopyWith<$Res>
+    implements $WatchEventCopyWith<$Res> {
+  factory $GetNewPipeWatchInfoCopyWith(
+          GetNewPipeWatchInfo value, $Res Function(GetNewPipeWatchInfo) _then) =
+      _$GetNewPipeWatchInfoCopyWithImpl;
   @useResult
-  $Res call({String id, List<String> sponsorBlockCategories});
+  $Res call({String id});
 }
 
 /// @nodoc
-class __$$GetNewPipeWatchInfoFastImplCopyWithImpl<$Res>
-    extends _$WatchEventCopyWithImpl<$Res, _$GetNewPipeWatchInfoFastImpl>
-    implements _$$GetNewPipeWatchInfoFastImplCopyWith<$Res> {
-  __$$GetNewPipeWatchInfoFastImplCopyWithImpl(
-      _$GetNewPipeWatchInfoFastImpl _value,
-      $Res Function(_$GetNewPipeWatchInfoFastImpl) _then)
-      : super(_value, _then);
+class _$GetNewPipeWatchInfoCopyWithImpl<$Res>
+    implements $GetNewPipeWatchInfoCopyWith<$Res> {
+  _$GetNewPipeWatchInfoCopyWithImpl(this._self, this._then);
+
+  final GetNewPipeWatchInfo _self;
+  final $Res Function(GetNewPipeWatchInfo) _then;
 
   /// Create a copy of WatchEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? id = null,
-    Object? sponsorBlockCategories = null,
   }) {
-    return _then(_$GetNewPipeWatchInfoFastImpl(
+    return _then(GetNewPipeWatchInfo(
       id: null == id
-          ? _value.id
+          ? _self.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      sponsorBlockCategories: null == sponsorBlockCategories
-          ? _value._sponsorBlockCategories
-          : sponsorBlockCategories // ignore: cast_nullable_to_non_nullable
-              as List<String>,
     ));
   }
 }
 
 /// @nodoc
 
-class _$GetNewPipeWatchInfoFastImpl implements GetNewPipeWatchInfoFast {
-  _$GetNewPipeWatchInfoFastImpl(
+class GetNewPipeWatchInfoFast
+    with DiagnosticableTreeMixin
+    implements WatchEvent {
+  GetNewPipeWatchInfoFast(
       {required this.id, required final List<String> sponsorBlockCategories})
       : _sponsorBlockCategories = sponsorBlockCategories;
 
-  @override
   final String id;
   final List<String> _sponsorBlockCategories;
-  @override
   List<String> get sponsorBlockCategories {
     if (_sponsorBlockCategories is EqualUnmodifiableListView)
       return _sponsorBlockCategories;
@@ -8781,16 +2480,28 @@ class _$GetNewPipeWatchInfoFastImpl implements GetNewPipeWatchInfoFast {
     return EqualUnmodifiableListView(_sponsorBlockCategories);
   }
 
+  /// Create a copy of WatchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $GetNewPipeWatchInfoFastCopyWith<GetNewPipeWatchInfoFast> get copyWith =>
+      _$GetNewPipeWatchInfoFastCopyWithImpl<GetNewPipeWatchInfoFast>(
+          this, _$identity);
+
   @override
-  String toString() {
-    return 'WatchEvent.getNewPipeWatchInfoFast(id: $id, sponsorBlockCategories: $sponsorBlockCategories)';
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(DiagnosticsProperty('type', 'WatchEvent.getNewPipeWatchInfoFast'))
+      ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty(
+          'sponsorBlockCategories', sponsorBlockCategories));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetNewPipeWatchInfoFastImpl &&
+            other is GetNewPipeWatchInfoFast &&
             (identical(other.id, id) || other.id == id) &&
             const DeepCollectionEquality().equals(
                 other._sponsorBlockCategories, _sponsorBlockCategories));
@@ -8800,343 +2511,115 @@ class _$GetNewPipeWatchInfoFastImpl implements GetNewPipeWatchInfoFast {
   int get hashCode => Object.hash(runtimeType, id,
       const DeepCollectionEquality().hash(_sponsorBlockCategories));
 
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$GetNewPipeWatchInfoFastImplCopyWith<_$GetNewPipeWatchInfoFastImpl>
-      get copyWith => __$$GetNewPipeWatchInfoFastImplCopyWithImpl<
-          _$GetNewPipeWatchInfoFastImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String id) getWatchInfo,
-    required TResult Function(String id) getCommentData,
-    required TResult Function(String id) forceFetchCommentData,
-    required TResult Function(String id, String nextPage) getCommentRepliesData,
-    required TResult Function(String id, String? nextPage) getMoreCommentsData,
-    required TResult Function(String id, String? nextPage)
-        getMoreReplyCommentsData,
-    required TResult Function(String id) getSubtitles,
-    required TResult Function() tapDescription,
-    required TResult Function(bool value) togglePip,
-    required TResult Function(String title) assignTitle,
-    required TResult Function(String id) getExplodeWatchInfo,
-    required TResult Function(String id) getExplodeRelatedVideoInfo,
-    required TResult Function(String id) getExplodeMuxStreamInfo,
-    required TResult Function(String id) getExplodeLiveVideoInfo,
-    required TResult Function(VideoBasicInfo details)
-        setSelectedVideoBasicDetails,
-    required TResult Function(String id) getInvidiousWatchInfo,
-    required TResult Function(String id) getInvidiousComments,
-    required TResult Function(String id) forceFetchInvidiousComments,
-    required TResult Function(String id, String continuation)
-        getInvidiousCommentReplies,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousComments,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousReplyComments,
-    required TResult Function(int? playBack) updatePlayBack,
-    required TResult Function(String id) getNewPipeWatchInfo,
-    required TResult Function(String id, List<String> sponsorBlockCategories)
-        getNewPipeWatchInfoFast,
-    required TResult Function(String id) getNewPipeComments,
-    required TResult Function(String id) forceFetchNewPipeComments,
-    required TResult Function(String id, String? nextPage)
-        getMoreNewPipeComments,
-    required TResult Function(String videoId, String repliesPage)
-        getNewPipeCommentReplies,
-    required TResult Function(String videoId, String? nextPage)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(String videoId, List<String> categories)
-        getSponsorSegments,
-  }) {
-    return getNewPipeWatchInfoFast(id, sponsorBlockCategories);
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'WatchEvent.getNewPipeWatchInfoFast(id: $id, sponsorBlockCategories: $sponsorBlockCategories)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String id)? getWatchInfo,
-    TResult? Function(String id)? getCommentData,
-    TResult? Function(String id)? forceFetchCommentData,
-    TResult? Function(String id, String nextPage)? getCommentRepliesData,
-    TResult? Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult? Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult? Function(String id)? getSubtitles,
-    TResult? Function()? tapDescription,
-    TResult? Function(bool value)? togglePip,
-    TResult? Function(String title)? assignTitle,
-    TResult? Function(String id)? getExplodeWatchInfo,
-    TResult? Function(String id)? getExplodeRelatedVideoInfo,
-    TResult? Function(String id)? getExplodeMuxStreamInfo,
-    TResult? Function(String id)? getExplodeLiveVideoInfo,
-    TResult? Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult? Function(String id)? getInvidiousWatchInfo,
-    TResult? Function(String id)? getInvidiousComments,
-    TResult? Function(String id)? forceFetchInvidiousComments,
-    TResult? Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousComments,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(int? playBack)? updatePlayBack,
-    TResult? Function(String id)? getNewPipeWatchInfo,
-    TResult? Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult? Function(String id)? getNewPipeComments,
-    TResult? Function(String id)? forceFetchNewPipeComments,
-    TResult? Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult? Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult? Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-  }) {
-    return getNewPipeWatchInfoFast?.call(id, sponsorBlockCategories);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String id)? getWatchInfo,
-    TResult Function(String id)? getCommentData,
-    TResult Function(String id)? forceFetchCommentData,
-    TResult Function(String id, String nextPage)? getCommentRepliesData,
-    TResult Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult Function(String id)? getSubtitles,
-    TResult Function()? tapDescription,
-    TResult Function(bool value)? togglePip,
-    TResult Function(String title)? assignTitle,
-    TResult Function(String id)? getExplodeWatchInfo,
-    TResult Function(String id)? getExplodeRelatedVideoInfo,
-    TResult Function(String id)? getExplodeMuxStreamInfo,
-    TResult Function(String id)? getExplodeLiveVideoInfo,
-    TResult Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult Function(String id)? getInvidiousWatchInfo,
-    TResult Function(String id)? getInvidiousComments,
-    TResult Function(String id)? forceFetchInvidiousComments,
-    TResult Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult Function(String id, String? continuation)? getMoreInvidiousComments,
-    TResult Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult Function(int? playBack)? updatePlayBack,
-    TResult Function(String id)? getNewPipeWatchInfo,
-    TResult Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult Function(String id)? getNewPipeComments,
-    TResult Function(String id)? forceFetchNewPipeComments,
-    TResult Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getNewPipeWatchInfoFast != null) {
-      return getNewPipeWatchInfoFast(id, sponsorBlockCategories);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GetWatchInfo value) getWatchInfo,
-    required TResult Function(GetCommentData value) getCommentData,
-    required TResult Function(ForceFetchCommentData value)
-        forceFetchCommentData,
-    required TResult Function(GetCommentRepliesData value)
-        getCommentRepliesData,
-    required TResult Function(GetMoreCommentsData value) getMoreCommentsData,
-    required TResult Function(GetMoreReplyCommentsData value)
-        getMoreReplyCommentsData,
-    required TResult Function(GetSubtitles value) getSubtitles,
-    required TResult Function(TapDescription value) tapDescription,
-    required TResult Function(TogglePip value) togglePip,
-    required TResult Function(AssignTitle value) assignTitle,
-    required TResult Function(GetExplodeWatchInfo value) getExplodeWatchInfo,
-    required TResult Function(GetExplodeRelatedVideoInfo value)
-        getExplodeRelatedVideoInfo,
-    required TResult Function(GetExplodeMuxStreamInfo value)
-        getExplodeMuxStreamInfo,
-    required TResult Function(GetExplodeLiveVideoInfo value)
-        getExplodeLiveVideoInfo,
-    required TResult Function(SetSelectedVideoBasicDetails value)
-        setSelectedVideoBasicDetails,
-    required TResult Function(GetInvidiousWatchInfo value)
-        getInvidiousWatchInfo,
-    required TResult Function(GetInvidiousComments value) getInvidiousComments,
-    required TResult Function(ForceFetchInvidiousComments value)
-        forceFetchInvidiousComments,
-    required TResult Function(GetInvidiousCommentReplies value)
-        getInvidiousCommentReplies,
-    required TResult Function(GetMoreInvidiousComments value)
-        getMoreInvidiousComments,
-    required TResult Function(GetMoreInvidiousReplyComments value)
-        getMoreInvidiousReplyComments,
-    required TResult Function(UpdatePlayBack value) updatePlayBack,
-    required TResult Function(GetNewPipeWatchInfo value) getNewPipeWatchInfo,
-    required TResult Function(GetNewPipeWatchInfoFast value)
-        getNewPipeWatchInfoFast,
-    required TResult Function(GetNewPipeComments value) getNewPipeComments,
-    required TResult Function(ForceFetchNewPipeComments value)
-        forceFetchNewPipeComments,
-    required TResult Function(GetMoreNewPipeComments value)
-        getMoreNewPipeComments,
-    required TResult Function(GetNewPipeCommentReplies value)
-        getNewPipeCommentReplies,
-    required TResult Function(GetMoreNewPipeCommentReplies value)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(GetSponsorSegments value) getSponsorSegments,
-  }) {
-    return getNewPipeWatchInfoFast(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GetWatchInfo value)? getWatchInfo,
-    TResult? Function(GetCommentData value)? getCommentData,
-    TResult? Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult? Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult? Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult? Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult? Function(GetSubtitles value)? getSubtitles,
-    TResult? Function(TapDescription value)? tapDescription,
-    TResult? Function(TogglePip value)? togglePip,
-    TResult? Function(AssignTitle value)? assignTitle,
-    TResult? Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult? Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult? Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult? Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult? Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult? Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult? Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult? Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult? Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult? Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult? Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(UpdatePlayBack value)? updatePlayBack,
-    TResult? Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult? Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult? Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult? Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult? Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult? Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult? Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(GetSponsorSegments value)? getSponsorSegments,
-  }) {
-    return getNewPipeWatchInfoFast?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetWatchInfo value)? getWatchInfo,
-    TResult Function(GetCommentData value)? getCommentData,
-    TResult Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult Function(GetSubtitles value)? getSubtitles,
-    TResult Function(TapDescription value)? tapDescription,
-    TResult Function(TogglePip value)? togglePip,
-    TResult Function(AssignTitle value)? assignTitle,
-    TResult Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult Function(UpdatePlayBack value)? updatePlayBack,
-    TResult Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(GetSponsorSegments value)? getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getNewPipeWatchInfoFast != null) {
-      return getNewPipeWatchInfoFast(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class GetNewPipeWatchInfoFast implements WatchEvent {
-  factory GetNewPipeWatchInfoFast(
-          {required final String id,
-          required final List<String> sponsorBlockCategories}) =
-      _$GetNewPipeWatchInfoFastImpl;
-
-  String get id;
-  List<String> get sponsorBlockCategories;
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetNewPipeWatchInfoFastImplCopyWith<_$GetNewPipeWatchInfoFastImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$GetNewPipeCommentsImplCopyWith<$Res> {
-  factory _$$GetNewPipeCommentsImplCopyWith(_$GetNewPipeCommentsImpl value,
-          $Res Function(_$GetNewPipeCommentsImpl) then) =
-      __$$GetNewPipeCommentsImplCopyWithImpl<$Res>;
+abstract mixin class $GetNewPipeWatchInfoFastCopyWith<$Res>
+    implements $WatchEventCopyWith<$Res> {
+  factory $GetNewPipeWatchInfoFastCopyWith(GetNewPipeWatchInfoFast value,
+          $Res Function(GetNewPipeWatchInfoFast) _then) =
+      _$GetNewPipeWatchInfoFastCopyWithImpl;
+  @useResult
+  $Res call({String id, List<String> sponsorBlockCategories});
+}
+
+/// @nodoc
+class _$GetNewPipeWatchInfoFastCopyWithImpl<$Res>
+    implements $GetNewPipeWatchInfoFastCopyWith<$Res> {
+  _$GetNewPipeWatchInfoFastCopyWithImpl(this._self, this._then);
+
+  final GetNewPipeWatchInfoFast _self;
+  final $Res Function(GetNewPipeWatchInfoFast) _then;
+
+  /// Create a copy of WatchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? id = null,
+    Object? sponsorBlockCategories = null,
+  }) {
+    return _then(GetNewPipeWatchInfoFast(
+      id: null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      sponsorBlockCategories: null == sponsorBlockCategories
+          ? _self._sponsorBlockCategories
+          : sponsorBlockCategories // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class GetNewPipeComments with DiagnosticableTreeMixin implements WatchEvent {
+  GetNewPipeComments({required this.id});
+
+  final String id;
+
+  /// Create a copy of WatchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $GetNewPipeCommentsCopyWith<GetNewPipeComments> get copyWith =>
+      _$GetNewPipeCommentsCopyWithImpl<GetNewPipeComments>(this, _$identity);
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(DiagnosticsProperty('type', 'WatchEvent.getNewPipeComments'))
+      ..add(DiagnosticsProperty('id', id));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is GetNewPipeComments &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'WatchEvent.getNewPipeComments(id: $id)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $GetNewPipeCommentsCopyWith<$Res>
+    implements $WatchEventCopyWith<$Res> {
+  factory $GetNewPipeCommentsCopyWith(
+          GetNewPipeComments value, $Res Function(GetNewPipeComments) _then) =
+      _$GetNewPipeCommentsCopyWithImpl;
   @useResult
   $Res call({String id});
 }
 
 /// @nodoc
-class __$$GetNewPipeCommentsImplCopyWithImpl<$Res>
-    extends _$WatchEventCopyWithImpl<$Res, _$GetNewPipeCommentsImpl>
-    implements _$$GetNewPipeCommentsImplCopyWith<$Res> {
-  __$$GetNewPipeCommentsImplCopyWithImpl(_$GetNewPipeCommentsImpl _value,
-      $Res Function(_$GetNewPipeCommentsImpl) _then)
-      : super(_value, _then);
+class _$GetNewPipeCommentsCopyWithImpl<$Res>
+    implements $GetNewPipeCommentsCopyWith<$Res> {
+  _$GetNewPipeCommentsCopyWithImpl(this._self, this._then);
+
+  final GetNewPipeComments _self;
+  final $Res Function(GetNewPipeComments) _then;
 
   /// Create a copy of WatchEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? id = null,
   }) {
-    return _then(_$GetNewPipeCommentsImpl(
+    return _then(GetNewPipeComments(
       id: null == id
-          ? _value.id
+          ? _self.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -9145,761 +2628,109 @@ class __$$GetNewPipeCommentsImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$GetNewPipeCommentsImpl implements GetNewPipeComments {
-  _$GetNewPipeCommentsImpl({required this.id});
+class ForceFetchNewPipeComments
+    with DiagnosticableTreeMixin
+    implements WatchEvent {
+  ForceFetchNewPipeComments({required this.id});
 
-  @override
   final String id;
-
-  @override
-  String toString() {
-    return 'WatchEvent.getNewPipeComments(id: $id)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$GetNewPipeCommentsImpl &&
-            (identical(other.id, id) || other.id == id));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, id);
 
   /// Create a copy of WatchEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
   @pragma('vm:prefer-inline')
-  _$$GetNewPipeCommentsImplCopyWith<_$GetNewPipeCommentsImpl> get copyWith =>
-      __$$GetNewPipeCommentsImplCopyWithImpl<_$GetNewPipeCommentsImpl>(
+  $ForceFetchNewPipeCommentsCopyWith<ForceFetchNewPipeComments> get copyWith =>
+      _$ForceFetchNewPipeCommentsCopyWithImpl<ForceFetchNewPipeComments>(
           this, _$identity);
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String id) getWatchInfo,
-    required TResult Function(String id) getCommentData,
-    required TResult Function(String id) forceFetchCommentData,
-    required TResult Function(String id, String nextPage) getCommentRepliesData,
-    required TResult Function(String id, String? nextPage) getMoreCommentsData,
-    required TResult Function(String id, String? nextPage)
-        getMoreReplyCommentsData,
-    required TResult Function(String id) getSubtitles,
-    required TResult Function() tapDescription,
-    required TResult Function(bool value) togglePip,
-    required TResult Function(String title) assignTitle,
-    required TResult Function(String id) getExplodeWatchInfo,
-    required TResult Function(String id) getExplodeRelatedVideoInfo,
-    required TResult Function(String id) getExplodeMuxStreamInfo,
-    required TResult Function(String id) getExplodeLiveVideoInfo,
-    required TResult Function(VideoBasicInfo details)
-        setSelectedVideoBasicDetails,
-    required TResult Function(String id) getInvidiousWatchInfo,
-    required TResult Function(String id) getInvidiousComments,
-    required TResult Function(String id) forceFetchInvidiousComments,
-    required TResult Function(String id, String continuation)
-        getInvidiousCommentReplies,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousComments,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousReplyComments,
-    required TResult Function(int? playBack) updatePlayBack,
-    required TResult Function(String id) getNewPipeWatchInfo,
-    required TResult Function(String id, List<String> sponsorBlockCategories)
-        getNewPipeWatchInfoFast,
-    required TResult Function(String id) getNewPipeComments,
-    required TResult Function(String id) forceFetchNewPipeComments,
-    required TResult Function(String id, String? nextPage)
-        getMoreNewPipeComments,
-    required TResult Function(String videoId, String repliesPage)
-        getNewPipeCommentReplies,
-    required TResult Function(String videoId, String? nextPage)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(String videoId, List<String> categories)
-        getSponsorSegments,
-  }) {
-    return getNewPipeComments(id);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String id)? getWatchInfo,
-    TResult? Function(String id)? getCommentData,
-    TResult? Function(String id)? forceFetchCommentData,
-    TResult? Function(String id, String nextPage)? getCommentRepliesData,
-    TResult? Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult? Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult? Function(String id)? getSubtitles,
-    TResult? Function()? tapDescription,
-    TResult? Function(bool value)? togglePip,
-    TResult? Function(String title)? assignTitle,
-    TResult? Function(String id)? getExplodeWatchInfo,
-    TResult? Function(String id)? getExplodeRelatedVideoInfo,
-    TResult? Function(String id)? getExplodeMuxStreamInfo,
-    TResult? Function(String id)? getExplodeLiveVideoInfo,
-    TResult? Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult? Function(String id)? getInvidiousWatchInfo,
-    TResult? Function(String id)? getInvidiousComments,
-    TResult? Function(String id)? forceFetchInvidiousComments,
-    TResult? Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousComments,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(int? playBack)? updatePlayBack,
-    TResult? Function(String id)? getNewPipeWatchInfo,
-    TResult? Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult? Function(String id)? getNewPipeComments,
-    TResult? Function(String id)? forceFetchNewPipeComments,
-    TResult? Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult? Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult? Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-  }) {
-    return getNewPipeComments?.call(id);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String id)? getWatchInfo,
-    TResult Function(String id)? getCommentData,
-    TResult Function(String id)? forceFetchCommentData,
-    TResult Function(String id, String nextPage)? getCommentRepliesData,
-    TResult Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult Function(String id)? getSubtitles,
-    TResult Function()? tapDescription,
-    TResult Function(bool value)? togglePip,
-    TResult Function(String title)? assignTitle,
-    TResult Function(String id)? getExplodeWatchInfo,
-    TResult Function(String id)? getExplodeRelatedVideoInfo,
-    TResult Function(String id)? getExplodeMuxStreamInfo,
-    TResult Function(String id)? getExplodeLiveVideoInfo,
-    TResult Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult Function(String id)? getInvidiousWatchInfo,
-    TResult Function(String id)? getInvidiousComments,
-    TResult Function(String id)? forceFetchInvidiousComments,
-    TResult Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult Function(String id, String? continuation)? getMoreInvidiousComments,
-    TResult Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult Function(int? playBack)? updatePlayBack,
-    TResult Function(String id)? getNewPipeWatchInfo,
-    TResult Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult Function(String id)? getNewPipeComments,
-    TResult Function(String id)? forceFetchNewPipeComments,
-    TResult Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getNewPipeComments != null) {
-      return getNewPipeComments(id);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GetWatchInfo value) getWatchInfo,
-    required TResult Function(GetCommentData value) getCommentData,
-    required TResult Function(ForceFetchCommentData value)
-        forceFetchCommentData,
-    required TResult Function(GetCommentRepliesData value)
-        getCommentRepliesData,
-    required TResult Function(GetMoreCommentsData value) getMoreCommentsData,
-    required TResult Function(GetMoreReplyCommentsData value)
-        getMoreReplyCommentsData,
-    required TResult Function(GetSubtitles value) getSubtitles,
-    required TResult Function(TapDescription value) tapDescription,
-    required TResult Function(TogglePip value) togglePip,
-    required TResult Function(AssignTitle value) assignTitle,
-    required TResult Function(GetExplodeWatchInfo value) getExplodeWatchInfo,
-    required TResult Function(GetExplodeRelatedVideoInfo value)
-        getExplodeRelatedVideoInfo,
-    required TResult Function(GetExplodeMuxStreamInfo value)
-        getExplodeMuxStreamInfo,
-    required TResult Function(GetExplodeLiveVideoInfo value)
-        getExplodeLiveVideoInfo,
-    required TResult Function(SetSelectedVideoBasicDetails value)
-        setSelectedVideoBasicDetails,
-    required TResult Function(GetInvidiousWatchInfo value)
-        getInvidiousWatchInfo,
-    required TResult Function(GetInvidiousComments value) getInvidiousComments,
-    required TResult Function(ForceFetchInvidiousComments value)
-        forceFetchInvidiousComments,
-    required TResult Function(GetInvidiousCommentReplies value)
-        getInvidiousCommentReplies,
-    required TResult Function(GetMoreInvidiousComments value)
-        getMoreInvidiousComments,
-    required TResult Function(GetMoreInvidiousReplyComments value)
-        getMoreInvidiousReplyComments,
-    required TResult Function(UpdatePlayBack value) updatePlayBack,
-    required TResult Function(GetNewPipeWatchInfo value) getNewPipeWatchInfo,
-    required TResult Function(GetNewPipeWatchInfoFast value)
-        getNewPipeWatchInfoFast,
-    required TResult Function(GetNewPipeComments value) getNewPipeComments,
-    required TResult Function(ForceFetchNewPipeComments value)
-        forceFetchNewPipeComments,
-    required TResult Function(GetMoreNewPipeComments value)
-        getMoreNewPipeComments,
-    required TResult Function(GetNewPipeCommentReplies value)
-        getNewPipeCommentReplies,
-    required TResult Function(GetMoreNewPipeCommentReplies value)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(GetSponsorSegments value) getSponsorSegments,
-  }) {
-    return getNewPipeComments(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GetWatchInfo value)? getWatchInfo,
-    TResult? Function(GetCommentData value)? getCommentData,
-    TResult? Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult? Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult? Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult? Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult? Function(GetSubtitles value)? getSubtitles,
-    TResult? Function(TapDescription value)? tapDescription,
-    TResult? Function(TogglePip value)? togglePip,
-    TResult? Function(AssignTitle value)? assignTitle,
-    TResult? Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult? Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult? Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult? Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult? Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult? Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult? Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult? Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult? Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult? Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult? Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(UpdatePlayBack value)? updatePlayBack,
-    TResult? Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult? Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult? Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult? Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult? Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult? Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult? Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(GetSponsorSegments value)? getSponsorSegments,
-  }) {
-    return getNewPipeComments?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetWatchInfo value)? getWatchInfo,
-    TResult Function(GetCommentData value)? getCommentData,
-    TResult Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult Function(GetSubtitles value)? getSubtitles,
-    TResult Function(TapDescription value)? tapDescription,
-    TResult Function(TogglePip value)? togglePip,
-    TResult Function(AssignTitle value)? assignTitle,
-    TResult Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult Function(UpdatePlayBack value)? updatePlayBack,
-    TResult Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(GetSponsorSegments value)? getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getNewPipeComments != null) {
-      return getNewPipeComments(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class GetNewPipeComments implements WatchEvent {
-  factory GetNewPipeComments({required final String id}) =
-      _$GetNewPipeCommentsImpl;
-
-  String get id;
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetNewPipeCommentsImplCopyWith<_$GetNewPipeCommentsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$ForceFetchNewPipeCommentsImplCopyWith<$Res> {
-  factory _$$ForceFetchNewPipeCommentsImplCopyWith(
-          _$ForceFetchNewPipeCommentsImpl value,
-          $Res Function(_$ForceFetchNewPipeCommentsImpl) then) =
-      __$$ForceFetchNewPipeCommentsImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String id});
-}
-
-/// @nodoc
-class __$$ForceFetchNewPipeCommentsImplCopyWithImpl<$Res>
-    extends _$WatchEventCopyWithImpl<$Res, _$ForceFetchNewPipeCommentsImpl>
-    implements _$$ForceFetchNewPipeCommentsImplCopyWith<$Res> {
-  __$$ForceFetchNewPipeCommentsImplCopyWithImpl(
-      _$ForceFetchNewPipeCommentsImpl _value,
-      $Res Function(_$ForceFetchNewPipeCommentsImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-  }) {
-    return _then(_$ForceFetchNewPipeCommentsImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$ForceFetchNewPipeCommentsImpl implements ForceFetchNewPipeComments {
-  _$ForceFetchNewPipeCommentsImpl({required this.id});
-
-  @override
-  final String id;
-
-  @override
-  String toString() {
-    return 'WatchEvent.forceFetchNewPipeComments(id: $id)';
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(DiagnosticsProperty('type', 'WatchEvent.forceFetchNewPipeComments'))
+      ..add(DiagnosticsProperty('id', id));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ForceFetchNewPipeCommentsImpl &&
+            other is ForceFetchNewPipeComments &&
             (identical(other.id, id) || other.id == id));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, id);
 
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ForceFetchNewPipeCommentsImplCopyWith<_$ForceFetchNewPipeCommentsImpl>
-      get copyWith => __$$ForceFetchNewPipeCommentsImplCopyWithImpl<
-          _$ForceFetchNewPipeCommentsImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String id) getWatchInfo,
-    required TResult Function(String id) getCommentData,
-    required TResult Function(String id) forceFetchCommentData,
-    required TResult Function(String id, String nextPage) getCommentRepliesData,
-    required TResult Function(String id, String? nextPage) getMoreCommentsData,
-    required TResult Function(String id, String? nextPage)
-        getMoreReplyCommentsData,
-    required TResult Function(String id) getSubtitles,
-    required TResult Function() tapDescription,
-    required TResult Function(bool value) togglePip,
-    required TResult Function(String title) assignTitle,
-    required TResult Function(String id) getExplodeWatchInfo,
-    required TResult Function(String id) getExplodeRelatedVideoInfo,
-    required TResult Function(String id) getExplodeMuxStreamInfo,
-    required TResult Function(String id) getExplodeLiveVideoInfo,
-    required TResult Function(VideoBasicInfo details)
-        setSelectedVideoBasicDetails,
-    required TResult Function(String id) getInvidiousWatchInfo,
-    required TResult Function(String id) getInvidiousComments,
-    required TResult Function(String id) forceFetchInvidiousComments,
-    required TResult Function(String id, String continuation)
-        getInvidiousCommentReplies,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousComments,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousReplyComments,
-    required TResult Function(int? playBack) updatePlayBack,
-    required TResult Function(String id) getNewPipeWatchInfo,
-    required TResult Function(String id, List<String> sponsorBlockCategories)
-        getNewPipeWatchInfoFast,
-    required TResult Function(String id) getNewPipeComments,
-    required TResult Function(String id) forceFetchNewPipeComments,
-    required TResult Function(String id, String? nextPage)
-        getMoreNewPipeComments,
-    required TResult Function(String videoId, String repliesPage)
-        getNewPipeCommentReplies,
-    required TResult Function(String videoId, String? nextPage)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(String videoId, List<String> categories)
-        getSponsorSegments,
-  }) {
-    return forceFetchNewPipeComments(id);
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'WatchEvent.forceFetchNewPipeComments(id: $id)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String id)? getWatchInfo,
-    TResult? Function(String id)? getCommentData,
-    TResult? Function(String id)? forceFetchCommentData,
-    TResult? Function(String id, String nextPage)? getCommentRepliesData,
-    TResult? Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult? Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult? Function(String id)? getSubtitles,
-    TResult? Function()? tapDescription,
-    TResult? Function(bool value)? togglePip,
-    TResult? Function(String title)? assignTitle,
-    TResult? Function(String id)? getExplodeWatchInfo,
-    TResult? Function(String id)? getExplodeRelatedVideoInfo,
-    TResult? Function(String id)? getExplodeMuxStreamInfo,
-    TResult? Function(String id)? getExplodeLiveVideoInfo,
-    TResult? Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult? Function(String id)? getInvidiousWatchInfo,
-    TResult? Function(String id)? getInvidiousComments,
-    TResult? Function(String id)? forceFetchInvidiousComments,
-    TResult? Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousComments,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(int? playBack)? updatePlayBack,
-    TResult? Function(String id)? getNewPipeWatchInfo,
-    TResult? Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult? Function(String id)? getNewPipeComments,
-    TResult? Function(String id)? forceFetchNewPipeComments,
-    TResult? Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult? Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult? Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-  }) {
-    return forceFetchNewPipeComments?.call(id);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String id)? getWatchInfo,
-    TResult Function(String id)? getCommentData,
-    TResult Function(String id)? forceFetchCommentData,
-    TResult Function(String id, String nextPage)? getCommentRepliesData,
-    TResult Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult Function(String id)? getSubtitles,
-    TResult Function()? tapDescription,
-    TResult Function(bool value)? togglePip,
-    TResult Function(String title)? assignTitle,
-    TResult Function(String id)? getExplodeWatchInfo,
-    TResult Function(String id)? getExplodeRelatedVideoInfo,
-    TResult Function(String id)? getExplodeMuxStreamInfo,
-    TResult Function(String id)? getExplodeLiveVideoInfo,
-    TResult Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult Function(String id)? getInvidiousWatchInfo,
-    TResult Function(String id)? getInvidiousComments,
-    TResult Function(String id)? forceFetchInvidiousComments,
-    TResult Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult Function(String id, String? continuation)? getMoreInvidiousComments,
-    TResult Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult Function(int? playBack)? updatePlayBack,
-    TResult Function(String id)? getNewPipeWatchInfo,
-    TResult Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult Function(String id)? getNewPipeComments,
-    TResult Function(String id)? forceFetchNewPipeComments,
-    TResult Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (forceFetchNewPipeComments != null) {
-      return forceFetchNewPipeComments(id);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GetWatchInfo value) getWatchInfo,
-    required TResult Function(GetCommentData value) getCommentData,
-    required TResult Function(ForceFetchCommentData value)
-        forceFetchCommentData,
-    required TResult Function(GetCommentRepliesData value)
-        getCommentRepliesData,
-    required TResult Function(GetMoreCommentsData value) getMoreCommentsData,
-    required TResult Function(GetMoreReplyCommentsData value)
-        getMoreReplyCommentsData,
-    required TResult Function(GetSubtitles value) getSubtitles,
-    required TResult Function(TapDescription value) tapDescription,
-    required TResult Function(TogglePip value) togglePip,
-    required TResult Function(AssignTitle value) assignTitle,
-    required TResult Function(GetExplodeWatchInfo value) getExplodeWatchInfo,
-    required TResult Function(GetExplodeRelatedVideoInfo value)
-        getExplodeRelatedVideoInfo,
-    required TResult Function(GetExplodeMuxStreamInfo value)
-        getExplodeMuxStreamInfo,
-    required TResult Function(GetExplodeLiveVideoInfo value)
-        getExplodeLiveVideoInfo,
-    required TResult Function(SetSelectedVideoBasicDetails value)
-        setSelectedVideoBasicDetails,
-    required TResult Function(GetInvidiousWatchInfo value)
-        getInvidiousWatchInfo,
-    required TResult Function(GetInvidiousComments value) getInvidiousComments,
-    required TResult Function(ForceFetchInvidiousComments value)
-        forceFetchInvidiousComments,
-    required TResult Function(GetInvidiousCommentReplies value)
-        getInvidiousCommentReplies,
-    required TResult Function(GetMoreInvidiousComments value)
-        getMoreInvidiousComments,
-    required TResult Function(GetMoreInvidiousReplyComments value)
-        getMoreInvidiousReplyComments,
-    required TResult Function(UpdatePlayBack value) updatePlayBack,
-    required TResult Function(GetNewPipeWatchInfo value) getNewPipeWatchInfo,
-    required TResult Function(GetNewPipeWatchInfoFast value)
-        getNewPipeWatchInfoFast,
-    required TResult Function(GetNewPipeComments value) getNewPipeComments,
-    required TResult Function(ForceFetchNewPipeComments value)
-        forceFetchNewPipeComments,
-    required TResult Function(GetMoreNewPipeComments value)
-        getMoreNewPipeComments,
-    required TResult Function(GetNewPipeCommentReplies value)
-        getNewPipeCommentReplies,
-    required TResult Function(GetMoreNewPipeCommentReplies value)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(GetSponsorSegments value) getSponsorSegments,
-  }) {
-    return forceFetchNewPipeComments(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GetWatchInfo value)? getWatchInfo,
-    TResult? Function(GetCommentData value)? getCommentData,
-    TResult? Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult? Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult? Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult? Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult? Function(GetSubtitles value)? getSubtitles,
-    TResult? Function(TapDescription value)? tapDescription,
-    TResult? Function(TogglePip value)? togglePip,
-    TResult? Function(AssignTitle value)? assignTitle,
-    TResult? Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult? Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult? Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult? Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult? Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult? Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult? Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult? Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult? Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult? Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult? Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(UpdatePlayBack value)? updatePlayBack,
-    TResult? Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult? Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult? Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult? Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult? Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult? Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult? Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(GetSponsorSegments value)? getSponsorSegments,
-  }) {
-    return forceFetchNewPipeComments?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetWatchInfo value)? getWatchInfo,
-    TResult Function(GetCommentData value)? getCommentData,
-    TResult Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult Function(GetSubtitles value)? getSubtitles,
-    TResult Function(TapDescription value)? tapDescription,
-    TResult Function(TogglePip value)? togglePip,
-    TResult Function(AssignTitle value)? assignTitle,
-    TResult Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult Function(UpdatePlayBack value)? updatePlayBack,
-    TResult Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(GetSponsorSegments value)? getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (forceFetchNewPipeComments != null) {
-      return forceFetchNewPipeComments(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ForceFetchNewPipeComments implements WatchEvent {
-  factory ForceFetchNewPipeComments({required final String id}) =
-      _$ForceFetchNewPipeCommentsImpl;
-
-  String get id;
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ForceFetchNewPipeCommentsImplCopyWith<_$ForceFetchNewPipeCommentsImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$GetMoreNewPipeCommentsImplCopyWith<$Res> {
-  factory _$$GetMoreNewPipeCommentsImplCopyWith(
-          _$GetMoreNewPipeCommentsImpl value,
-          $Res Function(_$GetMoreNewPipeCommentsImpl) then) =
-      __$$GetMoreNewPipeCommentsImplCopyWithImpl<$Res>;
+abstract mixin class $ForceFetchNewPipeCommentsCopyWith<$Res>
+    implements $WatchEventCopyWith<$Res> {
+  factory $ForceFetchNewPipeCommentsCopyWith(ForceFetchNewPipeComments value,
+          $Res Function(ForceFetchNewPipeComments) _then) =
+      _$ForceFetchNewPipeCommentsCopyWithImpl;
   @useResult
-  $Res call({String id, String? nextPage});
+  $Res call({String id});
 }
 
 /// @nodoc
-class __$$GetMoreNewPipeCommentsImplCopyWithImpl<$Res>
-    extends _$WatchEventCopyWithImpl<$Res, _$GetMoreNewPipeCommentsImpl>
-    implements _$$GetMoreNewPipeCommentsImplCopyWith<$Res> {
-  __$$GetMoreNewPipeCommentsImplCopyWithImpl(
-      _$GetMoreNewPipeCommentsImpl _value,
-      $Res Function(_$GetMoreNewPipeCommentsImpl) _then)
-      : super(_value, _then);
+class _$ForceFetchNewPipeCommentsCopyWithImpl<$Res>
+    implements $ForceFetchNewPipeCommentsCopyWith<$Res> {
+  _$ForceFetchNewPipeCommentsCopyWithImpl(this._self, this._then);
+
+  final ForceFetchNewPipeComments _self;
+  final $Res Function(ForceFetchNewPipeComments) _then;
 
   /// Create a copy of WatchEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? id = null,
-    Object? nextPage = freezed,
   }) {
-    return _then(_$GetMoreNewPipeCommentsImpl(
+    return _then(ForceFetchNewPipeComments(
       id: null == id
-          ? _value.id
+          ? _self.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      nextPage: freezed == nextPage
-          ? _value.nextPage
-          : nextPage // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
 
 /// @nodoc
 
-class _$GetMoreNewPipeCommentsImpl implements GetMoreNewPipeComments {
-  _$GetMoreNewPipeCommentsImpl({required this.id, required this.nextPage});
+class GetMoreNewPipeComments
+    with DiagnosticableTreeMixin
+    implements WatchEvent {
+  GetMoreNewPipeComments({required this.id, required this.nextPage});
 
-  @override
   final String id;
-  @override
   final String? nextPage;
 
+  /// Create a copy of WatchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $GetMoreNewPipeCommentsCopyWith<GetMoreNewPipeComments> get copyWith =>
+      _$GetMoreNewPipeCommentsCopyWithImpl<GetMoreNewPipeComments>(
+          this, _$identity);
+
   @override
-  String toString() {
-    return 'WatchEvent.getMoreNewPipeComments(id: $id, nextPage: $nextPage)';
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(DiagnosticsProperty('type', 'WatchEvent.getMoreNewPipeComments'))
+      ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('nextPage', nextPage));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetMoreNewPipeCommentsImpl &&
+            other is GetMoreNewPipeComments &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.nextPage, nextPage) ||
                 other.nextPage == nextPage));
@@ -9908,727 +2739,44 @@ class _$GetMoreNewPipeCommentsImpl implements GetMoreNewPipeComments {
   @override
   int get hashCode => Object.hash(runtimeType, id, nextPage);
 
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$GetMoreNewPipeCommentsImplCopyWith<_$GetMoreNewPipeCommentsImpl>
-      get copyWith => __$$GetMoreNewPipeCommentsImplCopyWithImpl<
-          _$GetMoreNewPipeCommentsImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String id) getWatchInfo,
-    required TResult Function(String id) getCommentData,
-    required TResult Function(String id) forceFetchCommentData,
-    required TResult Function(String id, String nextPage) getCommentRepliesData,
-    required TResult Function(String id, String? nextPage) getMoreCommentsData,
-    required TResult Function(String id, String? nextPage)
-        getMoreReplyCommentsData,
-    required TResult Function(String id) getSubtitles,
-    required TResult Function() tapDescription,
-    required TResult Function(bool value) togglePip,
-    required TResult Function(String title) assignTitle,
-    required TResult Function(String id) getExplodeWatchInfo,
-    required TResult Function(String id) getExplodeRelatedVideoInfo,
-    required TResult Function(String id) getExplodeMuxStreamInfo,
-    required TResult Function(String id) getExplodeLiveVideoInfo,
-    required TResult Function(VideoBasicInfo details)
-        setSelectedVideoBasicDetails,
-    required TResult Function(String id) getInvidiousWatchInfo,
-    required TResult Function(String id) getInvidiousComments,
-    required TResult Function(String id) forceFetchInvidiousComments,
-    required TResult Function(String id, String continuation)
-        getInvidiousCommentReplies,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousComments,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousReplyComments,
-    required TResult Function(int? playBack) updatePlayBack,
-    required TResult Function(String id) getNewPipeWatchInfo,
-    required TResult Function(String id, List<String> sponsorBlockCategories)
-        getNewPipeWatchInfoFast,
-    required TResult Function(String id) getNewPipeComments,
-    required TResult Function(String id) forceFetchNewPipeComments,
-    required TResult Function(String id, String? nextPage)
-        getMoreNewPipeComments,
-    required TResult Function(String videoId, String repliesPage)
-        getNewPipeCommentReplies,
-    required TResult Function(String videoId, String? nextPage)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(String videoId, List<String> categories)
-        getSponsorSegments,
-  }) {
-    return getMoreNewPipeComments(id, nextPage);
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'WatchEvent.getMoreNewPipeComments(id: $id, nextPage: $nextPage)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String id)? getWatchInfo,
-    TResult? Function(String id)? getCommentData,
-    TResult? Function(String id)? forceFetchCommentData,
-    TResult? Function(String id, String nextPage)? getCommentRepliesData,
-    TResult? Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult? Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult? Function(String id)? getSubtitles,
-    TResult? Function()? tapDescription,
-    TResult? Function(bool value)? togglePip,
-    TResult? Function(String title)? assignTitle,
-    TResult? Function(String id)? getExplodeWatchInfo,
-    TResult? Function(String id)? getExplodeRelatedVideoInfo,
-    TResult? Function(String id)? getExplodeMuxStreamInfo,
-    TResult? Function(String id)? getExplodeLiveVideoInfo,
-    TResult? Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult? Function(String id)? getInvidiousWatchInfo,
-    TResult? Function(String id)? getInvidiousComments,
-    TResult? Function(String id)? forceFetchInvidiousComments,
-    TResult? Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousComments,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(int? playBack)? updatePlayBack,
-    TResult? Function(String id)? getNewPipeWatchInfo,
-    TResult? Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult? Function(String id)? getNewPipeComments,
-    TResult? Function(String id)? forceFetchNewPipeComments,
-    TResult? Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult? Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult? Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-  }) {
-    return getMoreNewPipeComments?.call(id, nextPage);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String id)? getWatchInfo,
-    TResult Function(String id)? getCommentData,
-    TResult Function(String id)? forceFetchCommentData,
-    TResult Function(String id, String nextPage)? getCommentRepliesData,
-    TResult Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult Function(String id)? getSubtitles,
-    TResult Function()? tapDescription,
-    TResult Function(bool value)? togglePip,
-    TResult Function(String title)? assignTitle,
-    TResult Function(String id)? getExplodeWatchInfo,
-    TResult Function(String id)? getExplodeRelatedVideoInfo,
-    TResult Function(String id)? getExplodeMuxStreamInfo,
-    TResult Function(String id)? getExplodeLiveVideoInfo,
-    TResult Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult Function(String id)? getInvidiousWatchInfo,
-    TResult Function(String id)? getInvidiousComments,
-    TResult Function(String id)? forceFetchInvidiousComments,
-    TResult Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult Function(String id, String? continuation)? getMoreInvidiousComments,
-    TResult Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult Function(int? playBack)? updatePlayBack,
-    TResult Function(String id)? getNewPipeWatchInfo,
-    TResult Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult Function(String id)? getNewPipeComments,
-    TResult Function(String id)? forceFetchNewPipeComments,
-    TResult Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getMoreNewPipeComments != null) {
-      return getMoreNewPipeComments(id, nextPage);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GetWatchInfo value) getWatchInfo,
-    required TResult Function(GetCommentData value) getCommentData,
-    required TResult Function(ForceFetchCommentData value)
-        forceFetchCommentData,
-    required TResult Function(GetCommentRepliesData value)
-        getCommentRepliesData,
-    required TResult Function(GetMoreCommentsData value) getMoreCommentsData,
-    required TResult Function(GetMoreReplyCommentsData value)
-        getMoreReplyCommentsData,
-    required TResult Function(GetSubtitles value) getSubtitles,
-    required TResult Function(TapDescription value) tapDescription,
-    required TResult Function(TogglePip value) togglePip,
-    required TResult Function(AssignTitle value) assignTitle,
-    required TResult Function(GetExplodeWatchInfo value) getExplodeWatchInfo,
-    required TResult Function(GetExplodeRelatedVideoInfo value)
-        getExplodeRelatedVideoInfo,
-    required TResult Function(GetExplodeMuxStreamInfo value)
-        getExplodeMuxStreamInfo,
-    required TResult Function(GetExplodeLiveVideoInfo value)
-        getExplodeLiveVideoInfo,
-    required TResult Function(SetSelectedVideoBasicDetails value)
-        setSelectedVideoBasicDetails,
-    required TResult Function(GetInvidiousWatchInfo value)
-        getInvidiousWatchInfo,
-    required TResult Function(GetInvidiousComments value) getInvidiousComments,
-    required TResult Function(ForceFetchInvidiousComments value)
-        forceFetchInvidiousComments,
-    required TResult Function(GetInvidiousCommentReplies value)
-        getInvidiousCommentReplies,
-    required TResult Function(GetMoreInvidiousComments value)
-        getMoreInvidiousComments,
-    required TResult Function(GetMoreInvidiousReplyComments value)
-        getMoreInvidiousReplyComments,
-    required TResult Function(UpdatePlayBack value) updatePlayBack,
-    required TResult Function(GetNewPipeWatchInfo value) getNewPipeWatchInfo,
-    required TResult Function(GetNewPipeWatchInfoFast value)
-        getNewPipeWatchInfoFast,
-    required TResult Function(GetNewPipeComments value) getNewPipeComments,
-    required TResult Function(ForceFetchNewPipeComments value)
-        forceFetchNewPipeComments,
-    required TResult Function(GetMoreNewPipeComments value)
-        getMoreNewPipeComments,
-    required TResult Function(GetNewPipeCommentReplies value)
-        getNewPipeCommentReplies,
-    required TResult Function(GetMoreNewPipeCommentReplies value)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(GetSponsorSegments value) getSponsorSegments,
-  }) {
-    return getMoreNewPipeComments(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GetWatchInfo value)? getWatchInfo,
-    TResult? Function(GetCommentData value)? getCommentData,
-    TResult? Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult? Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult? Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult? Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult? Function(GetSubtitles value)? getSubtitles,
-    TResult? Function(TapDescription value)? tapDescription,
-    TResult? Function(TogglePip value)? togglePip,
-    TResult? Function(AssignTitle value)? assignTitle,
-    TResult? Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult? Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult? Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult? Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult? Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult? Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult? Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult? Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult? Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult? Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult? Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(UpdatePlayBack value)? updatePlayBack,
-    TResult? Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult? Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult? Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult? Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult? Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult? Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult? Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(GetSponsorSegments value)? getSponsorSegments,
-  }) {
-    return getMoreNewPipeComments?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetWatchInfo value)? getWatchInfo,
-    TResult Function(GetCommentData value)? getCommentData,
-    TResult Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult Function(GetSubtitles value)? getSubtitles,
-    TResult Function(TapDescription value)? tapDescription,
-    TResult Function(TogglePip value)? togglePip,
-    TResult Function(AssignTitle value)? assignTitle,
-    TResult Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult Function(UpdatePlayBack value)? updatePlayBack,
-    TResult Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(GetSponsorSegments value)? getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getMoreNewPipeComments != null) {
-      return getMoreNewPipeComments(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class GetMoreNewPipeComments implements WatchEvent {
-  factory GetMoreNewPipeComments(
-      {required final String id,
-      required final String? nextPage}) = _$GetMoreNewPipeCommentsImpl;
-
-  String get id;
-  String? get nextPage;
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetMoreNewPipeCommentsImplCopyWith<_$GetMoreNewPipeCommentsImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$GetNewPipeCommentRepliesImplCopyWith<$Res> {
-  factory _$$GetNewPipeCommentRepliesImplCopyWith(
-          _$GetNewPipeCommentRepliesImpl value,
-          $Res Function(_$GetNewPipeCommentRepliesImpl) then) =
-      __$$GetNewPipeCommentRepliesImplCopyWithImpl<$Res>;
+abstract mixin class $GetMoreNewPipeCommentsCopyWith<$Res>
+    implements $WatchEventCopyWith<$Res> {
+  factory $GetMoreNewPipeCommentsCopyWith(GetMoreNewPipeComments value,
+          $Res Function(GetMoreNewPipeComments) _then) =
+      _$GetMoreNewPipeCommentsCopyWithImpl;
   @useResult
-  $Res call({String videoId, String repliesPage});
+  $Res call({String id, String? nextPage});
 }
 
 /// @nodoc
-class __$$GetNewPipeCommentRepliesImplCopyWithImpl<$Res>
-    extends _$WatchEventCopyWithImpl<$Res, _$GetNewPipeCommentRepliesImpl>
-    implements _$$GetNewPipeCommentRepliesImplCopyWith<$Res> {
-  __$$GetNewPipeCommentRepliesImplCopyWithImpl(
-      _$GetNewPipeCommentRepliesImpl _value,
-      $Res Function(_$GetNewPipeCommentRepliesImpl) _then)
-      : super(_value, _then);
+class _$GetMoreNewPipeCommentsCopyWithImpl<$Res>
+    implements $GetMoreNewPipeCommentsCopyWith<$Res> {
+  _$GetMoreNewPipeCommentsCopyWithImpl(this._self, this._then);
+
+  final GetMoreNewPipeComments _self;
+  final $Res Function(GetMoreNewPipeComments) _then;
 
   /// Create a copy of WatchEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
-    Object? videoId = null,
-    Object? repliesPage = null,
-  }) {
-    return _then(_$GetNewPipeCommentRepliesImpl(
-      videoId: null == videoId
-          ? _value.videoId
-          : videoId // ignore: cast_nullable_to_non_nullable
-              as String,
-      repliesPage: null == repliesPage
-          ? _value.repliesPage
-          : repliesPage // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$GetNewPipeCommentRepliesImpl implements GetNewPipeCommentReplies {
-  _$GetNewPipeCommentRepliesImpl(
-      {required this.videoId, required this.repliesPage});
-
-  @override
-  final String videoId;
-  @override
-  final String repliesPage;
-
-  @override
-  String toString() {
-    return 'WatchEvent.getNewPipeCommentReplies(videoId: $videoId, repliesPage: $repliesPage)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$GetNewPipeCommentRepliesImpl &&
-            (identical(other.videoId, videoId) || other.videoId == videoId) &&
-            (identical(other.repliesPage, repliesPage) ||
-                other.repliesPage == repliesPage));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, videoId, repliesPage);
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$GetNewPipeCommentRepliesImplCopyWith<_$GetNewPipeCommentRepliesImpl>
-      get copyWith => __$$GetNewPipeCommentRepliesImplCopyWithImpl<
-          _$GetNewPipeCommentRepliesImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String id) getWatchInfo,
-    required TResult Function(String id) getCommentData,
-    required TResult Function(String id) forceFetchCommentData,
-    required TResult Function(String id, String nextPage) getCommentRepliesData,
-    required TResult Function(String id, String? nextPage) getMoreCommentsData,
-    required TResult Function(String id, String? nextPage)
-        getMoreReplyCommentsData,
-    required TResult Function(String id) getSubtitles,
-    required TResult Function() tapDescription,
-    required TResult Function(bool value) togglePip,
-    required TResult Function(String title) assignTitle,
-    required TResult Function(String id) getExplodeWatchInfo,
-    required TResult Function(String id) getExplodeRelatedVideoInfo,
-    required TResult Function(String id) getExplodeMuxStreamInfo,
-    required TResult Function(String id) getExplodeLiveVideoInfo,
-    required TResult Function(VideoBasicInfo details)
-        setSelectedVideoBasicDetails,
-    required TResult Function(String id) getInvidiousWatchInfo,
-    required TResult Function(String id) getInvidiousComments,
-    required TResult Function(String id) forceFetchInvidiousComments,
-    required TResult Function(String id, String continuation)
-        getInvidiousCommentReplies,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousComments,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousReplyComments,
-    required TResult Function(int? playBack) updatePlayBack,
-    required TResult Function(String id) getNewPipeWatchInfo,
-    required TResult Function(String id, List<String> sponsorBlockCategories)
-        getNewPipeWatchInfoFast,
-    required TResult Function(String id) getNewPipeComments,
-    required TResult Function(String id) forceFetchNewPipeComments,
-    required TResult Function(String id, String? nextPage)
-        getMoreNewPipeComments,
-    required TResult Function(String videoId, String repliesPage)
-        getNewPipeCommentReplies,
-    required TResult Function(String videoId, String? nextPage)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(String videoId, List<String> categories)
-        getSponsorSegments,
-  }) {
-    return getNewPipeCommentReplies(videoId, repliesPage);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String id)? getWatchInfo,
-    TResult? Function(String id)? getCommentData,
-    TResult? Function(String id)? forceFetchCommentData,
-    TResult? Function(String id, String nextPage)? getCommentRepliesData,
-    TResult? Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult? Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult? Function(String id)? getSubtitles,
-    TResult? Function()? tapDescription,
-    TResult? Function(bool value)? togglePip,
-    TResult? Function(String title)? assignTitle,
-    TResult? Function(String id)? getExplodeWatchInfo,
-    TResult? Function(String id)? getExplodeRelatedVideoInfo,
-    TResult? Function(String id)? getExplodeMuxStreamInfo,
-    TResult? Function(String id)? getExplodeLiveVideoInfo,
-    TResult? Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult? Function(String id)? getInvidiousWatchInfo,
-    TResult? Function(String id)? getInvidiousComments,
-    TResult? Function(String id)? forceFetchInvidiousComments,
-    TResult? Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousComments,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(int? playBack)? updatePlayBack,
-    TResult? Function(String id)? getNewPipeWatchInfo,
-    TResult? Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult? Function(String id)? getNewPipeComments,
-    TResult? Function(String id)? forceFetchNewPipeComments,
-    TResult? Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult? Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult? Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-  }) {
-    return getNewPipeCommentReplies?.call(videoId, repliesPage);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String id)? getWatchInfo,
-    TResult Function(String id)? getCommentData,
-    TResult Function(String id)? forceFetchCommentData,
-    TResult Function(String id, String nextPage)? getCommentRepliesData,
-    TResult Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult Function(String id)? getSubtitles,
-    TResult Function()? tapDescription,
-    TResult Function(bool value)? togglePip,
-    TResult Function(String title)? assignTitle,
-    TResult Function(String id)? getExplodeWatchInfo,
-    TResult Function(String id)? getExplodeRelatedVideoInfo,
-    TResult Function(String id)? getExplodeMuxStreamInfo,
-    TResult Function(String id)? getExplodeLiveVideoInfo,
-    TResult Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult Function(String id)? getInvidiousWatchInfo,
-    TResult Function(String id)? getInvidiousComments,
-    TResult Function(String id)? forceFetchInvidiousComments,
-    TResult Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult Function(String id, String? continuation)? getMoreInvidiousComments,
-    TResult Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult Function(int? playBack)? updatePlayBack,
-    TResult Function(String id)? getNewPipeWatchInfo,
-    TResult Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult Function(String id)? getNewPipeComments,
-    TResult Function(String id)? forceFetchNewPipeComments,
-    TResult Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getNewPipeCommentReplies != null) {
-      return getNewPipeCommentReplies(videoId, repliesPage);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GetWatchInfo value) getWatchInfo,
-    required TResult Function(GetCommentData value) getCommentData,
-    required TResult Function(ForceFetchCommentData value)
-        forceFetchCommentData,
-    required TResult Function(GetCommentRepliesData value)
-        getCommentRepliesData,
-    required TResult Function(GetMoreCommentsData value) getMoreCommentsData,
-    required TResult Function(GetMoreReplyCommentsData value)
-        getMoreReplyCommentsData,
-    required TResult Function(GetSubtitles value) getSubtitles,
-    required TResult Function(TapDescription value) tapDescription,
-    required TResult Function(TogglePip value) togglePip,
-    required TResult Function(AssignTitle value) assignTitle,
-    required TResult Function(GetExplodeWatchInfo value) getExplodeWatchInfo,
-    required TResult Function(GetExplodeRelatedVideoInfo value)
-        getExplodeRelatedVideoInfo,
-    required TResult Function(GetExplodeMuxStreamInfo value)
-        getExplodeMuxStreamInfo,
-    required TResult Function(GetExplodeLiveVideoInfo value)
-        getExplodeLiveVideoInfo,
-    required TResult Function(SetSelectedVideoBasicDetails value)
-        setSelectedVideoBasicDetails,
-    required TResult Function(GetInvidiousWatchInfo value)
-        getInvidiousWatchInfo,
-    required TResult Function(GetInvidiousComments value) getInvidiousComments,
-    required TResult Function(ForceFetchInvidiousComments value)
-        forceFetchInvidiousComments,
-    required TResult Function(GetInvidiousCommentReplies value)
-        getInvidiousCommentReplies,
-    required TResult Function(GetMoreInvidiousComments value)
-        getMoreInvidiousComments,
-    required TResult Function(GetMoreInvidiousReplyComments value)
-        getMoreInvidiousReplyComments,
-    required TResult Function(UpdatePlayBack value) updatePlayBack,
-    required TResult Function(GetNewPipeWatchInfo value) getNewPipeWatchInfo,
-    required TResult Function(GetNewPipeWatchInfoFast value)
-        getNewPipeWatchInfoFast,
-    required TResult Function(GetNewPipeComments value) getNewPipeComments,
-    required TResult Function(ForceFetchNewPipeComments value)
-        forceFetchNewPipeComments,
-    required TResult Function(GetMoreNewPipeComments value)
-        getMoreNewPipeComments,
-    required TResult Function(GetNewPipeCommentReplies value)
-        getNewPipeCommentReplies,
-    required TResult Function(GetMoreNewPipeCommentReplies value)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(GetSponsorSegments value) getSponsorSegments,
-  }) {
-    return getNewPipeCommentReplies(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GetWatchInfo value)? getWatchInfo,
-    TResult? Function(GetCommentData value)? getCommentData,
-    TResult? Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult? Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult? Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult? Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult? Function(GetSubtitles value)? getSubtitles,
-    TResult? Function(TapDescription value)? tapDescription,
-    TResult? Function(TogglePip value)? togglePip,
-    TResult? Function(AssignTitle value)? assignTitle,
-    TResult? Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult? Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult? Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult? Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult? Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult? Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult? Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult? Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult? Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult? Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult? Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(UpdatePlayBack value)? updatePlayBack,
-    TResult? Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult? Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult? Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult? Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult? Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult? Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult? Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(GetSponsorSegments value)? getSponsorSegments,
-  }) {
-    return getNewPipeCommentReplies?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetWatchInfo value)? getWatchInfo,
-    TResult Function(GetCommentData value)? getCommentData,
-    TResult Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult Function(GetSubtitles value)? getSubtitles,
-    TResult Function(TapDescription value)? tapDescription,
-    TResult Function(TogglePip value)? togglePip,
-    TResult Function(AssignTitle value)? assignTitle,
-    TResult Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult Function(UpdatePlayBack value)? updatePlayBack,
-    TResult Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(GetSponsorSegments value)? getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getNewPipeCommentReplies != null) {
-      return getNewPipeCommentReplies(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class GetNewPipeCommentReplies implements WatchEvent {
-  factory GetNewPipeCommentReplies(
-      {required final String videoId,
-      required final String repliesPage}) = _$GetNewPipeCommentRepliesImpl;
-
-  String get videoId;
-  String get repliesPage;
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetNewPipeCommentRepliesImplCopyWith<_$GetNewPipeCommentRepliesImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$GetMoreNewPipeCommentRepliesImplCopyWith<$Res> {
-  factory _$$GetMoreNewPipeCommentRepliesImplCopyWith(
-          _$GetMoreNewPipeCommentRepliesImpl value,
-          $Res Function(_$GetMoreNewPipeCommentRepliesImpl) then) =
-      __$$GetMoreNewPipeCommentRepliesImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String videoId, String? nextPage});
-}
-
-/// @nodoc
-class __$$GetMoreNewPipeCommentRepliesImplCopyWithImpl<$Res>
-    extends _$WatchEventCopyWithImpl<$Res, _$GetMoreNewPipeCommentRepliesImpl>
-    implements _$$GetMoreNewPipeCommentRepliesImplCopyWith<$Res> {
-  __$$GetMoreNewPipeCommentRepliesImplCopyWithImpl(
-      _$GetMoreNewPipeCommentRepliesImpl _value,
-      $Res Function(_$GetMoreNewPipeCommentRepliesImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? videoId = null,
+    Object? id = null,
     Object? nextPage = freezed,
   }) {
-    return _then(_$GetMoreNewPipeCommentRepliesImpl(
-      videoId: null == videoId
-          ? _value.videoId
-          : videoId // ignore: cast_nullable_to_non_nullable
+    return _then(GetMoreNewPipeComments(
+      id: null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
               as String,
       nextPage: freezed == nextPage
-          ? _value.nextPage
+          ? _self.nextPage
           : nextPage // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
@@ -10637,26 +2785,119 @@ class __$$GetMoreNewPipeCommentRepliesImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$GetMoreNewPipeCommentRepliesImpl
-    implements GetMoreNewPipeCommentReplies {
-  _$GetMoreNewPipeCommentRepliesImpl(
-      {required this.videoId, required this.nextPage});
+class GetNewPipeCommentReplies
+    with DiagnosticableTreeMixin
+    implements WatchEvent {
+  GetNewPipeCommentReplies({required this.videoId, required this.repliesPage});
 
-  @override
   final String videoId;
-  @override
-  final String? nextPage;
+  final String repliesPage;
+
+  /// Create a copy of WatchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $GetNewPipeCommentRepliesCopyWith<GetNewPipeCommentReplies> get copyWith =>
+      _$GetNewPipeCommentRepliesCopyWithImpl<GetNewPipeCommentReplies>(
+          this, _$identity);
 
   @override
-  String toString() {
-    return 'WatchEvent.getMoreNewPipeCommentReplies(videoId: $videoId, nextPage: $nextPage)';
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(DiagnosticsProperty('type', 'WatchEvent.getNewPipeCommentReplies'))
+      ..add(DiagnosticsProperty('videoId', videoId))
+      ..add(DiagnosticsProperty('repliesPage', repliesPage));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetMoreNewPipeCommentRepliesImpl &&
+            other is GetNewPipeCommentReplies &&
+            (identical(other.videoId, videoId) || other.videoId == videoId) &&
+            (identical(other.repliesPage, repliesPage) ||
+                other.repliesPage == repliesPage));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, videoId, repliesPage);
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'WatchEvent.getNewPipeCommentReplies(videoId: $videoId, repliesPage: $repliesPage)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $GetNewPipeCommentRepliesCopyWith<$Res>
+    implements $WatchEventCopyWith<$Res> {
+  factory $GetNewPipeCommentRepliesCopyWith(GetNewPipeCommentReplies value,
+          $Res Function(GetNewPipeCommentReplies) _then) =
+      _$GetNewPipeCommentRepliesCopyWithImpl;
+  @useResult
+  $Res call({String videoId, String repliesPage});
+}
+
+/// @nodoc
+class _$GetNewPipeCommentRepliesCopyWithImpl<$Res>
+    implements $GetNewPipeCommentRepliesCopyWith<$Res> {
+  _$GetNewPipeCommentRepliesCopyWithImpl(this._self, this._then);
+
+  final GetNewPipeCommentReplies _self;
+  final $Res Function(GetNewPipeCommentReplies) _then;
+
+  /// Create a copy of WatchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? videoId = null,
+    Object? repliesPage = null,
+  }) {
+    return _then(GetNewPipeCommentReplies(
+      videoId: null == videoId
+          ? _self.videoId
+          : videoId // ignore: cast_nullable_to_non_nullable
+              as String,
+      repliesPage: null == repliesPage
+          ? _self.repliesPage
+          : repliesPage // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class GetMoreNewPipeCommentReplies
+    with DiagnosticableTreeMixin
+    implements WatchEvent {
+  GetMoreNewPipeCommentReplies({required this.videoId, required this.nextPage});
+
+  final String videoId;
+  final String? nextPage;
+
+  /// Create a copy of WatchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $GetMoreNewPipeCommentRepliesCopyWith<GetMoreNewPipeCommentReplies>
+      get copyWith => _$GetMoreNewPipeCommentRepliesCopyWithImpl<
+          GetMoreNewPipeCommentReplies>(this, _$identity);
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'WatchEvent.getMoreNewPipeCommentReplies'))
+      ..add(DiagnosticsProperty('videoId', videoId))
+      ..add(DiagnosticsProperty('nextPage', nextPage));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is GetMoreNewPipeCommentReplies &&
             (identical(other.videoId, videoId) || other.videoId == videoId) &&
             (identical(other.nextPage, nextPage) ||
                 other.nextPage == nextPage));
@@ -10665,382 +2906,86 @@ class _$GetMoreNewPipeCommentRepliesImpl
   @override
   int get hashCode => Object.hash(runtimeType, videoId, nextPage);
 
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$GetMoreNewPipeCommentRepliesImplCopyWith<
-          _$GetMoreNewPipeCommentRepliesImpl>
-      get copyWith => __$$GetMoreNewPipeCommentRepliesImplCopyWithImpl<
-          _$GetMoreNewPipeCommentRepliesImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String id) getWatchInfo,
-    required TResult Function(String id) getCommentData,
-    required TResult Function(String id) forceFetchCommentData,
-    required TResult Function(String id, String nextPage) getCommentRepliesData,
-    required TResult Function(String id, String? nextPage) getMoreCommentsData,
-    required TResult Function(String id, String? nextPage)
-        getMoreReplyCommentsData,
-    required TResult Function(String id) getSubtitles,
-    required TResult Function() tapDescription,
-    required TResult Function(bool value) togglePip,
-    required TResult Function(String title) assignTitle,
-    required TResult Function(String id) getExplodeWatchInfo,
-    required TResult Function(String id) getExplodeRelatedVideoInfo,
-    required TResult Function(String id) getExplodeMuxStreamInfo,
-    required TResult Function(String id) getExplodeLiveVideoInfo,
-    required TResult Function(VideoBasicInfo details)
-        setSelectedVideoBasicDetails,
-    required TResult Function(String id) getInvidiousWatchInfo,
-    required TResult Function(String id) getInvidiousComments,
-    required TResult Function(String id) forceFetchInvidiousComments,
-    required TResult Function(String id, String continuation)
-        getInvidiousCommentReplies,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousComments,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousReplyComments,
-    required TResult Function(int? playBack) updatePlayBack,
-    required TResult Function(String id) getNewPipeWatchInfo,
-    required TResult Function(String id, List<String> sponsorBlockCategories)
-        getNewPipeWatchInfoFast,
-    required TResult Function(String id) getNewPipeComments,
-    required TResult Function(String id) forceFetchNewPipeComments,
-    required TResult Function(String id, String? nextPage)
-        getMoreNewPipeComments,
-    required TResult Function(String videoId, String repliesPage)
-        getNewPipeCommentReplies,
-    required TResult Function(String videoId, String? nextPage)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(String videoId, List<String> categories)
-        getSponsorSegments,
-  }) {
-    return getMoreNewPipeCommentReplies(videoId, nextPage);
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'WatchEvent.getMoreNewPipeCommentReplies(videoId: $videoId, nextPage: $nextPage)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String id)? getWatchInfo,
-    TResult? Function(String id)? getCommentData,
-    TResult? Function(String id)? forceFetchCommentData,
-    TResult? Function(String id, String nextPage)? getCommentRepliesData,
-    TResult? Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult? Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult? Function(String id)? getSubtitles,
-    TResult? Function()? tapDescription,
-    TResult? Function(bool value)? togglePip,
-    TResult? Function(String title)? assignTitle,
-    TResult? Function(String id)? getExplodeWatchInfo,
-    TResult? Function(String id)? getExplodeRelatedVideoInfo,
-    TResult? Function(String id)? getExplodeMuxStreamInfo,
-    TResult? Function(String id)? getExplodeLiveVideoInfo,
-    TResult? Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult? Function(String id)? getInvidiousWatchInfo,
-    TResult? Function(String id)? getInvidiousComments,
-    TResult? Function(String id)? forceFetchInvidiousComments,
-    TResult? Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousComments,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(int? playBack)? updatePlayBack,
-    TResult? Function(String id)? getNewPipeWatchInfo,
-    TResult? Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult? Function(String id)? getNewPipeComments,
-    TResult? Function(String id)? forceFetchNewPipeComments,
-    TResult? Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult? Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult? Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-  }) {
-    return getMoreNewPipeCommentReplies?.call(videoId, nextPage);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String id)? getWatchInfo,
-    TResult Function(String id)? getCommentData,
-    TResult Function(String id)? forceFetchCommentData,
-    TResult Function(String id, String nextPage)? getCommentRepliesData,
-    TResult Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult Function(String id)? getSubtitles,
-    TResult Function()? tapDescription,
-    TResult Function(bool value)? togglePip,
-    TResult Function(String title)? assignTitle,
-    TResult Function(String id)? getExplodeWatchInfo,
-    TResult Function(String id)? getExplodeRelatedVideoInfo,
-    TResult Function(String id)? getExplodeMuxStreamInfo,
-    TResult Function(String id)? getExplodeLiveVideoInfo,
-    TResult Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult Function(String id)? getInvidiousWatchInfo,
-    TResult Function(String id)? getInvidiousComments,
-    TResult Function(String id)? forceFetchInvidiousComments,
-    TResult Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult Function(String id, String? continuation)? getMoreInvidiousComments,
-    TResult Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult Function(int? playBack)? updatePlayBack,
-    TResult Function(String id)? getNewPipeWatchInfo,
-    TResult Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult Function(String id)? getNewPipeComments,
-    TResult Function(String id)? forceFetchNewPipeComments,
-    TResult Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getMoreNewPipeCommentReplies != null) {
-      return getMoreNewPipeCommentReplies(videoId, nextPage);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GetWatchInfo value) getWatchInfo,
-    required TResult Function(GetCommentData value) getCommentData,
-    required TResult Function(ForceFetchCommentData value)
-        forceFetchCommentData,
-    required TResult Function(GetCommentRepliesData value)
-        getCommentRepliesData,
-    required TResult Function(GetMoreCommentsData value) getMoreCommentsData,
-    required TResult Function(GetMoreReplyCommentsData value)
-        getMoreReplyCommentsData,
-    required TResult Function(GetSubtitles value) getSubtitles,
-    required TResult Function(TapDescription value) tapDescription,
-    required TResult Function(TogglePip value) togglePip,
-    required TResult Function(AssignTitle value) assignTitle,
-    required TResult Function(GetExplodeWatchInfo value) getExplodeWatchInfo,
-    required TResult Function(GetExplodeRelatedVideoInfo value)
-        getExplodeRelatedVideoInfo,
-    required TResult Function(GetExplodeMuxStreamInfo value)
-        getExplodeMuxStreamInfo,
-    required TResult Function(GetExplodeLiveVideoInfo value)
-        getExplodeLiveVideoInfo,
-    required TResult Function(SetSelectedVideoBasicDetails value)
-        setSelectedVideoBasicDetails,
-    required TResult Function(GetInvidiousWatchInfo value)
-        getInvidiousWatchInfo,
-    required TResult Function(GetInvidiousComments value) getInvidiousComments,
-    required TResult Function(ForceFetchInvidiousComments value)
-        forceFetchInvidiousComments,
-    required TResult Function(GetInvidiousCommentReplies value)
-        getInvidiousCommentReplies,
-    required TResult Function(GetMoreInvidiousComments value)
-        getMoreInvidiousComments,
-    required TResult Function(GetMoreInvidiousReplyComments value)
-        getMoreInvidiousReplyComments,
-    required TResult Function(UpdatePlayBack value) updatePlayBack,
-    required TResult Function(GetNewPipeWatchInfo value) getNewPipeWatchInfo,
-    required TResult Function(GetNewPipeWatchInfoFast value)
-        getNewPipeWatchInfoFast,
-    required TResult Function(GetNewPipeComments value) getNewPipeComments,
-    required TResult Function(ForceFetchNewPipeComments value)
-        forceFetchNewPipeComments,
-    required TResult Function(GetMoreNewPipeComments value)
-        getMoreNewPipeComments,
-    required TResult Function(GetNewPipeCommentReplies value)
-        getNewPipeCommentReplies,
-    required TResult Function(GetMoreNewPipeCommentReplies value)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(GetSponsorSegments value) getSponsorSegments,
-  }) {
-    return getMoreNewPipeCommentReplies(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GetWatchInfo value)? getWatchInfo,
-    TResult? Function(GetCommentData value)? getCommentData,
-    TResult? Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult? Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult? Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult? Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult? Function(GetSubtitles value)? getSubtitles,
-    TResult? Function(TapDescription value)? tapDescription,
-    TResult? Function(TogglePip value)? togglePip,
-    TResult? Function(AssignTitle value)? assignTitle,
-    TResult? Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult? Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult? Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult? Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult? Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult? Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult? Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult? Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult? Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult? Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult? Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(UpdatePlayBack value)? updatePlayBack,
-    TResult? Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult? Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult? Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult? Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult? Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult? Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult? Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(GetSponsorSegments value)? getSponsorSegments,
-  }) {
-    return getMoreNewPipeCommentReplies?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetWatchInfo value)? getWatchInfo,
-    TResult Function(GetCommentData value)? getCommentData,
-    TResult Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult Function(GetSubtitles value)? getSubtitles,
-    TResult Function(TapDescription value)? tapDescription,
-    TResult Function(TogglePip value)? togglePip,
-    TResult Function(AssignTitle value)? assignTitle,
-    TResult Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult Function(UpdatePlayBack value)? updatePlayBack,
-    TResult Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(GetSponsorSegments value)? getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getMoreNewPipeCommentReplies != null) {
-      return getMoreNewPipeCommentReplies(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class GetMoreNewPipeCommentReplies implements WatchEvent {
-  factory GetMoreNewPipeCommentReplies(
-      {required final String videoId,
-      required final String? nextPage}) = _$GetMoreNewPipeCommentRepliesImpl;
-
-  String get videoId;
-  String? get nextPage;
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetMoreNewPipeCommentRepliesImplCopyWith<
-          _$GetMoreNewPipeCommentRepliesImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$GetSponsorSegmentsImplCopyWith<$Res> {
-  factory _$$GetSponsorSegmentsImplCopyWith(_$GetSponsorSegmentsImpl value,
-          $Res Function(_$GetSponsorSegmentsImpl) then) =
-      __$$GetSponsorSegmentsImplCopyWithImpl<$Res>;
+abstract mixin class $GetMoreNewPipeCommentRepliesCopyWith<$Res>
+    implements $WatchEventCopyWith<$Res> {
+  factory $GetMoreNewPipeCommentRepliesCopyWith(
+          GetMoreNewPipeCommentReplies value,
+          $Res Function(GetMoreNewPipeCommentReplies) _then) =
+      _$GetMoreNewPipeCommentRepliesCopyWithImpl;
   @useResult
-  $Res call({String videoId, List<String> categories});
+  $Res call({String videoId, String? nextPage});
 }
 
 /// @nodoc
-class __$$GetSponsorSegmentsImplCopyWithImpl<$Res>
-    extends _$WatchEventCopyWithImpl<$Res, _$GetSponsorSegmentsImpl>
-    implements _$$GetSponsorSegmentsImplCopyWith<$Res> {
-  __$$GetSponsorSegmentsImplCopyWithImpl(_$GetSponsorSegmentsImpl _value,
-      $Res Function(_$GetSponsorSegmentsImpl) _then)
-      : super(_value, _then);
+class _$GetMoreNewPipeCommentRepliesCopyWithImpl<$Res>
+    implements $GetMoreNewPipeCommentRepliesCopyWith<$Res> {
+  _$GetMoreNewPipeCommentRepliesCopyWithImpl(this._self, this._then);
+
+  final GetMoreNewPipeCommentReplies _self;
+  final $Res Function(GetMoreNewPipeCommentReplies) _then;
 
   /// Create a copy of WatchEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? videoId = null,
-    Object? categories = null,
+    Object? nextPage = freezed,
   }) {
-    return _then(_$GetSponsorSegmentsImpl(
+    return _then(GetMoreNewPipeCommentReplies(
       videoId: null == videoId
-          ? _value.videoId
+          ? _self.videoId
           : videoId // ignore: cast_nullable_to_non_nullable
               as String,
-      categories: null == categories
-          ? _value._categories
-          : categories // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+      nextPage: freezed == nextPage
+          ? _self.nextPage
+          : nextPage // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
 
 /// @nodoc
 
-class _$GetSponsorSegmentsImpl implements GetSponsorSegments {
-  _$GetSponsorSegmentsImpl(
+class GetSponsorSegments with DiagnosticableTreeMixin implements WatchEvent {
+  GetSponsorSegments(
       {required this.videoId, required final List<String> categories})
       : _categories = categories;
 
-  @override
   final String videoId;
   final List<String> _categories;
-  @override
   List<String> get categories {
     if (_categories is EqualUnmodifiableListView) return _categories;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_categories);
   }
 
+  /// Create a copy of WatchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $GetSponsorSegmentsCopyWith<GetSponsorSegments> get copyWith =>
+      _$GetSponsorSegmentsCopyWithImpl<GetSponsorSegments>(this, _$identity);
+
   @override
-  String toString() {
-    return 'WatchEvent.getSponsorSegments(videoId: $videoId, categories: $categories)';
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(DiagnosticsProperty('type', 'WatchEvent.getSponsorSegments'))
+      ..add(DiagnosticsProperty('videoId', videoId))
+      ..add(DiagnosticsProperty('categories', categories));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetSponsorSegmentsImpl &&
+            other is GetSponsorSegments &&
             (identical(other.videoId, videoId) || other.videoId == videoId) &&
             const DeepCollectionEquality()
                 .equals(other._categories, _categories));
@@ -11050,749 +2995,343 @@ class _$GetSponsorSegmentsImpl implements GetSponsorSegments {
   int get hashCode => Object.hash(
       runtimeType, videoId, const DeepCollectionEquality().hash(_categories));
 
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$GetSponsorSegmentsImplCopyWith<_$GetSponsorSegmentsImpl> get copyWith =>
-      __$$GetSponsorSegmentsImplCopyWithImpl<_$GetSponsorSegmentsImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String id) getWatchInfo,
-    required TResult Function(String id) getCommentData,
-    required TResult Function(String id) forceFetchCommentData,
-    required TResult Function(String id, String nextPage) getCommentRepliesData,
-    required TResult Function(String id, String? nextPage) getMoreCommentsData,
-    required TResult Function(String id, String? nextPage)
-        getMoreReplyCommentsData,
-    required TResult Function(String id) getSubtitles,
-    required TResult Function() tapDescription,
-    required TResult Function(bool value) togglePip,
-    required TResult Function(String title) assignTitle,
-    required TResult Function(String id) getExplodeWatchInfo,
-    required TResult Function(String id) getExplodeRelatedVideoInfo,
-    required TResult Function(String id) getExplodeMuxStreamInfo,
-    required TResult Function(String id) getExplodeLiveVideoInfo,
-    required TResult Function(VideoBasicInfo details)
-        setSelectedVideoBasicDetails,
-    required TResult Function(String id) getInvidiousWatchInfo,
-    required TResult Function(String id) getInvidiousComments,
-    required TResult Function(String id) forceFetchInvidiousComments,
-    required TResult Function(String id, String continuation)
-        getInvidiousCommentReplies,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousComments,
-    required TResult Function(String id, String? continuation)
-        getMoreInvidiousReplyComments,
-    required TResult Function(int? playBack) updatePlayBack,
-    required TResult Function(String id) getNewPipeWatchInfo,
-    required TResult Function(String id, List<String> sponsorBlockCategories)
-        getNewPipeWatchInfoFast,
-    required TResult Function(String id) getNewPipeComments,
-    required TResult Function(String id) forceFetchNewPipeComments,
-    required TResult Function(String id, String? nextPage)
-        getMoreNewPipeComments,
-    required TResult Function(String videoId, String repliesPage)
-        getNewPipeCommentReplies,
-    required TResult Function(String videoId, String? nextPage)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(String videoId, List<String> categories)
-        getSponsorSegments,
-  }) {
-    return getSponsorSegments(videoId, categories);
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'WatchEvent.getSponsorSegments(videoId: $videoId, categories: $categories)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String id)? getWatchInfo,
-    TResult? Function(String id)? getCommentData,
-    TResult? Function(String id)? forceFetchCommentData,
-    TResult? Function(String id, String nextPage)? getCommentRepliesData,
-    TResult? Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult? Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult? Function(String id)? getSubtitles,
-    TResult? Function()? tapDescription,
-    TResult? Function(bool value)? togglePip,
-    TResult? Function(String title)? assignTitle,
-    TResult? Function(String id)? getExplodeWatchInfo,
-    TResult? Function(String id)? getExplodeRelatedVideoInfo,
-    TResult? Function(String id)? getExplodeMuxStreamInfo,
-    TResult? Function(String id)? getExplodeLiveVideoInfo,
-    TResult? Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult? Function(String id)? getInvidiousWatchInfo,
-    TResult? Function(String id)? getInvidiousComments,
-    TResult? Function(String id)? forceFetchInvidiousComments,
-    TResult? Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousComments,
-    TResult? Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(int? playBack)? updatePlayBack,
-    TResult? Function(String id)? getNewPipeWatchInfo,
-    TResult? Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult? Function(String id)? getNewPipeComments,
-    TResult? Function(String id)? forceFetchNewPipeComments,
-    TResult? Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult? Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult? Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-  }) {
-    return getSponsorSegments?.call(videoId, categories);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String id)? getWatchInfo,
-    TResult Function(String id)? getCommentData,
-    TResult Function(String id)? forceFetchCommentData,
-    TResult Function(String id, String nextPage)? getCommentRepliesData,
-    TResult Function(String id, String? nextPage)? getMoreCommentsData,
-    TResult Function(String id, String? nextPage)? getMoreReplyCommentsData,
-    TResult Function(String id)? getSubtitles,
-    TResult Function()? tapDescription,
-    TResult Function(bool value)? togglePip,
-    TResult Function(String title)? assignTitle,
-    TResult Function(String id)? getExplodeWatchInfo,
-    TResult Function(String id)? getExplodeRelatedVideoInfo,
-    TResult Function(String id)? getExplodeMuxStreamInfo,
-    TResult Function(String id)? getExplodeLiveVideoInfo,
-    TResult Function(VideoBasicInfo details)? setSelectedVideoBasicDetails,
-    TResult Function(String id)? getInvidiousWatchInfo,
-    TResult Function(String id)? getInvidiousComments,
-    TResult Function(String id)? forceFetchInvidiousComments,
-    TResult Function(String id, String continuation)?
-        getInvidiousCommentReplies,
-    TResult Function(String id, String? continuation)? getMoreInvidiousComments,
-    TResult Function(String id, String? continuation)?
-        getMoreInvidiousReplyComments,
-    TResult Function(int? playBack)? updatePlayBack,
-    TResult Function(String id)? getNewPipeWatchInfo,
-    TResult Function(String id, List<String> sponsorBlockCategories)?
-        getNewPipeWatchInfoFast,
-    TResult Function(String id)? getNewPipeComments,
-    TResult Function(String id)? forceFetchNewPipeComments,
-    TResult Function(String id, String? nextPage)? getMoreNewPipeComments,
-    TResult Function(String videoId, String repliesPage)?
-        getNewPipeCommentReplies,
-    TResult Function(String videoId, String? nextPage)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(String videoId, List<String> categories)?
-        getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getSponsorSegments != null) {
-      return getSponsorSegments(videoId, categories);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GetWatchInfo value) getWatchInfo,
-    required TResult Function(GetCommentData value) getCommentData,
-    required TResult Function(ForceFetchCommentData value)
-        forceFetchCommentData,
-    required TResult Function(GetCommentRepliesData value)
-        getCommentRepliesData,
-    required TResult Function(GetMoreCommentsData value) getMoreCommentsData,
-    required TResult Function(GetMoreReplyCommentsData value)
-        getMoreReplyCommentsData,
-    required TResult Function(GetSubtitles value) getSubtitles,
-    required TResult Function(TapDescription value) tapDescription,
-    required TResult Function(TogglePip value) togglePip,
-    required TResult Function(AssignTitle value) assignTitle,
-    required TResult Function(GetExplodeWatchInfo value) getExplodeWatchInfo,
-    required TResult Function(GetExplodeRelatedVideoInfo value)
-        getExplodeRelatedVideoInfo,
-    required TResult Function(GetExplodeMuxStreamInfo value)
-        getExplodeMuxStreamInfo,
-    required TResult Function(GetExplodeLiveVideoInfo value)
-        getExplodeLiveVideoInfo,
-    required TResult Function(SetSelectedVideoBasicDetails value)
-        setSelectedVideoBasicDetails,
-    required TResult Function(GetInvidiousWatchInfo value)
-        getInvidiousWatchInfo,
-    required TResult Function(GetInvidiousComments value) getInvidiousComments,
-    required TResult Function(ForceFetchInvidiousComments value)
-        forceFetchInvidiousComments,
-    required TResult Function(GetInvidiousCommentReplies value)
-        getInvidiousCommentReplies,
-    required TResult Function(GetMoreInvidiousComments value)
-        getMoreInvidiousComments,
-    required TResult Function(GetMoreInvidiousReplyComments value)
-        getMoreInvidiousReplyComments,
-    required TResult Function(UpdatePlayBack value) updatePlayBack,
-    required TResult Function(GetNewPipeWatchInfo value) getNewPipeWatchInfo,
-    required TResult Function(GetNewPipeWatchInfoFast value)
-        getNewPipeWatchInfoFast,
-    required TResult Function(GetNewPipeComments value) getNewPipeComments,
-    required TResult Function(ForceFetchNewPipeComments value)
-        forceFetchNewPipeComments,
-    required TResult Function(GetMoreNewPipeComments value)
-        getMoreNewPipeComments,
-    required TResult Function(GetNewPipeCommentReplies value)
-        getNewPipeCommentReplies,
-    required TResult Function(GetMoreNewPipeCommentReplies value)
-        getMoreNewPipeCommentReplies,
-    required TResult Function(GetSponsorSegments value) getSponsorSegments,
-  }) {
-    return getSponsorSegments(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GetWatchInfo value)? getWatchInfo,
-    TResult? Function(GetCommentData value)? getCommentData,
-    TResult? Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult? Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult? Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult? Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult? Function(GetSubtitles value)? getSubtitles,
-    TResult? Function(TapDescription value)? tapDescription,
-    TResult? Function(TogglePip value)? togglePip,
-    TResult? Function(AssignTitle value)? assignTitle,
-    TResult? Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult? Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult? Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult? Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult? Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult? Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult? Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult? Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult? Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult? Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult? Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult? Function(UpdatePlayBack value)? updatePlayBack,
-    TResult? Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult? Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult? Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult? Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult? Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult? Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult? Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult? Function(GetSponsorSegments value)? getSponsorSegments,
-  }) {
-    return getSponsorSegments?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetWatchInfo value)? getWatchInfo,
-    TResult Function(GetCommentData value)? getCommentData,
-    TResult Function(ForceFetchCommentData value)? forceFetchCommentData,
-    TResult Function(GetCommentRepliesData value)? getCommentRepliesData,
-    TResult Function(GetMoreCommentsData value)? getMoreCommentsData,
-    TResult Function(GetMoreReplyCommentsData value)? getMoreReplyCommentsData,
-    TResult Function(GetSubtitles value)? getSubtitles,
-    TResult Function(TapDescription value)? tapDescription,
-    TResult Function(TogglePip value)? togglePip,
-    TResult Function(AssignTitle value)? assignTitle,
-    TResult Function(GetExplodeWatchInfo value)? getExplodeWatchInfo,
-    TResult Function(GetExplodeRelatedVideoInfo value)?
-        getExplodeRelatedVideoInfo,
-    TResult Function(GetExplodeMuxStreamInfo value)? getExplodeMuxStreamInfo,
-    TResult Function(GetExplodeLiveVideoInfo value)? getExplodeLiveVideoInfo,
-    TResult Function(SetSelectedVideoBasicDetails value)?
-        setSelectedVideoBasicDetails,
-    TResult Function(GetInvidiousWatchInfo value)? getInvidiousWatchInfo,
-    TResult Function(GetInvidiousComments value)? getInvidiousComments,
-    TResult Function(ForceFetchInvidiousComments value)?
-        forceFetchInvidiousComments,
-    TResult Function(GetInvidiousCommentReplies value)?
-        getInvidiousCommentReplies,
-    TResult Function(GetMoreInvidiousComments value)? getMoreInvidiousComments,
-    TResult Function(GetMoreInvidiousReplyComments value)?
-        getMoreInvidiousReplyComments,
-    TResult Function(UpdatePlayBack value)? updatePlayBack,
-    TResult Function(GetNewPipeWatchInfo value)? getNewPipeWatchInfo,
-    TResult Function(GetNewPipeWatchInfoFast value)? getNewPipeWatchInfoFast,
-    TResult Function(GetNewPipeComments value)? getNewPipeComments,
-    TResult Function(ForceFetchNewPipeComments value)?
-        forceFetchNewPipeComments,
-    TResult Function(GetMoreNewPipeComments value)? getMoreNewPipeComments,
-    TResult Function(GetNewPipeCommentReplies value)? getNewPipeCommentReplies,
-    TResult Function(GetMoreNewPipeCommentReplies value)?
-        getMoreNewPipeCommentReplies,
-    TResult Function(GetSponsorSegments value)? getSponsorSegments,
-    required TResult orElse(),
-  }) {
-    if (getSponsorSegments != null) {
-      return getSponsorSegments(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class GetSponsorSegments implements WatchEvent {
-  factory GetSponsorSegments(
-      {required final String videoId,
-      required final List<String> categories}) = _$GetSponsorSegmentsImpl;
-
-  String get videoId;
-  List<String> get categories;
-
-  /// Create a copy of WatchEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetSponsorSegmentsImplCopyWith<_$GetSponsorSegmentsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-mixin _$WatchState {
+abstract mixin class $GetSponsorSegmentsCopyWith<$Res>
+    implements $WatchEventCopyWith<$Res> {
+  factory $GetSponsorSegmentsCopyWith(
+          GetSponsorSegments value, $Res Function(GetSponsorSegments) _then) =
+      _$GetSponsorSegmentsCopyWithImpl;
+  @useResult
+  $Res call({String videoId, List<String> categories});
+}
+
+/// @nodoc
+class _$GetSponsorSegmentsCopyWithImpl<$Res>
+    implements $GetSponsorSegmentsCopyWith<$Res> {
+  _$GetSponsorSegmentsCopyWithImpl(this._self, this._then);
+
+  final GetSponsorSegments _self;
+  final $Res Function(GetSponsorSegments) _then;
+
+  /// Create a copy of WatchEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? videoId = null,
+    Object? categories = null,
+  }) {
+    return _then(GetSponsorSegments(
+      videoId: null == videoId
+          ? _self.videoId
+          : videoId // ignore: cast_nullable_to_non_nullable
+              as String,
+      categories: null == categories
+          ? _self._categories
+          : categories // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+    ));
+  }
+}
+
+/// @nodoc
+mixin _$WatchState implements DiagnosticableTreeMixin {
 //
-  String? get oldId => throw _privateConstructorUsedError;
-  bool get isTapComments => throw _privateConstructorUsedError;
-  bool get isDescriptionTapped => throw _privateConstructorUsedError;
-  bool get isPipEnabled => throw _privateConstructorUsedError;
-  String get title => throw _privateConstructorUsedError;
-  int get playBack => throw _privateConstructorUsedError;
-  VideoBasicInfo? get selectedVideoBasicDetails =>
-      throw _privateConstructorUsedError; // PIPED
-  WatchResp get watchResp => throw _privateConstructorUsedError;
-  CommentsResp get comments => throw _privateConstructorUsedError;
-  CommentsResp get commentReplies => throw _privateConstructorUsedError;
-  ApiStatus get fetchWatchInfoStatus => throw _privateConstructorUsedError;
-  ApiStatus get fetchCommentsStatus => throw _privateConstructorUsedError;
-  ApiStatus get fetchCommentRepliesStatus => throw _privateConstructorUsedError;
-  ApiStatus get fetchMoreCommentsStatus => throw _privateConstructorUsedError;
-  bool get isMoreCommentsFetchCompleted => throw _privateConstructorUsedError;
-  ApiStatus get fetchMoreCommentRepliesStatus =>
-      throw _privateConstructorUsedError;
-  bool get isMoreReplyCommentsFetchCompleted =>
-      throw _privateConstructorUsedError; //EXPLODE
-  ExplodeWatchResp get explodeWatchResp => throw _privateConstructorUsedError;
-  ApiStatus get fetchExplodeWatchInfoStatus =>
-      throw _privateConstructorUsedError;
-  ApiStatus get fetchSubtitlesStatus => throw _privateConstructorUsedError;
-  List<Map<String, String>> get subtitles => throw _privateConstructorUsedError;
-  String? get liveStreamUrl => throw _privateConstructorUsedError;
-  ApiStatus get fetchExplodeLiveStreamStatus =>
-      throw _privateConstructorUsedError;
-  List<MyRelatedVideo>? get relatedVideos => throw _privateConstructorUsedError;
-  ApiStatus get fetchExplodedRelatedVideosStatus =>
-      throw _privateConstructorUsedError;
-  List<MyMuxedStreamInfo>? get muxedStreams =>
-      throw _privateConstructorUsedError;
-  ApiStatus get fetchExplodeMuxedStreamsStatus =>
-      throw _privateConstructorUsedError; // INVIDIOUS
-  InvidiousWatchResp get invidiousWatchResp =>
-      throw _privateConstructorUsedError;
-  ApiStatus get fetchInvidiousWatchInfoStatus =>
-      throw _privateConstructorUsedError;
-  InvidiousCommentsResp get invidiousComments =>
-      throw _privateConstructorUsedError;
-  ApiStatus get fetchInvidiousCommentsStatus =>
-      throw _privateConstructorUsedError;
-  InvidiousCommentsResp get invidiousCommentReplies =>
-      throw _privateConstructorUsedError;
-  ApiStatus get fetchInvidiousCommentRepliesStatus =>
-      throw _privateConstructorUsedError;
-  ApiStatus get fetchMoreInvidiousCommentsStatus =>
-      throw _privateConstructorUsedError;
-  bool get isMoreInvidiousCommentsFetchCompleted =>
-      throw _privateConstructorUsedError;
-  ApiStatus get fetchMoreInvidiousCommentRepliesStatus =>
-      throw _privateConstructorUsedError;
-  bool get isMoreInvidiousReplyCommentsFetchCompleted =>
-      throw _privateConstructorUsedError; // NEWPIPE
-  NewPipeWatchResp get newPipeWatchResp => throw _privateConstructorUsedError;
-  ApiStatus get fetchNewPipeWatchInfoStatus =>
-      throw _privateConstructorUsedError;
-  String? get newPipeErrorMessage => throw _privateConstructorUsedError;
-  NewPipeCommentsResp get newPipeComments => throw _privateConstructorUsedError;
-  ApiStatus get fetchNewPipeCommentsStatus =>
-      throw _privateConstructorUsedError;
-  ApiStatus get fetchMoreNewPipeCommentsStatus =>
-      throw _privateConstructorUsedError;
-  bool get isMoreNewPipeCommentsFetchCompleted =>
-      throw _privateConstructorUsedError;
-  NewPipeCommentsResp get newPipeCommentReplies =>
-      throw _privateConstructorUsedError;
-  ApiStatus get fetchNewPipeCommentRepliesStatus =>
-      throw _privateConstructorUsedError;
-  ApiStatus get fetchMoreNewPipeCommentRepliesStatus =>
-      throw _privateConstructorUsedError;
-  bool get isMoreNewPipeReplyCommentsFetchCompleted =>
-      throw _privateConstructorUsedError; // SPONSORBLOCK
-  List<SponsorSegment> get sponsorSegments =>
-      throw _privateConstructorUsedError;
-  ApiStatus get fetchSponsorSegmentsStatus =>
-      throw _privateConstructorUsedError;
+  String? get oldId;
+  bool get isTapComments;
+  bool get isDescriptionTapped;
+  bool get isPipEnabled;
+  String get title;
+  int get playBack;
+  VideoBasicInfo? get selectedVideoBasicDetails; // PIPED
+  WatchResp get watchResp;
+  CommentsResp get comments;
+  CommentsResp get commentReplies;
+  ApiStatus get fetchWatchInfoStatus;
+  ApiStatus get fetchCommentsStatus;
+  ApiStatus get fetchCommentRepliesStatus;
+  ApiStatus get fetchMoreCommentsStatus;
+  bool get isMoreCommentsFetchCompleted;
+  ApiStatus get fetchMoreCommentRepliesStatus;
+  bool get isMoreReplyCommentsFetchCompleted; //EXPLODE
+  ExplodeWatchResp get explodeWatchResp;
+  ApiStatus get fetchExplodeWatchInfoStatus;
+  ApiStatus get fetchSubtitlesStatus;
+  List<Map<String, String>> get subtitles;
+  String? get liveStreamUrl;
+  ApiStatus get fetchExplodeLiveStreamStatus;
+  List<MyRelatedVideo>? get relatedVideos;
+  ApiStatus get fetchExplodedRelatedVideosStatus;
+  List<MyMuxedStreamInfo>? get muxedStreams;
+  ApiStatus get fetchExplodeMuxedStreamsStatus; // INVIDIOUS
+  InvidiousWatchResp get invidiousWatchResp;
+  ApiStatus get fetchInvidiousWatchInfoStatus;
+  InvidiousCommentsResp get invidiousComments;
+  ApiStatus get fetchInvidiousCommentsStatus;
+  InvidiousCommentsResp get invidiousCommentReplies;
+  ApiStatus get fetchInvidiousCommentRepliesStatus;
+  ApiStatus get fetchMoreInvidiousCommentsStatus;
+  bool get isMoreInvidiousCommentsFetchCompleted;
+  ApiStatus get fetchMoreInvidiousCommentRepliesStatus;
+  bool get isMoreInvidiousReplyCommentsFetchCompleted; // NEWPIPE
+  NewPipeWatchResp get newPipeWatchResp;
+  ApiStatus get fetchNewPipeWatchInfoStatus;
+  String? get newPipeErrorMessage;
+  NewPipeCommentsResp get newPipeComments;
+  ApiStatus get fetchNewPipeCommentsStatus;
+  ApiStatus get fetchMoreNewPipeCommentsStatus;
+  bool get isMoreNewPipeCommentsFetchCompleted;
+  NewPipeCommentsResp get newPipeCommentReplies;
+  ApiStatus get fetchNewPipeCommentRepliesStatus;
+  ApiStatus get fetchMoreNewPipeCommentRepliesStatus;
+  bool get isMoreNewPipeReplyCommentsFetchCompleted; // SPONSORBLOCK
+  List<SponsorSegment> get sponsorSegments;
+  ApiStatus get fetchSponsorSegmentsStatus;
 
   /// Create a copy of WatchState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $WatchStateCopyWith<WatchState> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $WatchStateCopyWith<$Res> {
-  factory $WatchStateCopyWith(
-          WatchState value, $Res Function(WatchState) then) =
-      _$WatchStateCopyWithImpl<$Res, WatchState>;
-  @useResult
-  $Res call(
-      {String? oldId,
-      bool isTapComments,
-      bool isDescriptionTapped,
-      bool isPipEnabled,
-      String title,
-      int playBack,
-      VideoBasicInfo? selectedVideoBasicDetails,
-      WatchResp watchResp,
-      CommentsResp comments,
-      CommentsResp commentReplies,
-      ApiStatus fetchWatchInfoStatus,
-      ApiStatus fetchCommentsStatus,
-      ApiStatus fetchCommentRepliesStatus,
-      ApiStatus fetchMoreCommentsStatus,
-      bool isMoreCommentsFetchCompleted,
-      ApiStatus fetchMoreCommentRepliesStatus,
-      bool isMoreReplyCommentsFetchCompleted,
-      ExplodeWatchResp explodeWatchResp,
-      ApiStatus fetchExplodeWatchInfoStatus,
-      ApiStatus fetchSubtitlesStatus,
-      List<Map<String, String>> subtitles,
-      String? liveStreamUrl,
-      ApiStatus fetchExplodeLiveStreamStatus,
-      List<MyRelatedVideo>? relatedVideos,
-      ApiStatus fetchExplodedRelatedVideosStatus,
-      List<MyMuxedStreamInfo>? muxedStreams,
-      ApiStatus fetchExplodeMuxedStreamsStatus,
-      InvidiousWatchResp invidiousWatchResp,
-      ApiStatus fetchInvidiousWatchInfoStatus,
-      InvidiousCommentsResp invidiousComments,
-      ApiStatus fetchInvidiousCommentsStatus,
-      InvidiousCommentsResp invidiousCommentReplies,
-      ApiStatus fetchInvidiousCommentRepliesStatus,
-      ApiStatus fetchMoreInvidiousCommentsStatus,
-      bool isMoreInvidiousCommentsFetchCompleted,
-      ApiStatus fetchMoreInvidiousCommentRepliesStatus,
-      bool isMoreInvidiousReplyCommentsFetchCompleted,
-      NewPipeWatchResp newPipeWatchResp,
-      ApiStatus fetchNewPipeWatchInfoStatus,
-      String? newPipeErrorMessage,
-      NewPipeCommentsResp newPipeComments,
-      ApiStatus fetchNewPipeCommentsStatus,
-      ApiStatus fetchMoreNewPipeCommentsStatus,
-      bool isMoreNewPipeCommentsFetchCompleted,
-      NewPipeCommentsResp newPipeCommentReplies,
-      ApiStatus fetchNewPipeCommentRepliesStatus,
-      ApiStatus fetchMoreNewPipeCommentRepliesStatus,
-      bool isMoreNewPipeReplyCommentsFetchCompleted,
-      List<SponsorSegment> sponsorSegments,
-      ApiStatus fetchSponsorSegmentsStatus});
-}
-
-/// @nodoc
-class _$WatchStateCopyWithImpl<$Res, $Val extends WatchState>
-    implements $WatchStateCopyWith<$Res> {
-  _$WatchStateCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of WatchState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $WatchStateCopyWith<WatchState> get copyWith =>
+      _$WatchStateCopyWithImpl<WatchState>(this as WatchState, _$identity);
+
   @override
-  $Res call({
-    Object? oldId = freezed,
-    Object? isTapComments = null,
-    Object? isDescriptionTapped = null,
-    Object? isPipEnabled = null,
-    Object? title = null,
-    Object? playBack = null,
-    Object? selectedVideoBasicDetails = freezed,
-    Object? watchResp = null,
-    Object? comments = null,
-    Object? commentReplies = null,
-    Object? fetchWatchInfoStatus = null,
-    Object? fetchCommentsStatus = null,
-    Object? fetchCommentRepliesStatus = null,
-    Object? fetchMoreCommentsStatus = null,
-    Object? isMoreCommentsFetchCompleted = null,
-    Object? fetchMoreCommentRepliesStatus = null,
-    Object? isMoreReplyCommentsFetchCompleted = null,
-    Object? explodeWatchResp = null,
-    Object? fetchExplodeWatchInfoStatus = null,
-    Object? fetchSubtitlesStatus = null,
-    Object? subtitles = null,
-    Object? liveStreamUrl = freezed,
-    Object? fetchExplodeLiveStreamStatus = null,
-    Object? relatedVideos = freezed,
-    Object? fetchExplodedRelatedVideosStatus = null,
-    Object? muxedStreams = freezed,
-    Object? fetchExplodeMuxedStreamsStatus = null,
-    Object? invidiousWatchResp = null,
-    Object? fetchInvidiousWatchInfoStatus = null,
-    Object? invidiousComments = null,
-    Object? fetchInvidiousCommentsStatus = null,
-    Object? invidiousCommentReplies = null,
-    Object? fetchInvidiousCommentRepliesStatus = null,
-    Object? fetchMoreInvidiousCommentsStatus = null,
-    Object? isMoreInvidiousCommentsFetchCompleted = null,
-    Object? fetchMoreInvidiousCommentRepliesStatus = null,
-    Object? isMoreInvidiousReplyCommentsFetchCompleted = null,
-    Object? newPipeWatchResp = null,
-    Object? fetchNewPipeWatchInfoStatus = null,
-    Object? newPipeErrorMessage = freezed,
-    Object? newPipeComments = null,
-    Object? fetchNewPipeCommentsStatus = null,
-    Object? fetchMoreNewPipeCommentsStatus = null,
-    Object? isMoreNewPipeCommentsFetchCompleted = null,
-    Object? newPipeCommentReplies = null,
-    Object? fetchNewPipeCommentRepliesStatus = null,
-    Object? fetchMoreNewPipeCommentRepliesStatus = null,
-    Object? isMoreNewPipeReplyCommentsFetchCompleted = null,
-    Object? sponsorSegments = null,
-    Object? fetchSponsorSegmentsStatus = null,
-  }) {
-    return _then(_value.copyWith(
-      oldId: freezed == oldId
-          ? _value.oldId
-          : oldId // ignore: cast_nullable_to_non_nullable
-              as String?,
-      isTapComments: null == isTapComments
-          ? _value.isTapComments
-          : isTapComments // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isDescriptionTapped: null == isDescriptionTapped
-          ? _value.isDescriptionTapped
-          : isDescriptionTapped // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isPipEnabled: null == isPipEnabled
-          ? _value.isPipEnabled
-          : isPipEnabled // ignore: cast_nullable_to_non_nullable
-              as bool,
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      playBack: null == playBack
-          ? _value.playBack
-          : playBack // ignore: cast_nullable_to_non_nullable
-              as int,
-      selectedVideoBasicDetails: freezed == selectedVideoBasicDetails
-          ? _value.selectedVideoBasicDetails
-          : selectedVideoBasicDetails // ignore: cast_nullable_to_non_nullable
-              as VideoBasicInfo?,
-      watchResp: null == watchResp
-          ? _value.watchResp
-          : watchResp // ignore: cast_nullable_to_non_nullable
-              as WatchResp,
-      comments: null == comments
-          ? _value.comments
-          : comments // ignore: cast_nullable_to_non_nullable
-              as CommentsResp,
-      commentReplies: null == commentReplies
-          ? _value.commentReplies
-          : commentReplies // ignore: cast_nullable_to_non_nullable
-              as CommentsResp,
-      fetchWatchInfoStatus: null == fetchWatchInfoStatus
-          ? _value.fetchWatchInfoStatus
-          : fetchWatchInfoStatus // ignore: cast_nullable_to_non_nullable
-              as ApiStatus,
-      fetchCommentsStatus: null == fetchCommentsStatus
-          ? _value.fetchCommentsStatus
-          : fetchCommentsStatus // ignore: cast_nullable_to_non_nullable
-              as ApiStatus,
-      fetchCommentRepliesStatus: null == fetchCommentRepliesStatus
-          ? _value.fetchCommentRepliesStatus
-          : fetchCommentRepliesStatus // ignore: cast_nullable_to_non_nullable
-              as ApiStatus,
-      fetchMoreCommentsStatus: null == fetchMoreCommentsStatus
-          ? _value.fetchMoreCommentsStatus
-          : fetchMoreCommentsStatus // ignore: cast_nullable_to_non_nullable
-              as ApiStatus,
-      isMoreCommentsFetchCompleted: null == isMoreCommentsFetchCompleted
-          ? _value.isMoreCommentsFetchCompleted
-          : isMoreCommentsFetchCompleted // ignore: cast_nullable_to_non_nullable
-              as bool,
-      fetchMoreCommentRepliesStatus: null == fetchMoreCommentRepliesStatus
-          ? _value.fetchMoreCommentRepliesStatus
-          : fetchMoreCommentRepliesStatus // ignore: cast_nullable_to_non_nullable
-              as ApiStatus,
-      isMoreReplyCommentsFetchCompleted: null ==
-              isMoreReplyCommentsFetchCompleted
-          ? _value.isMoreReplyCommentsFetchCompleted
-          : isMoreReplyCommentsFetchCompleted // ignore: cast_nullable_to_non_nullable
-              as bool,
-      explodeWatchResp: null == explodeWatchResp
-          ? _value.explodeWatchResp
-          : explodeWatchResp // ignore: cast_nullable_to_non_nullable
-              as ExplodeWatchResp,
-      fetchExplodeWatchInfoStatus: null == fetchExplodeWatchInfoStatus
-          ? _value.fetchExplodeWatchInfoStatus
-          : fetchExplodeWatchInfoStatus // ignore: cast_nullable_to_non_nullable
-              as ApiStatus,
-      fetchSubtitlesStatus: null == fetchSubtitlesStatus
-          ? _value.fetchSubtitlesStatus
-          : fetchSubtitlesStatus // ignore: cast_nullable_to_non_nullable
-              as ApiStatus,
-      subtitles: null == subtitles
-          ? _value.subtitles
-          : subtitles // ignore: cast_nullable_to_non_nullable
-              as List<Map<String, String>>,
-      liveStreamUrl: freezed == liveStreamUrl
-          ? _value.liveStreamUrl
-          : liveStreamUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
-      fetchExplodeLiveStreamStatus: null == fetchExplodeLiveStreamStatus
-          ? _value.fetchExplodeLiveStreamStatus
-          : fetchExplodeLiveStreamStatus // ignore: cast_nullable_to_non_nullable
-              as ApiStatus,
-      relatedVideos: freezed == relatedVideos
-          ? _value.relatedVideos
-          : relatedVideos // ignore: cast_nullable_to_non_nullable
-              as List<MyRelatedVideo>?,
-      fetchExplodedRelatedVideosStatus: null == fetchExplodedRelatedVideosStatus
-          ? _value.fetchExplodedRelatedVideosStatus
-          : fetchExplodedRelatedVideosStatus // ignore: cast_nullable_to_non_nullable
-              as ApiStatus,
-      muxedStreams: freezed == muxedStreams
-          ? _value.muxedStreams
-          : muxedStreams // ignore: cast_nullable_to_non_nullable
-              as List<MyMuxedStreamInfo>?,
-      fetchExplodeMuxedStreamsStatus: null == fetchExplodeMuxedStreamsStatus
-          ? _value.fetchExplodeMuxedStreamsStatus
-          : fetchExplodeMuxedStreamsStatus // ignore: cast_nullable_to_non_nullable
-              as ApiStatus,
-      invidiousWatchResp: null == invidiousWatchResp
-          ? _value.invidiousWatchResp
-          : invidiousWatchResp // ignore: cast_nullable_to_non_nullable
-              as InvidiousWatchResp,
-      fetchInvidiousWatchInfoStatus: null == fetchInvidiousWatchInfoStatus
-          ? _value.fetchInvidiousWatchInfoStatus
-          : fetchInvidiousWatchInfoStatus // ignore: cast_nullable_to_non_nullable
-              as ApiStatus,
-      invidiousComments: null == invidiousComments
-          ? _value.invidiousComments
-          : invidiousComments // ignore: cast_nullable_to_non_nullable
-              as InvidiousCommentsResp,
-      fetchInvidiousCommentsStatus: null == fetchInvidiousCommentsStatus
-          ? _value.fetchInvidiousCommentsStatus
-          : fetchInvidiousCommentsStatus // ignore: cast_nullable_to_non_nullable
-              as ApiStatus,
-      invidiousCommentReplies: null == invidiousCommentReplies
-          ? _value.invidiousCommentReplies
-          : invidiousCommentReplies // ignore: cast_nullable_to_non_nullable
-              as InvidiousCommentsResp,
-      fetchInvidiousCommentRepliesStatus: null ==
-              fetchInvidiousCommentRepliesStatus
-          ? _value.fetchInvidiousCommentRepliesStatus
-          : fetchInvidiousCommentRepliesStatus // ignore: cast_nullable_to_non_nullable
-              as ApiStatus,
-      fetchMoreInvidiousCommentsStatus: null == fetchMoreInvidiousCommentsStatus
-          ? _value.fetchMoreInvidiousCommentsStatus
-          : fetchMoreInvidiousCommentsStatus // ignore: cast_nullable_to_non_nullable
-              as ApiStatus,
-      isMoreInvidiousCommentsFetchCompleted: null ==
-              isMoreInvidiousCommentsFetchCompleted
-          ? _value.isMoreInvidiousCommentsFetchCompleted
-          : isMoreInvidiousCommentsFetchCompleted // ignore: cast_nullable_to_non_nullable
-              as bool,
-      fetchMoreInvidiousCommentRepliesStatus: null ==
-              fetchMoreInvidiousCommentRepliesStatus
-          ? _value.fetchMoreInvidiousCommentRepliesStatus
-          : fetchMoreInvidiousCommentRepliesStatus // ignore: cast_nullable_to_non_nullable
-              as ApiStatus,
-      isMoreInvidiousReplyCommentsFetchCompleted: null ==
-              isMoreInvidiousReplyCommentsFetchCompleted
-          ? _value.isMoreInvidiousReplyCommentsFetchCompleted
-          : isMoreInvidiousReplyCommentsFetchCompleted // ignore: cast_nullable_to_non_nullable
-              as bool,
-      newPipeWatchResp: null == newPipeWatchResp
-          ? _value.newPipeWatchResp
-          : newPipeWatchResp // ignore: cast_nullable_to_non_nullable
-              as NewPipeWatchResp,
-      fetchNewPipeWatchInfoStatus: null == fetchNewPipeWatchInfoStatus
-          ? _value.fetchNewPipeWatchInfoStatus
-          : fetchNewPipeWatchInfoStatus // ignore: cast_nullable_to_non_nullable
-              as ApiStatus,
-      newPipeErrorMessage: freezed == newPipeErrorMessage
-          ? _value.newPipeErrorMessage
-          : newPipeErrorMessage // ignore: cast_nullable_to_non_nullable
-              as String?,
-      newPipeComments: null == newPipeComments
-          ? _value.newPipeComments
-          : newPipeComments // ignore: cast_nullable_to_non_nullable
-              as NewPipeCommentsResp,
-      fetchNewPipeCommentsStatus: null == fetchNewPipeCommentsStatus
-          ? _value.fetchNewPipeCommentsStatus
-          : fetchNewPipeCommentsStatus // ignore: cast_nullable_to_non_nullable
-              as ApiStatus,
-      fetchMoreNewPipeCommentsStatus: null == fetchMoreNewPipeCommentsStatus
-          ? _value.fetchMoreNewPipeCommentsStatus
-          : fetchMoreNewPipeCommentsStatus // ignore: cast_nullable_to_non_nullable
-              as ApiStatus,
-      isMoreNewPipeCommentsFetchCompleted: null ==
-              isMoreNewPipeCommentsFetchCompleted
-          ? _value.isMoreNewPipeCommentsFetchCompleted
-          : isMoreNewPipeCommentsFetchCompleted // ignore: cast_nullable_to_non_nullable
-              as bool,
-      newPipeCommentReplies: null == newPipeCommentReplies
-          ? _value.newPipeCommentReplies
-          : newPipeCommentReplies // ignore: cast_nullable_to_non_nullable
-              as NewPipeCommentsResp,
-      fetchNewPipeCommentRepliesStatus: null == fetchNewPipeCommentRepliesStatus
-          ? _value.fetchNewPipeCommentRepliesStatus
-          : fetchNewPipeCommentRepliesStatus // ignore: cast_nullable_to_non_nullable
-              as ApiStatus,
-      fetchMoreNewPipeCommentRepliesStatus: null ==
-              fetchMoreNewPipeCommentRepliesStatus
-          ? _value.fetchMoreNewPipeCommentRepliesStatus
-          : fetchMoreNewPipeCommentRepliesStatus // ignore: cast_nullable_to_non_nullable
-              as ApiStatus,
-      isMoreNewPipeReplyCommentsFetchCompleted: null ==
-              isMoreNewPipeReplyCommentsFetchCompleted
-          ? _value.isMoreNewPipeReplyCommentsFetchCompleted
-          : isMoreNewPipeReplyCommentsFetchCompleted // ignore: cast_nullable_to_non_nullable
-              as bool,
-      sponsorSegments: null == sponsorSegments
-          ? _value.sponsorSegments
-          : sponsorSegments // ignore: cast_nullable_to_non_nullable
-              as List<SponsorSegment>,
-      fetchSponsorSegmentsStatus: null == fetchSponsorSegmentsStatus
-          ? _value.fetchSponsorSegmentsStatus
-          : fetchSponsorSegmentsStatus // ignore: cast_nullable_to_non_nullable
-              as ApiStatus,
-    ) as $Val);
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(DiagnosticsProperty('type', 'WatchState'))
+      ..add(DiagnosticsProperty('oldId', oldId))
+      ..add(DiagnosticsProperty('isTapComments', isTapComments))
+      ..add(DiagnosticsProperty('isDescriptionTapped', isDescriptionTapped))
+      ..add(DiagnosticsProperty('isPipEnabled', isPipEnabled))
+      ..add(DiagnosticsProperty('title', title))
+      ..add(DiagnosticsProperty('playBack', playBack))
+      ..add(DiagnosticsProperty(
+          'selectedVideoBasicDetails', selectedVideoBasicDetails))
+      ..add(DiagnosticsProperty('watchResp', watchResp))
+      ..add(DiagnosticsProperty('comments', comments))
+      ..add(DiagnosticsProperty('commentReplies', commentReplies))
+      ..add(DiagnosticsProperty('fetchWatchInfoStatus', fetchWatchInfoStatus))
+      ..add(DiagnosticsProperty('fetchCommentsStatus', fetchCommentsStatus))
+      ..add(DiagnosticsProperty(
+          'fetchCommentRepliesStatus', fetchCommentRepliesStatus))
+      ..add(DiagnosticsProperty(
+          'fetchMoreCommentsStatus', fetchMoreCommentsStatus))
+      ..add(DiagnosticsProperty(
+          'isMoreCommentsFetchCompleted', isMoreCommentsFetchCompleted))
+      ..add(DiagnosticsProperty(
+          'fetchMoreCommentRepliesStatus', fetchMoreCommentRepliesStatus))
+      ..add(DiagnosticsProperty('isMoreReplyCommentsFetchCompleted',
+          isMoreReplyCommentsFetchCompleted))
+      ..add(DiagnosticsProperty('explodeWatchResp', explodeWatchResp))
+      ..add(DiagnosticsProperty(
+          'fetchExplodeWatchInfoStatus', fetchExplodeWatchInfoStatus))
+      ..add(DiagnosticsProperty('fetchSubtitlesStatus', fetchSubtitlesStatus))
+      ..add(DiagnosticsProperty('subtitles', subtitles))
+      ..add(DiagnosticsProperty('liveStreamUrl', liveStreamUrl))
+      ..add(DiagnosticsProperty(
+          'fetchExplodeLiveStreamStatus', fetchExplodeLiveStreamStatus))
+      ..add(DiagnosticsProperty('relatedVideos', relatedVideos))
+      ..add(DiagnosticsProperty(
+          'fetchExplodedRelatedVideosStatus', fetchExplodedRelatedVideosStatus))
+      ..add(DiagnosticsProperty('muxedStreams', muxedStreams))
+      ..add(DiagnosticsProperty(
+          'fetchExplodeMuxedStreamsStatus', fetchExplodeMuxedStreamsStatus))
+      ..add(DiagnosticsProperty('invidiousWatchResp', invidiousWatchResp))
+      ..add(DiagnosticsProperty(
+          'fetchInvidiousWatchInfoStatus', fetchInvidiousWatchInfoStatus))
+      ..add(DiagnosticsProperty('invidiousComments', invidiousComments))
+      ..add(DiagnosticsProperty(
+          'fetchInvidiousCommentsStatus', fetchInvidiousCommentsStatus))
+      ..add(DiagnosticsProperty(
+          'invidiousCommentReplies', invidiousCommentReplies))
+      ..add(DiagnosticsProperty('fetchInvidiousCommentRepliesStatus',
+          fetchInvidiousCommentRepliesStatus))
+      ..add(DiagnosticsProperty(
+          'fetchMoreInvidiousCommentsStatus', fetchMoreInvidiousCommentsStatus))
+      ..add(DiagnosticsProperty('isMoreInvidiousCommentsFetchCompleted',
+          isMoreInvidiousCommentsFetchCompleted))
+      ..add(DiagnosticsProperty('fetchMoreInvidiousCommentRepliesStatus',
+          fetchMoreInvidiousCommentRepliesStatus))
+      ..add(DiagnosticsProperty('isMoreInvidiousReplyCommentsFetchCompleted',
+          isMoreInvidiousReplyCommentsFetchCompleted))
+      ..add(DiagnosticsProperty('newPipeWatchResp', newPipeWatchResp))
+      ..add(DiagnosticsProperty(
+          'fetchNewPipeWatchInfoStatus', fetchNewPipeWatchInfoStatus))
+      ..add(DiagnosticsProperty('newPipeErrorMessage', newPipeErrorMessage))
+      ..add(DiagnosticsProperty('newPipeComments', newPipeComments))
+      ..add(DiagnosticsProperty(
+          'fetchNewPipeCommentsStatus', fetchNewPipeCommentsStatus))
+      ..add(DiagnosticsProperty(
+          'fetchMoreNewPipeCommentsStatus', fetchMoreNewPipeCommentsStatus))
+      ..add(DiagnosticsProperty('isMoreNewPipeCommentsFetchCompleted',
+          isMoreNewPipeCommentsFetchCompleted))
+      ..add(DiagnosticsProperty('newPipeCommentReplies', newPipeCommentReplies))
+      ..add(DiagnosticsProperty(
+          'fetchNewPipeCommentRepliesStatus', fetchNewPipeCommentRepliesStatus))
+      ..add(DiagnosticsProperty('fetchMoreNewPipeCommentRepliesStatus',
+          fetchMoreNewPipeCommentRepliesStatus))
+      ..add(DiagnosticsProperty('isMoreNewPipeReplyCommentsFetchCompleted',
+          isMoreNewPipeReplyCommentsFetchCompleted))
+      ..add(DiagnosticsProperty('sponsorSegments', sponsorSegments))
+      ..add(DiagnosticsProperty(
+          'fetchSponsorSegmentsStatus', fetchSponsorSegmentsStatus));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is WatchState &&
+            (identical(other.oldId, oldId) || other.oldId == oldId) &&
+            (identical(other.isTapComments, isTapComments) ||
+                other.isTapComments == isTapComments) &&
+            (identical(other.isDescriptionTapped, isDescriptionTapped) ||
+                other.isDescriptionTapped == isDescriptionTapped) &&
+            (identical(other.isPipEnabled, isPipEnabled) ||
+                other.isPipEnabled == isPipEnabled) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.playBack, playBack) ||
+                other.playBack == playBack) &&
+            (identical(other.selectedVideoBasicDetails, selectedVideoBasicDetails) ||
+                other.selectedVideoBasicDetails == selectedVideoBasicDetails) &&
+            (identical(other.watchResp, watchResp) ||
+                other.watchResp == watchResp) &&
+            (identical(other.comments, comments) ||
+                other.comments == comments) &&
+            (identical(other.commentReplies, commentReplies) ||
+                other.commentReplies == commentReplies) &&
+            (identical(other.fetchWatchInfoStatus, fetchWatchInfoStatus) ||
+                other.fetchWatchInfoStatus == fetchWatchInfoStatus) &&
+            (identical(other.fetchCommentsStatus, fetchCommentsStatus) ||
+                other.fetchCommentsStatus == fetchCommentsStatus) &&
+            (identical(other.fetchCommentRepliesStatus, fetchCommentRepliesStatus) ||
+                other.fetchCommentRepliesStatus == fetchCommentRepliesStatus) &&
+            (identical(other.fetchMoreCommentsStatus, fetchMoreCommentsStatus) ||
+                other.fetchMoreCommentsStatus == fetchMoreCommentsStatus) &&
+            (identical(other.isMoreCommentsFetchCompleted, isMoreCommentsFetchCompleted) ||
+                other.isMoreCommentsFetchCompleted ==
+                    isMoreCommentsFetchCompleted) &&
+            (identical(other.fetchMoreCommentRepliesStatus, fetchMoreCommentRepliesStatus) ||
+                other.fetchMoreCommentRepliesStatus ==
+                    fetchMoreCommentRepliesStatus) &&
+            (identical(other.isMoreReplyCommentsFetchCompleted, isMoreReplyCommentsFetchCompleted) ||
+                other.isMoreReplyCommentsFetchCompleted ==
+                    isMoreReplyCommentsFetchCompleted) &&
+            (identical(other.explodeWatchResp, explodeWatchResp) ||
+                other.explodeWatchResp == explodeWatchResp) &&
+            (identical(other.fetchExplodeWatchInfoStatus, fetchExplodeWatchInfoStatus) ||
+                other.fetchExplodeWatchInfoStatus ==
+                    fetchExplodeWatchInfoStatus) &&
+            (identical(other.fetchSubtitlesStatus, fetchSubtitlesStatus) ||
+                other.fetchSubtitlesStatus == fetchSubtitlesStatus) &&
+            const DeepCollectionEquality().equals(other.subtitles, subtitles) &&
+            (identical(other.liveStreamUrl, liveStreamUrl) ||
+                other.liveStreamUrl == liveStreamUrl) &&
+            (identical(other.fetchExplodeLiveStreamStatus, fetchExplodeLiveStreamStatus) ||
+                other.fetchExplodeLiveStreamStatus ==
+                    fetchExplodeLiveStreamStatus) &&
+            const DeepCollectionEquality()
+                .equals(other.relatedVideos, relatedVideos) &&
+            (identical(other.fetchExplodedRelatedVideosStatus, fetchExplodedRelatedVideosStatus) ||
+                other.fetchExplodedRelatedVideosStatus == fetchExplodedRelatedVideosStatus) &&
+            const DeepCollectionEquality().equals(other.muxedStreams, muxedStreams) &&
+            (identical(other.fetchExplodeMuxedStreamsStatus, fetchExplodeMuxedStreamsStatus) || other.fetchExplodeMuxedStreamsStatus == fetchExplodeMuxedStreamsStatus) &&
+            (identical(other.invidiousWatchResp, invidiousWatchResp) || other.invidiousWatchResp == invidiousWatchResp) &&
+            (identical(other.fetchInvidiousWatchInfoStatus, fetchInvidiousWatchInfoStatus) || other.fetchInvidiousWatchInfoStatus == fetchInvidiousWatchInfoStatus) &&
+            (identical(other.invidiousComments, invidiousComments) || other.invidiousComments == invidiousComments) &&
+            (identical(other.fetchInvidiousCommentsStatus, fetchInvidiousCommentsStatus) || other.fetchInvidiousCommentsStatus == fetchInvidiousCommentsStatus) &&
+            (identical(other.invidiousCommentReplies, invidiousCommentReplies) || other.invidiousCommentReplies == invidiousCommentReplies) &&
+            (identical(other.fetchInvidiousCommentRepliesStatus, fetchInvidiousCommentRepliesStatus) || other.fetchInvidiousCommentRepliesStatus == fetchInvidiousCommentRepliesStatus) &&
+            (identical(other.fetchMoreInvidiousCommentsStatus, fetchMoreInvidiousCommentsStatus) || other.fetchMoreInvidiousCommentsStatus == fetchMoreInvidiousCommentsStatus) &&
+            (identical(other.isMoreInvidiousCommentsFetchCompleted, isMoreInvidiousCommentsFetchCompleted) || other.isMoreInvidiousCommentsFetchCompleted == isMoreInvidiousCommentsFetchCompleted) &&
+            (identical(other.fetchMoreInvidiousCommentRepliesStatus, fetchMoreInvidiousCommentRepliesStatus) || other.fetchMoreInvidiousCommentRepliesStatus == fetchMoreInvidiousCommentRepliesStatus) &&
+            (identical(other.isMoreInvidiousReplyCommentsFetchCompleted, isMoreInvidiousReplyCommentsFetchCompleted) || other.isMoreInvidiousReplyCommentsFetchCompleted == isMoreInvidiousReplyCommentsFetchCompleted) &&
+            (identical(other.newPipeWatchResp, newPipeWatchResp) || other.newPipeWatchResp == newPipeWatchResp) &&
+            (identical(other.fetchNewPipeWatchInfoStatus, fetchNewPipeWatchInfoStatus) || other.fetchNewPipeWatchInfoStatus == fetchNewPipeWatchInfoStatus) &&
+            (identical(other.newPipeErrorMessage, newPipeErrorMessage) || other.newPipeErrorMessage == newPipeErrorMessage) &&
+            (identical(other.newPipeComments, newPipeComments) || other.newPipeComments == newPipeComments) &&
+            (identical(other.fetchNewPipeCommentsStatus, fetchNewPipeCommentsStatus) || other.fetchNewPipeCommentsStatus == fetchNewPipeCommentsStatus) &&
+            (identical(other.fetchMoreNewPipeCommentsStatus, fetchMoreNewPipeCommentsStatus) || other.fetchMoreNewPipeCommentsStatus == fetchMoreNewPipeCommentsStatus) &&
+            (identical(other.isMoreNewPipeCommentsFetchCompleted, isMoreNewPipeCommentsFetchCompleted) || other.isMoreNewPipeCommentsFetchCompleted == isMoreNewPipeCommentsFetchCompleted) &&
+            (identical(other.newPipeCommentReplies, newPipeCommentReplies) || other.newPipeCommentReplies == newPipeCommentReplies) &&
+            (identical(other.fetchNewPipeCommentRepliesStatus, fetchNewPipeCommentRepliesStatus) || other.fetchNewPipeCommentRepliesStatus == fetchNewPipeCommentRepliesStatus) &&
+            (identical(other.fetchMoreNewPipeCommentRepliesStatus, fetchMoreNewPipeCommentRepliesStatus) || other.fetchMoreNewPipeCommentRepliesStatus == fetchMoreNewPipeCommentRepliesStatus) &&
+            (identical(other.isMoreNewPipeReplyCommentsFetchCompleted, isMoreNewPipeReplyCommentsFetchCompleted) || other.isMoreNewPipeReplyCommentsFetchCompleted == isMoreNewPipeReplyCommentsFetchCompleted) &&
+            const DeepCollectionEquality().equals(other.sponsorSegments, sponsorSegments) &&
+            (identical(other.fetchSponsorSegmentsStatus, fetchSponsorSegmentsStatus) || other.fetchSponsorSegmentsStatus == fetchSponsorSegmentsStatus));
+  }
+
+  @override
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        oldId,
+        isTapComments,
+        isDescriptionTapped,
+        isPipEnabled,
+        title,
+        playBack,
+        selectedVideoBasicDetails,
+        watchResp,
+        comments,
+        commentReplies,
+        fetchWatchInfoStatus,
+        fetchCommentsStatus,
+        fetchCommentRepliesStatus,
+        fetchMoreCommentsStatus,
+        isMoreCommentsFetchCompleted,
+        fetchMoreCommentRepliesStatus,
+        isMoreReplyCommentsFetchCompleted,
+        explodeWatchResp,
+        fetchExplodeWatchInfoStatus,
+        fetchSubtitlesStatus,
+        const DeepCollectionEquality().hash(subtitles),
+        liveStreamUrl,
+        fetchExplodeLiveStreamStatus,
+        const DeepCollectionEquality().hash(relatedVideos),
+        fetchExplodedRelatedVideosStatus,
+        const DeepCollectionEquality().hash(muxedStreams),
+        fetchExplodeMuxedStreamsStatus,
+        invidiousWatchResp,
+        fetchInvidiousWatchInfoStatus,
+        invidiousComments,
+        fetchInvidiousCommentsStatus,
+        invidiousCommentReplies,
+        fetchInvidiousCommentRepliesStatus,
+        fetchMoreInvidiousCommentsStatus,
+        isMoreInvidiousCommentsFetchCompleted,
+        fetchMoreInvidiousCommentRepliesStatus,
+        isMoreInvidiousReplyCommentsFetchCompleted,
+        newPipeWatchResp,
+        fetchNewPipeWatchInfoStatus,
+        newPipeErrorMessage,
+        newPipeComments,
+        fetchNewPipeCommentsStatus,
+        fetchMoreNewPipeCommentsStatus,
+        isMoreNewPipeCommentsFetchCompleted,
+        newPipeCommentReplies,
+        fetchNewPipeCommentRepliesStatus,
+        fetchMoreNewPipeCommentRepliesStatus,
+        isMoreNewPipeReplyCommentsFetchCompleted,
+        const DeepCollectionEquality().hash(sponsorSegments),
+        fetchSponsorSegmentsStatus
+      ]);
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'WatchState(oldId: $oldId, isTapComments: $isTapComments, isDescriptionTapped: $isDescriptionTapped, isPipEnabled: $isPipEnabled, title: $title, playBack: $playBack, selectedVideoBasicDetails: $selectedVideoBasicDetails, watchResp: $watchResp, comments: $comments, commentReplies: $commentReplies, fetchWatchInfoStatus: $fetchWatchInfoStatus, fetchCommentsStatus: $fetchCommentsStatus, fetchCommentRepliesStatus: $fetchCommentRepliesStatus, fetchMoreCommentsStatus: $fetchMoreCommentsStatus, isMoreCommentsFetchCompleted: $isMoreCommentsFetchCompleted, fetchMoreCommentRepliesStatus: $fetchMoreCommentRepliesStatus, isMoreReplyCommentsFetchCompleted: $isMoreReplyCommentsFetchCompleted, explodeWatchResp: $explodeWatchResp, fetchExplodeWatchInfoStatus: $fetchExplodeWatchInfoStatus, fetchSubtitlesStatus: $fetchSubtitlesStatus, subtitles: $subtitles, liveStreamUrl: $liveStreamUrl, fetchExplodeLiveStreamStatus: $fetchExplodeLiveStreamStatus, relatedVideos: $relatedVideos, fetchExplodedRelatedVideosStatus: $fetchExplodedRelatedVideosStatus, muxedStreams: $muxedStreams, fetchExplodeMuxedStreamsStatus: $fetchExplodeMuxedStreamsStatus, invidiousWatchResp: $invidiousWatchResp, fetchInvidiousWatchInfoStatus: $fetchInvidiousWatchInfoStatus, invidiousComments: $invidiousComments, fetchInvidiousCommentsStatus: $fetchInvidiousCommentsStatus, invidiousCommentReplies: $invidiousCommentReplies, fetchInvidiousCommentRepliesStatus: $fetchInvidiousCommentRepliesStatus, fetchMoreInvidiousCommentsStatus: $fetchMoreInvidiousCommentsStatus, isMoreInvidiousCommentsFetchCompleted: $isMoreInvidiousCommentsFetchCompleted, fetchMoreInvidiousCommentRepliesStatus: $fetchMoreInvidiousCommentRepliesStatus, isMoreInvidiousReplyCommentsFetchCompleted: $isMoreInvidiousReplyCommentsFetchCompleted, newPipeWatchResp: $newPipeWatchResp, fetchNewPipeWatchInfoStatus: $fetchNewPipeWatchInfoStatus, newPipeErrorMessage: $newPipeErrorMessage, newPipeComments: $newPipeComments, fetchNewPipeCommentsStatus: $fetchNewPipeCommentsStatus, fetchMoreNewPipeCommentsStatus: $fetchMoreNewPipeCommentsStatus, isMoreNewPipeCommentsFetchCompleted: $isMoreNewPipeCommentsFetchCompleted, newPipeCommentReplies: $newPipeCommentReplies, fetchNewPipeCommentRepliesStatus: $fetchNewPipeCommentRepliesStatus, fetchMoreNewPipeCommentRepliesStatus: $fetchMoreNewPipeCommentRepliesStatus, isMoreNewPipeReplyCommentsFetchCompleted: $isMoreNewPipeReplyCommentsFetchCompleted, sponsorSegments: $sponsorSegments, fetchSponsorSegmentsStatus: $fetchSponsorSegmentsStatus)';
   }
 }
 
 /// @nodoc
-abstract class _$$InitialImplCopyWith<$Res>
-    implements $WatchStateCopyWith<$Res> {
-  factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $WatchStateCopyWith<$Res> {
+  factory $WatchStateCopyWith(
+          WatchState value, $Res Function(WatchState) _then) =
+      _$WatchStateCopyWithImpl;
   @useResult
   $Res call(
       {String? oldId,
@@ -11848,12 +3387,11 @@ abstract class _$$InitialImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$InitialImplCopyWithImpl<$Res>
-    extends _$WatchStateCopyWithImpl<$Res, _$InitialImpl>
-    implements _$$InitialImplCopyWith<$Res> {
-  __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
-      : super(_value, _then);
+class _$WatchStateCopyWithImpl<$Res> implements $WatchStateCopyWith<$Res> {
+  _$WatchStateCopyWithImpl(this._self, this._then);
+
+  final WatchState _self;
+  final $Res Function(WatchState) _then;
 
   /// Create a copy of WatchState
   /// with the given fields replaced by the non-null parameter values.
@@ -11911,223 +3449,679 @@ class __$$InitialImplCopyWithImpl<$Res>
     Object? sponsorSegments = null,
     Object? fetchSponsorSegmentsStatus = null,
   }) {
-    return _then(_$InitialImpl(
+    return _then(_self.copyWith(
       oldId: freezed == oldId
-          ? _value.oldId
+          ? _self.oldId
           : oldId // ignore: cast_nullable_to_non_nullable
               as String?,
       isTapComments: null == isTapComments
-          ? _value.isTapComments
+          ? _self.isTapComments
           : isTapComments // ignore: cast_nullable_to_non_nullable
               as bool,
       isDescriptionTapped: null == isDescriptionTapped
-          ? _value.isDescriptionTapped
+          ? _self.isDescriptionTapped
           : isDescriptionTapped // ignore: cast_nullable_to_non_nullable
               as bool,
       isPipEnabled: null == isPipEnabled
-          ? _value.isPipEnabled
+          ? _self.isPipEnabled
           : isPipEnabled // ignore: cast_nullable_to_non_nullable
               as bool,
       title: null == title
-          ? _value.title
+          ? _self.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
       playBack: null == playBack
-          ? _value.playBack
+          ? _self.playBack
           : playBack // ignore: cast_nullable_to_non_nullable
               as int,
       selectedVideoBasicDetails: freezed == selectedVideoBasicDetails
-          ? _value.selectedVideoBasicDetails
+          ? _self.selectedVideoBasicDetails
           : selectedVideoBasicDetails // ignore: cast_nullable_to_non_nullable
               as VideoBasicInfo?,
       watchResp: null == watchResp
-          ? _value.watchResp
+          ? _self.watchResp
           : watchResp // ignore: cast_nullable_to_non_nullable
               as WatchResp,
       comments: null == comments
-          ? _value.comments
+          ? _self.comments
           : comments // ignore: cast_nullable_to_non_nullable
               as CommentsResp,
       commentReplies: null == commentReplies
-          ? _value.commentReplies
+          ? _self.commentReplies
           : commentReplies // ignore: cast_nullable_to_non_nullable
               as CommentsResp,
       fetchWatchInfoStatus: null == fetchWatchInfoStatus
-          ? _value.fetchWatchInfoStatus
+          ? _self.fetchWatchInfoStatus
           : fetchWatchInfoStatus // ignore: cast_nullable_to_non_nullable
               as ApiStatus,
       fetchCommentsStatus: null == fetchCommentsStatus
-          ? _value.fetchCommentsStatus
+          ? _self.fetchCommentsStatus
           : fetchCommentsStatus // ignore: cast_nullable_to_non_nullable
               as ApiStatus,
       fetchCommentRepliesStatus: null == fetchCommentRepliesStatus
-          ? _value.fetchCommentRepliesStatus
+          ? _self.fetchCommentRepliesStatus
           : fetchCommentRepliesStatus // ignore: cast_nullable_to_non_nullable
               as ApiStatus,
       fetchMoreCommentsStatus: null == fetchMoreCommentsStatus
-          ? _value.fetchMoreCommentsStatus
+          ? _self.fetchMoreCommentsStatus
           : fetchMoreCommentsStatus // ignore: cast_nullable_to_non_nullable
               as ApiStatus,
       isMoreCommentsFetchCompleted: null == isMoreCommentsFetchCompleted
-          ? _value.isMoreCommentsFetchCompleted
+          ? _self.isMoreCommentsFetchCompleted
           : isMoreCommentsFetchCompleted // ignore: cast_nullable_to_non_nullable
               as bool,
       fetchMoreCommentRepliesStatus: null == fetchMoreCommentRepliesStatus
-          ? _value.fetchMoreCommentRepliesStatus
+          ? _self.fetchMoreCommentRepliesStatus
           : fetchMoreCommentRepliesStatus // ignore: cast_nullable_to_non_nullable
               as ApiStatus,
       isMoreReplyCommentsFetchCompleted: null ==
               isMoreReplyCommentsFetchCompleted
-          ? _value.isMoreReplyCommentsFetchCompleted
+          ? _self.isMoreReplyCommentsFetchCompleted
           : isMoreReplyCommentsFetchCompleted // ignore: cast_nullable_to_non_nullable
               as bool,
       explodeWatchResp: null == explodeWatchResp
-          ? _value.explodeWatchResp
+          ? _self.explodeWatchResp
           : explodeWatchResp // ignore: cast_nullable_to_non_nullable
               as ExplodeWatchResp,
       fetchExplodeWatchInfoStatus: null == fetchExplodeWatchInfoStatus
-          ? _value.fetchExplodeWatchInfoStatus
+          ? _self.fetchExplodeWatchInfoStatus
           : fetchExplodeWatchInfoStatus // ignore: cast_nullable_to_non_nullable
               as ApiStatus,
       fetchSubtitlesStatus: null == fetchSubtitlesStatus
-          ? _value.fetchSubtitlesStatus
+          ? _self.fetchSubtitlesStatus
           : fetchSubtitlesStatus // ignore: cast_nullable_to_non_nullable
               as ApiStatus,
       subtitles: null == subtitles
-          ? _value._subtitles
+          ? _self.subtitles
           : subtitles // ignore: cast_nullable_to_non_nullable
               as List<Map<String, String>>,
       liveStreamUrl: freezed == liveStreamUrl
-          ? _value.liveStreamUrl
+          ? _self.liveStreamUrl
           : liveStreamUrl // ignore: cast_nullable_to_non_nullable
               as String?,
       fetchExplodeLiveStreamStatus: null == fetchExplodeLiveStreamStatus
-          ? _value.fetchExplodeLiveStreamStatus
+          ? _self.fetchExplodeLiveStreamStatus
           : fetchExplodeLiveStreamStatus // ignore: cast_nullable_to_non_nullable
               as ApiStatus,
       relatedVideos: freezed == relatedVideos
-          ? _value._relatedVideos
+          ? _self.relatedVideos
           : relatedVideos // ignore: cast_nullable_to_non_nullable
               as List<MyRelatedVideo>?,
       fetchExplodedRelatedVideosStatus: null == fetchExplodedRelatedVideosStatus
-          ? _value.fetchExplodedRelatedVideosStatus
+          ? _self.fetchExplodedRelatedVideosStatus
           : fetchExplodedRelatedVideosStatus // ignore: cast_nullable_to_non_nullable
               as ApiStatus,
       muxedStreams: freezed == muxedStreams
-          ? _value._muxedStreams
+          ? _self.muxedStreams
           : muxedStreams // ignore: cast_nullable_to_non_nullable
               as List<MyMuxedStreamInfo>?,
       fetchExplodeMuxedStreamsStatus: null == fetchExplodeMuxedStreamsStatus
-          ? _value.fetchExplodeMuxedStreamsStatus
+          ? _self.fetchExplodeMuxedStreamsStatus
           : fetchExplodeMuxedStreamsStatus // ignore: cast_nullable_to_non_nullable
               as ApiStatus,
       invidiousWatchResp: null == invidiousWatchResp
-          ? _value.invidiousWatchResp
+          ? _self.invidiousWatchResp
           : invidiousWatchResp // ignore: cast_nullable_to_non_nullable
               as InvidiousWatchResp,
       fetchInvidiousWatchInfoStatus: null == fetchInvidiousWatchInfoStatus
-          ? _value.fetchInvidiousWatchInfoStatus
+          ? _self.fetchInvidiousWatchInfoStatus
           : fetchInvidiousWatchInfoStatus // ignore: cast_nullable_to_non_nullable
               as ApiStatus,
       invidiousComments: null == invidiousComments
-          ? _value.invidiousComments
+          ? _self.invidiousComments
           : invidiousComments // ignore: cast_nullable_to_non_nullable
               as InvidiousCommentsResp,
       fetchInvidiousCommentsStatus: null == fetchInvidiousCommentsStatus
-          ? _value.fetchInvidiousCommentsStatus
+          ? _self.fetchInvidiousCommentsStatus
           : fetchInvidiousCommentsStatus // ignore: cast_nullable_to_non_nullable
               as ApiStatus,
       invidiousCommentReplies: null == invidiousCommentReplies
-          ? _value.invidiousCommentReplies
+          ? _self.invidiousCommentReplies
           : invidiousCommentReplies // ignore: cast_nullable_to_non_nullable
               as InvidiousCommentsResp,
       fetchInvidiousCommentRepliesStatus: null ==
               fetchInvidiousCommentRepliesStatus
-          ? _value.fetchInvidiousCommentRepliesStatus
+          ? _self.fetchInvidiousCommentRepliesStatus
           : fetchInvidiousCommentRepliesStatus // ignore: cast_nullable_to_non_nullable
               as ApiStatus,
       fetchMoreInvidiousCommentsStatus: null == fetchMoreInvidiousCommentsStatus
-          ? _value.fetchMoreInvidiousCommentsStatus
+          ? _self.fetchMoreInvidiousCommentsStatus
           : fetchMoreInvidiousCommentsStatus // ignore: cast_nullable_to_non_nullable
               as ApiStatus,
       isMoreInvidiousCommentsFetchCompleted: null ==
               isMoreInvidiousCommentsFetchCompleted
-          ? _value.isMoreInvidiousCommentsFetchCompleted
+          ? _self.isMoreInvidiousCommentsFetchCompleted
           : isMoreInvidiousCommentsFetchCompleted // ignore: cast_nullable_to_non_nullable
               as bool,
       fetchMoreInvidiousCommentRepliesStatus: null ==
               fetchMoreInvidiousCommentRepliesStatus
-          ? _value.fetchMoreInvidiousCommentRepliesStatus
+          ? _self.fetchMoreInvidiousCommentRepliesStatus
           : fetchMoreInvidiousCommentRepliesStatus // ignore: cast_nullable_to_non_nullable
               as ApiStatus,
       isMoreInvidiousReplyCommentsFetchCompleted: null ==
               isMoreInvidiousReplyCommentsFetchCompleted
-          ? _value.isMoreInvidiousReplyCommentsFetchCompleted
+          ? _self.isMoreInvidiousReplyCommentsFetchCompleted
           : isMoreInvidiousReplyCommentsFetchCompleted // ignore: cast_nullable_to_non_nullable
               as bool,
       newPipeWatchResp: null == newPipeWatchResp
-          ? _value.newPipeWatchResp
+          ? _self.newPipeWatchResp
           : newPipeWatchResp // ignore: cast_nullable_to_non_nullable
               as NewPipeWatchResp,
       fetchNewPipeWatchInfoStatus: null == fetchNewPipeWatchInfoStatus
-          ? _value.fetchNewPipeWatchInfoStatus
+          ? _self.fetchNewPipeWatchInfoStatus
           : fetchNewPipeWatchInfoStatus // ignore: cast_nullable_to_non_nullable
               as ApiStatus,
       newPipeErrorMessage: freezed == newPipeErrorMessage
-          ? _value.newPipeErrorMessage
+          ? _self.newPipeErrorMessage
           : newPipeErrorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
       newPipeComments: null == newPipeComments
-          ? _value.newPipeComments
+          ? _self.newPipeComments
           : newPipeComments // ignore: cast_nullable_to_non_nullable
               as NewPipeCommentsResp,
       fetchNewPipeCommentsStatus: null == fetchNewPipeCommentsStatus
-          ? _value.fetchNewPipeCommentsStatus
+          ? _self.fetchNewPipeCommentsStatus
           : fetchNewPipeCommentsStatus // ignore: cast_nullable_to_non_nullable
               as ApiStatus,
       fetchMoreNewPipeCommentsStatus: null == fetchMoreNewPipeCommentsStatus
-          ? _value.fetchMoreNewPipeCommentsStatus
+          ? _self.fetchMoreNewPipeCommentsStatus
           : fetchMoreNewPipeCommentsStatus // ignore: cast_nullable_to_non_nullable
               as ApiStatus,
       isMoreNewPipeCommentsFetchCompleted: null ==
               isMoreNewPipeCommentsFetchCompleted
-          ? _value.isMoreNewPipeCommentsFetchCompleted
+          ? _self.isMoreNewPipeCommentsFetchCompleted
           : isMoreNewPipeCommentsFetchCompleted // ignore: cast_nullable_to_non_nullable
               as bool,
       newPipeCommentReplies: null == newPipeCommentReplies
-          ? _value.newPipeCommentReplies
+          ? _self.newPipeCommentReplies
           : newPipeCommentReplies // ignore: cast_nullable_to_non_nullable
               as NewPipeCommentsResp,
       fetchNewPipeCommentRepliesStatus: null == fetchNewPipeCommentRepliesStatus
-          ? _value.fetchNewPipeCommentRepliesStatus
+          ? _self.fetchNewPipeCommentRepliesStatus
           : fetchNewPipeCommentRepliesStatus // ignore: cast_nullable_to_non_nullable
               as ApiStatus,
       fetchMoreNewPipeCommentRepliesStatus: null ==
               fetchMoreNewPipeCommentRepliesStatus
-          ? _value.fetchMoreNewPipeCommentRepliesStatus
+          ? _self.fetchMoreNewPipeCommentRepliesStatus
           : fetchMoreNewPipeCommentRepliesStatus // ignore: cast_nullable_to_non_nullable
               as ApiStatus,
       isMoreNewPipeReplyCommentsFetchCompleted: null ==
               isMoreNewPipeReplyCommentsFetchCompleted
-          ? _value.isMoreNewPipeReplyCommentsFetchCompleted
+          ? _self.isMoreNewPipeReplyCommentsFetchCompleted
           : isMoreNewPipeReplyCommentsFetchCompleted // ignore: cast_nullable_to_non_nullable
               as bool,
       sponsorSegments: null == sponsorSegments
-          ? _value._sponsorSegments
+          ? _self.sponsorSegments
           : sponsorSegments // ignore: cast_nullable_to_non_nullable
               as List<SponsorSegment>,
       fetchSponsorSegmentsStatus: null == fetchSponsorSegmentsStatus
-          ? _value.fetchSponsorSegmentsStatus
+          ? _self.fetchSponsorSegmentsStatus
           : fetchSponsorSegmentsStatus // ignore: cast_nullable_to_non_nullable
               as ApiStatus,
     ));
   }
 }
 
+/// Adds pattern-matching-related methods to [WatchState].
+extension WatchStatePatterns on WatchState {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_Initial value)? $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Initial() when $default != null:
+        return $default(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_Initial value) $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Initial():
+        return $default(_that);
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_Initial value)? $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Initial() when $default != null:
+        return $default(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            String? oldId,
+            bool isTapComments,
+            bool isDescriptionTapped,
+            bool isPipEnabled,
+            String title,
+            int playBack,
+            VideoBasicInfo? selectedVideoBasicDetails,
+            WatchResp watchResp,
+            CommentsResp comments,
+            CommentsResp commentReplies,
+            ApiStatus fetchWatchInfoStatus,
+            ApiStatus fetchCommentsStatus,
+            ApiStatus fetchCommentRepliesStatus,
+            ApiStatus fetchMoreCommentsStatus,
+            bool isMoreCommentsFetchCompleted,
+            ApiStatus fetchMoreCommentRepliesStatus,
+            bool isMoreReplyCommentsFetchCompleted,
+            ExplodeWatchResp explodeWatchResp,
+            ApiStatus fetchExplodeWatchInfoStatus,
+            ApiStatus fetchSubtitlesStatus,
+            List<Map<String, String>> subtitles,
+            String? liveStreamUrl,
+            ApiStatus fetchExplodeLiveStreamStatus,
+            List<MyRelatedVideo>? relatedVideos,
+            ApiStatus fetchExplodedRelatedVideosStatus,
+            List<MyMuxedStreamInfo>? muxedStreams,
+            ApiStatus fetchExplodeMuxedStreamsStatus,
+            InvidiousWatchResp invidiousWatchResp,
+            ApiStatus fetchInvidiousWatchInfoStatus,
+            InvidiousCommentsResp invidiousComments,
+            ApiStatus fetchInvidiousCommentsStatus,
+            InvidiousCommentsResp invidiousCommentReplies,
+            ApiStatus fetchInvidiousCommentRepliesStatus,
+            ApiStatus fetchMoreInvidiousCommentsStatus,
+            bool isMoreInvidiousCommentsFetchCompleted,
+            ApiStatus fetchMoreInvidiousCommentRepliesStatus,
+            bool isMoreInvidiousReplyCommentsFetchCompleted,
+            NewPipeWatchResp newPipeWatchResp,
+            ApiStatus fetchNewPipeWatchInfoStatus,
+            String? newPipeErrorMessage,
+            NewPipeCommentsResp newPipeComments,
+            ApiStatus fetchNewPipeCommentsStatus,
+            ApiStatus fetchMoreNewPipeCommentsStatus,
+            bool isMoreNewPipeCommentsFetchCompleted,
+            NewPipeCommentsResp newPipeCommentReplies,
+            ApiStatus fetchNewPipeCommentRepliesStatus,
+            ApiStatus fetchMoreNewPipeCommentRepliesStatus,
+            bool isMoreNewPipeReplyCommentsFetchCompleted,
+            List<SponsorSegment> sponsorSegments,
+            ApiStatus fetchSponsorSegmentsStatus)?
+        $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Initial() when $default != null:
+        return $default(
+            _that.oldId,
+            _that.isTapComments,
+            _that.isDescriptionTapped,
+            _that.isPipEnabled,
+            _that.title,
+            _that.playBack,
+            _that.selectedVideoBasicDetails,
+            _that.watchResp,
+            _that.comments,
+            _that.commentReplies,
+            _that.fetchWatchInfoStatus,
+            _that.fetchCommentsStatus,
+            _that.fetchCommentRepliesStatus,
+            _that.fetchMoreCommentsStatus,
+            _that.isMoreCommentsFetchCompleted,
+            _that.fetchMoreCommentRepliesStatus,
+            _that.isMoreReplyCommentsFetchCompleted,
+            _that.explodeWatchResp,
+            _that.fetchExplodeWatchInfoStatus,
+            _that.fetchSubtitlesStatus,
+            _that.subtitles,
+            _that.liveStreamUrl,
+            _that.fetchExplodeLiveStreamStatus,
+            _that.relatedVideos,
+            _that.fetchExplodedRelatedVideosStatus,
+            _that.muxedStreams,
+            _that.fetchExplodeMuxedStreamsStatus,
+            _that.invidiousWatchResp,
+            _that.fetchInvidiousWatchInfoStatus,
+            _that.invidiousComments,
+            _that.fetchInvidiousCommentsStatus,
+            _that.invidiousCommentReplies,
+            _that.fetchInvidiousCommentRepliesStatus,
+            _that.fetchMoreInvidiousCommentsStatus,
+            _that.isMoreInvidiousCommentsFetchCompleted,
+            _that.fetchMoreInvidiousCommentRepliesStatus,
+            _that.isMoreInvidiousReplyCommentsFetchCompleted,
+            _that.newPipeWatchResp,
+            _that.fetchNewPipeWatchInfoStatus,
+            _that.newPipeErrorMessage,
+            _that.newPipeComments,
+            _that.fetchNewPipeCommentsStatus,
+            _that.fetchMoreNewPipeCommentsStatus,
+            _that.isMoreNewPipeCommentsFetchCompleted,
+            _that.newPipeCommentReplies,
+            _that.fetchNewPipeCommentRepliesStatus,
+            _that.fetchMoreNewPipeCommentRepliesStatus,
+            _that.isMoreNewPipeReplyCommentsFetchCompleted,
+            _that.sponsorSegments,
+            _that.fetchSponsorSegmentsStatus);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            String? oldId,
+            bool isTapComments,
+            bool isDescriptionTapped,
+            bool isPipEnabled,
+            String title,
+            int playBack,
+            VideoBasicInfo? selectedVideoBasicDetails,
+            WatchResp watchResp,
+            CommentsResp comments,
+            CommentsResp commentReplies,
+            ApiStatus fetchWatchInfoStatus,
+            ApiStatus fetchCommentsStatus,
+            ApiStatus fetchCommentRepliesStatus,
+            ApiStatus fetchMoreCommentsStatus,
+            bool isMoreCommentsFetchCompleted,
+            ApiStatus fetchMoreCommentRepliesStatus,
+            bool isMoreReplyCommentsFetchCompleted,
+            ExplodeWatchResp explodeWatchResp,
+            ApiStatus fetchExplodeWatchInfoStatus,
+            ApiStatus fetchSubtitlesStatus,
+            List<Map<String, String>> subtitles,
+            String? liveStreamUrl,
+            ApiStatus fetchExplodeLiveStreamStatus,
+            List<MyRelatedVideo>? relatedVideos,
+            ApiStatus fetchExplodedRelatedVideosStatus,
+            List<MyMuxedStreamInfo>? muxedStreams,
+            ApiStatus fetchExplodeMuxedStreamsStatus,
+            InvidiousWatchResp invidiousWatchResp,
+            ApiStatus fetchInvidiousWatchInfoStatus,
+            InvidiousCommentsResp invidiousComments,
+            ApiStatus fetchInvidiousCommentsStatus,
+            InvidiousCommentsResp invidiousCommentReplies,
+            ApiStatus fetchInvidiousCommentRepliesStatus,
+            ApiStatus fetchMoreInvidiousCommentsStatus,
+            bool isMoreInvidiousCommentsFetchCompleted,
+            ApiStatus fetchMoreInvidiousCommentRepliesStatus,
+            bool isMoreInvidiousReplyCommentsFetchCompleted,
+            NewPipeWatchResp newPipeWatchResp,
+            ApiStatus fetchNewPipeWatchInfoStatus,
+            String? newPipeErrorMessage,
+            NewPipeCommentsResp newPipeComments,
+            ApiStatus fetchNewPipeCommentsStatus,
+            ApiStatus fetchMoreNewPipeCommentsStatus,
+            bool isMoreNewPipeCommentsFetchCompleted,
+            NewPipeCommentsResp newPipeCommentReplies,
+            ApiStatus fetchNewPipeCommentRepliesStatus,
+            ApiStatus fetchMoreNewPipeCommentRepliesStatus,
+            bool isMoreNewPipeReplyCommentsFetchCompleted,
+            List<SponsorSegment> sponsorSegments,
+            ApiStatus fetchSponsorSegmentsStatus)
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Initial():
+        return $default(
+            _that.oldId,
+            _that.isTapComments,
+            _that.isDescriptionTapped,
+            _that.isPipEnabled,
+            _that.title,
+            _that.playBack,
+            _that.selectedVideoBasicDetails,
+            _that.watchResp,
+            _that.comments,
+            _that.commentReplies,
+            _that.fetchWatchInfoStatus,
+            _that.fetchCommentsStatus,
+            _that.fetchCommentRepliesStatus,
+            _that.fetchMoreCommentsStatus,
+            _that.isMoreCommentsFetchCompleted,
+            _that.fetchMoreCommentRepliesStatus,
+            _that.isMoreReplyCommentsFetchCompleted,
+            _that.explodeWatchResp,
+            _that.fetchExplodeWatchInfoStatus,
+            _that.fetchSubtitlesStatus,
+            _that.subtitles,
+            _that.liveStreamUrl,
+            _that.fetchExplodeLiveStreamStatus,
+            _that.relatedVideos,
+            _that.fetchExplodedRelatedVideosStatus,
+            _that.muxedStreams,
+            _that.fetchExplodeMuxedStreamsStatus,
+            _that.invidiousWatchResp,
+            _that.fetchInvidiousWatchInfoStatus,
+            _that.invidiousComments,
+            _that.fetchInvidiousCommentsStatus,
+            _that.invidiousCommentReplies,
+            _that.fetchInvidiousCommentRepliesStatus,
+            _that.fetchMoreInvidiousCommentsStatus,
+            _that.isMoreInvidiousCommentsFetchCompleted,
+            _that.fetchMoreInvidiousCommentRepliesStatus,
+            _that.isMoreInvidiousReplyCommentsFetchCompleted,
+            _that.newPipeWatchResp,
+            _that.fetchNewPipeWatchInfoStatus,
+            _that.newPipeErrorMessage,
+            _that.newPipeComments,
+            _that.fetchNewPipeCommentsStatus,
+            _that.fetchMoreNewPipeCommentsStatus,
+            _that.isMoreNewPipeCommentsFetchCompleted,
+            _that.newPipeCommentReplies,
+            _that.fetchNewPipeCommentRepliesStatus,
+            _that.fetchMoreNewPipeCommentRepliesStatus,
+            _that.isMoreNewPipeReplyCommentsFetchCompleted,
+            _that.sponsorSegments,
+            _that.fetchSponsorSegmentsStatus);
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(
+            String? oldId,
+            bool isTapComments,
+            bool isDescriptionTapped,
+            bool isPipEnabled,
+            String title,
+            int playBack,
+            VideoBasicInfo? selectedVideoBasicDetails,
+            WatchResp watchResp,
+            CommentsResp comments,
+            CommentsResp commentReplies,
+            ApiStatus fetchWatchInfoStatus,
+            ApiStatus fetchCommentsStatus,
+            ApiStatus fetchCommentRepliesStatus,
+            ApiStatus fetchMoreCommentsStatus,
+            bool isMoreCommentsFetchCompleted,
+            ApiStatus fetchMoreCommentRepliesStatus,
+            bool isMoreReplyCommentsFetchCompleted,
+            ExplodeWatchResp explodeWatchResp,
+            ApiStatus fetchExplodeWatchInfoStatus,
+            ApiStatus fetchSubtitlesStatus,
+            List<Map<String, String>> subtitles,
+            String? liveStreamUrl,
+            ApiStatus fetchExplodeLiveStreamStatus,
+            List<MyRelatedVideo>? relatedVideos,
+            ApiStatus fetchExplodedRelatedVideosStatus,
+            List<MyMuxedStreamInfo>? muxedStreams,
+            ApiStatus fetchExplodeMuxedStreamsStatus,
+            InvidiousWatchResp invidiousWatchResp,
+            ApiStatus fetchInvidiousWatchInfoStatus,
+            InvidiousCommentsResp invidiousComments,
+            ApiStatus fetchInvidiousCommentsStatus,
+            InvidiousCommentsResp invidiousCommentReplies,
+            ApiStatus fetchInvidiousCommentRepliesStatus,
+            ApiStatus fetchMoreInvidiousCommentsStatus,
+            bool isMoreInvidiousCommentsFetchCompleted,
+            ApiStatus fetchMoreInvidiousCommentRepliesStatus,
+            bool isMoreInvidiousReplyCommentsFetchCompleted,
+            NewPipeWatchResp newPipeWatchResp,
+            ApiStatus fetchNewPipeWatchInfoStatus,
+            String? newPipeErrorMessage,
+            NewPipeCommentsResp newPipeComments,
+            ApiStatus fetchNewPipeCommentsStatus,
+            ApiStatus fetchMoreNewPipeCommentsStatus,
+            bool isMoreNewPipeCommentsFetchCompleted,
+            NewPipeCommentsResp newPipeCommentReplies,
+            ApiStatus fetchNewPipeCommentRepliesStatus,
+            ApiStatus fetchMoreNewPipeCommentRepliesStatus,
+            bool isMoreNewPipeReplyCommentsFetchCompleted,
+            List<SponsorSegment> sponsorSegments,
+            ApiStatus fetchSponsorSegmentsStatus)?
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _Initial() when $default != null:
+        return $default(
+            _that.oldId,
+            _that.isTapComments,
+            _that.isDescriptionTapped,
+            _that.isPipEnabled,
+            _that.title,
+            _that.playBack,
+            _that.selectedVideoBasicDetails,
+            _that.watchResp,
+            _that.comments,
+            _that.commentReplies,
+            _that.fetchWatchInfoStatus,
+            _that.fetchCommentsStatus,
+            _that.fetchCommentRepliesStatus,
+            _that.fetchMoreCommentsStatus,
+            _that.isMoreCommentsFetchCompleted,
+            _that.fetchMoreCommentRepliesStatus,
+            _that.isMoreReplyCommentsFetchCompleted,
+            _that.explodeWatchResp,
+            _that.fetchExplodeWatchInfoStatus,
+            _that.fetchSubtitlesStatus,
+            _that.subtitles,
+            _that.liveStreamUrl,
+            _that.fetchExplodeLiveStreamStatus,
+            _that.relatedVideos,
+            _that.fetchExplodedRelatedVideosStatus,
+            _that.muxedStreams,
+            _that.fetchExplodeMuxedStreamsStatus,
+            _that.invidiousWatchResp,
+            _that.fetchInvidiousWatchInfoStatus,
+            _that.invidiousComments,
+            _that.fetchInvidiousCommentsStatus,
+            _that.invidiousCommentReplies,
+            _that.fetchInvidiousCommentRepliesStatus,
+            _that.fetchMoreInvidiousCommentsStatus,
+            _that.isMoreInvidiousCommentsFetchCompleted,
+            _that.fetchMoreInvidiousCommentRepliesStatus,
+            _that.isMoreInvidiousReplyCommentsFetchCompleted,
+            _that.newPipeWatchResp,
+            _that.fetchNewPipeWatchInfoStatus,
+            _that.newPipeErrorMessage,
+            _that.newPipeComments,
+            _that.fetchNewPipeCommentsStatus,
+            _that.fetchMoreNewPipeCommentsStatus,
+            _that.isMoreNewPipeCommentsFetchCompleted,
+            _that.newPipeCommentReplies,
+            _that.fetchNewPipeCommentRepliesStatus,
+            _that.fetchMoreNewPipeCommentRepliesStatus,
+            _that.isMoreNewPipeReplyCommentsFetchCompleted,
+            _that.sponsorSegments,
+            _that.fetchSponsorSegmentsStatus);
+      case _:
+        return null;
+    }
+  }
+}
+
 /// @nodoc
 
-class _$InitialImpl implements _Initial {
-  const _$InitialImpl(
+class _Initial with DiagnosticableTreeMixin implements WatchState {
+  const _Initial(
       {this.oldId,
       required this.isTapComments,
       required this.isDescriptionTapped,
@@ -12319,16 +4313,101 @@ class _$InitialImpl implements _Initial {
   @override
   final ApiStatus fetchSponsorSegmentsStatus;
 
+  /// Create a copy of WatchState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'WatchState(oldId: $oldId, isTapComments: $isTapComments, isDescriptionTapped: $isDescriptionTapped, isPipEnabled: $isPipEnabled, title: $title, playBack: $playBack, selectedVideoBasicDetails: $selectedVideoBasicDetails, watchResp: $watchResp, comments: $comments, commentReplies: $commentReplies, fetchWatchInfoStatus: $fetchWatchInfoStatus, fetchCommentsStatus: $fetchCommentsStatus, fetchCommentRepliesStatus: $fetchCommentRepliesStatus, fetchMoreCommentsStatus: $fetchMoreCommentsStatus, isMoreCommentsFetchCompleted: $isMoreCommentsFetchCompleted, fetchMoreCommentRepliesStatus: $fetchMoreCommentRepliesStatus, isMoreReplyCommentsFetchCompleted: $isMoreReplyCommentsFetchCompleted, explodeWatchResp: $explodeWatchResp, fetchExplodeWatchInfoStatus: $fetchExplodeWatchInfoStatus, fetchSubtitlesStatus: $fetchSubtitlesStatus, subtitles: $subtitles, liveStreamUrl: $liveStreamUrl, fetchExplodeLiveStreamStatus: $fetchExplodeLiveStreamStatus, relatedVideos: $relatedVideos, fetchExplodedRelatedVideosStatus: $fetchExplodedRelatedVideosStatus, muxedStreams: $muxedStreams, fetchExplodeMuxedStreamsStatus: $fetchExplodeMuxedStreamsStatus, invidiousWatchResp: $invidiousWatchResp, fetchInvidiousWatchInfoStatus: $fetchInvidiousWatchInfoStatus, invidiousComments: $invidiousComments, fetchInvidiousCommentsStatus: $fetchInvidiousCommentsStatus, invidiousCommentReplies: $invidiousCommentReplies, fetchInvidiousCommentRepliesStatus: $fetchInvidiousCommentRepliesStatus, fetchMoreInvidiousCommentsStatus: $fetchMoreInvidiousCommentsStatus, isMoreInvidiousCommentsFetchCompleted: $isMoreInvidiousCommentsFetchCompleted, fetchMoreInvidiousCommentRepliesStatus: $fetchMoreInvidiousCommentRepliesStatus, isMoreInvidiousReplyCommentsFetchCompleted: $isMoreInvidiousReplyCommentsFetchCompleted, newPipeWatchResp: $newPipeWatchResp, fetchNewPipeWatchInfoStatus: $fetchNewPipeWatchInfoStatus, newPipeErrorMessage: $newPipeErrorMessage, newPipeComments: $newPipeComments, fetchNewPipeCommentsStatus: $fetchNewPipeCommentsStatus, fetchMoreNewPipeCommentsStatus: $fetchMoreNewPipeCommentsStatus, isMoreNewPipeCommentsFetchCompleted: $isMoreNewPipeCommentsFetchCompleted, newPipeCommentReplies: $newPipeCommentReplies, fetchNewPipeCommentRepliesStatus: $fetchNewPipeCommentRepliesStatus, fetchMoreNewPipeCommentRepliesStatus: $fetchMoreNewPipeCommentRepliesStatus, isMoreNewPipeReplyCommentsFetchCompleted: $isMoreNewPipeReplyCommentsFetchCompleted, sponsorSegments: $sponsorSegments, fetchSponsorSegmentsStatus: $fetchSponsorSegmentsStatus)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$InitialCopyWith<_Initial> get copyWith =>
+      __$InitialCopyWithImpl<_Initial>(this, _$identity);
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(DiagnosticsProperty('type', 'WatchState'))
+      ..add(DiagnosticsProperty('oldId', oldId))
+      ..add(DiagnosticsProperty('isTapComments', isTapComments))
+      ..add(DiagnosticsProperty('isDescriptionTapped', isDescriptionTapped))
+      ..add(DiagnosticsProperty('isPipEnabled', isPipEnabled))
+      ..add(DiagnosticsProperty('title', title))
+      ..add(DiagnosticsProperty('playBack', playBack))
+      ..add(DiagnosticsProperty(
+          'selectedVideoBasicDetails', selectedVideoBasicDetails))
+      ..add(DiagnosticsProperty('watchResp', watchResp))
+      ..add(DiagnosticsProperty('comments', comments))
+      ..add(DiagnosticsProperty('commentReplies', commentReplies))
+      ..add(DiagnosticsProperty('fetchWatchInfoStatus', fetchWatchInfoStatus))
+      ..add(DiagnosticsProperty('fetchCommentsStatus', fetchCommentsStatus))
+      ..add(DiagnosticsProperty(
+          'fetchCommentRepliesStatus', fetchCommentRepliesStatus))
+      ..add(DiagnosticsProperty(
+          'fetchMoreCommentsStatus', fetchMoreCommentsStatus))
+      ..add(DiagnosticsProperty(
+          'isMoreCommentsFetchCompleted', isMoreCommentsFetchCompleted))
+      ..add(DiagnosticsProperty(
+          'fetchMoreCommentRepliesStatus', fetchMoreCommentRepliesStatus))
+      ..add(DiagnosticsProperty('isMoreReplyCommentsFetchCompleted',
+          isMoreReplyCommentsFetchCompleted))
+      ..add(DiagnosticsProperty('explodeWatchResp', explodeWatchResp))
+      ..add(DiagnosticsProperty(
+          'fetchExplodeWatchInfoStatus', fetchExplodeWatchInfoStatus))
+      ..add(DiagnosticsProperty('fetchSubtitlesStatus', fetchSubtitlesStatus))
+      ..add(DiagnosticsProperty('subtitles', subtitles))
+      ..add(DiagnosticsProperty('liveStreamUrl', liveStreamUrl))
+      ..add(DiagnosticsProperty(
+          'fetchExplodeLiveStreamStatus', fetchExplodeLiveStreamStatus))
+      ..add(DiagnosticsProperty('relatedVideos', relatedVideos))
+      ..add(DiagnosticsProperty(
+          'fetchExplodedRelatedVideosStatus', fetchExplodedRelatedVideosStatus))
+      ..add(DiagnosticsProperty('muxedStreams', muxedStreams))
+      ..add(DiagnosticsProperty(
+          'fetchExplodeMuxedStreamsStatus', fetchExplodeMuxedStreamsStatus))
+      ..add(DiagnosticsProperty('invidiousWatchResp', invidiousWatchResp))
+      ..add(DiagnosticsProperty(
+          'fetchInvidiousWatchInfoStatus', fetchInvidiousWatchInfoStatus))
+      ..add(DiagnosticsProperty('invidiousComments', invidiousComments))
+      ..add(DiagnosticsProperty(
+          'fetchInvidiousCommentsStatus', fetchInvidiousCommentsStatus))
+      ..add(DiagnosticsProperty(
+          'invidiousCommentReplies', invidiousCommentReplies))
+      ..add(DiagnosticsProperty('fetchInvidiousCommentRepliesStatus',
+          fetchInvidiousCommentRepliesStatus))
+      ..add(DiagnosticsProperty(
+          'fetchMoreInvidiousCommentsStatus', fetchMoreInvidiousCommentsStatus))
+      ..add(DiagnosticsProperty('isMoreInvidiousCommentsFetchCompleted',
+          isMoreInvidiousCommentsFetchCompleted))
+      ..add(DiagnosticsProperty('fetchMoreInvidiousCommentRepliesStatus',
+          fetchMoreInvidiousCommentRepliesStatus))
+      ..add(DiagnosticsProperty('isMoreInvidiousReplyCommentsFetchCompleted',
+          isMoreInvidiousReplyCommentsFetchCompleted))
+      ..add(DiagnosticsProperty('newPipeWatchResp', newPipeWatchResp))
+      ..add(DiagnosticsProperty(
+          'fetchNewPipeWatchInfoStatus', fetchNewPipeWatchInfoStatus))
+      ..add(DiagnosticsProperty('newPipeErrorMessage', newPipeErrorMessage))
+      ..add(DiagnosticsProperty('newPipeComments', newPipeComments))
+      ..add(DiagnosticsProperty(
+          'fetchNewPipeCommentsStatus', fetchNewPipeCommentsStatus))
+      ..add(DiagnosticsProperty(
+          'fetchMoreNewPipeCommentsStatus', fetchMoreNewPipeCommentsStatus))
+      ..add(DiagnosticsProperty('isMoreNewPipeCommentsFetchCompleted',
+          isMoreNewPipeCommentsFetchCompleted))
+      ..add(DiagnosticsProperty('newPipeCommentReplies', newPipeCommentReplies))
+      ..add(DiagnosticsProperty(
+          'fetchNewPipeCommentRepliesStatus', fetchNewPipeCommentRepliesStatus))
+      ..add(DiagnosticsProperty('fetchMoreNewPipeCommentRepliesStatus',
+          fetchMoreNewPipeCommentRepliesStatus))
+      ..add(DiagnosticsProperty('isMoreNewPipeReplyCommentsFetchCompleted',
+          isMoreNewPipeReplyCommentsFetchCompleted))
+      ..add(DiagnosticsProperty('sponsorSegments', sponsorSegments))
+      ..add(DiagnosticsProperty(
+          'fetchSponsorSegmentsStatus', fetchSponsorSegmentsStatus));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$InitialImpl &&
+            other is _Initial &&
             (identical(other.oldId, oldId) || other.oldId == oldId) &&
             (identical(other.isTapComments, isTapComments) ||
                 other.isTapComments == isTapComments) &&
@@ -12463,174 +4542,346 @@ class _$InitialImpl implements _Initial {
         fetchSponsorSegmentsStatus
       ]);
 
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'WatchState(oldId: $oldId, isTapComments: $isTapComments, isDescriptionTapped: $isDescriptionTapped, isPipEnabled: $isPipEnabled, title: $title, playBack: $playBack, selectedVideoBasicDetails: $selectedVideoBasicDetails, watchResp: $watchResp, comments: $comments, commentReplies: $commentReplies, fetchWatchInfoStatus: $fetchWatchInfoStatus, fetchCommentsStatus: $fetchCommentsStatus, fetchCommentRepliesStatus: $fetchCommentRepliesStatus, fetchMoreCommentsStatus: $fetchMoreCommentsStatus, isMoreCommentsFetchCompleted: $isMoreCommentsFetchCompleted, fetchMoreCommentRepliesStatus: $fetchMoreCommentRepliesStatus, isMoreReplyCommentsFetchCompleted: $isMoreReplyCommentsFetchCompleted, explodeWatchResp: $explodeWatchResp, fetchExplodeWatchInfoStatus: $fetchExplodeWatchInfoStatus, fetchSubtitlesStatus: $fetchSubtitlesStatus, subtitles: $subtitles, liveStreamUrl: $liveStreamUrl, fetchExplodeLiveStreamStatus: $fetchExplodeLiveStreamStatus, relatedVideos: $relatedVideos, fetchExplodedRelatedVideosStatus: $fetchExplodedRelatedVideosStatus, muxedStreams: $muxedStreams, fetchExplodeMuxedStreamsStatus: $fetchExplodeMuxedStreamsStatus, invidiousWatchResp: $invidiousWatchResp, fetchInvidiousWatchInfoStatus: $fetchInvidiousWatchInfoStatus, invidiousComments: $invidiousComments, fetchInvidiousCommentsStatus: $fetchInvidiousCommentsStatus, invidiousCommentReplies: $invidiousCommentReplies, fetchInvidiousCommentRepliesStatus: $fetchInvidiousCommentRepliesStatus, fetchMoreInvidiousCommentsStatus: $fetchMoreInvidiousCommentsStatus, isMoreInvidiousCommentsFetchCompleted: $isMoreInvidiousCommentsFetchCompleted, fetchMoreInvidiousCommentRepliesStatus: $fetchMoreInvidiousCommentRepliesStatus, isMoreInvidiousReplyCommentsFetchCompleted: $isMoreInvidiousReplyCommentsFetchCompleted, newPipeWatchResp: $newPipeWatchResp, fetchNewPipeWatchInfoStatus: $fetchNewPipeWatchInfoStatus, newPipeErrorMessage: $newPipeErrorMessage, newPipeComments: $newPipeComments, fetchNewPipeCommentsStatus: $fetchNewPipeCommentsStatus, fetchMoreNewPipeCommentsStatus: $fetchMoreNewPipeCommentsStatus, isMoreNewPipeCommentsFetchCompleted: $isMoreNewPipeCommentsFetchCompleted, newPipeCommentReplies: $newPipeCommentReplies, fetchNewPipeCommentRepliesStatus: $fetchNewPipeCommentRepliesStatus, fetchMoreNewPipeCommentRepliesStatus: $fetchMoreNewPipeCommentRepliesStatus, isMoreNewPipeReplyCommentsFetchCompleted: $isMoreNewPipeReplyCommentsFetchCompleted, sponsorSegments: $sponsorSegments, fetchSponsorSegmentsStatus: $fetchSponsorSegmentsStatus)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$InitialCopyWith<$Res>
+    implements $WatchStateCopyWith<$Res> {
+  factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) _then) =
+      __$InitialCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String? oldId,
+      bool isTapComments,
+      bool isDescriptionTapped,
+      bool isPipEnabled,
+      String title,
+      int playBack,
+      VideoBasicInfo? selectedVideoBasicDetails,
+      WatchResp watchResp,
+      CommentsResp comments,
+      CommentsResp commentReplies,
+      ApiStatus fetchWatchInfoStatus,
+      ApiStatus fetchCommentsStatus,
+      ApiStatus fetchCommentRepliesStatus,
+      ApiStatus fetchMoreCommentsStatus,
+      bool isMoreCommentsFetchCompleted,
+      ApiStatus fetchMoreCommentRepliesStatus,
+      bool isMoreReplyCommentsFetchCompleted,
+      ExplodeWatchResp explodeWatchResp,
+      ApiStatus fetchExplodeWatchInfoStatus,
+      ApiStatus fetchSubtitlesStatus,
+      List<Map<String, String>> subtitles,
+      String? liveStreamUrl,
+      ApiStatus fetchExplodeLiveStreamStatus,
+      List<MyRelatedVideo>? relatedVideos,
+      ApiStatus fetchExplodedRelatedVideosStatus,
+      List<MyMuxedStreamInfo>? muxedStreams,
+      ApiStatus fetchExplodeMuxedStreamsStatus,
+      InvidiousWatchResp invidiousWatchResp,
+      ApiStatus fetchInvidiousWatchInfoStatus,
+      InvidiousCommentsResp invidiousComments,
+      ApiStatus fetchInvidiousCommentsStatus,
+      InvidiousCommentsResp invidiousCommentReplies,
+      ApiStatus fetchInvidiousCommentRepliesStatus,
+      ApiStatus fetchMoreInvidiousCommentsStatus,
+      bool isMoreInvidiousCommentsFetchCompleted,
+      ApiStatus fetchMoreInvidiousCommentRepliesStatus,
+      bool isMoreInvidiousReplyCommentsFetchCompleted,
+      NewPipeWatchResp newPipeWatchResp,
+      ApiStatus fetchNewPipeWatchInfoStatus,
+      String? newPipeErrorMessage,
+      NewPipeCommentsResp newPipeComments,
+      ApiStatus fetchNewPipeCommentsStatus,
+      ApiStatus fetchMoreNewPipeCommentsStatus,
+      bool isMoreNewPipeCommentsFetchCompleted,
+      NewPipeCommentsResp newPipeCommentReplies,
+      ApiStatus fetchNewPipeCommentRepliesStatus,
+      ApiStatus fetchMoreNewPipeCommentRepliesStatus,
+      bool isMoreNewPipeReplyCommentsFetchCompleted,
+      List<SponsorSegment> sponsorSegments,
+      ApiStatus fetchSponsorSegmentsStatus});
+}
+
+/// @nodoc
+class __$InitialCopyWithImpl<$Res> implements _$InitialCopyWith<$Res> {
+  __$InitialCopyWithImpl(this._self, this._then);
+
+  final _Initial _self;
+  final $Res Function(_Initial) _then;
+
   /// Create a copy of WatchState
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
-      __$$InitialImplCopyWithImpl<_$InitialImpl>(this, _$identity);
+  $Res call({
+    Object? oldId = freezed,
+    Object? isTapComments = null,
+    Object? isDescriptionTapped = null,
+    Object? isPipEnabled = null,
+    Object? title = null,
+    Object? playBack = null,
+    Object? selectedVideoBasicDetails = freezed,
+    Object? watchResp = null,
+    Object? comments = null,
+    Object? commentReplies = null,
+    Object? fetchWatchInfoStatus = null,
+    Object? fetchCommentsStatus = null,
+    Object? fetchCommentRepliesStatus = null,
+    Object? fetchMoreCommentsStatus = null,
+    Object? isMoreCommentsFetchCompleted = null,
+    Object? fetchMoreCommentRepliesStatus = null,
+    Object? isMoreReplyCommentsFetchCompleted = null,
+    Object? explodeWatchResp = null,
+    Object? fetchExplodeWatchInfoStatus = null,
+    Object? fetchSubtitlesStatus = null,
+    Object? subtitles = null,
+    Object? liveStreamUrl = freezed,
+    Object? fetchExplodeLiveStreamStatus = null,
+    Object? relatedVideos = freezed,
+    Object? fetchExplodedRelatedVideosStatus = null,
+    Object? muxedStreams = freezed,
+    Object? fetchExplodeMuxedStreamsStatus = null,
+    Object? invidiousWatchResp = null,
+    Object? fetchInvidiousWatchInfoStatus = null,
+    Object? invidiousComments = null,
+    Object? fetchInvidiousCommentsStatus = null,
+    Object? invidiousCommentReplies = null,
+    Object? fetchInvidiousCommentRepliesStatus = null,
+    Object? fetchMoreInvidiousCommentsStatus = null,
+    Object? isMoreInvidiousCommentsFetchCompleted = null,
+    Object? fetchMoreInvidiousCommentRepliesStatus = null,
+    Object? isMoreInvidiousReplyCommentsFetchCompleted = null,
+    Object? newPipeWatchResp = null,
+    Object? fetchNewPipeWatchInfoStatus = null,
+    Object? newPipeErrorMessage = freezed,
+    Object? newPipeComments = null,
+    Object? fetchNewPipeCommentsStatus = null,
+    Object? fetchMoreNewPipeCommentsStatus = null,
+    Object? isMoreNewPipeCommentsFetchCompleted = null,
+    Object? newPipeCommentReplies = null,
+    Object? fetchNewPipeCommentRepliesStatus = null,
+    Object? fetchMoreNewPipeCommentRepliesStatus = null,
+    Object? isMoreNewPipeReplyCommentsFetchCompleted = null,
+    Object? sponsorSegments = null,
+    Object? fetchSponsorSegmentsStatus = null,
+  }) {
+    return _then(_Initial(
+      oldId: freezed == oldId
+          ? _self.oldId
+          : oldId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isTapComments: null == isTapComments
+          ? _self.isTapComments
+          : isTapComments // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isDescriptionTapped: null == isDescriptionTapped
+          ? _self.isDescriptionTapped
+          : isDescriptionTapped // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isPipEnabled: null == isPipEnabled
+          ? _self.isPipEnabled
+          : isPipEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+      title: null == title
+          ? _self.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      playBack: null == playBack
+          ? _self.playBack
+          : playBack // ignore: cast_nullable_to_non_nullable
+              as int,
+      selectedVideoBasicDetails: freezed == selectedVideoBasicDetails
+          ? _self.selectedVideoBasicDetails
+          : selectedVideoBasicDetails // ignore: cast_nullable_to_non_nullable
+              as VideoBasicInfo?,
+      watchResp: null == watchResp
+          ? _self.watchResp
+          : watchResp // ignore: cast_nullable_to_non_nullable
+              as WatchResp,
+      comments: null == comments
+          ? _self.comments
+          : comments // ignore: cast_nullable_to_non_nullable
+              as CommentsResp,
+      commentReplies: null == commentReplies
+          ? _self.commentReplies
+          : commentReplies // ignore: cast_nullable_to_non_nullable
+              as CommentsResp,
+      fetchWatchInfoStatus: null == fetchWatchInfoStatus
+          ? _self.fetchWatchInfoStatus
+          : fetchWatchInfoStatus // ignore: cast_nullable_to_non_nullable
+              as ApiStatus,
+      fetchCommentsStatus: null == fetchCommentsStatus
+          ? _self.fetchCommentsStatus
+          : fetchCommentsStatus // ignore: cast_nullable_to_non_nullable
+              as ApiStatus,
+      fetchCommentRepliesStatus: null == fetchCommentRepliesStatus
+          ? _self.fetchCommentRepliesStatus
+          : fetchCommentRepliesStatus // ignore: cast_nullable_to_non_nullable
+              as ApiStatus,
+      fetchMoreCommentsStatus: null == fetchMoreCommentsStatus
+          ? _self.fetchMoreCommentsStatus
+          : fetchMoreCommentsStatus // ignore: cast_nullable_to_non_nullable
+              as ApiStatus,
+      isMoreCommentsFetchCompleted: null == isMoreCommentsFetchCompleted
+          ? _self.isMoreCommentsFetchCompleted
+          : isMoreCommentsFetchCompleted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      fetchMoreCommentRepliesStatus: null == fetchMoreCommentRepliesStatus
+          ? _self.fetchMoreCommentRepliesStatus
+          : fetchMoreCommentRepliesStatus // ignore: cast_nullable_to_non_nullable
+              as ApiStatus,
+      isMoreReplyCommentsFetchCompleted: null ==
+              isMoreReplyCommentsFetchCompleted
+          ? _self.isMoreReplyCommentsFetchCompleted
+          : isMoreReplyCommentsFetchCompleted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      explodeWatchResp: null == explodeWatchResp
+          ? _self.explodeWatchResp
+          : explodeWatchResp // ignore: cast_nullable_to_non_nullable
+              as ExplodeWatchResp,
+      fetchExplodeWatchInfoStatus: null == fetchExplodeWatchInfoStatus
+          ? _self.fetchExplodeWatchInfoStatus
+          : fetchExplodeWatchInfoStatus // ignore: cast_nullable_to_non_nullable
+              as ApiStatus,
+      fetchSubtitlesStatus: null == fetchSubtitlesStatus
+          ? _self.fetchSubtitlesStatus
+          : fetchSubtitlesStatus // ignore: cast_nullable_to_non_nullable
+              as ApiStatus,
+      subtitles: null == subtitles
+          ? _self._subtitles
+          : subtitles // ignore: cast_nullable_to_non_nullable
+              as List<Map<String, String>>,
+      liveStreamUrl: freezed == liveStreamUrl
+          ? _self.liveStreamUrl
+          : liveStreamUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      fetchExplodeLiveStreamStatus: null == fetchExplodeLiveStreamStatus
+          ? _self.fetchExplodeLiveStreamStatus
+          : fetchExplodeLiveStreamStatus // ignore: cast_nullable_to_non_nullable
+              as ApiStatus,
+      relatedVideos: freezed == relatedVideos
+          ? _self._relatedVideos
+          : relatedVideos // ignore: cast_nullable_to_non_nullable
+              as List<MyRelatedVideo>?,
+      fetchExplodedRelatedVideosStatus: null == fetchExplodedRelatedVideosStatus
+          ? _self.fetchExplodedRelatedVideosStatus
+          : fetchExplodedRelatedVideosStatus // ignore: cast_nullable_to_non_nullable
+              as ApiStatus,
+      muxedStreams: freezed == muxedStreams
+          ? _self._muxedStreams
+          : muxedStreams // ignore: cast_nullable_to_non_nullable
+              as List<MyMuxedStreamInfo>?,
+      fetchExplodeMuxedStreamsStatus: null == fetchExplodeMuxedStreamsStatus
+          ? _self.fetchExplodeMuxedStreamsStatus
+          : fetchExplodeMuxedStreamsStatus // ignore: cast_nullable_to_non_nullable
+              as ApiStatus,
+      invidiousWatchResp: null == invidiousWatchResp
+          ? _self.invidiousWatchResp
+          : invidiousWatchResp // ignore: cast_nullable_to_non_nullable
+              as InvidiousWatchResp,
+      fetchInvidiousWatchInfoStatus: null == fetchInvidiousWatchInfoStatus
+          ? _self.fetchInvidiousWatchInfoStatus
+          : fetchInvidiousWatchInfoStatus // ignore: cast_nullable_to_non_nullable
+              as ApiStatus,
+      invidiousComments: null == invidiousComments
+          ? _self.invidiousComments
+          : invidiousComments // ignore: cast_nullable_to_non_nullable
+              as InvidiousCommentsResp,
+      fetchInvidiousCommentsStatus: null == fetchInvidiousCommentsStatus
+          ? _self.fetchInvidiousCommentsStatus
+          : fetchInvidiousCommentsStatus // ignore: cast_nullable_to_non_nullable
+              as ApiStatus,
+      invidiousCommentReplies: null == invidiousCommentReplies
+          ? _self.invidiousCommentReplies
+          : invidiousCommentReplies // ignore: cast_nullable_to_non_nullable
+              as InvidiousCommentsResp,
+      fetchInvidiousCommentRepliesStatus: null ==
+              fetchInvidiousCommentRepliesStatus
+          ? _self.fetchInvidiousCommentRepliesStatus
+          : fetchInvidiousCommentRepliesStatus // ignore: cast_nullable_to_non_nullable
+              as ApiStatus,
+      fetchMoreInvidiousCommentsStatus: null == fetchMoreInvidiousCommentsStatus
+          ? _self.fetchMoreInvidiousCommentsStatus
+          : fetchMoreInvidiousCommentsStatus // ignore: cast_nullable_to_non_nullable
+              as ApiStatus,
+      isMoreInvidiousCommentsFetchCompleted: null ==
+              isMoreInvidiousCommentsFetchCompleted
+          ? _self.isMoreInvidiousCommentsFetchCompleted
+          : isMoreInvidiousCommentsFetchCompleted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      fetchMoreInvidiousCommentRepliesStatus: null ==
+              fetchMoreInvidiousCommentRepliesStatus
+          ? _self.fetchMoreInvidiousCommentRepliesStatus
+          : fetchMoreInvidiousCommentRepliesStatus // ignore: cast_nullable_to_non_nullable
+              as ApiStatus,
+      isMoreInvidiousReplyCommentsFetchCompleted: null ==
+              isMoreInvidiousReplyCommentsFetchCompleted
+          ? _self.isMoreInvidiousReplyCommentsFetchCompleted
+          : isMoreInvidiousReplyCommentsFetchCompleted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      newPipeWatchResp: null == newPipeWatchResp
+          ? _self.newPipeWatchResp
+          : newPipeWatchResp // ignore: cast_nullable_to_non_nullable
+              as NewPipeWatchResp,
+      fetchNewPipeWatchInfoStatus: null == fetchNewPipeWatchInfoStatus
+          ? _self.fetchNewPipeWatchInfoStatus
+          : fetchNewPipeWatchInfoStatus // ignore: cast_nullable_to_non_nullable
+              as ApiStatus,
+      newPipeErrorMessage: freezed == newPipeErrorMessage
+          ? _self.newPipeErrorMessage
+          : newPipeErrorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      newPipeComments: null == newPipeComments
+          ? _self.newPipeComments
+          : newPipeComments // ignore: cast_nullable_to_non_nullable
+              as NewPipeCommentsResp,
+      fetchNewPipeCommentsStatus: null == fetchNewPipeCommentsStatus
+          ? _self.fetchNewPipeCommentsStatus
+          : fetchNewPipeCommentsStatus // ignore: cast_nullable_to_non_nullable
+              as ApiStatus,
+      fetchMoreNewPipeCommentsStatus: null == fetchMoreNewPipeCommentsStatus
+          ? _self.fetchMoreNewPipeCommentsStatus
+          : fetchMoreNewPipeCommentsStatus // ignore: cast_nullable_to_non_nullable
+              as ApiStatus,
+      isMoreNewPipeCommentsFetchCompleted: null ==
+              isMoreNewPipeCommentsFetchCompleted
+          ? _self.isMoreNewPipeCommentsFetchCompleted
+          : isMoreNewPipeCommentsFetchCompleted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      newPipeCommentReplies: null == newPipeCommentReplies
+          ? _self.newPipeCommentReplies
+          : newPipeCommentReplies // ignore: cast_nullable_to_non_nullable
+              as NewPipeCommentsResp,
+      fetchNewPipeCommentRepliesStatus: null == fetchNewPipeCommentRepliesStatus
+          ? _self.fetchNewPipeCommentRepliesStatus
+          : fetchNewPipeCommentRepliesStatus // ignore: cast_nullable_to_non_nullable
+              as ApiStatus,
+      fetchMoreNewPipeCommentRepliesStatus: null ==
+              fetchMoreNewPipeCommentRepliesStatus
+          ? _self.fetchMoreNewPipeCommentRepliesStatus
+          : fetchMoreNewPipeCommentRepliesStatus // ignore: cast_nullable_to_non_nullable
+              as ApiStatus,
+      isMoreNewPipeReplyCommentsFetchCompleted: null ==
+              isMoreNewPipeReplyCommentsFetchCompleted
+          ? _self.isMoreNewPipeReplyCommentsFetchCompleted
+          : isMoreNewPipeReplyCommentsFetchCompleted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      sponsorSegments: null == sponsorSegments
+          ? _self._sponsorSegments
+          : sponsorSegments // ignore: cast_nullable_to_non_nullable
+              as List<SponsorSegment>,
+      fetchSponsorSegmentsStatus: null == fetchSponsorSegmentsStatus
+          ? _self.fetchSponsorSegmentsStatus
+          : fetchSponsorSegmentsStatus // ignore: cast_nullable_to_non_nullable
+              as ApiStatus,
+    ));
+  }
 }
 
-abstract class _Initial implements WatchState {
-  const factory _Initial(
-      {final String? oldId,
-      required final bool isTapComments,
-      required final bool isDescriptionTapped,
-      required final bool isPipEnabled,
-      required final String title,
-      required final int playBack,
-      final VideoBasicInfo? selectedVideoBasicDetails,
-      required final WatchResp watchResp,
-      required final CommentsResp comments,
-      required final CommentsResp commentReplies,
-      required final ApiStatus fetchWatchInfoStatus,
-      required final ApiStatus fetchCommentsStatus,
-      required final ApiStatus fetchCommentRepliesStatus,
-      required final ApiStatus fetchMoreCommentsStatus,
-      required final bool isMoreCommentsFetchCompleted,
-      required final ApiStatus fetchMoreCommentRepliesStatus,
-      required final bool isMoreReplyCommentsFetchCompleted,
-      required final ExplodeWatchResp explodeWatchResp,
-      required final ApiStatus fetchExplodeWatchInfoStatus,
-      required final ApiStatus fetchSubtitlesStatus,
-      required final List<Map<String, String>> subtitles,
-      final String? liveStreamUrl,
-      required final ApiStatus fetchExplodeLiveStreamStatus,
-      final List<MyRelatedVideo>? relatedVideos,
-      required final ApiStatus fetchExplodedRelatedVideosStatus,
-      final List<MyMuxedStreamInfo>? muxedStreams,
-      required final ApiStatus fetchExplodeMuxedStreamsStatus,
-      required final InvidiousWatchResp invidiousWatchResp,
-      required final ApiStatus fetchInvidiousWatchInfoStatus,
-      required final InvidiousCommentsResp invidiousComments,
-      required final ApiStatus fetchInvidiousCommentsStatus,
-      required final InvidiousCommentsResp invidiousCommentReplies,
-      required final ApiStatus fetchInvidiousCommentRepliesStatus,
-      required final ApiStatus fetchMoreInvidiousCommentsStatus,
-      required final bool isMoreInvidiousCommentsFetchCompleted,
-      required final ApiStatus fetchMoreInvidiousCommentRepliesStatus,
-      required final bool isMoreInvidiousReplyCommentsFetchCompleted,
-      required final NewPipeWatchResp newPipeWatchResp,
-      required final ApiStatus fetchNewPipeWatchInfoStatus,
-      final String? newPipeErrorMessage,
-      required final NewPipeCommentsResp newPipeComments,
-      required final ApiStatus fetchNewPipeCommentsStatus,
-      required final ApiStatus fetchMoreNewPipeCommentsStatus,
-      required final bool isMoreNewPipeCommentsFetchCompleted,
-      required final NewPipeCommentsResp newPipeCommentReplies,
-      required final ApiStatus fetchNewPipeCommentRepliesStatus,
-      required final ApiStatus fetchMoreNewPipeCommentRepliesStatus,
-      required final bool isMoreNewPipeReplyCommentsFetchCompleted,
-      required final List<SponsorSegment> sponsorSegments,
-      required final ApiStatus fetchSponsorSegmentsStatus}) = _$InitialImpl;
-
-//
-  @override
-  String? get oldId;
-  @override
-  bool get isTapComments;
-  @override
-  bool get isDescriptionTapped;
-  @override
-  bool get isPipEnabled;
-  @override
-  String get title;
-  @override
-  int get playBack;
-  @override
-  VideoBasicInfo? get selectedVideoBasicDetails; // PIPED
-  @override
-  WatchResp get watchResp;
-  @override
-  CommentsResp get comments;
-  @override
-  CommentsResp get commentReplies;
-  @override
-  ApiStatus get fetchWatchInfoStatus;
-  @override
-  ApiStatus get fetchCommentsStatus;
-  @override
-  ApiStatus get fetchCommentRepliesStatus;
-  @override
-  ApiStatus get fetchMoreCommentsStatus;
-  @override
-  bool get isMoreCommentsFetchCompleted;
-  @override
-  ApiStatus get fetchMoreCommentRepliesStatus;
-  @override
-  bool get isMoreReplyCommentsFetchCompleted; //EXPLODE
-  @override
-  ExplodeWatchResp get explodeWatchResp;
-  @override
-  ApiStatus get fetchExplodeWatchInfoStatus;
-  @override
-  ApiStatus get fetchSubtitlesStatus;
-  @override
-  List<Map<String, String>> get subtitles;
-  @override
-  String? get liveStreamUrl;
-  @override
-  ApiStatus get fetchExplodeLiveStreamStatus;
-  @override
-  List<MyRelatedVideo>? get relatedVideos;
-  @override
-  ApiStatus get fetchExplodedRelatedVideosStatus;
-  @override
-  List<MyMuxedStreamInfo>? get muxedStreams;
-  @override
-  ApiStatus get fetchExplodeMuxedStreamsStatus; // INVIDIOUS
-  @override
-  InvidiousWatchResp get invidiousWatchResp;
-  @override
-  ApiStatus get fetchInvidiousWatchInfoStatus;
-  @override
-  InvidiousCommentsResp get invidiousComments;
-  @override
-  ApiStatus get fetchInvidiousCommentsStatus;
-  @override
-  InvidiousCommentsResp get invidiousCommentReplies;
-  @override
-  ApiStatus get fetchInvidiousCommentRepliesStatus;
-  @override
-  ApiStatus get fetchMoreInvidiousCommentsStatus;
-  @override
-  bool get isMoreInvidiousCommentsFetchCompleted;
-  @override
-  ApiStatus get fetchMoreInvidiousCommentRepliesStatus;
-  @override
-  bool get isMoreInvidiousReplyCommentsFetchCompleted; // NEWPIPE
-  @override
-  NewPipeWatchResp get newPipeWatchResp;
-  @override
-  ApiStatus get fetchNewPipeWatchInfoStatus;
-  @override
-  String? get newPipeErrorMessage;
-  @override
-  NewPipeCommentsResp get newPipeComments;
-  @override
-  ApiStatus get fetchNewPipeCommentsStatus;
-  @override
-  ApiStatus get fetchMoreNewPipeCommentsStatus;
-  @override
-  bool get isMoreNewPipeCommentsFetchCompleted;
-  @override
-  NewPipeCommentsResp get newPipeCommentReplies;
-  @override
-  ApiStatus get fetchNewPipeCommentRepliesStatus;
-  @override
-  ApiStatus get fetchMoreNewPipeCommentRepliesStatus;
-  @override
-  bool get isMoreNewPipeReplyCommentsFetchCompleted; // SPONSORBLOCK
-  @override
-  List<SponsorSegment> get sponsorSegments;
-  @override
-  ApiStatus get fetchSponsorSegmentsStatus;
-
-  /// Create a copy of WatchState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on

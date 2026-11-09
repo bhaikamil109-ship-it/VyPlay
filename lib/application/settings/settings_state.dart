@@ -1,7 +1,7 @@
 part of 'settings_bloc.dart';
 
 @freezed
-class SettingsState with _$SettingsState {
+sealed class SettingsState with _$SettingsState {
   const factory SettingsState({
     required String defaultLanguage,
     required String defaultQuality,
@@ -84,7 +84,18 @@ class SettingsState with _$SettingsState {
     bool? isRichCaptionRenderingEnabled,
     bool? isBilibiliEnabled,
     bool? isSwipeLeftToRight,
+    bool? isMiniPlayerAutoExpandEnabled,
+    bool? isMiniPlayerTapToExpandEnabled,
+    bool? isMiniPlayerDoubleTapToExpandEnabled,
+    RestrictedModeFilterLevel? restrictedModeFilterLevel,
+    int? downloadAutoDeleteDays,
+    List<String>? contentFilterKeywords,
+    List<String>? contentFilterBlockedChannels,
+    bool? contentFilterHideShorts,
+    bool? contentFilterHidePaid,
   }) = _Initial;
+
+  const SettingsState._();
 
   factory SettingsState.initialize() => SettingsState(
         defaultLanguage: 'en',
@@ -156,5 +167,73 @@ class SettingsState with _$SettingsState {
         isRichCaptionRenderingEnabled: false,
         isBilibiliEnabled: false,
         isSwipeLeftToRight: false,
+        isMiniPlayerAutoExpandEnabled: true,
+        isMiniPlayerTapToExpandEnabled: true,
+        isMiniPlayerDoubleTapToExpandEnabled: false,
+        restrictedModeFilterLevel: RestrictedModeFilterLevel.standard,
+        downloadAutoDeleteDays: 7,
+        contentFilterKeywords: const [],
+        contentFilterBlockedChannels: const [],
+        contentFilterHideShorts: false,
+        contentFilterHidePaid: false,
       );
+
+  /// Playlist bookmark preferences derived from the persisted state.
+  BookmarksConfig? get bookmarksConfig => BookmarksConfig(
+        enabled: isBookmarksEnabled ?? false,
+        selectedPlaylists: bookmarkedPlaylists ?? const [],
+      );
+
+  /// Restricted mode preferences derived from the persisted state.
+  RestrictedModeConfig? get restrictedModeConfig => RestrictedModeConfig(
+        enabled: isRestrictedModeEnabled ?? false,
+        filterLevel:
+            restrictedModeFilterLevel ?? RestrictedModeFilterLevel.standard,
+      );
+
+  /// Advanced content filter derived from the persisted state.
+  ContentFilterConfig? get contentFilterConfig => ContentFilterConfig(
+        keywords: contentFilterKeywords ?? const [],
+        blockedChannelIds: contentFilterBlockedChannels ?? const [],
+        hideShorts: contentFilterHideShorts ?? false,
+        hidePaidPromotions: contentFilterHidePaid ?? false,
+      );
+
+  /// Mini player preferences derived from the persisted state.
+  MiniPlayerConfig? get miniPlayerConfig => MiniPlayerConfig(
+        enabled: isMiniPlayerEnabled ?? false,
+        autoExpand: isMiniPlayerAutoExpandEnabled ?? true,
+        tapToExpand: isMiniPlayerTapToExpandEnabled ?? true,
+        doubleTapToExpand: isMiniPlayerDoubleTapToExpandEnabled ?? false,
+      );
+
+  /// Download preferences derived from the persisted state.
+  DownloadPreferencesConfig? get downloadPreferencesConfig =>
+      DownloadPreferencesConfig(
+        downloadQuality: _downloadQualityFromSetting(downloadQuality),
+        includeSubtitles: isDownloadSubtitlesEnabled ?? false,
+        overWifiOnly: isDownloadOverWifiOnlyEnabled ?? true,
+        autoDelete: isDownloadAutoDeleteEnabled ?? false,
+        autoDeleteDays: downloadAutoDeleteDays ?? 7,
+      );
+}
+
+/// Maps a persisted download quality setting to its enum value.
+DownloadQuality _downloadQualityFromSetting(String? quality) {
+  switch (quality) {
+    case 'low':
+    case '144p':
+    case '240p':
+    case '360p':
+      return DownloadQuality.low;
+    case 'medium':
+    case '480p':
+      return DownloadQuality.medium;
+    case 'high':
+    case '720p':
+    case '1080p':
+      return DownloadQuality.high;
+    default:
+      return DownloadQuality.high;
+  }
 }

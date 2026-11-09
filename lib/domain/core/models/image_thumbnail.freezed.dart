@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,102 +9,66 @@ part of 'image_thumbnail.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ImageThumbnail _$ImageThumbnailFromJson(Map<String, dynamic> json) {
-  return _ImageThumbnail.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ImageThumbnail {
-  String? get url => throw _privateConstructorUsedError;
-  int? get width => throw _privateConstructorUsedError;
-  int? get height => throw _privateConstructorUsedError;
+  String? get url;
+  int? get width;
+  int? get height;
 
   /// Only used for video thumbnails (quality: default, medium, high, etc.)
-  String? get quality => throw _privateConstructorUsedError;
-
-  /// Serializes this ImageThumbnail to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String? get quality;
 
   /// Create a copy of ImageThumbnail
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $ImageThumbnailCopyWith<ImageThumbnail> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ImageThumbnailCopyWith<$Res> {
-  factory $ImageThumbnailCopyWith(
-          ImageThumbnail value, $Res Function(ImageThumbnail) then) =
-      _$ImageThumbnailCopyWithImpl<$Res, ImageThumbnail>;
-  @useResult
-  $Res call({String? url, int? width, int? height, String? quality});
-}
-
-/// @nodoc
-class _$ImageThumbnailCopyWithImpl<$Res, $Val extends ImageThumbnail>
-    implements $ImageThumbnailCopyWith<$Res> {
-  _$ImageThumbnailCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of ImageThumbnail
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $ImageThumbnailCopyWith<ImageThumbnail> get copyWith =>
+      _$ImageThumbnailCopyWithImpl<ImageThumbnail>(
+          this as ImageThumbnail, _$identity);
+
+  /// Serializes this ImageThumbnail to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? url = freezed,
-    Object? width = freezed,
-    Object? height = freezed,
-    Object? quality = freezed,
-  }) {
-    return _then(_value.copyWith(
-      url: freezed == url
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String?,
-      width: freezed == width
-          ? _value.width
-          : width // ignore: cast_nullable_to_non_nullable
-              as int?,
-      height: freezed == height
-          ? _value.height
-          : height // ignore: cast_nullable_to_non_nullable
-              as int?,
-      quality: freezed == quality
-          ? _value.quality
-          : quality // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ImageThumbnail &&
+            (identical(other.url, url) || other.url == url) &&
+            (identical(other.width, width) || other.width == width) &&
+            (identical(other.height, height) || other.height == height) &&
+            (identical(other.quality, quality) || other.quality == quality));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, url, width, height, quality);
+
+  @override
+  String toString() {
+    return 'ImageThumbnail(url: $url, width: $width, height: $height, quality: $quality)';
   }
 }
 
 /// @nodoc
-abstract class _$$ImageThumbnailImplCopyWith<$Res>
-    implements $ImageThumbnailCopyWith<$Res> {
-  factory _$$ImageThumbnailImplCopyWith(_$ImageThumbnailImpl value,
-          $Res Function(_$ImageThumbnailImpl) then) =
-      __$$ImageThumbnailImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $ImageThumbnailCopyWith<$Res> {
+  factory $ImageThumbnailCopyWith(
+          ImageThumbnail value, $Res Function(ImageThumbnail) _then) =
+      _$ImageThumbnailCopyWithImpl;
   @useResult
   $Res call({String? url, int? width, int? height, String? quality});
 }
 
 /// @nodoc
-class __$$ImageThumbnailImplCopyWithImpl<$Res>
-    extends _$ImageThumbnailCopyWithImpl<$Res, _$ImageThumbnailImpl>
-    implements _$$ImageThumbnailImplCopyWith<$Res> {
-  __$$ImageThumbnailImplCopyWithImpl(
-      _$ImageThumbnailImpl _value, $Res Function(_$ImageThumbnailImpl) _then)
-      : super(_value, _then);
+class _$ImageThumbnailCopyWithImpl<$Res>
+    implements $ImageThumbnailCopyWith<$Res> {
+  _$ImageThumbnailCopyWithImpl(this._self, this._then);
+
+  final ImageThumbnail _self;
+  final $Res Function(ImageThumbnail) _then;
 
   /// Create a copy of ImageThumbnail
   /// with the given fields replaced by the non-null parameter values.
@@ -116,34 +80,189 @@ class __$$ImageThumbnailImplCopyWithImpl<$Res>
     Object? height = freezed,
     Object? quality = freezed,
   }) {
-    return _then(_$ImageThumbnailImpl(
+    return _then(_self.copyWith(
       url: freezed == url
-          ? _value.url
+          ? _self.url
           : url // ignore: cast_nullable_to_non_nullable
               as String?,
       width: freezed == width
-          ? _value.width
+          ? _self.width
           : width // ignore: cast_nullable_to_non_nullable
               as int?,
       height: freezed == height
-          ? _value.height
+          ? _self.height
           : height // ignore: cast_nullable_to_non_nullable
               as int?,
       quality: freezed == quality
-          ? _value.quality
+          ? _self.quality
           : quality // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
 }
 
+/// Adds pattern-matching-related methods to [ImageThumbnail].
+extension ImageThumbnailPatterns on ImageThumbnail {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_ImageThumbnail value)? $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _ImageThumbnail() when $default != null:
+        return $default(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_ImageThumbnail value) $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _ImageThumbnail():
+        return $default(_that);
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_ImageThumbnail value)? $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _ImageThumbnail() when $default != null:
+        return $default(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String? url, int? width, int? height, String? quality)?
+        $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _ImageThumbnail() when $default != null:
+        return $default(_that.url, _that.width, _that.height, _that.quality);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(String? url, int? width, int? height, String? quality)
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _ImageThumbnail():
+        return $default(_that.url, _that.width, _that.height, _that.quality);
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(String? url, int? width, int? height, String? quality)?
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _ImageThumbnail() when $default != null:
+        return $default(_that.url, _that.width, _that.height, _that.quality);
+      case _:
+        return null;
+    }
+  }
+}
+
 /// @nodoc
 @JsonSerializable()
-class _$ImageThumbnailImpl implements _ImageThumbnail {
-  const _$ImageThumbnailImpl({this.url, this.width, this.height, this.quality});
-
-  factory _$ImageThumbnailImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ImageThumbnailImplFromJson(json);
+class _ImageThumbnail implements ImageThumbnail {
+  const _ImageThumbnail({this.url, this.width, this.height, this.quality});
+  factory _ImageThumbnail.fromJson(Map<String, dynamic> json) =>
+      _$ImageThumbnailFromJson(json);
 
   @override
   final String? url;
@@ -156,16 +275,26 @@ class _$ImageThumbnailImpl implements _ImageThumbnail {
   @override
   final String? quality;
 
+  /// Create a copy of ImageThumbnail
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'ImageThumbnail(url: $url, width: $width, height: $height, quality: $quality)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ImageThumbnailCopyWith<_ImageThumbnail> get copyWith =>
+      __$ImageThumbnailCopyWithImpl<_ImageThumbnail>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ImageThumbnailToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ImageThumbnailImpl &&
+            other is _ImageThumbnail &&
             (identical(other.url, url) || other.url == url) &&
             (identical(other.width, width) || other.width == width) &&
             (identical(other.height, height) || other.height == height) &&
@@ -176,48 +305,60 @@ class _$ImageThumbnailImpl implements _ImageThumbnail {
   @override
   int get hashCode => Object.hash(runtimeType, url, width, height, quality);
 
-  /// Create a copy of ImageThumbnail
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ImageThumbnailImplCopyWith<_$ImageThumbnailImpl> get copyWith =>
-      __$$ImageThumbnailImplCopyWithImpl<_$ImageThumbnailImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ImageThumbnailImplToJson(
-      this,
-    );
+  String toString() {
+    return 'ImageThumbnail(url: $url, width: $width, height: $height, quality: $quality)';
   }
 }
 
-abstract class _ImageThumbnail implements ImageThumbnail {
-  const factory _ImageThumbnail(
-      {final String? url,
-      final int? width,
-      final int? height,
-      final String? quality}) = _$ImageThumbnailImpl;
+/// @nodoc
+abstract mixin class _$ImageThumbnailCopyWith<$Res>
+    implements $ImageThumbnailCopyWith<$Res> {
+  factory _$ImageThumbnailCopyWith(
+          _ImageThumbnail value, $Res Function(_ImageThumbnail) _then) =
+      __$ImageThumbnailCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String? url, int? width, int? height, String? quality});
+}
 
-  factory _ImageThumbnail.fromJson(Map<String, dynamic> json) =
-      _$ImageThumbnailImpl.fromJson;
+/// @nodoc
+class __$ImageThumbnailCopyWithImpl<$Res>
+    implements _$ImageThumbnailCopyWith<$Res> {
+  __$ImageThumbnailCopyWithImpl(this._self, this._then);
 
-  @override
-  String? get url;
-  @override
-  int? get width;
-  @override
-  int? get height;
-
-  /// Only used for video thumbnails (quality: default, medium, high, etc.)
-  @override
-  String? get quality;
+  final _ImageThumbnail _self;
+  final $Res Function(_ImageThumbnail) _then;
 
   /// Create a copy of ImageThumbnail
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ImageThumbnailImplCopyWith<_$ImageThumbnailImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? url = freezed,
+    Object? width = freezed,
+    Object? height = freezed,
+    Object? quality = freezed,
+  }) {
+    return _then(_ImageThumbnail(
+      url: freezed == url
+          ? _self.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String?,
+      width: freezed == width
+          ? _self.width
+          : width // ignore: cast_nullable_to_non_nullable
+              as int?,
+      height: freezed == height
+          ? _self.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as int?,
+      quality: freezed == quality
+          ? _self.quality
+          : quality // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
+
+// dart format on

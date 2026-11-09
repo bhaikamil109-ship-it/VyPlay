@@ -1,7 +1,7 @@
 part of 'subscribe_bloc.dart';
 
 @freezed
-class SubscribeEvent with _$SubscribeEvent {
+sealed class SubscribeEvent with _$SubscribeEvent {
   const factory SubscribeEvent.addSubscribe({
     required Subscribe channelInfo,
     @Default('default') String profileName,

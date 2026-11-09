@@ -131,6 +131,20 @@ const bilibiliEnabledKey = 'bilibili-enabled';
 // Content swipe direction (left-to-right or right-to-left)
 const swipeDirectionKey = 'swipe-direction';
 
+// Mini player expansion behaviour
+const miniPlayerAutoExpandKey = 'mini-player-auto-expand';
+const miniPlayerTapToExpandKey = 'mini-player-tap-to-expand';
+const miniPlayerDoubleTapToExpandKey = 'mini-player-double-tap-to-expand';
+
+// Selected playlists for playlist bookmarks
+const bookmarkedPlaylistsKey = 'bookmarked-playlists';
+
+// Restricted mode filter level (standard, strict)
+const restrictedModeFilterKey = 'restricted-mode-filter';
+
+// Days after which auto-deleted downloads are removed
+const downloadAutoDeleteDaysKey = 'download-auto-delete-days';
+
 // Repeat mode for the playback queue (off, all, one)
 const repeatModeKey = 'repeat-mode';
 
@@ -138,3 +152,10 @@ const repeatModeKey = 'repeat-mode';
 const notifyNewVideosKey = 'notify-new-videos';
 const notifyLastCheckKey = 'notify-last-check';
 const notifySeenVideosKey = 'notify-seen-videos';
+
+// Advanced content filter: keyword blocklist (one per line, /regex/ supported)
+// and channel-ID blocklist, plus Shorts and paid/promoted video hiding.
+const contentFilterKeywordsKey = 'content-filter-keywords';
+const contentFilterChannelsKey = 'content-filter-channels';
+const contentFilterHideShortsKey = 'content-filter-hide-shorts';
+const contentFilterHidePaidKey = 'content-filter-hide-paid';

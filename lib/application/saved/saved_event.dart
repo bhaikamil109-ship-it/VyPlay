@@ -1,7 +1,7 @@
 part of 'saved_bloc.dart';
 
 @freezed
-class SavedEvent with _$SavedEvent {
+sealed class SavedEvent with _$SavedEvent {
   const factory SavedEvent.addVideoInfo({
     required LocalStoreVideoInfo videoInfo,
     @Default('default') String profileName,

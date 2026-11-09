@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,13 +9,334 @@ part of 'download_bloc.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$DownloadEvent {
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is DownloadEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'DownloadEvent()';
+  }
+}
+
+/// @nodoc
+class $DownloadEventCopyWith<$Res> {
+  $DownloadEventCopyWith(DownloadEvent _, $Res Function(DownloadEvent) __);
+}
+
+/// Adds pattern-matching-related methods to [DownloadEvent].
+extension DownloadEventPatterns on DownloadEvent {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetDownloadOptions value)? getDownloadOptions,
+    TResult Function(_SetDownloadOptionsFromStreams value)?
+        setDownloadOptionsFromStreams,
+    TResult Function(_StartDownload value)? startDownload,
+    TResult Function(_PauseDownload value)? pauseDownload,
+    TResult Function(_ResumeDownload value)? resumeDownload,
+    TResult Function(_CancelDownload value)? cancelDownload,
+    TResult Function(_DeleteDownload value)? deleteDownload,
+    TResult Function(_GetAllDownloads value)? getAllDownloads,
+    TResult Function(_UpdateDownloadProgress value)? updateDownloadProgress,
+    TResult Function(_DownloadCompleted value)? downloadCompleted,
+    TResult Function(_DownloadFailed value)? downloadFailed,
+    TResult Function(_ClearDownloadOptions value)? clearDownloadOptions,
+    TResult Function(_SaveToDevice value)? saveToDevice,
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _GetDownloadOptions() when getDownloadOptions != null:
+        return getDownloadOptions(_that);
+      case _SetDownloadOptionsFromStreams()
+          when setDownloadOptionsFromStreams != null:
+        return setDownloadOptionsFromStreams(_that);
+      case _StartDownload() when startDownload != null:
+        return startDownload(_that);
+      case _PauseDownload() when pauseDownload != null:
+        return pauseDownload(_that);
+      case _ResumeDownload() when resumeDownload != null:
+        return resumeDownload(_that);
+      case _CancelDownload() when cancelDownload != null:
+        return cancelDownload(_that);
+      case _DeleteDownload() when deleteDownload != null:
+        return deleteDownload(_that);
+      case _GetAllDownloads() when getAllDownloads != null:
+        return getAllDownloads(_that);
+      case _UpdateDownloadProgress() when updateDownloadProgress != null:
+        return updateDownloadProgress(_that);
+      case _DownloadCompleted() when downloadCompleted != null:
+        return downloadCompleted(_that);
+      case _DownloadFailed() when downloadFailed != null:
+        return downloadFailed(_that);
+      case _ClearDownloadOptions() when clearDownloadOptions != null:
+        return clearDownloadOptions(_that);
+      case _SaveToDevice() when saveToDevice != null:
+        return saveToDevice(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetDownloadOptions value) getDownloadOptions,
+    required TResult Function(_SetDownloadOptionsFromStreams value)
+        setDownloadOptionsFromStreams,
+    required TResult Function(_StartDownload value) startDownload,
+    required TResult Function(_PauseDownload value) pauseDownload,
+    required TResult Function(_ResumeDownload value) resumeDownload,
+    required TResult Function(_CancelDownload value) cancelDownload,
+    required TResult Function(_DeleteDownload value) deleteDownload,
+    required TResult Function(_GetAllDownloads value) getAllDownloads,
+    required TResult Function(_UpdateDownloadProgress value)
+        updateDownloadProgress,
+    required TResult Function(_DownloadCompleted value) downloadCompleted,
+    required TResult Function(_DownloadFailed value) downloadFailed,
+    required TResult Function(_ClearDownloadOptions value) clearDownloadOptions,
+    required TResult Function(_SaveToDevice value) saveToDevice,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _GetDownloadOptions():
+        return getDownloadOptions(_that);
+      case _SetDownloadOptionsFromStreams():
+        return setDownloadOptionsFromStreams(_that);
+      case _StartDownload():
+        return startDownload(_that);
+      case _PauseDownload():
+        return pauseDownload(_that);
+      case _ResumeDownload():
+        return resumeDownload(_that);
+      case _CancelDownload():
+        return cancelDownload(_that);
+      case _DeleteDownload():
+        return deleteDownload(_that);
+      case _GetAllDownloads():
+        return getAllDownloads(_that);
+      case _UpdateDownloadProgress():
+        return updateDownloadProgress(_that);
+      case _DownloadCompleted():
+        return downloadCompleted(_that);
+      case _DownloadFailed():
+        return downloadFailed(_that);
+      case _ClearDownloadOptions():
+        return clearDownloadOptions(_that);
+      case _SaveToDevice():
+        return saveToDevice(_that);
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetDownloadOptions value)? getDownloadOptions,
+    TResult? Function(_SetDownloadOptionsFromStreams value)?
+        setDownloadOptionsFromStreams,
+    TResult? Function(_StartDownload value)? startDownload,
+    TResult? Function(_PauseDownload value)? pauseDownload,
+    TResult? Function(_ResumeDownload value)? resumeDownload,
+    TResult? Function(_CancelDownload value)? cancelDownload,
+    TResult? Function(_DeleteDownload value)? deleteDownload,
+    TResult? Function(_GetAllDownloads value)? getAllDownloads,
+    TResult? Function(_UpdateDownloadProgress value)? updateDownloadProgress,
+    TResult? Function(_DownloadCompleted value)? downloadCompleted,
+    TResult? Function(_DownloadFailed value)? downloadFailed,
+    TResult? Function(_ClearDownloadOptions value)? clearDownloadOptions,
+    TResult? Function(_SaveToDevice value)? saveToDevice,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _GetDownloadOptions() when getDownloadOptions != null:
+        return getDownloadOptions(_that);
+      case _SetDownloadOptionsFromStreams()
+          when setDownloadOptionsFromStreams != null:
+        return setDownloadOptionsFromStreams(_that);
+      case _StartDownload() when startDownload != null:
+        return startDownload(_that);
+      case _PauseDownload() when pauseDownload != null:
+        return pauseDownload(_that);
+      case _ResumeDownload() when resumeDownload != null:
+        return resumeDownload(_that);
+      case _CancelDownload() when cancelDownload != null:
+        return cancelDownload(_that);
+      case _DeleteDownload() when deleteDownload != null:
+        return deleteDownload(_that);
+      case _GetAllDownloads() when getAllDownloads != null:
+        return getAllDownloads(_that);
+      case _UpdateDownloadProgress() when updateDownloadProgress != null:
+        return updateDownloadProgress(_that);
+      case _DownloadCompleted() when downloadCompleted != null:
+        return downloadCompleted(_that);
+      case _DownloadFailed() when downloadFailed != null:
+        return downloadFailed(_that);
+      case _ClearDownloadOptions() when clearDownloadOptions != null:
+        return clearDownloadOptions(_that);
+      case _SaveToDevice() when saveToDevice != null:
+        return saveToDevice(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String videoId, String serviceType)? getDownloadOptions,
+    TResult Function(
+            String videoId,
+            String title,
+            String channelName,
+            String? thumbnailUrl,
+            int? duration,
+            List<NewPipeVideoStream> videoStreams,
+            List<NewPipeVideoStream> videoOnlyStreams,
+            List<NewPipeAudioStream> audioStreams)?
+        setDownloadOptionsFromStreams,
+    TResult Function(
+            String videoId,
+            String title,
+            String channelName,
+            DownloadType downloadType,
+            String profileName,
+            String? thumbnailUrl,
+            int? duration,
+            VideoQualityOption? videoQuality,
+            AudioQualityOption? audioQuality)?
+        startDownload,
+    TResult Function(int downloadId)? pauseDownload,
+    TResult Function(int downloadId)? resumeDownload,
+    TResult Function(int downloadId)? cancelDownload,
+    TResult Function(int downloadId)? deleteDownload,
+    TResult Function(String profileName)? getAllDownloads,
+    TResult Function(DownloadItem downloadItem)? updateDownloadProgress,
+    TResult Function(DownloadItem downloadItem)? downloadCompleted,
+    TResult Function(DownloadItem downloadItem, String error)? downloadFailed,
+    TResult Function()? clearDownloadOptions,
+    TResult Function(DownloadItem downloadItem)? saveToDevice,
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _GetDownloadOptions() when getDownloadOptions != null:
+        return getDownloadOptions(_that.videoId, _that.serviceType);
+      case _SetDownloadOptionsFromStreams()
+          when setDownloadOptionsFromStreams != null:
+        return setDownloadOptionsFromStreams(
+            _that.videoId,
+            _that.title,
+            _that.channelName,
+            _that.thumbnailUrl,
+            _that.duration,
+            _that.videoStreams,
+            _that.videoOnlyStreams,
+            _that.audioStreams);
+      case _StartDownload() when startDownload != null:
+        return startDownload(
+            _that.videoId,
+            _that.title,
+            _that.channelName,
+            _that.downloadType,
+            _that.profileName,
+            _that.thumbnailUrl,
+            _that.duration,
+            _that.videoQuality,
+            _that.audioQuality);
+      case _PauseDownload() when pauseDownload != null:
+        return pauseDownload(_that.downloadId);
+      case _ResumeDownload() when resumeDownload != null:
+        return resumeDownload(_that.downloadId);
+      case _CancelDownload() when cancelDownload != null:
+        return cancelDownload(_that.downloadId);
+      case _DeleteDownload() when deleteDownload != null:
+        return deleteDownload(_that.downloadId);
+      case _GetAllDownloads() when getAllDownloads != null:
+        return getAllDownloads(_that.profileName);
+      case _UpdateDownloadProgress() when updateDownloadProgress != null:
+        return updateDownloadProgress(_that.downloadItem);
+      case _DownloadCompleted() when downloadCompleted != null:
+        return downloadCompleted(_that.downloadItem);
+      case _DownloadFailed() when downloadFailed != null:
+        return downloadFailed(_that.downloadItem, _that.error);
+      case _ClearDownloadOptions() when clearDownloadOptions != null:
+        return clearDownloadOptions();
+      case _SaveToDevice() when saveToDevice != null:
+        return saveToDevice(_that.downloadItem);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String videoId, String serviceType)
@@ -52,8 +373,67 @@ mixin _$DownloadEvent {
         downloadFailed,
     required TResult Function() clearDownloadOptions,
     required TResult Function(DownloadItem downloadItem) saveToDevice,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _GetDownloadOptions():
+        return getDownloadOptions(_that.videoId, _that.serviceType);
+      case _SetDownloadOptionsFromStreams():
+        return setDownloadOptionsFromStreams(
+            _that.videoId,
+            _that.title,
+            _that.channelName,
+            _that.thumbnailUrl,
+            _that.duration,
+            _that.videoStreams,
+            _that.videoOnlyStreams,
+            _that.audioStreams);
+      case _StartDownload():
+        return startDownload(
+            _that.videoId,
+            _that.title,
+            _that.channelName,
+            _that.downloadType,
+            _that.profileName,
+            _that.thumbnailUrl,
+            _that.duration,
+            _that.videoQuality,
+            _that.audioQuality);
+      case _PauseDownload():
+        return pauseDownload(_that.downloadId);
+      case _ResumeDownload():
+        return resumeDownload(_that.downloadId);
+      case _CancelDownload():
+        return cancelDownload(_that.downloadId);
+      case _DeleteDownload():
+        return deleteDownload(_that.downloadId);
+      case _GetAllDownloads():
+        return getAllDownloads(_that.profileName);
+      case _UpdateDownloadProgress():
+        return updateDownloadProgress(_that.downloadItem);
+      case _DownloadCompleted():
+        return downloadCompleted(_that.downloadItem);
+      case _DownloadFailed():
+        return downloadFailed(_that.downloadItem, _that.error);
+      case _ClearDownloadOptions():
+        return clearDownloadOptions();
+      case _SaveToDevice():
+        return saveToDevice(_that.downloadItem);
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String videoId, String serviceType)? getDownloadOptions,
@@ -88,183 +468,79 @@ mixin _$DownloadEvent {
     TResult? Function(DownloadItem downloadItem, String error)? downloadFailed,
     TResult? Function()? clearDownloadOptions,
     TResult? Function(DownloadItem downloadItem)? saveToDevice,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String videoId, String serviceType)? getDownloadOptions,
-    TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            String? thumbnailUrl,
-            int? duration,
-            List<NewPipeVideoStream> videoStreams,
-            List<NewPipeVideoStream> videoOnlyStreams,
-            List<NewPipeAudioStream> audioStreams)?
-        setDownloadOptionsFromStreams,
-    TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            DownloadType downloadType,
-            String profileName,
-            String? thumbnailUrl,
-            int? duration,
-            VideoQualityOption? videoQuality,
-            AudioQualityOption? audioQuality)?
-        startDownload,
-    TResult Function(int downloadId)? pauseDownload,
-    TResult Function(int downloadId)? resumeDownload,
-    TResult Function(int downloadId)? cancelDownload,
-    TResult Function(int downloadId)? deleteDownload,
-    TResult Function(String profileName)? getAllDownloads,
-    TResult Function(DownloadItem downloadItem)? updateDownloadProgress,
-    TResult Function(DownloadItem downloadItem)? downloadCompleted,
-    TResult Function(DownloadItem downloadItem, String error)? downloadFailed,
-    TResult Function()? clearDownloadOptions,
-    TResult Function(DownloadItem downloadItem)? saveToDevice,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_GetDownloadOptions value) getDownloadOptions,
-    required TResult Function(_SetDownloadOptionsFromStreams value)
-        setDownloadOptionsFromStreams,
-    required TResult Function(_StartDownload value) startDownload,
-    required TResult Function(_PauseDownload value) pauseDownload,
-    required TResult Function(_ResumeDownload value) resumeDownload,
-    required TResult Function(_CancelDownload value) cancelDownload,
-    required TResult Function(_DeleteDownload value) deleteDownload,
-    required TResult Function(_GetAllDownloads value) getAllDownloads,
-    required TResult Function(_UpdateDownloadProgress value)
-        updateDownloadProgress,
-    required TResult Function(_DownloadCompleted value) downloadCompleted,
-    required TResult Function(_DownloadFailed value) downloadFailed,
-    required TResult Function(_ClearDownloadOptions value) clearDownloadOptions,
-    required TResult Function(_SaveToDevice value) saveToDevice,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetDownloadOptions value)? getDownloadOptions,
-    TResult? Function(_SetDownloadOptionsFromStreams value)?
-        setDownloadOptionsFromStreams,
-    TResult? Function(_StartDownload value)? startDownload,
-    TResult? Function(_PauseDownload value)? pauseDownload,
-    TResult? Function(_ResumeDownload value)? resumeDownload,
-    TResult? Function(_CancelDownload value)? cancelDownload,
-    TResult? Function(_DeleteDownload value)? deleteDownload,
-    TResult? Function(_GetAllDownloads value)? getAllDownloads,
-    TResult? Function(_UpdateDownloadProgress value)? updateDownloadProgress,
-    TResult? Function(_DownloadCompleted value)? downloadCompleted,
-    TResult? Function(_DownloadFailed value)? downloadFailed,
-    TResult? Function(_ClearDownloadOptions value)? clearDownloadOptions,
-    TResult? Function(_SaveToDevice value)? saveToDevice,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetDownloadOptions value)? getDownloadOptions,
-    TResult Function(_SetDownloadOptionsFromStreams value)?
-        setDownloadOptionsFromStreams,
-    TResult Function(_StartDownload value)? startDownload,
-    TResult Function(_PauseDownload value)? pauseDownload,
-    TResult Function(_ResumeDownload value)? resumeDownload,
-    TResult Function(_CancelDownload value)? cancelDownload,
-    TResult Function(_DeleteDownload value)? deleteDownload,
-    TResult Function(_GetAllDownloads value)? getAllDownloads,
-    TResult Function(_UpdateDownloadProgress value)? updateDownloadProgress,
-    TResult Function(_DownloadCompleted value)? downloadCompleted,
-    TResult Function(_DownloadFailed value)? downloadFailed,
-    TResult Function(_ClearDownloadOptions value)? clearDownloadOptions,
-    TResult Function(_SaveToDevice value)? saveToDevice,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $DownloadEventCopyWith<$Res> {
-  factory $DownloadEventCopyWith(
-          DownloadEvent value, $Res Function(DownloadEvent) then) =
-      _$DownloadEventCopyWithImpl<$Res, DownloadEvent>;
-}
-
-/// @nodoc
-class _$DownloadEventCopyWithImpl<$Res, $Val extends DownloadEvent>
-    implements $DownloadEventCopyWith<$Res> {
-  _$DownloadEventCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of DownloadEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-abstract class _$$GetDownloadOptionsImplCopyWith<$Res> {
-  factory _$$GetDownloadOptionsImplCopyWith(_$GetDownloadOptionsImpl value,
-          $Res Function(_$GetDownloadOptionsImpl) then) =
-      __$$GetDownloadOptionsImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String videoId, String serviceType});
-}
-
-/// @nodoc
-class __$$GetDownloadOptionsImplCopyWithImpl<$Res>
-    extends _$DownloadEventCopyWithImpl<$Res, _$GetDownloadOptionsImpl>
-    implements _$$GetDownloadOptionsImplCopyWith<$Res> {
-  __$$GetDownloadOptionsImplCopyWithImpl(_$GetDownloadOptionsImpl _value,
-      $Res Function(_$GetDownloadOptionsImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of DownloadEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? videoId = null,
-    Object? serviceType = null,
   }) {
-    return _then(_$GetDownloadOptionsImpl(
-      videoId: null == videoId
-          ? _value.videoId
-          : videoId // ignore: cast_nullable_to_non_nullable
-              as String,
-      serviceType: null == serviceType
-          ? _value.serviceType
-          : serviceType // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+    final _that = this;
+    switch (_that) {
+      case _GetDownloadOptions() when getDownloadOptions != null:
+        return getDownloadOptions(_that.videoId, _that.serviceType);
+      case _SetDownloadOptionsFromStreams()
+          when setDownloadOptionsFromStreams != null:
+        return setDownloadOptionsFromStreams(
+            _that.videoId,
+            _that.title,
+            _that.channelName,
+            _that.thumbnailUrl,
+            _that.duration,
+            _that.videoStreams,
+            _that.videoOnlyStreams,
+            _that.audioStreams);
+      case _StartDownload() when startDownload != null:
+        return startDownload(
+            _that.videoId,
+            _that.title,
+            _that.channelName,
+            _that.downloadType,
+            _that.profileName,
+            _that.thumbnailUrl,
+            _that.duration,
+            _that.videoQuality,
+            _that.audioQuality);
+      case _PauseDownload() when pauseDownload != null:
+        return pauseDownload(_that.downloadId);
+      case _ResumeDownload() when resumeDownload != null:
+        return resumeDownload(_that.downloadId);
+      case _CancelDownload() when cancelDownload != null:
+        return cancelDownload(_that.downloadId);
+      case _DeleteDownload() when deleteDownload != null:
+        return deleteDownload(_that.downloadId);
+      case _GetAllDownloads() when getAllDownloads != null:
+        return getAllDownloads(_that.profileName);
+      case _UpdateDownloadProgress() when updateDownloadProgress != null:
+        return updateDownloadProgress(_that.downloadItem);
+      case _DownloadCompleted() when downloadCompleted != null:
+        return downloadCompleted(_that.downloadItem);
+      case _DownloadFailed() when downloadFailed != null:
+        return downloadFailed(_that.downloadItem, _that.error);
+      case _ClearDownloadOptions() when clearDownloadOptions != null:
+        return clearDownloadOptions();
+      case _SaveToDevice() when saveToDevice != null:
+        return saveToDevice(_that.downloadItem);
+      case _:
+        return null;
+    }
   }
 }
 
 /// @nodoc
 
-class _$GetDownloadOptionsImpl implements _GetDownloadOptions {
-  const _$GetDownloadOptionsImpl(
-      {required this.videoId, required this.serviceType});
+class _GetDownloadOptions implements DownloadEvent {
+  const _GetDownloadOptions({required this.videoId, required this.serviceType});
 
-  @override
   final String videoId;
-  @override
   final String serviceType;
 
-  @override
-  String toString() {
-    return 'DownloadEvent.getDownloadOptions(videoId: $videoId, serviceType: $serviceType)';
-  }
+  /// Create a copy of DownloadEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$GetDownloadOptionsCopyWith<_GetDownloadOptions> get copyWith =>
+      __$GetDownloadOptionsCopyWithImpl<_GetDownloadOptions>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetDownloadOptionsImpl &&
+            other is _GetDownloadOptions &&
             (identical(other.videoId, videoId) || other.videoId == videoId) &&
             (identical(other.serviceType, serviceType) ||
                 other.serviceType == serviceType));
@@ -273,306 +549,54 @@ class _$GetDownloadOptionsImpl implements _GetDownloadOptions {
   @override
   int get hashCode => Object.hash(runtimeType, videoId, serviceType);
 
-  /// Create a copy of DownloadEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$GetDownloadOptionsImplCopyWith<_$GetDownloadOptionsImpl> get copyWith =>
-      __$$GetDownloadOptionsImplCopyWithImpl<_$GetDownloadOptionsImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String videoId, String serviceType)
-        getDownloadOptions,
-    required TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            String? thumbnailUrl,
-            int? duration,
-            List<NewPipeVideoStream> videoStreams,
-            List<NewPipeVideoStream> videoOnlyStreams,
-            List<NewPipeAudioStream> audioStreams)
-        setDownloadOptionsFromStreams,
-    required TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            DownloadType downloadType,
-            String profileName,
-            String? thumbnailUrl,
-            int? duration,
-            VideoQualityOption? videoQuality,
-            AudioQualityOption? audioQuality)
-        startDownload,
-    required TResult Function(int downloadId) pauseDownload,
-    required TResult Function(int downloadId) resumeDownload,
-    required TResult Function(int downloadId) cancelDownload,
-    required TResult Function(int downloadId) deleteDownload,
-    required TResult Function(String profileName) getAllDownloads,
-    required TResult Function(DownloadItem downloadItem) updateDownloadProgress,
-    required TResult Function(DownloadItem downloadItem) downloadCompleted,
-    required TResult Function(DownloadItem downloadItem, String error)
-        downloadFailed,
-    required TResult Function() clearDownloadOptions,
-    required TResult Function(DownloadItem downloadItem) saveToDevice,
-  }) {
-    return getDownloadOptions(videoId, serviceType);
+  String toString() {
+    return 'DownloadEvent.getDownloadOptions(videoId: $videoId, serviceType: $serviceType)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String videoId, String serviceType)? getDownloadOptions,
-    TResult? Function(
-            String videoId,
-            String title,
-            String channelName,
-            String? thumbnailUrl,
-            int? duration,
-            List<NewPipeVideoStream> videoStreams,
-            List<NewPipeVideoStream> videoOnlyStreams,
-            List<NewPipeAudioStream> audioStreams)?
-        setDownloadOptionsFromStreams,
-    TResult? Function(
-            String videoId,
-            String title,
-            String channelName,
-            DownloadType downloadType,
-            String profileName,
-            String? thumbnailUrl,
-            int? duration,
-            VideoQualityOption? videoQuality,
-            AudioQualityOption? audioQuality)?
-        startDownload,
-    TResult? Function(int downloadId)? pauseDownload,
-    TResult? Function(int downloadId)? resumeDownload,
-    TResult? Function(int downloadId)? cancelDownload,
-    TResult? Function(int downloadId)? deleteDownload,
-    TResult? Function(String profileName)? getAllDownloads,
-    TResult? Function(DownloadItem downloadItem)? updateDownloadProgress,
-    TResult? Function(DownloadItem downloadItem)? downloadCompleted,
-    TResult? Function(DownloadItem downloadItem, String error)? downloadFailed,
-    TResult? Function()? clearDownloadOptions,
-    TResult? Function(DownloadItem downloadItem)? saveToDevice,
-  }) {
-    return getDownloadOptions?.call(videoId, serviceType);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String videoId, String serviceType)? getDownloadOptions,
-    TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            String? thumbnailUrl,
-            int? duration,
-            List<NewPipeVideoStream> videoStreams,
-            List<NewPipeVideoStream> videoOnlyStreams,
-            List<NewPipeAudioStream> audioStreams)?
-        setDownloadOptionsFromStreams,
-    TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            DownloadType downloadType,
-            String profileName,
-            String? thumbnailUrl,
-            int? duration,
-            VideoQualityOption? videoQuality,
-            AudioQualityOption? audioQuality)?
-        startDownload,
-    TResult Function(int downloadId)? pauseDownload,
-    TResult Function(int downloadId)? resumeDownload,
-    TResult Function(int downloadId)? cancelDownload,
-    TResult Function(int downloadId)? deleteDownload,
-    TResult Function(String profileName)? getAllDownloads,
-    TResult Function(DownloadItem downloadItem)? updateDownloadProgress,
-    TResult Function(DownloadItem downloadItem)? downloadCompleted,
-    TResult Function(DownloadItem downloadItem, String error)? downloadFailed,
-    TResult Function()? clearDownloadOptions,
-    TResult Function(DownloadItem downloadItem)? saveToDevice,
-    required TResult orElse(),
-  }) {
-    if (getDownloadOptions != null) {
-      return getDownloadOptions(videoId, serviceType);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_GetDownloadOptions value) getDownloadOptions,
-    required TResult Function(_SetDownloadOptionsFromStreams value)
-        setDownloadOptionsFromStreams,
-    required TResult Function(_StartDownload value) startDownload,
-    required TResult Function(_PauseDownload value) pauseDownload,
-    required TResult Function(_ResumeDownload value) resumeDownload,
-    required TResult Function(_CancelDownload value) cancelDownload,
-    required TResult Function(_DeleteDownload value) deleteDownload,
-    required TResult Function(_GetAllDownloads value) getAllDownloads,
-    required TResult Function(_UpdateDownloadProgress value)
-        updateDownloadProgress,
-    required TResult Function(_DownloadCompleted value) downloadCompleted,
-    required TResult Function(_DownloadFailed value) downloadFailed,
-    required TResult Function(_ClearDownloadOptions value) clearDownloadOptions,
-    required TResult Function(_SaveToDevice value) saveToDevice,
-  }) {
-    return getDownloadOptions(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetDownloadOptions value)? getDownloadOptions,
-    TResult? Function(_SetDownloadOptionsFromStreams value)?
-        setDownloadOptionsFromStreams,
-    TResult? Function(_StartDownload value)? startDownload,
-    TResult? Function(_PauseDownload value)? pauseDownload,
-    TResult? Function(_ResumeDownload value)? resumeDownload,
-    TResult? Function(_CancelDownload value)? cancelDownload,
-    TResult? Function(_DeleteDownload value)? deleteDownload,
-    TResult? Function(_GetAllDownloads value)? getAllDownloads,
-    TResult? Function(_UpdateDownloadProgress value)? updateDownloadProgress,
-    TResult? Function(_DownloadCompleted value)? downloadCompleted,
-    TResult? Function(_DownloadFailed value)? downloadFailed,
-    TResult? Function(_ClearDownloadOptions value)? clearDownloadOptions,
-    TResult? Function(_SaveToDevice value)? saveToDevice,
-  }) {
-    return getDownloadOptions?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetDownloadOptions value)? getDownloadOptions,
-    TResult Function(_SetDownloadOptionsFromStreams value)?
-        setDownloadOptionsFromStreams,
-    TResult Function(_StartDownload value)? startDownload,
-    TResult Function(_PauseDownload value)? pauseDownload,
-    TResult Function(_ResumeDownload value)? resumeDownload,
-    TResult Function(_CancelDownload value)? cancelDownload,
-    TResult Function(_DeleteDownload value)? deleteDownload,
-    TResult Function(_GetAllDownloads value)? getAllDownloads,
-    TResult Function(_UpdateDownloadProgress value)? updateDownloadProgress,
-    TResult Function(_DownloadCompleted value)? downloadCompleted,
-    TResult Function(_DownloadFailed value)? downloadFailed,
-    TResult Function(_ClearDownloadOptions value)? clearDownloadOptions,
-    TResult Function(_SaveToDevice value)? saveToDevice,
-    required TResult orElse(),
-  }) {
-    if (getDownloadOptions != null) {
-      return getDownloadOptions(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _GetDownloadOptions implements DownloadEvent {
-  const factory _GetDownloadOptions(
-      {required final String videoId,
-      required final String serviceType}) = _$GetDownloadOptionsImpl;
-
-  String get videoId;
-  String get serviceType;
-
-  /// Create a copy of DownloadEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetDownloadOptionsImplCopyWith<_$GetDownloadOptionsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SetDownloadOptionsFromStreamsImplCopyWith<$Res> {
-  factory _$$SetDownloadOptionsFromStreamsImplCopyWith(
-          _$SetDownloadOptionsFromStreamsImpl value,
-          $Res Function(_$SetDownloadOptionsFromStreamsImpl) then) =
-      __$$SetDownloadOptionsFromStreamsImplCopyWithImpl<$Res>;
+abstract mixin class _$GetDownloadOptionsCopyWith<$Res>
+    implements $DownloadEventCopyWith<$Res> {
+  factory _$GetDownloadOptionsCopyWith(
+          _GetDownloadOptions value, $Res Function(_GetDownloadOptions) _then) =
+      __$GetDownloadOptionsCopyWithImpl;
   @useResult
-  $Res call(
-      {String videoId,
-      String title,
-      String channelName,
-      String? thumbnailUrl,
-      int? duration,
-      List<NewPipeVideoStream> videoStreams,
-      List<NewPipeVideoStream> videoOnlyStreams,
-      List<NewPipeAudioStream> audioStreams});
+  $Res call({String videoId, String serviceType});
 }
 
 /// @nodoc
-class __$$SetDownloadOptionsFromStreamsImplCopyWithImpl<$Res>
-    extends _$DownloadEventCopyWithImpl<$Res,
-        _$SetDownloadOptionsFromStreamsImpl>
-    implements _$$SetDownloadOptionsFromStreamsImplCopyWith<$Res> {
-  __$$SetDownloadOptionsFromStreamsImplCopyWithImpl(
-      _$SetDownloadOptionsFromStreamsImpl _value,
-      $Res Function(_$SetDownloadOptionsFromStreamsImpl) _then)
-      : super(_value, _then);
+class __$GetDownloadOptionsCopyWithImpl<$Res>
+    implements _$GetDownloadOptionsCopyWith<$Res> {
+  __$GetDownloadOptionsCopyWithImpl(this._self, this._then);
+
+  final _GetDownloadOptions _self;
+  final $Res Function(_GetDownloadOptions) _then;
 
   /// Create a copy of DownloadEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? videoId = null,
-    Object? title = null,
-    Object? channelName = null,
-    Object? thumbnailUrl = freezed,
-    Object? duration = freezed,
-    Object? videoStreams = null,
-    Object? videoOnlyStreams = null,
-    Object? audioStreams = null,
+    Object? serviceType = null,
   }) {
-    return _then(_$SetDownloadOptionsFromStreamsImpl(
+    return _then(_GetDownloadOptions(
       videoId: null == videoId
-          ? _value.videoId
+          ? _self.videoId
           : videoId // ignore: cast_nullable_to_non_nullable
               as String,
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
+      serviceType: null == serviceType
+          ? _self.serviceType
+          : serviceType // ignore: cast_nullable_to_non_nullable
               as String,
-      channelName: null == channelName
-          ? _value.channelName
-          : channelName // ignore: cast_nullable_to_non_nullable
-              as String,
-      thumbnailUrl: freezed == thumbnailUrl
-          ? _value.thumbnailUrl
-          : thumbnailUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
-      duration: freezed == duration
-          ? _value.duration
-          : duration // ignore: cast_nullable_to_non_nullable
-              as int?,
-      videoStreams: null == videoStreams
-          ? _value._videoStreams
-          : videoStreams // ignore: cast_nullable_to_non_nullable
-              as List<NewPipeVideoStream>,
-      videoOnlyStreams: null == videoOnlyStreams
-          ? _value._videoOnlyStreams
-          : videoOnlyStreams // ignore: cast_nullable_to_non_nullable
-              as List<NewPipeVideoStream>,
-      audioStreams: null == audioStreams
-          ? _value._audioStreams
-          : audioStreams // ignore: cast_nullable_to_non_nullable
-              as List<NewPipeAudioStream>,
     ));
   }
 }
 
 /// @nodoc
 
-class _$SetDownloadOptionsFromStreamsImpl
-    implements _SetDownloadOptionsFromStreams {
-  const _$SetDownloadOptionsFromStreamsImpl(
+class _SetDownloadOptionsFromStreams implements DownloadEvent {
+  const _SetDownloadOptionsFromStreams(
       {required this.videoId,
       required this.title,
       required this.channelName,
@@ -585,18 +609,12 @@ class _$SetDownloadOptionsFromStreamsImpl
         _videoOnlyStreams = videoOnlyStreams,
         _audioStreams = audioStreams;
 
-  @override
   final String videoId;
-  @override
   final String title;
-  @override
   final String channelName;
-  @override
   final String? thumbnailUrl;
-  @override
   final int? duration;
   final List<NewPipeVideoStream> _videoStreams;
-  @override
   List<NewPipeVideoStream> get videoStreams {
     if (_videoStreams is EqualUnmodifiableListView) return _videoStreams;
     // ignore: implicit_dynamic_type
@@ -604,7 +622,6 @@ class _$SetDownloadOptionsFromStreamsImpl
   }
 
   final List<NewPipeVideoStream> _videoOnlyStreams;
-  @override
   List<NewPipeVideoStream> get videoOnlyStreams {
     if (_videoOnlyStreams is EqualUnmodifiableListView)
       return _videoOnlyStreams;
@@ -613,23 +630,25 @@ class _$SetDownloadOptionsFromStreamsImpl
   }
 
   final List<NewPipeAudioStream> _audioStreams;
-  @override
   List<NewPipeAudioStream> get audioStreams {
     if (_audioStreams is EqualUnmodifiableListView) return _audioStreams;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_audioStreams);
   }
 
-  @override
-  String toString() {
-    return 'DownloadEvent.setDownloadOptionsFromStreams(videoId: $videoId, title: $title, channelName: $channelName, thumbnailUrl: $thumbnailUrl, duration: $duration, videoStreams: $videoStreams, videoOnlyStreams: $videoOnlyStreams, audioStreams: $audioStreams)';
-  }
+  /// Create a copy of DownloadEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$SetDownloadOptionsFromStreamsCopyWith<_SetDownloadOptionsFromStreams>
+      get copyWith => __$SetDownloadOptionsFromStreamsCopyWithImpl<
+          _SetDownloadOptionsFromStreams>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SetDownloadOptionsFromStreamsImpl &&
+            other is _SetDownloadOptionsFromStreams &&
             (identical(other.videoId, videoId) || other.videoId == videoId) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.channelName, channelName) ||
@@ -658,326 +677,93 @@ class _$SetDownloadOptionsFromStreamsImpl
       const DeepCollectionEquality().hash(_videoOnlyStreams),
       const DeepCollectionEquality().hash(_audioStreams));
 
-  /// Create a copy of DownloadEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$SetDownloadOptionsFromStreamsImplCopyWith<
-          _$SetDownloadOptionsFromStreamsImpl>
-      get copyWith => __$$SetDownloadOptionsFromStreamsImplCopyWithImpl<
-          _$SetDownloadOptionsFromStreamsImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String videoId, String serviceType)
-        getDownloadOptions,
-    required TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            String? thumbnailUrl,
-            int? duration,
-            List<NewPipeVideoStream> videoStreams,
-            List<NewPipeVideoStream> videoOnlyStreams,
-            List<NewPipeAudioStream> audioStreams)
-        setDownloadOptionsFromStreams,
-    required TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            DownloadType downloadType,
-            String profileName,
-            String? thumbnailUrl,
-            int? duration,
-            VideoQualityOption? videoQuality,
-            AudioQualityOption? audioQuality)
-        startDownload,
-    required TResult Function(int downloadId) pauseDownload,
-    required TResult Function(int downloadId) resumeDownload,
-    required TResult Function(int downloadId) cancelDownload,
-    required TResult Function(int downloadId) deleteDownload,
-    required TResult Function(String profileName) getAllDownloads,
-    required TResult Function(DownloadItem downloadItem) updateDownloadProgress,
-    required TResult Function(DownloadItem downloadItem) downloadCompleted,
-    required TResult Function(DownloadItem downloadItem, String error)
-        downloadFailed,
-    required TResult Function() clearDownloadOptions,
-    required TResult Function(DownloadItem downloadItem) saveToDevice,
-  }) {
-    return setDownloadOptionsFromStreams(videoId, title, channelName,
-        thumbnailUrl, duration, videoStreams, videoOnlyStreams, audioStreams);
+  String toString() {
+    return 'DownloadEvent.setDownloadOptionsFromStreams(videoId: $videoId, title: $title, channelName: $channelName, thumbnailUrl: $thumbnailUrl, duration: $duration, videoStreams: $videoStreams, videoOnlyStreams: $videoOnlyStreams, audioStreams: $audioStreams)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String videoId, String serviceType)? getDownloadOptions,
-    TResult? Function(
-            String videoId,
-            String title,
-            String channelName,
-            String? thumbnailUrl,
-            int? duration,
-            List<NewPipeVideoStream> videoStreams,
-            List<NewPipeVideoStream> videoOnlyStreams,
-            List<NewPipeAudioStream> audioStreams)?
-        setDownloadOptionsFromStreams,
-    TResult? Function(
-            String videoId,
-            String title,
-            String channelName,
-            DownloadType downloadType,
-            String profileName,
-            String? thumbnailUrl,
-            int? duration,
-            VideoQualityOption? videoQuality,
-            AudioQualityOption? audioQuality)?
-        startDownload,
-    TResult? Function(int downloadId)? pauseDownload,
-    TResult? Function(int downloadId)? resumeDownload,
-    TResult? Function(int downloadId)? cancelDownload,
-    TResult? Function(int downloadId)? deleteDownload,
-    TResult? Function(String profileName)? getAllDownloads,
-    TResult? Function(DownloadItem downloadItem)? updateDownloadProgress,
-    TResult? Function(DownloadItem downloadItem)? downloadCompleted,
-    TResult? Function(DownloadItem downloadItem, String error)? downloadFailed,
-    TResult? Function()? clearDownloadOptions,
-    TResult? Function(DownloadItem downloadItem)? saveToDevice,
-  }) {
-    return setDownloadOptionsFromStreams?.call(videoId, title, channelName,
-        thumbnailUrl, duration, videoStreams, videoOnlyStreams, audioStreams);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String videoId, String serviceType)? getDownloadOptions,
-    TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            String? thumbnailUrl,
-            int? duration,
-            List<NewPipeVideoStream> videoStreams,
-            List<NewPipeVideoStream> videoOnlyStreams,
-            List<NewPipeAudioStream> audioStreams)?
-        setDownloadOptionsFromStreams,
-    TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            DownloadType downloadType,
-            String profileName,
-            String? thumbnailUrl,
-            int? duration,
-            VideoQualityOption? videoQuality,
-            AudioQualityOption? audioQuality)?
-        startDownload,
-    TResult Function(int downloadId)? pauseDownload,
-    TResult Function(int downloadId)? resumeDownload,
-    TResult Function(int downloadId)? cancelDownload,
-    TResult Function(int downloadId)? deleteDownload,
-    TResult Function(String profileName)? getAllDownloads,
-    TResult Function(DownloadItem downloadItem)? updateDownloadProgress,
-    TResult Function(DownloadItem downloadItem)? downloadCompleted,
-    TResult Function(DownloadItem downloadItem, String error)? downloadFailed,
-    TResult Function()? clearDownloadOptions,
-    TResult Function(DownloadItem downloadItem)? saveToDevice,
-    required TResult orElse(),
-  }) {
-    if (setDownloadOptionsFromStreams != null) {
-      return setDownloadOptionsFromStreams(videoId, title, channelName,
-          thumbnailUrl, duration, videoStreams, videoOnlyStreams, audioStreams);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_GetDownloadOptions value) getDownloadOptions,
-    required TResult Function(_SetDownloadOptionsFromStreams value)
-        setDownloadOptionsFromStreams,
-    required TResult Function(_StartDownload value) startDownload,
-    required TResult Function(_PauseDownload value) pauseDownload,
-    required TResult Function(_ResumeDownload value) resumeDownload,
-    required TResult Function(_CancelDownload value) cancelDownload,
-    required TResult Function(_DeleteDownload value) deleteDownload,
-    required TResult Function(_GetAllDownloads value) getAllDownloads,
-    required TResult Function(_UpdateDownloadProgress value)
-        updateDownloadProgress,
-    required TResult Function(_DownloadCompleted value) downloadCompleted,
-    required TResult Function(_DownloadFailed value) downloadFailed,
-    required TResult Function(_ClearDownloadOptions value) clearDownloadOptions,
-    required TResult Function(_SaveToDevice value) saveToDevice,
-  }) {
-    return setDownloadOptionsFromStreams(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetDownloadOptions value)? getDownloadOptions,
-    TResult? Function(_SetDownloadOptionsFromStreams value)?
-        setDownloadOptionsFromStreams,
-    TResult? Function(_StartDownload value)? startDownload,
-    TResult? Function(_PauseDownload value)? pauseDownload,
-    TResult? Function(_ResumeDownload value)? resumeDownload,
-    TResult? Function(_CancelDownload value)? cancelDownload,
-    TResult? Function(_DeleteDownload value)? deleteDownload,
-    TResult? Function(_GetAllDownloads value)? getAllDownloads,
-    TResult? Function(_UpdateDownloadProgress value)? updateDownloadProgress,
-    TResult? Function(_DownloadCompleted value)? downloadCompleted,
-    TResult? Function(_DownloadFailed value)? downloadFailed,
-    TResult? Function(_ClearDownloadOptions value)? clearDownloadOptions,
-    TResult? Function(_SaveToDevice value)? saveToDevice,
-  }) {
-    return setDownloadOptionsFromStreams?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetDownloadOptions value)? getDownloadOptions,
-    TResult Function(_SetDownloadOptionsFromStreams value)?
-        setDownloadOptionsFromStreams,
-    TResult Function(_StartDownload value)? startDownload,
-    TResult Function(_PauseDownload value)? pauseDownload,
-    TResult Function(_ResumeDownload value)? resumeDownload,
-    TResult Function(_CancelDownload value)? cancelDownload,
-    TResult Function(_DeleteDownload value)? deleteDownload,
-    TResult Function(_GetAllDownloads value)? getAllDownloads,
-    TResult Function(_UpdateDownloadProgress value)? updateDownloadProgress,
-    TResult Function(_DownloadCompleted value)? downloadCompleted,
-    TResult Function(_DownloadFailed value)? downloadFailed,
-    TResult Function(_ClearDownloadOptions value)? clearDownloadOptions,
-    TResult Function(_SaveToDevice value)? saveToDevice,
-    required TResult orElse(),
-  }) {
-    if (setDownloadOptionsFromStreams != null) {
-      return setDownloadOptionsFromStreams(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _SetDownloadOptionsFromStreams implements DownloadEvent {
-  const factory _SetDownloadOptionsFromStreams(
-          {required final String videoId,
-          required final String title,
-          required final String channelName,
-          final String? thumbnailUrl,
-          final int? duration,
-          required final List<NewPipeVideoStream> videoStreams,
-          required final List<NewPipeVideoStream> videoOnlyStreams,
-          required final List<NewPipeAudioStream> audioStreams}) =
-      _$SetDownloadOptionsFromStreamsImpl;
-
-  String get videoId;
-  String get title;
-  String get channelName;
-  String? get thumbnailUrl;
-  int? get duration;
-  List<NewPipeVideoStream> get videoStreams;
-  List<NewPipeVideoStream> get videoOnlyStreams;
-  List<NewPipeAudioStream> get audioStreams;
-
-  /// Create a copy of DownloadEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SetDownloadOptionsFromStreamsImplCopyWith<
-          _$SetDownloadOptionsFromStreamsImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$StartDownloadImplCopyWith<$Res> {
-  factory _$$StartDownloadImplCopyWith(
-          _$StartDownloadImpl value, $Res Function(_$StartDownloadImpl) then) =
-      __$$StartDownloadImplCopyWithImpl<$Res>;
+abstract mixin class _$SetDownloadOptionsFromStreamsCopyWith<$Res>
+    implements $DownloadEventCopyWith<$Res> {
+  factory _$SetDownloadOptionsFromStreamsCopyWith(
+          _SetDownloadOptionsFromStreams value,
+          $Res Function(_SetDownloadOptionsFromStreams) _then) =
+      __$SetDownloadOptionsFromStreamsCopyWithImpl;
   @useResult
   $Res call(
       {String videoId,
       String title,
       String channelName,
-      DownloadType downloadType,
-      String profileName,
       String? thumbnailUrl,
       int? duration,
-      VideoQualityOption? videoQuality,
-      AudioQualityOption? audioQuality});
+      List<NewPipeVideoStream> videoStreams,
+      List<NewPipeVideoStream> videoOnlyStreams,
+      List<NewPipeAudioStream> audioStreams});
 }
 
 /// @nodoc
-class __$$StartDownloadImplCopyWithImpl<$Res>
-    extends _$DownloadEventCopyWithImpl<$Res, _$StartDownloadImpl>
-    implements _$$StartDownloadImplCopyWith<$Res> {
-  __$$StartDownloadImplCopyWithImpl(
-      _$StartDownloadImpl _value, $Res Function(_$StartDownloadImpl) _then)
-      : super(_value, _then);
+class __$SetDownloadOptionsFromStreamsCopyWithImpl<$Res>
+    implements _$SetDownloadOptionsFromStreamsCopyWith<$Res> {
+  __$SetDownloadOptionsFromStreamsCopyWithImpl(this._self, this._then);
+
+  final _SetDownloadOptionsFromStreams _self;
+  final $Res Function(_SetDownloadOptionsFromStreams) _then;
 
   /// Create a copy of DownloadEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? videoId = null,
     Object? title = null,
     Object? channelName = null,
-    Object? downloadType = null,
-    Object? profileName = null,
     Object? thumbnailUrl = freezed,
     Object? duration = freezed,
-    Object? videoQuality = freezed,
-    Object? audioQuality = freezed,
+    Object? videoStreams = null,
+    Object? videoOnlyStreams = null,
+    Object? audioStreams = null,
   }) {
-    return _then(_$StartDownloadImpl(
+    return _then(_SetDownloadOptionsFromStreams(
       videoId: null == videoId
-          ? _value.videoId
+          ? _self.videoId
           : videoId // ignore: cast_nullable_to_non_nullable
               as String,
       title: null == title
-          ? _value.title
+          ? _self.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
       channelName: null == channelName
-          ? _value.channelName
+          ? _self.channelName
           : channelName // ignore: cast_nullable_to_non_nullable
               as String,
-      downloadType: null == downloadType
-          ? _value.downloadType
-          : downloadType // ignore: cast_nullable_to_non_nullable
-              as DownloadType,
-      profileName: null == profileName
-          ? _value.profileName
-          : profileName // ignore: cast_nullable_to_non_nullable
-              as String,
       thumbnailUrl: freezed == thumbnailUrl
-          ? _value.thumbnailUrl
+          ? _self.thumbnailUrl
           : thumbnailUrl // ignore: cast_nullable_to_non_nullable
               as String?,
       duration: freezed == duration
-          ? _value.duration
+          ? _self.duration
           : duration // ignore: cast_nullable_to_non_nullable
               as int?,
-      videoQuality: freezed == videoQuality
-          ? _value.videoQuality
-          : videoQuality // ignore: cast_nullable_to_non_nullable
-              as VideoQualityOption?,
-      audioQuality: freezed == audioQuality
-          ? _value.audioQuality
-          : audioQuality // ignore: cast_nullable_to_non_nullable
-              as AudioQualityOption?,
+      videoStreams: null == videoStreams
+          ? _self._videoStreams
+          : videoStreams // ignore: cast_nullable_to_non_nullable
+              as List<NewPipeVideoStream>,
+      videoOnlyStreams: null == videoOnlyStreams
+          ? _self._videoOnlyStreams
+          : videoOnlyStreams // ignore: cast_nullable_to_non_nullable
+              as List<NewPipeVideoStream>,
+      audioStreams: null == audioStreams
+          ? _self._audioStreams
+          : audioStreams // ignore: cast_nullable_to_non_nullable
+              as List<NewPipeAudioStream>,
     ));
   }
 }
 
 /// @nodoc
 
-class _$StartDownloadImpl implements _StartDownload {
-  const _$StartDownloadImpl(
+class _StartDownload implements DownloadEvent {
+  const _StartDownload(
       {required this.videoId,
       required this.title,
       required this.channelName,
@@ -988,36 +774,29 @@ class _$StartDownloadImpl implements _StartDownload {
       this.videoQuality,
       this.audioQuality});
 
-  @override
   final String videoId;
-  @override
   final String title;
-  @override
   final String channelName;
-  @override
   final DownloadType downloadType;
-  @override
   @JsonKey()
   final String profileName;
-  @override
   final String? thumbnailUrl;
-  @override
   final int? duration;
-  @override
   final VideoQualityOption? videoQuality;
-  @override
   final AudioQualityOption? audioQuality;
 
-  @override
-  String toString() {
-    return 'DownloadEvent.startDownload(videoId: $videoId, title: $title, channelName: $channelName, downloadType: $downloadType, profileName: $profileName, thumbnailUrl: $thumbnailUrl, duration: $duration, videoQuality: $videoQuality, audioQuality: $audioQuality)';
-  }
+  /// Create a copy of DownloadEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$StartDownloadCopyWith<_StartDownload> get copyWith =>
+      __$StartDownloadCopyWithImpl<_StartDownload>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StartDownloadImpl &&
+            other is _StartDownload &&
             (identical(other.videoId, videoId) || other.videoId == videoId) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.channelName, channelName) ||
@@ -1049,536 +828,153 @@ class _$StartDownloadImpl implements _StartDownload {
       videoQuality,
       audioQuality);
 
-  /// Create a copy of DownloadEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$StartDownloadImplCopyWith<_$StartDownloadImpl> get copyWith =>
-      __$$StartDownloadImplCopyWithImpl<_$StartDownloadImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String videoId, String serviceType)
-        getDownloadOptions,
-    required TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            String? thumbnailUrl,
-            int? duration,
-            List<NewPipeVideoStream> videoStreams,
-            List<NewPipeVideoStream> videoOnlyStreams,
-            List<NewPipeAudioStream> audioStreams)
-        setDownloadOptionsFromStreams,
-    required TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            DownloadType downloadType,
-            String profileName,
-            String? thumbnailUrl,
-            int? duration,
-            VideoQualityOption? videoQuality,
-            AudioQualityOption? audioQuality)
-        startDownload,
-    required TResult Function(int downloadId) pauseDownload,
-    required TResult Function(int downloadId) resumeDownload,
-    required TResult Function(int downloadId) cancelDownload,
-    required TResult Function(int downloadId) deleteDownload,
-    required TResult Function(String profileName) getAllDownloads,
-    required TResult Function(DownloadItem downloadItem) updateDownloadProgress,
-    required TResult Function(DownloadItem downloadItem) downloadCompleted,
-    required TResult Function(DownloadItem downloadItem, String error)
-        downloadFailed,
-    required TResult Function() clearDownloadOptions,
-    required TResult Function(DownloadItem downloadItem) saveToDevice,
-  }) {
-    return startDownload(videoId, title, channelName, downloadType, profileName,
-        thumbnailUrl, duration, videoQuality, audioQuality);
+  String toString() {
+    return 'DownloadEvent.startDownload(videoId: $videoId, title: $title, channelName: $channelName, downloadType: $downloadType, profileName: $profileName, thumbnailUrl: $thumbnailUrl, duration: $duration, videoQuality: $videoQuality, audioQuality: $audioQuality)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String videoId, String serviceType)? getDownloadOptions,
-    TResult? Function(
-            String videoId,
-            String title,
-            String channelName,
-            String? thumbnailUrl,
-            int? duration,
-            List<NewPipeVideoStream> videoStreams,
-            List<NewPipeVideoStream> videoOnlyStreams,
-            List<NewPipeAudioStream> audioStreams)?
-        setDownloadOptionsFromStreams,
-    TResult? Function(
-            String videoId,
-            String title,
-            String channelName,
-            DownloadType downloadType,
-            String profileName,
-            String? thumbnailUrl,
-            int? duration,
-            VideoQualityOption? videoQuality,
-            AudioQualityOption? audioQuality)?
-        startDownload,
-    TResult? Function(int downloadId)? pauseDownload,
-    TResult? Function(int downloadId)? resumeDownload,
-    TResult? Function(int downloadId)? cancelDownload,
-    TResult? Function(int downloadId)? deleteDownload,
-    TResult? Function(String profileName)? getAllDownloads,
-    TResult? Function(DownloadItem downloadItem)? updateDownloadProgress,
-    TResult? Function(DownloadItem downloadItem)? downloadCompleted,
-    TResult? Function(DownloadItem downloadItem, String error)? downloadFailed,
-    TResult? Function()? clearDownloadOptions,
-    TResult? Function(DownloadItem downloadItem)? saveToDevice,
-  }) {
-    return startDownload?.call(videoId, title, channelName, downloadType,
-        profileName, thumbnailUrl, duration, videoQuality, audioQuality);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String videoId, String serviceType)? getDownloadOptions,
-    TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            String? thumbnailUrl,
-            int? duration,
-            List<NewPipeVideoStream> videoStreams,
-            List<NewPipeVideoStream> videoOnlyStreams,
-            List<NewPipeAudioStream> audioStreams)?
-        setDownloadOptionsFromStreams,
-    TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            DownloadType downloadType,
-            String profileName,
-            String? thumbnailUrl,
-            int? duration,
-            VideoQualityOption? videoQuality,
-            AudioQualityOption? audioQuality)?
-        startDownload,
-    TResult Function(int downloadId)? pauseDownload,
-    TResult Function(int downloadId)? resumeDownload,
-    TResult Function(int downloadId)? cancelDownload,
-    TResult Function(int downloadId)? deleteDownload,
-    TResult Function(String profileName)? getAllDownloads,
-    TResult Function(DownloadItem downloadItem)? updateDownloadProgress,
-    TResult Function(DownloadItem downloadItem)? downloadCompleted,
-    TResult Function(DownloadItem downloadItem, String error)? downloadFailed,
-    TResult Function()? clearDownloadOptions,
-    TResult Function(DownloadItem downloadItem)? saveToDevice,
-    required TResult orElse(),
-  }) {
-    if (startDownload != null) {
-      return startDownload(videoId, title, channelName, downloadType,
-          profileName, thumbnailUrl, duration, videoQuality, audioQuality);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_GetDownloadOptions value) getDownloadOptions,
-    required TResult Function(_SetDownloadOptionsFromStreams value)
-        setDownloadOptionsFromStreams,
-    required TResult Function(_StartDownload value) startDownload,
-    required TResult Function(_PauseDownload value) pauseDownload,
-    required TResult Function(_ResumeDownload value) resumeDownload,
-    required TResult Function(_CancelDownload value) cancelDownload,
-    required TResult Function(_DeleteDownload value) deleteDownload,
-    required TResult Function(_GetAllDownloads value) getAllDownloads,
-    required TResult Function(_UpdateDownloadProgress value)
-        updateDownloadProgress,
-    required TResult Function(_DownloadCompleted value) downloadCompleted,
-    required TResult Function(_DownloadFailed value) downloadFailed,
-    required TResult Function(_ClearDownloadOptions value) clearDownloadOptions,
-    required TResult Function(_SaveToDevice value) saveToDevice,
-  }) {
-    return startDownload(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetDownloadOptions value)? getDownloadOptions,
-    TResult? Function(_SetDownloadOptionsFromStreams value)?
-        setDownloadOptionsFromStreams,
-    TResult? Function(_StartDownload value)? startDownload,
-    TResult? Function(_PauseDownload value)? pauseDownload,
-    TResult? Function(_ResumeDownload value)? resumeDownload,
-    TResult? Function(_CancelDownload value)? cancelDownload,
-    TResult? Function(_DeleteDownload value)? deleteDownload,
-    TResult? Function(_GetAllDownloads value)? getAllDownloads,
-    TResult? Function(_UpdateDownloadProgress value)? updateDownloadProgress,
-    TResult? Function(_DownloadCompleted value)? downloadCompleted,
-    TResult? Function(_DownloadFailed value)? downloadFailed,
-    TResult? Function(_ClearDownloadOptions value)? clearDownloadOptions,
-    TResult? Function(_SaveToDevice value)? saveToDevice,
-  }) {
-    return startDownload?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetDownloadOptions value)? getDownloadOptions,
-    TResult Function(_SetDownloadOptionsFromStreams value)?
-        setDownloadOptionsFromStreams,
-    TResult Function(_StartDownload value)? startDownload,
-    TResult Function(_PauseDownload value)? pauseDownload,
-    TResult Function(_ResumeDownload value)? resumeDownload,
-    TResult Function(_CancelDownload value)? cancelDownload,
-    TResult Function(_DeleteDownload value)? deleteDownload,
-    TResult Function(_GetAllDownloads value)? getAllDownloads,
-    TResult Function(_UpdateDownloadProgress value)? updateDownloadProgress,
-    TResult Function(_DownloadCompleted value)? downloadCompleted,
-    TResult Function(_DownloadFailed value)? downloadFailed,
-    TResult Function(_ClearDownloadOptions value)? clearDownloadOptions,
-    TResult Function(_SaveToDevice value)? saveToDevice,
-    required TResult orElse(),
-  }) {
-    if (startDownload != null) {
-      return startDownload(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _StartDownload implements DownloadEvent {
-  const factory _StartDownload(
-      {required final String videoId,
-      required final String title,
-      required final String channelName,
-      required final DownloadType downloadType,
-      final String profileName,
-      final String? thumbnailUrl,
-      final int? duration,
-      final VideoQualityOption? videoQuality,
-      final AudioQualityOption? audioQuality}) = _$StartDownloadImpl;
-
-  String get videoId;
-  String get title;
-  String get channelName;
-  DownloadType get downloadType;
-  String get profileName;
-  String? get thumbnailUrl;
-  int? get duration;
-  VideoQualityOption? get videoQuality;
-  AudioQualityOption? get audioQuality;
-
-  /// Create a copy of DownloadEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$StartDownloadImplCopyWith<_$StartDownloadImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PauseDownloadImplCopyWith<$Res> {
-  factory _$$PauseDownloadImplCopyWith(
-          _$PauseDownloadImpl value, $Res Function(_$PauseDownloadImpl) then) =
-      __$$PauseDownloadImplCopyWithImpl<$Res>;
+abstract mixin class _$StartDownloadCopyWith<$Res>
+    implements $DownloadEventCopyWith<$Res> {
+  factory _$StartDownloadCopyWith(
+          _StartDownload value, $Res Function(_StartDownload) _then) =
+      __$StartDownloadCopyWithImpl;
   @useResult
-  $Res call({int downloadId});
+  $Res call(
+      {String videoId,
+      String title,
+      String channelName,
+      DownloadType downloadType,
+      String profileName,
+      String? thumbnailUrl,
+      int? duration,
+      VideoQualityOption? videoQuality,
+      AudioQualityOption? audioQuality});
 }
 
 /// @nodoc
-class __$$PauseDownloadImplCopyWithImpl<$Res>
-    extends _$DownloadEventCopyWithImpl<$Res, _$PauseDownloadImpl>
-    implements _$$PauseDownloadImplCopyWith<$Res> {
-  __$$PauseDownloadImplCopyWithImpl(
-      _$PauseDownloadImpl _value, $Res Function(_$PauseDownloadImpl) _then)
-      : super(_value, _then);
+class __$StartDownloadCopyWithImpl<$Res>
+    implements _$StartDownloadCopyWith<$Res> {
+  __$StartDownloadCopyWithImpl(this._self, this._then);
+
+  final _StartDownload _self;
+  final $Res Function(_StartDownload) _then;
 
   /// Create a copy of DownloadEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
-    Object? downloadId = null,
+    Object? videoId = null,
+    Object? title = null,
+    Object? channelName = null,
+    Object? downloadType = null,
+    Object? profileName = null,
+    Object? thumbnailUrl = freezed,
+    Object? duration = freezed,
+    Object? videoQuality = freezed,
+    Object? audioQuality = freezed,
   }) {
-    return _then(_$PauseDownloadImpl(
-      downloadId: null == downloadId
-          ? _value.downloadId
-          : downloadId // ignore: cast_nullable_to_non_nullable
-              as int,
+    return _then(_StartDownload(
+      videoId: null == videoId
+          ? _self.videoId
+          : videoId // ignore: cast_nullable_to_non_nullable
+              as String,
+      title: null == title
+          ? _self.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      channelName: null == channelName
+          ? _self.channelName
+          : channelName // ignore: cast_nullable_to_non_nullable
+              as String,
+      downloadType: null == downloadType
+          ? _self.downloadType
+          : downloadType // ignore: cast_nullable_to_non_nullable
+              as DownloadType,
+      profileName: null == profileName
+          ? _self.profileName
+          : profileName // ignore: cast_nullable_to_non_nullable
+              as String,
+      thumbnailUrl: freezed == thumbnailUrl
+          ? _self.thumbnailUrl
+          : thumbnailUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      duration: freezed == duration
+          ? _self.duration
+          : duration // ignore: cast_nullable_to_non_nullable
+              as int?,
+      videoQuality: freezed == videoQuality
+          ? _self.videoQuality
+          : videoQuality // ignore: cast_nullable_to_non_nullable
+              as VideoQualityOption?,
+      audioQuality: freezed == audioQuality
+          ? _self.audioQuality
+          : audioQuality // ignore: cast_nullable_to_non_nullable
+              as AudioQualityOption?,
     ));
   }
 }
 
 /// @nodoc
 
-class _$PauseDownloadImpl implements _PauseDownload {
-  const _$PauseDownloadImpl({required this.downloadId});
+class _PauseDownload implements DownloadEvent {
+  const _PauseDownload({required this.downloadId});
+
+  final int downloadId;
+
+  /// Create a copy of DownloadEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$PauseDownloadCopyWith<_PauseDownload> get copyWith =>
+      __$PauseDownloadCopyWithImpl<_PauseDownload>(this, _$identity);
 
   @override
-  final int downloadId;
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _PauseDownload &&
+            (identical(other.downloadId, downloadId) ||
+                other.downloadId == downloadId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, downloadId);
 
   @override
   String toString() {
     return 'DownloadEvent.pauseDownload(downloadId: $downloadId)';
   }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$PauseDownloadImpl &&
-            (identical(other.downloadId, downloadId) ||
-                other.downloadId == downloadId));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, downloadId);
-
-  /// Create a copy of DownloadEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$PauseDownloadImplCopyWith<_$PauseDownloadImpl> get copyWith =>
-      __$$PauseDownloadImplCopyWithImpl<_$PauseDownloadImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String videoId, String serviceType)
-        getDownloadOptions,
-    required TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            String? thumbnailUrl,
-            int? duration,
-            List<NewPipeVideoStream> videoStreams,
-            List<NewPipeVideoStream> videoOnlyStreams,
-            List<NewPipeAudioStream> audioStreams)
-        setDownloadOptionsFromStreams,
-    required TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            DownloadType downloadType,
-            String profileName,
-            String? thumbnailUrl,
-            int? duration,
-            VideoQualityOption? videoQuality,
-            AudioQualityOption? audioQuality)
-        startDownload,
-    required TResult Function(int downloadId) pauseDownload,
-    required TResult Function(int downloadId) resumeDownload,
-    required TResult Function(int downloadId) cancelDownload,
-    required TResult Function(int downloadId) deleteDownload,
-    required TResult Function(String profileName) getAllDownloads,
-    required TResult Function(DownloadItem downloadItem) updateDownloadProgress,
-    required TResult Function(DownloadItem downloadItem) downloadCompleted,
-    required TResult Function(DownloadItem downloadItem, String error)
-        downloadFailed,
-    required TResult Function() clearDownloadOptions,
-    required TResult Function(DownloadItem downloadItem) saveToDevice,
-  }) {
-    return pauseDownload(downloadId);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String videoId, String serviceType)? getDownloadOptions,
-    TResult? Function(
-            String videoId,
-            String title,
-            String channelName,
-            String? thumbnailUrl,
-            int? duration,
-            List<NewPipeVideoStream> videoStreams,
-            List<NewPipeVideoStream> videoOnlyStreams,
-            List<NewPipeAudioStream> audioStreams)?
-        setDownloadOptionsFromStreams,
-    TResult? Function(
-            String videoId,
-            String title,
-            String channelName,
-            DownloadType downloadType,
-            String profileName,
-            String? thumbnailUrl,
-            int? duration,
-            VideoQualityOption? videoQuality,
-            AudioQualityOption? audioQuality)?
-        startDownload,
-    TResult? Function(int downloadId)? pauseDownload,
-    TResult? Function(int downloadId)? resumeDownload,
-    TResult? Function(int downloadId)? cancelDownload,
-    TResult? Function(int downloadId)? deleteDownload,
-    TResult? Function(String profileName)? getAllDownloads,
-    TResult? Function(DownloadItem downloadItem)? updateDownloadProgress,
-    TResult? Function(DownloadItem downloadItem)? downloadCompleted,
-    TResult? Function(DownloadItem downloadItem, String error)? downloadFailed,
-    TResult? Function()? clearDownloadOptions,
-    TResult? Function(DownloadItem downloadItem)? saveToDevice,
-  }) {
-    return pauseDownload?.call(downloadId);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String videoId, String serviceType)? getDownloadOptions,
-    TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            String? thumbnailUrl,
-            int? duration,
-            List<NewPipeVideoStream> videoStreams,
-            List<NewPipeVideoStream> videoOnlyStreams,
-            List<NewPipeAudioStream> audioStreams)?
-        setDownloadOptionsFromStreams,
-    TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            DownloadType downloadType,
-            String profileName,
-            String? thumbnailUrl,
-            int? duration,
-            VideoQualityOption? videoQuality,
-            AudioQualityOption? audioQuality)?
-        startDownload,
-    TResult Function(int downloadId)? pauseDownload,
-    TResult Function(int downloadId)? resumeDownload,
-    TResult Function(int downloadId)? cancelDownload,
-    TResult Function(int downloadId)? deleteDownload,
-    TResult Function(String profileName)? getAllDownloads,
-    TResult Function(DownloadItem downloadItem)? updateDownloadProgress,
-    TResult Function(DownloadItem downloadItem)? downloadCompleted,
-    TResult Function(DownloadItem downloadItem, String error)? downloadFailed,
-    TResult Function()? clearDownloadOptions,
-    TResult Function(DownloadItem downloadItem)? saveToDevice,
-    required TResult orElse(),
-  }) {
-    if (pauseDownload != null) {
-      return pauseDownload(downloadId);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_GetDownloadOptions value) getDownloadOptions,
-    required TResult Function(_SetDownloadOptionsFromStreams value)
-        setDownloadOptionsFromStreams,
-    required TResult Function(_StartDownload value) startDownload,
-    required TResult Function(_PauseDownload value) pauseDownload,
-    required TResult Function(_ResumeDownload value) resumeDownload,
-    required TResult Function(_CancelDownload value) cancelDownload,
-    required TResult Function(_DeleteDownload value) deleteDownload,
-    required TResult Function(_GetAllDownloads value) getAllDownloads,
-    required TResult Function(_UpdateDownloadProgress value)
-        updateDownloadProgress,
-    required TResult Function(_DownloadCompleted value) downloadCompleted,
-    required TResult Function(_DownloadFailed value) downloadFailed,
-    required TResult Function(_ClearDownloadOptions value) clearDownloadOptions,
-    required TResult Function(_SaveToDevice value) saveToDevice,
-  }) {
-    return pauseDownload(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetDownloadOptions value)? getDownloadOptions,
-    TResult? Function(_SetDownloadOptionsFromStreams value)?
-        setDownloadOptionsFromStreams,
-    TResult? Function(_StartDownload value)? startDownload,
-    TResult? Function(_PauseDownload value)? pauseDownload,
-    TResult? Function(_ResumeDownload value)? resumeDownload,
-    TResult? Function(_CancelDownload value)? cancelDownload,
-    TResult? Function(_DeleteDownload value)? deleteDownload,
-    TResult? Function(_GetAllDownloads value)? getAllDownloads,
-    TResult? Function(_UpdateDownloadProgress value)? updateDownloadProgress,
-    TResult? Function(_DownloadCompleted value)? downloadCompleted,
-    TResult? Function(_DownloadFailed value)? downloadFailed,
-    TResult? Function(_ClearDownloadOptions value)? clearDownloadOptions,
-    TResult? Function(_SaveToDevice value)? saveToDevice,
-  }) {
-    return pauseDownload?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetDownloadOptions value)? getDownloadOptions,
-    TResult Function(_SetDownloadOptionsFromStreams value)?
-        setDownloadOptionsFromStreams,
-    TResult Function(_StartDownload value)? startDownload,
-    TResult Function(_PauseDownload value)? pauseDownload,
-    TResult Function(_ResumeDownload value)? resumeDownload,
-    TResult Function(_CancelDownload value)? cancelDownload,
-    TResult Function(_DeleteDownload value)? deleteDownload,
-    TResult Function(_GetAllDownloads value)? getAllDownloads,
-    TResult Function(_UpdateDownloadProgress value)? updateDownloadProgress,
-    TResult Function(_DownloadCompleted value)? downloadCompleted,
-    TResult Function(_DownloadFailed value)? downloadFailed,
-    TResult Function(_ClearDownloadOptions value)? clearDownloadOptions,
-    TResult Function(_SaveToDevice value)? saveToDevice,
-    required TResult orElse(),
-  }) {
-    if (pauseDownload != null) {
-      return pauseDownload(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _PauseDownload implements DownloadEvent {
-  const factory _PauseDownload({required final int downloadId}) =
-      _$PauseDownloadImpl;
-
-  int get downloadId;
-
-  /// Create a copy of DownloadEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$PauseDownloadImplCopyWith<_$PauseDownloadImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ResumeDownloadImplCopyWith<$Res> {
-  factory _$$ResumeDownloadImplCopyWith(_$ResumeDownloadImpl value,
-          $Res Function(_$ResumeDownloadImpl) then) =
-      __$$ResumeDownloadImplCopyWithImpl<$Res>;
+abstract mixin class _$PauseDownloadCopyWith<$Res>
+    implements $DownloadEventCopyWith<$Res> {
+  factory _$PauseDownloadCopyWith(
+          _PauseDownload value, $Res Function(_PauseDownload) _then) =
+      __$PauseDownloadCopyWithImpl;
   @useResult
   $Res call({int downloadId});
 }
 
 /// @nodoc
-class __$$ResumeDownloadImplCopyWithImpl<$Res>
-    extends _$DownloadEventCopyWithImpl<$Res, _$ResumeDownloadImpl>
-    implements _$$ResumeDownloadImplCopyWith<$Res> {
-  __$$ResumeDownloadImplCopyWithImpl(
-      _$ResumeDownloadImpl _value, $Res Function(_$ResumeDownloadImpl) _then)
-      : super(_value, _then);
+class __$PauseDownloadCopyWithImpl<$Res>
+    implements _$PauseDownloadCopyWith<$Res> {
+  __$PauseDownloadCopyWithImpl(this._self, this._then);
+
+  final _PauseDownload _self;
+  final $Res Function(_PauseDownload) _then;
 
   /// Create a copy of DownloadEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? downloadId = null,
   }) {
-    return _then(_$ResumeDownloadImpl(
+    return _then(_PauseDownload(
       downloadId: null == downloadId
-          ? _value.downloadId
+          ? _self.downloadId
           : downloadId // ignore: cast_nullable_to_non_nullable
               as int,
     ));
@@ -1587,270 +983,63 @@ class __$$ResumeDownloadImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ResumeDownloadImpl implements _ResumeDownload {
-  const _$ResumeDownloadImpl({required this.downloadId});
+class _ResumeDownload implements DownloadEvent {
+  const _ResumeDownload({required this.downloadId});
+
+  final int downloadId;
+
+  /// Create a copy of DownloadEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ResumeDownloadCopyWith<_ResumeDownload> get copyWith =>
+      __$ResumeDownloadCopyWithImpl<_ResumeDownload>(this, _$identity);
 
   @override
-  final int downloadId;
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ResumeDownload &&
+            (identical(other.downloadId, downloadId) ||
+                other.downloadId == downloadId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, downloadId);
 
   @override
   String toString() {
     return 'DownloadEvent.resumeDownload(downloadId: $downloadId)';
   }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ResumeDownloadImpl &&
-            (identical(other.downloadId, downloadId) ||
-                other.downloadId == downloadId));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, downloadId);
-
-  /// Create a copy of DownloadEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ResumeDownloadImplCopyWith<_$ResumeDownloadImpl> get copyWith =>
-      __$$ResumeDownloadImplCopyWithImpl<_$ResumeDownloadImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String videoId, String serviceType)
-        getDownloadOptions,
-    required TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            String? thumbnailUrl,
-            int? duration,
-            List<NewPipeVideoStream> videoStreams,
-            List<NewPipeVideoStream> videoOnlyStreams,
-            List<NewPipeAudioStream> audioStreams)
-        setDownloadOptionsFromStreams,
-    required TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            DownloadType downloadType,
-            String profileName,
-            String? thumbnailUrl,
-            int? duration,
-            VideoQualityOption? videoQuality,
-            AudioQualityOption? audioQuality)
-        startDownload,
-    required TResult Function(int downloadId) pauseDownload,
-    required TResult Function(int downloadId) resumeDownload,
-    required TResult Function(int downloadId) cancelDownload,
-    required TResult Function(int downloadId) deleteDownload,
-    required TResult Function(String profileName) getAllDownloads,
-    required TResult Function(DownloadItem downloadItem) updateDownloadProgress,
-    required TResult Function(DownloadItem downloadItem) downloadCompleted,
-    required TResult Function(DownloadItem downloadItem, String error)
-        downloadFailed,
-    required TResult Function() clearDownloadOptions,
-    required TResult Function(DownloadItem downloadItem) saveToDevice,
-  }) {
-    return resumeDownload(downloadId);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String videoId, String serviceType)? getDownloadOptions,
-    TResult? Function(
-            String videoId,
-            String title,
-            String channelName,
-            String? thumbnailUrl,
-            int? duration,
-            List<NewPipeVideoStream> videoStreams,
-            List<NewPipeVideoStream> videoOnlyStreams,
-            List<NewPipeAudioStream> audioStreams)?
-        setDownloadOptionsFromStreams,
-    TResult? Function(
-            String videoId,
-            String title,
-            String channelName,
-            DownloadType downloadType,
-            String profileName,
-            String? thumbnailUrl,
-            int? duration,
-            VideoQualityOption? videoQuality,
-            AudioQualityOption? audioQuality)?
-        startDownload,
-    TResult? Function(int downloadId)? pauseDownload,
-    TResult? Function(int downloadId)? resumeDownload,
-    TResult? Function(int downloadId)? cancelDownload,
-    TResult? Function(int downloadId)? deleteDownload,
-    TResult? Function(String profileName)? getAllDownloads,
-    TResult? Function(DownloadItem downloadItem)? updateDownloadProgress,
-    TResult? Function(DownloadItem downloadItem)? downloadCompleted,
-    TResult? Function(DownloadItem downloadItem, String error)? downloadFailed,
-    TResult? Function()? clearDownloadOptions,
-    TResult? Function(DownloadItem downloadItem)? saveToDevice,
-  }) {
-    return resumeDownload?.call(downloadId);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String videoId, String serviceType)? getDownloadOptions,
-    TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            String? thumbnailUrl,
-            int? duration,
-            List<NewPipeVideoStream> videoStreams,
-            List<NewPipeVideoStream> videoOnlyStreams,
-            List<NewPipeAudioStream> audioStreams)?
-        setDownloadOptionsFromStreams,
-    TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            DownloadType downloadType,
-            String profileName,
-            String? thumbnailUrl,
-            int? duration,
-            VideoQualityOption? videoQuality,
-            AudioQualityOption? audioQuality)?
-        startDownload,
-    TResult Function(int downloadId)? pauseDownload,
-    TResult Function(int downloadId)? resumeDownload,
-    TResult Function(int downloadId)? cancelDownload,
-    TResult Function(int downloadId)? deleteDownload,
-    TResult Function(String profileName)? getAllDownloads,
-    TResult Function(DownloadItem downloadItem)? updateDownloadProgress,
-    TResult Function(DownloadItem downloadItem)? downloadCompleted,
-    TResult Function(DownloadItem downloadItem, String error)? downloadFailed,
-    TResult Function()? clearDownloadOptions,
-    TResult Function(DownloadItem downloadItem)? saveToDevice,
-    required TResult orElse(),
-  }) {
-    if (resumeDownload != null) {
-      return resumeDownload(downloadId);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_GetDownloadOptions value) getDownloadOptions,
-    required TResult Function(_SetDownloadOptionsFromStreams value)
-        setDownloadOptionsFromStreams,
-    required TResult Function(_StartDownload value) startDownload,
-    required TResult Function(_PauseDownload value) pauseDownload,
-    required TResult Function(_ResumeDownload value) resumeDownload,
-    required TResult Function(_CancelDownload value) cancelDownload,
-    required TResult Function(_DeleteDownload value) deleteDownload,
-    required TResult Function(_GetAllDownloads value) getAllDownloads,
-    required TResult Function(_UpdateDownloadProgress value)
-        updateDownloadProgress,
-    required TResult Function(_DownloadCompleted value) downloadCompleted,
-    required TResult Function(_DownloadFailed value) downloadFailed,
-    required TResult Function(_ClearDownloadOptions value) clearDownloadOptions,
-    required TResult Function(_SaveToDevice value) saveToDevice,
-  }) {
-    return resumeDownload(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetDownloadOptions value)? getDownloadOptions,
-    TResult? Function(_SetDownloadOptionsFromStreams value)?
-        setDownloadOptionsFromStreams,
-    TResult? Function(_StartDownload value)? startDownload,
-    TResult? Function(_PauseDownload value)? pauseDownload,
-    TResult? Function(_ResumeDownload value)? resumeDownload,
-    TResult? Function(_CancelDownload value)? cancelDownload,
-    TResult? Function(_DeleteDownload value)? deleteDownload,
-    TResult? Function(_GetAllDownloads value)? getAllDownloads,
-    TResult? Function(_UpdateDownloadProgress value)? updateDownloadProgress,
-    TResult? Function(_DownloadCompleted value)? downloadCompleted,
-    TResult? Function(_DownloadFailed value)? downloadFailed,
-    TResult? Function(_ClearDownloadOptions value)? clearDownloadOptions,
-    TResult? Function(_SaveToDevice value)? saveToDevice,
-  }) {
-    return resumeDownload?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetDownloadOptions value)? getDownloadOptions,
-    TResult Function(_SetDownloadOptionsFromStreams value)?
-        setDownloadOptionsFromStreams,
-    TResult Function(_StartDownload value)? startDownload,
-    TResult Function(_PauseDownload value)? pauseDownload,
-    TResult Function(_ResumeDownload value)? resumeDownload,
-    TResult Function(_CancelDownload value)? cancelDownload,
-    TResult Function(_DeleteDownload value)? deleteDownload,
-    TResult Function(_GetAllDownloads value)? getAllDownloads,
-    TResult Function(_UpdateDownloadProgress value)? updateDownloadProgress,
-    TResult Function(_DownloadCompleted value)? downloadCompleted,
-    TResult Function(_DownloadFailed value)? downloadFailed,
-    TResult Function(_ClearDownloadOptions value)? clearDownloadOptions,
-    TResult Function(_SaveToDevice value)? saveToDevice,
-    required TResult orElse(),
-  }) {
-    if (resumeDownload != null) {
-      return resumeDownload(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ResumeDownload implements DownloadEvent {
-  const factory _ResumeDownload({required final int downloadId}) =
-      _$ResumeDownloadImpl;
-
-  int get downloadId;
-
-  /// Create a copy of DownloadEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ResumeDownloadImplCopyWith<_$ResumeDownloadImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$CancelDownloadImplCopyWith<$Res> {
-  factory _$$CancelDownloadImplCopyWith(_$CancelDownloadImpl value,
-          $Res Function(_$CancelDownloadImpl) then) =
-      __$$CancelDownloadImplCopyWithImpl<$Res>;
+abstract mixin class _$ResumeDownloadCopyWith<$Res>
+    implements $DownloadEventCopyWith<$Res> {
+  factory _$ResumeDownloadCopyWith(
+          _ResumeDownload value, $Res Function(_ResumeDownload) _then) =
+      __$ResumeDownloadCopyWithImpl;
   @useResult
   $Res call({int downloadId});
 }
 
 /// @nodoc
-class __$$CancelDownloadImplCopyWithImpl<$Res>
-    extends _$DownloadEventCopyWithImpl<$Res, _$CancelDownloadImpl>
-    implements _$$CancelDownloadImplCopyWith<$Res> {
-  __$$CancelDownloadImplCopyWithImpl(
-      _$CancelDownloadImpl _value, $Res Function(_$CancelDownloadImpl) _then)
-      : super(_value, _then);
+class __$ResumeDownloadCopyWithImpl<$Res>
+    implements _$ResumeDownloadCopyWith<$Res> {
+  __$ResumeDownloadCopyWithImpl(this._self, this._then);
+
+  final _ResumeDownload _self;
+  final $Res Function(_ResumeDownload) _then;
 
   /// Create a copy of DownloadEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? downloadId = null,
   }) {
-    return _then(_$CancelDownloadImpl(
+    return _then(_ResumeDownload(
       downloadId: null == downloadId
-          ? _value.downloadId
+          ? _self.downloadId
           : downloadId // ignore: cast_nullable_to_non_nullable
               as int,
     ));
@@ -1859,270 +1048,63 @@ class __$$CancelDownloadImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CancelDownloadImpl implements _CancelDownload {
-  const _$CancelDownloadImpl({required this.downloadId});
+class _CancelDownload implements DownloadEvent {
+  const _CancelDownload({required this.downloadId});
+
+  final int downloadId;
+
+  /// Create a copy of DownloadEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$CancelDownloadCopyWith<_CancelDownload> get copyWith =>
+      __$CancelDownloadCopyWithImpl<_CancelDownload>(this, _$identity);
 
   @override
-  final int downloadId;
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _CancelDownload &&
+            (identical(other.downloadId, downloadId) ||
+                other.downloadId == downloadId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, downloadId);
 
   @override
   String toString() {
     return 'DownloadEvent.cancelDownload(downloadId: $downloadId)';
   }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$CancelDownloadImpl &&
-            (identical(other.downloadId, downloadId) ||
-                other.downloadId == downloadId));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, downloadId);
-
-  /// Create a copy of DownloadEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$CancelDownloadImplCopyWith<_$CancelDownloadImpl> get copyWith =>
-      __$$CancelDownloadImplCopyWithImpl<_$CancelDownloadImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String videoId, String serviceType)
-        getDownloadOptions,
-    required TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            String? thumbnailUrl,
-            int? duration,
-            List<NewPipeVideoStream> videoStreams,
-            List<NewPipeVideoStream> videoOnlyStreams,
-            List<NewPipeAudioStream> audioStreams)
-        setDownloadOptionsFromStreams,
-    required TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            DownloadType downloadType,
-            String profileName,
-            String? thumbnailUrl,
-            int? duration,
-            VideoQualityOption? videoQuality,
-            AudioQualityOption? audioQuality)
-        startDownload,
-    required TResult Function(int downloadId) pauseDownload,
-    required TResult Function(int downloadId) resumeDownload,
-    required TResult Function(int downloadId) cancelDownload,
-    required TResult Function(int downloadId) deleteDownload,
-    required TResult Function(String profileName) getAllDownloads,
-    required TResult Function(DownloadItem downloadItem) updateDownloadProgress,
-    required TResult Function(DownloadItem downloadItem) downloadCompleted,
-    required TResult Function(DownloadItem downloadItem, String error)
-        downloadFailed,
-    required TResult Function() clearDownloadOptions,
-    required TResult Function(DownloadItem downloadItem) saveToDevice,
-  }) {
-    return cancelDownload(downloadId);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String videoId, String serviceType)? getDownloadOptions,
-    TResult? Function(
-            String videoId,
-            String title,
-            String channelName,
-            String? thumbnailUrl,
-            int? duration,
-            List<NewPipeVideoStream> videoStreams,
-            List<NewPipeVideoStream> videoOnlyStreams,
-            List<NewPipeAudioStream> audioStreams)?
-        setDownloadOptionsFromStreams,
-    TResult? Function(
-            String videoId,
-            String title,
-            String channelName,
-            DownloadType downloadType,
-            String profileName,
-            String? thumbnailUrl,
-            int? duration,
-            VideoQualityOption? videoQuality,
-            AudioQualityOption? audioQuality)?
-        startDownload,
-    TResult? Function(int downloadId)? pauseDownload,
-    TResult? Function(int downloadId)? resumeDownload,
-    TResult? Function(int downloadId)? cancelDownload,
-    TResult? Function(int downloadId)? deleteDownload,
-    TResult? Function(String profileName)? getAllDownloads,
-    TResult? Function(DownloadItem downloadItem)? updateDownloadProgress,
-    TResult? Function(DownloadItem downloadItem)? downloadCompleted,
-    TResult? Function(DownloadItem downloadItem, String error)? downloadFailed,
-    TResult? Function()? clearDownloadOptions,
-    TResult? Function(DownloadItem downloadItem)? saveToDevice,
-  }) {
-    return cancelDownload?.call(downloadId);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String videoId, String serviceType)? getDownloadOptions,
-    TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            String? thumbnailUrl,
-            int? duration,
-            List<NewPipeVideoStream> videoStreams,
-            List<NewPipeVideoStream> videoOnlyStreams,
-            List<NewPipeAudioStream> audioStreams)?
-        setDownloadOptionsFromStreams,
-    TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            DownloadType downloadType,
-            String profileName,
-            String? thumbnailUrl,
-            int? duration,
-            VideoQualityOption? videoQuality,
-            AudioQualityOption? audioQuality)?
-        startDownload,
-    TResult Function(int downloadId)? pauseDownload,
-    TResult Function(int downloadId)? resumeDownload,
-    TResult Function(int downloadId)? cancelDownload,
-    TResult Function(int downloadId)? deleteDownload,
-    TResult Function(String profileName)? getAllDownloads,
-    TResult Function(DownloadItem downloadItem)? updateDownloadProgress,
-    TResult Function(DownloadItem downloadItem)? downloadCompleted,
-    TResult Function(DownloadItem downloadItem, String error)? downloadFailed,
-    TResult Function()? clearDownloadOptions,
-    TResult Function(DownloadItem downloadItem)? saveToDevice,
-    required TResult orElse(),
-  }) {
-    if (cancelDownload != null) {
-      return cancelDownload(downloadId);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_GetDownloadOptions value) getDownloadOptions,
-    required TResult Function(_SetDownloadOptionsFromStreams value)
-        setDownloadOptionsFromStreams,
-    required TResult Function(_StartDownload value) startDownload,
-    required TResult Function(_PauseDownload value) pauseDownload,
-    required TResult Function(_ResumeDownload value) resumeDownload,
-    required TResult Function(_CancelDownload value) cancelDownload,
-    required TResult Function(_DeleteDownload value) deleteDownload,
-    required TResult Function(_GetAllDownloads value) getAllDownloads,
-    required TResult Function(_UpdateDownloadProgress value)
-        updateDownloadProgress,
-    required TResult Function(_DownloadCompleted value) downloadCompleted,
-    required TResult Function(_DownloadFailed value) downloadFailed,
-    required TResult Function(_ClearDownloadOptions value) clearDownloadOptions,
-    required TResult Function(_SaveToDevice value) saveToDevice,
-  }) {
-    return cancelDownload(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetDownloadOptions value)? getDownloadOptions,
-    TResult? Function(_SetDownloadOptionsFromStreams value)?
-        setDownloadOptionsFromStreams,
-    TResult? Function(_StartDownload value)? startDownload,
-    TResult? Function(_PauseDownload value)? pauseDownload,
-    TResult? Function(_ResumeDownload value)? resumeDownload,
-    TResult? Function(_CancelDownload value)? cancelDownload,
-    TResult? Function(_DeleteDownload value)? deleteDownload,
-    TResult? Function(_GetAllDownloads value)? getAllDownloads,
-    TResult? Function(_UpdateDownloadProgress value)? updateDownloadProgress,
-    TResult? Function(_DownloadCompleted value)? downloadCompleted,
-    TResult? Function(_DownloadFailed value)? downloadFailed,
-    TResult? Function(_ClearDownloadOptions value)? clearDownloadOptions,
-    TResult? Function(_SaveToDevice value)? saveToDevice,
-  }) {
-    return cancelDownload?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetDownloadOptions value)? getDownloadOptions,
-    TResult Function(_SetDownloadOptionsFromStreams value)?
-        setDownloadOptionsFromStreams,
-    TResult Function(_StartDownload value)? startDownload,
-    TResult Function(_PauseDownload value)? pauseDownload,
-    TResult Function(_ResumeDownload value)? resumeDownload,
-    TResult Function(_CancelDownload value)? cancelDownload,
-    TResult Function(_DeleteDownload value)? deleteDownload,
-    TResult Function(_GetAllDownloads value)? getAllDownloads,
-    TResult Function(_UpdateDownloadProgress value)? updateDownloadProgress,
-    TResult Function(_DownloadCompleted value)? downloadCompleted,
-    TResult Function(_DownloadFailed value)? downloadFailed,
-    TResult Function(_ClearDownloadOptions value)? clearDownloadOptions,
-    TResult Function(_SaveToDevice value)? saveToDevice,
-    required TResult orElse(),
-  }) {
-    if (cancelDownload != null) {
-      return cancelDownload(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _CancelDownload implements DownloadEvent {
-  const factory _CancelDownload({required final int downloadId}) =
-      _$CancelDownloadImpl;
-
-  int get downloadId;
-
-  /// Create a copy of DownloadEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$CancelDownloadImplCopyWith<_$CancelDownloadImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$DeleteDownloadImplCopyWith<$Res> {
-  factory _$$DeleteDownloadImplCopyWith(_$DeleteDownloadImpl value,
-          $Res Function(_$DeleteDownloadImpl) then) =
-      __$$DeleteDownloadImplCopyWithImpl<$Res>;
+abstract mixin class _$CancelDownloadCopyWith<$Res>
+    implements $DownloadEventCopyWith<$Res> {
+  factory _$CancelDownloadCopyWith(
+          _CancelDownload value, $Res Function(_CancelDownload) _then) =
+      __$CancelDownloadCopyWithImpl;
   @useResult
   $Res call({int downloadId});
 }
 
 /// @nodoc
-class __$$DeleteDownloadImplCopyWithImpl<$Res>
-    extends _$DownloadEventCopyWithImpl<$Res, _$DeleteDownloadImpl>
-    implements _$$DeleteDownloadImplCopyWith<$Res> {
-  __$$DeleteDownloadImplCopyWithImpl(
-      _$DeleteDownloadImpl _value, $Res Function(_$DeleteDownloadImpl) _then)
-      : super(_value, _then);
+class __$CancelDownloadCopyWithImpl<$Res>
+    implements _$CancelDownloadCopyWith<$Res> {
+  __$CancelDownloadCopyWithImpl(this._self, this._then);
+
+  final _CancelDownload _self;
+  final $Res Function(_CancelDownload) _then;
 
   /// Create a copy of DownloadEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? downloadId = null,
   }) {
-    return _then(_$DeleteDownloadImpl(
+    return _then(_CancelDownload(
       downloadId: null == downloadId
-          ? _value.downloadId
+          ? _self.downloadId
           : downloadId // ignore: cast_nullable_to_non_nullable
               as int,
     ));
@@ -2131,22 +1113,23 @@ class __$$DeleteDownloadImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DeleteDownloadImpl implements _DeleteDownload {
-  const _$DeleteDownloadImpl({required this.downloadId});
+class _DeleteDownload implements DownloadEvent {
+  const _DeleteDownload({required this.downloadId});
 
-  @override
   final int downloadId;
 
-  @override
-  String toString() {
-    return 'DownloadEvent.deleteDownload(downloadId: $downloadId)';
-  }
+  /// Create a copy of DownloadEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$DeleteDownloadCopyWith<_DeleteDownload> get copyWith =>
+      __$DeleteDownloadCopyWithImpl<_DeleteDownload>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DeleteDownloadImpl &&
+            other is _DeleteDownload &&
             (identical(other.downloadId, downloadId) ||
                 other.downloadId == downloadId));
   }
@@ -2154,247 +1137,105 @@ class _$DeleteDownloadImpl implements _DeleteDownload {
   @override
   int get hashCode => Object.hash(runtimeType, downloadId);
 
-  /// Create a copy of DownloadEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$DeleteDownloadImplCopyWith<_$DeleteDownloadImpl> get copyWith =>
-      __$$DeleteDownloadImplCopyWithImpl<_$DeleteDownloadImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String videoId, String serviceType)
-        getDownloadOptions,
-    required TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            String? thumbnailUrl,
-            int? duration,
-            List<NewPipeVideoStream> videoStreams,
-            List<NewPipeVideoStream> videoOnlyStreams,
-            List<NewPipeAudioStream> audioStreams)
-        setDownloadOptionsFromStreams,
-    required TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            DownloadType downloadType,
-            String profileName,
-            String? thumbnailUrl,
-            int? duration,
-            VideoQualityOption? videoQuality,
-            AudioQualityOption? audioQuality)
-        startDownload,
-    required TResult Function(int downloadId) pauseDownload,
-    required TResult Function(int downloadId) resumeDownload,
-    required TResult Function(int downloadId) cancelDownload,
-    required TResult Function(int downloadId) deleteDownload,
-    required TResult Function(String profileName) getAllDownloads,
-    required TResult Function(DownloadItem downloadItem) updateDownloadProgress,
-    required TResult Function(DownloadItem downloadItem) downloadCompleted,
-    required TResult Function(DownloadItem downloadItem, String error)
-        downloadFailed,
-    required TResult Function() clearDownloadOptions,
-    required TResult Function(DownloadItem downloadItem) saveToDevice,
-  }) {
-    return deleteDownload(downloadId);
+  String toString() {
+    return 'DownloadEvent.deleteDownload(downloadId: $downloadId)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String videoId, String serviceType)? getDownloadOptions,
-    TResult? Function(
-            String videoId,
-            String title,
-            String channelName,
-            String? thumbnailUrl,
-            int? duration,
-            List<NewPipeVideoStream> videoStreams,
-            List<NewPipeVideoStream> videoOnlyStreams,
-            List<NewPipeAudioStream> audioStreams)?
-        setDownloadOptionsFromStreams,
-    TResult? Function(
-            String videoId,
-            String title,
-            String channelName,
-            DownloadType downloadType,
-            String profileName,
-            String? thumbnailUrl,
-            int? duration,
-            VideoQualityOption? videoQuality,
-            AudioQualityOption? audioQuality)?
-        startDownload,
-    TResult? Function(int downloadId)? pauseDownload,
-    TResult? Function(int downloadId)? resumeDownload,
-    TResult? Function(int downloadId)? cancelDownload,
-    TResult? Function(int downloadId)? deleteDownload,
-    TResult? Function(String profileName)? getAllDownloads,
-    TResult? Function(DownloadItem downloadItem)? updateDownloadProgress,
-    TResult? Function(DownloadItem downloadItem)? downloadCompleted,
-    TResult? Function(DownloadItem downloadItem, String error)? downloadFailed,
-    TResult? Function()? clearDownloadOptions,
-    TResult? Function(DownloadItem downloadItem)? saveToDevice,
-  }) {
-    return deleteDownload?.call(downloadId);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String videoId, String serviceType)? getDownloadOptions,
-    TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            String? thumbnailUrl,
-            int? duration,
-            List<NewPipeVideoStream> videoStreams,
-            List<NewPipeVideoStream> videoOnlyStreams,
-            List<NewPipeAudioStream> audioStreams)?
-        setDownloadOptionsFromStreams,
-    TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            DownloadType downloadType,
-            String profileName,
-            String? thumbnailUrl,
-            int? duration,
-            VideoQualityOption? videoQuality,
-            AudioQualityOption? audioQuality)?
-        startDownload,
-    TResult Function(int downloadId)? pauseDownload,
-    TResult Function(int downloadId)? resumeDownload,
-    TResult Function(int downloadId)? cancelDownload,
-    TResult Function(int downloadId)? deleteDownload,
-    TResult Function(String profileName)? getAllDownloads,
-    TResult Function(DownloadItem downloadItem)? updateDownloadProgress,
-    TResult Function(DownloadItem downloadItem)? downloadCompleted,
-    TResult Function(DownloadItem downloadItem, String error)? downloadFailed,
-    TResult Function()? clearDownloadOptions,
-    TResult Function(DownloadItem downloadItem)? saveToDevice,
-    required TResult orElse(),
-  }) {
-    if (deleteDownload != null) {
-      return deleteDownload(downloadId);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_GetDownloadOptions value) getDownloadOptions,
-    required TResult Function(_SetDownloadOptionsFromStreams value)
-        setDownloadOptionsFromStreams,
-    required TResult Function(_StartDownload value) startDownload,
-    required TResult Function(_PauseDownload value) pauseDownload,
-    required TResult Function(_ResumeDownload value) resumeDownload,
-    required TResult Function(_CancelDownload value) cancelDownload,
-    required TResult Function(_DeleteDownload value) deleteDownload,
-    required TResult Function(_GetAllDownloads value) getAllDownloads,
-    required TResult Function(_UpdateDownloadProgress value)
-        updateDownloadProgress,
-    required TResult Function(_DownloadCompleted value) downloadCompleted,
-    required TResult Function(_DownloadFailed value) downloadFailed,
-    required TResult Function(_ClearDownloadOptions value) clearDownloadOptions,
-    required TResult Function(_SaveToDevice value) saveToDevice,
-  }) {
-    return deleteDownload(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetDownloadOptions value)? getDownloadOptions,
-    TResult? Function(_SetDownloadOptionsFromStreams value)?
-        setDownloadOptionsFromStreams,
-    TResult? Function(_StartDownload value)? startDownload,
-    TResult? Function(_PauseDownload value)? pauseDownload,
-    TResult? Function(_ResumeDownload value)? resumeDownload,
-    TResult? Function(_CancelDownload value)? cancelDownload,
-    TResult? Function(_DeleteDownload value)? deleteDownload,
-    TResult? Function(_GetAllDownloads value)? getAllDownloads,
-    TResult? Function(_UpdateDownloadProgress value)? updateDownloadProgress,
-    TResult? Function(_DownloadCompleted value)? downloadCompleted,
-    TResult? Function(_DownloadFailed value)? downloadFailed,
-    TResult? Function(_ClearDownloadOptions value)? clearDownloadOptions,
-    TResult? Function(_SaveToDevice value)? saveToDevice,
-  }) {
-    return deleteDownload?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetDownloadOptions value)? getDownloadOptions,
-    TResult Function(_SetDownloadOptionsFromStreams value)?
-        setDownloadOptionsFromStreams,
-    TResult Function(_StartDownload value)? startDownload,
-    TResult Function(_PauseDownload value)? pauseDownload,
-    TResult Function(_ResumeDownload value)? resumeDownload,
-    TResult Function(_CancelDownload value)? cancelDownload,
-    TResult Function(_DeleteDownload value)? deleteDownload,
-    TResult Function(_GetAllDownloads value)? getAllDownloads,
-    TResult Function(_UpdateDownloadProgress value)? updateDownloadProgress,
-    TResult Function(_DownloadCompleted value)? downloadCompleted,
-    TResult Function(_DownloadFailed value)? downloadFailed,
-    TResult Function(_ClearDownloadOptions value)? clearDownloadOptions,
-    TResult Function(_SaveToDevice value)? saveToDevice,
-    required TResult orElse(),
-  }) {
-    if (deleteDownload != null) {
-      return deleteDownload(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _DeleteDownload implements DownloadEvent {
-  const factory _DeleteDownload({required final int downloadId}) =
-      _$DeleteDownloadImpl;
-
-  int get downloadId;
-
-  /// Create a copy of DownloadEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$DeleteDownloadImplCopyWith<_$DeleteDownloadImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$GetAllDownloadsImplCopyWith<$Res> {
-  factory _$$GetAllDownloadsImplCopyWith(_$GetAllDownloadsImpl value,
-          $Res Function(_$GetAllDownloadsImpl) then) =
-      __$$GetAllDownloadsImplCopyWithImpl<$Res>;
+abstract mixin class _$DeleteDownloadCopyWith<$Res>
+    implements $DownloadEventCopyWith<$Res> {
+  factory _$DeleteDownloadCopyWith(
+          _DeleteDownload value, $Res Function(_DeleteDownload) _then) =
+      __$DeleteDownloadCopyWithImpl;
+  @useResult
+  $Res call({int downloadId});
+}
+
+/// @nodoc
+class __$DeleteDownloadCopyWithImpl<$Res>
+    implements _$DeleteDownloadCopyWith<$Res> {
+  __$DeleteDownloadCopyWithImpl(this._self, this._then);
+
+  final _DeleteDownload _self;
+  final $Res Function(_DeleteDownload) _then;
+
+  /// Create a copy of DownloadEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? downloadId = null,
+  }) {
+    return _then(_DeleteDownload(
+      downloadId: null == downloadId
+          ? _self.downloadId
+          : downloadId // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _GetAllDownloads implements DownloadEvent {
+  const _GetAllDownloads({this.profileName = 'default'});
+
+  @JsonKey()
+  final String profileName;
+
+  /// Create a copy of DownloadEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$GetAllDownloadsCopyWith<_GetAllDownloads> get copyWith =>
+      __$GetAllDownloadsCopyWithImpl<_GetAllDownloads>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _GetAllDownloads &&
+            (identical(other.profileName, profileName) ||
+                other.profileName == profileName));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, profileName);
+
+  @override
+  String toString() {
+    return 'DownloadEvent.getAllDownloads(profileName: $profileName)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$GetAllDownloadsCopyWith<$Res>
+    implements $DownloadEventCopyWith<$Res> {
+  factory _$GetAllDownloadsCopyWith(
+          _GetAllDownloads value, $Res Function(_GetAllDownloads) _then) =
+      __$GetAllDownloadsCopyWithImpl;
   @useResult
   $Res call({String profileName});
 }
 
 /// @nodoc
-class __$$GetAllDownloadsImplCopyWithImpl<$Res>
-    extends _$DownloadEventCopyWithImpl<$Res, _$GetAllDownloadsImpl>
-    implements _$$GetAllDownloadsImplCopyWith<$Res> {
-  __$$GetAllDownloadsImplCopyWithImpl(
-      _$GetAllDownloadsImpl _value, $Res Function(_$GetAllDownloadsImpl) _then)
-      : super(_value, _then);
+class __$GetAllDownloadsCopyWithImpl<$Res>
+    implements _$GetAllDownloadsCopyWith<$Res> {
+  __$GetAllDownloadsCopyWithImpl(this._self, this._then);
+
+  final _GetAllDownloads _self;
+  final $Res Function(_GetAllDownloads) _then;
 
   /// Create a copy of DownloadEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? profileName = null,
   }) {
-    return _then(_$GetAllDownloadsImpl(
+    return _then(_GetAllDownloads(
       profileName: null == profileName
-          ? _value.profileName
+          ? _self.profileName
           : profileName // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -2403,546 +1244,64 @@ class __$$GetAllDownloadsImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$GetAllDownloadsImpl implements _GetAllDownloads {
-  const _$GetAllDownloadsImpl({this.profileName = 'default'});
+class _UpdateDownloadProgress implements DownloadEvent {
+  const _UpdateDownloadProgress({required this.downloadItem});
 
-  @override
-  @JsonKey()
-  final String profileName;
+  final DownloadItem downloadItem;
 
-  @override
-  String toString() {
-    return 'DownloadEvent.getAllDownloads(profileName: $profileName)';
-  }
+  /// Create a copy of DownloadEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$UpdateDownloadProgressCopyWith<_UpdateDownloadProgress> get copyWith =>
+      __$UpdateDownloadProgressCopyWithImpl<_UpdateDownloadProgress>(
+          this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetAllDownloadsImpl &&
-            (identical(other.profileName, profileName) ||
-                other.profileName == profileName));
+            other is _UpdateDownloadProgress &&
+            (identical(other.downloadItem, downloadItem) ||
+                other.downloadItem == downloadItem));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, profileName);
-
-  /// Create a copy of DownloadEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$GetAllDownloadsImplCopyWith<_$GetAllDownloadsImpl> get copyWith =>
-      __$$GetAllDownloadsImplCopyWithImpl<_$GetAllDownloadsImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String videoId, String serviceType)
-        getDownloadOptions,
-    required TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            String? thumbnailUrl,
-            int? duration,
-            List<NewPipeVideoStream> videoStreams,
-            List<NewPipeVideoStream> videoOnlyStreams,
-            List<NewPipeAudioStream> audioStreams)
-        setDownloadOptionsFromStreams,
-    required TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            DownloadType downloadType,
-            String profileName,
-            String? thumbnailUrl,
-            int? duration,
-            VideoQualityOption? videoQuality,
-            AudioQualityOption? audioQuality)
-        startDownload,
-    required TResult Function(int downloadId) pauseDownload,
-    required TResult Function(int downloadId) resumeDownload,
-    required TResult Function(int downloadId) cancelDownload,
-    required TResult Function(int downloadId) deleteDownload,
-    required TResult Function(String profileName) getAllDownloads,
-    required TResult Function(DownloadItem downloadItem) updateDownloadProgress,
-    required TResult Function(DownloadItem downloadItem) downloadCompleted,
-    required TResult Function(DownloadItem downloadItem, String error)
-        downloadFailed,
-    required TResult Function() clearDownloadOptions,
-    required TResult Function(DownloadItem downloadItem) saveToDevice,
-  }) {
-    return getAllDownloads(profileName);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String videoId, String serviceType)? getDownloadOptions,
-    TResult? Function(
-            String videoId,
-            String title,
-            String channelName,
-            String? thumbnailUrl,
-            int? duration,
-            List<NewPipeVideoStream> videoStreams,
-            List<NewPipeVideoStream> videoOnlyStreams,
-            List<NewPipeAudioStream> audioStreams)?
-        setDownloadOptionsFromStreams,
-    TResult? Function(
-            String videoId,
-            String title,
-            String channelName,
-            DownloadType downloadType,
-            String profileName,
-            String? thumbnailUrl,
-            int? duration,
-            VideoQualityOption? videoQuality,
-            AudioQualityOption? audioQuality)?
-        startDownload,
-    TResult? Function(int downloadId)? pauseDownload,
-    TResult? Function(int downloadId)? resumeDownload,
-    TResult? Function(int downloadId)? cancelDownload,
-    TResult? Function(int downloadId)? deleteDownload,
-    TResult? Function(String profileName)? getAllDownloads,
-    TResult? Function(DownloadItem downloadItem)? updateDownloadProgress,
-    TResult? Function(DownloadItem downloadItem)? downloadCompleted,
-    TResult? Function(DownloadItem downloadItem, String error)? downloadFailed,
-    TResult? Function()? clearDownloadOptions,
-    TResult? Function(DownloadItem downloadItem)? saveToDevice,
-  }) {
-    return getAllDownloads?.call(profileName);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String videoId, String serviceType)? getDownloadOptions,
-    TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            String? thumbnailUrl,
-            int? duration,
-            List<NewPipeVideoStream> videoStreams,
-            List<NewPipeVideoStream> videoOnlyStreams,
-            List<NewPipeAudioStream> audioStreams)?
-        setDownloadOptionsFromStreams,
-    TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            DownloadType downloadType,
-            String profileName,
-            String? thumbnailUrl,
-            int? duration,
-            VideoQualityOption? videoQuality,
-            AudioQualityOption? audioQuality)?
-        startDownload,
-    TResult Function(int downloadId)? pauseDownload,
-    TResult Function(int downloadId)? resumeDownload,
-    TResult Function(int downloadId)? cancelDownload,
-    TResult Function(int downloadId)? deleteDownload,
-    TResult Function(String profileName)? getAllDownloads,
-    TResult Function(DownloadItem downloadItem)? updateDownloadProgress,
-    TResult Function(DownloadItem downloadItem)? downloadCompleted,
-    TResult Function(DownloadItem downloadItem, String error)? downloadFailed,
-    TResult Function()? clearDownloadOptions,
-    TResult Function(DownloadItem downloadItem)? saveToDevice,
-    required TResult orElse(),
-  }) {
-    if (getAllDownloads != null) {
-      return getAllDownloads(profileName);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_GetDownloadOptions value) getDownloadOptions,
-    required TResult Function(_SetDownloadOptionsFromStreams value)
-        setDownloadOptionsFromStreams,
-    required TResult Function(_StartDownload value) startDownload,
-    required TResult Function(_PauseDownload value) pauseDownload,
-    required TResult Function(_ResumeDownload value) resumeDownload,
-    required TResult Function(_CancelDownload value) cancelDownload,
-    required TResult Function(_DeleteDownload value) deleteDownload,
-    required TResult Function(_GetAllDownloads value) getAllDownloads,
-    required TResult Function(_UpdateDownloadProgress value)
-        updateDownloadProgress,
-    required TResult Function(_DownloadCompleted value) downloadCompleted,
-    required TResult Function(_DownloadFailed value) downloadFailed,
-    required TResult Function(_ClearDownloadOptions value) clearDownloadOptions,
-    required TResult Function(_SaveToDevice value) saveToDevice,
-  }) {
-    return getAllDownloads(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetDownloadOptions value)? getDownloadOptions,
-    TResult? Function(_SetDownloadOptionsFromStreams value)?
-        setDownloadOptionsFromStreams,
-    TResult? Function(_StartDownload value)? startDownload,
-    TResult? Function(_PauseDownload value)? pauseDownload,
-    TResult? Function(_ResumeDownload value)? resumeDownload,
-    TResult? Function(_CancelDownload value)? cancelDownload,
-    TResult? Function(_DeleteDownload value)? deleteDownload,
-    TResult? Function(_GetAllDownloads value)? getAllDownloads,
-    TResult? Function(_UpdateDownloadProgress value)? updateDownloadProgress,
-    TResult? Function(_DownloadCompleted value)? downloadCompleted,
-    TResult? Function(_DownloadFailed value)? downloadFailed,
-    TResult? Function(_ClearDownloadOptions value)? clearDownloadOptions,
-    TResult? Function(_SaveToDevice value)? saveToDevice,
-  }) {
-    return getAllDownloads?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetDownloadOptions value)? getDownloadOptions,
-    TResult Function(_SetDownloadOptionsFromStreams value)?
-        setDownloadOptionsFromStreams,
-    TResult Function(_StartDownload value)? startDownload,
-    TResult Function(_PauseDownload value)? pauseDownload,
-    TResult Function(_ResumeDownload value)? resumeDownload,
-    TResult Function(_CancelDownload value)? cancelDownload,
-    TResult Function(_DeleteDownload value)? deleteDownload,
-    TResult Function(_GetAllDownloads value)? getAllDownloads,
-    TResult Function(_UpdateDownloadProgress value)? updateDownloadProgress,
-    TResult Function(_DownloadCompleted value)? downloadCompleted,
-    TResult Function(_DownloadFailed value)? downloadFailed,
-    TResult Function(_ClearDownloadOptions value)? clearDownloadOptions,
-    TResult Function(_SaveToDevice value)? saveToDevice,
-    required TResult orElse(),
-  }) {
-    if (getAllDownloads != null) {
-      return getAllDownloads(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _GetAllDownloads implements DownloadEvent {
-  const factory _GetAllDownloads({final String profileName}) =
-      _$GetAllDownloadsImpl;
-
-  String get profileName;
-
-  /// Create a copy of DownloadEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetAllDownloadsImplCopyWith<_$GetAllDownloadsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$UpdateDownloadProgressImplCopyWith<$Res> {
-  factory _$$UpdateDownloadProgressImplCopyWith(
-          _$UpdateDownloadProgressImpl value,
-          $Res Function(_$UpdateDownloadProgressImpl) then) =
-      __$$UpdateDownloadProgressImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({DownloadItem downloadItem});
-}
-
-/// @nodoc
-class __$$UpdateDownloadProgressImplCopyWithImpl<$Res>
-    extends _$DownloadEventCopyWithImpl<$Res, _$UpdateDownloadProgressImpl>
-    implements _$$UpdateDownloadProgressImplCopyWith<$Res> {
-  __$$UpdateDownloadProgressImplCopyWithImpl(
-      _$UpdateDownloadProgressImpl _value,
-      $Res Function(_$UpdateDownloadProgressImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of DownloadEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? downloadItem = null,
-  }) {
-    return _then(_$UpdateDownloadProgressImpl(
-      downloadItem: null == downloadItem
-          ? _value.downloadItem
-          : downloadItem // ignore: cast_nullable_to_non_nullable
-              as DownloadItem,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$UpdateDownloadProgressImpl implements _UpdateDownloadProgress {
-  const _$UpdateDownloadProgressImpl({required this.downloadItem});
-
-  @override
-  final DownloadItem downloadItem;
+  int get hashCode => Object.hash(runtimeType, downloadItem);
 
   @override
   String toString() {
     return 'DownloadEvent.updateDownloadProgress(downloadItem: $downloadItem)';
   }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UpdateDownloadProgressImpl &&
-            (identical(other.downloadItem, downloadItem) ||
-                other.downloadItem == downloadItem));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, downloadItem);
-
-  /// Create a copy of DownloadEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UpdateDownloadProgressImplCopyWith<_$UpdateDownloadProgressImpl>
-      get copyWith => __$$UpdateDownloadProgressImplCopyWithImpl<
-          _$UpdateDownloadProgressImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String videoId, String serviceType)
-        getDownloadOptions,
-    required TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            String? thumbnailUrl,
-            int? duration,
-            List<NewPipeVideoStream> videoStreams,
-            List<NewPipeVideoStream> videoOnlyStreams,
-            List<NewPipeAudioStream> audioStreams)
-        setDownloadOptionsFromStreams,
-    required TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            DownloadType downloadType,
-            String profileName,
-            String? thumbnailUrl,
-            int? duration,
-            VideoQualityOption? videoQuality,
-            AudioQualityOption? audioQuality)
-        startDownload,
-    required TResult Function(int downloadId) pauseDownload,
-    required TResult Function(int downloadId) resumeDownload,
-    required TResult Function(int downloadId) cancelDownload,
-    required TResult Function(int downloadId) deleteDownload,
-    required TResult Function(String profileName) getAllDownloads,
-    required TResult Function(DownloadItem downloadItem) updateDownloadProgress,
-    required TResult Function(DownloadItem downloadItem) downloadCompleted,
-    required TResult Function(DownloadItem downloadItem, String error)
-        downloadFailed,
-    required TResult Function() clearDownloadOptions,
-    required TResult Function(DownloadItem downloadItem) saveToDevice,
-  }) {
-    return updateDownloadProgress(downloadItem);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String videoId, String serviceType)? getDownloadOptions,
-    TResult? Function(
-            String videoId,
-            String title,
-            String channelName,
-            String? thumbnailUrl,
-            int? duration,
-            List<NewPipeVideoStream> videoStreams,
-            List<NewPipeVideoStream> videoOnlyStreams,
-            List<NewPipeAudioStream> audioStreams)?
-        setDownloadOptionsFromStreams,
-    TResult? Function(
-            String videoId,
-            String title,
-            String channelName,
-            DownloadType downloadType,
-            String profileName,
-            String? thumbnailUrl,
-            int? duration,
-            VideoQualityOption? videoQuality,
-            AudioQualityOption? audioQuality)?
-        startDownload,
-    TResult? Function(int downloadId)? pauseDownload,
-    TResult? Function(int downloadId)? resumeDownload,
-    TResult? Function(int downloadId)? cancelDownload,
-    TResult? Function(int downloadId)? deleteDownload,
-    TResult? Function(String profileName)? getAllDownloads,
-    TResult? Function(DownloadItem downloadItem)? updateDownloadProgress,
-    TResult? Function(DownloadItem downloadItem)? downloadCompleted,
-    TResult? Function(DownloadItem downloadItem, String error)? downloadFailed,
-    TResult? Function()? clearDownloadOptions,
-    TResult? Function(DownloadItem downloadItem)? saveToDevice,
-  }) {
-    return updateDownloadProgress?.call(downloadItem);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String videoId, String serviceType)? getDownloadOptions,
-    TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            String? thumbnailUrl,
-            int? duration,
-            List<NewPipeVideoStream> videoStreams,
-            List<NewPipeVideoStream> videoOnlyStreams,
-            List<NewPipeAudioStream> audioStreams)?
-        setDownloadOptionsFromStreams,
-    TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            DownloadType downloadType,
-            String profileName,
-            String? thumbnailUrl,
-            int? duration,
-            VideoQualityOption? videoQuality,
-            AudioQualityOption? audioQuality)?
-        startDownload,
-    TResult Function(int downloadId)? pauseDownload,
-    TResult Function(int downloadId)? resumeDownload,
-    TResult Function(int downloadId)? cancelDownload,
-    TResult Function(int downloadId)? deleteDownload,
-    TResult Function(String profileName)? getAllDownloads,
-    TResult Function(DownloadItem downloadItem)? updateDownloadProgress,
-    TResult Function(DownloadItem downloadItem)? downloadCompleted,
-    TResult Function(DownloadItem downloadItem, String error)? downloadFailed,
-    TResult Function()? clearDownloadOptions,
-    TResult Function(DownloadItem downloadItem)? saveToDevice,
-    required TResult orElse(),
-  }) {
-    if (updateDownloadProgress != null) {
-      return updateDownloadProgress(downloadItem);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_GetDownloadOptions value) getDownloadOptions,
-    required TResult Function(_SetDownloadOptionsFromStreams value)
-        setDownloadOptionsFromStreams,
-    required TResult Function(_StartDownload value) startDownload,
-    required TResult Function(_PauseDownload value) pauseDownload,
-    required TResult Function(_ResumeDownload value) resumeDownload,
-    required TResult Function(_CancelDownload value) cancelDownload,
-    required TResult Function(_DeleteDownload value) deleteDownload,
-    required TResult Function(_GetAllDownloads value) getAllDownloads,
-    required TResult Function(_UpdateDownloadProgress value)
-        updateDownloadProgress,
-    required TResult Function(_DownloadCompleted value) downloadCompleted,
-    required TResult Function(_DownloadFailed value) downloadFailed,
-    required TResult Function(_ClearDownloadOptions value) clearDownloadOptions,
-    required TResult Function(_SaveToDevice value) saveToDevice,
-  }) {
-    return updateDownloadProgress(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetDownloadOptions value)? getDownloadOptions,
-    TResult? Function(_SetDownloadOptionsFromStreams value)?
-        setDownloadOptionsFromStreams,
-    TResult? Function(_StartDownload value)? startDownload,
-    TResult? Function(_PauseDownload value)? pauseDownload,
-    TResult? Function(_ResumeDownload value)? resumeDownload,
-    TResult? Function(_CancelDownload value)? cancelDownload,
-    TResult? Function(_DeleteDownload value)? deleteDownload,
-    TResult? Function(_GetAllDownloads value)? getAllDownloads,
-    TResult? Function(_UpdateDownloadProgress value)? updateDownloadProgress,
-    TResult? Function(_DownloadCompleted value)? downloadCompleted,
-    TResult? Function(_DownloadFailed value)? downloadFailed,
-    TResult? Function(_ClearDownloadOptions value)? clearDownloadOptions,
-    TResult? Function(_SaveToDevice value)? saveToDevice,
-  }) {
-    return updateDownloadProgress?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetDownloadOptions value)? getDownloadOptions,
-    TResult Function(_SetDownloadOptionsFromStreams value)?
-        setDownloadOptionsFromStreams,
-    TResult Function(_StartDownload value)? startDownload,
-    TResult Function(_PauseDownload value)? pauseDownload,
-    TResult Function(_ResumeDownload value)? resumeDownload,
-    TResult Function(_CancelDownload value)? cancelDownload,
-    TResult Function(_DeleteDownload value)? deleteDownload,
-    TResult Function(_GetAllDownloads value)? getAllDownloads,
-    TResult Function(_UpdateDownloadProgress value)? updateDownloadProgress,
-    TResult Function(_DownloadCompleted value)? downloadCompleted,
-    TResult Function(_DownloadFailed value)? downloadFailed,
-    TResult Function(_ClearDownloadOptions value)? clearDownloadOptions,
-    TResult Function(_SaveToDevice value)? saveToDevice,
-    required TResult orElse(),
-  }) {
-    if (updateDownloadProgress != null) {
-      return updateDownloadProgress(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _UpdateDownloadProgress implements DownloadEvent {
-  const factory _UpdateDownloadProgress(
-          {required final DownloadItem downloadItem}) =
-      _$UpdateDownloadProgressImpl;
-
-  DownloadItem get downloadItem;
-
-  /// Create a copy of DownloadEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UpdateDownloadProgressImplCopyWith<_$UpdateDownloadProgressImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$DownloadCompletedImplCopyWith<$Res> {
-  factory _$$DownloadCompletedImplCopyWith(_$DownloadCompletedImpl value,
-          $Res Function(_$DownloadCompletedImpl) then) =
-      __$$DownloadCompletedImplCopyWithImpl<$Res>;
+abstract mixin class _$UpdateDownloadProgressCopyWith<$Res>
+    implements $DownloadEventCopyWith<$Res> {
+  factory _$UpdateDownloadProgressCopyWith(_UpdateDownloadProgress value,
+          $Res Function(_UpdateDownloadProgress) _then) =
+      __$UpdateDownloadProgressCopyWithImpl;
   @useResult
   $Res call({DownloadItem downloadItem});
 }
 
 /// @nodoc
-class __$$DownloadCompletedImplCopyWithImpl<$Res>
-    extends _$DownloadEventCopyWithImpl<$Res, _$DownloadCompletedImpl>
-    implements _$$DownloadCompletedImplCopyWith<$Res> {
-  __$$DownloadCompletedImplCopyWithImpl(_$DownloadCompletedImpl _value,
-      $Res Function(_$DownloadCompletedImpl) _then)
-      : super(_value, _then);
+class __$UpdateDownloadProgressCopyWithImpl<$Res>
+    implements _$UpdateDownloadProgressCopyWith<$Res> {
+  __$UpdateDownloadProgressCopyWithImpl(this._self, this._then);
+
+  final _UpdateDownloadProgress _self;
+  final $Res Function(_UpdateDownloadProgress) _then;
 
   /// Create a copy of DownloadEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? downloadItem = null,
   }) {
-    return _then(_$DownloadCompletedImpl(
+    return _then(_UpdateDownloadProgress(
       downloadItem: null == downloadItem
-          ? _value.downloadItem
+          ? _self.downloadItem
           : downloadItem // ignore: cast_nullable_to_non_nullable
               as DownloadItem,
     ));
@@ -2951,22 +1310,23 @@ class __$$DownloadCompletedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DownloadCompletedImpl implements _DownloadCompleted {
-  const _$DownloadCompletedImpl({required this.downloadItem});
+class _DownloadCompleted implements DownloadEvent {
+  const _DownloadCompleted({required this.downloadItem});
 
-  @override
   final DownloadItem downloadItem;
 
-  @override
-  String toString() {
-    return 'DownloadEvent.downloadCompleted(downloadItem: $downloadItem)';
-  }
+  /// Create a copy of DownloadEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$DownloadCompletedCopyWith<_DownloadCompleted> get copyWith =>
+      __$DownloadCompletedCopyWithImpl<_DownloadCompleted>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DownloadCompletedImpl &&
+            other is _DownloadCompleted &&
             (identical(other.downloadItem, downloadItem) ||
                 other.downloadItem == downloadItem));
   }
@@ -2974,278 +1334,65 @@ class _$DownloadCompletedImpl implements _DownloadCompleted {
   @override
   int get hashCode => Object.hash(runtimeType, downloadItem);
 
-  /// Create a copy of DownloadEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$DownloadCompletedImplCopyWith<_$DownloadCompletedImpl> get copyWith =>
-      __$$DownloadCompletedImplCopyWithImpl<_$DownloadCompletedImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String videoId, String serviceType)
-        getDownloadOptions,
-    required TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            String? thumbnailUrl,
-            int? duration,
-            List<NewPipeVideoStream> videoStreams,
-            List<NewPipeVideoStream> videoOnlyStreams,
-            List<NewPipeAudioStream> audioStreams)
-        setDownloadOptionsFromStreams,
-    required TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            DownloadType downloadType,
-            String profileName,
-            String? thumbnailUrl,
-            int? duration,
-            VideoQualityOption? videoQuality,
-            AudioQualityOption? audioQuality)
-        startDownload,
-    required TResult Function(int downloadId) pauseDownload,
-    required TResult Function(int downloadId) resumeDownload,
-    required TResult Function(int downloadId) cancelDownload,
-    required TResult Function(int downloadId) deleteDownload,
-    required TResult Function(String profileName) getAllDownloads,
-    required TResult Function(DownloadItem downloadItem) updateDownloadProgress,
-    required TResult Function(DownloadItem downloadItem) downloadCompleted,
-    required TResult Function(DownloadItem downloadItem, String error)
-        downloadFailed,
-    required TResult Function() clearDownloadOptions,
-    required TResult Function(DownloadItem downloadItem) saveToDevice,
-  }) {
-    return downloadCompleted(downloadItem);
+  String toString() {
+    return 'DownloadEvent.downloadCompleted(downloadItem: $downloadItem)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String videoId, String serviceType)? getDownloadOptions,
-    TResult? Function(
-            String videoId,
-            String title,
-            String channelName,
-            String? thumbnailUrl,
-            int? duration,
-            List<NewPipeVideoStream> videoStreams,
-            List<NewPipeVideoStream> videoOnlyStreams,
-            List<NewPipeAudioStream> audioStreams)?
-        setDownloadOptionsFromStreams,
-    TResult? Function(
-            String videoId,
-            String title,
-            String channelName,
-            DownloadType downloadType,
-            String profileName,
-            String? thumbnailUrl,
-            int? duration,
-            VideoQualityOption? videoQuality,
-            AudioQualityOption? audioQuality)?
-        startDownload,
-    TResult? Function(int downloadId)? pauseDownload,
-    TResult? Function(int downloadId)? resumeDownload,
-    TResult? Function(int downloadId)? cancelDownload,
-    TResult? Function(int downloadId)? deleteDownload,
-    TResult? Function(String profileName)? getAllDownloads,
-    TResult? Function(DownloadItem downloadItem)? updateDownloadProgress,
-    TResult? Function(DownloadItem downloadItem)? downloadCompleted,
-    TResult? Function(DownloadItem downloadItem, String error)? downloadFailed,
-    TResult? Function()? clearDownloadOptions,
-    TResult? Function(DownloadItem downloadItem)? saveToDevice,
-  }) {
-    return downloadCompleted?.call(downloadItem);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String videoId, String serviceType)? getDownloadOptions,
-    TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            String? thumbnailUrl,
-            int? duration,
-            List<NewPipeVideoStream> videoStreams,
-            List<NewPipeVideoStream> videoOnlyStreams,
-            List<NewPipeAudioStream> audioStreams)?
-        setDownloadOptionsFromStreams,
-    TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            DownloadType downloadType,
-            String profileName,
-            String? thumbnailUrl,
-            int? duration,
-            VideoQualityOption? videoQuality,
-            AudioQualityOption? audioQuality)?
-        startDownload,
-    TResult Function(int downloadId)? pauseDownload,
-    TResult Function(int downloadId)? resumeDownload,
-    TResult Function(int downloadId)? cancelDownload,
-    TResult Function(int downloadId)? deleteDownload,
-    TResult Function(String profileName)? getAllDownloads,
-    TResult Function(DownloadItem downloadItem)? updateDownloadProgress,
-    TResult Function(DownloadItem downloadItem)? downloadCompleted,
-    TResult Function(DownloadItem downloadItem, String error)? downloadFailed,
-    TResult Function()? clearDownloadOptions,
-    TResult Function(DownloadItem downloadItem)? saveToDevice,
-    required TResult orElse(),
-  }) {
-    if (downloadCompleted != null) {
-      return downloadCompleted(downloadItem);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_GetDownloadOptions value) getDownloadOptions,
-    required TResult Function(_SetDownloadOptionsFromStreams value)
-        setDownloadOptionsFromStreams,
-    required TResult Function(_StartDownload value) startDownload,
-    required TResult Function(_PauseDownload value) pauseDownload,
-    required TResult Function(_ResumeDownload value) resumeDownload,
-    required TResult Function(_CancelDownload value) cancelDownload,
-    required TResult Function(_DeleteDownload value) deleteDownload,
-    required TResult Function(_GetAllDownloads value) getAllDownloads,
-    required TResult Function(_UpdateDownloadProgress value)
-        updateDownloadProgress,
-    required TResult Function(_DownloadCompleted value) downloadCompleted,
-    required TResult Function(_DownloadFailed value) downloadFailed,
-    required TResult Function(_ClearDownloadOptions value) clearDownloadOptions,
-    required TResult Function(_SaveToDevice value) saveToDevice,
-  }) {
-    return downloadCompleted(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetDownloadOptions value)? getDownloadOptions,
-    TResult? Function(_SetDownloadOptionsFromStreams value)?
-        setDownloadOptionsFromStreams,
-    TResult? Function(_StartDownload value)? startDownload,
-    TResult? Function(_PauseDownload value)? pauseDownload,
-    TResult? Function(_ResumeDownload value)? resumeDownload,
-    TResult? Function(_CancelDownload value)? cancelDownload,
-    TResult? Function(_DeleteDownload value)? deleteDownload,
-    TResult? Function(_GetAllDownloads value)? getAllDownloads,
-    TResult? Function(_UpdateDownloadProgress value)? updateDownloadProgress,
-    TResult? Function(_DownloadCompleted value)? downloadCompleted,
-    TResult? Function(_DownloadFailed value)? downloadFailed,
-    TResult? Function(_ClearDownloadOptions value)? clearDownloadOptions,
-    TResult? Function(_SaveToDevice value)? saveToDevice,
-  }) {
-    return downloadCompleted?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetDownloadOptions value)? getDownloadOptions,
-    TResult Function(_SetDownloadOptionsFromStreams value)?
-        setDownloadOptionsFromStreams,
-    TResult Function(_StartDownload value)? startDownload,
-    TResult Function(_PauseDownload value)? pauseDownload,
-    TResult Function(_ResumeDownload value)? resumeDownload,
-    TResult Function(_CancelDownload value)? cancelDownload,
-    TResult Function(_DeleteDownload value)? deleteDownload,
-    TResult Function(_GetAllDownloads value)? getAllDownloads,
-    TResult Function(_UpdateDownloadProgress value)? updateDownloadProgress,
-    TResult Function(_DownloadCompleted value)? downloadCompleted,
-    TResult Function(_DownloadFailed value)? downloadFailed,
-    TResult Function(_ClearDownloadOptions value)? clearDownloadOptions,
-    TResult Function(_SaveToDevice value)? saveToDevice,
-    required TResult orElse(),
-  }) {
-    if (downloadCompleted != null) {
-      return downloadCompleted(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _DownloadCompleted implements DownloadEvent {
-  const factory _DownloadCompleted({required final DownloadItem downloadItem}) =
-      _$DownloadCompletedImpl;
-
-  DownloadItem get downloadItem;
-
-  /// Create a copy of DownloadEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$DownloadCompletedImplCopyWith<_$DownloadCompletedImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$DownloadFailedImplCopyWith<$Res> {
-  factory _$$DownloadFailedImplCopyWith(_$DownloadFailedImpl value,
-          $Res Function(_$DownloadFailedImpl) then) =
-      __$$DownloadFailedImplCopyWithImpl<$Res>;
+abstract mixin class _$DownloadCompletedCopyWith<$Res>
+    implements $DownloadEventCopyWith<$Res> {
+  factory _$DownloadCompletedCopyWith(
+          _DownloadCompleted value, $Res Function(_DownloadCompleted) _then) =
+      __$DownloadCompletedCopyWithImpl;
   @useResult
-  $Res call({DownloadItem downloadItem, String error});
+  $Res call({DownloadItem downloadItem});
 }
 
 /// @nodoc
-class __$$DownloadFailedImplCopyWithImpl<$Res>
-    extends _$DownloadEventCopyWithImpl<$Res, _$DownloadFailedImpl>
-    implements _$$DownloadFailedImplCopyWith<$Res> {
-  __$$DownloadFailedImplCopyWithImpl(
-      _$DownloadFailedImpl _value, $Res Function(_$DownloadFailedImpl) _then)
-      : super(_value, _then);
+class __$DownloadCompletedCopyWithImpl<$Res>
+    implements _$DownloadCompletedCopyWith<$Res> {
+  __$DownloadCompletedCopyWithImpl(this._self, this._then);
+
+  final _DownloadCompleted _self;
+  final $Res Function(_DownloadCompleted) _then;
 
   /// Create a copy of DownloadEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? downloadItem = null,
-    Object? error = null,
   }) {
-    return _then(_$DownloadFailedImpl(
+    return _then(_DownloadCompleted(
       downloadItem: null == downloadItem
-          ? _value.downloadItem
+          ? _self.downloadItem
           : downloadItem // ignore: cast_nullable_to_non_nullable
               as DownloadItem,
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String,
     ));
   }
 }
 
 /// @nodoc
 
-class _$DownloadFailedImpl implements _DownloadFailed {
-  const _$DownloadFailedImpl({required this.downloadItem, required this.error});
+class _DownloadFailed implements DownloadEvent {
+  const _DownloadFailed({required this.downloadItem, required this.error});
 
-  @override
   final DownloadItem downloadItem;
-  @override
   final String error;
 
-  @override
-  String toString() {
-    return 'DownloadEvent.downloadFailed(downloadItem: $downloadItem, error: $error)';
-  }
+  /// Create a copy of DownloadEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$DownloadFailedCopyWith<_DownloadFailed> get copyWith =>
+      __$DownloadFailedCopyWithImpl<_DownloadFailed>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DownloadFailedImpl &&
+            other is _DownloadFailed &&
             (identical(other.downloadItem, downloadItem) ||
                 other.downloadItem == downloadItem) &&
             (identical(other.error, error) || other.error == error));
@@ -3254,508 +1401,89 @@ class _$DownloadFailedImpl implements _DownloadFailed {
   @override
   int get hashCode => Object.hash(runtimeType, downloadItem, error);
 
-  /// Create a copy of DownloadEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$DownloadFailedImplCopyWith<_$DownloadFailedImpl> get copyWith =>
-      __$$DownloadFailedImplCopyWithImpl<_$DownloadFailedImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String videoId, String serviceType)
-        getDownloadOptions,
-    required TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            String? thumbnailUrl,
-            int? duration,
-            List<NewPipeVideoStream> videoStreams,
-            List<NewPipeVideoStream> videoOnlyStreams,
-            List<NewPipeAudioStream> audioStreams)
-        setDownloadOptionsFromStreams,
-    required TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            DownloadType downloadType,
-            String profileName,
-            String? thumbnailUrl,
-            int? duration,
-            VideoQualityOption? videoQuality,
-            AudioQualityOption? audioQuality)
-        startDownload,
-    required TResult Function(int downloadId) pauseDownload,
-    required TResult Function(int downloadId) resumeDownload,
-    required TResult Function(int downloadId) cancelDownload,
-    required TResult Function(int downloadId) deleteDownload,
-    required TResult Function(String profileName) getAllDownloads,
-    required TResult Function(DownloadItem downloadItem) updateDownloadProgress,
-    required TResult Function(DownloadItem downloadItem) downloadCompleted,
-    required TResult Function(DownloadItem downloadItem, String error)
-        downloadFailed,
-    required TResult Function() clearDownloadOptions,
-    required TResult Function(DownloadItem downloadItem) saveToDevice,
-  }) {
-    return downloadFailed(downloadItem, error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String videoId, String serviceType)? getDownloadOptions,
-    TResult? Function(
-            String videoId,
-            String title,
-            String channelName,
-            String? thumbnailUrl,
-            int? duration,
-            List<NewPipeVideoStream> videoStreams,
-            List<NewPipeVideoStream> videoOnlyStreams,
-            List<NewPipeAudioStream> audioStreams)?
-        setDownloadOptionsFromStreams,
-    TResult? Function(
-            String videoId,
-            String title,
-            String channelName,
-            DownloadType downloadType,
-            String profileName,
-            String? thumbnailUrl,
-            int? duration,
-            VideoQualityOption? videoQuality,
-            AudioQualityOption? audioQuality)?
-        startDownload,
-    TResult? Function(int downloadId)? pauseDownload,
-    TResult? Function(int downloadId)? resumeDownload,
-    TResult? Function(int downloadId)? cancelDownload,
-    TResult? Function(int downloadId)? deleteDownload,
-    TResult? Function(String profileName)? getAllDownloads,
-    TResult? Function(DownloadItem downloadItem)? updateDownloadProgress,
-    TResult? Function(DownloadItem downloadItem)? downloadCompleted,
-    TResult? Function(DownloadItem downloadItem, String error)? downloadFailed,
-    TResult? Function()? clearDownloadOptions,
-    TResult? Function(DownloadItem downloadItem)? saveToDevice,
-  }) {
-    return downloadFailed?.call(downloadItem, error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String videoId, String serviceType)? getDownloadOptions,
-    TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            String? thumbnailUrl,
-            int? duration,
-            List<NewPipeVideoStream> videoStreams,
-            List<NewPipeVideoStream> videoOnlyStreams,
-            List<NewPipeAudioStream> audioStreams)?
-        setDownloadOptionsFromStreams,
-    TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            DownloadType downloadType,
-            String profileName,
-            String? thumbnailUrl,
-            int? duration,
-            VideoQualityOption? videoQuality,
-            AudioQualityOption? audioQuality)?
-        startDownload,
-    TResult Function(int downloadId)? pauseDownload,
-    TResult Function(int downloadId)? resumeDownload,
-    TResult Function(int downloadId)? cancelDownload,
-    TResult Function(int downloadId)? deleteDownload,
-    TResult Function(String profileName)? getAllDownloads,
-    TResult Function(DownloadItem downloadItem)? updateDownloadProgress,
-    TResult Function(DownloadItem downloadItem)? downloadCompleted,
-    TResult Function(DownloadItem downloadItem, String error)? downloadFailed,
-    TResult Function()? clearDownloadOptions,
-    TResult Function(DownloadItem downloadItem)? saveToDevice,
-    required TResult orElse(),
-  }) {
-    if (downloadFailed != null) {
-      return downloadFailed(downloadItem, error);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_GetDownloadOptions value) getDownloadOptions,
-    required TResult Function(_SetDownloadOptionsFromStreams value)
-        setDownloadOptionsFromStreams,
-    required TResult Function(_StartDownload value) startDownload,
-    required TResult Function(_PauseDownload value) pauseDownload,
-    required TResult Function(_ResumeDownload value) resumeDownload,
-    required TResult Function(_CancelDownload value) cancelDownload,
-    required TResult Function(_DeleteDownload value) deleteDownload,
-    required TResult Function(_GetAllDownloads value) getAllDownloads,
-    required TResult Function(_UpdateDownloadProgress value)
-        updateDownloadProgress,
-    required TResult Function(_DownloadCompleted value) downloadCompleted,
-    required TResult Function(_DownloadFailed value) downloadFailed,
-    required TResult Function(_ClearDownloadOptions value) clearDownloadOptions,
-    required TResult Function(_SaveToDevice value) saveToDevice,
-  }) {
-    return downloadFailed(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetDownloadOptions value)? getDownloadOptions,
-    TResult? Function(_SetDownloadOptionsFromStreams value)?
-        setDownloadOptionsFromStreams,
-    TResult? Function(_StartDownload value)? startDownload,
-    TResult? Function(_PauseDownload value)? pauseDownload,
-    TResult? Function(_ResumeDownload value)? resumeDownload,
-    TResult? Function(_CancelDownload value)? cancelDownload,
-    TResult? Function(_DeleteDownload value)? deleteDownload,
-    TResult? Function(_GetAllDownloads value)? getAllDownloads,
-    TResult? Function(_UpdateDownloadProgress value)? updateDownloadProgress,
-    TResult? Function(_DownloadCompleted value)? downloadCompleted,
-    TResult? Function(_DownloadFailed value)? downloadFailed,
-    TResult? Function(_ClearDownloadOptions value)? clearDownloadOptions,
-    TResult? Function(_SaveToDevice value)? saveToDevice,
-  }) {
-    return downloadFailed?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetDownloadOptions value)? getDownloadOptions,
-    TResult Function(_SetDownloadOptionsFromStreams value)?
-        setDownloadOptionsFromStreams,
-    TResult Function(_StartDownload value)? startDownload,
-    TResult Function(_PauseDownload value)? pauseDownload,
-    TResult Function(_ResumeDownload value)? resumeDownload,
-    TResult Function(_CancelDownload value)? cancelDownload,
-    TResult Function(_DeleteDownload value)? deleteDownload,
-    TResult Function(_GetAllDownloads value)? getAllDownloads,
-    TResult Function(_UpdateDownloadProgress value)? updateDownloadProgress,
-    TResult Function(_DownloadCompleted value)? downloadCompleted,
-    TResult Function(_DownloadFailed value)? downloadFailed,
-    TResult Function(_ClearDownloadOptions value)? clearDownloadOptions,
-    TResult Function(_SaveToDevice value)? saveToDevice,
-    required TResult orElse(),
-  }) {
-    if (downloadFailed != null) {
-      return downloadFailed(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _DownloadFailed implements DownloadEvent {
-  const factory _DownloadFailed(
-      {required final DownloadItem downloadItem,
-      required final String error}) = _$DownloadFailedImpl;
-
-  DownloadItem get downloadItem;
-  String get error;
-
-  /// Create a copy of DownloadEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$DownloadFailedImplCopyWith<_$DownloadFailedImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$ClearDownloadOptionsImplCopyWith<$Res> {
-  factory _$$ClearDownloadOptionsImplCopyWith(_$ClearDownloadOptionsImpl value,
-          $Res Function(_$ClearDownloadOptionsImpl) then) =
-      __$$ClearDownloadOptionsImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ClearDownloadOptionsImplCopyWithImpl<$Res>
-    extends _$DownloadEventCopyWithImpl<$Res, _$ClearDownloadOptionsImpl>
-    implements _$$ClearDownloadOptionsImplCopyWith<$Res> {
-  __$$ClearDownloadOptionsImplCopyWithImpl(_$ClearDownloadOptionsImpl _value,
-      $Res Function(_$ClearDownloadOptionsImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of DownloadEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$ClearDownloadOptionsImpl implements _ClearDownloadOptions {
-  const _$ClearDownloadOptionsImpl();
-
   @override
   String toString() {
-    return 'DownloadEvent.clearDownloadOptions()';
+    return 'DownloadEvent.downloadFailed(downloadItem: $downloadItem, error: $error)';
   }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ClearDownloadOptionsImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String videoId, String serviceType)
-        getDownloadOptions,
-    required TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            String? thumbnailUrl,
-            int? duration,
-            List<NewPipeVideoStream> videoStreams,
-            List<NewPipeVideoStream> videoOnlyStreams,
-            List<NewPipeAudioStream> audioStreams)
-        setDownloadOptionsFromStreams,
-    required TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            DownloadType downloadType,
-            String profileName,
-            String? thumbnailUrl,
-            int? duration,
-            VideoQualityOption? videoQuality,
-            AudioQualityOption? audioQuality)
-        startDownload,
-    required TResult Function(int downloadId) pauseDownload,
-    required TResult Function(int downloadId) resumeDownload,
-    required TResult Function(int downloadId) cancelDownload,
-    required TResult Function(int downloadId) deleteDownload,
-    required TResult Function(String profileName) getAllDownloads,
-    required TResult Function(DownloadItem downloadItem) updateDownloadProgress,
-    required TResult Function(DownloadItem downloadItem) downloadCompleted,
-    required TResult Function(DownloadItem downloadItem, String error)
-        downloadFailed,
-    required TResult Function() clearDownloadOptions,
-    required TResult Function(DownloadItem downloadItem) saveToDevice,
-  }) {
-    return clearDownloadOptions();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String videoId, String serviceType)? getDownloadOptions,
-    TResult? Function(
-            String videoId,
-            String title,
-            String channelName,
-            String? thumbnailUrl,
-            int? duration,
-            List<NewPipeVideoStream> videoStreams,
-            List<NewPipeVideoStream> videoOnlyStreams,
-            List<NewPipeAudioStream> audioStreams)?
-        setDownloadOptionsFromStreams,
-    TResult? Function(
-            String videoId,
-            String title,
-            String channelName,
-            DownloadType downloadType,
-            String profileName,
-            String? thumbnailUrl,
-            int? duration,
-            VideoQualityOption? videoQuality,
-            AudioQualityOption? audioQuality)?
-        startDownload,
-    TResult? Function(int downloadId)? pauseDownload,
-    TResult? Function(int downloadId)? resumeDownload,
-    TResult? Function(int downloadId)? cancelDownload,
-    TResult? Function(int downloadId)? deleteDownload,
-    TResult? Function(String profileName)? getAllDownloads,
-    TResult? Function(DownloadItem downloadItem)? updateDownloadProgress,
-    TResult? Function(DownloadItem downloadItem)? downloadCompleted,
-    TResult? Function(DownloadItem downloadItem, String error)? downloadFailed,
-    TResult? Function()? clearDownloadOptions,
-    TResult? Function(DownloadItem downloadItem)? saveToDevice,
-  }) {
-    return clearDownloadOptions?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String videoId, String serviceType)? getDownloadOptions,
-    TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            String? thumbnailUrl,
-            int? duration,
-            List<NewPipeVideoStream> videoStreams,
-            List<NewPipeVideoStream> videoOnlyStreams,
-            List<NewPipeAudioStream> audioStreams)?
-        setDownloadOptionsFromStreams,
-    TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            DownloadType downloadType,
-            String profileName,
-            String? thumbnailUrl,
-            int? duration,
-            VideoQualityOption? videoQuality,
-            AudioQualityOption? audioQuality)?
-        startDownload,
-    TResult Function(int downloadId)? pauseDownload,
-    TResult Function(int downloadId)? resumeDownload,
-    TResult Function(int downloadId)? cancelDownload,
-    TResult Function(int downloadId)? deleteDownload,
-    TResult Function(String profileName)? getAllDownloads,
-    TResult Function(DownloadItem downloadItem)? updateDownloadProgress,
-    TResult Function(DownloadItem downloadItem)? downloadCompleted,
-    TResult Function(DownloadItem downloadItem, String error)? downloadFailed,
-    TResult Function()? clearDownloadOptions,
-    TResult Function(DownloadItem downloadItem)? saveToDevice,
-    required TResult orElse(),
-  }) {
-    if (clearDownloadOptions != null) {
-      return clearDownloadOptions();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_GetDownloadOptions value) getDownloadOptions,
-    required TResult Function(_SetDownloadOptionsFromStreams value)
-        setDownloadOptionsFromStreams,
-    required TResult Function(_StartDownload value) startDownload,
-    required TResult Function(_PauseDownload value) pauseDownload,
-    required TResult Function(_ResumeDownload value) resumeDownload,
-    required TResult Function(_CancelDownload value) cancelDownload,
-    required TResult Function(_DeleteDownload value) deleteDownload,
-    required TResult Function(_GetAllDownloads value) getAllDownloads,
-    required TResult Function(_UpdateDownloadProgress value)
-        updateDownloadProgress,
-    required TResult Function(_DownloadCompleted value) downloadCompleted,
-    required TResult Function(_DownloadFailed value) downloadFailed,
-    required TResult Function(_ClearDownloadOptions value) clearDownloadOptions,
-    required TResult Function(_SaveToDevice value) saveToDevice,
-  }) {
-    return clearDownloadOptions(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetDownloadOptions value)? getDownloadOptions,
-    TResult? Function(_SetDownloadOptionsFromStreams value)?
-        setDownloadOptionsFromStreams,
-    TResult? Function(_StartDownload value)? startDownload,
-    TResult? Function(_PauseDownload value)? pauseDownload,
-    TResult? Function(_ResumeDownload value)? resumeDownload,
-    TResult? Function(_CancelDownload value)? cancelDownload,
-    TResult? Function(_DeleteDownload value)? deleteDownload,
-    TResult? Function(_GetAllDownloads value)? getAllDownloads,
-    TResult? Function(_UpdateDownloadProgress value)? updateDownloadProgress,
-    TResult? Function(_DownloadCompleted value)? downloadCompleted,
-    TResult? Function(_DownloadFailed value)? downloadFailed,
-    TResult? Function(_ClearDownloadOptions value)? clearDownloadOptions,
-    TResult? Function(_SaveToDevice value)? saveToDevice,
-  }) {
-    return clearDownloadOptions?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetDownloadOptions value)? getDownloadOptions,
-    TResult Function(_SetDownloadOptionsFromStreams value)?
-        setDownloadOptionsFromStreams,
-    TResult Function(_StartDownload value)? startDownload,
-    TResult Function(_PauseDownload value)? pauseDownload,
-    TResult Function(_ResumeDownload value)? resumeDownload,
-    TResult Function(_CancelDownload value)? cancelDownload,
-    TResult Function(_DeleteDownload value)? deleteDownload,
-    TResult Function(_GetAllDownloads value)? getAllDownloads,
-    TResult Function(_UpdateDownloadProgress value)? updateDownloadProgress,
-    TResult Function(_DownloadCompleted value)? downloadCompleted,
-    TResult Function(_DownloadFailed value)? downloadFailed,
-    TResult Function(_ClearDownloadOptions value)? clearDownloadOptions,
-    TResult Function(_SaveToDevice value)? saveToDevice,
-    required TResult orElse(),
-  }) {
-    if (clearDownloadOptions != null) {
-      return clearDownloadOptions(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ClearDownloadOptions implements DownloadEvent {
-  const factory _ClearDownloadOptions() = _$ClearDownloadOptionsImpl;
 }
 
 /// @nodoc
-abstract class _$$SaveToDeviceImplCopyWith<$Res> {
-  factory _$$SaveToDeviceImplCopyWith(
-          _$SaveToDeviceImpl value, $Res Function(_$SaveToDeviceImpl) then) =
-      __$$SaveToDeviceImplCopyWithImpl<$Res>;
+abstract mixin class _$DownloadFailedCopyWith<$Res>
+    implements $DownloadEventCopyWith<$Res> {
+  factory _$DownloadFailedCopyWith(
+          _DownloadFailed value, $Res Function(_DownloadFailed) _then) =
+      __$DownloadFailedCopyWithImpl;
   @useResult
-  $Res call({DownloadItem downloadItem});
+  $Res call({DownloadItem downloadItem, String error});
 }
 
 /// @nodoc
-class __$$SaveToDeviceImplCopyWithImpl<$Res>
-    extends _$DownloadEventCopyWithImpl<$Res, _$SaveToDeviceImpl>
-    implements _$$SaveToDeviceImplCopyWith<$Res> {
-  __$$SaveToDeviceImplCopyWithImpl(
-      _$SaveToDeviceImpl _value, $Res Function(_$SaveToDeviceImpl) _then)
-      : super(_value, _then);
+class __$DownloadFailedCopyWithImpl<$Res>
+    implements _$DownloadFailedCopyWith<$Res> {
+  __$DownloadFailedCopyWithImpl(this._self, this._then);
+
+  final _DownloadFailed _self;
+  final $Res Function(_DownloadFailed) _then;
 
   /// Create a copy of DownloadEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? downloadItem = null,
+    Object? error = null,
   }) {
-    return _then(_$SaveToDeviceImpl(
+    return _then(_DownloadFailed(
       downloadItem: null == downloadItem
-          ? _value.downloadItem
+          ? _self.downloadItem
           : downloadItem // ignore: cast_nullable_to_non_nullable
               as DownloadItem,
+      error: null == error
+          ? _self.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
 
-class _$SaveToDeviceImpl implements _SaveToDevice {
-  const _$SaveToDeviceImpl({required this.downloadItem});
+class _ClearDownloadOptions implements DownloadEvent {
+  const _ClearDownloadOptions();
 
   @override
-  final DownloadItem downloadItem;
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _ClearDownloadOptions);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
 
   @override
   String toString() {
-    return 'DownloadEvent.saveToDevice(downloadItem: $downloadItem)';
+    return 'DownloadEvent.clearDownloadOptions()';
   }
+}
+
+/// @nodoc
+
+class _SaveToDevice implements DownloadEvent {
+  const _SaveToDevice({required this.downloadItem});
+
+  final DownloadItem downloadItem;
+
+  /// Create a copy of DownloadEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$SaveToDeviceCopyWith<_SaveToDevice> get copyWith =>
+      __$SaveToDeviceCopyWithImpl<_SaveToDevice>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SaveToDeviceImpl &&
+            other is _SaveToDevice &&
             (identical(other.downloadItem, downloadItem) ||
                 other.downloadItem == downloadItem));
   }
@@ -3763,365 +1491,143 @@ class _$SaveToDeviceImpl implements _SaveToDevice {
   @override
   int get hashCode => Object.hash(runtimeType, downloadItem);
 
-  /// Create a copy of DownloadEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$SaveToDeviceImplCopyWith<_$SaveToDeviceImpl> get copyWith =>
-      __$$SaveToDeviceImplCopyWithImpl<_$SaveToDeviceImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String videoId, String serviceType)
-        getDownloadOptions,
-    required TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            String? thumbnailUrl,
-            int? duration,
-            List<NewPipeVideoStream> videoStreams,
-            List<NewPipeVideoStream> videoOnlyStreams,
-            List<NewPipeAudioStream> audioStreams)
-        setDownloadOptionsFromStreams,
-    required TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            DownloadType downloadType,
-            String profileName,
-            String? thumbnailUrl,
-            int? duration,
-            VideoQualityOption? videoQuality,
-            AudioQualityOption? audioQuality)
-        startDownload,
-    required TResult Function(int downloadId) pauseDownload,
-    required TResult Function(int downloadId) resumeDownload,
-    required TResult Function(int downloadId) cancelDownload,
-    required TResult Function(int downloadId) deleteDownload,
-    required TResult Function(String profileName) getAllDownloads,
-    required TResult Function(DownloadItem downloadItem) updateDownloadProgress,
-    required TResult Function(DownloadItem downloadItem) downloadCompleted,
-    required TResult Function(DownloadItem downloadItem, String error)
-        downloadFailed,
-    required TResult Function() clearDownloadOptions,
-    required TResult Function(DownloadItem downloadItem) saveToDevice,
-  }) {
-    return saveToDevice(downloadItem);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String videoId, String serviceType)? getDownloadOptions,
-    TResult? Function(
-            String videoId,
-            String title,
-            String channelName,
-            String? thumbnailUrl,
-            int? duration,
-            List<NewPipeVideoStream> videoStreams,
-            List<NewPipeVideoStream> videoOnlyStreams,
-            List<NewPipeAudioStream> audioStreams)?
-        setDownloadOptionsFromStreams,
-    TResult? Function(
-            String videoId,
-            String title,
-            String channelName,
-            DownloadType downloadType,
-            String profileName,
-            String? thumbnailUrl,
-            int? duration,
-            VideoQualityOption? videoQuality,
-            AudioQualityOption? audioQuality)?
-        startDownload,
-    TResult? Function(int downloadId)? pauseDownload,
-    TResult? Function(int downloadId)? resumeDownload,
-    TResult? Function(int downloadId)? cancelDownload,
-    TResult? Function(int downloadId)? deleteDownload,
-    TResult? Function(String profileName)? getAllDownloads,
-    TResult? Function(DownloadItem downloadItem)? updateDownloadProgress,
-    TResult? Function(DownloadItem downloadItem)? downloadCompleted,
-    TResult? Function(DownloadItem downloadItem, String error)? downloadFailed,
-    TResult? Function()? clearDownloadOptions,
-    TResult? Function(DownloadItem downloadItem)? saveToDevice,
-  }) {
-    return saveToDevice?.call(downloadItem);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String videoId, String serviceType)? getDownloadOptions,
-    TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            String? thumbnailUrl,
-            int? duration,
-            List<NewPipeVideoStream> videoStreams,
-            List<NewPipeVideoStream> videoOnlyStreams,
-            List<NewPipeAudioStream> audioStreams)?
-        setDownloadOptionsFromStreams,
-    TResult Function(
-            String videoId,
-            String title,
-            String channelName,
-            DownloadType downloadType,
-            String profileName,
-            String? thumbnailUrl,
-            int? duration,
-            VideoQualityOption? videoQuality,
-            AudioQualityOption? audioQuality)?
-        startDownload,
-    TResult Function(int downloadId)? pauseDownload,
-    TResult Function(int downloadId)? resumeDownload,
-    TResult Function(int downloadId)? cancelDownload,
-    TResult Function(int downloadId)? deleteDownload,
-    TResult Function(String profileName)? getAllDownloads,
-    TResult Function(DownloadItem downloadItem)? updateDownloadProgress,
-    TResult Function(DownloadItem downloadItem)? downloadCompleted,
-    TResult Function(DownloadItem downloadItem, String error)? downloadFailed,
-    TResult Function()? clearDownloadOptions,
-    TResult Function(DownloadItem downloadItem)? saveToDevice,
-    required TResult orElse(),
-  }) {
-    if (saveToDevice != null) {
-      return saveToDevice(downloadItem);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_GetDownloadOptions value) getDownloadOptions,
-    required TResult Function(_SetDownloadOptionsFromStreams value)
-        setDownloadOptionsFromStreams,
-    required TResult Function(_StartDownload value) startDownload,
-    required TResult Function(_PauseDownload value) pauseDownload,
-    required TResult Function(_ResumeDownload value) resumeDownload,
-    required TResult Function(_CancelDownload value) cancelDownload,
-    required TResult Function(_DeleteDownload value) deleteDownload,
-    required TResult Function(_GetAllDownloads value) getAllDownloads,
-    required TResult Function(_UpdateDownloadProgress value)
-        updateDownloadProgress,
-    required TResult Function(_DownloadCompleted value) downloadCompleted,
-    required TResult Function(_DownloadFailed value) downloadFailed,
-    required TResult Function(_ClearDownloadOptions value) clearDownloadOptions,
-    required TResult Function(_SaveToDevice value) saveToDevice,
-  }) {
-    return saveToDevice(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetDownloadOptions value)? getDownloadOptions,
-    TResult? Function(_SetDownloadOptionsFromStreams value)?
-        setDownloadOptionsFromStreams,
-    TResult? Function(_StartDownload value)? startDownload,
-    TResult? Function(_PauseDownload value)? pauseDownload,
-    TResult? Function(_ResumeDownload value)? resumeDownload,
-    TResult? Function(_CancelDownload value)? cancelDownload,
-    TResult? Function(_DeleteDownload value)? deleteDownload,
-    TResult? Function(_GetAllDownloads value)? getAllDownloads,
-    TResult? Function(_UpdateDownloadProgress value)? updateDownloadProgress,
-    TResult? Function(_DownloadCompleted value)? downloadCompleted,
-    TResult? Function(_DownloadFailed value)? downloadFailed,
-    TResult? Function(_ClearDownloadOptions value)? clearDownloadOptions,
-    TResult? Function(_SaveToDevice value)? saveToDevice,
-  }) {
-    return saveToDevice?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetDownloadOptions value)? getDownloadOptions,
-    TResult Function(_SetDownloadOptionsFromStreams value)?
-        setDownloadOptionsFromStreams,
-    TResult Function(_StartDownload value)? startDownload,
-    TResult Function(_PauseDownload value)? pauseDownload,
-    TResult Function(_ResumeDownload value)? resumeDownload,
-    TResult Function(_CancelDownload value)? cancelDownload,
-    TResult Function(_DeleteDownload value)? deleteDownload,
-    TResult Function(_GetAllDownloads value)? getAllDownloads,
-    TResult Function(_UpdateDownloadProgress value)? updateDownloadProgress,
-    TResult Function(_DownloadCompleted value)? downloadCompleted,
-    TResult Function(_DownloadFailed value)? downloadFailed,
-    TResult Function(_ClearDownloadOptions value)? clearDownloadOptions,
-    TResult Function(_SaveToDevice value)? saveToDevice,
-    required TResult orElse(),
-  }) {
-    if (saveToDevice != null) {
-      return saveToDevice(this);
-    }
-    return orElse();
+  String toString() {
+    return 'DownloadEvent.saveToDevice(downloadItem: $downloadItem)';
   }
 }
 
-abstract class _SaveToDevice implements DownloadEvent {
-  const factory _SaveToDevice({required final DownloadItem downloadItem}) =
-      _$SaveToDeviceImpl;
+/// @nodoc
+abstract mixin class _$SaveToDeviceCopyWith<$Res>
+    implements $DownloadEventCopyWith<$Res> {
+  factory _$SaveToDeviceCopyWith(
+          _SaveToDevice value, $Res Function(_SaveToDevice) _then) =
+      __$SaveToDeviceCopyWithImpl;
+  @useResult
+  $Res call({DownloadItem downloadItem});
+}
 
-  DownloadItem get downloadItem;
+/// @nodoc
+class __$SaveToDeviceCopyWithImpl<$Res>
+    implements _$SaveToDeviceCopyWith<$Res> {
+  __$SaveToDeviceCopyWithImpl(this._self, this._then);
+
+  final _SaveToDevice _self;
+  final $Res Function(_SaveToDevice) _then;
 
   /// Create a copy of DownloadEvent
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SaveToDeviceImplCopyWith<_$SaveToDeviceImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? downloadItem = null,
+  }) {
+    return _then(_SaveToDevice(
+      downloadItem: null == downloadItem
+          ? _self.downloadItem
+          : downloadItem // ignore: cast_nullable_to_non_nullable
+              as DownloadItem,
+    ));
+  }
 }
 
 /// @nodoc
 mixin _$DownloadState {
   /// Status of fetching download options
-  ApiStatus get fetchOptionsStatus => throw _privateConstructorUsedError;
+  ApiStatus get fetchOptionsStatus;
 
   /// Status of fetching downloads list
-  ApiStatus get fetchDownloadsStatus => throw _privateConstructorUsedError;
+  ApiStatus get fetchDownloadsStatus;
 
   /// Available download options for current video
-  DownloadOptions? get downloadOptions => throw _privateConstructorUsedError;
+  DownloadOptions? get downloadOptions;
 
   /// All downloads
-  List<DownloadItem> get allDownloads => throw _privateConstructorUsedError;
+  List<DownloadItem> get allDownloads;
 
   /// Completed downloads
-  List<DownloadItem> get completedDownloads =>
-      throw _privateConstructorUsedError;
+  List<DownloadItem> get completedDownloads;
 
   /// Active (currently downloading) downloads
-  List<DownloadItem> get activeDownloads => throw _privateConstructorUsedError;
+  List<DownloadItem> get activeDownloads;
 
   /// Pending or paused downloads
-  List<DownloadItem> get pendingDownloads => throw _privateConstructorUsedError;
+  List<DownloadItem> get pendingDownloads;
 
   /// Error message if any
-  String? get errorMessage => throw _privateConstructorUsedError;
+  String? get errorMessage;
 
   /// Title of the failed download (for snackbar display)
-  String? get failedDownloadTitle => throw _privateConstructorUsedError;
+  String? get failedDownloadTitle;
 
   /// Save to device operation status
-  ApiStatus get saveToDeviceStatus => throw _privateConstructorUsedError;
+  ApiStatus get saveToDeviceStatus;
 
   /// Title of the file that was saved to device (for success message)
-  String? get savedToDeviceTitle => throw _privateConstructorUsedError;
+  String? get savedToDeviceTitle;
 
   /// Create a copy of DownloadState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $DownloadStateCopyWith<DownloadState> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $DownloadStateCopyWith<$Res> {
-  factory $DownloadStateCopyWith(
-          DownloadState value, $Res Function(DownloadState) then) =
-      _$DownloadStateCopyWithImpl<$Res, DownloadState>;
-  @useResult
-  $Res call(
-      {ApiStatus fetchOptionsStatus,
-      ApiStatus fetchDownloadsStatus,
-      DownloadOptions? downloadOptions,
-      List<DownloadItem> allDownloads,
-      List<DownloadItem> completedDownloads,
-      List<DownloadItem> activeDownloads,
-      List<DownloadItem> pendingDownloads,
-      String? errorMessage,
-      String? failedDownloadTitle,
-      ApiStatus saveToDeviceStatus,
-      String? savedToDeviceTitle});
-}
-
-/// @nodoc
-class _$DownloadStateCopyWithImpl<$Res, $Val extends DownloadState>
-    implements $DownloadStateCopyWith<$Res> {
-  _$DownloadStateCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of DownloadState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $DownloadStateCopyWith<DownloadState> get copyWith =>
+      _$DownloadStateCopyWithImpl<DownloadState>(
+          this as DownloadState, _$identity);
+
   @override
-  $Res call({
-    Object? fetchOptionsStatus = null,
-    Object? fetchDownloadsStatus = null,
-    Object? downloadOptions = freezed,
-    Object? allDownloads = null,
-    Object? completedDownloads = null,
-    Object? activeDownloads = null,
-    Object? pendingDownloads = null,
-    Object? errorMessage = freezed,
-    Object? failedDownloadTitle = freezed,
-    Object? saveToDeviceStatus = null,
-    Object? savedToDeviceTitle = freezed,
-  }) {
-    return _then(_value.copyWith(
-      fetchOptionsStatus: null == fetchOptionsStatus
-          ? _value.fetchOptionsStatus
-          : fetchOptionsStatus // ignore: cast_nullable_to_non_nullable
-              as ApiStatus,
-      fetchDownloadsStatus: null == fetchDownloadsStatus
-          ? _value.fetchDownloadsStatus
-          : fetchDownloadsStatus // ignore: cast_nullable_to_non_nullable
-              as ApiStatus,
-      downloadOptions: freezed == downloadOptions
-          ? _value.downloadOptions
-          : downloadOptions // ignore: cast_nullable_to_non_nullable
-              as DownloadOptions?,
-      allDownloads: null == allDownloads
-          ? _value.allDownloads
-          : allDownloads // ignore: cast_nullable_to_non_nullable
-              as List<DownloadItem>,
-      completedDownloads: null == completedDownloads
-          ? _value.completedDownloads
-          : completedDownloads // ignore: cast_nullable_to_non_nullable
-              as List<DownloadItem>,
-      activeDownloads: null == activeDownloads
-          ? _value.activeDownloads
-          : activeDownloads // ignore: cast_nullable_to_non_nullable
-              as List<DownloadItem>,
-      pendingDownloads: null == pendingDownloads
-          ? _value.pendingDownloads
-          : pendingDownloads // ignore: cast_nullable_to_non_nullable
-              as List<DownloadItem>,
-      errorMessage: freezed == errorMessage
-          ? _value.errorMessage
-          : errorMessage // ignore: cast_nullable_to_non_nullable
-              as String?,
-      failedDownloadTitle: freezed == failedDownloadTitle
-          ? _value.failedDownloadTitle
-          : failedDownloadTitle // ignore: cast_nullable_to_non_nullable
-              as String?,
-      saveToDeviceStatus: null == saveToDeviceStatus
-          ? _value.saveToDeviceStatus
-          : saveToDeviceStatus // ignore: cast_nullable_to_non_nullable
-              as ApiStatus,
-      savedToDeviceTitle: freezed == savedToDeviceTitle
-          ? _value.savedToDeviceTitle
-          : savedToDeviceTitle // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is DownloadState &&
+            (identical(other.fetchOptionsStatus, fetchOptionsStatus) ||
+                other.fetchOptionsStatus == fetchOptionsStatus) &&
+            (identical(other.fetchDownloadsStatus, fetchDownloadsStatus) ||
+                other.fetchDownloadsStatus == fetchDownloadsStatus) &&
+            (identical(other.downloadOptions, downloadOptions) ||
+                other.downloadOptions == downloadOptions) &&
+            const DeepCollectionEquality()
+                .equals(other.allDownloads, allDownloads) &&
+            const DeepCollectionEquality()
+                .equals(other.completedDownloads, completedDownloads) &&
+            const DeepCollectionEquality()
+                .equals(other.activeDownloads, activeDownloads) &&
+            const DeepCollectionEquality()
+                .equals(other.pendingDownloads, pendingDownloads) &&
+            (identical(other.errorMessage, errorMessage) ||
+                other.errorMessage == errorMessage) &&
+            (identical(other.failedDownloadTitle, failedDownloadTitle) ||
+                other.failedDownloadTitle == failedDownloadTitle) &&
+            (identical(other.saveToDeviceStatus, saveToDeviceStatus) ||
+                other.saveToDeviceStatus == saveToDeviceStatus) &&
+            (identical(other.savedToDeviceTitle, savedToDeviceTitle) ||
+                other.savedToDeviceTitle == savedToDeviceTitle));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      fetchOptionsStatus,
+      fetchDownloadsStatus,
+      downloadOptions,
+      const DeepCollectionEquality().hash(allDownloads),
+      const DeepCollectionEquality().hash(completedDownloads),
+      const DeepCollectionEquality().hash(activeDownloads),
+      const DeepCollectionEquality().hash(pendingDownloads),
+      errorMessage,
+      failedDownloadTitle,
+      saveToDeviceStatus,
+      savedToDeviceTitle);
+
+  @override
+  String toString() {
+    return 'DownloadState(fetchOptionsStatus: $fetchOptionsStatus, fetchDownloadsStatus: $fetchDownloadsStatus, downloadOptions: $downloadOptions, allDownloads: $allDownloads, completedDownloads: $completedDownloads, activeDownloads: $activeDownloads, pendingDownloads: $pendingDownloads, errorMessage: $errorMessage, failedDownloadTitle: $failedDownloadTitle, saveToDeviceStatus: $saveToDeviceStatus, savedToDeviceTitle: $savedToDeviceTitle)';
   }
 }
 
 /// @nodoc
-abstract class _$$DownloadStateImplCopyWith<$Res>
-    implements $DownloadStateCopyWith<$Res> {
-  factory _$$DownloadStateImplCopyWith(
-          _$DownloadStateImpl value, $Res Function(_$DownloadStateImpl) then) =
-      __$$DownloadStateImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $DownloadStateCopyWith<$Res> {
+  factory $DownloadStateCopyWith(
+          DownloadState value, $Res Function(DownloadState) _then) =
+      _$DownloadStateCopyWithImpl;
   @useResult
   $Res call(
       {ApiStatus fetchOptionsStatus,
@@ -4138,12 +1644,12 @@ abstract class _$$DownloadStateImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$DownloadStateImplCopyWithImpl<$Res>
-    extends _$DownloadStateCopyWithImpl<$Res, _$DownloadStateImpl>
-    implements _$$DownloadStateImplCopyWith<$Res> {
-  __$$DownloadStateImplCopyWithImpl(
-      _$DownloadStateImpl _value, $Res Function(_$DownloadStateImpl) _then)
-      : super(_value, _then);
+class _$DownloadStateCopyWithImpl<$Res>
+    implements $DownloadStateCopyWith<$Res> {
+  _$DownloadStateCopyWithImpl(this._self, this._then);
+
+  final DownloadState _self;
+  final $Res Function(DownloadState) _then;
 
   /// Create a copy of DownloadState
   /// with the given fields replaced by the non-null parameter values.
@@ -4162,59 +1668,281 @@ class __$$DownloadStateImplCopyWithImpl<$Res>
     Object? saveToDeviceStatus = null,
     Object? savedToDeviceTitle = freezed,
   }) {
-    return _then(_$DownloadStateImpl(
+    return _then(_self.copyWith(
       fetchOptionsStatus: null == fetchOptionsStatus
-          ? _value.fetchOptionsStatus
+          ? _self.fetchOptionsStatus
           : fetchOptionsStatus // ignore: cast_nullable_to_non_nullable
               as ApiStatus,
       fetchDownloadsStatus: null == fetchDownloadsStatus
-          ? _value.fetchDownloadsStatus
+          ? _self.fetchDownloadsStatus
           : fetchDownloadsStatus // ignore: cast_nullable_to_non_nullable
               as ApiStatus,
       downloadOptions: freezed == downloadOptions
-          ? _value.downloadOptions
+          ? _self.downloadOptions
           : downloadOptions // ignore: cast_nullable_to_non_nullable
               as DownloadOptions?,
       allDownloads: null == allDownloads
-          ? _value._allDownloads
+          ? _self.allDownloads
           : allDownloads // ignore: cast_nullable_to_non_nullable
               as List<DownloadItem>,
       completedDownloads: null == completedDownloads
-          ? _value._completedDownloads
+          ? _self.completedDownloads
           : completedDownloads // ignore: cast_nullable_to_non_nullable
               as List<DownloadItem>,
       activeDownloads: null == activeDownloads
-          ? _value._activeDownloads
+          ? _self.activeDownloads
           : activeDownloads // ignore: cast_nullable_to_non_nullable
               as List<DownloadItem>,
       pendingDownloads: null == pendingDownloads
-          ? _value._pendingDownloads
+          ? _self.pendingDownloads
           : pendingDownloads // ignore: cast_nullable_to_non_nullable
               as List<DownloadItem>,
       errorMessage: freezed == errorMessage
-          ? _value.errorMessage
+          ? _self.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
       failedDownloadTitle: freezed == failedDownloadTitle
-          ? _value.failedDownloadTitle
+          ? _self.failedDownloadTitle
           : failedDownloadTitle // ignore: cast_nullable_to_non_nullable
               as String?,
       saveToDeviceStatus: null == saveToDeviceStatus
-          ? _value.saveToDeviceStatus
+          ? _self.saveToDeviceStatus
           : saveToDeviceStatus // ignore: cast_nullable_to_non_nullable
               as ApiStatus,
       savedToDeviceTitle: freezed == savedToDeviceTitle
-          ? _value.savedToDeviceTitle
+          ? _self.savedToDeviceTitle
           : savedToDeviceTitle // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
 }
 
+/// Adds pattern-matching-related methods to [DownloadState].
+extension DownloadStatePatterns on DownloadState {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_DownloadState value)? $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _DownloadState() when $default != null:
+        return $default(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_DownloadState value) $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _DownloadState():
+        return $default(_that);
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_DownloadState value)? $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _DownloadState() when $default != null:
+        return $default(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            ApiStatus fetchOptionsStatus,
+            ApiStatus fetchDownloadsStatus,
+            DownloadOptions? downloadOptions,
+            List<DownloadItem> allDownloads,
+            List<DownloadItem> completedDownloads,
+            List<DownloadItem> activeDownloads,
+            List<DownloadItem> pendingDownloads,
+            String? errorMessage,
+            String? failedDownloadTitle,
+            ApiStatus saveToDeviceStatus,
+            String? savedToDeviceTitle)?
+        $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _DownloadState() when $default != null:
+        return $default(
+            _that.fetchOptionsStatus,
+            _that.fetchDownloadsStatus,
+            _that.downloadOptions,
+            _that.allDownloads,
+            _that.completedDownloads,
+            _that.activeDownloads,
+            _that.pendingDownloads,
+            _that.errorMessage,
+            _that.failedDownloadTitle,
+            _that.saveToDeviceStatus,
+            _that.savedToDeviceTitle);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            ApiStatus fetchOptionsStatus,
+            ApiStatus fetchDownloadsStatus,
+            DownloadOptions? downloadOptions,
+            List<DownloadItem> allDownloads,
+            List<DownloadItem> completedDownloads,
+            List<DownloadItem> activeDownloads,
+            List<DownloadItem> pendingDownloads,
+            String? errorMessage,
+            String? failedDownloadTitle,
+            ApiStatus saveToDeviceStatus,
+            String? savedToDeviceTitle)
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _DownloadState():
+        return $default(
+            _that.fetchOptionsStatus,
+            _that.fetchDownloadsStatus,
+            _that.downloadOptions,
+            _that.allDownloads,
+            _that.completedDownloads,
+            _that.activeDownloads,
+            _that.pendingDownloads,
+            _that.errorMessage,
+            _that.failedDownloadTitle,
+            _that.saveToDeviceStatus,
+            _that.savedToDeviceTitle);
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(
+            ApiStatus fetchOptionsStatus,
+            ApiStatus fetchDownloadsStatus,
+            DownloadOptions? downloadOptions,
+            List<DownloadItem> allDownloads,
+            List<DownloadItem> completedDownloads,
+            List<DownloadItem> activeDownloads,
+            List<DownloadItem> pendingDownloads,
+            String? errorMessage,
+            String? failedDownloadTitle,
+            ApiStatus saveToDeviceStatus,
+            String? savedToDeviceTitle)?
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _DownloadState() when $default != null:
+        return $default(
+            _that.fetchOptionsStatus,
+            _that.fetchDownloadsStatus,
+            _that.downloadOptions,
+            _that.allDownloads,
+            _that.completedDownloads,
+            _that.activeDownloads,
+            _that.pendingDownloads,
+            _that.errorMessage,
+            _that.failedDownloadTitle,
+            _that.saveToDeviceStatus,
+            _that.savedToDeviceTitle);
+      case _:
+        return null;
+    }
+  }
+}
+
 /// @nodoc
 
-class _$DownloadStateImpl implements _DownloadState {
-  const _$DownloadStateImpl(
+class _DownloadState implements DownloadState {
+  const _DownloadState(
       {required this.fetchOptionsStatus,
       required this.fetchDownloadsStatus,
       this.downloadOptions,
@@ -4305,16 +2033,19 @@ class _$DownloadStateImpl implements _DownloadState {
   @override
   final String? savedToDeviceTitle;
 
+  /// Create a copy of DownloadState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'DownloadState(fetchOptionsStatus: $fetchOptionsStatus, fetchDownloadsStatus: $fetchDownloadsStatus, downloadOptions: $downloadOptions, allDownloads: $allDownloads, completedDownloads: $completedDownloads, activeDownloads: $activeDownloads, pendingDownloads: $pendingDownloads, errorMessage: $errorMessage, failedDownloadTitle: $failedDownloadTitle, saveToDeviceStatus: $saveToDeviceStatus, savedToDeviceTitle: $savedToDeviceTitle)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$DownloadStateCopyWith<_DownloadState> get copyWith =>
+      __$DownloadStateCopyWithImpl<_DownloadState>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DownloadStateImpl &&
+            other is _DownloadState &&
             (identical(other.fetchOptionsStatus, fetchOptionsStatus) ||
                 other.fetchOptionsStatus == fetchOptionsStatus) &&
             (identical(other.fetchDownloadsStatus, fetchDownloadsStatus) ||
@@ -4354,77 +2085,106 @@ class _$DownloadStateImpl implements _DownloadState {
       saveToDeviceStatus,
       savedToDeviceTitle);
 
+  @override
+  String toString() {
+    return 'DownloadState(fetchOptionsStatus: $fetchOptionsStatus, fetchDownloadsStatus: $fetchDownloadsStatus, downloadOptions: $downloadOptions, allDownloads: $allDownloads, completedDownloads: $completedDownloads, activeDownloads: $activeDownloads, pendingDownloads: $pendingDownloads, errorMessage: $errorMessage, failedDownloadTitle: $failedDownloadTitle, saveToDeviceStatus: $saveToDeviceStatus, savedToDeviceTitle: $savedToDeviceTitle)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$DownloadStateCopyWith<$Res>
+    implements $DownloadStateCopyWith<$Res> {
+  factory _$DownloadStateCopyWith(
+          _DownloadState value, $Res Function(_DownloadState) _then) =
+      __$DownloadStateCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {ApiStatus fetchOptionsStatus,
+      ApiStatus fetchDownloadsStatus,
+      DownloadOptions? downloadOptions,
+      List<DownloadItem> allDownloads,
+      List<DownloadItem> completedDownloads,
+      List<DownloadItem> activeDownloads,
+      List<DownloadItem> pendingDownloads,
+      String? errorMessage,
+      String? failedDownloadTitle,
+      ApiStatus saveToDeviceStatus,
+      String? savedToDeviceTitle});
+}
+
+/// @nodoc
+class __$DownloadStateCopyWithImpl<$Res>
+    implements _$DownloadStateCopyWith<$Res> {
+  __$DownloadStateCopyWithImpl(this._self, this._then);
+
+  final _DownloadState _self;
+  final $Res Function(_DownloadState) _then;
+
   /// Create a copy of DownloadState
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$DownloadStateImplCopyWith<_$DownloadStateImpl> get copyWith =>
-      __$$DownloadStateImplCopyWithImpl<_$DownloadStateImpl>(this, _$identity);
+  $Res call({
+    Object? fetchOptionsStatus = null,
+    Object? fetchDownloadsStatus = null,
+    Object? downloadOptions = freezed,
+    Object? allDownloads = null,
+    Object? completedDownloads = null,
+    Object? activeDownloads = null,
+    Object? pendingDownloads = null,
+    Object? errorMessage = freezed,
+    Object? failedDownloadTitle = freezed,
+    Object? saveToDeviceStatus = null,
+    Object? savedToDeviceTitle = freezed,
+  }) {
+    return _then(_DownloadState(
+      fetchOptionsStatus: null == fetchOptionsStatus
+          ? _self.fetchOptionsStatus
+          : fetchOptionsStatus // ignore: cast_nullable_to_non_nullable
+              as ApiStatus,
+      fetchDownloadsStatus: null == fetchDownloadsStatus
+          ? _self.fetchDownloadsStatus
+          : fetchDownloadsStatus // ignore: cast_nullable_to_non_nullable
+              as ApiStatus,
+      downloadOptions: freezed == downloadOptions
+          ? _self.downloadOptions
+          : downloadOptions // ignore: cast_nullable_to_non_nullable
+              as DownloadOptions?,
+      allDownloads: null == allDownloads
+          ? _self._allDownloads
+          : allDownloads // ignore: cast_nullable_to_non_nullable
+              as List<DownloadItem>,
+      completedDownloads: null == completedDownloads
+          ? _self._completedDownloads
+          : completedDownloads // ignore: cast_nullable_to_non_nullable
+              as List<DownloadItem>,
+      activeDownloads: null == activeDownloads
+          ? _self._activeDownloads
+          : activeDownloads // ignore: cast_nullable_to_non_nullable
+              as List<DownloadItem>,
+      pendingDownloads: null == pendingDownloads
+          ? _self._pendingDownloads
+          : pendingDownloads // ignore: cast_nullable_to_non_nullable
+              as List<DownloadItem>,
+      errorMessage: freezed == errorMessage
+          ? _self.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      failedDownloadTitle: freezed == failedDownloadTitle
+          ? _self.failedDownloadTitle
+          : failedDownloadTitle // ignore: cast_nullable_to_non_nullable
+              as String?,
+      saveToDeviceStatus: null == saveToDeviceStatus
+          ? _self.saveToDeviceStatus
+          : saveToDeviceStatus // ignore: cast_nullable_to_non_nullable
+              as ApiStatus,
+      savedToDeviceTitle: freezed == savedToDeviceTitle
+          ? _self.savedToDeviceTitle
+          : savedToDeviceTitle // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
-abstract class _DownloadState implements DownloadState {
-  const factory _DownloadState(
-      {required final ApiStatus fetchOptionsStatus,
-      required final ApiStatus fetchDownloadsStatus,
-      final DownloadOptions? downloadOptions,
-      required final List<DownloadItem> allDownloads,
-      required final List<DownloadItem> completedDownloads,
-      required final List<DownloadItem> activeDownloads,
-      required final List<DownloadItem> pendingDownloads,
-      final String? errorMessage,
-      final String? failedDownloadTitle,
-      required final ApiStatus saveToDeviceStatus,
-      final String? savedToDeviceTitle}) = _$DownloadStateImpl;
-
-  /// Status of fetching download options
-  @override
-  ApiStatus get fetchOptionsStatus;
-
-  /// Status of fetching downloads list
-  @override
-  ApiStatus get fetchDownloadsStatus;
-
-  /// Available download options for current video
-  @override
-  DownloadOptions? get downloadOptions;
-
-  /// All downloads
-  @override
-  List<DownloadItem> get allDownloads;
-
-  /// Completed downloads
-  @override
-  List<DownloadItem> get completedDownloads;
-
-  /// Active (currently downloading) downloads
-  @override
-  List<DownloadItem> get activeDownloads;
-
-  /// Pending or paused downloads
-  @override
-  List<DownloadItem> get pendingDownloads;
-
-  /// Error message if any
-  @override
-  String? get errorMessage;
-
-  /// Title of the failed download (for snackbar display)
-  @override
-  String? get failedDownloadTitle;
-
-  /// Save to device operation status
-  @override
-  ApiStatus get saveToDeviceStatus;
-
-  /// Title of the file that was saved to device (for success message)
-  @override
-  String? get savedToDeviceTitle;
-
-  /// Create a copy of DownloadState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$DownloadStateImplCopyWith<_$DownloadStateImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on
