@@ -1734,6 +1734,120 @@ class SettingImpl implements SettingsService {
     }
   }
 
+  // Phase 18: PipePipe / NewPipe / LibreTube parity features
+  @override
+  Future<Either<MainFailure, bool>> toggleLongPressSpeedUp({required bool enabled}) async {
+    return _setSetting(settingName: longPressSpeedUpKey, value: enabled, toStringValue: (v) => v.toString());
+  }
+  @override
+  Future<Either<MainFailure, bool>> isLongPressSpeedUpEnabled() async {
+    try { final v = await db.getSetting(longPressSpeedUpKey); return Right(v != 'false'); } catch (e) { return const Left(MainFailure.serverFailure()); }
+  }
+  @override
+  Future<Either<MainFailure, bool>> toggleOriginalTitles({required bool enabled}) async {
+    return _setSetting(settingName: originalTitlesKey, value: enabled, toStringValue: (v) => v.toString());
+  }
+  @override
+  Future<Either<MainFailure, bool>> isOriginalTitlesEnabled() async {
+    try { final v = await db.getSetting(originalTitlesKey); return Right(v != 'false'); } catch (e) { return const Left(MainFailure.serverFailure()); }
+  }
+  @override
+  Future<Either<MainFailure, bool>> toggleCommentFilter({required bool enabled}) async {
+    return _setSetting(settingName: commentFilterEnabledKey, value: enabled, toStringValue: (v) => v.toString());
+  }
+  @override
+  Future<Either<MainFailure, bool>> isCommentFilterEnabled() async {
+    try { final v = await db.getSetting(commentFilterEnabledKey); return Right(v != 'false'); } catch (e) { return const Left(MainFailure.serverFailure()); }
+  }
+  @override
+  Future<Either<MainFailure, List<String>>> setCommentFilterKeywords({required List<String> keywords}) async {
+    try { await db.setSetting(commentFilterKeywordsKey, keywords.join('\n')); return Right(keywords); } catch (e) { return const Left(MainFailure.serverFailure()); }
+  }
+  @override
+  Future<Either<MainFailure, List<String>>> getCommentFilterKeywords() async {
+    try { final v = await db.getSetting(commentFilterKeywordsKey); if (v == null || v.isEmpty) return const Right([]); return Right(v.split('\n')); } catch (e) { return const Left(MainFailure.serverFailure()); }
+  }
+  @override
+  Future<Either<MainFailure, String>> setPreferredAudioQuality({required String quality}) async {
+    try { await db.setSetting(preferredAudioQualityKey, quality); return Right(quality); } catch (e) { return const Left(MainFailure.serverFailure()); }
+  }
+  @override
+  Future<Either<MainFailure, String>> getPreferredAudioQuality() async {
+    try { final v = await db.getSetting(preferredAudioQualityKey); return Right(v ?? 'auto'); } catch (e) { return const Left(MainFailure.serverFailure()); }
+  }
+  @override
+  Future<Either<MainFailure, bool>> toggleScreenLock({required bool enabled}) async {
+    return _setSetting(settingName: screenLockEnabledKey, value: enabled, toStringValue: (v) => v.toString());
+  }
+  @override
+  Future<Either<MainFailure, bool>> isScreenLockEnabled() async {
+    try { final v = await db.getSetting(screenLockEnabledKey); return Right(v != 'false'); } catch (e) { return const Left(MainFailure.serverFailure()); }
+  }
+  @override
+  Future<Either<MainFailure, bool>> togglePinchToZoom({required bool enabled}) async {
+    return _setSetting(settingName: pinchToZoomEnabledKey, value: enabled, toStringValue: (v) => v.toString());
+  }
+  @override
+  Future<Either<MainFailure, bool>> isPinchToZoomEnabled() async {
+    try { final v = await db.getSetting(pinchToZoomEnabledKey); return Right(v != 'false'); } catch (e) { return const Left(MainFailure.serverFailure()); }
+  }
+  @override
+  Future<Either<MainFailure, bool>> toggleSeekbarThumbnails({required bool enabled}) async {
+    return _setSetting(settingName: seekbarThumbnailsKey, value: enabled, toStringValue: (v) => v.toString());
+  }
+  @override
+  Future<Either<MainFailure, bool>> isSeekbarThumbnailsEnabled() async {
+    try { final v = await db.getSetting(seekbarThumbnailsKey); return Right(v != 'false'); } catch (e) { return const Left(MainFailure.serverFailure()); }
+  }
+  @override
+  Future<Either<MainFailure, bool>> togglePopupPlayer({required bool enabled}) async {
+    return _setSetting(settingName: popupPlayerEnabledKey, value: enabled, toStringValue: (v) => v.toString());
+  }
+  @override
+  Future<Either<MainFailure, bool>> isPopupPlayerEnabled() async {
+    try { final v = await db.getSetting(popupPlayerEnabledKey); return Right(v != 'false'); } catch (e) { return const Left(MainFailure.serverFailure()); }
+  }
+  @override
+  Future<Either<MainFailure, bool>> toggleLiveChatDanmaku({required bool enabled}) async {
+    return _setSetting(settingName: liveChatDanmakuEnabledKey, value: enabled, toStringValue: (v) => v.toString());
+  }
+  @override
+  Future<Either<MainFailure, bool>> isLiveChatDanmakuEnabled() async {
+    try { final v = await db.getSetting(liveChatDanmakuEnabledKey); return Right(v != 'false'); } catch (e) { return const Left(MainFailure.serverFailure()); }
+  }
+  @override
+  Future<Either<MainFailure, bool>> toggleBluetoothSeek({required bool enabled}) async {
+    return _setSetting(settingName: bluetoothSeekEnabledKey, value: enabled, toStringValue: (v) => v.toString());
+  }
+  @override
+  Future<Either<MainFailure, bool>> isBluetoothSeekEnabled() async {
+    try { final v = await db.getSetting(bluetoothSeekEnabledKey); return Right(v != 'false'); } catch (e) { return const Left(MainFailure.serverFailure()); }
+  }
+  @override
+  Future<Either<MainFailure, bool>> toggleMultiSelectLists({required bool enabled}) async {
+    return _setSetting(settingName: multiSelectListsEnabledKey, value: enabled, toStringValue: (v) => v.toString());
+  }
+  @override
+  Future<Either<MainFailure, bool>> isMultiSelectListsEnabled() async {
+    try { final v = await db.getSetting(multiSelectListsEnabledKey); return Right(v != 'false'); } catch (e) { return const Left(MainFailure.serverFailure()); }
+  }
+  @override
+  Future<Either<MainFailure, bool>> toggleSbExclusiveMarker({required bool enabled}) async {
+    return _setSetting(settingName: sbExclusiveMarkerKey, value: enabled, toStringValue: (v) => v.toString());
+  }
+  @override
+  Future<Either<MainFailure, bool>> isSbExclusiveMarkerEnabled() async {
+    try { final v = await db.getSetting(sbExclusiveMarkerKey); return Right(v != 'false'); } catch (e) { return const Left(MainFailure.serverFailure()); }
+  }
+  @override
+  Future<Either<MainFailure, bool>> toggleSbForDownloads({required bool enabled}) async {
+    return _setSetting(settingName: sbForDownloadsKey, value: enabled, toStringValue: (v) => v.toString());
+  }
+  @override
+  Future<Either<MainFailure, bool>> isSbForDownloadsEnabled() async {
+    try { final v = await db.getSetting(sbForDownloadsKey); return Right(v != 'false'); } catch (e) { return const Left(MainFailure.serverFailure()); }
+  }
+
   /// Parses YouTube Takeout CSV, NewPipe JSON or VyPlay JSON exports into
   /// subscription entries. Entries without a channel ID keep their URL so the
   /// importer can resolve handles later.

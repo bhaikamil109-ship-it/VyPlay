@@ -176,6 +176,20 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
         contentFilterHidePaid: contentFilterHidePaid,
         downloadFolderPath: downloadFolderPath,
         isRydEnabled: rydEnabled,
+        isLongPressSpeedUpEnabled: (settingsMap[longPressSpeedUpKey] ?? 'false') != 'false',
+        isOriginalTitlesEnabled: (settingsMap[originalTitlesKey] ?? 'false') != 'false',
+        isCommentFilterEnabled: (settingsMap[commentFilterEnabledKey] ?? 'false') != 'false',
+        commentFilterKeywords: (settingsMap[commentFilterKeywordsKey] ?? '').isEmpty ? <String>[] : (settingsMap[commentFilterKeywordsKey]!).split('\n'),
+        preferredAudioQuality: settingsMap[preferredAudioQualityKey] ?? 'auto',
+        isScreenLockEnabled: (settingsMap[screenLockEnabledKey] ?? 'false') != 'false',
+        isPinchToZoomEnabled: (settingsMap[pinchToZoomEnabledKey] ?? 'false') != 'false',
+        isSeekbarThumbnailsEnabled: (settingsMap[seekbarThumbnailsKey] ?? 'true') != 'false',
+        isPopupPlayerEnabled: (settingsMap[popupPlayerEnabledKey] ?? 'false') != 'false',
+        isLiveChatDanmakuEnabled: (settingsMap[liveChatDanmakuEnabledKey] ?? 'false') != 'false',
+        isBluetoothSeekEnabled: (settingsMap[bluetoothSeekEnabledKey] ?? 'true') != 'false',
+        isMultiSelectListsEnabled: (settingsMap[multiSelectListsEnabledKey] ?? 'false') != 'false',
+        isSbExclusiveMarkerEnabled: (settingsMap[sbExclusiveMarkerKey] ?? 'false') != 'false',
+        isSbForDownloadsEnabled: (settingsMap[sbForDownloadsKey] ?? 'false') != 'false',
       );
 
       if (ytService == YouTubeServices.invidious.name) {
@@ -1023,6 +1037,64 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
       final _result = await settingsService.toggleRyd(enabled: event.enabled);
       emit(_result.fold((MainFailure f) => state,
           (enabled) => state.copyWith(isRydEnabled: enabled)));
+    });
+
+    // Phase 18
+    on<ToggleLongPressSpeedUp>((e, emit) async {
+      final r = await settingsService.toggleLongPressSpeedUp(enabled: e.enabled);
+      emit(r.fold((_) => state, (v) => state.copyWith(isLongPressSpeedUpEnabled: v)));
+    });
+    on<ToggleOriginalTitles>((e, emit) async {
+      final r = await settingsService.toggleOriginalTitles(enabled: e.enabled);
+      emit(r.fold((_) => state, (v) => state.copyWith(isOriginalTitlesEnabled: v)));
+    });
+    on<ToggleCommentFilter>((e, emit) async {
+      final r = await settingsService.toggleCommentFilter(enabled: e.enabled);
+      emit(r.fold((_) => state, (v) => state.copyWith(isCommentFilterEnabled: v)));
+    });
+    on<SetCommentFilterKeywords>((e, emit) async {
+      final r = await settingsService.setCommentFilterKeywords(keywords: e.keywords);
+      emit(r.fold((_) => state, (v) => state.copyWith(commentFilterKeywords: v)));
+    });
+    on<SetPreferredAudioQuality>((e, emit) async {
+      final r = await settingsService.setPreferredAudioQuality(quality: e.quality);
+      emit(r.fold((_) => state, (v) => state.copyWith(preferredAudioQuality: v)));
+    });
+    on<ToggleScreenLock>((e, emit) async {
+      final r = await settingsService.toggleScreenLock(enabled: e.enabled);
+      emit(r.fold((_) => state, (v) => state.copyWith(isScreenLockEnabled: v)));
+    });
+    on<TogglePinchToZoom>((e, emit) async {
+      final r = await settingsService.togglePinchToZoom(enabled: e.enabled);
+      emit(r.fold((_) => state, (v) => state.copyWith(isPinchToZoomEnabled: v)));
+    });
+    on<ToggleSeekbarThumbnails>((e, emit) async {
+      final r = await settingsService.toggleSeekbarThumbnails(enabled: e.enabled);
+      emit(r.fold((_) => state, (v) => state.copyWith(isSeekbarThumbnailsEnabled: v)));
+    });
+    on<TogglePopupPlayer>((e, emit) async {
+      final r = await settingsService.togglePopupPlayer(enabled: e.enabled);
+      emit(r.fold((_) => state, (v) => state.copyWith(isPopupPlayerEnabled: v)));
+    });
+    on<ToggleLiveChatDanmaku>((e, emit) async {
+      final r = await settingsService.toggleLiveChatDanmaku(enabled: e.enabled);
+      emit(r.fold((_) => state, (v) => state.copyWith(isLiveChatDanmakuEnabled: v)));
+    });
+    on<ToggleBluetoothSeek>((e, emit) async {
+      final r = await settingsService.toggleBluetoothSeek(enabled: e.enabled);
+      emit(r.fold((_) => state, (v) => state.copyWith(isBluetoothSeekEnabled: v)));
+    });
+    on<ToggleMultiSelectLists>((e, emit) async {
+      final r = await settingsService.toggleMultiSelectLists(enabled: e.enabled);
+      emit(r.fold((_) => state, (v) => state.copyWith(isMultiSelectListsEnabled: v)));
+    });
+    on<ToggleSbExclusiveMarker>((e, emit) async {
+      final r = await settingsService.toggleSbExclusiveMarker(enabled: e.enabled);
+      emit(r.fold((_) => state, (v) => state.copyWith(isSbExclusiveMarkerEnabled: v)));
+    });
+    on<ToggleSbForDownloads>((e, emit) async {
+      final r = await settingsService.toggleSbForDownloads(enabled: e.enabled);
+      emit(r.fold((_) => state, (v) => state.copyWith(isSbForDownloadsEnabled: v)));
     });
 
   }

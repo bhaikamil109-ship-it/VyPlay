@@ -4218,6 +4218,261 @@ class S {
       args: [],
     );
   }
+
+  /// `PipePipe / NewPipe / LibreTube features`
+  String get phase18Features {
+    return Intl.message(
+      'PipePipe / NewPipe / LibreTube features',
+      name: 'phase18Features',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Extra features ported from popular open-source YouTube clients`
+  String get phase18FeaturesDescription {
+    return Intl.message(
+      'Extra features ported from popular open-source YouTube clients',
+      name: 'phase18FeaturesDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Long-press to speed up`
+  String get longPressSpeedUp {
+    return Intl.message(
+      'Long-press to speed up',
+      name: 'longPressSpeedUp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hold to play video at 2x speed, release to resume`
+  String get longPressSpeedUpDescription {
+    return Intl.message(
+      'Hold to play video at 2x speed, release to resume',
+      name: 'longPressSpeedUpDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Show original titles`
+  String get originalTitles {
+    return Intl.message(
+      'Show original titles',
+      name: 'originalTitles',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Show the video's original title instead of DeArrow titles`
+  String get originalTitlesDescription {
+    return Intl.message(
+      'Show the video\'s original title instead of DeArrow titles',
+      name: 'originalTitlesDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Comment filter`
+  String get commentFilter {
+    return Intl.message(
+      'Comment filter',
+      name: 'commentFilter',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hide comments containing blocked keywords`
+  String get commentFilterDescription {
+    return Intl.message(
+      'Hide comments containing blocked keywords',
+      name: 'commentFilterDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Screen lock`
+  String get screenLock {
+    return Intl.message('Screen lock', name: 'screenLock', desc: '', args: []);
+  }
+
+  /// `Lock playback controls while video plays`
+  String get screenLockDescription {
+    return Intl.message(
+      'Lock playback controls while video plays',
+      name: 'screenLockDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pinch to zoom`
+  String get pinchToZoom {
+    return Intl.message(
+      'Pinch to zoom',
+      name: 'pinchToZoom',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pinch gesture to zoom the video`
+  String get pinchToZoomDescription {
+    return Intl.message(
+      'Pinch gesture to zoom the video',
+      name: 'pinchToZoomDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Seekbar thumbnails`
+  String get seekbarThumbnails {
+    return Intl.message(
+      'Seekbar thumbnails',
+      name: 'seekbarThumbnails',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Show preview thumbnails while seeking`
+  String get seekbarThumbnailsDescription {
+    return Intl.message(
+      'Show preview thumbnails while seeking',
+      name: 'seekbarThumbnailsDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Popup player`
+  String get popupPlayer {
+    return Intl.message(
+      'Popup player',
+      name: 'popupPlayer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Play videos in a floating popup window`
+  String get popupPlayerDescription {
+    return Intl.message(
+      'Play videos in a floating popup window',
+      name: 'popupPlayerDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Live chat / Danmaku`
+  String get liveChatDanmaku {
+    return Intl.message(
+      'Live chat / Danmaku',
+      name: 'liveChatDanmaku',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Show live chat and danmaku overlays`
+  String get liveChatDanmakuDescription {
+    return Intl.message(
+      'Show live chat and danmaku overlays',
+      name: 'liveChatDanmakuDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bluetooth seek`
+  String get bluetoothSeek {
+    return Intl.message(
+      'Bluetooth seek',
+      name: 'bluetoothSeek',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Use Bluetooth button to seek`
+  String get bluetoothSeekDescription {
+    return Intl.message(
+      'Use Bluetooth button to seek',
+      name: 'bluetoothSeekDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Multi-select lists`
+  String get multiSelectLists {
+    return Intl.message(
+      'Multi-select lists',
+      name: 'multiSelectLists',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select multiple videos in lists`
+  String get multiSelectListsDescription {
+    return Intl.message(
+      'Select multiple videos in lists',
+      name: 'multiSelectListsDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `SponsorBlock exclusive marker`
+  String get sbExclusiveMarker {
+    return Intl.message(
+      'SponsorBlock exclusive marker',
+      name: 'sbExclusiveMarker',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mark SponsorBlock segments exclusively`
+  String get sbExclusiveMarkerDescription {
+    return Intl.message(
+      'Mark SponsorBlock segments exclusively',
+      name: 'sbExclusiveMarkerDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `SponsorBlock for downloads`
+  String get sbForDownloads {
+    return Intl.message(
+      'SponsorBlock for downloads',
+      name: 'sbForDownloads',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Apply SponsorBlock to downloaded videos`
+  String get sbForDownloadsDescription {
+    return Intl.message(
+      'Apply SponsorBlock to downloaded videos',
+      name: 'sbForDownloadsDescription',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

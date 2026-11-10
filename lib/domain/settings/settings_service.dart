@@ -254,4 +254,34 @@ abstract class SettingsService {
   // Return YouTube Dislike fallback
   Future<Either<MainFailure, bool>> toggleRyd({required bool enabled});
   Future<Either<MainFailure, bool>> isRydEnabled();
+
+  // Phase 18: PipePipe / NewPipe / LibreTube parity
+  Future<Either<MainFailure, bool>> toggleLongPressSpeedUp({required bool enabled});
+  Future<Either<MainFailure, bool>> isLongPressSpeedUpEnabled();
+  Future<Either<MainFailure, bool>> toggleOriginalTitles({required bool enabled});
+  Future<Either<MainFailure, bool>> isOriginalTitlesEnabled();
+  Future<Either<MainFailure, bool>> toggleCommentFilter({required bool enabled});
+  Future<Either<MainFailure, bool>> isCommentFilterEnabled();
+  Future<Either<MainFailure, List<String>>> setCommentFilterKeywords({required List<String> keywords});
+  Future<Either<MainFailure, List<String>>> getCommentFilterKeywords();
+  Future<Either<MainFailure, String>> setPreferredAudioQuality({required String quality});
+  Future<Either<MainFailure, String>> getPreferredAudioQuality();
+  Future<Either<MainFailure, bool>> toggleScreenLock({required bool enabled});
+  Future<Either<MainFailure, bool>> isScreenLockEnabled();
+  Future<Either<MainFailure, bool>> togglePinchToZoom({required bool enabled});
+  Future<Either<MainFailure, bool>> isPinchToZoomEnabled();
+  Future<Either<MainFailure, bool>> toggleSeekbarThumbnails({required bool enabled});
+  Future<Either<MainFailure, bool>> isSeekbarThumbnailsEnabled();
+  Future<Either<MainFailure, bool>> togglePopupPlayer({required bool enabled});
+  Future<Either<MainFailure, bool>> isPopupPlayerEnabled();
+  Future<Either<MainFailure, bool>> toggleLiveChatDanmaku({required bool enabled});
+  Future<Either<MainFailure, bool>> isLiveChatDanmakuEnabled();
+  Future<Either<MainFailure, bool>> toggleBluetoothSeek({required bool enabled});
+  Future<Either<MainFailure, bool>> isBluetoothSeekEnabled();
+  Future<Either<MainFailure, bool>> toggleMultiSelectLists({required bool enabled});
+  Future<Either<MainFailure, bool>> isMultiSelectListsEnabled();
+  Future<Either<MainFailure, bool>> toggleSbExclusiveMarker({required bool enabled});
+  Future<Either<MainFailure, bool>> isSbExclusiveMarkerEnabled();
+  Future<Either<MainFailure, bool>> toggleSbForDownloads({required bool enabled});
+  Future<Either<MainFailure, bool>> isSbForDownloadsEnabled();
 }

@@ -131,6 +131,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "blockedKeywordsHint": MessageLookupByLibrary.simpleMessage(
       "Add a keyword or /regex/",
     ),
+    "bluetoothSeek": MessageLookupByLibrary.simpleMessage("Bluetooth seek"),
+    "bluetoothSeekDescription": MessageLookupByLibrary.simpleMessage(
+      "Use Bluetooth button to seek",
+    ),
     "bookmarkedPlaylists": MessageLookupByLibrary.simpleMessage(
       "Bookmarked Playlists",
     ),
@@ -184,6 +188,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "Clear Sleep Timer",
     ),
     "commentAuthorNotFound": MessageLookupByLibrary.simpleMessage("Not found"),
+    "commentFilter": MessageLookupByLibrary.simpleMessage("Comment filter"),
+    "commentFilterDescription": MessageLookupByLibrary.simpleMessage(
+      "Hide comments containing blocked keywords",
+    ),
     "commentsDisabled": MessageLookupByLibrary.simpleMessage(
       "Comments are disabled",
     ),
@@ -449,8 +457,20 @@ class MessageLookup extends MessageLookupByLibrary {
     "language": MessageLookupByLibrary.simpleMessage("भाषा"),
     "library": MessageLookupByLibrary.simpleMessage("लाइब्रेरी"),
     "like": MessageLookupByLibrary.simpleMessage("पसंद"),
+    "liveChatDanmaku": MessageLookupByLibrary.simpleMessage(
+      "Live chat / Danmaku",
+    ),
+    "liveChatDanmakuDescription": MessageLookupByLibrary.simpleMessage(
+      "Show live chat and danmaku overlays",
+    ),
     "localPlaylists": MessageLookupByLibrary.simpleMessage("Playlists"),
     "logsLabel": MessageLookupByLibrary.simpleMessage("Logs"),
+    "longPressSpeedUp": MessageLookupByLibrary.simpleMessage(
+      "Long-press to speed up",
+    ),
+    "longPressSpeedUpDescription": MessageLookupByLibrary.simpleMessage(
+      "Hold to play video at 2x speed, release to resume",
+    ),
     "managePlaylists": MessageLookupByLibrary.simpleMessage("Manage Playlists"),
     "merging": MessageLookupByLibrary.simpleMessage("मर्ज हो रहा है"),
     "miniPlayer": MessageLookupByLibrary.simpleMessage("Mini Player"),
@@ -465,6 +485,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "mobileDataQualityDescription": MessageLookupByLibrary.simpleMessage(
       "Video quality for mobile data connections",
+    ),
+    "multiSelectLists": MessageLookupByLibrary.simpleMessage(
+      "Multi-select lists",
+    ),
+    "multiSelectListsDescription": MessageLookupByLibrary.simpleMessage(
+      "Select multiple videos in lists",
     ),
     "musicOfftopic": MessageLookupByLibrary.simpleMessage("Music: Non-Music"),
     "netherlands": MessageLookupByLibrary.simpleMessage("Netherlands"),
@@ -539,6 +565,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "organizeSubscriptions": MessageLookupByLibrary.simpleMessage(
       "Organize your subscriptions into groups",
     ),
+    "originalTitles": MessageLookupByLibrary.simpleMessage(
+      "Show original titles",
+    ),
+    "originalTitlesDescription": MessageLookupByLibrary.simpleMessage(
+      "Show the video\'s original title instead of DeArrow titles",
+    ),
     "outro": MessageLookupByLibrary.simpleMessage("Outro"),
     "pause": MessageLookupByLibrary.simpleMessage("रोकें"),
     "pauseOnCall": MessageLookupByLibrary.simpleMessage("Pause on Phone Call"),
@@ -548,6 +580,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "pauseTimer": MessageLookupByLibrary.simpleMessage("Pause Timer"),
     "paused": MessageLookupByLibrary.simpleMessage("रोका गया"),
     "pending": MessageLookupByLibrary.simpleMessage("प्रतीक्षारत"),
+    "phase18Features": MessageLookupByLibrary.simpleMessage(
+      "PipePipe / NewPipe / LibreTube features",
+    ),
+    "phase18FeaturesDescription": MessageLookupByLibrary.simpleMessage(
+      "Extra features ported from popular open-source YouTube clients",
+    ),
+    "pinchToZoom": MessageLookupByLibrary.simpleMessage("Pinch to zoom"),
+    "pinchToZoomDescription": MessageLookupByLibrary.simpleMessage(
+      "Pinch gesture to zoom the video",
+    ),
     "pinned": MessageLookupByLibrary.simpleMessage("Pinned"),
     "platformLabel": MessageLookupByLibrary.simpleMessage("Platform"),
     "playAll": MessageLookupByLibrary.simpleMessage("Play all"),
@@ -568,6 +610,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "Playlist not found",
     ),
     "playlists": MessageLookupByLibrary.simpleMessage("प्लेलिस्ट"),
+    "popupPlayer": MessageLookupByLibrary.simpleMessage("Popup player"),
+    "popupPlayerDescription": MessageLookupByLibrary.simpleMessage(
+      "Play videos in a floating popup window",
+    ),
     "profileInUse": MessageLookupByLibrary.simpleMessage("Active"),
     "profileName": MessageLookupByLibrary.simpleMessage("Profile Name"),
     "profiles": MessageLookupByLibrary.simpleMessage("प्रोफ़ाइल"),
@@ -664,6 +710,22 @@ class MessageLookup extends MessageLookupByLibrary {
     "savingToDevice": MessageLookupByLibrary.simpleMessage(
       "Saving to device...",
     ),
+    "sbExclusiveMarker": MessageLookupByLibrary.simpleMessage(
+      "SponsorBlock exclusive marker",
+    ),
+    "sbExclusiveMarkerDescription": MessageLookupByLibrary.simpleMessage(
+      "Mark SponsorBlock segments exclusively",
+    ),
+    "sbForDownloads": MessageLookupByLibrary.simpleMessage(
+      "SponsorBlock for downloads",
+    ),
+    "sbForDownloadsDescription": MessageLookupByLibrary.simpleMessage(
+      "Apply SponsorBlock to downloaded videos",
+    ),
+    "screenLock": MessageLookupByLibrary.simpleMessage("Screen lock"),
+    "screenLockDescription": MessageLookupByLibrary.simpleMessage(
+      "Lock playback controls while video plays",
+    ),
     "sdCardStorage": MessageLookupByLibrary.simpleMessage(
       "SD card / removable storage",
     ),
@@ -686,6 +748,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "searchYouTube": MessageLookupByLibrary.simpleMessage("Search YouTube..."),
     "seconds": MessageLookupByLibrary.simpleMessage("seconds"),
+    "seekbarThumbnails": MessageLookupByLibrary.simpleMessage(
+      "Seekbar thumbnails",
+    ),
+    "seekbarThumbnailsDescription": MessageLookupByLibrary.simpleMessage(
+      "Show preview thumbnails while seeking",
+    ),
     "selectAll": MessageLookupByLibrary.simpleMessage("सब चुनें"),
     "selectFile": MessageLookupByLibrary.simpleMessage("Select File"),
     "selectPlaylists": MessageLookupByLibrary.simpleMessage("Select Playlists"),

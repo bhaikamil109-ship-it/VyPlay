@@ -15,6 +15,7 @@ import 'widgets/mini_player_section.dart';
 import 'widgets/download_preferences_section.dart';
 import 'widgets/download_location_section.dart';
 import 'widgets/ryd_section.dart';
+import 'widgets/phase18_features_section.dart';
 import 'widgets/playback_speed_section.dart';
 import 'widgets/service_switch_section.dart';
 
@@ -67,6 +68,8 @@ class ScreenSettings extends StatelessWidget {
                 DownloadLocationSection(),
                 kHeightBox15,
                 RydSettingsSection(),
+                kHeightBox15,
+                Phase18FeaturesSection(),
                 kHeightBox15,
                 PlaybackSpeedSettingsSection(),
                 kHeightBox15,

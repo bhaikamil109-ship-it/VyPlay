@@ -95,6 +95,21 @@ sealed class SettingsState with _$SettingsState {
     bool? contentFilterHidePaid,
     String? downloadFolderPath,
     bool? isRydEnabled,
+    // Phase 18
+    bool? isLongPressSpeedUpEnabled,
+    bool? isOriginalTitlesEnabled,
+    bool? isCommentFilterEnabled,
+    List<String>? commentFilterKeywords,
+    String? preferredAudioQuality,
+    bool? isScreenLockEnabled,
+    bool? isPinchToZoomEnabled,
+    bool? isSeekbarThumbnailsEnabled,
+    bool? isPopupPlayerEnabled,
+    bool? isLiveChatDanmakuEnabled,
+    bool? isBluetoothSeekEnabled,
+    bool? isMultiSelectListsEnabled,
+    bool? isSbExclusiveMarkerEnabled,
+    bool? isSbForDownloadsEnabled,
   }) = _Initial;
 
   const SettingsState._();
@@ -180,6 +195,20 @@ sealed class SettingsState with _$SettingsState {
         contentFilterHidePaid: false,
         downloadFolderPath: null,
         isRydEnabled: true,
+        isLongPressSpeedUpEnabled: false,
+        isOriginalTitlesEnabled: false,
+        isCommentFilterEnabled: false,
+        commentFilterKeywords: const [],
+        preferredAudioQuality: 'auto',
+        isScreenLockEnabled: false,
+        isPinchToZoomEnabled: false,
+        isSeekbarThumbnailsEnabled: true,
+        isPopupPlayerEnabled: false,
+        isLiveChatDanmakuEnabled: false,
+        isBluetoothSeekEnabled: true,
+        isMultiSelectListsEnabled: false,
+        isSbExclusiveMarkerEnabled: false,
+        isSbForDownloadsEnabled: false,
       );
 
   /// Playlist bookmark preferences derived from the persisted state.

@@ -144,6 +144,20 @@ extension SettingsEventPatterns on SettingsEvent {
         contentFilterHidePaidChanged,
     TResult Function(DownloadFolderChanged value)? downloadFolderChanged,
     TResult Function(ToggleRyd value)? rydToggled,
+    TResult Function(ToggleLongPressSpeedUp value)? toggleLongPressSpeedUp,
+    TResult Function(ToggleOriginalTitles value)? toggleOriginalTitles,
+    TResult Function(ToggleCommentFilter value)? toggleCommentFilter,
+    TResult Function(SetCommentFilterKeywords value)? setCommentFilterKeywords,
+    TResult Function(SetPreferredAudioQuality value)? setPreferredAudioQuality,
+    TResult Function(ToggleScreenLock value)? toggleScreenLock,
+    TResult Function(TogglePinchToZoom value)? togglePinchToZoom,
+    TResult Function(ToggleSeekbarThumbnails value)? toggleSeekbarThumbnails,
+    TResult Function(TogglePopupPlayer value)? togglePopupPlayer,
+    TResult Function(ToggleLiveChatDanmaku value)? toggleLiveChatDanmaku,
+    TResult Function(ToggleBluetoothSeek value)? toggleBluetoothSeek,
+    TResult Function(ToggleMultiSelectLists value)? toggleMultiSelectLists,
+    TResult Function(ToggleSbExclusiveMarker value)? toggleSbExclusiveMarker,
+    TResult Function(ToggleSbForDownloads value)? toggleSbForDownloads,
     required TResult orElse(),
   }) {
     final _that = this;
@@ -315,6 +329,34 @@ extension SettingsEventPatterns on SettingsEvent {
         return downloadFolderChanged(_that);
       case ToggleRyd() when rydToggled != null:
         return rydToggled(_that);
+      case ToggleLongPressSpeedUp() when toggleLongPressSpeedUp != null:
+        return toggleLongPressSpeedUp(_that);
+      case ToggleOriginalTitles() when toggleOriginalTitles != null:
+        return toggleOriginalTitles(_that);
+      case ToggleCommentFilter() when toggleCommentFilter != null:
+        return toggleCommentFilter(_that);
+      case SetCommentFilterKeywords() when setCommentFilterKeywords != null:
+        return setCommentFilterKeywords(_that);
+      case SetPreferredAudioQuality() when setPreferredAudioQuality != null:
+        return setPreferredAudioQuality(_that);
+      case ToggleScreenLock() when toggleScreenLock != null:
+        return toggleScreenLock(_that);
+      case TogglePinchToZoom() when togglePinchToZoom != null:
+        return togglePinchToZoom(_that);
+      case ToggleSeekbarThumbnails() when toggleSeekbarThumbnails != null:
+        return toggleSeekbarThumbnails(_that);
+      case TogglePopupPlayer() when togglePopupPlayer != null:
+        return togglePopupPlayer(_that);
+      case ToggleLiveChatDanmaku() when toggleLiveChatDanmaku != null:
+        return toggleLiveChatDanmaku(_that);
+      case ToggleBluetoothSeek() when toggleBluetoothSeek != null:
+        return toggleBluetoothSeek(_that);
+      case ToggleMultiSelectLists() when toggleMultiSelectLists != null:
+        return toggleMultiSelectLists(_that);
+      case ToggleSbExclusiveMarker() when toggleSbExclusiveMarker != null:
+        return toggleSbExclusiveMarker(_that);
+      case ToggleSbForDownloads() when toggleSbForDownloads != null:
+        return toggleSbForDownloads(_that);
       case _:
         return orElse();
     }
@@ -446,6 +488,27 @@ extension SettingsEventPatterns on SettingsEvent {
     required TResult Function(DownloadFolderChanged value)
         downloadFolderChanged,
     required TResult Function(ToggleRyd value) rydToggled,
+    required TResult Function(ToggleLongPressSpeedUp value)
+        toggleLongPressSpeedUp,
+    required TResult Function(ToggleOriginalTitles value) toggleOriginalTitles,
+    required TResult Function(ToggleCommentFilter value) toggleCommentFilter,
+    required TResult Function(SetCommentFilterKeywords value)
+        setCommentFilterKeywords,
+    required TResult Function(SetPreferredAudioQuality value)
+        setPreferredAudioQuality,
+    required TResult Function(ToggleScreenLock value) toggleScreenLock,
+    required TResult Function(TogglePinchToZoom value) togglePinchToZoom,
+    required TResult Function(ToggleSeekbarThumbnails value)
+        toggleSeekbarThumbnails,
+    required TResult Function(TogglePopupPlayer value) togglePopupPlayer,
+    required TResult Function(ToggleLiveChatDanmaku value)
+        toggleLiveChatDanmaku,
+    required TResult Function(ToggleBluetoothSeek value) toggleBluetoothSeek,
+    required TResult Function(ToggleMultiSelectLists value)
+        toggleMultiSelectLists,
+    required TResult Function(ToggleSbExclusiveMarker value)
+        toggleSbExclusiveMarker,
+    required TResult Function(ToggleSbForDownloads value) toggleSbForDownloads,
   }) {
     final _that = this;
     switch (_that) {
@@ -603,6 +666,34 @@ extension SettingsEventPatterns on SettingsEvent {
         return downloadFolderChanged(_that);
       case ToggleRyd():
         return rydToggled(_that);
+      case ToggleLongPressSpeedUp():
+        return toggleLongPressSpeedUp(_that);
+      case ToggleOriginalTitles():
+        return toggleOriginalTitles(_that);
+      case ToggleCommentFilter():
+        return toggleCommentFilter(_that);
+      case SetCommentFilterKeywords():
+        return setCommentFilterKeywords(_that);
+      case SetPreferredAudioQuality():
+        return setPreferredAudioQuality(_that);
+      case ToggleScreenLock():
+        return toggleScreenLock(_that);
+      case TogglePinchToZoom():
+        return togglePinchToZoom(_that);
+      case ToggleSeekbarThumbnails():
+        return toggleSeekbarThumbnails(_that);
+      case TogglePopupPlayer():
+        return togglePopupPlayer(_that);
+      case ToggleLiveChatDanmaku():
+        return toggleLiveChatDanmaku(_that);
+      case ToggleBluetoothSeek():
+        return toggleBluetoothSeek(_that);
+      case ToggleMultiSelectLists():
+        return toggleMultiSelectLists(_that);
+      case ToggleSbExclusiveMarker():
+        return toggleSbExclusiveMarker(_that);
+      case ToggleSbForDownloads():
+        return toggleSbForDownloads(_that);
     }
   }
 
@@ -715,6 +806,20 @@ extension SettingsEventPatterns on SettingsEvent {
         contentFilterHidePaidChanged,
     TResult? Function(DownloadFolderChanged value)? downloadFolderChanged,
     TResult? Function(ToggleRyd value)? rydToggled,
+    TResult? Function(ToggleLongPressSpeedUp value)? toggleLongPressSpeedUp,
+    TResult? Function(ToggleOriginalTitles value)? toggleOriginalTitles,
+    TResult? Function(ToggleCommentFilter value)? toggleCommentFilter,
+    TResult? Function(SetCommentFilterKeywords value)? setCommentFilterKeywords,
+    TResult? Function(SetPreferredAudioQuality value)? setPreferredAudioQuality,
+    TResult? Function(ToggleScreenLock value)? toggleScreenLock,
+    TResult? Function(TogglePinchToZoom value)? togglePinchToZoom,
+    TResult? Function(ToggleSeekbarThumbnails value)? toggleSeekbarThumbnails,
+    TResult? Function(TogglePopupPlayer value)? togglePopupPlayer,
+    TResult? Function(ToggleLiveChatDanmaku value)? toggleLiveChatDanmaku,
+    TResult? Function(ToggleBluetoothSeek value)? toggleBluetoothSeek,
+    TResult? Function(ToggleMultiSelectLists value)? toggleMultiSelectLists,
+    TResult? Function(ToggleSbExclusiveMarker value)? toggleSbExclusiveMarker,
+    TResult? Function(ToggleSbForDownloads value)? toggleSbForDownloads,
   }) {
     final _that = this;
     switch (_that) {
@@ -885,6 +990,34 @@ extension SettingsEventPatterns on SettingsEvent {
         return downloadFolderChanged(_that);
       case ToggleRyd() when rydToggled != null:
         return rydToggled(_that);
+      case ToggleLongPressSpeedUp() when toggleLongPressSpeedUp != null:
+        return toggleLongPressSpeedUp(_that);
+      case ToggleOriginalTitles() when toggleOriginalTitles != null:
+        return toggleOriginalTitles(_that);
+      case ToggleCommentFilter() when toggleCommentFilter != null:
+        return toggleCommentFilter(_that);
+      case SetCommentFilterKeywords() when setCommentFilterKeywords != null:
+        return setCommentFilterKeywords(_that);
+      case SetPreferredAudioQuality() when setPreferredAudioQuality != null:
+        return setPreferredAudioQuality(_that);
+      case ToggleScreenLock() when toggleScreenLock != null:
+        return toggleScreenLock(_that);
+      case TogglePinchToZoom() when togglePinchToZoom != null:
+        return togglePinchToZoom(_that);
+      case ToggleSeekbarThumbnails() when toggleSeekbarThumbnails != null:
+        return toggleSeekbarThumbnails(_that);
+      case TogglePopupPlayer() when togglePopupPlayer != null:
+        return togglePopupPlayer(_that);
+      case ToggleLiveChatDanmaku() when toggleLiveChatDanmaku != null:
+        return toggleLiveChatDanmaku(_that);
+      case ToggleBluetoothSeek() when toggleBluetoothSeek != null:
+        return toggleBluetoothSeek(_that);
+      case ToggleMultiSelectLists() when toggleMultiSelectLists != null:
+        return toggleMultiSelectLists(_that);
+      case ToggleSbExclusiveMarker() when toggleSbExclusiveMarker != null:
+        return toggleSbExclusiveMarker(_that);
+      case ToggleSbForDownloads() when toggleSbForDownloads != null:
+        return toggleSbForDownloads(_that);
       case _:
         return null;
     }
@@ -983,6 +1116,20 @@ extension SettingsEventPatterns on SettingsEvent {
     TResult Function(bool enabled)? contentFilterHidePaidChanged,
     TResult Function(String? path)? downloadFolderChanged,
     TResult Function(bool enabled)? rydToggled,
+    TResult Function(bool enabled)? toggleLongPressSpeedUp,
+    TResult Function(bool enabled)? toggleOriginalTitles,
+    TResult Function(bool enabled)? toggleCommentFilter,
+    TResult Function(List<String> keywords)? setCommentFilterKeywords,
+    TResult Function(String quality)? setPreferredAudioQuality,
+    TResult Function(bool enabled)? toggleScreenLock,
+    TResult Function(bool enabled)? togglePinchToZoom,
+    TResult Function(bool enabled)? toggleSeekbarThumbnails,
+    TResult Function(bool enabled)? togglePopupPlayer,
+    TResult Function(bool enabled)? toggleLiveChatDanmaku,
+    TResult Function(bool enabled)? toggleBluetoothSeek,
+    TResult Function(bool enabled)? toggleMultiSelectLists,
+    TResult Function(bool enabled)? toggleSbExclusiveMarker,
+    TResult Function(bool enabled)? toggleSbForDownloads,
     required TResult orElse(),
   }) {
     final _that = this;
@@ -1154,6 +1301,34 @@ extension SettingsEventPatterns on SettingsEvent {
         return downloadFolderChanged(_that.path);
       case ToggleRyd() when rydToggled != null:
         return rydToggled(_that.enabled);
+      case ToggleLongPressSpeedUp() when toggleLongPressSpeedUp != null:
+        return toggleLongPressSpeedUp(_that.enabled);
+      case ToggleOriginalTitles() when toggleOriginalTitles != null:
+        return toggleOriginalTitles(_that.enabled);
+      case ToggleCommentFilter() when toggleCommentFilter != null:
+        return toggleCommentFilter(_that.enabled);
+      case SetCommentFilterKeywords() when setCommentFilterKeywords != null:
+        return setCommentFilterKeywords(_that.keywords);
+      case SetPreferredAudioQuality() when setPreferredAudioQuality != null:
+        return setPreferredAudioQuality(_that.quality);
+      case ToggleScreenLock() when toggleScreenLock != null:
+        return toggleScreenLock(_that.enabled);
+      case TogglePinchToZoom() when togglePinchToZoom != null:
+        return togglePinchToZoom(_that.enabled);
+      case ToggleSeekbarThumbnails() when toggleSeekbarThumbnails != null:
+        return toggleSeekbarThumbnails(_that.enabled);
+      case TogglePopupPlayer() when togglePopupPlayer != null:
+        return togglePopupPlayer(_that.enabled);
+      case ToggleLiveChatDanmaku() when toggleLiveChatDanmaku != null:
+        return toggleLiveChatDanmaku(_that.enabled);
+      case ToggleBluetoothSeek() when toggleBluetoothSeek != null:
+        return toggleBluetoothSeek(_that.enabled);
+      case ToggleMultiSelectLists() when toggleMultiSelectLists != null:
+        return toggleMultiSelectLists(_that.enabled);
+      case ToggleSbExclusiveMarker() when toggleSbExclusiveMarker != null:
+        return toggleSbExclusiveMarker(_that.enabled);
+      case ToggleSbForDownloads() when toggleSbForDownloads != null:
+        return toggleSbForDownloads(_that.enabled);
       case _:
         return orElse();
     }
@@ -1257,6 +1432,20 @@ extension SettingsEventPatterns on SettingsEvent {
     required TResult Function(bool enabled) contentFilterHidePaidChanged,
     required TResult Function(String? path) downloadFolderChanged,
     required TResult Function(bool enabled) rydToggled,
+    required TResult Function(bool enabled) toggleLongPressSpeedUp,
+    required TResult Function(bool enabled) toggleOriginalTitles,
+    required TResult Function(bool enabled) toggleCommentFilter,
+    required TResult Function(List<String> keywords) setCommentFilterKeywords,
+    required TResult Function(String quality) setPreferredAudioQuality,
+    required TResult Function(bool enabled) toggleScreenLock,
+    required TResult Function(bool enabled) togglePinchToZoom,
+    required TResult Function(bool enabled) toggleSeekbarThumbnails,
+    required TResult Function(bool enabled) togglePopupPlayer,
+    required TResult Function(bool enabled) toggleLiveChatDanmaku,
+    required TResult Function(bool enabled) toggleBluetoothSeek,
+    required TResult Function(bool enabled) toggleMultiSelectLists,
+    required TResult Function(bool enabled) toggleSbExclusiveMarker,
+    required TResult Function(bool enabled) toggleSbForDownloads,
   }) {
     final _that = this;
     switch (_that) {
@@ -1414,6 +1603,34 @@ extension SettingsEventPatterns on SettingsEvent {
         return downloadFolderChanged(_that.path);
       case ToggleRyd():
         return rydToggled(_that.enabled);
+      case ToggleLongPressSpeedUp():
+        return toggleLongPressSpeedUp(_that.enabled);
+      case ToggleOriginalTitles():
+        return toggleOriginalTitles(_that.enabled);
+      case ToggleCommentFilter():
+        return toggleCommentFilter(_that.enabled);
+      case SetCommentFilterKeywords():
+        return setCommentFilterKeywords(_that.keywords);
+      case SetPreferredAudioQuality():
+        return setPreferredAudioQuality(_that.quality);
+      case ToggleScreenLock():
+        return toggleScreenLock(_that.enabled);
+      case TogglePinchToZoom():
+        return togglePinchToZoom(_that.enabled);
+      case ToggleSeekbarThumbnails():
+        return toggleSeekbarThumbnails(_that.enabled);
+      case TogglePopupPlayer():
+        return togglePopupPlayer(_that.enabled);
+      case ToggleLiveChatDanmaku():
+        return toggleLiveChatDanmaku(_that.enabled);
+      case ToggleBluetoothSeek():
+        return toggleBluetoothSeek(_that.enabled);
+      case ToggleMultiSelectLists():
+        return toggleMultiSelectLists(_that.enabled);
+      case ToggleSbExclusiveMarker():
+        return toggleSbExclusiveMarker(_that.enabled);
+      case ToggleSbForDownloads():
+        return toggleSbForDownloads(_that.enabled);
     }
   }
 
@@ -1510,6 +1727,20 @@ extension SettingsEventPatterns on SettingsEvent {
     TResult? Function(bool enabled)? contentFilterHidePaidChanged,
     TResult? Function(String? path)? downloadFolderChanged,
     TResult? Function(bool enabled)? rydToggled,
+    TResult? Function(bool enabled)? toggleLongPressSpeedUp,
+    TResult? Function(bool enabled)? toggleOriginalTitles,
+    TResult? Function(bool enabled)? toggleCommentFilter,
+    TResult? Function(List<String> keywords)? setCommentFilterKeywords,
+    TResult? Function(String quality)? setPreferredAudioQuality,
+    TResult? Function(bool enabled)? toggleScreenLock,
+    TResult? Function(bool enabled)? togglePinchToZoom,
+    TResult? Function(bool enabled)? toggleSeekbarThumbnails,
+    TResult? Function(bool enabled)? togglePopupPlayer,
+    TResult? Function(bool enabled)? toggleLiveChatDanmaku,
+    TResult? Function(bool enabled)? toggleBluetoothSeek,
+    TResult? Function(bool enabled)? toggleMultiSelectLists,
+    TResult? Function(bool enabled)? toggleSbExclusiveMarker,
+    TResult? Function(bool enabled)? toggleSbForDownloads,
   }) {
     final _that = this;
     switch (_that) {
@@ -1680,6 +1911,34 @@ extension SettingsEventPatterns on SettingsEvent {
         return downloadFolderChanged(_that.path);
       case ToggleRyd() when rydToggled != null:
         return rydToggled(_that.enabled);
+      case ToggleLongPressSpeedUp() when toggleLongPressSpeedUp != null:
+        return toggleLongPressSpeedUp(_that.enabled);
+      case ToggleOriginalTitles() when toggleOriginalTitles != null:
+        return toggleOriginalTitles(_that.enabled);
+      case ToggleCommentFilter() when toggleCommentFilter != null:
+        return toggleCommentFilter(_that.enabled);
+      case SetCommentFilterKeywords() when setCommentFilterKeywords != null:
+        return setCommentFilterKeywords(_that.keywords);
+      case SetPreferredAudioQuality() when setPreferredAudioQuality != null:
+        return setPreferredAudioQuality(_that.quality);
+      case ToggleScreenLock() when toggleScreenLock != null:
+        return toggleScreenLock(_that.enabled);
+      case TogglePinchToZoom() when togglePinchToZoom != null:
+        return togglePinchToZoom(_that.enabled);
+      case ToggleSeekbarThumbnails() when toggleSeekbarThumbnails != null:
+        return toggleSeekbarThumbnails(_that.enabled);
+      case TogglePopupPlayer() when togglePopupPlayer != null:
+        return togglePopupPlayer(_that.enabled);
+      case ToggleLiveChatDanmaku() when toggleLiveChatDanmaku != null:
+        return toggleLiveChatDanmaku(_that.enabled);
+      case ToggleBluetoothSeek() when toggleBluetoothSeek != null:
+        return toggleBluetoothSeek(_that.enabled);
+      case ToggleMultiSelectLists() when toggleMultiSelectLists != null:
+        return toggleMultiSelectLists(_that.enabled);
+      case ToggleSbExclusiveMarker() when toggleSbExclusiveMarker != null:
+        return toggleSbExclusiveMarker(_that.enabled);
+      case ToggleSbForDownloads() when toggleSbForDownloads != null:
+        return toggleSbForDownloads(_that.enabled);
       case _:
         return null;
     }
@@ -6661,6 +6920,918 @@ class _$ToggleRydCopyWithImpl<$Res> implements $ToggleRydCopyWith<$Res> {
 }
 
 /// @nodoc
+
+class ToggleLongPressSpeedUp implements SettingsEvent {
+  const ToggleLongPressSpeedUp({required this.enabled});
+
+  final bool enabled;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ToggleLongPressSpeedUpCopyWith<ToggleLongPressSpeedUp> get copyWith =>
+      _$ToggleLongPressSpeedUpCopyWithImpl<ToggleLongPressSpeedUp>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ToggleLongPressSpeedUp &&
+            (identical(other.enabled, enabled) || other.enabled == enabled));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, enabled);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.toggleLongPressSpeedUp(enabled: $enabled)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ToggleLongPressSpeedUpCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleLongPressSpeedUpCopyWith(ToggleLongPressSpeedUp value,
+          $Res Function(ToggleLongPressSpeedUp) _then) =
+      _$ToggleLongPressSpeedUpCopyWithImpl;
+  @useResult
+  $Res call({bool enabled});
+}
+
+/// @nodoc
+class _$ToggleLongPressSpeedUpCopyWithImpl<$Res>
+    implements $ToggleLongPressSpeedUpCopyWith<$Res> {
+  _$ToggleLongPressSpeedUpCopyWithImpl(this._self, this._then);
+
+  final ToggleLongPressSpeedUp _self;
+  final $Res Function(ToggleLongPressSpeedUp) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? enabled = null,
+  }) {
+    return _then(ToggleLongPressSpeedUp(
+      enabled: null == enabled
+          ? _self.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ToggleOriginalTitles implements SettingsEvent {
+  const ToggleOriginalTitles({required this.enabled});
+
+  final bool enabled;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ToggleOriginalTitlesCopyWith<ToggleOriginalTitles> get copyWith =>
+      _$ToggleOriginalTitlesCopyWithImpl<ToggleOriginalTitles>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ToggleOriginalTitles &&
+            (identical(other.enabled, enabled) || other.enabled == enabled));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, enabled);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.toggleOriginalTitles(enabled: $enabled)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ToggleOriginalTitlesCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleOriginalTitlesCopyWith(ToggleOriginalTitles value,
+          $Res Function(ToggleOriginalTitles) _then) =
+      _$ToggleOriginalTitlesCopyWithImpl;
+  @useResult
+  $Res call({bool enabled});
+}
+
+/// @nodoc
+class _$ToggleOriginalTitlesCopyWithImpl<$Res>
+    implements $ToggleOriginalTitlesCopyWith<$Res> {
+  _$ToggleOriginalTitlesCopyWithImpl(this._self, this._then);
+
+  final ToggleOriginalTitles _self;
+  final $Res Function(ToggleOriginalTitles) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? enabled = null,
+  }) {
+    return _then(ToggleOriginalTitles(
+      enabled: null == enabled
+          ? _self.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ToggleCommentFilter implements SettingsEvent {
+  const ToggleCommentFilter({required this.enabled});
+
+  final bool enabled;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ToggleCommentFilterCopyWith<ToggleCommentFilter> get copyWith =>
+      _$ToggleCommentFilterCopyWithImpl<ToggleCommentFilter>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ToggleCommentFilter &&
+            (identical(other.enabled, enabled) || other.enabled == enabled));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, enabled);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.toggleCommentFilter(enabled: $enabled)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ToggleCommentFilterCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleCommentFilterCopyWith(
+          ToggleCommentFilter value, $Res Function(ToggleCommentFilter) _then) =
+      _$ToggleCommentFilterCopyWithImpl;
+  @useResult
+  $Res call({bool enabled});
+}
+
+/// @nodoc
+class _$ToggleCommentFilterCopyWithImpl<$Res>
+    implements $ToggleCommentFilterCopyWith<$Res> {
+  _$ToggleCommentFilterCopyWithImpl(this._self, this._then);
+
+  final ToggleCommentFilter _self;
+  final $Res Function(ToggleCommentFilter) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? enabled = null,
+  }) {
+    return _then(ToggleCommentFilter(
+      enabled: null == enabled
+          ? _self.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class SetCommentFilterKeywords implements SettingsEvent {
+  const SetCommentFilterKeywords({required final List<String> keywords})
+      : _keywords = keywords;
+
+  final List<String> _keywords;
+  List<String> get keywords {
+    if (_keywords is EqualUnmodifiableListView) return _keywords;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_keywords);
+  }
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $SetCommentFilterKeywordsCopyWith<SetCommentFilterKeywords> get copyWith =>
+      _$SetCommentFilterKeywordsCopyWithImpl<SetCommentFilterKeywords>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SetCommentFilterKeywords &&
+            const DeepCollectionEquality().equals(other._keywords, _keywords));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_keywords));
+
+  @override
+  String toString() {
+    return 'SettingsEvent.setCommentFilterKeywords(keywords: $keywords)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $SetCommentFilterKeywordsCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $SetCommentFilterKeywordsCopyWith(SetCommentFilterKeywords value,
+          $Res Function(SetCommentFilterKeywords) _then) =
+      _$SetCommentFilterKeywordsCopyWithImpl;
+  @useResult
+  $Res call({List<String> keywords});
+}
+
+/// @nodoc
+class _$SetCommentFilterKeywordsCopyWithImpl<$Res>
+    implements $SetCommentFilterKeywordsCopyWith<$Res> {
+  _$SetCommentFilterKeywordsCopyWithImpl(this._self, this._then);
+
+  final SetCommentFilterKeywords _self;
+  final $Res Function(SetCommentFilterKeywords) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? keywords = null,
+  }) {
+    return _then(SetCommentFilterKeywords(
+      keywords: null == keywords
+          ? _self._keywords
+          : keywords // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class SetPreferredAudioQuality implements SettingsEvent {
+  const SetPreferredAudioQuality({required this.quality});
+
+  final String quality;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $SetPreferredAudioQualityCopyWith<SetPreferredAudioQuality> get copyWith =>
+      _$SetPreferredAudioQualityCopyWithImpl<SetPreferredAudioQuality>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SetPreferredAudioQuality &&
+            (identical(other.quality, quality) || other.quality == quality));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, quality);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.setPreferredAudioQuality(quality: $quality)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $SetPreferredAudioQualityCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $SetPreferredAudioQualityCopyWith(SetPreferredAudioQuality value,
+          $Res Function(SetPreferredAudioQuality) _then) =
+      _$SetPreferredAudioQualityCopyWithImpl;
+  @useResult
+  $Res call({String quality});
+}
+
+/// @nodoc
+class _$SetPreferredAudioQualityCopyWithImpl<$Res>
+    implements $SetPreferredAudioQualityCopyWith<$Res> {
+  _$SetPreferredAudioQualityCopyWithImpl(this._self, this._then);
+
+  final SetPreferredAudioQuality _self;
+  final $Res Function(SetPreferredAudioQuality) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? quality = null,
+  }) {
+    return _then(SetPreferredAudioQuality(
+      quality: null == quality
+          ? _self.quality
+          : quality // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ToggleScreenLock implements SettingsEvent {
+  const ToggleScreenLock({required this.enabled});
+
+  final bool enabled;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ToggleScreenLockCopyWith<ToggleScreenLock> get copyWith =>
+      _$ToggleScreenLockCopyWithImpl<ToggleScreenLock>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ToggleScreenLock &&
+            (identical(other.enabled, enabled) || other.enabled == enabled));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, enabled);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.toggleScreenLock(enabled: $enabled)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ToggleScreenLockCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleScreenLockCopyWith(
+          ToggleScreenLock value, $Res Function(ToggleScreenLock) _then) =
+      _$ToggleScreenLockCopyWithImpl;
+  @useResult
+  $Res call({bool enabled});
+}
+
+/// @nodoc
+class _$ToggleScreenLockCopyWithImpl<$Res>
+    implements $ToggleScreenLockCopyWith<$Res> {
+  _$ToggleScreenLockCopyWithImpl(this._self, this._then);
+
+  final ToggleScreenLock _self;
+  final $Res Function(ToggleScreenLock) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? enabled = null,
+  }) {
+    return _then(ToggleScreenLock(
+      enabled: null == enabled
+          ? _self.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class TogglePinchToZoom implements SettingsEvent {
+  const TogglePinchToZoom({required this.enabled});
+
+  final bool enabled;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $TogglePinchToZoomCopyWith<TogglePinchToZoom> get copyWith =>
+      _$TogglePinchToZoomCopyWithImpl<TogglePinchToZoom>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is TogglePinchToZoom &&
+            (identical(other.enabled, enabled) || other.enabled == enabled));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, enabled);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.togglePinchToZoom(enabled: $enabled)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $TogglePinchToZoomCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $TogglePinchToZoomCopyWith(
+          TogglePinchToZoom value, $Res Function(TogglePinchToZoom) _then) =
+      _$TogglePinchToZoomCopyWithImpl;
+  @useResult
+  $Res call({bool enabled});
+}
+
+/// @nodoc
+class _$TogglePinchToZoomCopyWithImpl<$Res>
+    implements $TogglePinchToZoomCopyWith<$Res> {
+  _$TogglePinchToZoomCopyWithImpl(this._self, this._then);
+
+  final TogglePinchToZoom _self;
+  final $Res Function(TogglePinchToZoom) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? enabled = null,
+  }) {
+    return _then(TogglePinchToZoom(
+      enabled: null == enabled
+          ? _self.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ToggleSeekbarThumbnails implements SettingsEvent {
+  const ToggleSeekbarThumbnails({required this.enabled});
+
+  final bool enabled;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ToggleSeekbarThumbnailsCopyWith<ToggleSeekbarThumbnails> get copyWith =>
+      _$ToggleSeekbarThumbnailsCopyWithImpl<ToggleSeekbarThumbnails>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ToggleSeekbarThumbnails &&
+            (identical(other.enabled, enabled) || other.enabled == enabled));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, enabled);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.toggleSeekbarThumbnails(enabled: $enabled)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ToggleSeekbarThumbnailsCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleSeekbarThumbnailsCopyWith(ToggleSeekbarThumbnails value,
+          $Res Function(ToggleSeekbarThumbnails) _then) =
+      _$ToggleSeekbarThumbnailsCopyWithImpl;
+  @useResult
+  $Res call({bool enabled});
+}
+
+/// @nodoc
+class _$ToggleSeekbarThumbnailsCopyWithImpl<$Res>
+    implements $ToggleSeekbarThumbnailsCopyWith<$Res> {
+  _$ToggleSeekbarThumbnailsCopyWithImpl(this._self, this._then);
+
+  final ToggleSeekbarThumbnails _self;
+  final $Res Function(ToggleSeekbarThumbnails) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? enabled = null,
+  }) {
+    return _then(ToggleSeekbarThumbnails(
+      enabled: null == enabled
+          ? _self.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class TogglePopupPlayer implements SettingsEvent {
+  const TogglePopupPlayer({required this.enabled});
+
+  final bool enabled;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $TogglePopupPlayerCopyWith<TogglePopupPlayer> get copyWith =>
+      _$TogglePopupPlayerCopyWithImpl<TogglePopupPlayer>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is TogglePopupPlayer &&
+            (identical(other.enabled, enabled) || other.enabled == enabled));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, enabled);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.togglePopupPlayer(enabled: $enabled)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $TogglePopupPlayerCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $TogglePopupPlayerCopyWith(
+          TogglePopupPlayer value, $Res Function(TogglePopupPlayer) _then) =
+      _$TogglePopupPlayerCopyWithImpl;
+  @useResult
+  $Res call({bool enabled});
+}
+
+/// @nodoc
+class _$TogglePopupPlayerCopyWithImpl<$Res>
+    implements $TogglePopupPlayerCopyWith<$Res> {
+  _$TogglePopupPlayerCopyWithImpl(this._self, this._then);
+
+  final TogglePopupPlayer _self;
+  final $Res Function(TogglePopupPlayer) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? enabled = null,
+  }) {
+    return _then(TogglePopupPlayer(
+      enabled: null == enabled
+          ? _self.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ToggleLiveChatDanmaku implements SettingsEvent {
+  const ToggleLiveChatDanmaku({required this.enabled});
+
+  final bool enabled;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ToggleLiveChatDanmakuCopyWith<ToggleLiveChatDanmaku> get copyWith =>
+      _$ToggleLiveChatDanmakuCopyWithImpl<ToggleLiveChatDanmaku>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ToggleLiveChatDanmaku &&
+            (identical(other.enabled, enabled) || other.enabled == enabled));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, enabled);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.toggleLiveChatDanmaku(enabled: $enabled)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ToggleLiveChatDanmakuCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleLiveChatDanmakuCopyWith(ToggleLiveChatDanmaku value,
+          $Res Function(ToggleLiveChatDanmaku) _then) =
+      _$ToggleLiveChatDanmakuCopyWithImpl;
+  @useResult
+  $Res call({bool enabled});
+}
+
+/// @nodoc
+class _$ToggleLiveChatDanmakuCopyWithImpl<$Res>
+    implements $ToggleLiveChatDanmakuCopyWith<$Res> {
+  _$ToggleLiveChatDanmakuCopyWithImpl(this._self, this._then);
+
+  final ToggleLiveChatDanmaku _self;
+  final $Res Function(ToggleLiveChatDanmaku) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? enabled = null,
+  }) {
+    return _then(ToggleLiveChatDanmaku(
+      enabled: null == enabled
+          ? _self.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ToggleBluetoothSeek implements SettingsEvent {
+  const ToggleBluetoothSeek({required this.enabled});
+
+  final bool enabled;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ToggleBluetoothSeekCopyWith<ToggleBluetoothSeek> get copyWith =>
+      _$ToggleBluetoothSeekCopyWithImpl<ToggleBluetoothSeek>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ToggleBluetoothSeek &&
+            (identical(other.enabled, enabled) || other.enabled == enabled));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, enabled);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.toggleBluetoothSeek(enabled: $enabled)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ToggleBluetoothSeekCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleBluetoothSeekCopyWith(
+          ToggleBluetoothSeek value, $Res Function(ToggleBluetoothSeek) _then) =
+      _$ToggleBluetoothSeekCopyWithImpl;
+  @useResult
+  $Res call({bool enabled});
+}
+
+/// @nodoc
+class _$ToggleBluetoothSeekCopyWithImpl<$Res>
+    implements $ToggleBluetoothSeekCopyWith<$Res> {
+  _$ToggleBluetoothSeekCopyWithImpl(this._self, this._then);
+
+  final ToggleBluetoothSeek _self;
+  final $Res Function(ToggleBluetoothSeek) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? enabled = null,
+  }) {
+    return _then(ToggleBluetoothSeek(
+      enabled: null == enabled
+          ? _self.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ToggleMultiSelectLists implements SettingsEvent {
+  const ToggleMultiSelectLists({required this.enabled});
+
+  final bool enabled;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ToggleMultiSelectListsCopyWith<ToggleMultiSelectLists> get copyWith =>
+      _$ToggleMultiSelectListsCopyWithImpl<ToggleMultiSelectLists>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ToggleMultiSelectLists &&
+            (identical(other.enabled, enabled) || other.enabled == enabled));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, enabled);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.toggleMultiSelectLists(enabled: $enabled)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ToggleMultiSelectListsCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleMultiSelectListsCopyWith(ToggleMultiSelectLists value,
+          $Res Function(ToggleMultiSelectLists) _then) =
+      _$ToggleMultiSelectListsCopyWithImpl;
+  @useResult
+  $Res call({bool enabled});
+}
+
+/// @nodoc
+class _$ToggleMultiSelectListsCopyWithImpl<$Res>
+    implements $ToggleMultiSelectListsCopyWith<$Res> {
+  _$ToggleMultiSelectListsCopyWithImpl(this._self, this._then);
+
+  final ToggleMultiSelectLists _self;
+  final $Res Function(ToggleMultiSelectLists) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? enabled = null,
+  }) {
+    return _then(ToggleMultiSelectLists(
+      enabled: null == enabled
+          ? _self.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ToggleSbExclusiveMarker implements SettingsEvent {
+  const ToggleSbExclusiveMarker({required this.enabled});
+
+  final bool enabled;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ToggleSbExclusiveMarkerCopyWith<ToggleSbExclusiveMarker> get copyWith =>
+      _$ToggleSbExclusiveMarkerCopyWithImpl<ToggleSbExclusiveMarker>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ToggleSbExclusiveMarker &&
+            (identical(other.enabled, enabled) || other.enabled == enabled));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, enabled);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.toggleSbExclusiveMarker(enabled: $enabled)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ToggleSbExclusiveMarkerCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleSbExclusiveMarkerCopyWith(ToggleSbExclusiveMarker value,
+          $Res Function(ToggleSbExclusiveMarker) _then) =
+      _$ToggleSbExclusiveMarkerCopyWithImpl;
+  @useResult
+  $Res call({bool enabled});
+}
+
+/// @nodoc
+class _$ToggleSbExclusiveMarkerCopyWithImpl<$Res>
+    implements $ToggleSbExclusiveMarkerCopyWith<$Res> {
+  _$ToggleSbExclusiveMarkerCopyWithImpl(this._self, this._then);
+
+  final ToggleSbExclusiveMarker _self;
+  final $Res Function(ToggleSbExclusiveMarker) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? enabled = null,
+  }) {
+    return _then(ToggleSbExclusiveMarker(
+      enabled: null == enabled
+          ? _self.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ToggleSbForDownloads implements SettingsEvent {
+  const ToggleSbForDownloads({required this.enabled});
+
+  final bool enabled;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ToggleSbForDownloadsCopyWith<ToggleSbForDownloads> get copyWith =>
+      _$ToggleSbForDownloadsCopyWithImpl<ToggleSbForDownloads>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ToggleSbForDownloads &&
+            (identical(other.enabled, enabled) || other.enabled == enabled));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, enabled);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.toggleSbForDownloads(enabled: $enabled)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ToggleSbForDownloadsCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $ToggleSbForDownloadsCopyWith(ToggleSbForDownloads value,
+          $Res Function(ToggleSbForDownloads) _then) =
+      _$ToggleSbForDownloadsCopyWithImpl;
+  @useResult
+  $Res call({bool enabled});
+}
+
+/// @nodoc
+class _$ToggleSbForDownloadsCopyWithImpl<$Res>
+    implements $ToggleSbForDownloadsCopyWith<$Res> {
+  _$ToggleSbForDownloadsCopyWithImpl(this._self, this._then);
+
+  final ToggleSbForDownloads _self;
+  final $Res Function(ToggleSbForDownloads) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? enabled = null,
+  }) {
+    return _then(ToggleSbForDownloads(
+      enabled: null == enabled
+          ? _self.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
 mixin _$SettingsState {
   String get defaultLanguage;
   String get defaultQuality;
@@ -6742,7 +7913,21 @@ mixin _$SettingsState {
   bool? get contentFilterHideShorts;
   bool? get contentFilterHidePaid;
   String? get downloadFolderPath;
-  bool? get isRydEnabled;
+  bool? get isRydEnabled; // Phase 18
+  bool? get isLongPressSpeedUpEnabled;
+  bool? get isOriginalTitlesEnabled;
+  bool? get isCommentFilterEnabled;
+  List<String>? get commentFilterKeywords;
+  String? get preferredAudioQuality;
+  bool? get isScreenLockEnabled;
+  bool? get isPinchToZoomEnabled;
+  bool? get isSeekbarThumbnailsEnabled;
+  bool? get isPopupPlayerEnabled;
+  bool? get isLiveChatDanmakuEnabled;
+  bool? get isBluetoothSeekEnabled;
+  bool? get isMultiSelectListsEnabled;
+  bool? get isSbExclusiveMarkerEnabled;
+  bool? get isSbForDownloadsEnabled;
 
   /// Create a copy of SettingsState
   /// with the given fields replaced by the non-null parameter values.
@@ -6870,7 +8055,21 @@ mixin _$SettingsState {
             (identical(other.contentFilterHideShorts, contentFilterHideShorts) || other.contentFilterHideShorts == contentFilterHideShorts) &&
             (identical(other.contentFilterHidePaid, contentFilterHidePaid) || other.contentFilterHidePaid == contentFilterHidePaid) &&
             (identical(other.downloadFolderPath, downloadFolderPath) || other.downloadFolderPath == downloadFolderPath) &&
-            (identical(other.isRydEnabled, isRydEnabled) || other.isRydEnabled == isRydEnabled));
+            (identical(other.isRydEnabled, isRydEnabled) || other.isRydEnabled == isRydEnabled) &&
+            (identical(other.isLongPressSpeedUpEnabled, isLongPressSpeedUpEnabled) || other.isLongPressSpeedUpEnabled == isLongPressSpeedUpEnabled) &&
+            (identical(other.isOriginalTitlesEnabled, isOriginalTitlesEnabled) || other.isOriginalTitlesEnabled == isOriginalTitlesEnabled) &&
+            (identical(other.isCommentFilterEnabled, isCommentFilterEnabled) || other.isCommentFilterEnabled == isCommentFilterEnabled) &&
+            const DeepCollectionEquality().equals(other.commentFilterKeywords, commentFilterKeywords) &&
+            (identical(other.preferredAudioQuality, preferredAudioQuality) || other.preferredAudioQuality == preferredAudioQuality) &&
+            (identical(other.isScreenLockEnabled, isScreenLockEnabled) || other.isScreenLockEnabled == isScreenLockEnabled) &&
+            (identical(other.isPinchToZoomEnabled, isPinchToZoomEnabled) || other.isPinchToZoomEnabled == isPinchToZoomEnabled) &&
+            (identical(other.isSeekbarThumbnailsEnabled, isSeekbarThumbnailsEnabled) || other.isSeekbarThumbnailsEnabled == isSeekbarThumbnailsEnabled) &&
+            (identical(other.isPopupPlayerEnabled, isPopupPlayerEnabled) || other.isPopupPlayerEnabled == isPopupPlayerEnabled) &&
+            (identical(other.isLiveChatDanmakuEnabled, isLiveChatDanmakuEnabled) || other.isLiveChatDanmakuEnabled == isLiveChatDanmakuEnabled) &&
+            (identical(other.isBluetoothSeekEnabled, isBluetoothSeekEnabled) || other.isBluetoothSeekEnabled == isBluetoothSeekEnabled) &&
+            (identical(other.isMultiSelectListsEnabled, isMultiSelectListsEnabled) || other.isMultiSelectListsEnabled == isMultiSelectListsEnabled) &&
+            (identical(other.isSbExclusiveMarkerEnabled, isSbExclusiveMarkerEnabled) || other.isSbExclusiveMarkerEnabled == isSbExclusiveMarkerEnabled) &&
+            (identical(other.isSbForDownloadsEnabled, isSbForDownloadsEnabled) || other.isSbForDownloadsEnabled == isSbForDownloadsEnabled));
   }
 
   @override
@@ -6953,12 +8152,26 @@ mixin _$SettingsState {
         contentFilterHideShorts,
         contentFilterHidePaid,
         downloadFolderPath,
-        isRydEnabled
+        isRydEnabled,
+        isLongPressSpeedUpEnabled,
+        isOriginalTitlesEnabled,
+        isCommentFilterEnabled,
+        const DeepCollectionEquality().hash(commentFilterKeywords),
+        preferredAudioQuality,
+        isScreenLockEnabled,
+        isPinchToZoomEnabled,
+        isSeekbarThumbnailsEnabled,
+        isPopupPlayerEnabled,
+        isLiveChatDanmakuEnabled,
+        isBluetoothSeekEnabled,
+        isMultiSelectListsEnabled,
+        isSbExclusiveMarkerEnabled,
+        isSbForDownloadsEnabled
       ]);
 
   @override
   String toString() {
-    return 'SettingsState(defaultLanguage: $defaultLanguage, defaultQuality: $defaultQuality, defaultRegion: $defaultRegion, themeMode: $themeMode, version: $version, isHistoryVisible: $isHistoryVisible, isDislikeVisible: $isDislikeVisible, isHlsPlayer: $isHlsPlayer, isHideComments: $isHideComments, isHideRelated: $isHideRelated, pipedInstances: $pipedInstances, pipedInstanceStatus: $pipedInstanceStatus, instance: $instance, invidiousInstances: $invidiousInstances, invidiousInstanceStatus: $invidiousInstanceStatus, ytService: $ytService, initialized: $initialized, settingsStatus: $settingsStatus, isPipDisabled: $isPipDisabled, connectingToInstance: $connectingToInstance, isTestingConnection: $isTestingConnection, userInstanceFailed: $userInstanceFailed, failedInstanceName: $failedInstanceName, searchFilter: $searchFilter, videoFitMode: $videoFitMode, skipInterval: $skipInterval, isSponsorBlockEnabled: $isSponsorBlockEnabled, sponsorBlockCategories: $sponsorBlockCategories, openLinksInBrowser: $openLinksInBrowser, homeFeedMode: $homeFeedMode, isAudioFocusEnabled: $isAudioFocusEnabled, currentProfile: $currentProfile, profiles: $profiles, subtitleSize: $subtitleSize, lastExportedFilePath: $lastExportedFilePath, isSearchHistoryEnabled: $isSearchHistoryEnabled, isSearchHistoryVisible: $isSearchHistoryVisible, isAutoPipEnabled: $isAutoPipEnabled, sleepTimerConfig: $sleepTimerConfig, isSwipeGesturesEnabled: $isSwipeGesturesEnabled, isDeArrowEnabled: $isDeArrowEnabled, isBookmarksEnabled: $isBookmarksEnabled, bookmarkedPlaylists: $bookmarkedPlaylists, isRestrictedModeEnabled: $isRestrictedModeEnabled, isMiniPlayerEnabled: $isMiniPlayerEnabled, downloadQuality: $downloadQuality, isDownloadSubtitlesEnabled: $isDownloadSubtitlesEnabled, isDownloadOverWifiOnlyEnabled: $isDownloadOverWifiOnlyEnabled, isDownloadAutoDeleteEnabled: $isDownloadAutoDeleteEnabled, playbackSpeed: $playbackSpeed, isAutoplayNextVideoEnabled: $isAutoplayNextVideoEnabled, isShowRelatedInQueueEnabled: $isShowRelatedInQueueEnabled, queueDismissTime: $queueDismissTime, autoplayCountdown: $autoplayCountdown, isDisableAutoplayOnCellularEnabled: $isDisableAutoplayOnCellularEnabled, isAutoQueueEnabled: $isAutoQueueEnabled, isBufferPreloadEnabled: $isBufferPreloadEnabled, isAutoQualityAdjustEnabled: $isAutoQualityAdjustEnabled, isBackgroundPlaybackEnabled: $isBackgroundPlaybackEnabled, isNotificationControlsEnabled: $isNotificationControlsEnabled, isDataSaverEnabled: $isDataSaverEnabled, isHideWatchedVideosEnabled: $isHideWatchedVideosEnabled, mobileDataQuality: $mobileDataQuality, isDownloadQueueItemsEnabled: $isDownloadQueueItemsEnabled, isRichCaptionRenderingEnabled: $isRichCaptionRenderingEnabled, isBilibiliEnabled: $isBilibiliEnabled, isSwipeLeftToRight: $isSwipeLeftToRight, isMiniPlayerAutoExpandEnabled: $isMiniPlayerAutoExpandEnabled, isMiniPlayerTapToExpandEnabled: $isMiniPlayerTapToExpandEnabled, isMiniPlayerDoubleTapToExpandEnabled: $isMiniPlayerDoubleTapToExpandEnabled, restrictedModeFilterLevel: $restrictedModeFilterLevel, downloadAutoDeleteDays: $downloadAutoDeleteDays, contentFilterKeywords: $contentFilterKeywords, contentFilterBlockedChannels: $contentFilterBlockedChannels, contentFilterHideShorts: $contentFilterHideShorts, contentFilterHidePaid: $contentFilterHidePaid, downloadFolderPath: $downloadFolderPath, isRydEnabled: $isRydEnabled)';
+    return 'SettingsState(defaultLanguage: $defaultLanguage, defaultQuality: $defaultQuality, defaultRegion: $defaultRegion, themeMode: $themeMode, version: $version, isHistoryVisible: $isHistoryVisible, isDislikeVisible: $isDislikeVisible, isHlsPlayer: $isHlsPlayer, isHideComments: $isHideComments, isHideRelated: $isHideRelated, pipedInstances: $pipedInstances, pipedInstanceStatus: $pipedInstanceStatus, instance: $instance, invidiousInstances: $invidiousInstances, invidiousInstanceStatus: $invidiousInstanceStatus, ytService: $ytService, initialized: $initialized, settingsStatus: $settingsStatus, isPipDisabled: $isPipDisabled, connectingToInstance: $connectingToInstance, isTestingConnection: $isTestingConnection, userInstanceFailed: $userInstanceFailed, failedInstanceName: $failedInstanceName, searchFilter: $searchFilter, videoFitMode: $videoFitMode, skipInterval: $skipInterval, isSponsorBlockEnabled: $isSponsorBlockEnabled, sponsorBlockCategories: $sponsorBlockCategories, openLinksInBrowser: $openLinksInBrowser, homeFeedMode: $homeFeedMode, isAudioFocusEnabled: $isAudioFocusEnabled, currentProfile: $currentProfile, profiles: $profiles, subtitleSize: $subtitleSize, lastExportedFilePath: $lastExportedFilePath, isSearchHistoryEnabled: $isSearchHistoryEnabled, isSearchHistoryVisible: $isSearchHistoryVisible, isAutoPipEnabled: $isAutoPipEnabled, sleepTimerConfig: $sleepTimerConfig, isSwipeGesturesEnabled: $isSwipeGesturesEnabled, isDeArrowEnabled: $isDeArrowEnabled, isBookmarksEnabled: $isBookmarksEnabled, bookmarkedPlaylists: $bookmarkedPlaylists, isRestrictedModeEnabled: $isRestrictedModeEnabled, isMiniPlayerEnabled: $isMiniPlayerEnabled, downloadQuality: $downloadQuality, isDownloadSubtitlesEnabled: $isDownloadSubtitlesEnabled, isDownloadOverWifiOnlyEnabled: $isDownloadOverWifiOnlyEnabled, isDownloadAutoDeleteEnabled: $isDownloadAutoDeleteEnabled, playbackSpeed: $playbackSpeed, isAutoplayNextVideoEnabled: $isAutoplayNextVideoEnabled, isShowRelatedInQueueEnabled: $isShowRelatedInQueueEnabled, queueDismissTime: $queueDismissTime, autoplayCountdown: $autoplayCountdown, isDisableAutoplayOnCellularEnabled: $isDisableAutoplayOnCellularEnabled, isAutoQueueEnabled: $isAutoQueueEnabled, isBufferPreloadEnabled: $isBufferPreloadEnabled, isAutoQualityAdjustEnabled: $isAutoQualityAdjustEnabled, isBackgroundPlaybackEnabled: $isBackgroundPlaybackEnabled, isNotificationControlsEnabled: $isNotificationControlsEnabled, isDataSaverEnabled: $isDataSaverEnabled, isHideWatchedVideosEnabled: $isHideWatchedVideosEnabled, mobileDataQuality: $mobileDataQuality, isDownloadQueueItemsEnabled: $isDownloadQueueItemsEnabled, isRichCaptionRenderingEnabled: $isRichCaptionRenderingEnabled, isBilibiliEnabled: $isBilibiliEnabled, isSwipeLeftToRight: $isSwipeLeftToRight, isMiniPlayerAutoExpandEnabled: $isMiniPlayerAutoExpandEnabled, isMiniPlayerTapToExpandEnabled: $isMiniPlayerTapToExpandEnabled, isMiniPlayerDoubleTapToExpandEnabled: $isMiniPlayerDoubleTapToExpandEnabled, restrictedModeFilterLevel: $restrictedModeFilterLevel, downloadAutoDeleteDays: $downloadAutoDeleteDays, contentFilterKeywords: $contentFilterKeywords, contentFilterBlockedChannels: $contentFilterBlockedChannels, contentFilterHideShorts: $contentFilterHideShorts, contentFilterHidePaid: $contentFilterHidePaid, downloadFolderPath: $downloadFolderPath, isRydEnabled: $isRydEnabled, isLongPressSpeedUpEnabled: $isLongPressSpeedUpEnabled, isOriginalTitlesEnabled: $isOriginalTitlesEnabled, isCommentFilterEnabled: $isCommentFilterEnabled, commentFilterKeywords: $commentFilterKeywords, preferredAudioQuality: $preferredAudioQuality, isScreenLockEnabled: $isScreenLockEnabled, isPinchToZoomEnabled: $isPinchToZoomEnabled, isSeekbarThumbnailsEnabled: $isSeekbarThumbnailsEnabled, isPopupPlayerEnabled: $isPopupPlayerEnabled, isLiveChatDanmakuEnabled: $isLiveChatDanmakuEnabled, isBluetoothSeekEnabled: $isBluetoothSeekEnabled, isMultiSelectListsEnabled: $isMultiSelectListsEnabled, isSbExclusiveMarkerEnabled: $isSbExclusiveMarkerEnabled, isSbForDownloadsEnabled: $isSbForDownloadsEnabled)';
   }
 }
 
@@ -7046,7 +8259,21 @@ abstract mixin class $SettingsStateCopyWith<$Res> {
       bool? contentFilterHideShorts,
       bool? contentFilterHidePaid,
       String? downloadFolderPath,
-      bool? isRydEnabled});
+      bool? isRydEnabled,
+      bool? isLongPressSpeedUpEnabled,
+      bool? isOriginalTitlesEnabled,
+      bool? isCommentFilterEnabled,
+      List<String>? commentFilterKeywords,
+      String? preferredAudioQuality,
+      bool? isScreenLockEnabled,
+      bool? isPinchToZoomEnabled,
+      bool? isSeekbarThumbnailsEnabled,
+      bool? isPopupPlayerEnabled,
+      bool? isLiveChatDanmakuEnabled,
+      bool? isBluetoothSeekEnabled,
+      bool? isMultiSelectListsEnabled,
+      bool? isSbExclusiveMarkerEnabled,
+      bool? isSbForDownloadsEnabled});
 }
 
 /// @nodoc
@@ -7140,6 +8367,20 @@ class _$SettingsStateCopyWithImpl<$Res>
     Object? contentFilterHidePaid = freezed,
     Object? downloadFolderPath = freezed,
     Object? isRydEnabled = freezed,
+    Object? isLongPressSpeedUpEnabled = freezed,
+    Object? isOriginalTitlesEnabled = freezed,
+    Object? isCommentFilterEnabled = freezed,
+    Object? commentFilterKeywords = freezed,
+    Object? preferredAudioQuality = freezed,
+    Object? isScreenLockEnabled = freezed,
+    Object? isPinchToZoomEnabled = freezed,
+    Object? isSeekbarThumbnailsEnabled = freezed,
+    Object? isPopupPlayerEnabled = freezed,
+    Object? isLiveChatDanmakuEnabled = freezed,
+    Object? isBluetoothSeekEnabled = freezed,
+    Object? isMultiSelectListsEnabled = freezed,
+    Object? isSbExclusiveMarkerEnabled = freezed,
+    Object? isSbForDownloadsEnabled = freezed,
   }) {
     return _then(_self.copyWith(
       defaultLanguage: null == defaultLanguage
@@ -7456,6 +8697,62 @@ class _$SettingsStateCopyWithImpl<$Res>
           ? _self.isRydEnabled
           : isRydEnabled // ignore: cast_nullable_to_non_nullable
               as bool?,
+      isLongPressSpeedUpEnabled: freezed == isLongPressSpeedUpEnabled
+          ? _self.isLongPressSpeedUpEnabled
+          : isLongPressSpeedUpEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isOriginalTitlesEnabled: freezed == isOriginalTitlesEnabled
+          ? _self.isOriginalTitlesEnabled
+          : isOriginalTitlesEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isCommentFilterEnabled: freezed == isCommentFilterEnabled
+          ? _self.isCommentFilterEnabled
+          : isCommentFilterEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      commentFilterKeywords: freezed == commentFilterKeywords
+          ? _self.commentFilterKeywords
+          : commentFilterKeywords // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      preferredAudioQuality: freezed == preferredAudioQuality
+          ? _self.preferredAudioQuality
+          : preferredAudioQuality // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isScreenLockEnabled: freezed == isScreenLockEnabled
+          ? _self.isScreenLockEnabled
+          : isScreenLockEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isPinchToZoomEnabled: freezed == isPinchToZoomEnabled
+          ? _self.isPinchToZoomEnabled
+          : isPinchToZoomEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isSeekbarThumbnailsEnabled: freezed == isSeekbarThumbnailsEnabled
+          ? _self.isSeekbarThumbnailsEnabled
+          : isSeekbarThumbnailsEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isPopupPlayerEnabled: freezed == isPopupPlayerEnabled
+          ? _self.isPopupPlayerEnabled
+          : isPopupPlayerEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isLiveChatDanmakuEnabled: freezed == isLiveChatDanmakuEnabled
+          ? _self.isLiveChatDanmakuEnabled
+          : isLiveChatDanmakuEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isBluetoothSeekEnabled: freezed == isBluetoothSeekEnabled
+          ? _self.isBluetoothSeekEnabled
+          : isBluetoothSeekEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isMultiSelectListsEnabled: freezed == isMultiSelectListsEnabled
+          ? _self.isMultiSelectListsEnabled
+          : isMultiSelectListsEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isSbExclusiveMarkerEnabled: freezed == isSbExclusiveMarkerEnabled
+          ? _self.isSbExclusiveMarkerEnabled
+          : isSbExclusiveMarkerEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isSbForDownloadsEnabled: freezed == isSbForDownloadsEnabled
+          ? _self.isSbForDownloadsEnabled
+          : isSbForDownloadsEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -7629,7 +8926,21 @@ extension SettingsStatePatterns on SettingsState {
             bool? contentFilterHideShorts,
             bool? contentFilterHidePaid,
             String? downloadFolderPath,
-            bool? isRydEnabled)?
+            bool? isRydEnabled,
+            bool? isLongPressSpeedUpEnabled,
+            bool? isOriginalTitlesEnabled,
+            bool? isCommentFilterEnabled,
+            List<String>? commentFilterKeywords,
+            String? preferredAudioQuality,
+            bool? isScreenLockEnabled,
+            bool? isPinchToZoomEnabled,
+            bool? isSeekbarThumbnailsEnabled,
+            bool? isPopupPlayerEnabled,
+            bool? isLiveChatDanmakuEnabled,
+            bool? isBluetoothSeekEnabled,
+            bool? isMultiSelectListsEnabled,
+            bool? isSbExclusiveMarkerEnabled,
+            bool? isSbForDownloadsEnabled)?
         $default, {
     required TResult orElse(),
   }) {
@@ -7714,7 +9025,21 @@ extension SettingsStatePatterns on SettingsState {
             _that.contentFilterHideShorts,
             _that.contentFilterHidePaid,
             _that.downloadFolderPath,
-            _that.isRydEnabled);
+            _that.isRydEnabled,
+            _that.isLongPressSpeedUpEnabled,
+            _that.isOriginalTitlesEnabled,
+            _that.isCommentFilterEnabled,
+            _that.commentFilterKeywords,
+            _that.preferredAudioQuality,
+            _that.isScreenLockEnabled,
+            _that.isPinchToZoomEnabled,
+            _that.isSeekbarThumbnailsEnabled,
+            _that.isPopupPlayerEnabled,
+            _that.isLiveChatDanmakuEnabled,
+            _that.isBluetoothSeekEnabled,
+            _that.isMultiSelectListsEnabled,
+            _that.isSbExclusiveMarkerEnabled,
+            _that.isSbForDownloadsEnabled);
       case _:
         return orElse();
     }
@@ -7813,7 +9138,21 @@ extension SettingsStatePatterns on SettingsState {
             bool? contentFilterHideShorts,
             bool? contentFilterHidePaid,
             String? downloadFolderPath,
-            bool? isRydEnabled)
+            bool? isRydEnabled,
+            bool? isLongPressSpeedUpEnabled,
+            bool? isOriginalTitlesEnabled,
+            bool? isCommentFilterEnabled,
+            List<String>? commentFilterKeywords,
+            String? preferredAudioQuality,
+            bool? isScreenLockEnabled,
+            bool? isPinchToZoomEnabled,
+            bool? isSeekbarThumbnailsEnabled,
+            bool? isPopupPlayerEnabled,
+            bool? isLiveChatDanmakuEnabled,
+            bool? isBluetoothSeekEnabled,
+            bool? isMultiSelectListsEnabled,
+            bool? isSbExclusiveMarkerEnabled,
+            bool? isSbForDownloadsEnabled)
         $default,
   ) {
     final _that = this;
@@ -7897,7 +9236,21 @@ extension SettingsStatePatterns on SettingsState {
             _that.contentFilterHideShorts,
             _that.contentFilterHidePaid,
             _that.downloadFolderPath,
-            _that.isRydEnabled);
+            _that.isRydEnabled,
+            _that.isLongPressSpeedUpEnabled,
+            _that.isOriginalTitlesEnabled,
+            _that.isCommentFilterEnabled,
+            _that.commentFilterKeywords,
+            _that.preferredAudioQuality,
+            _that.isScreenLockEnabled,
+            _that.isPinchToZoomEnabled,
+            _that.isSeekbarThumbnailsEnabled,
+            _that.isPopupPlayerEnabled,
+            _that.isLiveChatDanmakuEnabled,
+            _that.isBluetoothSeekEnabled,
+            _that.isMultiSelectListsEnabled,
+            _that.isSbExclusiveMarkerEnabled,
+            _that.isSbForDownloadsEnabled);
     }
   }
 
@@ -7993,7 +9346,21 @@ extension SettingsStatePatterns on SettingsState {
             bool? contentFilterHideShorts,
             bool? contentFilterHidePaid,
             String? downloadFolderPath,
-            bool? isRydEnabled)?
+            bool? isRydEnabled,
+            bool? isLongPressSpeedUpEnabled,
+            bool? isOriginalTitlesEnabled,
+            bool? isCommentFilterEnabled,
+            List<String>? commentFilterKeywords,
+            String? preferredAudioQuality,
+            bool? isScreenLockEnabled,
+            bool? isPinchToZoomEnabled,
+            bool? isSeekbarThumbnailsEnabled,
+            bool? isPopupPlayerEnabled,
+            bool? isLiveChatDanmakuEnabled,
+            bool? isBluetoothSeekEnabled,
+            bool? isMultiSelectListsEnabled,
+            bool? isSbExclusiveMarkerEnabled,
+            bool? isSbForDownloadsEnabled)?
         $default,
   ) {
     final _that = this;
@@ -8077,7 +9444,21 @@ extension SettingsStatePatterns on SettingsState {
             _that.contentFilterHideShorts,
             _that.contentFilterHidePaid,
             _that.downloadFolderPath,
-            _that.isRydEnabled);
+            _that.isRydEnabled,
+            _that.isLongPressSpeedUpEnabled,
+            _that.isOriginalTitlesEnabled,
+            _that.isCommentFilterEnabled,
+            _that.commentFilterKeywords,
+            _that.preferredAudioQuality,
+            _that.isScreenLockEnabled,
+            _that.isPinchToZoomEnabled,
+            _that.isSeekbarThumbnailsEnabled,
+            _that.isPopupPlayerEnabled,
+            _that.isLiveChatDanmakuEnabled,
+            _that.isBluetoothSeekEnabled,
+            _that.isMultiSelectListsEnabled,
+            _that.isSbExclusiveMarkerEnabled,
+            _that.isSbForDownloadsEnabled);
       case _:
         return null;
     }
@@ -8165,7 +9546,21 @@ class _Initial extends SettingsState {
       this.contentFilterHideShorts,
       this.contentFilterHidePaid,
       this.downloadFolderPath,
-      this.isRydEnabled})
+      this.isRydEnabled,
+      this.isLongPressSpeedUpEnabled,
+      this.isOriginalTitlesEnabled,
+      this.isCommentFilterEnabled,
+      final List<String>? commentFilterKeywords,
+      this.preferredAudioQuality,
+      this.isScreenLockEnabled,
+      this.isPinchToZoomEnabled,
+      this.isSeekbarThumbnailsEnabled,
+      this.isPopupPlayerEnabled,
+      this.isLiveChatDanmakuEnabled,
+      this.isBluetoothSeekEnabled,
+      this.isMultiSelectListsEnabled,
+      this.isSbExclusiveMarkerEnabled,
+      this.isSbForDownloadsEnabled})
       : _pipedInstances = pipedInstances,
         _invidiousInstances = invidiousInstances,
         _sponsorBlockCategories = sponsorBlockCategories,
@@ -8173,6 +9568,7 @@ class _Initial extends SettingsState {
         _bookmarkedPlaylists = bookmarkedPlaylists,
         _contentFilterKeywords = contentFilterKeywords,
         _contentFilterBlockedChannels = contentFilterBlockedChannels,
+        _commentFilterKeywords = commentFilterKeywords,
         super._();
 
   @override
@@ -8398,6 +9794,44 @@ class _Initial extends SettingsState {
   final String? downloadFolderPath;
   @override
   final bool? isRydEnabled;
+// Phase 18
+  @override
+  final bool? isLongPressSpeedUpEnabled;
+  @override
+  final bool? isOriginalTitlesEnabled;
+  @override
+  final bool? isCommentFilterEnabled;
+  final List<String>? _commentFilterKeywords;
+  @override
+  List<String>? get commentFilterKeywords {
+    final value = _commentFilterKeywords;
+    if (value == null) return null;
+    if (_commentFilterKeywords is EqualUnmodifiableListView)
+      return _commentFilterKeywords;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  final String? preferredAudioQuality;
+  @override
+  final bool? isScreenLockEnabled;
+  @override
+  final bool? isPinchToZoomEnabled;
+  @override
+  final bool? isSeekbarThumbnailsEnabled;
+  @override
+  final bool? isPopupPlayerEnabled;
+  @override
+  final bool? isLiveChatDanmakuEnabled;
+  @override
+  final bool? isBluetoothSeekEnabled;
+  @override
+  final bool? isMultiSelectListsEnabled;
+  @override
+  final bool? isSbExclusiveMarkerEnabled;
+  @override
+  final bool? isSbForDownloadsEnabled;
 
   /// Create a copy of SettingsState
   /// with the given fields replaced by the non-null parameter values.
@@ -8525,7 +9959,21 @@ class _Initial extends SettingsState {
             (identical(other.contentFilterHideShorts, contentFilterHideShorts) || other.contentFilterHideShorts == contentFilterHideShorts) &&
             (identical(other.contentFilterHidePaid, contentFilterHidePaid) || other.contentFilterHidePaid == contentFilterHidePaid) &&
             (identical(other.downloadFolderPath, downloadFolderPath) || other.downloadFolderPath == downloadFolderPath) &&
-            (identical(other.isRydEnabled, isRydEnabled) || other.isRydEnabled == isRydEnabled));
+            (identical(other.isRydEnabled, isRydEnabled) || other.isRydEnabled == isRydEnabled) &&
+            (identical(other.isLongPressSpeedUpEnabled, isLongPressSpeedUpEnabled) || other.isLongPressSpeedUpEnabled == isLongPressSpeedUpEnabled) &&
+            (identical(other.isOriginalTitlesEnabled, isOriginalTitlesEnabled) || other.isOriginalTitlesEnabled == isOriginalTitlesEnabled) &&
+            (identical(other.isCommentFilterEnabled, isCommentFilterEnabled) || other.isCommentFilterEnabled == isCommentFilterEnabled) &&
+            const DeepCollectionEquality().equals(other._commentFilterKeywords, _commentFilterKeywords) &&
+            (identical(other.preferredAudioQuality, preferredAudioQuality) || other.preferredAudioQuality == preferredAudioQuality) &&
+            (identical(other.isScreenLockEnabled, isScreenLockEnabled) || other.isScreenLockEnabled == isScreenLockEnabled) &&
+            (identical(other.isPinchToZoomEnabled, isPinchToZoomEnabled) || other.isPinchToZoomEnabled == isPinchToZoomEnabled) &&
+            (identical(other.isSeekbarThumbnailsEnabled, isSeekbarThumbnailsEnabled) || other.isSeekbarThumbnailsEnabled == isSeekbarThumbnailsEnabled) &&
+            (identical(other.isPopupPlayerEnabled, isPopupPlayerEnabled) || other.isPopupPlayerEnabled == isPopupPlayerEnabled) &&
+            (identical(other.isLiveChatDanmakuEnabled, isLiveChatDanmakuEnabled) || other.isLiveChatDanmakuEnabled == isLiveChatDanmakuEnabled) &&
+            (identical(other.isBluetoothSeekEnabled, isBluetoothSeekEnabled) || other.isBluetoothSeekEnabled == isBluetoothSeekEnabled) &&
+            (identical(other.isMultiSelectListsEnabled, isMultiSelectListsEnabled) || other.isMultiSelectListsEnabled == isMultiSelectListsEnabled) &&
+            (identical(other.isSbExclusiveMarkerEnabled, isSbExclusiveMarkerEnabled) || other.isSbExclusiveMarkerEnabled == isSbExclusiveMarkerEnabled) &&
+            (identical(other.isSbForDownloadsEnabled, isSbForDownloadsEnabled) || other.isSbForDownloadsEnabled == isSbForDownloadsEnabled));
   }
 
   @override
@@ -8608,12 +10056,26 @@ class _Initial extends SettingsState {
         contentFilterHideShorts,
         contentFilterHidePaid,
         downloadFolderPath,
-        isRydEnabled
+        isRydEnabled,
+        isLongPressSpeedUpEnabled,
+        isOriginalTitlesEnabled,
+        isCommentFilterEnabled,
+        const DeepCollectionEquality().hash(_commentFilterKeywords),
+        preferredAudioQuality,
+        isScreenLockEnabled,
+        isPinchToZoomEnabled,
+        isSeekbarThumbnailsEnabled,
+        isPopupPlayerEnabled,
+        isLiveChatDanmakuEnabled,
+        isBluetoothSeekEnabled,
+        isMultiSelectListsEnabled,
+        isSbExclusiveMarkerEnabled,
+        isSbForDownloadsEnabled
       ]);
 
   @override
   String toString() {
-    return 'SettingsState(defaultLanguage: $defaultLanguage, defaultQuality: $defaultQuality, defaultRegion: $defaultRegion, themeMode: $themeMode, version: $version, isHistoryVisible: $isHistoryVisible, isDislikeVisible: $isDislikeVisible, isHlsPlayer: $isHlsPlayer, isHideComments: $isHideComments, isHideRelated: $isHideRelated, pipedInstances: $pipedInstances, pipedInstanceStatus: $pipedInstanceStatus, instance: $instance, invidiousInstances: $invidiousInstances, invidiousInstanceStatus: $invidiousInstanceStatus, ytService: $ytService, initialized: $initialized, settingsStatus: $settingsStatus, isPipDisabled: $isPipDisabled, connectingToInstance: $connectingToInstance, isTestingConnection: $isTestingConnection, userInstanceFailed: $userInstanceFailed, failedInstanceName: $failedInstanceName, searchFilter: $searchFilter, videoFitMode: $videoFitMode, skipInterval: $skipInterval, isSponsorBlockEnabled: $isSponsorBlockEnabled, sponsorBlockCategories: $sponsorBlockCategories, openLinksInBrowser: $openLinksInBrowser, homeFeedMode: $homeFeedMode, isAudioFocusEnabled: $isAudioFocusEnabled, currentProfile: $currentProfile, profiles: $profiles, subtitleSize: $subtitleSize, lastExportedFilePath: $lastExportedFilePath, isSearchHistoryEnabled: $isSearchHistoryEnabled, isSearchHistoryVisible: $isSearchHistoryVisible, isAutoPipEnabled: $isAutoPipEnabled, sleepTimerConfig: $sleepTimerConfig, isSwipeGesturesEnabled: $isSwipeGesturesEnabled, isDeArrowEnabled: $isDeArrowEnabled, isBookmarksEnabled: $isBookmarksEnabled, bookmarkedPlaylists: $bookmarkedPlaylists, isRestrictedModeEnabled: $isRestrictedModeEnabled, isMiniPlayerEnabled: $isMiniPlayerEnabled, downloadQuality: $downloadQuality, isDownloadSubtitlesEnabled: $isDownloadSubtitlesEnabled, isDownloadOverWifiOnlyEnabled: $isDownloadOverWifiOnlyEnabled, isDownloadAutoDeleteEnabled: $isDownloadAutoDeleteEnabled, playbackSpeed: $playbackSpeed, isAutoplayNextVideoEnabled: $isAutoplayNextVideoEnabled, isShowRelatedInQueueEnabled: $isShowRelatedInQueueEnabled, queueDismissTime: $queueDismissTime, autoplayCountdown: $autoplayCountdown, isDisableAutoplayOnCellularEnabled: $isDisableAutoplayOnCellularEnabled, isAutoQueueEnabled: $isAutoQueueEnabled, isBufferPreloadEnabled: $isBufferPreloadEnabled, isAutoQualityAdjustEnabled: $isAutoQualityAdjustEnabled, isBackgroundPlaybackEnabled: $isBackgroundPlaybackEnabled, isNotificationControlsEnabled: $isNotificationControlsEnabled, isDataSaverEnabled: $isDataSaverEnabled, isHideWatchedVideosEnabled: $isHideWatchedVideosEnabled, mobileDataQuality: $mobileDataQuality, isDownloadQueueItemsEnabled: $isDownloadQueueItemsEnabled, isRichCaptionRenderingEnabled: $isRichCaptionRenderingEnabled, isBilibiliEnabled: $isBilibiliEnabled, isSwipeLeftToRight: $isSwipeLeftToRight, isMiniPlayerAutoExpandEnabled: $isMiniPlayerAutoExpandEnabled, isMiniPlayerTapToExpandEnabled: $isMiniPlayerTapToExpandEnabled, isMiniPlayerDoubleTapToExpandEnabled: $isMiniPlayerDoubleTapToExpandEnabled, restrictedModeFilterLevel: $restrictedModeFilterLevel, downloadAutoDeleteDays: $downloadAutoDeleteDays, contentFilterKeywords: $contentFilterKeywords, contentFilterBlockedChannels: $contentFilterBlockedChannels, contentFilterHideShorts: $contentFilterHideShorts, contentFilterHidePaid: $contentFilterHidePaid, downloadFolderPath: $downloadFolderPath, isRydEnabled: $isRydEnabled)';
+    return 'SettingsState(defaultLanguage: $defaultLanguage, defaultQuality: $defaultQuality, defaultRegion: $defaultRegion, themeMode: $themeMode, version: $version, isHistoryVisible: $isHistoryVisible, isDislikeVisible: $isDislikeVisible, isHlsPlayer: $isHlsPlayer, isHideComments: $isHideComments, isHideRelated: $isHideRelated, pipedInstances: $pipedInstances, pipedInstanceStatus: $pipedInstanceStatus, instance: $instance, invidiousInstances: $invidiousInstances, invidiousInstanceStatus: $invidiousInstanceStatus, ytService: $ytService, initialized: $initialized, settingsStatus: $settingsStatus, isPipDisabled: $isPipDisabled, connectingToInstance: $connectingToInstance, isTestingConnection: $isTestingConnection, userInstanceFailed: $userInstanceFailed, failedInstanceName: $failedInstanceName, searchFilter: $searchFilter, videoFitMode: $videoFitMode, skipInterval: $skipInterval, isSponsorBlockEnabled: $isSponsorBlockEnabled, sponsorBlockCategories: $sponsorBlockCategories, openLinksInBrowser: $openLinksInBrowser, homeFeedMode: $homeFeedMode, isAudioFocusEnabled: $isAudioFocusEnabled, currentProfile: $currentProfile, profiles: $profiles, subtitleSize: $subtitleSize, lastExportedFilePath: $lastExportedFilePath, isSearchHistoryEnabled: $isSearchHistoryEnabled, isSearchHistoryVisible: $isSearchHistoryVisible, isAutoPipEnabled: $isAutoPipEnabled, sleepTimerConfig: $sleepTimerConfig, isSwipeGesturesEnabled: $isSwipeGesturesEnabled, isDeArrowEnabled: $isDeArrowEnabled, isBookmarksEnabled: $isBookmarksEnabled, bookmarkedPlaylists: $bookmarkedPlaylists, isRestrictedModeEnabled: $isRestrictedModeEnabled, isMiniPlayerEnabled: $isMiniPlayerEnabled, downloadQuality: $downloadQuality, isDownloadSubtitlesEnabled: $isDownloadSubtitlesEnabled, isDownloadOverWifiOnlyEnabled: $isDownloadOverWifiOnlyEnabled, isDownloadAutoDeleteEnabled: $isDownloadAutoDeleteEnabled, playbackSpeed: $playbackSpeed, isAutoplayNextVideoEnabled: $isAutoplayNextVideoEnabled, isShowRelatedInQueueEnabled: $isShowRelatedInQueueEnabled, queueDismissTime: $queueDismissTime, autoplayCountdown: $autoplayCountdown, isDisableAutoplayOnCellularEnabled: $isDisableAutoplayOnCellularEnabled, isAutoQueueEnabled: $isAutoQueueEnabled, isBufferPreloadEnabled: $isBufferPreloadEnabled, isAutoQualityAdjustEnabled: $isAutoQualityAdjustEnabled, isBackgroundPlaybackEnabled: $isBackgroundPlaybackEnabled, isNotificationControlsEnabled: $isNotificationControlsEnabled, isDataSaverEnabled: $isDataSaverEnabled, isHideWatchedVideosEnabled: $isHideWatchedVideosEnabled, mobileDataQuality: $mobileDataQuality, isDownloadQueueItemsEnabled: $isDownloadQueueItemsEnabled, isRichCaptionRenderingEnabled: $isRichCaptionRenderingEnabled, isBilibiliEnabled: $isBilibiliEnabled, isSwipeLeftToRight: $isSwipeLeftToRight, isMiniPlayerAutoExpandEnabled: $isMiniPlayerAutoExpandEnabled, isMiniPlayerTapToExpandEnabled: $isMiniPlayerTapToExpandEnabled, isMiniPlayerDoubleTapToExpandEnabled: $isMiniPlayerDoubleTapToExpandEnabled, restrictedModeFilterLevel: $restrictedModeFilterLevel, downloadAutoDeleteDays: $downloadAutoDeleteDays, contentFilterKeywords: $contentFilterKeywords, contentFilterBlockedChannels: $contentFilterBlockedChannels, contentFilterHideShorts: $contentFilterHideShorts, contentFilterHidePaid: $contentFilterHidePaid, downloadFolderPath: $downloadFolderPath, isRydEnabled: $isRydEnabled, isLongPressSpeedUpEnabled: $isLongPressSpeedUpEnabled, isOriginalTitlesEnabled: $isOriginalTitlesEnabled, isCommentFilterEnabled: $isCommentFilterEnabled, commentFilterKeywords: $commentFilterKeywords, preferredAudioQuality: $preferredAudioQuality, isScreenLockEnabled: $isScreenLockEnabled, isPinchToZoomEnabled: $isPinchToZoomEnabled, isSeekbarThumbnailsEnabled: $isSeekbarThumbnailsEnabled, isPopupPlayerEnabled: $isPopupPlayerEnabled, isLiveChatDanmakuEnabled: $isLiveChatDanmakuEnabled, isBluetoothSeekEnabled: $isBluetoothSeekEnabled, isMultiSelectListsEnabled: $isMultiSelectListsEnabled, isSbExclusiveMarkerEnabled: $isSbExclusiveMarkerEnabled, isSbForDownloadsEnabled: $isSbForDownloadsEnabled)';
   }
 }
 
@@ -8702,7 +10164,21 @@ abstract mixin class _$InitialCopyWith<$Res>
       bool? contentFilterHideShorts,
       bool? contentFilterHidePaid,
       String? downloadFolderPath,
-      bool? isRydEnabled});
+      bool? isRydEnabled,
+      bool? isLongPressSpeedUpEnabled,
+      bool? isOriginalTitlesEnabled,
+      bool? isCommentFilterEnabled,
+      List<String>? commentFilterKeywords,
+      String? preferredAudioQuality,
+      bool? isScreenLockEnabled,
+      bool? isPinchToZoomEnabled,
+      bool? isSeekbarThumbnailsEnabled,
+      bool? isPopupPlayerEnabled,
+      bool? isLiveChatDanmakuEnabled,
+      bool? isBluetoothSeekEnabled,
+      bool? isMultiSelectListsEnabled,
+      bool? isSbExclusiveMarkerEnabled,
+      bool? isSbForDownloadsEnabled});
 }
 
 /// @nodoc
@@ -8795,6 +10271,20 @@ class __$InitialCopyWithImpl<$Res> implements _$InitialCopyWith<$Res> {
     Object? contentFilterHidePaid = freezed,
     Object? downloadFolderPath = freezed,
     Object? isRydEnabled = freezed,
+    Object? isLongPressSpeedUpEnabled = freezed,
+    Object? isOriginalTitlesEnabled = freezed,
+    Object? isCommentFilterEnabled = freezed,
+    Object? commentFilterKeywords = freezed,
+    Object? preferredAudioQuality = freezed,
+    Object? isScreenLockEnabled = freezed,
+    Object? isPinchToZoomEnabled = freezed,
+    Object? isSeekbarThumbnailsEnabled = freezed,
+    Object? isPopupPlayerEnabled = freezed,
+    Object? isLiveChatDanmakuEnabled = freezed,
+    Object? isBluetoothSeekEnabled = freezed,
+    Object? isMultiSelectListsEnabled = freezed,
+    Object? isSbExclusiveMarkerEnabled = freezed,
+    Object? isSbForDownloadsEnabled = freezed,
   }) {
     return _then(_Initial(
       defaultLanguage: null == defaultLanguage
@@ -9110,6 +10600,62 @@ class __$InitialCopyWithImpl<$Res> implements _$InitialCopyWith<$Res> {
       isRydEnabled: freezed == isRydEnabled
           ? _self.isRydEnabled
           : isRydEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isLongPressSpeedUpEnabled: freezed == isLongPressSpeedUpEnabled
+          ? _self.isLongPressSpeedUpEnabled
+          : isLongPressSpeedUpEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isOriginalTitlesEnabled: freezed == isOriginalTitlesEnabled
+          ? _self.isOriginalTitlesEnabled
+          : isOriginalTitlesEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isCommentFilterEnabled: freezed == isCommentFilterEnabled
+          ? _self.isCommentFilterEnabled
+          : isCommentFilterEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      commentFilterKeywords: freezed == commentFilterKeywords
+          ? _self._commentFilterKeywords
+          : commentFilterKeywords // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      preferredAudioQuality: freezed == preferredAudioQuality
+          ? _self.preferredAudioQuality
+          : preferredAudioQuality // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isScreenLockEnabled: freezed == isScreenLockEnabled
+          ? _self.isScreenLockEnabled
+          : isScreenLockEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isPinchToZoomEnabled: freezed == isPinchToZoomEnabled
+          ? _self.isPinchToZoomEnabled
+          : isPinchToZoomEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isSeekbarThumbnailsEnabled: freezed == isSeekbarThumbnailsEnabled
+          ? _self.isSeekbarThumbnailsEnabled
+          : isSeekbarThumbnailsEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isPopupPlayerEnabled: freezed == isPopupPlayerEnabled
+          ? _self.isPopupPlayerEnabled
+          : isPopupPlayerEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isLiveChatDanmakuEnabled: freezed == isLiveChatDanmakuEnabled
+          ? _self.isLiveChatDanmakuEnabled
+          : isLiveChatDanmakuEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isBluetoothSeekEnabled: freezed == isBluetoothSeekEnabled
+          ? _self.isBluetoothSeekEnabled
+          : isBluetoothSeekEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isMultiSelectListsEnabled: freezed == isMultiSelectListsEnabled
+          ? _self.isMultiSelectListsEnabled
+          : isMultiSelectListsEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isSbExclusiveMarkerEnabled: freezed == isSbExclusiveMarkerEnabled
+          ? _self.isSbExclusiveMarkerEnabled
+          : isSbExclusiveMarkerEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isSbForDownloadsEnabled: freezed == isSbForDownloadsEnabled
+          ? _self.isSbForDownloadsEnabled
+          : isSbForDownloadsEnabled // ignore: cast_nullable_to_non_nullable
               as bool?,
     ));
   }

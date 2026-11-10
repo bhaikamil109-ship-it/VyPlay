@@ -223,4 +223,20 @@ sealed class SettingsEvent with _$SettingsEvent {
 
   // Return YouTube Dislike fallback
   const factory SettingsEvent.rydToggled({required bool enabled}) = ToggleRyd;
+
+  // Phase 18
+  const factory SettingsEvent.toggleLongPressSpeedUp({required bool enabled}) = ToggleLongPressSpeedUp;
+  const factory SettingsEvent.toggleOriginalTitles({required bool enabled}) = ToggleOriginalTitles;
+  const factory SettingsEvent.toggleCommentFilter({required bool enabled}) = ToggleCommentFilter;
+  const factory SettingsEvent.setCommentFilterKeywords({required List<String> keywords}) = SetCommentFilterKeywords;
+  const factory SettingsEvent.setPreferredAudioQuality({required String quality}) = SetPreferredAudioQuality;
+  const factory SettingsEvent.toggleScreenLock({required bool enabled}) = ToggleScreenLock;
+  const factory SettingsEvent.togglePinchToZoom({required bool enabled}) = TogglePinchToZoom;
+  const factory SettingsEvent.toggleSeekbarThumbnails({required bool enabled}) = ToggleSeekbarThumbnails;
+  const factory SettingsEvent.togglePopupPlayer({required bool enabled}) = TogglePopupPlayer;
+  const factory SettingsEvent.toggleLiveChatDanmaku({required bool enabled}) = ToggleLiveChatDanmaku;
+  const factory SettingsEvent.toggleBluetoothSeek({required bool enabled}) = ToggleBluetoothSeek;
+  const factory SettingsEvent.toggleMultiSelectLists({required bool enabled}) = ToggleMultiSelectLists;
+  const factory SettingsEvent.toggleSbExclusiveMarker({required bool enabled}) = ToggleSbExclusiveMarker;
+  const factory SettingsEvent.toggleSbForDownloads({required bool enabled}) = ToggleSbForDownloads;
 }

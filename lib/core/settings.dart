@@ -165,3 +165,19 @@ const downloadFolderPathKey = 'download_folder_path';
 
 // Return YouTube Dislike fallback for dislike counts
 const rydEnabledKey = 'ryd-enabled';
+
+// ===== Phase 18: PipePipe / NewPipe / LibreTube parity features =====
+const longPressSpeedUpKey = 'long-press-speed-up';
+const originalTitlesKey = 'original-titles';
+const commentFilterEnabledKey = 'comment-filter-enabled';
+const commentFilterKeywordsKey = 'comment-filter-keywords';
+const preferredAudioQualityKey = 'preferred-audio-quality';
+const screenLockEnabledKey = 'screen-lock-enabled';
+const pinchToZoomEnabledKey = 'pinch-to-zoom-enabled';
+const seekbarThumbnailsKey = 'seekbar-thumbnails';
+const popupPlayerEnabledKey = 'popup-player-enabled';
+const liveChatDanmakuEnabledKey = 'live-chat-danmaku-enabled';
+const bluetoothSeekEnabledKey = 'bluetooth-seek-enabled';
+const multiSelectListsEnabledKey = 'multi-select-lists-enabled';
+const sbExclusiveMarkerKey = 'sb-exclusive-marker';
+const sbForDownloadsKey = 'sb-for-downloads';
