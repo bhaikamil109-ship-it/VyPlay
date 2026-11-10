@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:media_kit/media_kit.dart';
 import 'package:media_kit_video/media_kit_video.dart';
 import 'package:vyplay/core/player/global_player_controller.dart';
+import 'package:vyplay/application/settings/settings_bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vyplay/domain/watch/playback/models/generic_subtitle.dart';
 import 'package:vyplay/domain/watch/playback/models/generic_quality_info.dart';
 import 'package:vyplay/domain/watch/playback/models/generic_audio_track.dart';
@@ -284,6 +286,8 @@ class _GenericPlayerControlsOverlayState extends State<GenericPlayerControlsOver
 
   void _onLongPressStart() {
     if (widget.isLive) return;
+    final enabled = context.read<SettingsBloc>().state.isLongPressSpeedUpEnabled ?? false;
+    if (!enabled) return;
     setState(() {
       _isLongPressing = true;
       _previousSpeed = _currentSpeed;

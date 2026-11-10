@@ -4,6 +4,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vyplay/application/watch/watch_bloc.dart';
+import 'package:vyplay/application/settings/settings_bloc.dart';
 import 'package:vyplay/core/animations/animations.dart';
 import 'package:vyplay/core/constants.dart';
 import 'package:vyplay/core/enums.dart';
@@ -227,7 +228,19 @@ class _NewPipeCommentSectionState extends State<NewPipeCommentSection> {
       return _buildEmptyState(theme, isDark);
     }
 
-    final comments = state.newPipeComments.comments ?? [];
+    final rawComments = state.newPipeComments.comments ?? [];
+    final settingsState = context.read<SettingsBloc>().state;
+    final filterEnabled = settingsState.isCommentFilterEnabled ?? false;
+    final keywords = (settingsState.commentFilterKeywords ?? [])
+        .map((k) => k.toLowerCase().trim())
+        .where((k) => k.isNotEmpty)
+        .toList();
+    final comments = (filterEnabled && keywords.isNotEmpty)
+        ? rawComments
+            .where((c) => !keywords.any(
+                (k) => (c.text ?? '').toLowerCase().contains(k)))
+            .toList()
+        : rawComments;
     final hasMore = !state.isMoreNewPipeCommentsFetchCompleted &&
         state.newPipeComments.nextPage != null;
 

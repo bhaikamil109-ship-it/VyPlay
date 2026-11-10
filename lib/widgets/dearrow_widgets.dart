@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:vyplay/application/settings/settings_bloc.dart';
 import 'package:vyplay/core/services/dearrow_service.dart';
 
 /// Resolves the DeArrow branding for [videoId] once and rebuilds when it
@@ -69,6 +71,17 @@ class _DeArrowTextState extends State<DeArrowText>
 
   @override
   Widget build(BuildContext context) {
+    // When "show original titles" is enabled, never replace with DeArrow.
+    final showOriginal = (context.read<SettingsBloc>().state.isOriginalTitlesEnabled ?? false);
+    if (showOriginal) {
+      return Text(
+        widget.text,
+        style: widget.style,
+        maxLines: widget.maxLines,
+        overflow: widget.overflow,
+        textAlign: widget.textAlign,
+      );
+    }
     final title = branding?.title;
     return Text(
       title != null && title != widget.text ? title : widget.text,
