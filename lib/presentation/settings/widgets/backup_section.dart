@@ -1,4 +1,5 @@
 import 'package:file_picker/file_picker.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vyplay/application/application.dart';
@@ -171,11 +172,7 @@ class BackupSettingsSection extends StatelessWidget {
       BuildContext context, String currentProfile, S locals) async {
     try {
       // Open file picker for ZIP files
-      final result = await FilePicker.platform.pickFiles(
-        type: FileType.custom,
-        allowedExtensions: ['zip'],
-        allowMultiple: false,
-      );
+      final result = await _pickFileWithExtensions(['zip']);
 
       if (result == null || result.files.isEmpty) {
         return; // User cancelled
@@ -397,11 +394,7 @@ class BackupSettingsSection extends StatelessWidget {
   Future<void> _importSubscriptionsJson(
       BuildContext context, String currentProfile, S locals) async {
     try {
-      final result = await FilePicker.platform.pickFiles(
-        type: FileType.custom,
-        allowedExtensions: ['json', 'csv'],
-        allowMultiple: false,
-      );
+      final result = await _pickFileWithExtensions(['json', 'zip']);
 
       if (result == null || result.files.isEmpty) {
         return;
@@ -473,6 +466,25 @@ class BackupSettingsSection extends StatelessWidget {
           ),
         );
       }
+    }
+  }
+
+  // Robust file picker: tries the requested (dot-less) extensions first and
+  // degrades to FileType.any when the platform rejects the custom filter
+  // (PlatformException: Unsupported filter).
+  Future<FilePickerResult?> _pickFileWithExtensions(List<String> extensions) async {
+    try {
+      return await FilePicker.platform.pickFiles(
+        type: FileType.custom,
+        allowedExtensions: extensions,
+        allowMultiple: false,
+      );
+    } on PlatformException catch (e) {
+      debugPrint('FilePicker custom filter failed ($e); falling back to FileType.any');
+      return await FilePicker.platform.pickFiles(
+        type: FileType.any,
+        allowMultiple: false,
+      );
     }
   }
 }

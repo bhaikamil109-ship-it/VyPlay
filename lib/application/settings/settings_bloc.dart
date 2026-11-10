@@ -42,11 +42,14 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
       final String? defaultLanguage = settingsMap[selectedDefaultLanguage];
       final String? defaultQuality = settingsMap[selectedDefaultQuality];
       final String? defaultRegion = settingsMap[selectedDefaultRegion];
-      final String defaultThemeMode = settingsMap[selectedTheme] == 'dark'
-          ? 'dark'
-          : settingsMap[selectedTheme] == 'light'
-              ? 'light'
-              : 'system';
+      final String storedTheme = settingsMap[selectedTheme] ?? 'system';
+      final String defaultThemeMode = (storedTheme == 'dark' ||
+              storedTheme == 'light' ||
+              storedTheme == 'oled' ||
+              storedTheme == 'dynamic' ||
+              storedTheme == 'system')
+          ? storedTheme
+          : 'system';
       final bool defaultHistoryVisibility =
           settingsMap[historyVisibility] == "true";
       final bool defaultDislikeVisibility =
