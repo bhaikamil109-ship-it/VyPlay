@@ -123,7 +123,6 @@ class _SleepTimerSheetState extends State<SleepTimerSheet> {
   }
 
   void _showCustomTimerDialog(BuildContext context) {
-    final controller = TextEditingController();
     int selectedMinutes = 60;
 
     showDialog(
@@ -150,7 +149,7 @@ class _SleepTimerSheetState extends State<SleepTimerSheet> {
                 },
               ),
               Text(
-                '${selectedMinutes} min (${(selectedMinutes * 60)} sec)',
+                '$selectedMinutes min (${selectedMinutes * 60} sec)',
                 style: Theme.of(context).textTheme.bodySmall,
               ),
             ],

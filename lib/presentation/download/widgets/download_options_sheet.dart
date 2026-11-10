@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vyplay/application/download/download_bloc.dart';
 import 'package:vyplay/application/settings/settings_bloc.dart';
 import 'package:vyplay/core/animations/animations.dart';
-import 'package:vyplay/core/colors.dart';
 import 'package:vyplay/core/constants.dart';
 import 'package:vyplay/core/enums.dart';
 import 'package:vyplay/domain/download/models/download_item.dart';

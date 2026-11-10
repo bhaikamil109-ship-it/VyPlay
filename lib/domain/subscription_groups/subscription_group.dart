@@ -11,7 +11,7 @@ sealed class SubscriptionGroup with _$SubscriptionGroup {
     String? colorHex,
     required int sortOrder,
     required String profileName,
-    @Default(const []) List<String> memberChannelIds,
+    @Default([]) List<String> memberChannelIds,
   }) = _SubscriptionGroup;
 
   factory SubscriptionGroup.fromJson(Map<String, dynamic> json) =>

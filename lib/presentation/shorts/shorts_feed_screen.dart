@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart' show ScrollCacheExtent;
-import 'package:vyplay/core/colors.dart';
 import 'package:vyplay/core/constants.dart';
 import 'package:vyplay/core/perf/app_perf.dart';
 import 'package:vyplay/domain/search/models/newpipe/newpipe_search_resp.dart';

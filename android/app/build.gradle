@@ -72,7 +72,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.kamil.vyplay"
+        applicationId "com.vyplay.app"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
         // Floor is 24 (Android 7.0), not 21. ffmpeg_kit_flutter_new — the

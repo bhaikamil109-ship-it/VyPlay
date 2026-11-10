@@ -57,3 +57,5 @@ android/app/key.jks
 
 .gradle/
 .vscode/
+# Xcode/macOS build output
+macos/DerivedData/

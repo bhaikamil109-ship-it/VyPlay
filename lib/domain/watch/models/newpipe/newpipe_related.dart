@@ -54,5 +54,13 @@ class NewPipeRelatedStream {
   factory NewPipeRelatedStream.fromJson(Map<String, dynamic> json) =>
       _$NewPipeRelatedStreamFromJson(json);
 
+  /// Extract video ID from URL
+  String? get videoId {
+    if (url == null) return null;
+    final uri = Uri.tryParse(url!);
+    if (uri == null) return null;
+    return uri.queryParameters['v'] ?? uri.pathSegments.lastOrNull;
+  }
+
   Map<String, dynamic> toJson() => _$NewPipeRelatedStreamToJson(this);
 }

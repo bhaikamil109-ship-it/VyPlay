@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:vyplay/application/settings/settings_bloc.dart';
 import 'package:vyplay/core/animations/animations.dart';
-import 'package:vyplay/core/colors.dart';
 import 'package:vyplay/core/constants.dart';
 import 'package:vyplay/core/operations/math_operations.dart';
 import 'package:vyplay/core/services/return_youtube_dislike_service.dart';

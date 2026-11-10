@@ -4,7 +4,6 @@ import 'package:vyplay/widgets/thumbnail_image.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vyplay/application/watch/watch_bloc.dart';
 import 'package:vyplay/core/animations/animations.dart';
-import 'package:vyplay/core/colors.dart';
 import 'package:vyplay/core/constants.dart';
 import 'package:vyplay/core/operations/math_operations.dart';
 import 'package:vyplay/domain/watch/models/basic_info.dart';

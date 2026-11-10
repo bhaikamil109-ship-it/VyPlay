@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vyplay/application/application.dart';
-import 'package:vyplay/core/colors.dart';
 import 'package:vyplay/core/constants.dart';
 import 'package:vyplay/core/enums.dart';
 import 'package:vyplay/core/player/global_player_controller.dart';
@@ -428,6 +427,9 @@ class _PipedScreenWatchState extends State<PipedScreenWatch>
                                                         .selectedVideoBasicDetails
                                                         ?.title ??
                                                     locals.noVideoTitle,
+                                                videoId: state
+                                                    .selectedVideoBasicDetails
+                                                    ?.id,
                                                 icon: state.isDescriptionTapped
                                                     ? CupertinoIcons.chevron_up
                                                     : CupertinoIcons
@@ -442,6 +444,9 @@ class _PipedScreenWatchState extends State<PipedScreenWatch>
                                                 child: CaptionRowWidget(
                                                   caption: watchInfo.title ??
                                                       locals.noVideoTitle,
+                                                  videoId: state
+                                                      .selectedVideoBasicDetails
+                                                      ?.id,
                                                   icon:
                                                       state.isDescriptionTapped
                                                           ? CupertinoIcons

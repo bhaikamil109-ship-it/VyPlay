@@ -21,7 +21,7 @@ void main() {
     test('keeps upstream GPL attribution', () {
       // The GPLv3 licence on the upstream project requires this to survive.
       final names = AppInfo.upstreamInfos.map((e) => e.name).toList();
-      expect(names, contains('VyPlay'));
+      expect(names, contains('FluxTube'));
       expect(names, contains('NewPipe Extractor'));
     });
 

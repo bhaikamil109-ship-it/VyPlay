@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:vyplay/widgets/dearrow_widgets.dart';
 import 'package:vyplay/widgets/thumbnail_image.dart';
 import 'package:vyplay/core/animations/animations.dart';
-import 'package:vyplay/core/colors.dart';
 import 'package:vyplay/core/constants.dart';
 import 'package:vyplay/core/operations/math_operations.dart';
 import 'package:vyplay/generated/l10n.dart';
@@ -21,9 +21,13 @@ class HomeVideoInfoCardWidget extends StatelessWidget {
     this.isLive = false,
     required this.channelId,
     this.index = 0,
+    this.videoId,
   });
 
   final String channelId;
+
+  /// Video id used for DeArrow title/thumbnail lookups.
+  final String? videoId;
   final dynamic cardInfo;
   final bool isSubscribed;
   final bool subscribeRowVisible;
@@ -72,8 +76,11 @@ class HomeVideoInfoCardWidget extends StatelessWidget {
                     fit: StackFit.expand,
                     children: [
                       // Thumbnail image
-                      if (cardInfo?.thumbnail != null)
-                        ThumbnailImage(url: cardInfo!.thumbnail!),
+                      DeArrowThumbnail(
+                        videoId: videoId ?? '',
+                        originalUrl: cardInfo?.thumbnail as String?,
+                        builder: (context, url) => ThumbnailImage(url: url),
+                      ),
 
                       // Duration badge
                       Positioned(
@@ -115,6 +122,7 @@ class HomeVideoInfoCardWidget extends StatelessWidget {
                     // Title
                     CaptionRowWidget(
                       caption: cardInfo?.title ?? locals.noVideoTitle,
+                      videoId: videoId,
                     ),
 
                     AppSpacing.height4,

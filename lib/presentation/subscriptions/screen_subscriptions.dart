@@ -4,9 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vyplay/application/application.dart';
 import 'package:vyplay/core/animations/animations.dart';
-import 'package:vyplay/core/colors.dart';
 import 'package:vyplay/core/constants.dart';
+import 'package:vyplay/core/di/injectable.dart';
 import 'package:vyplay/core/enums.dart';
+import 'package:vyplay/domain/settings/settings_service.dart';
 import 'package:vyplay/core/operations/math_operations.dart';
 import 'package:vyplay/domain/subscribes/models/subscribe.dart';
 import 'package:vyplay/domain/trending/models/newpipe/newpipe_trending_resp.dart';
@@ -19,6 +20,7 @@ import 'widgets/groups_tile.dart';
 // Widget to display channel avatar from either URL or initial
 
 enum SubscriptionSortOption { name, recent }
+
 enum SubscriptionViewMode { channels, feed }
 
 class ScreenSubscriptions extends StatefulWidget {
@@ -36,6 +38,11 @@ class _ScreenSubscriptionsState extends State<ScreenSubscriptions>
   String _searchQuery = '';
   SubscriptionSortOption _sortOption = SubscriptionSortOption.name;
   bool _isGridView = true;
+
+  /// When the user opens a subscription group, only its channels are listed.
+  int? _activeGroupId;
+  String? _activeGroupName;
+  Set<String>? _activeGroupChannelIds;
 
   @override
   void initState() {
@@ -57,7 +64,8 @@ class _ScreenSubscriptionsState extends State<ScreenSubscriptions>
     }
   }
 
-  String get _currentProfile => context.read<SettingsBloc>().state.currentProfile;
+  String get _currentProfile =>
+      context.read<SettingsBloc>().state.currentProfile;
 
   void _loadSubscriptions() {
     final currentProfile = context.read<SettingsBloc>().state.currentProfile;
@@ -92,7 +100,11 @@ class _ScreenSubscriptionsState extends State<ScreenSubscriptions>
   }
 
   List<Subscribe> _filterAndSortChannels(List<Subscribe> channels) {
+    final groupIds = _activeGroupChannelIds;
     var filtered = channels.where((channel) {
+      if (groupIds != null && !groupIds.contains(channel.id)) {
+        return false;
+      }
       if (_searchQuery.isEmpty) return true;
       final name = channel.channelName.toLowerCase();
       return name.contains(_searchQuery);
@@ -110,6 +122,43 @@ class _ScreenSubscriptionsState extends State<ScreenSubscriptions>
     }
 
     return filtered;
+  }
+
+  /// Loads the selected group's members and filters the channel list to them.
+  Future<void> _applyGroupFilter(int groupId, String groupName) async {
+    final result = await getIt<SettingsService>().getGroupMembers(
+      groupId: groupId,
+      profileName: _currentProfile,
+    );
+    if (!mounted) return;
+
+    result.fold(
+      (failure) {
+        setState(() {
+          _activeGroupId = null;
+          _activeGroupName = null;
+          _activeGroupChannelIds = null;
+        });
+      },
+      (members) {
+        setState(() {
+          _activeGroupId = groupId;
+          _activeGroupName = groupName;
+          _activeGroupChannelIds = members
+              .map((member) => member['channelId'] as String? ?? '')
+              .where((channelId) => channelId.isNotEmpty)
+              .toSet();
+        });
+      },
+    );
+  }
+
+  void _clearGroupFilter() {
+    setState(() {
+      _activeGroupId = null;
+      _activeGroupName = null;
+      _activeGroupChannelIds = null;
+    });
   }
 
   void _showSortOptions() {
@@ -229,12 +278,15 @@ class _ScreenSubscriptionsState extends State<ScreenSubscriptions>
       builder: (context, settingsState) {
         return BlocBuilder<SubscribeBloc, SubscribeState>(
           builder: (context, subscribeState) {
-            final channels = _filterAndSortChannels(subscribeState.subscribedChannels);
-            final isLoading = subscribeState.subscribeStatus == ApiStatus.loading ||
-                subscribeState.subscribeStatus == ApiStatus.initial;
+            final channels =
+                _filterAndSortChannels(subscribeState.subscribedChannels);
+            final isLoading =
+                subscribeState.subscribeStatus == ApiStatus.loading ||
+                    subscribeState.subscribeStatus == ApiStatus.initial;
 
             return Scaffold(
-              backgroundColor: isDark ? AppColors.backgroundDark : AppColors.background,
+              backgroundColor:
+                  isDark ? AppColors.backgroundDark : AppColors.background,
               body: SafeArea(
                 child: NestedScrollView(
                   headerSliverBuilder: (context, innerBoxIsScrolled) => [
@@ -243,7 +295,9 @@ class _ScreenSubscriptionsState extends State<ScreenSubscriptions>
                       floating: true,
                       snap: true,
                       toolbarHeight: 60,
-                      backgroundColor: isDark ? AppColors.backgroundDark : AppColors.background,
+                      backgroundColor: isDark
+                          ? AppColors.backgroundDark
+                          : AppColors.background,
                       elevation: 0,
                       surfaceTintColor: kWhiteColor,
                       title: Padding(
@@ -299,7 +353,8 @@ class _ScreenSubscriptionsState extends State<ScreenSubscriptions>
                           height: 40,
                           child: TextField(
                             controller: _searchController,
-                            style: theme.textTheme.bodyMedium?.copyWith(fontSize: 14),
+                            style: theme.textTheme.bodyMedium
+                                ?.copyWith(fontSize: 14),
                             decoration: InputDecoration(
                               hintText: locals.searchSubscriptions,
                               hintStyle: theme.textTheme.bodyMedium?.copyWith(
@@ -308,11 +363,15 @@ class _ScreenSubscriptionsState extends State<ScreenSubscriptions>
                                     ? AppColors.onSurfaceVariantDark
                                     : AppColors.onSurfaceVariant,
                               ),
-                              prefixIcon: const Icon(CupertinoIcons.search, size: 18),
+                              prefixIcon:
+                                  const Icon(CupertinoIcons.search, size: 18),
                               suffixIcon: _searchQuery.isNotEmpty
                                   ? IconButton(
-                                      icon: const Icon(CupertinoIcons.xmark_circle_fill, size: 16),
-                                      onPressed: () => _searchController.clear(),
+                                      icon: const Icon(
+                                          CupertinoIcons.xmark_circle_fill,
+                                          size: 16),
+                                      onPressed: () =>
+                                          _searchController.clear(),
                                     )
                                   : null,
                               filled: true,
@@ -335,7 +394,10 @@ class _ScreenSubscriptionsState extends State<ScreenSubscriptions>
 
                     // Groups Section
                     SliverToBoxAdapter(
-                      child: SubscriptionGroupsTile(profileName: _currentProfile),
+                      child: SubscriptionGroupsTile(
+                        profileName: _currentProfile,
+                        onViewGroup: _applyGroupFilter,
+                      ),
                     ),
                     const SliverToBoxAdapter(
                       child: kHeightBox8,
@@ -354,17 +416,20 @@ class _ScreenSubscriptionsState extends State<ScreenSubscriptions>
                           indicatorColor: AppColors.primary,
                           indicatorSize: TabBarIndicatorSize.label,
                           dividerColor: Colors.transparent,
-                          labelStyle: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
+                          labelStyle: const TextStyle(
+                              fontSize: 13, fontWeight: FontWeight.w600),
                           unselectedLabelStyle: const TextStyle(fontSize: 13),
                           tabs: [
                             Tab(
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  const Icon(CupertinoIcons.person_2_fill, size: 16),
+                                  const Icon(CupertinoIcons.person_2_fill,
+                                      size: 16),
                                   AppSpacing.width4,
                                   Text(locals.channels),
-                                  if (subscribeState.subscribedChannels.isNotEmpty) ...[
+                                  if (subscribeState
+                                      .subscribedChannels.isNotEmpty) ...[
                                     AppSpacing.width4,
                                     Container(
                                       padding: const EdgeInsets.symmetric(
@@ -372,7 +437,8 @@ class _ScreenSubscriptionsState extends State<ScreenSubscriptions>
                                         vertical: 1,
                                       ),
                                       decoration: BoxDecoration(
-                                        color: AppColors.primary.withValues(alpha: 0.1),
+                                        color: AppColors.primary
+                                            .withValues(alpha: 0.1),
                                         borderRadius: AppRadius.borderFull,
                                       ),
                                       child: Text(
@@ -391,7 +457,8 @@ class _ScreenSubscriptionsState extends State<ScreenSubscriptions>
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  const Icon(CupertinoIcons.play_rectangle_fill, size: 16),
+                                  const Icon(CupertinoIcons.play_rectangle_fill,
+                                      size: 16),
                                   AppSpacing.width4,
                                   Text(locals.videos),
                                 ],
@@ -446,6 +513,55 @@ class _ScreenSubscriptionsState extends State<ScreenSubscriptions>
   }
 
   Widget _buildChannelsTab(List<Subscribe> channels, bool isDark) {
+    final content = _buildChannelList(channels, isDark);
+    if (_activeGroupId == null) return content;
+
+    return Column(
+      children: [
+        _buildGroupFilterBar(),
+        Expanded(child: content),
+      ],
+    );
+  }
+
+  Widget _buildGroupFilterBar() {
+    final theme = Theme.of(context);
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(
+        AppSpacing.lg,
+        AppSpacing.sm,
+        AppSpacing.lg,
+        0,
+      ),
+      child: Row(
+        children: [
+          Icon(Icons.folder, size: 18, color: theme.colorScheme.primary),
+          const SizedBox(width: AppSpacing.xs),
+          Expanded(
+            child: Text(
+              _activeGroupName ?? '',
+              style: theme.textTheme.labelLarge,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+          Text(
+            '${_activeGroupChannelIds?.length ?? 0}',
+            style: theme.textTheme.labelSmall
+                ?.copyWith(color: kGreyColor),
+          ),
+          IconButton(
+            tooltip: S.of(context).cancel,
+            icon: const Icon(Icons.close, size: 18),
+            visualDensity: VisualDensity.compact,
+            onPressed: _clearGroupFilter,
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildChannelList(List<Subscribe> channels, bool isDark) {
     final locals = S.of(context);
 
     if (channels.isEmpty) {
@@ -500,7 +616,8 @@ class _ScreenSubscriptionsState extends State<ScreenSubscriptions>
         return BlocBuilder<SubscribeBloc, SubscribeState>(
           builder: (context, subscribeState) {
             final locals = S.of(context);
-            final isNewPipe = settingsState.ytService == YouTubeServices.newpipe.name;
+            final isNewPipe =
+                settingsState.ytService == YouTubeServices.newpipe.name;
 
             // Check loading state based on service
             final isLoading = isNewPipe
@@ -510,7 +627,8 @@ class _ScreenSubscriptionsState extends State<ScreenSubscriptions>
             // Get feed based on service
             final newPipeFeed = trendingState.newPipeFeedResult;
             final pipedFeed = trendingState.feedResult;
-            final feedLength = isNewPipe ? newPipeFeed.length : pipedFeed.length;
+            final feedLength =
+                isNewPipe ? newPipeFeed.length : pipedFeed.length;
 
             if (subscribeState.subscribedChannels.isEmpty) {
               return _buildEmptyState(
@@ -695,7 +813,8 @@ class _SliverTabBarDelegate extends SliverPersistentHeaderDelegate {
   final bool isDark;
   final int channelCount;
 
-  _SliverTabBarDelegate(this.tabBar, {required this.isDark, required this.channelCount});
+  _SliverTabBarDelegate(this.tabBar,
+      {required this.isDark, required this.channelCount});
 
   @override
   double get minExtent => tabBar.preferredSize.height;
@@ -703,7 +822,8 @@ class _SliverTabBarDelegate extends SliverPersistentHeaderDelegate {
   double get maxExtent => tabBar.preferredSize.height;
 
   @override
-  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
     return Container(
       color: isDark ? AppColors.backgroundDark : AppColors.background,
       child: tabBar,
@@ -713,7 +833,8 @@ class _SliverTabBarDelegate extends SliverPersistentHeaderDelegate {
   @override
   bool shouldRebuild(_SliverTabBarDelegate oldDelegate) {
     // Rebuild when channel count changes so the tab badge updates
-    return oldDelegate.channelCount != channelCount || oldDelegate.isDark != isDark;
+    return oldDelegate.channelCount != channelCount ||
+        oldDelegate.isDark != isDark;
   }
 }
 
@@ -749,7 +870,8 @@ class _SortOptionTile extends StatelessWidget {
         ),
       ),
       trailing: isSelected
-          ? const Icon(CupertinoIcons.checkmark, color: AppColors.primary, size: 18)
+          ? const Icon(CupertinoIcons.checkmark,
+              color: AppColors.primary, size: 18)
           : null,
       onTap: onTap,
     );
@@ -811,7 +933,8 @@ class _ChannelGridCard extends StatelessWidget {
                   ),
                 ),
                 child: ClipOval(
-                  child: channel.avatarUrl != null && channel.avatarUrl!.isNotEmpty
+                  child: channel.avatarUrl != null &&
+                          channel.avatarUrl!.isNotEmpty
                       ? ThumbnailImage.small(
                           url: channel.avatarUrl!,
                           width: 64,
@@ -936,34 +1059,35 @@ class _ChannelListTile extends StatelessWidget {
                   ),
                 ),
                 child: ClipOval(
-                  child: channel.avatarUrl != null && channel.avatarUrl!.isNotEmpty
-                      ? ThumbnailImage.small(
-                          url: channel.avatarUrl!,
-                          width: 48,
-                          height: 48,
-                          errorWidget: (_, __, ___) => Center(
-                            child: Text(
-                              channel.channelName.isNotEmpty
-                                  ? channel.channelName[0].toUpperCase()
-                                  : '?',
-                              style: theme.textTheme.titleMedium?.copyWith(
-                                color: AppColors.primary,
-                                fontWeight: FontWeight.bold,
+                  child:
+                      channel.avatarUrl != null && channel.avatarUrl!.isNotEmpty
+                          ? ThumbnailImage.small(
+                              url: channel.avatarUrl!,
+                              width: 48,
+                              height: 48,
+                              errorWidget: (_, __, ___) => Center(
+                                child: Text(
+                                  channel.channelName.isNotEmpty
+                                      ? channel.channelName[0].toUpperCase()
+                                      : '?',
+                                  style: theme.textTheme.titleMedium?.copyWith(
+                                    color: AppColors.primary,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            )
+                          : Center(
+                              child: Text(
+                                channel.channelName.isNotEmpty
+                                    ? channel.channelName[0].toUpperCase()
+                                    : '?',
+                                style: theme.textTheme.titleMedium?.copyWith(
+                                  color: AppColors.primary,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
-                          ),
-                        )
-                      : Center(
-                          child: Text(
-                            channel.channelName.isNotEmpty
-                                ? channel.channelName[0].toUpperCase()
-                                : '?',
-                            style: theme.textTheme.titleMedium?.copyWith(
-                              color: AppColors.primary,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
                 ),
               ),
               AppSpacing.width12,
@@ -1117,7 +1241,8 @@ class _FeedVideoCardPiped extends StatelessWidget {
                             color: isDark
                                 ? AppColors.surfaceVariantDark
                                 : AppColors.surfaceVariant,
-                            child: const Icon(CupertinoIcons.person_fill, size: 20),
+                            child: const Icon(CupertinoIcons.person_fill,
+                                size: 20),
                           ),
                         ),
                       )
@@ -1297,7 +1422,8 @@ class _FeedVideoCardNewPipe extends StatelessWidget {
                             color: isDark
                                 ? AppColors.surfaceVariantDark
                                 : AppColors.surfaceVariant,
-                            child: const Icon(CupertinoIcons.person_fill, size: 20),
+                            child: const Icon(CupertinoIcons.person_fill,
+                                size: 20),
                           ),
                         ),
                       )
@@ -1398,7 +1524,9 @@ class _ShimmerChannelCard extends StatelessWidget {
             height: 64,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: isDark ? AppColors.surfaceVariantDark : AppColors.surfaceVariant,
+              color: isDark
+                  ? AppColors.surfaceVariantDark
+                  : AppColors.surfaceVariant,
             ),
           ),
           AppSpacing.height12,
@@ -1406,7 +1534,9 @@ class _ShimmerChannelCard extends StatelessWidget {
             height: 12,
             width: 60,
             decoration: BoxDecoration(
-              color: isDark ? AppColors.surfaceVariantDark : AppColors.surfaceVariant,
+              color: isDark
+                  ? AppColors.surfaceVariantDark
+                  : AppColors.surfaceVariant,
               borderRadius: AppRadius.borderXs,
             ),
           ),
@@ -1437,7 +1567,9 @@ class _ShimmerChannelListTile extends StatelessWidget {
             height: 48,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: isDark ? AppColors.surfaceVariantDark : AppColors.surfaceVariant,
+              color: isDark
+                  ? AppColors.surfaceVariantDark
+                  : AppColors.surfaceVariant,
             ),
           ),
           AppSpacing.width12,
@@ -1445,7 +1577,9 @@ class _ShimmerChannelListTile extends StatelessWidget {
             child: Container(
               height: 14,
               decoration: BoxDecoration(
-                color: isDark ? AppColors.surfaceVariantDark : AppColors.surfaceVariant,
+                color: isDark
+                    ? AppColors.surfaceVariantDark
+                    : AppColors.surfaceVariant,
                 borderRadius: AppRadius.borderXs,
               ),
             ),
@@ -1476,7 +1610,9 @@ class _ShimmerVideoCard extends StatelessWidget {
             aspectRatio: 16 / 9,
             child: Container(
               decoration: BoxDecoration(
-                color: isDark ? AppColors.surfaceVariantDark : AppColors.surfaceVariant,
+                color: isDark
+                    ? AppColors.surfaceVariantDark
+                    : AppColors.surfaceVariant,
                 borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(AppRadius.md),
                   topRight: Radius.circular(AppRadius.md),
@@ -1494,7 +1630,9 @@ class _ShimmerVideoCard extends StatelessWidget {
                   height: 36,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: isDark ? AppColors.surfaceVariantDark : AppColors.surfaceVariant,
+                    color: isDark
+                        ? AppColors.surfaceVariantDark
+                        : AppColors.surfaceVariant,
                   ),
                 ),
                 AppSpacing.width12,
@@ -1505,7 +1643,9 @@ class _ShimmerVideoCard extends StatelessWidget {
                       Container(
                         height: 14,
                         decoration: BoxDecoration(
-                          color: isDark ? AppColors.surfaceVariantDark : AppColors.surfaceVariant,
+                          color: isDark
+                              ? AppColors.surfaceVariantDark
+                              : AppColors.surfaceVariant,
                           borderRadius: AppRadius.borderXs,
                         ),
                       ),
@@ -1514,7 +1654,9 @@ class _ShimmerVideoCard extends StatelessWidget {
                         height: 12,
                         width: 100,
                         decoration: BoxDecoration(
-                          color: isDark ? AppColors.surfaceVariantDark : AppColors.surfaceVariant,
+                          color: isDark
+                              ? AppColors.surfaceVariantDark
+                              : AppColors.surfaceVariant,
                           borderRadius: AppRadius.borderXs,
                         ),
                       ),

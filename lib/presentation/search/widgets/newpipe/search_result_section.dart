@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vyplay/application/application.dart';
 import 'package:vyplay/core/services/content_filter_helper.dart';
-import 'package:vyplay/core/colors.dart';
 import 'package:vyplay/core/constants.dart';
 import 'package:vyplay/core/enums.dart';
 import 'package:vyplay/domain/subscribes/models/subscribe.dart';
@@ -157,8 +156,8 @@ class _NewPipeSearchResultSectionState
                       final channelId =
                           result.uploaderUrl?.split("/").last ?? '';
 
-                      if (!videoId.isEmpty &&
-                          !channelId.isEmpty &&
+                      if (videoId.isNotEmpty &&
+                          channelId.isNotEmpty &&
                           isHiddenByContentFilter(
                             context,
                             title: result.name ?? '',

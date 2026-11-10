@@ -1,86 +1,172 @@
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
+import 'package:vyplay/core/di/injectable.dart';
+import 'package:vyplay/domain/settings/settings_service.dart';
 
-/// DeArrow service - provides better (less clickbait) titles and thumbnails
-/// Based on LibreTube's DeArrow integration
+/// DeArrow service - provides crowd-sourced, less clickbait titles and
+/// thumbnails for videos.
+///
+/// Uses the official public endpoints:
+///  * branding (titles + thumbnail timestamps): https://sponsor.ajay.app/api/branding
+///  * thumbnail renderer: https://dearrow-thumb.ajay.app/api/v1/getThumbnail
+///
+/// Responses are memoised per video id and concurrent requests for the same
+/// video are de-duplicated, since the same video can appear in many cards.
 class DeArrowService {
   static DeArrowService? _instance;
   factory DeArrowService() => _instance ??= DeArrowService._();
 
   DeArrowService._();
 
-  static const String _baseUrl = 'https://dearrow.8484.nl/';
-  static const String _apiVersion = 'v1';
+  static const String _brandingUrl = 'https://sponsor.ajay.app/api/branding';
+  static const String _thumbnailUrl =
+      'https://dearrow-thumb.ajay.app/api/v1/getThumbnail';
 
-  /// Get DeArrow-enhanced title for a video
-  /// Returns null if DeArrow data is not available
-  Future<String?> getTitle(String videoId, {String? originalTitle}) async {
+  /// Upper bound for the in-memory cache so long sessions stay bounded.
+  static const int _maxCacheEntries = 500;
+
+  final Dio _dio = Dio(
+    BaseOptions(
+      connectTimeout: const Duration(seconds: 8),
+      receiveTimeout: const Duration(seconds: 8),
+    ),
+  );
+
+  final Map<String, DeArrowResult?> _cache = {};
+  final Map<String, Future<DeArrowResult?>> _inFlight = {};
+
+  bool _enabled = false;
+
+  /// Whether the user enabled DeArrow in settings.
+  bool get enabled => _enabled;
+
+  set enabled(bool value) {
+    _enabled = value;
+    if (!value) _cache.clear();
+  }
+
+  /// Reads the persisted DeArrow preference into the service flag.
+  Future<void> syncFromSettings() async {
     try {
-      final url = Uri.parse('$_baseUrl/$_apiVersion/title/$videoId').toString();
-      final response = await Dio().get(url);
-
-      if (response.statusCode == 200 && response.data != null) {
-        final data = response.data as Map<String, dynamic>?;
-        if (data != null && data.containsKey('title')) {
-          final dearrowTitle = data['title'] as String?;
-          // Use DeArrow title if available and different from original
-          if (dearrowTitle != null && dearrowTitle.isNotEmpty) {
-            log('[DeArrow] Got enhanced title for $videoId');
-            return dearrowTitle;
-          }
-        }
-      }
-      return originalTitle;
+      final result = await getIt<SettingsService>().isDeArrowEnabled();
+      enabled = result.fold((_) => false, (value) => value);
     } catch (e) {
-      log('[DeArrow] Error fetching title: $e');
+      log('[DeArrow] Could not read preference: $e');
+    }
+  }
+
+  /// Returns the branding data for [videoId], or null when DeArrow has nothing
+  /// to offer (or the request failed). Never throws.
+  Future<DeArrowResult?> getBranding(String videoId) {
+    if (videoId.isEmpty) return Future.value(null);
+
+    if (_cache.containsKey(videoId)) {
+      return Future.value(_cache[videoId]);
+    }
+
+    final pending = _inFlight[videoId];
+    if (pending != null) return pending;
+
+    final request = _fetch(videoId).whenComplete(() {
+      _inFlight.remove(videoId);
+    });
+    _inFlight[videoId] = request;
+    return request;
+  }
+
+  Future<DeArrowResult?> _fetch(String videoId) async {
+    try {
+      final response = await _dio.get<dynamic>(
+        _brandingUrl,
+        queryParameters: {'videoID': videoId},
+      );
+
+      final data = response.data;
+      if (data is! Map) {
+        _store(videoId, null);
+        return null;
+      }
+
+      final title = _pickBestTitle(data['titles']);
+      final timestamp = _pickBestThumbnail(data['thumbnails']);
+
+      final result = DeArrowResult(
+        title: title,
+        thumbnailUrl: timestamp == null
+            ? null
+            : '$_thumbnailUrl?videoID=${Uri.encodeQueryComponent(videoId)}'
+                '&time=$timestamp',
+      );
+
+      final value = result.isEmpty ? null : result;
+      _store(videoId, value);
+      return value;
+    } catch (e) {
+      // Network failures are expected (offline, rate limits); cache the miss so
+      // repeated cards do not hammer the endpoint.
+      log('[DeArrow] Branding request failed for $videoId: $e');
+      _store(videoId, null);
       return null;
     }
   }
 
-  /// Get DeArrow-enhanced thumbnail URL
-  /// Returns null if DeArrow thumbnail is not available
-  Future<String?> getThumbnail(String videoId, {String? originalThumbnail}) async {
-    try {
-      final url = Uri.parse('$_baseUrl/$_apiVersion/thumbnail/$videoId').toString();
-      final response = await Dio().get(url);
-
-      if (response.statusCode == 200 && response.data != null) {
-        final data = response.data as Map<String, dynamic>?;
-        if (data != null && data.containsKey('url')) {
-          final thumbnailUrl = data['url'] as String?;
-          if (thumbnailUrl != null && thumbnailUrl.isNotEmpty) {
-            log('[DeArrow] Got enhanced thumbnail for $videoId');
-            return thumbnailUrl;
-          }
-        }
-      }
-      return originalThumbnail;
-    } catch (e) {
-      log('[DeArrow] Error fetching thumbnail: $e');
-      return null;
+  void _store(String videoId, DeArrowResult? value) {
+    if (_cache.length >= _maxCacheEntries) {
+      _cache.remove(_cache.keys.first);
     }
+    _cache[videoId] = value;
   }
 
-  /// Get both title and thumbnail for a video
-  Future<DeArrowResult> getEnhancedData(String videoId, {String? originalTitle, String? originalThumbnail}) async {
-    final titleResult = getTitle(videoId, originalTitle: originalTitle);
-    final thumbnailResult = getThumbnail(videoId, originalThumbnail: originalThumbnail);
+  static Map<dynamic, dynamic>? _pickBest(List<dynamic>? raw) {
+    if (raw == null) return null;
 
-    final results = await Future.wait([titleResult, thumbnailResult]);
+    final entries = raw
+        .whereType<Map>()
+        .where((entry) => entry['original'] != true)
+        .toList();
 
-    return DeArrowResult(
-      title: results[0] as String?,
-      thumbnailUrl: results[1] as String?,
-      usedDearrow: results[0] != null || results[1] != null,
-    );
+    if (entries.isEmpty) return null;
+
+    // Community-locked submissions win; otherwise the most voted entry.
+    final locked = entries.where((entry) => entry['locked'] == true);
+    if (locked.isNotEmpty) return locked.first;
+
+    entries.sort((a, b) => _votes(b).compareTo(_votes(a)));
+    return entries.first;
+  }
+
+  static double _votes(Map<dynamic, dynamic> entry) {
+    final votes = entry['votes'];
+    return votes is num ? votes.toDouble() : 0;
+  }
+
+  static String? _pickBestTitle(List<dynamic>? raw) {
+    final best = _pickBest(raw);
+    if (best == null) return null;
+    final title = best['title'];
+    if (title is! String || title.trim().isEmpty) return null;
+    return title;
+  }
+
+  static String? _pickBestThumbnail(List<dynamic>? raw) {
+    final best = _pickBest(raw);
+    if (best == null) return null;
+    final timestamp = best['timestamp'];
+    if (timestamp is num && timestamp >= 0) return timestamp.toString();
+    return null;
   }
 }
 
 class DeArrowResult {
-  final String? title;
-  final String? thumbnailUrl;
-  final bool usedDearrow;
+  const DeArrowResult({this.title, this.thumbnailUrl});
 
-  DeArrowResult({this.title, this.thumbnailUrl, required this.usedDearrow});
+  /// Crowd-sourced replacement title, when available.
+  final String? title;
+
+  /// Fully qualified DeArrow thumbnail URL, when available.
+  final String? thumbnailUrl;
+
+  bool get isEmpty => title == null && thumbnailUrl == null;
+  bool get isNotEmpty => !isEmpty;
 }

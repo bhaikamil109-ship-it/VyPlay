@@ -8,6 +8,7 @@ import 'package:vyplay/core/settings.dart';
 import 'package:vyplay/domain/settings/models/instance.dart';
 import 'package:vyplay/domain/content_filter/content_filter_config.dart';
 import 'package:vyplay/domain/settings/models/settings_configs.dart';
+import 'package:vyplay/core/services/dearrow_service.dart';
 import 'package:vyplay/domain/settings/settings_service.dart';
 import 'package:vyplay/domain/sleep_timer/sleep_timer_config.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -191,7 +192,7 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
     on<GetDefaultLanguage>((event, emit) async {
       emit(state);
       final _result = await settingsService.selectDefaultLanguage(
-          language: event.language ?? 'en');
+          language: event.language);
       final _state = _result.fold(
           (MainFailure f) =>
               state.copyWith(defaultLanguage: state.defaultLanguage),
@@ -203,7 +204,7 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
     on<GetDefaultQuality>((event, emit) async {
       emit(state);
       final _result = await settingsService.selectDefaultQuality(
-          quality: event.quality ?? '360');
+          quality: event.quality);
       final _state = _result.fold(
           (MainFailure f) =>
               state.copyWith(defaultQuality: state.defaultQuality),
@@ -216,7 +217,7 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
       emit(state);
       log('Region: ${event.region}');
       final _result =
-          await settingsService.selectRegion(region: event.region ?? 'IN');
+          await settingsService.selectRegion(region: event.region);
       final _state = _result.fold((MainFailure f) => state,
           (String region) => state.copyWith(defaultRegion: region));
       emit(_state);
@@ -720,6 +721,9 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
 
     on<ToggleDeArrow>((event, emit) async {
       final _result = await settingsService.toggleDeArrow(enabled: event.enabled);
+      // Keep the service flag in sync so cards stop or start using DeArrow
+      // immediately after the switch is flipped.
+      _result.fold((_) {}, (enabled) => DeArrowService().enabled = enabled);
       emit(_result.fold(
           (MainFailure f) => state,
           (enabled) => state.copyWith(isDeArrowEnabled: enabled)));

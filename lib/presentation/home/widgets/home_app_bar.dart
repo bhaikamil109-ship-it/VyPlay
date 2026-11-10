@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/search/search_bloc.dart';
-import '../../../core/colors.dart';
 import '../../../core/constants.dart';
 import '../../../core/di/injectable.dart';
 import '../../search/screen_search.dart';

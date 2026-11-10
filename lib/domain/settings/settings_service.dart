@@ -60,6 +60,38 @@ abstract class SettingsService {
   Future<Either<MainFailure, String>> switchProfile({required String profileName});
   Future<Either<MainFailure, List<String>>> renameProfile({required String oldName, required String newName});
   Future<Either<MainFailure, List<String>>> getProfiles();
+  // Subscription groups
+  Future<Either<MainFailure, List<Map<String, dynamic>>>> getAllSubscriptionGroups({
+    required String profileName,
+  });
+  Future<Either<MainFailure, int>> createSubscriptionGroup({
+    required String groupName,
+    required String profileName,
+    String? colorHex,
+  });
+  Future<Either<MainFailure, bool>> renameSubscriptionGroup({
+    required int groupId,
+    required String newName,
+    required String profileName,
+  });
+  Future<Either<MainFailure, bool>> deleteSubscriptionGroup({
+    required int groupId,
+    required String profileName,
+  });
+  Future<Either<MainFailure, bool>> addToGroup({
+    required int groupId,
+    required String channelId,
+    required String profileName,
+  });
+  Future<Either<MainFailure, bool>> removeFromGroup({
+    required int groupId,
+    required String channelId,
+    required String profileName,
+  });
+  Future<Either<MainFailure, List<Map<String, dynamic>>>> getGroupMembers({
+    required int groupId,
+    required String profileName,
+  });
   // Import/Export methods
   Future<Either<MainFailure, String>> exportSubscriptions({String profileName = 'default'});
   Future<Either<MainFailure, int>> importSubscriptions({required String filePath, String profileName = 'default'});

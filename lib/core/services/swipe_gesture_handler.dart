@@ -15,10 +15,10 @@ class SwipeGestureHandler {
   SwipeGestureHandler._();
 
   // Configuration
-  Duration _seekDuration = const Duration(seconds: 10);
-  bool _enableBrightnessSwipe = true;
-  bool _enableVolumeSwipe = true;
-  bool _enableSeekSwipe = true;
+  Duration seekDuration = const Duration(seconds: 10);
+  bool enableBrightnessSwipe = true;
+  bool enableVolumeSwipe = true;
+  bool enableSeekSwipe = true;
 
   // State
   bool _isHorizontalSwipe = false;
@@ -32,18 +32,6 @@ class SwipeGestureHandler {
   void Function(double)? onBrightnessChanged;
   void Function(double)? onVolumeChanged;
   void Function(SwipeAction, Offset)? onSwipeAction;
-
-  Duration get seekDuration => _seekDuration;
-  set seekDuration(Duration duration) => _seekDuration = duration;
-
-  bool get enableBrightnessSwipe => _enableBrightnessSwipe;
-  set enableBrightnessSwipe(bool value) => _enableBrightnessSwipe = value;
-
-  bool get enableVolumeSwipe => _enableVolumeSwipe;
-  set enableVolumeSwipe(bool value) => _enableVolumeSwipe = value;
-
-  bool get enableSeekSwipe => _enableSeekSwipe;
-  set enableSeekSwipe(bool value) => _enableSeekSwipe = value;
 
   void setCallbacks({
     void Function(Duration)? seek,
@@ -87,13 +75,13 @@ class SwipeGestureHandler {
       }
     }
 
-    if (_isVerticalSwipe && _enableBrightnessSwipe) {
+    if (_isVerticalSwipe && enableBrightnessSwipe) {
       // Brightness control (vertical swipe)
       final brightnessDelta = -delta.dy / 500;
       log('[SwipeGesture] Brightness delta: ${brightnessDelta.toStringAsFixed(2)}');
     }
 
-    if (_isVerticalSwipe && _enableVolumeSwipe && !_isHorizontalSwipe) {
+    if (_isVerticalSwipe && enableVolumeSwipe && !_isHorizontalSwipe) {
       // Volume control (vertical swipe on left side or with modifier)
       final volumeDelta = -delta.dy / 500;
       log('[SwipeGesture] Volume delta: ${volumeDelta.toStringAsFixed(2)}');
@@ -136,7 +124,7 @@ class SwipeGestureHandler {
       }
     }
 
-    if (_isHorizontalSwipe && _enableSeekSwipe) {
+    if (_isHorizontalSwipe && enableSeekSwipe) {
       // Seek control (horizontal swipe)
       final seekDelta = delta.dx / 500;
       log('[SwipeGesture] Seek delta: ${seekDelta.toStringAsFixed(2)}');
@@ -162,7 +150,7 @@ class SwipeGestureHandler {
   }
 
   void _handleSeekSwipe(SwipeDirection direction, double intensity) {
-    final baseSeek = _seekDuration.inSeconds;
+    final baseSeek = seekDuration.inSeconds;
     final adjustedSeek = (baseSeek * intensity).clamp(1, baseSeek * 2).toInt();
 
     Duration newPosition;

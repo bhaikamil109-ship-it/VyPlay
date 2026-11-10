@@ -16,7 +16,7 @@ class ServiceSwitchSection extends StatelessWidget {
           previous.ytService != current.ytService ||
           previous.isBilibiliEnabled != current.isBilibiliEnabled,
       builder: (context, state) {
-        final currentService = state.ytService ?? YouTubeServices.newpipe.name;
+        final currentService = state.ytService;
         final isBilibiliEnabled = state.isBilibiliEnabled ?? false;
 
         return Column(

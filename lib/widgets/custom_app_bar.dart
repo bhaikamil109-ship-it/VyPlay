@@ -4,7 +4,6 @@ import 'package:vyplay/core/constants.dart';
 import 'package:vyplay/presentation/home/widgets/circular_icon.dart';
 import 'package:vyplay/presentation/search/screen_search.dart';
 
-import '../../../core/colors.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({

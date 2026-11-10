@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:vyplay/core/colors.dart';
 import 'package:vyplay/core/constants.dart';
 import 'package:vyplay/core/operations/math_operations.dart';
 import 'package:vyplay/domain/search/models/newpipe/newpipe_search_resp.dart';
@@ -149,6 +148,7 @@ class NewPipeSearchVideoInfoCardWidget extends StatelessWidget {
                 // * caption row
                 CaptionRowWidget(
                   caption: cardInfo?.name ?? locals.noVideoTitle,
+                  videoId: cardInfo?.videoId,
                 ),
 
                 kHeightBox5,

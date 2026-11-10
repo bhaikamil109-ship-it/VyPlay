@@ -9,7 +9,7 @@ class AppInfo {
   static final myApp = AppInfoModel(
     name: 'VyPlay',
     nickname: 'vyplay',
-    url: 'https://github.com/bhaikamil109-ship-it/VyPlay.',
+    url: 'https://github.com/bhaikamil109-ship-it/VyPlay',
     description: 'A clean, ad-free YouTube client built for speed',
     image: 'vyplay.png',
   );
@@ -28,9 +28,9 @@ class AppInfo {
   /// original authors' attribution, so this list must not be stripped.
   static List<AppInfoModel> upstreamInfos = <AppInfoModel>[
     AppInfoModel(
-      name: 'VyPlay',
-      url: 'https://github.com/mu-fazil-vk/vyplay',
-      description: 'Upstream project (GPLv3)',
+      name: 'FluxTube',
+      url: 'https://github.com/mu-fazil-vk/FluxTube',
+      description: 'Upstream project VyPlay is derived from (GPLv3)',
     ),
     AppInfoModel(
       name: 'NewPipe Extractor',

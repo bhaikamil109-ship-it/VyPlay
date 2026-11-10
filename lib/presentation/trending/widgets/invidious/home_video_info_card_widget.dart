@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:vyplay/core/colors.dart';
 import 'package:vyplay/core/constants.dart';
 import 'package:vyplay/core/operations/math_operations.dart';
 import 'package:vyplay/domain/trending/models/invidious/invidious_trending_resp.dart';
@@ -66,6 +65,7 @@ class InvidiousTrendingVideoInfoCardWidget extends StatelessWidget {
                 // * caption row
                 CaptionRowWidget(
                   caption: cardInfo?.title ?? locals.noVideoTitle,
+                  videoId: cardInfo?.videoId,
                 ),
 
                 kHeightBox5,

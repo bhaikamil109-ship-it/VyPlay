@@ -116,7 +116,7 @@ class DownloadPreferencesSettingsSection extends StatelessWidget {
               SizedBox(
                 width: 200,
                 child: DropdownButtonFormField<int>(
-                  value: autoDeleteDays,
+                  initialValue: autoDeleteDays,
                   decoration: InputDecoration(
                     contentPadding: const EdgeInsets.symmetric(
                       horizontal: kPadding12,

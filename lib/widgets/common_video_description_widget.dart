@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:vyplay/widgets/dearrow_widgets.dart';
 import 'package:vyplay/widgets/thumbnail_image.dart';
 import 'package:vyplay/core/operations/math_operations.dart';
 import 'package:vyplay/generated/l10n.dart';
 import 'package:intl/intl.dart';
 
-import '../core/colors.dart';
 import '../core/constants.dart';
 
 //caption widget
@@ -15,22 +15,35 @@ class CaptionRowWidget extends StatelessWidget {
     this.icon,
     required this.caption,
     this.onTap,
+    this.videoId,
   });
 
   final String caption;
   final IconData? icon;
   final VoidCallback? onTap;
 
+  /// When set, the caption may be replaced by its DeArrow community title.
+  final String? videoId;
+
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         Expanded(
-          child: Text(
-            caption,
-            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-            overflow: TextOverflow.visible,
-          ),
+          child: videoId == null || videoId!.isEmpty
+              ? Text(
+                  caption,
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 14),
+                  overflow: TextOverflow.visible,
+                )
+              : DeArrowText(
+                  videoId!,
+                  caption,
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 14),
+                  overflow: TextOverflow.visible,
+                ),
         ),
         if (icon != null)
           IconButton(
@@ -149,7 +162,8 @@ class SubscribeRowWidget extends StatelessWidget {
           CircleAvatar(
             radius: radius,
             backgroundImage: (uploaderUrl != null && uploaderUrl != "")
-                ? cachedAvatarProvider(uploaderUrl!, logicalDiameter: (radius * 2).toInt())
+                ? cachedAvatarProvider(uploaderUrl!,
+                    logicalDiameter: (radius * 2).toInt())
                 : null,
           ),
         spacing ?? kWidthBox10,

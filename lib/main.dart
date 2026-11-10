@@ -26,8 +26,8 @@ import 'package:vyplay/presentation/routes/app_routes.dart';
 import 'package:vyplay/presentation/routes/bloc_observer.dart';
 import 'package:vyplay/presentation/watch/widgets/global_pip_overlay.dart';
 import 'package:vyplay/core/services/audio_handler_service.dart';
+import 'package:vyplay/core/services/dearrow_service.dart';
 import 'package:vyplay/core/services/log_collector.dart';
-import 'package:vyplay/core/services/sleep_timer.dart';
 import 'package:vyplay/core/services/subscription_notifier.dart';
 import 'package:media_kit/media_kit.dart';
 
@@ -76,6 +76,10 @@ void main() async {
   // Initialize GetIt and register dependencies
   configureInjection();
 
+  // Pick up the persisted DeArrow preference so cards can replace clickbait
+  // titles/thumbnails as soon as they are built.
+  unawaited(DeArrowService().syncFromSettings());
+
   runApp(const MyApp());
 }
 
@@ -97,6 +101,9 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
       DownloadNotificationService().initialize();
       // Initialize audio service for background playback notification controls
       initAudioService();
+      // Pause playback when the sleep timer finishes. This listener used to be
+      // defined but never registered, so the timer counted down silently.
+      VyPlayAudioHandler.initializeSleepTimerListener();
 
       // Background work below is not needed for the first frame, and on a
       // low-RAM device starting it immediately competes with the initial

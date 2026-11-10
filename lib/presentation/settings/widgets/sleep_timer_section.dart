@@ -43,7 +43,7 @@ class SleepTimerSettingsSection extends StatelessWidget {
                           BorderRadius.circular(kRadius8),
                     ),
                     child: Text(
-                      '${config!.totalDuration.inMinutes}:${(config.totalDuration.inSeconds % 60).toString().padLeft(2, '0')}',
+                      '${config.totalDuration.inMinutes}:${(config.totalDuration.inSeconds % 60).toString().padLeft(2, '0')}',
                       style: Theme.of(context).textTheme.bodySmall?.copyWith(
                             color: Theme.of(context).colorScheme.onPrimaryContainer,
                           ),

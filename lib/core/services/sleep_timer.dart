@@ -13,8 +13,6 @@ class SleepTimer {
   Duration _remaining = Duration.zero;
   SleepTimerConfig _config = const SleepTimerConfig(duration: Duration.zero);
   SleepTimerStatus _status = SleepTimerStatus.notSet;
-  bool _fadeOutActive = false;
-  double _fadeOutProgress = 0.0;
 
   Duration get remaining => _remaining;
   SleepTimerStatus get status => _status;
@@ -39,8 +37,6 @@ class SleepTimer {
     _config = config;
     _remaining = config.duration;
     _status = SleepTimerStatus.running;
-    _fadeOutActive = config.fadeOut;
-    _fadeOutProgress = 0.0;
     _updateStatus(SleepTimerStatus.running);
     _startTimer();
     log('[SleepTimer] Set for ${config.duration.inMinutes}:${config.duration.inSeconds % 60}');
@@ -54,10 +50,6 @@ class SleepTimer {
       }
 
       _remaining -= const Duration(seconds: 1);
-
-      if (_fadeOutActive && _remaining.inSeconds <= 30 && _remaining.inSeconds > 0) {
-        _fadeOutProgress = 1.0 - (_remaining.inSeconds / 30.0);
-      }
 
       log('[SleepTimer] Remaining: ${_remaining.inMinutes}:${_remaining.inSeconds % 60}');
     });

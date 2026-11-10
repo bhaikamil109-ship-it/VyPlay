@@ -127,6 +127,7 @@ class _SearcheResultSectionState extends State<SearcheResultSection> {
                 return HomeVideoInfoCardWidget(
                   key: ValueKey('video_$videoId'),
                   channelId: channelId,
+                  videoId: videoId,
                   cardInfo: result,
                   isSubscribed: isSubscribed,
                   onTap: () {

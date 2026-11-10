@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:vyplay/core/colors.dart';
 import 'package:vyplay/core/constants.dart';
 import 'package:vyplay/core/operations/math_operations.dart';
 import 'package:vyplay/domain/channel/models/invidious/latest_video.dart';
@@ -65,6 +64,7 @@ class InvidiousChannelRelatedVideoInfoCardWidget extends StatelessWidget {
                 // * caption row
                 CaptionRowWidget(
                   caption: latestVideo?.title ?? locals.noVideoTitle,
+                  videoId: latestVideo?.videoId,
                 ),
 
                 kHeightBox5,

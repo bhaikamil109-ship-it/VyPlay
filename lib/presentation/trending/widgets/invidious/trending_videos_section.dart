@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vyplay/application/application.dart';
-import 'package:vyplay/application/settings/settings_bloc.dart';
 import 'package:vyplay/core/constants.dart';
 import 'package:vyplay/domain/subscribes/models/subscribe.dart';
 import 'package:vyplay/domain/watch/models/basic_info.dart';

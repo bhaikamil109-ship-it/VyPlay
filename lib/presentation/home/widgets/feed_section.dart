@@ -91,6 +91,7 @@ class _FeedVideoSectionState extends State<FeedVideoSection> {
         return HomeVideoInfoCardWidget(
           key: ValueKey('feed_$videoId'),
           channelId: channelId,
+          videoId: videoId,
           cardInfo: feed,
           isSubscribed: isSubscribed,
           index: index,

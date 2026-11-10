@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:vyplay/core/colors.dart';
 import 'package:vyplay/core/constants.dart';
 import 'package:vyplay/core/operations/math_operations.dart';
 import 'package:vyplay/domain/trending/models/newpipe/newpipe_trending_resp.dart';
@@ -65,6 +64,7 @@ class NewPipeTrendingVideoInfoCardWidget extends StatelessWidget {
                 // * caption row
                 CaptionRowWidget(
                   caption: cardInfo?.name ?? locals.noVideoTitle,
+                  videoId: cardInfo?.videoId,
                 ),
 
                 kHeightBox5,

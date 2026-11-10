@@ -79,6 +79,7 @@ class ChannelRelatedVideoSection extends StatelessWidget {
 
             return HomeVideoInfoCardWidget(
               channelId: channelId,
+              videoId: videoId,
               subscribeRowVisible: false,
               cardInfo: videoInfo,
               onTap: () {

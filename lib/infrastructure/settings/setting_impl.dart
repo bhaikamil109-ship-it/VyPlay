@@ -18,7 +18,6 @@ import 'package:path_provider/path_provider.dart';
 import 'package:vyplay/domain/sleep_timer/sleep_timer_config.dart';
 
 import '../../core/settings.dart';
-import '../../domain/subscription_groups/subscription_group.dart';
 
 @LazySingleton(as: SettingsService)
 class SettingImpl implements SettingsService {
