@@ -1,7 +1,9 @@
 package com.kamil.vyplay.newpipe
 
+import android.content.Context
 import android.os.Handler
 import android.os.Looper
+import com.kamil.vyplay.potoken.PoTokenProviderImpl
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import io.flutter.plugin.common.MethodCall
@@ -17,6 +19,7 @@ import org.schabi.newpipe.extractor.localization.ContentCountry
 import org.schabi.newpipe.extractor.localization.Localization
 import org.schabi.newpipe.extractor.playlist.PlaylistInfo
 import org.schabi.newpipe.extractor.search.SearchInfo
+import org.schabi.newpipe.extractor.services.youtube.YoutubeStreamExtractor
 import org.schabi.newpipe.extractor.stream.StreamInfo
 import org.schabi.newpipe.extractor.stream.AudioStream
 import org.schabi.newpipe.extractor.stream.VideoStream
@@ -27,7 +30,9 @@ import java.util.concurrent.ConcurrentHashMap
  * Handles all method channel calls from Flutter for NewPipe Extractor operations.
  * All extraction runs on background threads using Kotlin Coroutines.
  */
-class NewPipeMethodHandler : MethodChannel.MethodCallHandler {
+class NewPipeMethodHandler(
+    private val appContext: Context? = null,
+) : MethodChannel.MethodCallHandler {
 
     private val scope = CoroutineScope(Dispatchers.IO + SupervisorJob())
     private val mainHandler = Handler(Looper.getMainLooper())
@@ -40,16 +45,19 @@ class NewPipeMethodHandler : MethodChannel.MethodCallHandler {
     companion object {
         private var isInitialized = false
 
-        fun initialize() {
+        fun initialize(context: Context? = null) {
             if (!isInitialized) {
                 NewPipe.init(VyPlayDownloader.getInstance())
+                context?.let { PoTokenProviderImpl.setContext(it.applicationContext) }
+                // Enables WebView/BotGuard-backed poTokens for the WEB client.
+                YoutubeStreamExtractor.setPoTokenProvider(PoTokenProviderImpl)
                 isInitialized = true
             }
         }
     }
 
     override fun onMethodCall(call: MethodCall, result: MethodChannel.Result) {
-        initialize()
+        initialize(appContext)
 
         when (call.method) {
             "isAvailable" -> result.success(true)

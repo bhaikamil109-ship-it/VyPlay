@@ -18,6 +18,7 @@ import 'widgets/phase18_features_section.dart';
 import 'widgets/playback_speed_section.dart';
 import 'widgets/service_switch_section.dart';
 import 'widgets/cookie_login_section.dart';
+import 'widgets/piped_account_section.dart';
 
 class ScreenSettings extends StatelessWidget {
   const ScreenSettings({super.key});
@@ -76,6 +77,8 @@ class ScreenSettings extends StatelessWidget {
                   ServiceSwitchSection(),
                   kHeightBox15,
                   CookieLoginSection(),
+                  kHeightBox15,
+                  PipedAccountSection(),
                   kHeightBox15,
                   SponsorBlockSettingsSection(),
                   kHeightBox15,

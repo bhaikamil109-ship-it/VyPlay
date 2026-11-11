@@ -21,11 +21,15 @@
 
 ## Phase 4 — Auth & Account
 - [x] Cookie-based login (stored locally, injected into native NewPipe downloader)
-- [ ] PoToken / local streams extraction — blocked (extractor v0.26.5 has no poToken API)
-- [ ] Piped account login + cross-device sync — blocked (needs account API + backend)
+- [x] PoToken provider (WebView BotGuard port, registered with YoutubeStreamExtractor)
+  - [ ] Real-device verification (no Android SDK/device in this environment)
+- [x] Piped account register/login/logout + session persistence
+- [x] Piped subscription pull/push sync (verified backend routes)
+- [x] Piped playlists fetch (verified backend route)
+- [ ] Piped user preferences sync — not supported by Piped-Backend (no endpoint)
 
 ## Phase 5 — Multi-Service Backend
-- [ ] PeerTube service integration
+- [x] PeerTube service integration (official public REST API; instance management, search/discovery, channels, details, HLS + direct MP4 playback; 20 new unit tests; live API verified on framatube.org)
 - [ ] SoundCloud integration
 - [ ] Bandcamp integration
 - [ ] media.ccc.de integration

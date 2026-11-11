@@ -289,4 +289,11 @@ abstract class SettingsService {
   Future<Either<MainFailure, String>> setYoutubeCookie({required String cookie});
   Future<Either<MainFailure, String?>> getYoutubeCookie();
   Future<Either<MainFailure, bool>> clearYoutubeCookie();
+
+  // Piped account session
+  Future<Either<MainFailure, bool>> savePipedSession({
+    required String token,
+    required String username,
+  });
+  Future<Either<MainFailure, bool>> clearPipedSession();
 }

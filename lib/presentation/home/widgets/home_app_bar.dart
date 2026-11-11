@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../application/search/search_bloc.dart';
 import '../../../core/constants.dart';
 import '../../../core/di/injectable.dart';
+import '../../peertube/peertube_navigation.dart';
 import '../../search/screen_search.dart';
 import '../../settings/screen_settings.dart';
 import 'circular_icon.dart';
@@ -44,6 +45,13 @@ class HomeAppBar extends StatelessWidget {
         ),
       ),
       actions: [
+        GestureDetector(
+          onTap: () => openPeerTubeBrowse(context),
+          child: const CircularIcon(
+            icon: CupertinoIcons.globe,
+          ),
+        ),
+        kWidthBox10,
         GestureDetector(
           onTap: () => Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => BlocProvider(

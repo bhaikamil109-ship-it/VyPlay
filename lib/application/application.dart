@@ -1,5 +1,8 @@
 export 'channel/channel_bloc.dart';
 export 'download/download_bloc.dart';
+export 'peertube/peertube_bloc.dart';
+export 'peertube/peertube_channel_bloc.dart';
+export 'peertube/peertube_watch_bloc.dart';
 export 'playlist/playlist_bloc.dart';
 export 'saved/saved_bloc.dart';
 export 'search/search_bloc.dart';

@@ -184,3 +184,7 @@ const sbForDownloadsKey = 'sb-for-downloads';
 
 // YouTube cookie used for age-restricted / members-only streams
 const youtubeCookieKey = 'youtube-cookie';
+
+// Piped account session (token + username)
+const pipedAuthTokenKey = 'piped-auth-token';
+const pipedAuthUsernameKey = 'piped-auth-username';

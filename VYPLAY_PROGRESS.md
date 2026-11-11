@@ -4,10 +4,45 @@
 > *actually* verified. Anything that could not be executed is marked
 > **UNVERIFIED** rather than claimed as done.
 
-**Last updated:** 2026-11-04 (Round 7)
+**Last updated:** 2026-11-11 (Round 8)
 **Environment:** GitHub Actions (ubuntu-26.04), Flutter 3.47.1, Dart 3.13.1, JDK 17
 **Verification available in CI:** `flutter analyze`, `flutter test`, `flutter build apk`
 **Verification NOT available:** physical Android device, real YouTube network calls, iOS/macOS/Windows builds, Play Store submission.
+
+---
+
+## Round 8 — PeerTube public service integration (2026-11-11)
+
+**Scope:** Phase 5 PeerTube integration via official public REST API.
+
+### Implemented
+
+- Domain models, API contract, repository contract, instance store contract.
+- Infrastructure: `PeerTubeApiImpl` (Dio, official endpoints, error mapping), `PeerTubeRepositoryImpl`, `PeerTubeInstanceStoreImpl` (JSON file store, no Drift migration).
+- BLoCs: `PeerTubeBloc`, `PeerTubeChannelBloc`, `PeerTubeWatchBloc`.
+- UI: `ScreenPeerTube`, `ScreenPeerTubeChannel`, `ScreenPeerTubeWatch`, video card, instance sheet, navigation helpers; Home app bar globe entry.
+- Instance management: add/remove/switch, URL validation, config fetch, offline/restricted handling.
+- Search, browse, pagination (requested-start fallback for responses without `start`), sorting, thumbnails, channels, details.
+- Playback: HLS per-resolution playlists preferred; direct muxed MP4 fallback; audio-only excluded; media_kit reuse; quality switching.
+- Remote/federated channels handled via `name@host` (`apiHandle`).
+
+### Verified
+
+- `flutter analyze`: No issues found!
+- `flutter test`: 311 tests passed (20 new PeerTube tests).
+- Live API on `https://framatube.org`: config 200, list 200 (total 24343), search 200, detail 200, channel 200 (with `name@host`), channel videos 200, HLS manifest 200 (`#EXTM3U`).
+- Direct muxed MP4 Range request returns HTTP 206 (`video/mp4`, content-range present) on a real instance file.
+- `dart run build_runner build --delete-conflicting-outputs`: succeeded (DI regenerated).
+- Model/unit tests cover URL validation, config parsing, paging fallback, thumbnail resolution, HLS quality ordering, direct fallback, live master playlist, store persistence and corrupt file handling.
+
+### Limitations (UNVERIFIED)
+
+- Runtime playback not verified on device/emulator; only stream URL reachability tested.
+- Android build/device verification unavailable in this environment (no Android SDK).
+- Public instances may be restricted/rate-limited/offline; handled in code but live behavior varies.
+- OAuth/account features, subscriptions, playlists, downloads and comments intentionally not implemented (anonymous read-only Phase 5 scope).
+- Piped preferences sync not supported (no endpoint); already documented.
+- Phase 4 Kotlin compile remains unverified (missing SDK/build tools).
 
 ---
 

@@ -111,6 +111,8 @@ sealed class SettingsState with _$SettingsState {
     bool? isSbExclusiveMarkerEnabled,
     bool? isSbForDownloadsEnabled,
     String? youtubeCookie,
+    String? pipedAuthToken,
+    String? pipedAuthUsername,
   }) = _Initial;
 
   const SettingsState._();
@@ -211,6 +213,8 @@ sealed class SettingsState with _$SettingsState {
         isSbExclusiveMarkerEnabled: false,
         isSbForDownloadsEnabled: false,
         youtubeCookie: null,
+        pipedAuthToken: null,
+        pipedAuthUsername: null,
       );
 
   /// Playlist bookmark preferences derived from the persisted state.

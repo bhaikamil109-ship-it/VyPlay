@@ -1879,6 +1879,31 @@ class SettingImpl implements SettingsService {
     }
   }
 
+  @override
+  Future<Either<MainFailure, bool>> savePipedSession({
+    required String token,
+    required String username,
+  }) async {
+    try {
+      await db.setSetting(pipedAuthTokenKey, token.trim());
+      await db.setSetting(pipedAuthUsernameKey, username.trim());
+      return const Right(true);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, bool>> clearPipedSession() async {
+    try {
+      await db.setSetting(pipedAuthTokenKey, '');
+      await db.setSetting(pipedAuthUsernameKey, '');
+      return const Right(true);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
   /// Parses YouTube Takeout CSV, NewPipe JSON or VyPlay JSON exports into
   /// subscription entries. Entries without a channel ID keep their URL so the
   /// importer can resolve handles later.

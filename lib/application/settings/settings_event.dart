@@ -243,4 +243,11 @@ sealed class SettingsEvent with _$SettingsEvent {
   // Cookie login
   const factory SettingsEvent.setYoutubeCookie({required String cookie}) = SetYoutubeCookie;
   const factory SettingsEvent.clearYoutubeCookie() = ClearYoutubeCookie;
+
+  // Piped account session
+  const factory SettingsEvent.savePipedSession({
+    required String token,
+    required String username,
+  }) = SavePipedSession;
+  const factory SettingsEvent.clearPipedSession() = ClearPipedSession;
 }

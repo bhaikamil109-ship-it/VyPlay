@@ -14,6 +14,10 @@ import 'package:injectable/injectable.dart' as _i526;
 import 'package:vyplay/application/application.dart' as _i718;
 import 'package:vyplay/application/channel/channel_bloc.dart' as _i834;
 import 'package:vyplay/application/download/download_bloc.dart' as _i664;
+import 'package:vyplay/application/peertube/peertube_bloc.dart' as _i963;
+import 'package:vyplay/application/peertube/peertube_channel_bloc.dart'
+    as _i497;
+import 'package:vyplay/application/peertube/peertube_watch_bloc.dart' as _i723;
 import 'package:vyplay/application/playlist/playlist_bloc.dart' as _i1;
 import 'package:vyplay/application/saved/saved_bloc.dart' as _i39;
 import 'package:vyplay/application/search/search_bloc.dart' as _i163;
@@ -26,6 +30,10 @@ import 'package:vyplay/domain/download/download_service.dart' as _i888;
 import 'package:vyplay/domain/home/home_services.dart' as _i416;
 import 'package:vyplay/domain/home_recommendation/home_recommendation_service.dart'
     as _i570;
+import 'package:vyplay/domain/peertube/peertube_api.dart' as _i370;
+import 'package:vyplay/domain/peertube/peertube_instance_store.dart' as _i368;
+import 'package:vyplay/domain/peertube/peertube_repository.dart' as _i155;
+import 'package:vyplay/domain/piped_account/piped_account_service.dart' as _i61;
 import 'package:vyplay/domain/playlist/playlist_service.dart' as _i575;
 import 'package:vyplay/domain/saved/saved_services.dart' as _i636;
 import 'package:vyplay/domain/search/search_history_service.dart' as _i1011;
@@ -43,6 +51,14 @@ import 'package:vyplay/infrastructure/download/download_impl.dart' as _i294;
 import 'package:vyplay/infrastructure/home/home_impl.dart' as _i279;
 import 'package:vyplay/infrastructure/home_recommendation/home_recommendation_impl.dart'
     as _i1009;
+import 'package:vyplay/infrastructure/peertube/peertube_api_impl.dart'
+    as _i1056;
+import 'package:vyplay/infrastructure/peertube/peertube_instance_store_impl.dart'
+    as _i250;
+import 'package:vyplay/infrastructure/peertube/peertube_repository_impl.dart'
+    as _i149;
+import 'package:vyplay/infrastructure/piped_account/piped_account_impl.dart'
+    as _i162;
 import 'package:vyplay/infrastructure/playlist/playlist_impl.dart' as _i652;
 import 'package:vyplay/infrastructure/saved/saved_impl.dart' as _i76;
 import 'package:vyplay/infrastructure/search/search_history_impl.dart' as _i488;
@@ -73,6 +89,7 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i255.NewPipeDataService());
     gh.lazySingleton<_i99.SettingsService>(
         () => _i753.SettingImpl(db: gh<_i820.AppDatabase>()));
+    gh.lazySingleton<_i370.PeerTubeApi>(() => _i1056.PeerTubeApiImpl());
     gh.lazySingleton<_i185.UserPreferencesService>(
         () => _i335.UserPreferencesImpl());
     gh.lazySingleton<_i888.DownloadService>(() => _i294.DownloadImpl());
@@ -92,9 +109,12 @@ extension GetItInjectableX on _i174.GetIt {
         ));
     gh.factory<_i1.PlaylistBloc>(
         () => _i1.PlaylistBloc(gh<_i575.PlaylistService>()));
+    gh.lazySingleton<_i368.PeerTubeInstanceStore>(
+        () => _i250.PeerTubeInstanceStoreImpl());
     gh.lazySingleton<_i184.SponsorBlockService>(
         () => _i1036.SponsorBlockImpl());
     gh.lazySingleton<_i158.SearchService>(() => _i121.SearchImpl());
+    gh.lazySingleton<_i61.PipedAccountService>(() => _i162.PipedAccountImpl());
     gh.lazySingleton<_i416.HomeServices>(() => _i279.HomeImpl());
     gh.factory<_i664.DownloadBloc>(
         () => _i664.DownloadBloc(gh<_i888.DownloadService>()));
@@ -105,6 +125,8 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i637.WatchService>(),
           gh<_i184.SponsorBlockService>(),
         ));
+    gh.lazySingleton<_i155.PeerTubeRepository>(
+        () => _i149.PeerTubeRepositoryImpl(gh<_i370.PeerTubeApi>()));
     gh.lazySingleton<_i570.HomeRecommendationService>(
         () => _i1009.HomeRecommendationImpl(
               gh<_i185.UserPreferencesService>(),
@@ -116,6 +138,14 @@ extension GetItInjectableX on _i174.GetIt {
         ));
     gh.factory<_i834.ChannelBloc>(
         () => _i834.ChannelBloc(gh<_i212.ChannelServices>()));
+    gh.factory<_i497.PeerTubeChannelBloc>(
+        () => _i497.PeerTubeChannelBloc(gh<_i155.PeerTubeRepository>()));
+    gh.factory<_i723.PeerTubeWatchBloc>(
+        () => _i723.PeerTubeWatchBloc(gh<_i155.PeerTubeRepository>()));
+    gh.factory<_i963.PeerTubeBloc>(() => _i963.PeerTubeBloc(
+          gh<_i155.PeerTubeRepository>(),
+          gh<_i368.PeerTubeInstanceStore>(),
+        ));
     gh.factory<_i15.TrendingBloc>(() => _i15.TrendingBloc(
           gh<_i718.SettingsBloc>(),
           gh<_i572.TrendingService>(),

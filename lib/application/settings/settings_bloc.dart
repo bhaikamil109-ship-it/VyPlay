@@ -157,6 +157,14 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
           (settingsMap[youtubeCookieKey] ?? '').trim().isEmpty
               ? null
               : settingsMap[youtubeCookieKey]!.trim();
+      final String? pipedAuthToken =
+          (settingsMap[pipedAuthTokenKey] ?? '').trim().isEmpty
+              ? null
+              : settingsMap[pipedAuthTokenKey]!.trim();
+      final String? pipedAuthUsername =
+          (settingsMap[pipedAuthUsernameKey] ?? '').trim().isEmpty
+              ? null
+              : settingsMap[pipedAuthUsernameKey]!.trim();
 
       newState = newState.copyWith(
         version: packageInfo.version,
@@ -200,6 +208,8 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
         isSbExclusiveMarkerEnabled: (settingsMap[sbExclusiveMarkerKey] ?? 'false') != 'false',
         isSbForDownloadsEnabled: (settingsMap[sbForDownloadsKey] ?? 'false') != 'false',
         youtubeCookie: youtubeCookie,
+        pipedAuthToken: pipedAuthToken,
+        pipedAuthUsername: pipedAuthUsername,
       );
 
       GlobalPlayerController.bluetoothSeekEnabled =
@@ -1123,6 +1133,24 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
       await settingsService.clearYoutubeCookie();
       emit(state.copyWith(youtubeCookie: null));
       await NewPipeChannel.setCookie(null);
+    });
+
+    on<SavePipedSession>((e, emit) async {
+      final r = await settingsService.savePipedSession(
+        token: e.token,
+        username: e.username,
+      );
+      emit(r.fold(
+        (_) => state,
+        (_) => state.copyWith(
+          pipedAuthToken: e.token,
+          pipedAuthUsername: e.username,
+        ),
+      ));
+    });
+    on<ClearPipedSession>((e, emit) async {
+      await settingsService.clearPipedSession();
+      emit(state.copyWith(pipedAuthToken: null, pipedAuthUsername: null));
     });
 
   }

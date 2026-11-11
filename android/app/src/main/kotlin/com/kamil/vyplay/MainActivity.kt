@@ -43,7 +43,7 @@ class MainActivity: AudioServiceFragmentActivity() {
         super.configureFlutterEngine(flutterEngine)
 
         // Initialize NewPipe method handler
-        newPipeHandler = NewPipeMethodHandler()
+        newPipeHandler = NewPipeMethodHandler(applicationContext)
 
         // Register NewPipe method channel
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, NEWPIPE_CHANNEL)
