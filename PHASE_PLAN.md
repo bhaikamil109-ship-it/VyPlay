@@ -9,15 +9,15 @@
 ## Phase 2 — Content & Comments
 - [x] Original titles (DeArrowText respects isOriginalTitlesEnabled)
 - [x] Comment filtering (NewPipe comments filtered by keywords)
-- [ ] SponsorBlock manual start/end times UI
-- [ ] SponsorBlock applied to downloads (isSbForDownloadsEnabled)
-- [ ] Live chat / danmaku overlay (isLiveChatDanmakuEnabled)
+- [ ] SponsorBlock manual start/end times UI — blocked (needs segment editor + native cut support)
+- [ ] SponsorBlock applied to downloads (isSbForDownloadsEnabled) — blocked (FFmpeg removed; native cut needed)
+- [ ] Live chat / danmaku overlay (isLiveChatDanmakuEnabled) — blocked (needs live-chat client + overlay renderer)
 
 ## Phase 3 — Audio & Downloads
 - [x] Multi-select batch delete (saved screen)
-- [ ] Preferred audio quality actual use in track selection
-- [ ] Bluetooth seek handling (gate audio_service seek by isBluetoothSeekEnabled)
-- [ ] SB exclusive marker (isSbExclusiveMarkerEnabled)
+- [x] Preferred audio quality preselects download audio track
+- [x] Bluetooth seek handling (fast-forward/rewind gated by isBluetoothSeekEnabled)
+- [ ] SB exclusive marker (isSbExclusiveMarkerEnabled) — blocked (needs SB segment filtering rules)
 
 ## Phase 4 — Auth & Account
 - [ ] Cookie-based login

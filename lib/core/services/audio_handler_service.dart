@@ -361,6 +361,7 @@ class VyPlayAudioHandler extends BaseAudioHandler with SeekHandler {
 
   @override
   Future<void> fastForward() async {
+    if (!GlobalPlayerController.bluetoothSeekEnabled) return;
     if (_useExternalPlayer) {
       final position = await ExoPlayerNotificationBridge.instance
           .seekBy(const Duration(seconds: 10));
@@ -387,6 +388,7 @@ class VyPlayAudioHandler extends BaseAudioHandler with SeekHandler {
 
   @override
   Future<void> rewind() async {
+    if (!GlobalPlayerController.bluetoothSeekEnabled) return;
     if (_useExternalPlayer) {
       final position = await ExoPlayerNotificationBridge.instance
           .seekBy(const Duration(seconds: -10));

@@ -13,6 +13,9 @@ import 'package:vyplay/core/services/exoplayer_notification_bridge.dart';
 /// This prevents the player from being recreated/disposed when navigating
 /// between watch screen and PiP mode
 class GlobalPlayerController extends ChangeNotifier {
+  /// Gate for Bluetooth/headset fast-forward and rewind media buttons.
+  static bool bluetoothSeekEnabled = true;
+
   static final GlobalPlayerController _instance =
       GlobalPlayerController._internal();
   factory GlobalPlayerController() => _instance;

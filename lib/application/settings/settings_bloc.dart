@@ -9,6 +9,7 @@ import 'package:vyplay/domain/settings/models/instance.dart';
 import 'package:vyplay/domain/content_filter/content_filter_config.dart';
 import 'package:vyplay/domain/settings/models/settings_configs.dart';
 import 'package:vyplay/core/services/dearrow_service.dart';
+import 'package:vyplay/core/player/global_player_controller.dart';
 import 'package:vyplay/domain/settings/settings_service.dart';
 import 'package:vyplay/domain/sleep_timer/sleep_timer_config.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -194,6 +195,9 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
         isSbExclusiveMarkerEnabled: (settingsMap[sbExclusiveMarkerKey] ?? 'false') != 'false',
         isSbForDownloadsEnabled: (settingsMap[sbForDownloadsKey] ?? 'false') != 'false',
       );
+
+      GlobalPlayerController.bluetoothSeekEnabled =
+          (settingsMap[bluetoothSeekEnabledKey] ?? 'true') != 'false';
 
       if (ytService == YouTubeServices.invidious.name) {
         BaseUrl.updateInvidiousBaseUrl(instanceApi);

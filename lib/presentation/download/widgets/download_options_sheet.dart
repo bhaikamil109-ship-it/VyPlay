@@ -345,9 +345,14 @@ class _DownloadOptionsSheetState extends State<DownloadOptionsSheet> {
   }
 
   Widget _buildOptions(DownloadOptions options, bool isDark, S locals) {
-    // Auto-select best quality on first build
+    // Auto-select best quality on first build, honouring the preferred audio
+    // quality setting (high / medium / low / auto).
     _selectedVideoQuality ??= options.bestVideoQuality;
-    _selectedAudioQuality ??= options.bestAudioQuality;
+    _selectedAudioQuality ??= _pickPreferredAudio(
+          options.audioQualities,
+          context.read<SettingsBloc>().state.preferredAudioQuality ?? 'auto',
+        ) ??
+        options.bestAudioQuality;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -565,6 +570,25 @@ class _DownloadOptionsSheetState extends State<DownloadOptionsSheet> {
         },
       ),
     );
+  }
+
+  AudioQualityOption? _pickPreferredAudio(
+    List<AudioQualityOption> qualities,
+    String preferred,
+  ) {
+    if (qualities.isEmpty) return null;
+    final sorted = [...qualities]
+      ..sort((a, b) => (b.bitrate ?? 0).compareTo(a.bitrate ?? 0));
+    switch (preferred) {
+      case 'low':
+        return sorted.last;
+      case 'medium':
+        return sorted[sorted.length ~/ 2];
+      case 'high':
+      case 'auto':
+      default:
+        return sorted.first;
+    }
   }
 
   Widget _buildAudioQualitySelector(
