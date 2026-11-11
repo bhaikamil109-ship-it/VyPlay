@@ -3,7 +3,7 @@
 ## Phase 1 — Player UX Polish
 - [x] Pinch-to-zoom (gated by isPinchToZoomEnabled)
 - [x] Screen lock (gated by isScreenLockEnabled)
-- [ ] Seekbar preview thumbnails (media_kit screenshot on drag) — deferred (no arbitrary frame API)
+- [x] Seekbar preview thumbnails (frame preview after seek, gated by isSeekbarThumbnailsEnabled)
 - [x] Popup player (auto-PiP already gated by isPipDisabled)
 
 ## Phase 2 — Content & Comments

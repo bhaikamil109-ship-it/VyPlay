@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:typed_data';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:media_kit/media_kit.dart';
@@ -76,6 +77,10 @@ class _GenericPlayerControlsOverlayState extends State<GenericPlayerControlsOver
 
   // Screen lock
   bool _isLocked = false;
+
+  // Seekbar preview thumbnail
+  Uint8List? _seekPreview;
+  Timer? _seekPreviewTimer;
 
   // Global player for persisting state
   final GlobalPlayerController _globalPlayer = GlobalPlayerController();
@@ -186,6 +191,7 @@ class _GenericPlayerControlsOverlayState extends State<GenericPlayerControlsOver
   @override
   void dispose() {
     _hideTimer?.cancel();
+    _seekPreviewTimer?.cancel();
     _indicatorHideTimer?.cancel();
     _animationController.dispose();
     _seekRippleController.dispose();
@@ -310,6 +316,22 @@ class _GenericPlayerControlsOverlayState extends State<GenericPlayerControlsOver
     final enabled = context.read<SettingsBloc>().state.isScreenLockEnabled ?? false;
     if (!enabled) return;
     setState(() => _isLocked = !_isLocked);
+  }
+
+  Future<void> _captureSeekPreview() async {
+    final enabled = context.read<SettingsBloc>().state.isSeekbarThumbnailsEnabled ?? true;
+    if (!enabled) return;
+    try {
+      final bytes = await widget.player.screenshot(format: 'image/jpeg');
+      if (!mounted || bytes == null || bytes.isEmpty) return;
+      setState(() => _seekPreview = bytes);
+      _seekPreviewTimer?.cancel();
+      _seekPreviewTimer = Timer(const Duration(milliseconds: 1200), () {
+        if (mounted) setState(() => _seekPreview = null);
+      });
+    } catch (e) {
+      debugPrint('[Controls] Seek preview failed: $e');
+    }
   }
 
   void _setPlaybackSpeed(double speed) {
@@ -1172,6 +1194,22 @@ class _GenericPlayerControlsOverlayState extends State<GenericPlayerControlsOver
 
               const SizedBox(height: 8),
 
+              // Seek preview thumbnail (current frame after a seek)
+              if (_seekPreview != null)
+                Container(
+                  margin: const EdgeInsets.only(bottom: 6),
+                  height: 54,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.white70, width: 1),
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                  child: Image.memory(
+                    _seekPreview!,
+                    fit: BoxFit.contain,
+                    gaplessPlayback: true,
+                  ),
+                ),
+
               // Progress bar at the bottom
               if (!widget.isLive) _buildProgressBar(),
             ],
@@ -1235,6 +1273,7 @@ class _GenericPlayerControlsOverlayState extends State<GenericPlayerControlsOver
                     },
                     onChangeEnd: (_) {
                       _startHideTimer();
+                      _captureSeekPreview();
                     },
                   ),
                 );
