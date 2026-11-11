@@ -163,10 +163,18 @@ class _NewPipeScreenWatchState extends State<NewPipeScreenWatch>
     // Only fetch data if not returning from PiP with data already loaded
     if (!isReturningFromPip) {
       // Use fast loading with parallel SponsorBlock fetch
+      final sbCategories = <String>[
+        ...settingsState.sponsorBlockCategories,
+      ];
+      if (settingsState.isSbExclusiveMarkerEnabled ?? false) {
+        if (!sbCategories.contains('exclusive_access')) {
+          sbCategories.add('exclusive_access');
+        }
+      }
       watchBloc.add(WatchEvent.getNewPipeWatchInfoFast(
         id: widget.id,
         sponsorBlockCategories: settingsState.isSponsorBlockEnabled
-            ? settingsState.sponsorBlockCategories
+            ? sbCategories
             : [],
       ));
     }

@@ -17,7 +17,7 @@
 - [x] Multi-select batch delete (saved screen)
 - [x] Preferred audio quality preselects download audio track
 - [x] Bluetooth seek handling (fast-forward/rewind gated by isBluetoothSeekEnabled)
-- [ ] SB exclusive marker (isSbExclusiveMarkerEnabled) — blocked (needs SB segment filtering rules)
+- [x] SB exclusive marker (adds exclusive_access category when enabled)
 
 ## Phase 4 — Auth & Account
 - [ ] Cookie-based login
