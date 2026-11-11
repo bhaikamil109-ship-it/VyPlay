@@ -20,8 +20,16 @@ class VyPlayDownloader private constructor(
     companion object {
         private const val USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
+        /** YouTube cookie used for age-restricted / members-only streams. */
+        @Volatile
+        private var authCookie: String? = null
+
         @Volatile
         private var instance: VyPlayDownloader? = null
+
+        fun setCookie(cookie: String?) {
+            authCookie = cookie?.takeIf { it.isNotBlank() }
+        }
 
         fun getInstance(): VyPlayDownloader {
             return instance ?: synchronized(this) {
@@ -58,6 +66,8 @@ class VyPlayDownloader private constructor(
         val requestBuilder = Request.Builder()
             .url(url)
             .header("User-Agent", USER_AGENT)
+
+        authCookie?.let { requestBuilder.header("Cookie", it) }
 
         // Add custom headers
         for ((headerName, headerValueList) in headers) {

@@ -72,7 +72,7 @@ Adds:
 | SponsorBlock | Yes | Yes | Yes (YT+Bili) | Yes |
 | DeArrow | Yes | No | Partial | Yes |
 | RYD | Yes | No | Yes | Yes |
-| Cookie login / PoToken | No | Partial | Yes | No |
+| Cookie login / PoToken | Cookie paste | Partial | Yes | No |
 | Piped account + sync | No | No | No | Yes |
 | Live chat / danmaku | No | No | Yes | No |
 | Plugin system | No | No | Yes | No |

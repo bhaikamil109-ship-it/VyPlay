@@ -181,3 +181,6 @@ const bluetoothSeekEnabledKey = 'bluetooth-seek-enabled';
 const multiSelectListsEnabledKey = 'multi-select-lists-enabled';
 const sbExclusiveMarkerKey = 'sb-exclusive-marker';
 const sbForDownloadsKey = 'sb-for-downloads';
+
+// YouTube cookie used for age-restricted / members-only streams
+const youtubeCookieKey = 'youtube-cookie';

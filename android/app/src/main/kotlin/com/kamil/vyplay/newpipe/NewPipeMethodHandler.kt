@@ -53,6 +53,11 @@ class NewPipeMethodHandler : MethodChannel.MethodCallHandler {
 
         when (call.method) {
             "isAvailable" -> result.success(true)
+            "setCookie" -> {
+                VyPlayDownloader.setCookie(call.argument<String>("cookie"))
+                streamInfoCache.clear()
+                result.success(true)
+            }
             "getStreamInfo" -> handleGetStreamInfo(call, result)
             "getStreamInfoFast" -> handleGetStreamInfoFast(call, result)
             "getTrending" -> handleGetTrending(call, result)

@@ -158,6 +158,8 @@ extension SettingsEventPatterns on SettingsEvent {
     TResult Function(ToggleMultiSelectLists value)? toggleMultiSelectLists,
     TResult Function(ToggleSbExclusiveMarker value)? toggleSbExclusiveMarker,
     TResult Function(ToggleSbForDownloads value)? toggleSbForDownloads,
+    TResult Function(SetYoutubeCookie value)? setYoutubeCookie,
+    TResult Function(ClearYoutubeCookie value)? clearYoutubeCookie,
     required TResult orElse(),
   }) {
     final _that = this;
@@ -357,6 +359,10 @@ extension SettingsEventPatterns on SettingsEvent {
         return toggleSbExclusiveMarker(_that);
       case ToggleSbForDownloads() when toggleSbForDownloads != null:
         return toggleSbForDownloads(_that);
+      case SetYoutubeCookie() when setYoutubeCookie != null:
+        return setYoutubeCookie(_that);
+      case ClearYoutubeCookie() when clearYoutubeCookie != null:
+        return clearYoutubeCookie(_that);
       case _:
         return orElse();
     }
@@ -509,6 +515,8 @@ extension SettingsEventPatterns on SettingsEvent {
     required TResult Function(ToggleSbExclusiveMarker value)
         toggleSbExclusiveMarker,
     required TResult Function(ToggleSbForDownloads value) toggleSbForDownloads,
+    required TResult Function(SetYoutubeCookie value) setYoutubeCookie,
+    required TResult Function(ClearYoutubeCookie value) clearYoutubeCookie,
   }) {
     final _that = this;
     switch (_that) {
@@ -694,6 +702,10 @@ extension SettingsEventPatterns on SettingsEvent {
         return toggleSbExclusiveMarker(_that);
       case ToggleSbForDownloads():
         return toggleSbForDownloads(_that);
+      case SetYoutubeCookie():
+        return setYoutubeCookie(_that);
+      case ClearYoutubeCookie():
+        return clearYoutubeCookie(_that);
     }
   }
 
@@ -820,6 +832,8 @@ extension SettingsEventPatterns on SettingsEvent {
     TResult? Function(ToggleMultiSelectLists value)? toggleMultiSelectLists,
     TResult? Function(ToggleSbExclusiveMarker value)? toggleSbExclusiveMarker,
     TResult? Function(ToggleSbForDownloads value)? toggleSbForDownloads,
+    TResult? Function(SetYoutubeCookie value)? setYoutubeCookie,
+    TResult? Function(ClearYoutubeCookie value)? clearYoutubeCookie,
   }) {
     final _that = this;
     switch (_that) {
@@ -1018,6 +1032,10 @@ extension SettingsEventPatterns on SettingsEvent {
         return toggleSbExclusiveMarker(_that);
       case ToggleSbForDownloads() when toggleSbForDownloads != null:
         return toggleSbForDownloads(_that);
+      case SetYoutubeCookie() when setYoutubeCookie != null:
+        return setYoutubeCookie(_that);
+      case ClearYoutubeCookie() when clearYoutubeCookie != null:
+        return clearYoutubeCookie(_that);
       case _:
         return null;
     }
@@ -1130,6 +1148,8 @@ extension SettingsEventPatterns on SettingsEvent {
     TResult Function(bool enabled)? toggleMultiSelectLists,
     TResult Function(bool enabled)? toggleSbExclusiveMarker,
     TResult Function(bool enabled)? toggleSbForDownloads,
+    TResult Function(String cookie)? setYoutubeCookie,
+    TResult Function()? clearYoutubeCookie,
     required TResult orElse(),
   }) {
     final _that = this;
@@ -1329,6 +1349,10 @@ extension SettingsEventPatterns on SettingsEvent {
         return toggleSbExclusiveMarker(_that.enabled);
       case ToggleSbForDownloads() when toggleSbForDownloads != null:
         return toggleSbForDownloads(_that.enabled);
+      case SetYoutubeCookie() when setYoutubeCookie != null:
+        return setYoutubeCookie(_that.cookie);
+      case ClearYoutubeCookie() when clearYoutubeCookie != null:
+        return clearYoutubeCookie();
       case _:
         return orElse();
     }
@@ -1446,6 +1470,8 @@ extension SettingsEventPatterns on SettingsEvent {
     required TResult Function(bool enabled) toggleMultiSelectLists,
     required TResult Function(bool enabled) toggleSbExclusiveMarker,
     required TResult Function(bool enabled) toggleSbForDownloads,
+    required TResult Function(String cookie) setYoutubeCookie,
+    required TResult Function() clearYoutubeCookie,
   }) {
     final _that = this;
     switch (_that) {
@@ -1631,6 +1657,10 @@ extension SettingsEventPatterns on SettingsEvent {
         return toggleSbExclusiveMarker(_that.enabled);
       case ToggleSbForDownloads():
         return toggleSbForDownloads(_that.enabled);
+      case SetYoutubeCookie():
+        return setYoutubeCookie(_that.cookie);
+      case ClearYoutubeCookie():
+        return clearYoutubeCookie();
     }
   }
 
@@ -1741,6 +1771,8 @@ extension SettingsEventPatterns on SettingsEvent {
     TResult? Function(bool enabled)? toggleMultiSelectLists,
     TResult? Function(bool enabled)? toggleSbExclusiveMarker,
     TResult? Function(bool enabled)? toggleSbForDownloads,
+    TResult? Function(String cookie)? setYoutubeCookie,
+    TResult? Function()? clearYoutubeCookie,
   }) {
     final _that = this;
     switch (_that) {
@@ -1939,6 +1971,10 @@ extension SettingsEventPatterns on SettingsEvent {
         return toggleSbExclusiveMarker(_that.enabled);
       case ToggleSbForDownloads() when toggleSbForDownloads != null:
         return toggleSbForDownloads(_that.enabled);
+      case SetYoutubeCookie() when setYoutubeCookie != null:
+        return setYoutubeCookie(_that.cookie);
+      case ClearYoutubeCookie() when clearYoutubeCookie != null:
+        return clearYoutubeCookie();
       case _:
         return null;
     }
@@ -7832,6 +7868,90 @@ class _$ToggleSbForDownloadsCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
+class SetYoutubeCookie implements SettingsEvent {
+  const SetYoutubeCookie({required this.cookie});
+
+  final String cookie;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $SetYoutubeCookieCopyWith<SetYoutubeCookie> get copyWith =>
+      _$SetYoutubeCookieCopyWithImpl<SetYoutubeCookie>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SetYoutubeCookie &&
+            (identical(other.cookie, cookie) || other.cookie == cookie));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, cookie);
+
+  @override
+  String toString() {
+    return 'SettingsEvent.setYoutubeCookie(cookie: $cookie)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $SetYoutubeCookieCopyWith<$Res>
+    implements $SettingsEventCopyWith<$Res> {
+  factory $SetYoutubeCookieCopyWith(
+          SetYoutubeCookie value, $Res Function(SetYoutubeCookie) _then) =
+      _$SetYoutubeCookieCopyWithImpl;
+  @useResult
+  $Res call({String cookie});
+}
+
+/// @nodoc
+class _$SetYoutubeCookieCopyWithImpl<$Res>
+    implements $SetYoutubeCookieCopyWith<$Res> {
+  _$SetYoutubeCookieCopyWithImpl(this._self, this._then);
+
+  final SetYoutubeCookie _self;
+  final $Res Function(SetYoutubeCookie) _then;
+
+  /// Create a copy of SettingsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? cookie = null,
+  }) {
+    return _then(SetYoutubeCookie(
+      cookie: null == cookie
+          ? _self.cookie
+          : cookie // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ClearYoutubeCookie implements SettingsEvent {
+  const ClearYoutubeCookie();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is ClearYoutubeCookie);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'SettingsEvent.clearYoutubeCookie()';
+  }
+}
+
+/// @nodoc
 mixin _$SettingsState {
   String get defaultLanguage;
   String get defaultQuality;
@@ -7928,6 +8048,7 @@ mixin _$SettingsState {
   bool? get isMultiSelectListsEnabled;
   bool? get isSbExclusiveMarkerEnabled;
   bool? get isSbForDownloadsEnabled;
+  String? get youtubeCookie;
 
   /// Create a copy of SettingsState
   /// with the given fields replaced by the non-null parameter values.
@@ -8069,7 +8190,8 @@ mixin _$SettingsState {
             (identical(other.isBluetoothSeekEnabled, isBluetoothSeekEnabled) || other.isBluetoothSeekEnabled == isBluetoothSeekEnabled) &&
             (identical(other.isMultiSelectListsEnabled, isMultiSelectListsEnabled) || other.isMultiSelectListsEnabled == isMultiSelectListsEnabled) &&
             (identical(other.isSbExclusiveMarkerEnabled, isSbExclusiveMarkerEnabled) || other.isSbExclusiveMarkerEnabled == isSbExclusiveMarkerEnabled) &&
-            (identical(other.isSbForDownloadsEnabled, isSbForDownloadsEnabled) || other.isSbForDownloadsEnabled == isSbForDownloadsEnabled));
+            (identical(other.isSbForDownloadsEnabled, isSbForDownloadsEnabled) || other.isSbForDownloadsEnabled == isSbForDownloadsEnabled) &&
+            (identical(other.youtubeCookie, youtubeCookie) || other.youtubeCookie == youtubeCookie));
   }
 
   @override
@@ -8166,12 +8288,13 @@ mixin _$SettingsState {
         isBluetoothSeekEnabled,
         isMultiSelectListsEnabled,
         isSbExclusiveMarkerEnabled,
-        isSbForDownloadsEnabled
+        isSbForDownloadsEnabled,
+        youtubeCookie
       ]);
 
   @override
   String toString() {
-    return 'SettingsState(defaultLanguage: $defaultLanguage, defaultQuality: $defaultQuality, defaultRegion: $defaultRegion, themeMode: $themeMode, version: $version, isHistoryVisible: $isHistoryVisible, isDislikeVisible: $isDislikeVisible, isHlsPlayer: $isHlsPlayer, isHideComments: $isHideComments, isHideRelated: $isHideRelated, pipedInstances: $pipedInstances, pipedInstanceStatus: $pipedInstanceStatus, instance: $instance, invidiousInstances: $invidiousInstances, invidiousInstanceStatus: $invidiousInstanceStatus, ytService: $ytService, initialized: $initialized, settingsStatus: $settingsStatus, isPipDisabled: $isPipDisabled, connectingToInstance: $connectingToInstance, isTestingConnection: $isTestingConnection, userInstanceFailed: $userInstanceFailed, failedInstanceName: $failedInstanceName, searchFilter: $searchFilter, videoFitMode: $videoFitMode, skipInterval: $skipInterval, isSponsorBlockEnabled: $isSponsorBlockEnabled, sponsorBlockCategories: $sponsorBlockCategories, openLinksInBrowser: $openLinksInBrowser, homeFeedMode: $homeFeedMode, isAudioFocusEnabled: $isAudioFocusEnabled, currentProfile: $currentProfile, profiles: $profiles, subtitleSize: $subtitleSize, lastExportedFilePath: $lastExportedFilePath, isSearchHistoryEnabled: $isSearchHistoryEnabled, isSearchHistoryVisible: $isSearchHistoryVisible, isAutoPipEnabled: $isAutoPipEnabled, sleepTimerConfig: $sleepTimerConfig, isSwipeGesturesEnabled: $isSwipeGesturesEnabled, isDeArrowEnabled: $isDeArrowEnabled, isBookmarksEnabled: $isBookmarksEnabled, bookmarkedPlaylists: $bookmarkedPlaylists, isRestrictedModeEnabled: $isRestrictedModeEnabled, isMiniPlayerEnabled: $isMiniPlayerEnabled, downloadQuality: $downloadQuality, isDownloadSubtitlesEnabled: $isDownloadSubtitlesEnabled, isDownloadOverWifiOnlyEnabled: $isDownloadOverWifiOnlyEnabled, isDownloadAutoDeleteEnabled: $isDownloadAutoDeleteEnabled, playbackSpeed: $playbackSpeed, isAutoplayNextVideoEnabled: $isAutoplayNextVideoEnabled, isShowRelatedInQueueEnabled: $isShowRelatedInQueueEnabled, queueDismissTime: $queueDismissTime, autoplayCountdown: $autoplayCountdown, isDisableAutoplayOnCellularEnabled: $isDisableAutoplayOnCellularEnabled, isAutoQueueEnabled: $isAutoQueueEnabled, isBufferPreloadEnabled: $isBufferPreloadEnabled, isAutoQualityAdjustEnabled: $isAutoQualityAdjustEnabled, isBackgroundPlaybackEnabled: $isBackgroundPlaybackEnabled, isNotificationControlsEnabled: $isNotificationControlsEnabled, isDataSaverEnabled: $isDataSaverEnabled, isHideWatchedVideosEnabled: $isHideWatchedVideosEnabled, mobileDataQuality: $mobileDataQuality, isDownloadQueueItemsEnabled: $isDownloadQueueItemsEnabled, isRichCaptionRenderingEnabled: $isRichCaptionRenderingEnabled, isBilibiliEnabled: $isBilibiliEnabled, isSwipeLeftToRight: $isSwipeLeftToRight, isMiniPlayerAutoExpandEnabled: $isMiniPlayerAutoExpandEnabled, isMiniPlayerTapToExpandEnabled: $isMiniPlayerTapToExpandEnabled, isMiniPlayerDoubleTapToExpandEnabled: $isMiniPlayerDoubleTapToExpandEnabled, restrictedModeFilterLevel: $restrictedModeFilterLevel, downloadAutoDeleteDays: $downloadAutoDeleteDays, contentFilterKeywords: $contentFilterKeywords, contentFilterBlockedChannels: $contentFilterBlockedChannels, contentFilterHideShorts: $contentFilterHideShorts, contentFilterHidePaid: $contentFilterHidePaid, downloadFolderPath: $downloadFolderPath, isRydEnabled: $isRydEnabled, isLongPressSpeedUpEnabled: $isLongPressSpeedUpEnabled, isOriginalTitlesEnabled: $isOriginalTitlesEnabled, isCommentFilterEnabled: $isCommentFilterEnabled, commentFilterKeywords: $commentFilterKeywords, preferredAudioQuality: $preferredAudioQuality, isScreenLockEnabled: $isScreenLockEnabled, isPinchToZoomEnabled: $isPinchToZoomEnabled, isSeekbarThumbnailsEnabled: $isSeekbarThumbnailsEnabled, isPopupPlayerEnabled: $isPopupPlayerEnabled, isLiveChatDanmakuEnabled: $isLiveChatDanmakuEnabled, isBluetoothSeekEnabled: $isBluetoothSeekEnabled, isMultiSelectListsEnabled: $isMultiSelectListsEnabled, isSbExclusiveMarkerEnabled: $isSbExclusiveMarkerEnabled, isSbForDownloadsEnabled: $isSbForDownloadsEnabled)';
+    return 'SettingsState(defaultLanguage: $defaultLanguage, defaultQuality: $defaultQuality, defaultRegion: $defaultRegion, themeMode: $themeMode, version: $version, isHistoryVisible: $isHistoryVisible, isDislikeVisible: $isDislikeVisible, isHlsPlayer: $isHlsPlayer, isHideComments: $isHideComments, isHideRelated: $isHideRelated, pipedInstances: $pipedInstances, pipedInstanceStatus: $pipedInstanceStatus, instance: $instance, invidiousInstances: $invidiousInstances, invidiousInstanceStatus: $invidiousInstanceStatus, ytService: $ytService, initialized: $initialized, settingsStatus: $settingsStatus, isPipDisabled: $isPipDisabled, connectingToInstance: $connectingToInstance, isTestingConnection: $isTestingConnection, userInstanceFailed: $userInstanceFailed, failedInstanceName: $failedInstanceName, searchFilter: $searchFilter, videoFitMode: $videoFitMode, skipInterval: $skipInterval, isSponsorBlockEnabled: $isSponsorBlockEnabled, sponsorBlockCategories: $sponsorBlockCategories, openLinksInBrowser: $openLinksInBrowser, homeFeedMode: $homeFeedMode, isAudioFocusEnabled: $isAudioFocusEnabled, currentProfile: $currentProfile, profiles: $profiles, subtitleSize: $subtitleSize, lastExportedFilePath: $lastExportedFilePath, isSearchHistoryEnabled: $isSearchHistoryEnabled, isSearchHistoryVisible: $isSearchHistoryVisible, isAutoPipEnabled: $isAutoPipEnabled, sleepTimerConfig: $sleepTimerConfig, isSwipeGesturesEnabled: $isSwipeGesturesEnabled, isDeArrowEnabled: $isDeArrowEnabled, isBookmarksEnabled: $isBookmarksEnabled, bookmarkedPlaylists: $bookmarkedPlaylists, isRestrictedModeEnabled: $isRestrictedModeEnabled, isMiniPlayerEnabled: $isMiniPlayerEnabled, downloadQuality: $downloadQuality, isDownloadSubtitlesEnabled: $isDownloadSubtitlesEnabled, isDownloadOverWifiOnlyEnabled: $isDownloadOverWifiOnlyEnabled, isDownloadAutoDeleteEnabled: $isDownloadAutoDeleteEnabled, playbackSpeed: $playbackSpeed, isAutoplayNextVideoEnabled: $isAutoplayNextVideoEnabled, isShowRelatedInQueueEnabled: $isShowRelatedInQueueEnabled, queueDismissTime: $queueDismissTime, autoplayCountdown: $autoplayCountdown, isDisableAutoplayOnCellularEnabled: $isDisableAutoplayOnCellularEnabled, isAutoQueueEnabled: $isAutoQueueEnabled, isBufferPreloadEnabled: $isBufferPreloadEnabled, isAutoQualityAdjustEnabled: $isAutoQualityAdjustEnabled, isBackgroundPlaybackEnabled: $isBackgroundPlaybackEnabled, isNotificationControlsEnabled: $isNotificationControlsEnabled, isDataSaverEnabled: $isDataSaverEnabled, isHideWatchedVideosEnabled: $isHideWatchedVideosEnabled, mobileDataQuality: $mobileDataQuality, isDownloadQueueItemsEnabled: $isDownloadQueueItemsEnabled, isRichCaptionRenderingEnabled: $isRichCaptionRenderingEnabled, isBilibiliEnabled: $isBilibiliEnabled, isSwipeLeftToRight: $isSwipeLeftToRight, isMiniPlayerAutoExpandEnabled: $isMiniPlayerAutoExpandEnabled, isMiniPlayerTapToExpandEnabled: $isMiniPlayerTapToExpandEnabled, isMiniPlayerDoubleTapToExpandEnabled: $isMiniPlayerDoubleTapToExpandEnabled, restrictedModeFilterLevel: $restrictedModeFilterLevel, downloadAutoDeleteDays: $downloadAutoDeleteDays, contentFilterKeywords: $contentFilterKeywords, contentFilterBlockedChannels: $contentFilterBlockedChannels, contentFilterHideShorts: $contentFilterHideShorts, contentFilterHidePaid: $contentFilterHidePaid, downloadFolderPath: $downloadFolderPath, isRydEnabled: $isRydEnabled, isLongPressSpeedUpEnabled: $isLongPressSpeedUpEnabled, isOriginalTitlesEnabled: $isOriginalTitlesEnabled, isCommentFilterEnabled: $isCommentFilterEnabled, commentFilterKeywords: $commentFilterKeywords, preferredAudioQuality: $preferredAudioQuality, isScreenLockEnabled: $isScreenLockEnabled, isPinchToZoomEnabled: $isPinchToZoomEnabled, isSeekbarThumbnailsEnabled: $isSeekbarThumbnailsEnabled, isPopupPlayerEnabled: $isPopupPlayerEnabled, isLiveChatDanmakuEnabled: $isLiveChatDanmakuEnabled, isBluetoothSeekEnabled: $isBluetoothSeekEnabled, isMultiSelectListsEnabled: $isMultiSelectListsEnabled, isSbExclusiveMarkerEnabled: $isSbExclusiveMarkerEnabled, isSbForDownloadsEnabled: $isSbForDownloadsEnabled, youtubeCookie: $youtubeCookie)';
   }
 }
 
@@ -8273,7 +8396,8 @@ abstract mixin class $SettingsStateCopyWith<$Res> {
       bool? isBluetoothSeekEnabled,
       bool? isMultiSelectListsEnabled,
       bool? isSbExclusiveMarkerEnabled,
-      bool? isSbForDownloadsEnabled});
+      bool? isSbForDownloadsEnabled,
+      String? youtubeCookie});
 }
 
 /// @nodoc
@@ -8381,6 +8505,7 @@ class _$SettingsStateCopyWithImpl<$Res>
     Object? isMultiSelectListsEnabled = freezed,
     Object? isSbExclusiveMarkerEnabled = freezed,
     Object? isSbForDownloadsEnabled = freezed,
+    Object? youtubeCookie = freezed,
   }) {
     return _then(_self.copyWith(
       defaultLanguage: null == defaultLanguage
@@ -8753,6 +8878,10 @@ class _$SettingsStateCopyWithImpl<$Res>
           ? _self.isSbForDownloadsEnabled
           : isSbForDownloadsEnabled // ignore: cast_nullable_to_non_nullable
               as bool?,
+      youtubeCookie: freezed == youtubeCookie
+          ? _self.youtubeCookie
+          : youtubeCookie // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -8940,7 +9069,8 @@ extension SettingsStatePatterns on SettingsState {
             bool? isBluetoothSeekEnabled,
             bool? isMultiSelectListsEnabled,
             bool? isSbExclusiveMarkerEnabled,
-            bool? isSbForDownloadsEnabled)?
+            bool? isSbForDownloadsEnabled,
+            String? youtubeCookie)?
         $default, {
     required TResult orElse(),
   }) {
@@ -9039,7 +9169,8 @@ extension SettingsStatePatterns on SettingsState {
             _that.isBluetoothSeekEnabled,
             _that.isMultiSelectListsEnabled,
             _that.isSbExclusiveMarkerEnabled,
-            _that.isSbForDownloadsEnabled);
+            _that.isSbForDownloadsEnabled,
+            _that.youtubeCookie);
       case _:
         return orElse();
     }
@@ -9152,7 +9283,8 @@ extension SettingsStatePatterns on SettingsState {
             bool? isBluetoothSeekEnabled,
             bool? isMultiSelectListsEnabled,
             bool? isSbExclusiveMarkerEnabled,
-            bool? isSbForDownloadsEnabled)
+            bool? isSbForDownloadsEnabled,
+            String? youtubeCookie)
         $default,
   ) {
     final _that = this;
@@ -9250,7 +9382,8 @@ extension SettingsStatePatterns on SettingsState {
             _that.isBluetoothSeekEnabled,
             _that.isMultiSelectListsEnabled,
             _that.isSbExclusiveMarkerEnabled,
-            _that.isSbForDownloadsEnabled);
+            _that.isSbForDownloadsEnabled,
+            _that.youtubeCookie);
     }
   }
 
@@ -9360,7 +9493,8 @@ extension SettingsStatePatterns on SettingsState {
             bool? isBluetoothSeekEnabled,
             bool? isMultiSelectListsEnabled,
             bool? isSbExclusiveMarkerEnabled,
-            bool? isSbForDownloadsEnabled)?
+            bool? isSbForDownloadsEnabled,
+            String? youtubeCookie)?
         $default,
   ) {
     final _that = this;
@@ -9458,7 +9592,8 @@ extension SettingsStatePatterns on SettingsState {
             _that.isBluetoothSeekEnabled,
             _that.isMultiSelectListsEnabled,
             _that.isSbExclusiveMarkerEnabled,
-            _that.isSbForDownloadsEnabled);
+            _that.isSbForDownloadsEnabled,
+            _that.youtubeCookie);
       case _:
         return null;
     }
@@ -9560,7 +9695,8 @@ class _Initial extends SettingsState {
       this.isBluetoothSeekEnabled,
       this.isMultiSelectListsEnabled,
       this.isSbExclusiveMarkerEnabled,
-      this.isSbForDownloadsEnabled})
+      this.isSbForDownloadsEnabled,
+      this.youtubeCookie})
       : _pipedInstances = pipedInstances,
         _invidiousInstances = invidiousInstances,
         _sponsorBlockCategories = sponsorBlockCategories,
@@ -9832,6 +9968,8 @@ class _Initial extends SettingsState {
   final bool? isSbExclusiveMarkerEnabled;
   @override
   final bool? isSbForDownloadsEnabled;
+  @override
+  final String? youtubeCookie;
 
   /// Create a copy of SettingsState
   /// with the given fields replaced by the non-null parameter values.
@@ -9973,7 +10111,8 @@ class _Initial extends SettingsState {
             (identical(other.isBluetoothSeekEnabled, isBluetoothSeekEnabled) || other.isBluetoothSeekEnabled == isBluetoothSeekEnabled) &&
             (identical(other.isMultiSelectListsEnabled, isMultiSelectListsEnabled) || other.isMultiSelectListsEnabled == isMultiSelectListsEnabled) &&
             (identical(other.isSbExclusiveMarkerEnabled, isSbExclusiveMarkerEnabled) || other.isSbExclusiveMarkerEnabled == isSbExclusiveMarkerEnabled) &&
-            (identical(other.isSbForDownloadsEnabled, isSbForDownloadsEnabled) || other.isSbForDownloadsEnabled == isSbForDownloadsEnabled));
+            (identical(other.isSbForDownloadsEnabled, isSbForDownloadsEnabled) || other.isSbForDownloadsEnabled == isSbForDownloadsEnabled) &&
+            (identical(other.youtubeCookie, youtubeCookie) || other.youtubeCookie == youtubeCookie));
   }
 
   @override
@@ -10070,12 +10209,13 @@ class _Initial extends SettingsState {
         isBluetoothSeekEnabled,
         isMultiSelectListsEnabled,
         isSbExclusiveMarkerEnabled,
-        isSbForDownloadsEnabled
+        isSbForDownloadsEnabled,
+        youtubeCookie
       ]);
 
   @override
   String toString() {
-    return 'SettingsState(defaultLanguage: $defaultLanguage, defaultQuality: $defaultQuality, defaultRegion: $defaultRegion, themeMode: $themeMode, version: $version, isHistoryVisible: $isHistoryVisible, isDislikeVisible: $isDislikeVisible, isHlsPlayer: $isHlsPlayer, isHideComments: $isHideComments, isHideRelated: $isHideRelated, pipedInstances: $pipedInstances, pipedInstanceStatus: $pipedInstanceStatus, instance: $instance, invidiousInstances: $invidiousInstances, invidiousInstanceStatus: $invidiousInstanceStatus, ytService: $ytService, initialized: $initialized, settingsStatus: $settingsStatus, isPipDisabled: $isPipDisabled, connectingToInstance: $connectingToInstance, isTestingConnection: $isTestingConnection, userInstanceFailed: $userInstanceFailed, failedInstanceName: $failedInstanceName, searchFilter: $searchFilter, videoFitMode: $videoFitMode, skipInterval: $skipInterval, isSponsorBlockEnabled: $isSponsorBlockEnabled, sponsorBlockCategories: $sponsorBlockCategories, openLinksInBrowser: $openLinksInBrowser, homeFeedMode: $homeFeedMode, isAudioFocusEnabled: $isAudioFocusEnabled, currentProfile: $currentProfile, profiles: $profiles, subtitleSize: $subtitleSize, lastExportedFilePath: $lastExportedFilePath, isSearchHistoryEnabled: $isSearchHistoryEnabled, isSearchHistoryVisible: $isSearchHistoryVisible, isAutoPipEnabled: $isAutoPipEnabled, sleepTimerConfig: $sleepTimerConfig, isSwipeGesturesEnabled: $isSwipeGesturesEnabled, isDeArrowEnabled: $isDeArrowEnabled, isBookmarksEnabled: $isBookmarksEnabled, bookmarkedPlaylists: $bookmarkedPlaylists, isRestrictedModeEnabled: $isRestrictedModeEnabled, isMiniPlayerEnabled: $isMiniPlayerEnabled, downloadQuality: $downloadQuality, isDownloadSubtitlesEnabled: $isDownloadSubtitlesEnabled, isDownloadOverWifiOnlyEnabled: $isDownloadOverWifiOnlyEnabled, isDownloadAutoDeleteEnabled: $isDownloadAutoDeleteEnabled, playbackSpeed: $playbackSpeed, isAutoplayNextVideoEnabled: $isAutoplayNextVideoEnabled, isShowRelatedInQueueEnabled: $isShowRelatedInQueueEnabled, queueDismissTime: $queueDismissTime, autoplayCountdown: $autoplayCountdown, isDisableAutoplayOnCellularEnabled: $isDisableAutoplayOnCellularEnabled, isAutoQueueEnabled: $isAutoQueueEnabled, isBufferPreloadEnabled: $isBufferPreloadEnabled, isAutoQualityAdjustEnabled: $isAutoQualityAdjustEnabled, isBackgroundPlaybackEnabled: $isBackgroundPlaybackEnabled, isNotificationControlsEnabled: $isNotificationControlsEnabled, isDataSaverEnabled: $isDataSaverEnabled, isHideWatchedVideosEnabled: $isHideWatchedVideosEnabled, mobileDataQuality: $mobileDataQuality, isDownloadQueueItemsEnabled: $isDownloadQueueItemsEnabled, isRichCaptionRenderingEnabled: $isRichCaptionRenderingEnabled, isBilibiliEnabled: $isBilibiliEnabled, isSwipeLeftToRight: $isSwipeLeftToRight, isMiniPlayerAutoExpandEnabled: $isMiniPlayerAutoExpandEnabled, isMiniPlayerTapToExpandEnabled: $isMiniPlayerTapToExpandEnabled, isMiniPlayerDoubleTapToExpandEnabled: $isMiniPlayerDoubleTapToExpandEnabled, restrictedModeFilterLevel: $restrictedModeFilterLevel, downloadAutoDeleteDays: $downloadAutoDeleteDays, contentFilterKeywords: $contentFilterKeywords, contentFilterBlockedChannels: $contentFilterBlockedChannels, contentFilterHideShorts: $contentFilterHideShorts, contentFilterHidePaid: $contentFilterHidePaid, downloadFolderPath: $downloadFolderPath, isRydEnabled: $isRydEnabled, isLongPressSpeedUpEnabled: $isLongPressSpeedUpEnabled, isOriginalTitlesEnabled: $isOriginalTitlesEnabled, isCommentFilterEnabled: $isCommentFilterEnabled, commentFilterKeywords: $commentFilterKeywords, preferredAudioQuality: $preferredAudioQuality, isScreenLockEnabled: $isScreenLockEnabled, isPinchToZoomEnabled: $isPinchToZoomEnabled, isSeekbarThumbnailsEnabled: $isSeekbarThumbnailsEnabled, isPopupPlayerEnabled: $isPopupPlayerEnabled, isLiveChatDanmakuEnabled: $isLiveChatDanmakuEnabled, isBluetoothSeekEnabled: $isBluetoothSeekEnabled, isMultiSelectListsEnabled: $isMultiSelectListsEnabled, isSbExclusiveMarkerEnabled: $isSbExclusiveMarkerEnabled, isSbForDownloadsEnabled: $isSbForDownloadsEnabled)';
+    return 'SettingsState(defaultLanguage: $defaultLanguage, defaultQuality: $defaultQuality, defaultRegion: $defaultRegion, themeMode: $themeMode, version: $version, isHistoryVisible: $isHistoryVisible, isDislikeVisible: $isDislikeVisible, isHlsPlayer: $isHlsPlayer, isHideComments: $isHideComments, isHideRelated: $isHideRelated, pipedInstances: $pipedInstances, pipedInstanceStatus: $pipedInstanceStatus, instance: $instance, invidiousInstances: $invidiousInstances, invidiousInstanceStatus: $invidiousInstanceStatus, ytService: $ytService, initialized: $initialized, settingsStatus: $settingsStatus, isPipDisabled: $isPipDisabled, connectingToInstance: $connectingToInstance, isTestingConnection: $isTestingConnection, userInstanceFailed: $userInstanceFailed, failedInstanceName: $failedInstanceName, searchFilter: $searchFilter, videoFitMode: $videoFitMode, skipInterval: $skipInterval, isSponsorBlockEnabled: $isSponsorBlockEnabled, sponsorBlockCategories: $sponsorBlockCategories, openLinksInBrowser: $openLinksInBrowser, homeFeedMode: $homeFeedMode, isAudioFocusEnabled: $isAudioFocusEnabled, currentProfile: $currentProfile, profiles: $profiles, subtitleSize: $subtitleSize, lastExportedFilePath: $lastExportedFilePath, isSearchHistoryEnabled: $isSearchHistoryEnabled, isSearchHistoryVisible: $isSearchHistoryVisible, isAutoPipEnabled: $isAutoPipEnabled, sleepTimerConfig: $sleepTimerConfig, isSwipeGesturesEnabled: $isSwipeGesturesEnabled, isDeArrowEnabled: $isDeArrowEnabled, isBookmarksEnabled: $isBookmarksEnabled, bookmarkedPlaylists: $bookmarkedPlaylists, isRestrictedModeEnabled: $isRestrictedModeEnabled, isMiniPlayerEnabled: $isMiniPlayerEnabled, downloadQuality: $downloadQuality, isDownloadSubtitlesEnabled: $isDownloadSubtitlesEnabled, isDownloadOverWifiOnlyEnabled: $isDownloadOverWifiOnlyEnabled, isDownloadAutoDeleteEnabled: $isDownloadAutoDeleteEnabled, playbackSpeed: $playbackSpeed, isAutoplayNextVideoEnabled: $isAutoplayNextVideoEnabled, isShowRelatedInQueueEnabled: $isShowRelatedInQueueEnabled, queueDismissTime: $queueDismissTime, autoplayCountdown: $autoplayCountdown, isDisableAutoplayOnCellularEnabled: $isDisableAutoplayOnCellularEnabled, isAutoQueueEnabled: $isAutoQueueEnabled, isBufferPreloadEnabled: $isBufferPreloadEnabled, isAutoQualityAdjustEnabled: $isAutoQualityAdjustEnabled, isBackgroundPlaybackEnabled: $isBackgroundPlaybackEnabled, isNotificationControlsEnabled: $isNotificationControlsEnabled, isDataSaverEnabled: $isDataSaverEnabled, isHideWatchedVideosEnabled: $isHideWatchedVideosEnabled, mobileDataQuality: $mobileDataQuality, isDownloadQueueItemsEnabled: $isDownloadQueueItemsEnabled, isRichCaptionRenderingEnabled: $isRichCaptionRenderingEnabled, isBilibiliEnabled: $isBilibiliEnabled, isSwipeLeftToRight: $isSwipeLeftToRight, isMiniPlayerAutoExpandEnabled: $isMiniPlayerAutoExpandEnabled, isMiniPlayerTapToExpandEnabled: $isMiniPlayerTapToExpandEnabled, isMiniPlayerDoubleTapToExpandEnabled: $isMiniPlayerDoubleTapToExpandEnabled, restrictedModeFilterLevel: $restrictedModeFilterLevel, downloadAutoDeleteDays: $downloadAutoDeleteDays, contentFilterKeywords: $contentFilterKeywords, contentFilterBlockedChannels: $contentFilterBlockedChannels, contentFilterHideShorts: $contentFilterHideShorts, contentFilterHidePaid: $contentFilterHidePaid, downloadFolderPath: $downloadFolderPath, isRydEnabled: $isRydEnabled, isLongPressSpeedUpEnabled: $isLongPressSpeedUpEnabled, isOriginalTitlesEnabled: $isOriginalTitlesEnabled, isCommentFilterEnabled: $isCommentFilterEnabled, commentFilterKeywords: $commentFilterKeywords, preferredAudioQuality: $preferredAudioQuality, isScreenLockEnabled: $isScreenLockEnabled, isPinchToZoomEnabled: $isPinchToZoomEnabled, isSeekbarThumbnailsEnabled: $isSeekbarThumbnailsEnabled, isPopupPlayerEnabled: $isPopupPlayerEnabled, isLiveChatDanmakuEnabled: $isLiveChatDanmakuEnabled, isBluetoothSeekEnabled: $isBluetoothSeekEnabled, isMultiSelectListsEnabled: $isMultiSelectListsEnabled, isSbExclusiveMarkerEnabled: $isSbExclusiveMarkerEnabled, isSbForDownloadsEnabled: $isSbForDownloadsEnabled, youtubeCookie: $youtubeCookie)';
   }
 }
 
@@ -10178,7 +10318,8 @@ abstract mixin class _$InitialCopyWith<$Res>
       bool? isBluetoothSeekEnabled,
       bool? isMultiSelectListsEnabled,
       bool? isSbExclusiveMarkerEnabled,
-      bool? isSbForDownloadsEnabled});
+      bool? isSbForDownloadsEnabled,
+      String? youtubeCookie});
 }
 
 /// @nodoc
@@ -10285,6 +10426,7 @@ class __$InitialCopyWithImpl<$Res> implements _$InitialCopyWith<$Res> {
     Object? isMultiSelectListsEnabled = freezed,
     Object? isSbExclusiveMarkerEnabled = freezed,
     Object? isSbForDownloadsEnabled = freezed,
+    Object? youtubeCookie = freezed,
   }) {
     return _then(_Initial(
       defaultLanguage: null == defaultLanguage
@@ -10657,6 +10799,10 @@ class __$InitialCopyWithImpl<$Res> implements _$InitialCopyWith<$Res> {
           ? _self.isSbForDownloadsEnabled
           : isSbForDownloadsEnabled // ignore: cast_nullable_to_non_nullable
               as bool?,
+      youtubeCookie: freezed == youtubeCookie
+          ? _self.youtubeCookie
+          : youtubeCookie // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }

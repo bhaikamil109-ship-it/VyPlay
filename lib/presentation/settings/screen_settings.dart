@@ -17,6 +17,7 @@ import 'widgets/ryd_section.dart';
 import 'widgets/phase18_features_section.dart';
 import 'widgets/playback_speed_section.dart';
 import 'widgets/service_switch_section.dart';
+import 'widgets/cookie_login_section.dart';
 
 class ScreenSettings extends StatelessWidget {
   const ScreenSettings({super.key});
@@ -73,6 +74,8 @@ class ScreenSettings extends StatelessWidget {
                   PlaybackSpeedSettingsSection(),
                   kHeightBox15,
                   ServiceSwitchSection(),
+                  kHeightBox15,
+                  CookieLoginSection(),
                   kHeightBox15,
                   SponsorBlockSettingsSection(),
                   kHeightBox15,

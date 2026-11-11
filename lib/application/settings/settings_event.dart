@@ -239,4 +239,8 @@ sealed class SettingsEvent with _$SettingsEvent {
   const factory SettingsEvent.toggleMultiSelectLists({required bool enabled}) = ToggleMultiSelectLists;
   const factory SettingsEvent.toggleSbExclusiveMarker({required bool enabled}) = ToggleSbExclusiveMarker;
   const factory SettingsEvent.toggleSbForDownloads({required bool enabled}) = ToggleSbForDownloads;
+
+  // Cookie login
+  const factory SettingsEvent.setYoutubeCookie({required String cookie}) = SetYoutubeCookie;
+  const factory SettingsEvent.clearYoutubeCookie() = ClearYoutubeCookie;
 }

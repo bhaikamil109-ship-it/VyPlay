@@ -1848,6 +1848,37 @@ class SettingImpl implements SettingsService {
     try { final v = await db.getSetting(sbForDownloadsKey); return Right(v != 'false'); } catch (e) { return const Left(MainFailure.serverFailure()); }
   }
 
+  @override
+  Future<Either<MainFailure, String>> setYoutubeCookie({required String cookie}) async {
+    try {
+      final trimmed = cookie.trim();
+      await db.setSetting(youtubeCookieKey, trimmed);
+      return Right(trimmed);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, String?>> getYoutubeCookie() async {
+    try {
+      final v = await db.getSetting(youtubeCookieKey);
+      return Right((v == null || v.isEmpty) ? null : v);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, bool>> clearYoutubeCookie() async {
+    try {
+      await db.setSetting(youtubeCookieKey, '');
+      return const Right(true);
+    } catch (e) {
+      return const Left(MainFailure.serverFailure());
+    }
+  }
+
   /// Parses YouTube Takeout CSV, NewPipe JSON or VyPlay JSON exports into
   /// subscription entries. Entries without a channel ID keep their URL so the
   /// importer can resolve handles later.

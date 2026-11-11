@@ -33,6 +33,20 @@ class NewPipeChannel {
     }
   }
 
+  /// Set (or clear) the YouTube cookie used by the native extractor.
+  static Future<void> setCookie(String? cookie) async {
+    if (!Platform.isAndroid) return;
+    try {
+      await _channel.invokeMethod<bool>(
+        'setCookie',
+        {'cookie': cookie ?? ''},
+      );
+      _streamCache.clear();
+    } catch (_) {
+      // Cookie support is best-effort; extraction still works without it.
+    }
+  }
+
   /// Get video stream info including metadata and stream URLs
   static Future<NewPipeWatchResp> getStreamInfo(String videoId) async {
     try {

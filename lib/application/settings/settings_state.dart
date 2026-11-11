@@ -110,6 +110,7 @@ sealed class SettingsState with _$SettingsState {
     bool? isMultiSelectListsEnabled,
     bool? isSbExclusiveMarkerEnabled,
     bool? isSbForDownloadsEnabled,
+    String? youtubeCookie,
   }) = _Initial;
 
   const SettingsState._();
@@ -209,6 +210,7 @@ sealed class SettingsState with _$SettingsState {
         isMultiSelectListsEnabled: false,
         isSbExclusiveMarkerEnabled: false,
         isSbForDownloadsEnabled: false,
+        youtubeCookie: null,
       );
 
   /// Playlist bookmark preferences derived from the persisted state.

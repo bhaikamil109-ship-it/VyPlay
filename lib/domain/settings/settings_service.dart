@@ -284,4 +284,9 @@ abstract class SettingsService {
   Future<Either<MainFailure, bool>> isSbExclusiveMarkerEnabled();
   Future<Either<MainFailure, bool>> toggleSbForDownloads({required bool enabled});
   Future<Either<MainFailure, bool>> isSbForDownloadsEnabled();
+
+  // Cookie login (age-restricted / members-only streams)
+  Future<Either<MainFailure, String>> setYoutubeCookie({required String cookie});
+  Future<Either<MainFailure, String?>> getYoutubeCookie();
+  Future<Either<MainFailure, bool>> clearYoutubeCookie();
 }

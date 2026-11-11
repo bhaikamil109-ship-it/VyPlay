@@ -10,6 +10,7 @@ import 'package:vyplay/domain/content_filter/content_filter_config.dart';
 import 'package:vyplay/domain/settings/models/settings_configs.dart';
 import 'package:vyplay/core/services/dearrow_service.dart';
 import 'package:vyplay/core/player/global_player_controller.dart';
+import 'package:vyplay/infrastructure/newpipe/newpipe_channel.dart';
 import 'package:vyplay/domain/settings/settings_service.dart';
 import 'package:vyplay/domain/sleep_timer/sleep_timer_config.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -152,6 +153,10 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
               ? null
               : settingsMap[downloadFolderPathKey];
       final bool rydEnabled = settingsMap[rydEnabledKey] != 'false';
+      final String? youtubeCookie =
+          (settingsMap[youtubeCookieKey] ?? '').trim().isEmpty
+              ? null
+              : settingsMap[youtubeCookieKey]!.trim();
 
       newState = newState.copyWith(
         version: packageInfo.version,
@@ -194,10 +199,14 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
         isMultiSelectListsEnabled: (settingsMap[multiSelectListsEnabledKey] ?? 'false') != 'false',
         isSbExclusiveMarkerEnabled: (settingsMap[sbExclusiveMarkerKey] ?? 'false') != 'false',
         isSbForDownloadsEnabled: (settingsMap[sbForDownloadsKey] ?? 'false') != 'false',
+        youtubeCookie: youtubeCookie,
       );
 
       GlobalPlayerController.bluetoothSeekEnabled =
           (settingsMap[bluetoothSeekEnabledKey] ?? 'true') != 'false';
+
+      // Push the stored cookie into the native NewPipe downloader.
+      await NewPipeChannel.setCookie(youtubeCookie);
 
       if (ytService == YouTubeServices.invidious.name) {
         BaseUrl.updateInvidiousBaseUrl(instanceApi);
@@ -1102,6 +1111,18 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
     on<ToggleSbForDownloads>((e, emit) async {
       final r = await settingsService.toggleSbForDownloads(enabled: e.enabled);
       emit(r.fold((_) => state, (v) => state.copyWith(isSbForDownloadsEnabled: v)));
+    });
+
+    on<SetYoutubeCookie>((e, emit) async {
+      final r = await settingsService.setYoutubeCookie(cookie: e.cookie);
+      final next = r.fold((_) => state, (v) => state.copyWith(youtubeCookie: v));
+      emit(next);
+      await NewPipeChannel.setCookie(next.youtubeCookie);
+    });
+    on<ClearYoutubeCookie>((e, emit) async {
+      await settingsService.clearYoutubeCookie();
+      emit(state.copyWith(youtubeCookie: null));
+      await NewPipeChannel.setCookie(null);
     });
 
   }

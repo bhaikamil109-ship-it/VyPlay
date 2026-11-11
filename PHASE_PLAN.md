@@ -20,9 +20,9 @@
 - [x] SB exclusive marker (adds exclusive_access category when enabled)
 
 ## Phase 4 — Auth & Account
-- [ ] Cookie-based login
-- [ ] PoToken / local streams extraction
-- [ ] Piped account login + cross-device sync
+- [x] Cookie-based login (stored locally, injected into native NewPipe downloader)
+- [ ] PoToken / local streams extraction — blocked (extractor v0.26.5 has no poToken API)
+- [ ] Piped account login + cross-device sync — blocked (needs account API + backend)
 
 ## Phase 5 — Multi-Service Backend
 - [ ] PeerTube service integration
