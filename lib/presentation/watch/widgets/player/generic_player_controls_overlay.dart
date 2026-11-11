@@ -74,6 +74,9 @@ class _GenericPlayerControlsOverlayState extends State<GenericPlayerControlsOver
   bool _isLongPressing = false;
   double _previousSpeed = 1.0;
 
+  // Screen lock
+  bool _isLocked = false;
+
   // Global player for persisting state
   final GlobalPlayerController _globalPlayer = GlobalPlayerController();
 
@@ -301,6 +304,12 @@ class _GenericPlayerControlsOverlayState extends State<GenericPlayerControlsOver
       _isLongPressing = false;
     });
     widget.player.setRate(_previousSpeed);
+  }
+
+  void _toggleScreenLock() {
+    final enabled = context.read<SettingsBloc>().state.isScreenLockEnabled ?? false;
+    if (!enabled) return;
+    setState(() => _isLocked = !_isLocked);
   }
 
   void _setPlaybackSpeed(double speed) {
@@ -723,8 +732,19 @@ class _GenericPlayerControlsOverlayState extends State<GenericPlayerControlsOver
                   ),
                 ),
 
+              // Always-visible unlock button while locked
+              if (_isLocked)
+                Positioned(
+                  top: 16,
+                  right: 16,
+                  child: _buildIconButton(
+                    icon: CupertinoIcons.lock_open,
+                    onTap: _toggleScreenLock,
+                  ),
+                ),
+
               // Controls overlay
-              if (_showControls && !_isLongPressing && !_isVerticalDragging)
+              if (_showControls && !_isLongPressing && !_isVerticalDragging && !_isLocked)
                 FadeTransition(
                   opacity: _fadeAnimation,
                   child: Container(
@@ -919,6 +939,13 @@ class _GenericPlayerControlsOverlayState extends State<GenericPlayerControlsOver
                       ],
                     ),
                   ),
+                ),
+
+              // Screen lock button
+              if (context.read<SettingsBloc>().state.isScreenLockEnabled ?? false)
+                _buildIconButton(
+                  icon: _isLocked ? CupertinoIcons.lock_fill : CupertinoIcons.lock_open,
+                  onTap: _toggleScreenLock,
                 ),
 
               // Captions button (if available) - opens directly to captions

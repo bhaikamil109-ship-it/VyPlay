@@ -547,23 +547,43 @@ class _PipedMediaKitPlayerState extends State<PipedMediaKitPlayer> {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          Video(
-            controller: _videoController,
-            controls: (state) {
-              return _buildCustomControls(state);
-            },
-            fit: _currentFitMode,
-            subtitleViewConfiguration: SubtitleViewConfiguration(
-              style: TextStyle(
-                fontSize: widget.subtitleSize,
-                color: Colors.white,
-                backgroundColor: const Color(0x99000000),
-                fontWeight: FontWeight.w500,
-              ),
-              textAlign: TextAlign.center,
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
-            ),
-          ),
+          (context.read<SettingsBloc>().state.isPinchToZoomEnabled ?? false)
+              ? InteractiveViewer(
+                  child: Video(
+                    controller: _videoController,
+                    controls: (state) {
+                      return _buildCustomControls(state);
+                    },
+                    fit: _currentFitMode,
+                    subtitleViewConfiguration: SubtitleViewConfiguration(
+                      style: TextStyle(
+                        fontSize: widget.subtitleSize,
+                        color: Colors.white,
+                        backgroundColor: const Color(0x99000000),
+                        fontWeight: FontWeight.w500,
+                      ),
+                      textAlign: TextAlign.center,
+                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+                    ),
+                  ),
+                )
+              : Video(
+                  controller: _videoController,
+                  controls: (state) {
+                    return _buildCustomControls(state);
+                  },
+                  fit: _currentFitMode,
+                  subtitleViewConfiguration: SubtitleViewConfiguration(
+                    style: TextStyle(
+                      fontSize: widget.subtitleSize,
+                      color: Colors.white,
+                      backgroundColor: const Color(0x99000000),
+                      fontWeight: FontWeight.w500,
+                    ),
+                    textAlign: TextAlign.center,
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+                  ),
+                ),
           // Buffering indicator overlay
           StreamBuilder<bool>(
             stream: _player.stream.buffering,

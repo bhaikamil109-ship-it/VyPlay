@@ -480,24 +480,45 @@ class _ExplodeMediaKitPlayerState extends State<ExplodeMediaKitPlayer> {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          media_kit_video.Video(
-            controller: _videoController,
-            controls: (state) {
-              return _buildCustomControls(state);
-            },
-            fit: _currentFitMode,
-            subtitleViewConfiguration:
-                media_kit_video.SubtitleViewConfiguration(
-              style: TextStyle(
-                fontSize: widget.subtitleSize,
-                color: Colors.white,
-                backgroundColor: const Color(0x99000000),
-                fontWeight: FontWeight.w500,
-              ),
-              textAlign: TextAlign.center,
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
-            ),
-          ),
+          (context.read<SettingsBloc>().state.isPinchToZoomEnabled ?? false)
+              ? InteractiveViewer(
+                  child: media_kit_video.Video(
+                    controller: _videoController,
+                    controls: (state) {
+                      return _buildCustomControls(state);
+                    },
+                    fit: _currentFitMode,
+                    subtitleViewConfiguration:
+                        media_kit_video.SubtitleViewConfiguration(
+                      style: TextStyle(
+                        fontSize: widget.subtitleSize,
+                        color: Colors.white,
+                        backgroundColor: const Color(0x99000000),
+                        fontWeight: FontWeight.w500,
+                      ),
+                      textAlign: TextAlign.center,
+                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+                    ),
+                  ),
+                )
+              : media_kit_video.Video(
+                  controller: _videoController,
+                  controls: (state) {
+                    return _buildCustomControls(state);
+                  },
+                  fit: _currentFitMode,
+                  subtitleViewConfiguration:
+                      media_kit_video.SubtitleViewConfiguration(
+                    style: TextStyle(
+                      fontSize: widget.subtitleSize,
+                      color: Colors.white,
+                      backgroundColor: const Color(0x99000000),
+                      fontWeight: FontWeight.w500,
+                    ),
+                    textAlign: TextAlign.center,
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+                  ),
+                ),
           // Buffering indicator overlay
           StreamBuilder<bool>(
             stream: _player.stream.buffering,
