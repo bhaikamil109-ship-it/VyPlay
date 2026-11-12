@@ -4473,6 +4473,307 @@ class S {
       args: [],
     );
   }
+
+  /// `Plugin permissions`
+  String get pluginPermissions {
+    return Intl.message(
+      'Plugin permissions',
+      name: 'pluginPermissions',
+      desc: 'Plugin permissions settings section title',
+      args: [],
+    );
+  }
+
+  /// `Control which capabilities each installed plugin can use.`
+  String get pluginPermissionsDescription {
+    return Intl.message(
+      'Control which capabilities each installed plugin can use.',
+      name: 'pluginPermissionsDescription',
+      desc: 'Plugin permissions section description',
+      args: [],
+    );
+  }
+
+  /// `No plugins installed yet.`
+  String get pluginPermissionsNone {
+    return Intl.message(
+      'No plugins installed yet.',
+      name: 'pluginPermissionsNone',
+      desc: 'Empty plugin permissions state',
+      args: [],
+    );
+  }
+
+  /// `All granted`
+  String get pluginPermissionsAllGranted {
+    return Intl.message(
+      'All granted',
+      name: 'pluginPermissionsAllGranted',
+      desc: 'Chip label when all declared capabilities are granted',
+      args: [],
+    );
+  }
+
+  /// `granted`
+  String get pluginPermissionsGranted {
+    return Intl.message(
+      'granted',
+      name: 'pluginPermissionsGranted',
+      desc: 'Suffix for granted capability count',
+      args: [],
+    );
+  }
+
+  /// `denied`
+  String get pluginPermissionsDenied {
+    return Intl.message(
+      'denied',
+      name: 'pluginPermissionsDenied',
+      desc: 'Suffix for denied capability count',
+      args: [],
+    );
+  }
+
+  /// `Plugin info`
+  String get pluginInfo {
+    return Intl.message(
+      'Plugin info',
+      name: 'pluginInfo',
+      desc: 'Plugin info label in permissions screen',
+      args: [],
+    );
+  }
+
+  /// `Default policy`
+  String get pluginPermissionsDefaultPolicy {
+    return Intl.message(
+      'Default policy',
+      name: 'pluginPermissionsDefaultPolicy',
+      desc: 'Label for default (all-declared-granted) policy',
+      args: [],
+    );
+  }
+
+  /// `This plugin has not been restricted. It may use every capability it declared. You can revoke individual capabilities below.`
+  String get pluginPermissionsDefaultDescription {
+    return Intl.message(
+      'This plugin has not been restricted. It may use every capability it declared. You can revoke individual capabilities below.',
+      name: 'pluginPermissionsDefaultDescription',
+      desc: 'Description of the default permission policy',
+      args: [],
+    );
+  }
+
+  /// `Custom policy`
+  String get pluginPermissionsCustomPolicy {
+    return Intl.message(
+      'Custom policy',
+      name: 'pluginPermissionsCustomPolicy',
+      desc: 'Label for custom (some-denied) policy',
+      args: [],
+    );
+  }
+
+  /// `Some capabilities for this plugin have been revoked. Revoked capabilities cannot be used until re-granted.`
+  String get pluginPermissionsCustomDescription {
+    return Intl.message(
+      'Some capabilities for this plugin have been revoked. Revoked capabilities cannot be used until re-granted.',
+      name: 'pluginPermissionsCustomDescription',
+      desc: 'Description of a custom permission policy',
+      args: [],
+    );
+  }
+
+  /// `Restricted capabilities`
+  String get pluginPermissionsRestricted {
+    return Intl.message(
+      'Restricted capabilities',
+      name: 'pluginPermissionsRestricted',
+      desc: 'Banner heading for denied capabilities',
+      args: [],
+    );
+  }
+
+  /// `The following capabilities were declared by the plugin but are not granted. The plugin cannot use them until you grant them here.`
+  String get pluginPermissionsRestrictedDescription {
+    return Intl.message(
+      'The following capabilities were declared by the plugin but are not granted. The plugin cannot use them until you grant them here.',
+      name: 'pluginPermissionsRestrictedDescription',
+      desc: 'Banner description for denied capabilities',
+      args: [],
+    );
+  }
+
+  /// `Not declared by this plugin`
+  String get pluginPermissionsNotDeclared {
+    return Intl.message(
+      'Not declared by this plugin',
+      name: 'pluginPermissionsNotDeclared',
+      desc: 'Hint shown for capabilities the plugin did not declare',
+      args: [],
+    );
+  }
+
+  /// `This plugin does not declare any capabilities.`
+  String get pluginPermissionsNoneDeclared {
+    return Intl.message(
+      'This plugin does not declare any capabilities.',
+      name: 'pluginPermissionsNoneDeclared',
+      desc: 'Empty capability list message',
+      args: [],
+    );
+  }
+
+  /// `Permission change requires reload`
+  String get pluginPermissionsReloadRequiredTitle {
+    return Intl.message(
+      'Permission change requires reload',
+      name: 'pluginPermissionsReloadRequiredTitle',
+      desc: 'Heading for the reload hint card',
+      args: [],
+    );
+  }
+
+  /// `To apply new permissions to a running plugin, it must be disabled and re-enabled. Its current session keeps the old permissions until reloaded.`
+  String get pluginPermissionsReloadRequiredDescription {
+    return Intl.message(
+      'To apply new permissions to a running plugin, it must be disabled and re-enabled. Its current session keeps the old permissions until reloaded.',
+      name: 'pluginPermissionsReloadRequiredDescription',
+      desc: 'Description of why a reload is required after permission changes',
+      args: [],
+    );
+  }
+
+  /// `Apply now`
+  String get pluginPermissionsApplyNow {
+    return Intl.message(
+      'Apply now',
+      name: 'pluginPermissionsApplyNow',
+      desc:
+          'Button that disables and re-enables the plugin to apply permission changes',
+      args: [],
+    );
+  }
+
+  /// `Plugin permissions applied.`
+  String get pluginPermissionsReloaded {
+    return Intl.message(
+      'Plugin permissions applied.',
+      name: 'pluginPermissionsReloaded',
+      desc: 'Snackbar message after a successful permission reload',
+      args: [],
+    );
+  }
+
+  /// `Search content`
+  String get pluginCapabilitySearch {
+    return Intl.message(
+      'Search content',
+      name: 'pluginCapabilitySearch',
+      desc: 'Human label for PluginCapability.search',
+      args: [],
+    );
+  }
+
+  /// `Channel metadata`
+  String get pluginCapabilityChannel {
+    return Intl.message(
+      'Channel metadata',
+      name: 'pluginCapabilityChannel',
+      desc: 'Human label for PluginCapability.channel',
+      args: [],
+    );
+  }
+
+  /// `Trending / home feed`
+  String get pluginCapabilityTrending {
+    return Intl.message(
+      'Trending / home feed',
+      name: 'pluginCapabilityTrending',
+      desc: 'Human label for PluginCapability.trending',
+      args: [],
+    );
+  }
+
+  /// `Playback`
+  String get pluginCapabilityPlayback {
+    return Intl.message(
+      'Playback',
+      name: 'pluginCapabilityPlayback',
+      desc: 'Human label for PluginCapability.playback',
+      args: [],
+    );
+  }
+
+  /// `Read settings`
+  String get pluginCapabilitySettingsRead {
+    return Intl.message(
+      'Read settings',
+      name: 'pluginCapabilitySettingsRead',
+      desc: 'Human label for PluginCapability.settingsRead',
+      args: [],
+    );
+  }
+
+  /// `Network access`
+  String get pluginCapabilityNetwork {
+    return Intl.message(
+      'Network access',
+      name: 'pluginCapabilityNetwork',
+      desc: 'Human label for PluginCapability.network',
+      args: [],
+    );
+  }
+
+  /// `Diagnostics`
+  String get pluginCapabilityDiagnostics {
+    return Intl.message(
+      'Diagnostics',
+      name: 'pluginCapabilityDiagnostics',
+      desc: 'Human label for PluginCapability.diagnostics',
+      args: [],
+    );
+  }
+
+  /// `Plugin contributions`
+  String get pluginContributions {
+    return Intl.message(
+      'Plugin contributions',
+      name: 'pluginContributions',
+      desc: 'Plugin contributions settings section title',
+      args: [],
+    );
+  }
+
+  /// `Extensions published by installed plugins. A contribution appears once its plugin is enabled and the capability it needs is granted.`
+  String get pluginContributionsDescription {
+    return Intl.message(
+      'Extensions published by installed plugins. A contribution appears once its plugin is enabled and the capability it needs is granted.',
+      name: 'pluginContributionsDescription',
+      desc: 'Plugin contributions section description',
+      args: [],
+    );
+  }
+
+  /// `No plugin contributions available yet.`
+  String get pluginContributionsNone {
+    return Intl.message(
+      'No plugin contributions available yet.',
+      name: 'pluginContributionsNone',
+      desc: 'Empty plugin contributions state',
+      args: [],
+    );
+  }
+
+  /// `Plugin menu items`
+  String get pluginMenuContributions {
+    return Intl.message(
+      'Plugin menu items',
+      name: 'pluginMenuContributions',
+      desc: 'Tooltip for the app bar plugin menu button',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

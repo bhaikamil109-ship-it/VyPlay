@@ -35,6 +35,10 @@ import 'package:vyplay/domain/peertube/peertube_instance_store.dart' as _i368;
 import 'package:vyplay/domain/peertube/peertube_repository.dart' as _i155;
 import 'package:vyplay/domain/piped_account/piped_account_service.dart' as _i61;
 import 'package:vyplay/domain/playlist/playlist_service.dart' as _i575;
+import 'package:vyplay/domain/plugin/plugin_extension_registry.dart' as _i164;
+import 'package:vyplay/domain/plugin/plugin_loader.dart' as _i24;
+import 'package:vyplay/domain/plugin/plugin_permission.dart' as _i763;
+import 'package:vyplay/domain/plugin/plugin_state_store.dart' as _i945;
 import 'package:vyplay/domain/saved/saved_services.dart' as _i636;
 import 'package:vyplay/domain/search/search_history_service.dart' as _i1011;
 import 'package:vyplay/domain/search/search_service.dart' as _i158;
@@ -60,6 +64,15 @@ import 'package:vyplay/infrastructure/peertube/peertube_repository_impl.dart'
 import 'package:vyplay/infrastructure/piped_account/piped_account_impl.dart'
     as _i162;
 import 'package:vyplay/infrastructure/playlist/playlist_impl.dart' as _i652;
+import 'package:vyplay/infrastructure/plugin/plugin_extension_registry_impl.dart'
+    as _i416;
+import 'package:vyplay/infrastructure/plugin/plugin_loader_impl.dart' as _i324;
+import 'package:vyplay/infrastructure/plugin/plugin_permission_service_impl.dart'
+    as _i1035;
+import 'package:vyplay/infrastructure/plugin/plugin_permission_store_impl.dart'
+    as _i586;
+import 'package:vyplay/infrastructure/plugin/plugin_state_store_impl.dart'
+    as _i123;
 import 'package:vyplay/infrastructure/saved/saved_impl.dart' as _i76;
 import 'package:vyplay/infrastructure/search/search_history_impl.dart' as _i488;
 import 'package:vyplay/infrastructure/search/search_impl.dart' as _i121;
@@ -109,8 +122,12 @@ extension GetItInjectableX on _i174.GetIt {
         ));
     gh.factory<_i1.PlaylistBloc>(
         () => _i1.PlaylistBloc(gh<_i575.PlaylistService>()));
+    gh.lazySingleton<_i945.PluginStateStore>(
+        () => _i123.PluginStateStoreImpl());
     gh.lazySingleton<_i368.PeerTubeInstanceStore>(
         () => _i250.PeerTubeInstanceStoreImpl());
+    gh.lazySingleton<_i164.PluginExtensionRegistry>(
+        () => _i416.PluginExtensionRegistryImpl());
     gh.lazySingleton<_i184.SponsorBlockService>(
         () => _i1036.SponsorBlockImpl());
     gh.lazySingleton<_i158.SearchService>(() => _i121.SearchImpl());
@@ -118,9 +135,14 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i416.HomeServices>(() => _i279.HomeImpl());
     gh.factory<_i664.DownloadBloc>(
         () => _i664.DownloadBloc(gh<_i888.DownloadService>()));
+    gh.lazySingleton<_i763.PluginPermissionStore>(
+        () => _i586.PluginPermissionStoreImpl());
     gh.lazySingleton<_i212.ChannelServices>(() => _i709.ChannelImpl());
     gh.factory<_i108.SubscribeBloc>(
         () => _i108.SubscribeBloc(gh<_i761.SubscribeServices>()));
+    gh.lazySingleton<_i763.PluginPermissionService>(() =>
+        _i1035.PluginPermissionServiceImpl(
+            store: gh<_i763.PluginPermissionStore>()));
     gh.factory<_i337.WatchBloc>(() => _i337.WatchBloc(
           gh<_i637.WatchService>(),
           gh<_i184.SponsorBlockService>(),
@@ -135,6 +157,11 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i163.SearchBloc>(() => _i163.SearchBloc(
           gh<_i158.SearchService>(),
           gh<_i1011.SearchHistoryService>(),
+        ));
+    gh.lazySingleton<_i24.PluginLoader>(() => _i324.PluginLoaderImpl(
+          stateStore: gh<_i945.PluginStateStore>(),
+          appVersion: gh<String>(),
+          permissionStore: gh<_i763.PluginPermissionStore>(),
         ));
     gh.factory<_i834.ChannelBloc>(
         () => _i834.ChannelBloc(gh<_i212.ChannelServices>()));

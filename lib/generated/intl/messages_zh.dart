@@ -241,6 +241,90 @@ class MessageLookup extends MessageLookupByLibrary {
     "playlistNameHint": MessageLookupByLibrary.simpleMessage("播放列表名称"),
     "playlistNotFound": MessageLookupByLibrary.simpleMessage("未找到播放列表"),
     "playlists": MessageLookupByLibrary.simpleMessage("播放列表"),
+    "pluginCapabilityChannel": MessageLookupByLibrary.simpleMessage(
+      "Channel metadata",
+    ),
+    "pluginCapabilityDiagnostics": MessageLookupByLibrary.simpleMessage(
+      "Diagnostics",
+    ),
+    "pluginCapabilityNetwork": MessageLookupByLibrary.simpleMessage(
+      "Network access",
+    ),
+    "pluginCapabilityPlayback": MessageLookupByLibrary.simpleMessage(
+      "Playback",
+    ),
+    "pluginCapabilitySearch": MessageLookupByLibrary.simpleMessage(
+      "Search content",
+    ),
+    "pluginCapabilitySettingsRead": MessageLookupByLibrary.simpleMessage(
+      "Read settings",
+    ),
+    "pluginCapabilityTrending": MessageLookupByLibrary.simpleMessage(
+      "Trending / home feed",
+    ),
+    "pluginContributions": MessageLookupByLibrary.simpleMessage(
+      "Plugin contributions",
+    ),
+    "pluginContributionsDescription": MessageLookupByLibrary.simpleMessage(
+      "Extensions published by installed plugins. A contribution appears once its plugin is enabled and the capability it needs is granted.",
+    ),
+    "pluginContributionsNone": MessageLookupByLibrary.simpleMessage(
+      "No plugin contributions available yet.",
+    ),
+    "pluginInfo": MessageLookupByLibrary.simpleMessage("Plugin info"),
+    "pluginMenuContributions": MessageLookupByLibrary.simpleMessage(
+      "Plugin menu items",
+    ),
+    "pluginPermissions": MessageLookupByLibrary.simpleMessage("插件权限"),
+    "pluginPermissionsAllGranted": MessageLookupByLibrary.simpleMessage(
+      "All granted",
+    ),
+    "pluginPermissionsApplyNow": MessageLookupByLibrary.simpleMessage(
+      "Apply now",
+    ),
+    "pluginPermissionsCustomDescription": MessageLookupByLibrary.simpleMessage(
+      "Some capabilities for this plugin have been revoked. Revoked capabilities cannot be used until re-granted.",
+    ),
+    "pluginPermissionsCustomPolicy": MessageLookupByLibrary.simpleMessage(
+      "Custom policy",
+    ),
+    "pluginPermissionsDefaultDescription": MessageLookupByLibrary.simpleMessage(
+      "This plugin has not been restricted. It may use every capability it declared. You can revoke individual capabilities below.",
+    ),
+    "pluginPermissionsDefaultPolicy": MessageLookupByLibrary.simpleMessage(
+      "Default policy",
+    ),
+    "pluginPermissionsDenied": MessageLookupByLibrary.simpleMessage("denied"),
+    "pluginPermissionsDescription": MessageLookupByLibrary.simpleMessage(
+      "Control which capabilities each installed plugin can use.",
+    ),
+    "pluginPermissionsGranted": MessageLookupByLibrary.simpleMessage("granted"),
+    "pluginPermissionsNone": MessageLookupByLibrary.simpleMessage(
+      "No plugins installed yet.",
+    ),
+    "pluginPermissionsNoneDeclared": MessageLookupByLibrary.simpleMessage(
+      "This plugin does not declare any capabilities.",
+    ),
+    "pluginPermissionsNotDeclared": MessageLookupByLibrary.simpleMessage(
+      "Not declared by this plugin",
+    ),
+    "pluginPermissionsReloadRequiredDescription":
+        MessageLookupByLibrary.simpleMessage(
+          "To apply new permissions to a running plugin, it must be disabled and re-enabled. Its current session keeps the old permissions until reloaded.",
+        ),
+    "pluginPermissionsReloadRequiredTitle":
+        MessageLookupByLibrary.simpleMessage(
+          "Permission change requires reload",
+        ),
+    "pluginPermissionsReloaded": MessageLookupByLibrary.simpleMessage(
+      "Plugin permissions applied.",
+    ),
+    "pluginPermissionsRestricted": MessageLookupByLibrary.simpleMessage(
+      "Restricted capabilities",
+    ),
+    "pluginPermissionsRestrictedDescription": MessageLookupByLibrary.simpleMessage(
+      "The following capabilities were declared by the plugin but are not granted. The plugin cannot use them until you grant them here.",
+    ),
     "profileInUse": MessageLookupByLibrary.simpleMessage("使用中"),
     "profileName": MessageLookupByLibrary.simpleMessage("配置文件名称"),
     "profiles": MessageLookupByLibrary.simpleMessage("配置文件"),

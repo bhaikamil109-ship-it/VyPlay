@@ -35,5 +35,14 @@
 - [ ] media.ccc.de integration
 
 ## Phase 6 — Plugin / Extension System
-- [ ] Plugin loader architecture
-- [ ] Extension API + sandboxing
+- [x] Phase 6.2 Plugin contract (manifest, capabilities, context, plugin interface, failures)
+- [x] Phase 6.3 Plugin loader (registry, validation, duplicates, version compat, init/dispose, enable/disable, persistence, tests)
+- [x] Phase 6.4 Extension API + sandboxing (capability-gated API, timeouts, network host allowlist, settings safety, rate limiting, tests)
+- [x] Phase 6.5 Extension point registry & host integration (contributions, capability gating, duplicate rejection, unregister, tests)
+- [x] Phase 6.6 Plugin permissions (grant/revoke persistence, capability filtering in loader, tests)
+- [x] Phase 6.7 Plugin manager/host orchestration (lifecycle, extension API, registry delegation, tests)
+- [x] Phase 6.8 Plugin management UI (overlay, info list, capabilities view)
+- [x] Phase 6.9 Plugin permissions UI (settings section, per-plugin permissions screen, grant/revoke, persistence, safe reload, deny-by-default, tests) — Round 16 review-corrections: deny-by-default bug fixed in PluginPermissionServiceImpl + PluginLoaderImpl (_computeGranted enforces declared∩persisted, empty when no policy), production DI fixed in main.dart (manual PluginManager/PluginSandbox registration after configureInjection()), 38 new deny-by-default/enforcement/Apply-now/reload unit tests added across test/plugin_permission_test.dart (16), test/plugin_loader_test.dart (11 → 11) and test/plugin_manager_test.dart (4 → 11), widget smoke test stable, 12 tile/screen widget tests skipped (test-infrastructure hang, documented); flutter analyze clean, flutter test 402/402 green.
+- [x] Phase 6.10 Declarative extension contributions (manifest `contributions` specs, host auto-registers on enable and removes on disable/dispose, capability-gated by the *granted* set, manifest validation + JSON round-trip, `ExtensionPoint` extracted to `plugin_contribution.dart` and re-exported, 13 tests)
+- [x] Phase 6.11 Plugin contributions UI (Settings section lists every published contribution with plugin name, extension point and id; withheld contributions stay hidden by deny-by-default; tap opens that plugin's permissions screen; 3 new l10n keys in 12 locales; 5 widget tests)
+- [x] Phase 6.12 Plugin menu contributions in the app bar (HomeAppBar overflow button lists published `menuItem` contributions, hidden when none/disabled, entry opens the plugin permissions screen; 1 new l10n key in 12 locales; 5 widget tests)

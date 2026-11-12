@@ -84,6 +84,10 @@ class ScreenSettings extends StatelessWidget {
                   kHeightBox15,
                   BackupSettingsSection(),
                   kHeightBox15,
+                  PluginContributionsSection(),
+                  kHeightBox15,
+                  PluginPermissionsSection(),
+                  kHeightBox15,
                   AboutSection()
                 ],
               ),

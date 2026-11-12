@@ -430,5 +430,125 @@
   "sleepTimerSet": "Ayarla",
   "sleepTimerEnded": "Uyku zamanlayıcısı sona erdi",
   "refresh": "Refresh",
-  "noShortsHint": "Short videos will appear here"
+  "noShortsHint": "Short videos will appear here",
+  "pluginPermissions": "Eklenti izinleri",
+  "@pluginPermissions": {
+    "description": "Plugin permissions settings section title"
+  },
+  "pluginPermissionsDescription": "Control which capabilities each installed plugin can use.",
+  "@pluginPermissionsDescription": {
+    "description": "Plugin permissions section description"
+  },
+  "pluginPermissionsNone": "No plugins installed yet.",
+  "@pluginPermissionsNone": {
+    "description": "Empty plugin permissions state"
+  },
+  "pluginPermissionsAllGranted": "All granted",
+  "@pluginPermissionsAllGranted": {
+    "description": "Chip label when all declared capabilities are granted"
+  },
+  "pluginPermissionsGranted": "granted",
+  "@pluginPermissionsGranted": {
+    "description": "Suffix for granted capability count"
+  },
+  "pluginPermissionsDenied": "denied",
+  "@pluginPermissionsDenied": {
+    "description": "Suffix for denied capability count"
+  },
+  "pluginInfo": "Plugin info",
+  "@pluginInfo": {
+    "description": "Plugin info label in permissions screen"
+  },
+  "pluginPermissionsDefaultPolicy": "Default policy",
+  "@pluginPermissionsDefaultPolicy": {
+    "description": "Label for default (all-declared-granted) policy"
+  },
+  "pluginPermissionsDefaultDescription": "This plugin has not been restricted. It may use every capability it declared. You can revoke individual capabilities below.",
+  "@pluginPermissionsDefaultDescription": {
+    "description": "Description of the default permission policy"
+  },
+  "pluginPermissionsCustomPolicy": "Custom policy",
+  "@pluginPermissionsCustomPolicy": {
+    "description": "Label for custom (some-denied) policy"
+  },
+  "pluginPermissionsCustomDescription": "Some capabilities for this plugin have been revoked. Revoked capabilities cannot be used until re-granted.",
+  "@pluginPermissionsCustomDescription": {
+    "description": "Description of a custom permission policy"
+  },
+  "pluginPermissionsRestricted": "Restricted capabilities",
+  "@pluginPermissionsRestricted": {
+    "description": "Banner heading for denied capabilities"
+  },
+  "pluginPermissionsRestrictedDescription": "The following capabilities were declared by the plugin but are not granted. The plugin cannot use them until you grant them here.",
+  "@pluginPermissionsRestrictedDescription": {
+    "description": "Banner description for denied capabilities"
+  },
+  "pluginPermissionsNotDeclared": "Not declared by this plugin",
+  "@pluginPermissionsNotDeclared": {
+    "description": "Hint shown for capabilities the plugin did not declare"
+  },
+  "pluginPermissionsNoneDeclared": "This plugin does not declare any capabilities.",
+  "@pluginPermissionsNoneDeclared": {
+    "description": "Empty capability list message"
+  },
+  "pluginPermissionsReloadRequiredTitle": "Permission change requires reload",
+  "@pluginPermissionsReloadRequiredTitle": {
+    "description": "Heading for the reload hint card"
+  },
+  "pluginPermissionsReloadRequiredDescription": "To apply new permissions to a running plugin, it must be disabled and re-enabled. Its current session keeps the old permissions until reloaded.",
+  "@pluginPermissionsReloadRequiredDescription": {
+    "description": "Description of why a reload is required after permission changes"
+  },
+  "pluginPermissionsApplyNow": "Apply now",
+  "@pluginPermissionsApplyNow": {
+    "description": "Button that disables and re-enables the plugin to apply permission changes"
+  },
+  "pluginPermissionsReloaded": "Plugin permissions applied.",
+  "@pluginPermissionsReloaded": {
+    "description": "Snackbar message after a successful permission reload"
+  },
+  "pluginCapabilitySearch": "Search content",
+  "@pluginCapabilitySearch": {
+    "description": "Human label for PluginCapability.search"
+  },
+  "pluginCapabilityChannel": "Channel metadata",
+  "@pluginCapabilityChannel": {
+    "description": "Human label for PluginCapability.channel"
+  },
+  "pluginCapabilityTrending": "Trending / home feed",
+  "@pluginCapabilityTrending": {
+    "description": "Human label for PluginCapability.trending"
+  },
+  "pluginCapabilityPlayback": "Playback",
+  "@pluginCapabilityPlayback": {
+    "description": "Human label for PluginCapability.playback"
+  },
+  "pluginCapabilitySettingsRead": "Read settings",
+  "@pluginCapabilitySettingsRead": {
+    "description": "Human label for PluginCapability.settingsRead"
+  },
+  "pluginCapabilityNetwork": "Network access",
+  "@pluginCapabilityNetwork": {
+    "description": "Human label for PluginCapability.network"
+  },
+  "pluginCapabilityDiagnostics": "Diagnostics",
+  "@pluginCapabilityDiagnostics": {
+    "description": "Human label for PluginCapability.diagnostics"
+  },
+  "pluginContributions": "Plugin contributions",
+  "@pluginContributions": {
+    "description": "Plugin contributions settings section title"
+  },
+  "pluginContributionsDescription": "Extensions published by installed plugins. A contribution appears once its plugin is enabled and the capability it needs is granted.",
+  "@pluginContributionsDescription": {
+    "description": "Plugin contributions section description"
+  },
+  "pluginContributionsNone": "No plugin contributions available yet.",
+  "@pluginContributionsNone": {
+    "description": "Empty plugin contributions state"
+  },
+  "pluginMenuContributions": "Plugin menu items",
+  "@pluginMenuContributions": {
+    "description": "Tooltip for the app bar plugin menu button"
+  }
 }

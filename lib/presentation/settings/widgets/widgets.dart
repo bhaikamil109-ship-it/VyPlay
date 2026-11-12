@@ -7,3 +7,5 @@ export 'profiles_section.dart';
 export 'sponsorblock_section.dart';
 export 'sub_setting_app_bar.dart';
 export 'video_settings_section.dart';
+export 'plugin_permissions_section.dart';
+export 'plugin_contributions_section.dart';

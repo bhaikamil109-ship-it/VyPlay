@@ -9,6 +9,7 @@ import '../../peertube/peertube_navigation.dart';
 import '../../search/screen_search.dart';
 import '../../settings/screen_settings.dart';
 import 'circular_icon.dart';
+import 'plugin_menu_contributions_button.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({
@@ -64,6 +65,7 @@ class HomeAppBar extends StatelessWidget {
           ),
         ),
         kWidthBox10,
+        const PluginMenuContributionsButton(),
         GestureDetector(
           onTap: () => Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => const ScreenSettings(),
