@@ -81,6 +81,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "castUnavailable": MessageLookupByLibrary.simpleMessage("此设备不支持投屏"),
     "channelSubscribers": m2,
     "channels": MessageLookupByLibrary.simpleMessage("频道"),
+    "checkNow": MessageLookupByLibrary.simpleMessage("Check now"),
+    "checkNowDone": MessageLookupByLibrary.simpleMessage(
+      "Checked for new uploads.",
+    ),
     "clearAll": MessageLookupByLibrary.simpleMessage("全部清除"),
     "clearAllHistory": MessageLookupByLibrary.simpleMessage("清除所有历史记录"),
     "clearAllHistoryConfirm": MessageLookupByLibrary.simpleMessage(
@@ -119,7 +123,32 @@ class MessageLookup extends MessageLookupByLibrary {
     "dislike": MessageLookupByLibrary.simpleMessage("不喜欢"),
     "distractionFree": MessageLookupByLibrary.simpleMessage("无干扰"),
     "download": MessageLookupByLibrary.simpleMessage("下载"),
+    "downloadAll": MessageLookupByLibrary.simpleMessage("Download all"),
+    "downloadAllFailed": MessageLookupByLibrary.simpleMessage(
+      "Could not queue playlist downloads.",
+    ),
+    "downloadAllQueued": MessageLookupByLibrary.simpleMessage(
+      "Playlist videos added to the download queue.",
+    ),
     "downloadFailed": m4,
+    "downloadFileMissing": MessageLookupByLibrary.simpleMessage(
+      "The downloaded file could not be opened. It may have been deleted.",
+    ),
+    "downloadFolderNotWritable": MessageLookupByLibrary.simpleMessage(
+      "This folder is not writable.",
+    ),
+    "downloadFolderReady": MessageLookupByLibrary.simpleMessage(
+      "Writable — downloads will be saved here.",
+    ),
+    "downloadFolderRejected": MessageLookupByLibrary.simpleMessage(
+      "That folder cannot be used. Nothing was changed.",
+    ),
+    "downloadFolderSaved": MessageLookupByLibrary.simpleMessage(
+      "Download folder updated.",
+    ),
+    "downloadFolderUnavailable": MessageLookupByLibrary.simpleMessage(
+      "This folder is no longer available.",
+    ),
     "downloadStarted": MessageLookupByLibrary.simpleMessage("下载已开始"),
     "downloadType": MessageLookupByLibrary.simpleMessage("下载类型"),
     "downloading": MessageLookupByLibrary.simpleMessage("正在下载"),
@@ -130,6 +159,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "enableHlsPlayerDescription": MessageLookupByLibrary.simpleMessage(
       "启用 HLS 播放器以解锁所有质量选项。如果出现错误，请禁用。",
     ),
+    "exitApp": MessageLookupByLibrary.simpleMessage("Exit"),
+    "exitConfirmMessage": MessageLookupByLibrary.simpleMessage(
+      "Playback will stop.",
+    ),
+    "exitConfirmTitle": MessageLookupByLibrary.simpleMessage("Exit VyPlay?"),
     "exportData": MessageLookupByLibrary.simpleMessage("导出数据"),
     "exportSubscriptions": MessageLookupByLibrary.simpleMessage("导出订阅"),
     "exportSuccess": MessageLookupByLibrary.simpleMessage("导出成功"),
@@ -225,6 +259,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "noVideosFound": MessageLookupByLibrary.simpleMessage("未找到视频"),
     "noVideosInPlaylist": MessageLookupByLibrary.simpleMessage("还没有视频"),
     "notificationsDenied": MessageLookupByLibrary.simpleMessage("通知权限被拒绝"),
+    "openDownloadedFile": MessageLookupByLibrary.simpleMessage("Open"),
     "openInBrowser": MessageLookupByLibrary.simpleMessage("在浏览器中打开"),
     "openLinksExternally": MessageLookupByLibrary.simpleMessage("在外部浏览器中打开链接"),
     "outro": MessageLookupByLibrary.simpleMessage("片尾"),
@@ -240,6 +275,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "playlist": MessageLookupByLibrary.simpleMessage("播放列表"),
     "playlistNameHint": MessageLookupByLibrary.simpleMessage("播放列表名称"),
     "playlistNotFound": MessageLookupByLibrary.simpleMessage("未找到播放列表"),
+    "playlistOrder": MessageLookupByLibrary.simpleMessage("Playlist order"),
     "playlists": MessageLookupByLibrary.simpleMessage("播放列表"),
     "pluginCapabilityChannel": MessageLookupByLibrary.simpleMessage(
       "Channel metadata",
@@ -344,6 +380,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "queueShuffle": MessageLookupByLibrary.simpleMessage("随机播放"),
     "readMoreText": MessageLookupByLibrary.simpleMessage("阅读更多"),
     "recentSearches": MessageLookupByLibrary.simpleMessage("最近搜索"),
+    "recheckFolder": MessageLookupByLibrary.simpleMessage("Re-check"),
     "refresh": MessageLookupByLibrary.simpleMessage("Refresh"),
     "refreshToLoad": MessageLookupByLibrary.simpleMessage("下拉刷新"),
     "region": MessageLookupByLibrary.simpleMessage("地区"),
@@ -362,6 +399,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "retrieveDislikes": MessageLookupByLibrary.simpleMessage("检索 Dislikes"),
     "retry": MessageLookupByLibrary.simpleMessage("重试"),
+    "retryDownload": MessageLookupByLibrary.simpleMessage("Retry"),
     "saveToDevice": MessageLookupByLibrary.simpleMessage("保存到设备"),
     "saveToDeviceFailed": MessageLookupByLibrary.simpleMessage("保存到设备失败"),
     "saveToPlaylist": MessageLookupByLibrary.simpleMessage("保存到播放列表"),
@@ -378,6 +416,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "searchHistoryEnabledDescription": MessageLookupByLibrary.simpleMessage(
       "保存搜索记录以便快速访问",
     ),
+    "searchInPlaylist": MessageLookupByLibrary.simpleMessage(
+      "Search in playlist",
+    ),
     "searchSavedVideos": MessageLookupByLibrary.simpleMessage("搜索已保存的视频..."),
     "searchSubscriptions": MessageLookupByLibrary.simpleMessage("搜索订阅..."),
     "searchYouTube": MessageLookupByLibrary.simpleMessage("搜索 YouTube..."),
@@ -393,6 +434,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "servicePiped": MessageLookupByLibrary.simpleMessage("Piped"),
     "settings": MessageLookupByLibrary.simpleMessage("设置"),
     "share": MessageLookupByLibrary.simpleMessage("分享"),
+    "shareDownloadedFile": MessageLookupByLibrary.simpleMessage("Share"),
     "shareLogs": MessageLookupByLibrary.simpleMessage("分享日志"),
     "shareVia": MessageLookupByLibrary.simpleMessage("分享方式"),
     "shorts": MessageLookupByLibrary.simpleMessage("Shorts"),
@@ -414,7 +456,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "sleepTimerOff": MessageLookupByLibrary.simpleMessage("关闭"),
     "sleepTimerSet": MessageLookupByLibrary.simpleMessage("设置"),
     "sort": MessageLookupByLibrary.simpleMessage("排序"),
+    "sortAToZ": MessageLookupByLibrary.simpleMessage("Title A–Z"),
     "sortBy": MessageLookupByLibrary.simpleMessage("排序方式"),
+    "sortZToA": MessageLookupByLibrary.simpleMessage("Title Z–A"),
     "sponsor": MessageLookupByLibrary.simpleMessage("赞助"),
     "sponsorBlock": MessageLookupByLibrary.simpleMessage("SponsorBlock"),
     "sponsorBlockCategories": MessageLookupByLibrary.simpleMessage("跳过的类别"),

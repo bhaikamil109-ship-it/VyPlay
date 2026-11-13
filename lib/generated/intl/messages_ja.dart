@@ -88,6 +88,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "channelSubscribers": m2,
     "channels": MessageLookupByLibrary.simpleMessage("チャンネル"),
+    "checkNow": MessageLookupByLibrary.simpleMessage("Check now"),
+    "checkNowDone": MessageLookupByLibrary.simpleMessage(
+      "Checked for new uploads.",
+    ),
     "clearAll": MessageLookupByLibrary.simpleMessage("すべて消去"),
     "clearAllHistory": MessageLookupByLibrary.simpleMessage("履歴をすべて消去"),
     "clearAllHistoryConfirm": MessageLookupByLibrary.simpleMessage(
@@ -128,7 +132,32 @@ class MessageLookup extends MessageLookupByLibrary {
     "dislike": MessageLookupByLibrary.simpleMessage("低評価"),
     "distractionFree": MessageLookupByLibrary.simpleMessage("集中モード"),
     "download": MessageLookupByLibrary.simpleMessage("ダウンロード"),
+    "downloadAll": MessageLookupByLibrary.simpleMessage("Download all"),
+    "downloadAllFailed": MessageLookupByLibrary.simpleMessage(
+      "Could not queue playlist downloads.",
+    ),
+    "downloadAllQueued": MessageLookupByLibrary.simpleMessage(
+      "Playlist videos added to the download queue.",
+    ),
     "downloadFailed": m4,
+    "downloadFileMissing": MessageLookupByLibrary.simpleMessage(
+      "The downloaded file could not be opened. It may have been deleted.",
+    ),
+    "downloadFolderNotWritable": MessageLookupByLibrary.simpleMessage(
+      "This folder is not writable.",
+    ),
+    "downloadFolderReady": MessageLookupByLibrary.simpleMessage(
+      "Writable — downloads will be saved here.",
+    ),
+    "downloadFolderRejected": MessageLookupByLibrary.simpleMessage(
+      "That folder cannot be used. Nothing was changed.",
+    ),
+    "downloadFolderSaved": MessageLookupByLibrary.simpleMessage(
+      "Download folder updated.",
+    ),
+    "downloadFolderUnavailable": MessageLookupByLibrary.simpleMessage(
+      "This folder is no longer available.",
+    ),
     "downloadStarted": MessageLookupByLibrary.simpleMessage("ダウンロードを開始しました"),
     "downloadType": MessageLookupByLibrary.simpleMessage("ダウンロードの種類"),
     "downloading": MessageLookupByLibrary.simpleMessage("ダウンロード中"),
@@ -139,6 +168,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "enableHlsPlayerDescription": MessageLookupByLibrary.simpleMessage(
       "すべての品質オプションを選ぶためHLSプレイヤーを有効にします。エラー発生時に無効にしてください。",
     ),
+    "exitApp": MessageLookupByLibrary.simpleMessage("Exit"),
+    "exitConfirmMessage": MessageLookupByLibrary.simpleMessage(
+      "Playback will stop.",
+    ),
+    "exitConfirmTitle": MessageLookupByLibrary.simpleMessage("Exit VyPlay?"),
     "exportData": MessageLookupByLibrary.simpleMessage("データをエクスポート"),
     "exportSubscriptions": MessageLookupByLibrary.simpleMessage(
       "登録チャンネルをエクスポート",
@@ -240,6 +274,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "notificationsDenied": MessageLookupByLibrary.simpleMessage(
       "通知の許可が拒否されました",
     ),
+    "openDownloadedFile": MessageLookupByLibrary.simpleMessage("Open"),
     "openInBrowser": MessageLookupByLibrary.simpleMessage("ブラウザで開く"),
     "openLinksExternally": MessageLookupByLibrary.simpleMessage(
       "リンクを外部ブラウザで開く",
@@ -257,6 +292,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "playlist": MessageLookupByLibrary.simpleMessage("再生リスト"),
     "playlistNameHint": MessageLookupByLibrary.simpleMessage("再生リスト名"),
     "playlistNotFound": MessageLookupByLibrary.simpleMessage("再生リストが見つかりません"),
+    "playlistOrder": MessageLookupByLibrary.simpleMessage("Playlist order"),
     "playlists": MessageLookupByLibrary.simpleMessage("再生リスト"),
     "pluginCapabilityChannel": MessageLookupByLibrary.simpleMessage(
       "Channel metadata",
@@ -361,6 +397,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "queueShuffle": MessageLookupByLibrary.simpleMessage("シャッフル"),
     "readMoreText": MessageLookupByLibrary.simpleMessage("もっと読む"),
     "recentSearches": MessageLookupByLibrary.simpleMessage("最近の検索"),
+    "recheckFolder": MessageLookupByLibrary.simpleMessage("Re-check"),
     "refresh": MessageLookupByLibrary.simpleMessage("Refresh"),
     "refreshToLoad": MessageLookupByLibrary.simpleMessage("下に引いて更新"),
     "region": MessageLookupByLibrary.simpleMessage("地域"),
@@ -377,6 +414,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "retrieveDislikeCounts": MessageLookupByLibrary.simpleMessage("低評価数を取得"),
     "retrieveDislikes": MessageLookupByLibrary.simpleMessage("低評価を取得"),
     "retry": MessageLookupByLibrary.simpleMessage("再試行"),
+    "retryDownload": MessageLookupByLibrary.simpleMessage("Retry"),
     "saveToDevice": MessageLookupByLibrary.simpleMessage("端末に保存"),
     "saveToDeviceFailed": MessageLookupByLibrary.simpleMessage("端末への保存に失敗しました"),
     "saveToPlaylist": MessageLookupByLibrary.simpleMessage("再生リストに保存"),
@@ -392,6 +430,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "searchHistoryEnabled": MessageLookupByLibrary.simpleMessage("検索履歴を保存"),
     "searchHistoryEnabledDescription": MessageLookupByLibrary.simpleMessage(
       "検索クエリを保存してすぐにアクセス",
+    ),
+    "searchInPlaylist": MessageLookupByLibrary.simpleMessage(
+      "Search in playlist",
     ),
     "searchSavedVideos": MessageLookupByLibrary.simpleMessage("保存した動画を検索..."),
     "searchSubscriptions": MessageLookupByLibrary.simpleMessage(
@@ -410,6 +451,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "servicePiped": MessageLookupByLibrary.simpleMessage("Piped"),
     "settings": MessageLookupByLibrary.simpleMessage("設定"),
     "share": MessageLookupByLibrary.simpleMessage("共有"),
+    "shareDownloadedFile": MessageLookupByLibrary.simpleMessage("Share"),
     "shareLogs": MessageLookupByLibrary.simpleMessage("ログを共有"),
     "shareVia": MessageLookupByLibrary.simpleMessage("共有"),
     "shorts": MessageLookupByLibrary.simpleMessage("ショート"),
@@ -433,7 +475,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "sleepTimerOff": MessageLookupByLibrary.simpleMessage("オフ"),
     "sleepTimerSet": MessageLookupByLibrary.simpleMessage("設定"),
     "sort": MessageLookupByLibrary.simpleMessage("並び替え"),
+    "sortAToZ": MessageLookupByLibrary.simpleMessage("Title A–Z"),
     "sortBy": MessageLookupByLibrary.simpleMessage("並び替え"),
+    "sortZToA": MessageLookupByLibrary.simpleMessage("Title Z–A"),
     "sponsor": MessageLookupByLibrary.simpleMessage("スポンサー"),
     "sponsorBlock": MessageLookupByLibrary.simpleMessage("SponsorBlock"),
     "sponsorBlockCategories": MessageLookupByLibrary.simpleMessage(

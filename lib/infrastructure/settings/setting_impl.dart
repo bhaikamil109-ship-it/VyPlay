@@ -8,6 +8,7 @@ import 'package:vyplay/core/api_client.dart';
 import 'package:vyplay/core/enums.dart';
 import 'package:vyplay/core/strings.dart';
 import 'package:vyplay/domain/content_filter/content_filter_config.dart';
+import 'package:vyplay/domain/download/saf_directory.dart';
 import 'package:vyplay/domain/core/failure/main_failure.dart';
 import 'package:vyplay/domain/settings/models/instance.dart';
 import 'package:vyplay/domain/settings/settings_service.dart';
@@ -1703,7 +1704,19 @@ class SettingImpl implements SettingsService {
         await db.setSetting(downloadFolderPathKey, '');
         return const Right(null);
       }
-      final dir = Directory(path.trim());
+
+      final selected = path.trim();
+
+      // A folder picked with Android's Storage Access Framework is a
+      // content:// tree URI, not a filesystem path. Wrapping it in a Directory
+      // throws and used to make the selection silently unsavable, so the URI is
+      // stored verbatim: the grant it carries is what makes it writable.
+      if (SafDirectory.isTreeUri(selected)) {
+        await db.setSetting(downloadFolderPathKey, selected);
+        return Right(selected);
+      }
+
+      final dir = Directory(selected);
       if (!await dir.exists()) {
         await dir.create(recursive: true);
       }

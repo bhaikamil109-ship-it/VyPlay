@@ -31,6 +31,7 @@ class DownloadBloc extends Bloc<DownloadEvent, DownloadState> {
     on<_StartDownload>(_onStartDownload);
     on<_PauseDownload>(_onPauseDownload);
     on<_ResumeDownload>(_onResumeDownload);
+    on<_RetryDownload>(_onRetryDownload);
     on<_CancelDownload>(_onCancelDownload);
     on<_DeleteDownload>(_onDeleteDownload);
     on<_GetAllDownloads>(_onGetAllDownloads);
@@ -275,6 +276,49 @@ class DownloadBloc extends Bloc<DownloadEvent, DownloadState> {
       onError: (failedItem, error) {
         add(DownloadEvent.downloadFailed(downloadItem: failedItem, error: error));
       },
+    );
+  }
+
+  Future<void> _onRetryDownload(
+    _RetryDownload event,
+    Emitter<DownloadState> emit,
+  ) async {
+    DownloadItem? target;
+    for (final item in state.allDownloads) {
+      if (item.id == event.downloadId) {
+        target = item;
+        break;
+      }
+    }
+    if (target == null) return;
+
+    // The service deletes the failed row and creates a fresh one, so drop the
+    // stale entry here instead of leaving a dead row in the lists.
+    emit(state.copyWith(
+      allDownloads: state.allDownloads
+          .where((d) => d.id != event.downloadId)
+          .toList(),
+      activeDownloads: state.activeDownloads
+          .where((d) => d.id != event.downloadId)
+          .toList(),
+      pendingDownloads: state.pendingDownloads
+          .where((d) => d.id != event.downloadId)
+          .toList(),
+      completedDownloads: state.completedDownloads
+          .where((d) => d.id != event.downloadId)
+          .toList(),
+      errorMessage: null,
+      failedDownloadTitle: null,
+    ));
+
+    await _downloadService.retryDownload(
+      downloadId: event.downloadId,
+      onProgress: (updated) =>
+          add(DownloadEvent.updateDownloadProgress(downloadItem: updated)),
+      onComplete: (completed) =>
+          add(DownloadEvent.downloadCompleted(downloadItem: completed)),
+      onError: (failed, error) =>
+          add(DownloadEvent.downloadFailed(downloadItem: failed, error: error)),
     );
   }
 

@@ -8,6 +8,7 @@ import 'package:vyplay/core/animations/animations.dart';
 import 'package:vyplay/core/constants.dart';
 import 'package:vyplay/core/enums.dart';
 import 'package:vyplay/domain/download/models/download_item.dart';
+import 'package:vyplay/domain/download/download_size.dart';
 import 'package:vyplay/domain/download/models/download_quality.dart';
 import 'package:vyplay/domain/watch/models/newpipe/newpipe_stream.dart';
 import 'package:vyplay/generated/l10n.dart';
@@ -397,6 +398,51 @@ class _DownloadOptionsSheetState extends State<DownloadOptionsSheet> {
           _buildAudioQualitySelector(options.audioQualities, isDark),
           AppSpacing.height20,
         ],
+
+        // What the selected streams will actually cost in storage. Uses the
+        // content lengths the extractor reported for these exact streams; when
+        // it reported none, the row says so instead of inventing a number.
+        _buildSizeEstimate(isDark),
+      ],
+    );
+  }
+
+  Widget _buildSizeEstimate(bool isDark) {
+    final estimate = estimateDownloadSize(
+      type: _selectedType,
+      video: _selectedType == DownloadType.audioOnly ? null : _selectedVideoQuality,
+      audio: _selectedType == DownloadType.videoOnly ? null : _selectedAudioQuality,
+    );
+
+    return Row(
+      children: [
+        Icon(
+          CupertinoIcons.archivebox,
+          size: 16,
+          color: isDark
+              ? AppColors.onSurfaceVariantDark
+              : AppColors.onSurfaceVariant,
+        ),
+        AppSpacing.width8,
+        Text(
+          'Estimated size: ',
+          style: TextStyle(
+            color: isDark
+                ? AppColors.onSurfaceVariantDark
+                : AppColors.onSurfaceVariant,
+          ),
+        ),
+        Text(
+          estimate.label,
+          style: TextStyle(
+            fontWeight: FontWeight.w600,
+            color: estimate.isKnown
+                ? (isDark ? AppColors.onSurfaceDark : AppColors.onSurface)
+                : (isDark
+                    ? AppColors.onSurfaceVariantDark
+                    : AppColors.onSurfaceVariant),
+          ),
+        ),
       ],
     );
   }

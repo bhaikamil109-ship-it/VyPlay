@@ -4774,6 +4774,226 @@ class S {
       args: [],
     );
   }
+
+  /// `Writable — downloads will be saved here.`
+  String get downloadFolderReady {
+    return Intl.message(
+      'Writable — downloads will be saved here.',
+      name: 'downloadFolderReady',
+      desc: 'Download location and queue labels',
+      args: [],
+    );
+  }
+
+  /// `This folder is not writable.`
+  String get downloadFolderNotWritable {
+    return Intl.message(
+      'This folder is not writable.',
+      name: 'downloadFolderNotWritable',
+      desc: 'Download location and queue labels',
+      args: [],
+    );
+  }
+
+  /// `This folder is no longer available.`
+  String get downloadFolderUnavailable {
+    return Intl.message(
+      'This folder is no longer available.',
+      name: 'downloadFolderUnavailable',
+      desc: 'Download location and queue labels',
+      args: [],
+    );
+  }
+
+  /// `Re-check`
+  String get recheckFolder {
+    return Intl.message(
+      'Re-check',
+      name: 'recheckFolder',
+      desc: 'Download location and queue labels',
+      args: [],
+    );
+  }
+
+  /// `Download folder updated.`
+  String get downloadFolderSaved {
+    return Intl.message(
+      'Download folder updated.',
+      name: 'downloadFolderSaved',
+      desc: 'Download location and queue labels',
+      args: [],
+    );
+  }
+
+  /// `That folder cannot be used. Nothing was changed.`
+  String get downloadFolderRejected {
+    return Intl.message(
+      'That folder cannot be used. Nothing was changed.',
+      name: 'downloadFolderRejected',
+      desc: 'Download location and queue labels',
+      args: [],
+    );
+  }
+
+  /// `Retry`
+  String get retryDownload {
+    return Intl.message(
+      'Retry',
+      name: 'retryDownload',
+      desc: 'Download location and queue labels',
+      args: [],
+    );
+  }
+
+  /// `Open`
+  String get openDownloadedFile {
+    return Intl.message(
+      'Open',
+      name: 'openDownloadedFile',
+      desc: 'Download location and queue labels',
+      args: [],
+    );
+  }
+
+  /// `Share`
+  String get shareDownloadedFile {
+    return Intl.message(
+      'Share',
+      name: 'shareDownloadedFile',
+      desc: 'Download location and queue labels',
+      args: [],
+    );
+  }
+
+  /// `Download all`
+  String get downloadAll {
+    return Intl.message(
+      'Download all',
+      name: 'downloadAll',
+      desc: 'Download location and queue labels',
+      args: [],
+    );
+  }
+
+  /// `Playlist videos added to the download queue.`
+  String get downloadAllQueued {
+    return Intl.message(
+      'Playlist videos added to the download queue.',
+      name: 'downloadAllQueued',
+      desc: 'Download location and queue labels',
+      args: [],
+    );
+  }
+
+  /// `Could not queue playlist downloads.`
+  String get downloadAllFailed {
+    return Intl.message(
+      'Could not queue playlist downloads.',
+      name: 'downloadAllFailed',
+      desc: 'Download location and queue labels',
+      args: [],
+    );
+  }
+
+  /// `The downloaded file could not be opened. It may have been deleted.`
+  String get downloadFileMissing {
+    return Intl.message(
+      'The downloaded file could not be opened. It may have been deleted.',
+      name: 'downloadFileMissing',
+      desc: 'Shown when a finished download is gone',
+      args: [],
+    );
+  }
+
+  /// `Search in playlist`
+  String get searchInPlaylist {
+    return Intl.message(
+      'Search in playlist',
+      name: 'searchInPlaylist',
+      desc: 'Playlist and subscription controls',
+      args: [],
+    );
+  }
+
+  /// `Playlist order`
+  String get playlistOrder {
+    return Intl.message(
+      'Playlist order',
+      name: 'playlistOrder',
+      desc: 'Playlist and subscription controls',
+      args: [],
+    );
+  }
+
+  /// `Title A–Z`
+  String get sortAToZ {
+    return Intl.message(
+      'Title A–Z',
+      name: 'sortAToZ',
+      desc: 'Playlist and subscription controls',
+      args: [],
+    );
+  }
+
+  /// `Title Z–A`
+  String get sortZToA {
+    return Intl.message(
+      'Title Z–A',
+      name: 'sortZToA',
+      desc: 'Playlist and subscription controls',
+      args: [],
+    );
+  }
+
+  /// `Check now`
+  String get checkNow {
+    return Intl.message(
+      'Check now',
+      name: 'checkNow',
+      desc: 'Playlist and subscription controls',
+      args: [],
+    );
+  }
+
+  /// `Checked for new uploads.`
+  String get checkNowDone {
+    return Intl.message(
+      'Checked for new uploads.',
+      name: 'checkNowDone',
+      desc: 'Playlist and subscription controls',
+      args: [],
+    );
+  }
+
+  /// `Exit VyPlay?`
+  String get exitConfirmTitle {
+    return Intl.message(
+      'Exit VyPlay?',
+      name: 'exitConfirmTitle',
+      desc: 'Exit confirmation dialog',
+      args: [],
+    );
+  }
+
+  /// `Playback will stop.`
+  String get exitConfirmMessage {
+    return Intl.message(
+      'Playback will stop.',
+      name: 'exitConfirmMessage',
+      desc: 'Exit confirmation dialog',
+      args: [],
+    );
+  }
+
+  /// `Exit`
+  String get exitApp {
+    return Intl.message(
+      'Exit',
+      name: 'exitApp',
+      desc: 'Exit confirmation dialog',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

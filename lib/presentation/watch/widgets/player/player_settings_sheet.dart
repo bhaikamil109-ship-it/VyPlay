@@ -38,6 +38,13 @@ class PlayerSettingsSheet extends StatefulWidget {
     this.onFitModeChanged,
     this.sleepTimerMinutes,
     this.onSleepTimerChanged,
+    this.skipSilenceEnabled = false,
+    this.onSkipSilenceChanged,
+    this.onOpenInExternalPlayer,
+    this.audioOnlyEnabled = false,
+    this.onAudioOnlyChanged,
+    this.rememberSpeedForChannel = false,
+    this.onRememberSpeedForChannelChanged,
   });
 
   final double currentSpeed;
@@ -58,6 +65,23 @@ class PlayerSettingsSheet extends StatefulWidget {
   final Function(String)? onFitModeChanged;
   final int? sleepTimerMinutes;
   final Function(int?)? onSleepTimerChanged;
+
+  /// Whether silent passages are currently skipped.
+  final bool skipSilenceEnabled;
+
+  /// Null when the current playback engine cannot skip silence.
+  final ValueChanged<bool>? onSkipSilenceChanged;
+
+  /// Opens the resolved stream in another installed player.
+  final VoidCallback? onOpenInExternalPlayer;
+
+  /// Audio-only playback (video output disabled, audio continues).
+  final bool audioOnlyEnabled;
+  final ValueChanged<bool>? onAudioOnlyChanged;
+
+  /// Whether the current speed is remembered for this video's channel.
+  final bool rememberSpeedForChannel;
+  final ValueChanged<bool>? onRememberSpeedForChannelChanged;
 
   @override
   State<PlayerSettingsSheet> createState() => _PlayerSettingsSheetState();
@@ -185,6 +209,50 @@ class _PlayerSettingsSheetState extends State<PlayerSettingsSheet> {
             title: locals.sleepTimer,
             value: _sleepTimerLabel(widget.sleepTimerMinutes),
             onTap: () => setState(() => _currentPage = SettingsPage.sleepTimer),
+          ),
+
+        // Skip silence: on by request only, since it alters how the video
+        // sounds. Hidden entirely when the active engine cannot do it.
+        if (widget.onSkipSilenceChanged != null && !widget.isLive)
+          SwitchListTile(
+            value: widget.skipSilenceEnabled,
+            onChanged: widget.onSkipSilenceChanged,
+            title: const Text('Skip silence'),
+            subtitle: const Text('Compress silent parts of the video'),
+            secondary: const Icon(CupertinoIcons.speaker_slash_fill),
+            contentPadding: EdgeInsets.zero,
+            activeThumbColor: const Color(0xFF3EA6FF),
+          ),
+
+        if (widget.onAudioOnlyChanged != null)
+          SwitchListTile(
+            value: widget.audioOnlyEnabled,
+            onChanged: widget.onAudioOnlyChanged,
+            title: const Text('Audio only'),
+            subtitle: const Text('Turn the video off and keep the sound'),
+            secondary: const Icon(CupertinoIcons.music_note_2),
+            contentPadding: EdgeInsets.zero,
+            activeThumbColor: const Color(0xFF3EA6FF),
+          ),
+
+        // Per-channel speed: only meaningful when speed is adjustable here.
+        if (widget.onRememberSpeedForChannelChanged != null && !widget.isLive)
+          SwitchListTile(
+            value: widget.rememberSpeedForChannel,
+            onChanged: widget.onRememberSpeedForChannelChanged,
+            title: const Text('Remember speed for this channel'),
+            subtitle: const Text('Other videos from this channel use this speed'),
+            secondary: const Icon(CupertinoIcons.speedometer),
+            contentPadding: EdgeInsets.zero,
+            activeThumbColor: const Color(0xFF3EA6FF),
+          ),
+
+        if (widget.onOpenInExternalPlayer != null)
+          _buildSettingsTile(
+            icon: CupertinoIcons.play_rectangle,
+            title: 'Open in external player',
+            value: '',
+            onTap: widget.onOpenInExternalPlayer!,
           ),
 
         const SizedBox(height: 16),

@@ -12,6 +12,7 @@ import 'package:volume_controller/volume_controller.dart';
 
 import 'player_settings_sheet.dart';
 import '../../../watch/widgets/queue_sheet.dart';
+import 'package:vyplay/core/operations/math_operations.dart';
 
 /// YouTube-like custom video player controls overlay
 class PlayerControlsOverlay extends StatefulWidget {
@@ -572,16 +573,6 @@ class _PlayerControlsOverlayState extends State<PlayerControlsOverlay>
     }
   }
 
-  String _formatDuration(Duration duration) {
-    final hours = duration.inHours;
-    final minutes = duration.inMinutes.remainder(60);
-    final seconds = duration.inSeconds.remainder(60);
-
-    if (hours > 0) {
-      return '${hours.toString().padLeft(2, '0')}:${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}';
-    }
-    return '${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}';
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -1292,7 +1283,7 @@ class _PlayerControlsOverlayState extends State<PlayerControlsOverlay>
             final duration = durationSnapshot.data ?? Duration.zero;
 
             return Text(
-              '${_formatDuration(position)} / ${_formatDuration(duration)}',
+              '${formatPlayerDuration(position)} / ${formatPlayerDuration(duration)}',
               style: const TextStyle(
                 color: Colors.white,
                 fontSize: 13,

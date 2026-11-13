@@ -10,6 +10,7 @@ import 'package:vyplay/generated/l10n.dart';
 import 'package:vyplay/widgets/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
+import 'package:share_plus/share_plus.dart' show ShareParams, SharePlus;
 
 class ScreenPlaylist extends StatelessWidget {
   const ScreenPlaylist({super.key, required this.playlistId});
@@ -245,6 +246,18 @@ class ScreenPlaylist extends StatelessWidget {
     return SliverAppBar(
       expandedHeight: 280,
       pinned: true,
+      actions: [
+        IconButton(
+          icon: const Icon(Icons.share_outlined),
+          tooltip: 'Share playlist',
+          onPressed: () => SharePlus.instance.share(
+            ShareParams(
+              text: 'https://www.youtube.com/playlist?list=$playlistId',
+              subject: title,
+            ),
+          ),
+        ),
+      ],
       flexibleSpace: FlexibleSpaceBar(
         background: Stack(
           fit: StackFit.expand,

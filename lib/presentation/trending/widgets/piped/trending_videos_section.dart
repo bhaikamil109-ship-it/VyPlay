@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vyplay/application/application.dart';
+import 'package:vyplay/core/services/content_filter_helper.dart';
 import 'package:vyplay/core/constants.dart';
 import 'package:vyplay/domain/subscribes/models/subscribe.dart';
 import 'package:vyplay/domain/watch/models/basic_info.dart';
@@ -88,7 +89,7 @@ class _TrendingVideosSectionState extends State<TrendingVideosSection> {
               return const SizedBox.shrink();
             }
 
-            if (_isHiddenByContentFilter(
+            if (isHiddenByContentFilter(
               context,
               title: trending.title ?? '',
               channelId: channelId,
@@ -166,25 +167,3 @@ class _TrendingVideosSectionState extends State<TrendingVideosSection> {
   }
 }
 
-/// Applies the user's advanced content filter to a feed entry.
-bool _isHiddenByContentFilter(
-  BuildContext context, {
-  required String title,
-  required String channelId,
-  String channelName = '',
-  String url = '',
-  bool? isShort,
-  bool isPaidPromotion = false,
-}) {
-  final config =
-      context.read<SettingsBloc>().state.contentFilterConfig;
-  if (config == null || !config.isEnabled) return false;
-  return config.shouldHide(
-    title: title,
-    channelId: channelId,
-    channelName: channelName,
-    url: url,
-    isShort: isShort,
-    isPaidPromotion: isPaidPromotion,
-  );
-}

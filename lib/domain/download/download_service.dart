@@ -43,6 +43,30 @@ abstract class DownloadService {
     required Function(DownloadItem, String) onError,
   });
 
+  /// Restart downloads that were interrupted by the app being killed.
+  ///
+  /// Rows stuck in pending/downloading/merging are leftovers: the isolate that
+  /// owned the transfer is gone, so nothing will ever finish them. Each is
+  /// resumed once at startup, bounded by [limit] so a large queue cannot
+  /// saturate the network on launch.
+  Future<void> resumeInterruptedDownloads({
+    required Function(DownloadItem) onProgress,
+    required Function(DownloadItem) onComplete,
+    required Function(DownloadItem, String) onError,
+    int limit = 3,
+  });
+
+  /// Restart a failed or cancelled download from the beginning.
+  ///
+  /// Unlike [resumeDownload], partial files are discarded first: a failed
+  /// transfer may have left a truncated stream behind.
+  Future<Either<MainFailure, DownloadItem>> retryDownload({
+    required int downloadId,
+    required Function(DownloadItem) onProgress,
+    required Function(DownloadItem) onComplete,
+    required Function(DownloadItem, String) onError,
+  });
+
   /// Cancel a download
   Future<Either<MainFailure, Unit>> cancelDownload(int downloadId);
 

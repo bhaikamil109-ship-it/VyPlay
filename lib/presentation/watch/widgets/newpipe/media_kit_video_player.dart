@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:vyplay/application/application.dart';
 import 'package:vyplay/core/player/global_player_controller.dart';
+import 'package:vyplay/core/services/player_preferences_service.dart';
 import 'package:vyplay/domain/saved/models/local_store.dart';
 import 'package:vyplay/domain/sponsorblock/models/sponsor_segment.dart';
 import 'package:vyplay/domain/watch/models/newpipe/newpipe_stream.dart';
@@ -12,7 +13,9 @@ import 'package:vyplay/domain/watch/models/newpipe/newpipe_watch_resp.dart';
 import 'package:vyplay/domain/watch/playback/models/playback_configuration.dart';
 import 'package:vyplay/domain/watch/playback/models/stream_quality_info.dart';
 import 'package:vyplay/domain/watch/playback/newpipe_playback_resolver.dart';
+import 'package:vyplay/domain/watch/models/video_chapter.dart';
 import 'package:vyplay/domain/watch/playback/newpipe_stream_helper.dart';
+import 'package:vyplay/presentation/watch/widgets/player/chapter_bar.dart';
 import 'package:vyplay/presentation/watch/widgets/player/player_controls_overlay.dart';
 import 'package:media_kit/media_kit.dart';
 import 'package:media_kit_video/media_kit_video.dart';
@@ -92,6 +95,10 @@ class _NewPipeMediaKitPlayerState extends State<NewPipeMediaKitPlayer> {
   late final SavedBloc _savedBloc;
   late final WatchBloc _watchBloc;
   late final NewPipePlaybackResolver _resolver;
+  final _playerPreferences = PlayerPreferencesService();
+
+  /// Chapters parsed from the description, shown above the controls.
+  List<VideoChapter> _chapters = const [];
 
   @override
   void initState() {
@@ -101,6 +108,10 @@ class _NewPipeMediaKitPlayerState extends State<NewPipeMediaKitPlayer> {
     _watchBloc = BlocProvider.of<WatchBloc>(context);
     _resolver = NewPipePlaybackResolver();
     _currentFitMode = _getBoxFit(widget.videoFitMode);
+    _chapters = VideoChapter.parseFromDescription(
+      widget.watchInfo.description,
+      durationSeconds: widget.watchInfo.duration,
+    );
 
     // Defer initialization to next frame to handle async operations properly
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -344,10 +355,19 @@ class _NewPipeMediaKitPlayerState extends State<NewPipeMediaKitPlayer> {
       // IMPORTANT: Set video ID BEFORE setupMediaSource so notification can be updated
       _globalPlayer.setCurrentVideoId(widget.videoId);
 
+      // Cold-start resume: the watch screen can only pass the position it knows
+      // in-session, so fall back to the position this app last persisted for
+      // the video. That is what makes reopening the app resume where the user
+      // stopped, on the media_kit path too.
+      var startSeconds = widget.playbackPosition;
+      if (startSeconds <= 0) {
+        startSeconds = await _playerPreferences.resumePosition(widget.videoId) ?? 0;
+      }
+
       // Setup media source
       await _setupMediaSource(
         _currentConfig!,
-        startPosition: Duration(seconds: widget.playbackPosition),
+        startPosition: Duration(seconds: startSeconds),
       );
 
       // Check mounted after async operation
@@ -646,6 +666,12 @@ class _NewPipeMediaKitPlayerState extends State<NewPipeMediaKitPlayer> {
         targetQuality;
   }
 
+  /// Saves the resume position so a cold start can continue the video.
+  Future<void> _persistResumePosition(int seconds) async {
+    if (seconds <= 0) return;
+    await _playerPreferences.saveResumePosition(widget.videoId, seconds);
+  }
+
   void _setupHistoryListener() {
     // Cancel any existing subscription
     _historySubscription?.cancel();
@@ -660,6 +686,7 @@ class _NewPipeMediaKitPlayerState extends State<NewPipeMediaKitPlayer> {
           currentSeconds != _lastSavedPositionSeconds) {
         _lastSavedPositionSeconds = currentSeconds;
         _updateVideoHistory();
+        unawaited(_persistResumePosition(currentSeconds));
       }
     });
   }
@@ -1021,6 +1048,71 @@ class _NewPipeMediaKitPlayerState extends State<NewPipeMediaKitPlayer> {
           );
         }
 
+        final bool audioOnly = context.read<SettingsBloc>().state.isAudioOnlyEnabled ?? false;
+
+        // Mirror the ExoPlayer audio-only contract on the media_kit path:
+        // the player keeps running, but the video surface is removed from the
+        // tree so the UI shows an empty playback area instead of the video.
+        // When disabled, the normal video surface is shown.
+        if (audioOnly) {
+          return AspectRatio(
+            aspectRatio: _getAspectRatio(),
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                const SizedBox.shrink(),
+                // Buffering indicator overlay stays visible so audio playback
+                // state is still reflected in the UI.
+                StreamBuilder<bool>(
+                  stream: _player.stream.buffering,
+                  initialData: false,
+                  builder: (context, snapshot) {
+                    final isBuffering = snapshot.data ?? false;
+                    if (!isBuffering &&
+                        !_isChangingQuality &&
+                        !_isChangingAudioTrack) {
+                      return const SizedBox.shrink();
+                    }
+                    return Container(
+                      color: Colors.black.withValues(alpha: 0.3),
+                      child: Center(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            const CircularProgressIndicator(
+                              color: Colors.white,
+                              strokeWidth: 3,
+                            ),
+                            if (_isChangingQuality) ...[
+                              const SizedBox(height: 12),
+                              const Text(
+                                'Changing quality...',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ] else if (_isChangingAudioTrack) ...[
+                              const SizedBox(height: 12),
+                              const Text(
+                                'Changing audio track...',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ],
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ],
+            ),
+          );
+        }
+
         return AspectRatio(
           aspectRatio: _getAspectRatio(),
           child: Stack(
@@ -1044,6 +1136,22 @@ class _NewPipeMediaKitPlayerState extends State<NewPipeMediaKitPlayer> {
                       const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
                 ),
               ),
+              // Chapters from the description, on the media_kit engine too.
+              // Sits above the video but below the buffering/controls layers so
+              // it never swallows a tap meant for the controls.
+              if (_chapters.isNotEmpty && duration.inSeconds > 0)
+                Positioned(
+                  left: 8,
+                  right: 8,
+                  bottom: 56,
+                  child: ChapterBar(
+                    chapters: _chapters,
+                    positionSeconds: _player.state.position.inSeconds,
+                    durationSeconds: duration.inSeconds,
+                    onChapterTap: (seconds) =>
+                        _player.seek(Duration(seconds: seconds)),
+                  ),
+                ),
               // Buffering indicator overlay
               StreamBuilder<bool>(
                 stream: _player.stream.buffering,

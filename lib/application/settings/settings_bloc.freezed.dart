@@ -8169,6 +8169,7 @@ mixin _$SettingsState {
   String? get preferredAudioQuality;
   bool? get isScreenLockEnabled;
   bool? get isPinchToZoomEnabled;
+  bool? get isAudioOnlyEnabled;
   bool? get isSeekbarThumbnailsEnabled;
   bool? get isPopupPlayerEnabled;
   bool? get isLiveChatDanmakuEnabled;
@@ -8314,6 +8315,7 @@ mixin _$SettingsState {
             (identical(other.preferredAudioQuality, preferredAudioQuality) || other.preferredAudioQuality == preferredAudioQuality) &&
             (identical(other.isScreenLockEnabled, isScreenLockEnabled) || other.isScreenLockEnabled == isScreenLockEnabled) &&
             (identical(other.isPinchToZoomEnabled, isPinchToZoomEnabled) || other.isPinchToZoomEnabled == isPinchToZoomEnabled) &&
+            (identical(other.isAudioOnlyEnabled, isAudioOnlyEnabled) || other.isAudioOnlyEnabled == isAudioOnlyEnabled) &&
             (identical(other.isSeekbarThumbnailsEnabled, isSeekbarThumbnailsEnabled) || other.isSeekbarThumbnailsEnabled == isSeekbarThumbnailsEnabled) &&
             (identical(other.isPopupPlayerEnabled, isPopupPlayerEnabled) || other.isPopupPlayerEnabled == isPopupPlayerEnabled) &&
             (identical(other.isLiveChatDanmakuEnabled, isLiveChatDanmakuEnabled) || other.isLiveChatDanmakuEnabled == isLiveChatDanmakuEnabled) &&
@@ -8414,6 +8416,7 @@ mixin _$SettingsState {
         preferredAudioQuality,
         isScreenLockEnabled,
         isPinchToZoomEnabled,
+        isAudioOnlyEnabled,
         isSeekbarThumbnailsEnabled,
         isPopupPlayerEnabled,
         isLiveChatDanmakuEnabled,
@@ -8428,7 +8431,7 @@ mixin _$SettingsState {
 
   @override
   String toString() {
-    return 'SettingsState(defaultLanguage: $defaultLanguage, defaultQuality: $defaultQuality, defaultRegion: $defaultRegion, themeMode: $themeMode, version: $version, isHistoryVisible: $isHistoryVisible, isDislikeVisible: $isDislikeVisible, isHlsPlayer: $isHlsPlayer, isHideComments: $isHideComments, isHideRelated: $isHideRelated, pipedInstances: $pipedInstances, pipedInstanceStatus: $pipedInstanceStatus, instance: $instance, invidiousInstances: $invidiousInstances, invidiousInstanceStatus: $invidiousInstanceStatus, ytService: $ytService, initialized: $initialized, settingsStatus: $settingsStatus, isPipDisabled: $isPipDisabled, connectingToInstance: $connectingToInstance, isTestingConnection: $isTestingConnection, userInstanceFailed: $userInstanceFailed, failedInstanceName: $failedInstanceName, searchFilter: $searchFilter, videoFitMode: $videoFitMode, skipInterval: $skipInterval, isSponsorBlockEnabled: $isSponsorBlockEnabled, sponsorBlockCategories: $sponsorBlockCategories, openLinksInBrowser: $openLinksInBrowser, homeFeedMode: $homeFeedMode, isAudioFocusEnabled: $isAudioFocusEnabled, currentProfile: $currentProfile, profiles: $profiles, subtitleSize: $subtitleSize, lastExportedFilePath: $lastExportedFilePath, isSearchHistoryEnabled: $isSearchHistoryEnabled, isSearchHistoryVisible: $isSearchHistoryVisible, isAutoPipEnabled: $isAutoPipEnabled, sleepTimerConfig: $sleepTimerConfig, isSwipeGesturesEnabled: $isSwipeGesturesEnabled, isDeArrowEnabled: $isDeArrowEnabled, isBookmarksEnabled: $isBookmarksEnabled, bookmarkedPlaylists: $bookmarkedPlaylists, isRestrictedModeEnabled: $isRestrictedModeEnabled, isMiniPlayerEnabled: $isMiniPlayerEnabled, downloadQuality: $downloadQuality, isDownloadSubtitlesEnabled: $isDownloadSubtitlesEnabled, isDownloadOverWifiOnlyEnabled: $isDownloadOverWifiOnlyEnabled, isDownloadAutoDeleteEnabled: $isDownloadAutoDeleteEnabled, playbackSpeed: $playbackSpeed, isAutoplayNextVideoEnabled: $isAutoplayNextVideoEnabled, isShowRelatedInQueueEnabled: $isShowRelatedInQueueEnabled, queueDismissTime: $queueDismissTime, autoplayCountdown: $autoplayCountdown, isDisableAutoplayOnCellularEnabled: $isDisableAutoplayOnCellularEnabled, isAutoQueueEnabled: $isAutoQueueEnabled, isBufferPreloadEnabled: $isBufferPreloadEnabled, isAutoQualityAdjustEnabled: $isAutoQualityAdjustEnabled, isBackgroundPlaybackEnabled: $isBackgroundPlaybackEnabled, isNotificationControlsEnabled: $isNotificationControlsEnabled, isDataSaverEnabled: $isDataSaverEnabled, isHideWatchedVideosEnabled: $isHideWatchedVideosEnabled, mobileDataQuality: $mobileDataQuality, isDownloadQueueItemsEnabled: $isDownloadQueueItemsEnabled, isRichCaptionRenderingEnabled: $isRichCaptionRenderingEnabled, isBilibiliEnabled: $isBilibiliEnabled, isSwipeLeftToRight: $isSwipeLeftToRight, isMiniPlayerAutoExpandEnabled: $isMiniPlayerAutoExpandEnabled, isMiniPlayerTapToExpandEnabled: $isMiniPlayerTapToExpandEnabled, isMiniPlayerDoubleTapToExpandEnabled: $isMiniPlayerDoubleTapToExpandEnabled, restrictedModeFilterLevel: $restrictedModeFilterLevel, downloadAutoDeleteDays: $downloadAutoDeleteDays, contentFilterKeywords: $contentFilterKeywords, contentFilterBlockedChannels: $contentFilterBlockedChannels, contentFilterHideShorts: $contentFilterHideShorts, contentFilterHidePaid: $contentFilterHidePaid, downloadFolderPath: $downloadFolderPath, isRydEnabled: $isRydEnabled, isLongPressSpeedUpEnabled: $isLongPressSpeedUpEnabled, isOriginalTitlesEnabled: $isOriginalTitlesEnabled, isCommentFilterEnabled: $isCommentFilterEnabled, commentFilterKeywords: $commentFilterKeywords, preferredAudioQuality: $preferredAudioQuality, isScreenLockEnabled: $isScreenLockEnabled, isPinchToZoomEnabled: $isPinchToZoomEnabled, isSeekbarThumbnailsEnabled: $isSeekbarThumbnailsEnabled, isPopupPlayerEnabled: $isPopupPlayerEnabled, isLiveChatDanmakuEnabled: $isLiveChatDanmakuEnabled, isBluetoothSeekEnabled: $isBluetoothSeekEnabled, isMultiSelectListsEnabled: $isMultiSelectListsEnabled, isSbExclusiveMarkerEnabled: $isSbExclusiveMarkerEnabled, isSbForDownloadsEnabled: $isSbForDownloadsEnabled, youtubeCookie: $youtubeCookie, pipedAuthToken: $pipedAuthToken, pipedAuthUsername: $pipedAuthUsername)';
+    return 'SettingsState(defaultLanguage: $defaultLanguage, defaultQuality: $defaultQuality, defaultRegion: $defaultRegion, themeMode: $themeMode, version: $version, isHistoryVisible: $isHistoryVisible, isDislikeVisible: $isDislikeVisible, isHlsPlayer: $isHlsPlayer, isHideComments: $isHideComments, isHideRelated: $isHideRelated, pipedInstances: $pipedInstances, pipedInstanceStatus: $pipedInstanceStatus, instance: $instance, invidiousInstances: $invidiousInstances, invidiousInstanceStatus: $invidiousInstanceStatus, ytService: $ytService, initialized: $initialized, settingsStatus: $settingsStatus, isPipDisabled: $isPipDisabled, connectingToInstance: $connectingToInstance, isTestingConnection: $isTestingConnection, userInstanceFailed: $userInstanceFailed, failedInstanceName: $failedInstanceName, searchFilter: $searchFilter, videoFitMode: $videoFitMode, skipInterval: $skipInterval, isSponsorBlockEnabled: $isSponsorBlockEnabled, sponsorBlockCategories: $sponsorBlockCategories, openLinksInBrowser: $openLinksInBrowser, homeFeedMode: $homeFeedMode, isAudioFocusEnabled: $isAudioFocusEnabled, currentProfile: $currentProfile, profiles: $profiles, subtitleSize: $subtitleSize, lastExportedFilePath: $lastExportedFilePath, isSearchHistoryEnabled: $isSearchHistoryEnabled, isSearchHistoryVisible: $isSearchHistoryVisible, isAutoPipEnabled: $isAutoPipEnabled, sleepTimerConfig: $sleepTimerConfig, isSwipeGesturesEnabled: $isSwipeGesturesEnabled, isDeArrowEnabled: $isDeArrowEnabled, isBookmarksEnabled: $isBookmarksEnabled, bookmarkedPlaylists: $bookmarkedPlaylists, isRestrictedModeEnabled: $isRestrictedModeEnabled, isMiniPlayerEnabled: $isMiniPlayerEnabled, downloadQuality: $downloadQuality, isDownloadSubtitlesEnabled: $isDownloadSubtitlesEnabled, isDownloadOverWifiOnlyEnabled: $isDownloadOverWifiOnlyEnabled, isDownloadAutoDeleteEnabled: $isDownloadAutoDeleteEnabled, playbackSpeed: $playbackSpeed, isAutoplayNextVideoEnabled: $isAutoplayNextVideoEnabled, isShowRelatedInQueueEnabled: $isShowRelatedInQueueEnabled, queueDismissTime: $queueDismissTime, autoplayCountdown: $autoplayCountdown, isDisableAutoplayOnCellularEnabled: $isDisableAutoplayOnCellularEnabled, isAutoQueueEnabled: $isAutoQueueEnabled, isBufferPreloadEnabled: $isBufferPreloadEnabled, isAutoQualityAdjustEnabled: $isAutoQualityAdjustEnabled, isBackgroundPlaybackEnabled: $isBackgroundPlaybackEnabled, isNotificationControlsEnabled: $isNotificationControlsEnabled, isDataSaverEnabled: $isDataSaverEnabled, isHideWatchedVideosEnabled: $isHideWatchedVideosEnabled, mobileDataQuality: $mobileDataQuality, isDownloadQueueItemsEnabled: $isDownloadQueueItemsEnabled, isRichCaptionRenderingEnabled: $isRichCaptionRenderingEnabled, isBilibiliEnabled: $isBilibiliEnabled, isSwipeLeftToRight: $isSwipeLeftToRight, isMiniPlayerAutoExpandEnabled: $isMiniPlayerAutoExpandEnabled, isMiniPlayerTapToExpandEnabled: $isMiniPlayerTapToExpandEnabled, isMiniPlayerDoubleTapToExpandEnabled: $isMiniPlayerDoubleTapToExpandEnabled, restrictedModeFilterLevel: $restrictedModeFilterLevel, downloadAutoDeleteDays: $downloadAutoDeleteDays, contentFilterKeywords: $contentFilterKeywords, contentFilterBlockedChannels: $contentFilterBlockedChannels, contentFilterHideShorts: $contentFilterHideShorts, contentFilterHidePaid: $contentFilterHidePaid, downloadFolderPath: $downloadFolderPath, isRydEnabled: $isRydEnabled, isLongPressSpeedUpEnabled: $isLongPressSpeedUpEnabled, isOriginalTitlesEnabled: $isOriginalTitlesEnabled, isCommentFilterEnabled: $isCommentFilterEnabled, commentFilterKeywords: $commentFilterKeywords, preferredAudioQuality: $preferredAudioQuality, isScreenLockEnabled: $isScreenLockEnabled, isPinchToZoomEnabled: $isPinchToZoomEnabled, isAudioOnlyEnabled: $isAudioOnlyEnabled, isSeekbarThumbnailsEnabled: $isSeekbarThumbnailsEnabled, isPopupPlayerEnabled: $isPopupPlayerEnabled, isLiveChatDanmakuEnabled: $isLiveChatDanmakuEnabled, isBluetoothSeekEnabled: $isBluetoothSeekEnabled, isMultiSelectListsEnabled: $isMultiSelectListsEnabled, isSbExclusiveMarkerEnabled: $isSbExclusiveMarkerEnabled, isSbForDownloadsEnabled: $isSbForDownloadsEnabled, youtubeCookie: $youtubeCookie, pipedAuthToken: $pipedAuthToken, pipedAuthUsername: $pipedAuthUsername)';
   }
 }
 
@@ -8524,6 +8527,7 @@ abstract mixin class $SettingsStateCopyWith<$Res> {
       String? preferredAudioQuality,
       bool? isScreenLockEnabled,
       bool? isPinchToZoomEnabled,
+      bool? isAudioOnlyEnabled,
       bool? isSeekbarThumbnailsEnabled,
       bool? isPopupPlayerEnabled,
       bool? isLiveChatDanmakuEnabled,
@@ -8634,6 +8638,7 @@ class _$SettingsStateCopyWithImpl<$Res>
     Object? preferredAudioQuality = freezed,
     Object? isScreenLockEnabled = freezed,
     Object? isPinchToZoomEnabled = freezed,
+    Object? isAudioOnlyEnabled = freezed,
     Object? isSeekbarThumbnailsEnabled = freezed,
     Object? isPopupPlayerEnabled = freezed,
     Object? isLiveChatDanmakuEnabled = freezed,
@@ -8988,6 +8993,10 @@ class _$SettingsStateCopyWithImpl<$Res>
           ? _self.isPinchToZoomEnabled
           : isPinchToZoomEnabled // ignore: cast_nullable_to_non_nullable
               as bool?,
+      isAudioOnlyEnabled: freezed == isAudioOnlyEnabled
+          ? _self.isAudioOnlyEnabled
+          : isAudioOnlyEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
       isSeekbarThumbnailsEnabled: freezed == isSeekbarThumbnailsEnabled
           ? _self.isSeekbarThumbnailsEnabled
           : isSeekbarThumbnailsEnabled // ignore: cast_nullable_to_non_nullable
@@ -9209,6 +9218,7 @@ extension SettingsStatePatterns on SettingsState {
             String? preferredAudioQuality,
             bool? isScreenLockEnabled,
             bool? isPinchToZoomEnabled,
+            bool? isAudioOnlyEnabled,
             bool? isSeekbarThumbnailsEnabled,
             bool? isPopupPlayerEnabled,
             bool? isLiveChatDanmakuEnabled,
@@ -9311,6 +9321,7 @@ extension SettingsStatePatterns on SettingsState {
             _that.preferredAudioQuality,
             _that.isScreenLockEnabled,
             _that.isPinchToZoomEnabled,
+            _that.isAudioOnlyEnabled,
             _that.isSeekbarThumbnailsEnabled,
             _that.isPopupPlayerEnabled,
             _that.isLiveChatDanmakuEnabled,
@@ -9427,6 +9438,7 @@ extension SettingsStatePatterns on SettingsState {
             String? preferredAudioQuality,
             bool? isScreenLockEnabled,
             bool? isPinchToZoomEnabled,
+            bool? isAudioOnlyEnabled,
             bool? isSeekbarThumbnailsEnabled,
             bool? isPopupPlayerEnabled,
             bool? isLiveChatDanmakuEnabled,
@@ -9528,6 +9540,7 @@ extension SettingsStatePatterns on SettingsState {
             _that.preferredAudioQuality,
             _that.isScreenLockEnabled,
             _that.isPinchToZoomEnabled,
+            _that.isAudioOnlyEnabled,
             _that.isSeekbarThumbnailsEnabled,
             _that.isPopupPlayerEnabled,
             _that.isLiveChatDanmakuEnabled,
@@ -9641,6 +9654,7 @@ extension SettingsStatePatterns on SettingsState {
             String? preferredAudioQuality,
             bool? isScreenLockEnabled,
             bool? isPinchToZoomEnabled,
+            bool? isAudioOnlyEnabled,
             bool? isSeekbarThumbnailsEnabled,
             bool? isPopupPlayerEnabled,
             bool? isLiveChatDanmakuEnabled,
@@ -9742,6 +9756,7 @@ extension SettingsStatePatterns on SettingsState {
             _that.preferredAudioQuality,
             _that.isScreenLockEnabled,
             _that.isPinchToZoomEnabled,
+            _that.isAudioOnlyEnabled,
             _that.isSeekbarThumbnailsEnabled,
             _that.isPopupPlayerEnabled,
             _that.isLiveChatDanmakuEnabled,
@@ -9847,6 +9862,7 @@ class _Initial extends SettingsState {
       this.preferredAudioQuality,
       this.isScreenLockEnabled,
       this.isPinchToZoomEnabled,
+      this.isAudioOnlyEnabled,
       this.isSeekbarThumbnailsEnabled,
       this.isPopupPlayerEnabled,
       this.isLiveChatDanmakuEnabled,
@@ -10115,6 +10131,8 @@ class _Initial extends SettingsState {
   @override
   final bool? isPinchToZoomEnabled;
   @override
+  final bool? isAudioOnlyEnabled;
+  @override
   final bool? isSeekbarThumbnailsEnabled;
   @override
   final bool? isPopupPlayerEnabled;
@@ -10269,6 +10287,7 @@ class _Initial extends SettingsState {
             (identical(other.preferredAudioQuality, preferredAudioQuality) || other.preferredAudioQuality == preferredAudioQuality) &&
             (identical(other.isScreenLockEnabled, isScreenLockEnabled) || other.isScreenLockEnabled == isScreenLockEnabled) &&
             (identical(other.isPinchToZoomEnabled, isPinchToZoomEnabled) || other.isPinchToZoomEnabled == isPinchToZoomEnabled) &&
+            (identical(other.isAudioOnlyEnabled, isAudioOnlyEnabled) || other.isAudioOnlyEnabled == isAudioOnlyEnabled) &&
             (identical(other.isSeekbarThumbnailsEnabled, isSeekbarThumbnailsEnabled) || other.isSeekbarThumbnailsEnabled == isSeekbarThumbnailsEnabled) &&
             (identical(other.isPopupPlayerEnabled, isPopupPlayerEnabled) || other.isPopupPlayerEnabled == isPopupPlayerEnabled) &&
             (identical(other.isLiveChatDanmakuEnabled, isLiveChatDanmakuEnabled) || other.isLiveChatDanmakuEnabled == isLiveChatDanmakuEnabled) &&
@@ -10369,6 +10388,7 @@ class _Initial extends SettingsState {
         preferredAudioQuality,
         isScreenLockEnabled,
         isPinchToZoomEnabled,
+        isAudioOnlyEnabled,
         isSeekbarThumbnailsEnabled,
         isPopupPlayerEnabled,
         isLiveChatDanmakuEnabled,
@@ -10383,7 +10403,7 @@ class _Initial extends SettingsState {
 
   @override
   String toString() {
-    return 'SettingsState(defaultLanguage: $defaultLanguage, defaultQuality: $defaultQuality, defaultRegion: $defaultRegion, themeMode: $themeMode, version: $version, isHistoryVisible: $isHistoryVisible, isDislikeVisible: $isDislikeVisible, isHlsPlayer: $isHlsPlayer, isHideComments: $isHideComments, isHideRelated: $isHideRelated, pipedInstances: $pipedInstances, pipedInstanceStatus: $pipedInstanceStatus, instance: $instance, invidiousInstances: $invidiousInstances, invidiousInstanceStatus: $invidiousInstanceStatus, ytService: $ytService, initialized: $initialized, settingsStatus: $settingsStatus, isPipDisabled: $isPipDisabled, connectingToInstance: $connectingToInstance, isTestingConnection: $isTestingConnection, userInstanceFailed: $userInstanceFailed, failedInstanceName: $failedInstanceName, searchFilter: $searchFilter, videoFitMode: $videoFitMode, skipInterval: $skipInterval, isSponsorBlockEnabled: $isSponsorBlockEnabled, sponsorBlockCategories: $sponsorBlockCategories, openLinksInBrowser: $openLinksInBrowser, homeFeedMode: $homeFeedMode, isAudioFocusEnabled: $isAudioFocusEnabled, currentProfile: $currentProfile, profiles: $profiles, subtitleSize: $subtitleSize, lastExportedFilePath: $lastExportedFilePath, isSearchHistoryEnabled: $isSearchHistoryEnabled, isSearchHistoryVisible: $isSearchHistoryVisible, isAutoPipEnabled: $isAutoPipEnabled, sleepTimerConfig: $sleepTimerConfig, isSwipeGesturesEnabled: $isSwipeGesturesEnabled, isDeArrowEnabled: $isDeArrowEnabled, isBookmarksEnabled: $isBookmarksEnabled, bookmarkedPlaylists: $bookmarkedPlaylists, isRestrictedModeEnabled: $isRestrictedModeEnabled, isMiniPlayerEnabled: $isMiniPlayerEnabled, downloadQuality: $downloadQuality, isDownloadSubtitlesEnabled: $isDownloadSubtitlesEnabled, isDownloadOverWifiOnlyEnabled: $isDownloadOverWifiOnlyEnabled, isDownloadAutoDeleteEnabled: $isDownloadAutoDeleteEnabled, playbackSpeed: $playbackSpeed, isAutoplayNextVideoEnabled: $isAutoplayNextVideoEnabled, isShowRelatedInQueueEnabled: $isShowRelatedInQueueEnabled, queueDismissTime: $queueDismissTime, autoplayCountdown: $autoplayCountdown, isDisableAutoplayOnCellularEnabled: $isDisableAutoplayOnCellularEnabled, isAutoQueueEnabled: $isAutoQueueEnabled, isBufferPreloadEnabled: $isBufferPreloadEnabled, isAutoQualityAdjustEnabled: $isAutoQualityAdjustEnabled, isBackgroundPlaybackEnabled: $isBackgroundPlaybackEnabled, isNotificationControlsEnabled: $isNotificationControlsEnabled, isDataSaverEnabled: $isDataSaverEnabled, isHideWatchedVideosEnabled: $isHideWatchedVideosEnabled, mobileDataQuality: $mobileDataQuality, isDownloadQueueItemsEnabled: $isDownloadQueueItemsEnabled, isRichCaptionRenderingEnabled: $isRichCaptionRenderingEnabled, isBilibiliEnabled: $isBilibiliEnabled, isSwipeLeftToRight: $isSwipeLeftToRight, isMiniPlayerAutoExpandEnabled: $isMiniPlayerAutoExpandEnabled, isMiniPlayerTapToExpandEnabled: $isMiniPlayerTapToExpandEnabled, isMiniPlayerDoubleTapToExpandEnabled: $isMiniPlayerDoubleTapToExpandEnabled, restrictedModeFilterLevel: $restrictedModeFilterLevel, downloadAutoDeleteDays: $downloadAutoDeleteDays, contentFilterKeywords: $contentFilterKeywords, contentFilterBlockedChannels: $contentFilterBlockedChannels, contentFilterHideShorts: $contentFilterHideShorts, contentFilterHidePaid: $contentFilterHidePaid, downloadFolderPath: $downloadFolderPath, isRydEnabled: $isRydEnabled, isLongPressSpeedUpEnabled: $isLongPressSpeedUpEnabled, isOriginalTitlesEnabled: $isOriginalTitlesEnabled, isCommentFilterEnabled: $isCommentFilterEnabled, commentFilterKeywords: $commentFilterKeywords, preferredAudioQuality: $preferredAudioQuality, isScreenLockEnabled: $isScreenLockEnabled, isPinchToZoomEnabled: $isPinchToZoomEnabled, isSeekbarThumbnailsEnabled: $isSeekbarThumbnailsEnabled, isPopupPlayerEnabled: $isPopupPlayerEnabled, isLiveChatDanmakuEnabled: $isLiveChatDanmakuEnabled, isBluetoothSeekEnabled: $isBluetoothSeekEnabled, isMultiSelectListsEnabled: $isMultiSelectListsEnabled, isSbExclusiveMarkerEnabled: $isSbExclusiveMarkerEnabled, isSbForDownloadsEnabled: $isSbForDownloadsEnabled, youtubeCookie: $youtubeCookie, pipedAuthToken: $pipedAuthToken, pipedAuthUsername: $pipedAuthUsername)';
+    return 'SettingsState(defaultLanguage: $defaultLanguage, defaultQuality: $defaultQuality, defaultRegion: $defaultRegion, themeMode: $themeMode, version: $version, isHistoryVisible: $isHistoryVisible, isDislikeVisible: $isDislikeVisible, isHlsPlayer: $isHlsPlayer, isHideComments: $isHideComments, isHideRelated: $isHideRelated, pipedInstances: $pipedInstances, pipedInstanceStatus: $pipedInstanceStatus, instance: $instance, invidiousInstances: $invidiousInstances, invidiousInstanceStatus: $invidiousInstanceStatus, ytService: $ytService, initialized: $initialized, settingsStatus: $settingsStatus, isPipDisabled: $isPipDisabled, connectingToInstance: $connectingToInstance, isTestingConnection: $isTestingConnection, userInstanceFailed: $userInstanceFailed, failedInstanceName: $failedInstanceName, searchFilter: $searchFilter, videoFitMode: $videoFitMode, skipInterval: $skipInterval, isSponsorBlockEnabled: $isSponsorBlockEnabled, sponsorBlockCategories: $sponsorBlockCategories, openLinksInBrowser: $openLinksInBrowser, homeFeedMode: $homeFeedMode, isAudioFocusEnabled: $isAudioFocusEnabled, currentProfile: $currentProfile, profiles: $profiles, subtitleSize: $subtitleSize, lastExportedFilePath: $lastExportedFilePath, isSearchHistoryEnabled: $isSearchHistoryEnabled, isSearchHistoryVisible: $isSearchHistoryVisible, isAutoPipEnabled: $isAutoPipEnabled, sleepTimerConfig: $sleepTimerConfig, isSwipeGesturesEnabled: $isSwipeGesturesEnabled, isDeArrowEnabled: $isDeArrowEnabled, isBookmarksEnabled: $isBookmarksEnabled, bookmarkedPlaylists: $bookmarkedPlaylists, isRestrictedModeEnabled: $isRestrictedModeEnabled, isMiniPlayerEnabled: $isMiniPlayerEnabled, downloadQuality: $downloadQuality, isDownloadSubtitlesEnabled: $isDownloadSubtitlesEnabled, isDownloadOverWifiOnlyEnabled: $isDownloadOverWifiOnlyEnabled, isDownloadAutoDeleteEnabled: $isDownloadAutoDeleteEnabled, playbackSpeed: $playbackSpeed, isAutoplayNextVideoEnabled: $isAutoplayNextVideoEnabled, isShowRelatedInQueueEnabled: $isShowRelatedInQueueEnabled, queueDismissTime: $queueDismissTime, autoplayCountdown: $autoplayCountdown, isDisableAutoplayOnCellularEnabled: $isDisableAutoplayOnCellularEnabled, isAutoQueueEnabled: $isAutoQueueEnabled, isBufferPreloadEnabled: $isBufferPreloadEnabled, isAutoQualityAdjustEnabled: $isAutoQualityAdjustEnabled, isBackgroundPlaybackEnabled: $isBackgroundPlaybackEnabled, isNotificationControlsEnabled: $isNotificationControlsEnabled, isDataSaverEnabled: $isDataSaverEnabled, isHideWatchedVideosEnabled: $isHideWatchedVideosEnabled, mobileDataQuality: $mobileDataQuality, isDownloadQueueItemsEnabled: $isDownloadQueueItemsEnabled, isRichCaptionRenderingEnabled: $isRichCaptionRenderingEnabled, isBilibiliEnabled: $isBilibiliEnabled, isSwipeLeftToRight: $isSwipeLeftToRight, isMiniPlayerAutoExpandEnabled: $isMiniPlayerAutoExpandEnabled, isMiniPlayerTapToExpandEnabled: $isMiniPlayerTapToExpandEnabled, isMiniPlayerDoubleTapToExpandEnabled: $isMiniPlayerDoubleTapToExpandEnabled, restrictedModeFilterLevel: $restrictedModeFilterLevel, downloadAutoDeleteDays: $downloadAutoDeleteDays, contentFilterKeywords: $contentFilterKeywords, contentFilterBlockedChannels: $contentFilterBlockedChannels, contentFilterHideShorts: $contentFilterHideShorts, contentFilterHidePaid: $contentFilterHidePaid, downloadFolderPath: $downloadFolderPath, isRydEnabled: $isRydEnabled, isLongPressSpeedUpEnabled: $isLongPressSpeedUpEnabled, isOriginalTitlesEnabled: $isOriginalTitlesEnabled, isCommentFilterEnabled: $isCommentFilterEnabled, commentFilterKeywords: $commentFilterKeywords, preferredAudioQuality: $preferredAudioQuality, isScreenLockEnabled: $isScreenLockEnabled, isPinchToZoomEnabled: $isPinchToZoomEnabled, isAudioOnlyEnabled: $isAudioOnlyEnabled, isSeekbarThumbnailsEnabled: $isSeekbarThumbnailsEnabled, isPopupPlayerEnabled: $isPopupPlayerEnabled, isLiveChatDanmakuEnabled: $isLiveChatDanmakuEnabled, isBluetoothSeekEnabled: $isBluetoothSeekEnabled, isMultiSelectListsEnabled: $isMultiSelectListsEnabled, isSbExclusiveMarkerEnabled: $isSbExclusiveMarkerEnabled, isSbForDownloadsEnabled: $isSbForDownloadsEnabled, youtubeCookie: $youtubeCookie, pipedAuthToken: $pipedAuthToken, pipedAuthUsername: $pipedAuthUsername)';
   }
 }
 
@@ -10480,6 +10500,7 @@ abstract mixin class _$InitialCopyWith<$Res>
       String? preferredAudioQuality,
       bool? isScreenLockEnabled,
       bool? isPinchToZoomEnabled,
+      bool? isAudioOnlyEnabled,
       bool? isSeekbarThumbnailsEnabled,
       bool? isPopupPlayerEnabled,
       bool? isLiveChatDanmakuEnabled,
@@ -10589,6 +10610,7 @@ class __$InitialCopyWithImpl<$Res> implements _$InitialCopyWith<$Res> {
     Object? preferredAudioQuality = freezed,
     Object? isScreenLockEnabled = freezed,
     Object? isPinchToZoomEnabled = freezed,
+    Object? isAudioOnlyEnabled = freezed,
     Object? isSeekbarThumbnailsEnabled = freezed,
     Object? isPopupPlayerEnabled = freezed,
     Object? isLiveChatDanmakuEnabled = freezed,
@@ -10942,6 +10964,10 @@ class __$InitialCopyWithImpl<$Res> implements _$InitialCopyWith<$Res> {
       isPinchToZoomEnabled: freezed == isPinchToZoomEnabled
           ? _self.isPinchToZoomEnabled
           : isPinchToZoomEnabled // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isAudioOnlyEnabled: freezed == isAudioOnlyEnabled
+          ? _self.isAudioOnlyEnabled
+          : isAudioOnlyEnabled // ignore: cast_nullable_to_non_nullable
               as bool?,
       isSeekbarThumbnailsEnabled: freezed == isSeekbarThumbnailsEnabled
           ? _self.isSeekbarThumbnailsEnabled

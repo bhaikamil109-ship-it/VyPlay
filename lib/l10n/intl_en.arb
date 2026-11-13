@@ -1090,5 +1090,93 @@
   "pluginMenuContributions": "Plugin menu items",
   "@pluginMenuContributions": {
     "description": "Tooltip for the app bar plugin menu button"
+  },
+  "downloadFolderReady": "Writable — downloads will be saved here.",
+  "@downloadFolderReady": {
+    "description": "Download location and queue labels"
+  },
+  "downloadFolderNotWritable": "This folder is not writable.",
+  "@downloadFolderNotWritable": {
+    "description": "Download location and queue labels"
+  },
+  "downloadFolderUnavailable": "This folder is no longer available.",
+  "@downloadFolderUnavailable": {
+    "description": "Download location and queue labels"
+  },
+  "recheckFolder": "Re-check",
+  "@recheckFolder": {
+    "description": "Download location and queue labels"
+  },
+  "downloadFolderSaved": "Download folder updated.",
+  "@downloadFolderSaved": {
+    "description": "Download location and queue labels"
+  },
+  "downloadFolderRejected": "That folder cannot be used. Nothing was changed.",
+  "@downloadFolderRejected": {
+    "description": "Download location and queue labels"
+  },
+  "retryDownload": "Retry",
+  "@retryDownload": {
+    "description": "Download location and queue labels"
+  },
+  "openDownloadedFile": "Open",
+  "@openDownloadedFile": {
+    "description": "Download location and queue labels"
+  },
+  "shareDownloadedFile": "Share",
+  "@shareDownloadedFile": {
+    "description": "Download location and queue labels"
+  },
+  "downloadAll": "Download all",
+  "@downloadAll": {
+    "description": "Download location and queue labels"
+  },
+  "downloadAllQueued": "Playlist videos added to the download queue.",
+  "@downloadAllQueued": {
+    "description": "Download location and queue labels"
+  },
+  "downloadAllFailed": "Could not queue playlist downloads.",
+  "@downloadAllFailed": {
+    "description": "Download location and queue labels"
+  },
+  "downloadFileMissing": "The downloaded file could not be opened. It may have been deleted.",
+  "@downloadFileMissing": {
+    "description": "Shown when a finished download is gone"
+  },
+  "searchInPlaylist": "Search in playlist",
+  "@searchInPlaylist": {
+    "description": "Playlist and subscription controls"
+  },
+  "playlistOrder": "Playlist order",
+  "@playlistOrder": {
+    "description": "Playlist and subscription controls"
+  },
+  "sortAToZ": "Title A–Z",
+  "@sortAToZ": {
+    "description": "Playlist and subscription controls"
+  },
+  "sortZToA": "Title Z–A",
+  "@sortZToA": {
+    "description": "Playlist and subscription controls"
+  },
+  "checkNow": "Check now",
+  "@checkNow": {
+    "description": "Playlist and subscription controls"
+  },
+  "checkNowDone": "Checked for new uploads.",
+  "@checkNowDone": {
+    "description": "Playlist and subscription controls"
+  },
+  "exitConfirmTitle": "Exit VyPlay?",
+  "@exitConfirmTitle": {
+    "description": "Exit confirmation dialog"
+  },
+  "exitConfirmMessage": "Playback will stop.",
+  "@exitConfirmMessage": {
+    "description": "Exit confirmation dialog"
+  },
+  "exitApp": "Exit",
+  "@exitApp": {
+    "description": "Exit confirmation dialog"
   }
 }

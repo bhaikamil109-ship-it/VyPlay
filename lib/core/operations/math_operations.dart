@@ -28,6 +28,16 @@ String formatCount(String count) {
   }
 }
 
+/// Playback clock used by every player overlay (ExoPlayer and media_kit alike).
+///
+/// Before this existed each player widget had its own private `_formatDuration`,
+/// and they disagreed: the ExoPlayer overlay rendered `5:03` while both
+/// media_kit overlays rendered `05:03`, so the same position looked different
+/// depending on which player happened to be active. Delegating to the app-wide
+/// [formatDuration] makes the clock identical everywhere.
+String formatPlayerDuration(Duration duration) =>
+    formatDuration(duration.isNegative ? 0 : duration.inSeconds);
+
 // format time, from int to 00:12:10
 String formatDuration(int? totalSeconds) {
   if (totalSeconds == null) {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vyplay/core/player/playback_queue.dart';
 import 'package:vyplay/domain/playlist/models/local_playlist.dart';
 import 'package:vyplay/domain/watch/models/basic_info.dart';
@@ -7,6 +8,12 @@ import 'package:vyplay/widgets/thumbnail_image.dart';
 import 'package:vyplay/core/services/content_filter_helper.dart';
 import 'package:vyplay/generated/l10n.dart';
 import 'package:go_router/go_router.dart';
+import 'package:vyplay/application/download/download_bloc.dart';
+import 'package:vyplay/application/settings/settings_bloc.dart';
+import 'package:vyplay/core/di/injectable.dart';
+import 'package:vyplay/domain/download/download_service.dart';
+import 'package:share_plus/share_plus.dart' show ShareParams, SharePlus;
+import 'package:vyplay/domain/download/models/download_item.dart';
 
 class ScreenPlaylistDetail extends StatefulWidget {
   const ScreenPlaylistDetail({super.key, required this.playlistId});
@@ -17,8 +24,35 @@ class ScreenPlaylistDetail extends StatefulWidget {
   State<ScreenPlaylistDetail> createState() => _ScreenPlaylistDetailState();
 }
 
+enum _PlaylistSort { playlistOrder, titleAsc, titleDesc }
+
 class _ScreenPlaylistDetailState extends State<ScreenPlaylistDetail> {
   final _service = LocalPlaylistService();
+  final TextEditingController _searchController = TextEditingController();
+  String _query = '';
+  _PlaylistSort _sort = _PlaylistSort.playlistOrder;
+
+  List<_PlaylistVideo> _visibleItems(List<_PlaylistVideo> items) {
+    final query = _query.trim().toLowerCase();
+    final filtered = query.isEmpty
+        ? List<_PlaylistVideo>.from(items)
+        : items
+            .where((item) =>
+                item.title.toLowerCase().contains(query) ||
+                item.id.toLowerCase().contains(query))
+            .toList();
+    switch (_sort) {
+      case _PlaylistSort.titleAsc:
+        filtered.sort((a, b) => a.title.toLowerCase().compareTo(b.title.toLowerCase()));
+        break;
+      case _PlaylistSort.titleDesc:
+        filtered.sort((a, b) => b.title.toLowerCase().compareTo(a.title.toLowerCase()));
+        break;
+      case _PlaylistSort.playlistOrder:
+        break;
+    }
+    return filtered;
+  }
 
   @override
   void initState() {
@@ -30,6 +64,7 @@ class _ScreenPlaylistDetailState extends State<ScreenPlaylistDetail> {
   @override
   void dispose() {
     _service.removeListener(_onChanged);
+    _searchController.dispose();
     super.dispose();
   }
 
@@ -50,7 +85,7 @@ class _ScreenPlaylistDetailState extends State<ScreenPlaylistDetail> {
       );
     }
 
-    final items = _buildVideoItems(playlist);
+    final items = _visibleItems(_buildVideoItems(playlist));
 
     return Scaffold(
       appBar: AppBar(
@@ -70,8 +105,28 @@ class _ScreenPlaylistDetailState extends State<ScreenPlaylistDetail> {
               tooltip: locals.playAll,
               onPressed: () => _playAll(items),
             ),
+          PopupMenuButton<_PlaylistSort>(
+            icon: const Icon(Icons.sort),
+            initialValue: _sort,
+            onSelected: (value) => setState(() => _sort = value),
+            itemBuilder: (_) => [
+              PopupMenuItem(
+                  value: _PlaylistSort.playlistOrder,
+                  child: Text(locals.playlistOrder)),
+              PopupMenuItem(
+                  value: _PlaylistSort.titleAsc,
+                  child: Text(locals.sortAToZ)),
+              PopupMenuItem(
+                  value: _PlaylistSort.titleDesc,
+                  child: Text(locals.sortZToA)),
+            ],
+          ),
           PopupMenuButton(
             itemBuilder: (_) => [
+              PopupMenuItem(
+                  value: 'downloadAll', child: Text(locals.downloadAll)),
+              PopupMenuItem(
+                  value: 'share', child: const Text('Share playlist')),
               PopupMenuItem(value: 'rename', child: Text(locals.renameAction)),
               PopupMenuItem(
                   value: 'delete',
@@ -79,6 +134,8 @@ class _ScreenPlaylistDetailState extends State<ScreenPlaylistDetail> {
                       style: const TextStyle(color: Colors.red))),
             ],
             onSelected: (action) {
+              if (action == 'downloadAll') _downloadAll(items);
+              if (action == 'share') _sharePlaylist(playlist, items);
               if (action == 'rename') _renamePlaylist(playlist);
               if (action == 'delete') {
                 _service.delete(playlist.id);
@@ -88,7 +145,25 @@ class _ScreenPlaylistDetailState extends State<ScreenPlaylistDetail> {
           ),
         ],
       ),
-      body: items.isEmpty
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(12, 8, 12, 4),
+            child: TextField(
+              controller: _searchController,
+              onChanged: (value) => setState(() => _query = value),
+              decoration: InputDecoration(
+                isDense: true,
+                hintText: locals.searchInPlaylist,
+                prefixIcon: const Icon(Icons.search, size: 20),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            child: items.isEmpty
           ? Center(
               child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -123,6 +198,68 @@ class _ScreenPlaylistDetailState extends State<ScreenPlaylistDetail> {
                 return _buildVideoRow(context, item, index, playlist);
               },
             ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  /// Queues every video in this playlist at the best stream the extractor
+  /// offers, using the backend currently selected in Settings.
+  ///
+  /// Quality is resolved per video because stream availability differs per
+  /// video; the download service still refuses duplicates it already has.
+  Future<void> _downloadAll(List<_PlaylistVideo> items) async {
+    if (items.isEmpty) return;
+    final locals = S.of(context);
+    final messenger = ScaffoldMessenger.of(context);
+    final bloc = context.read<DownloadBloc>();
+    final service = getIt<DownloadService>();
+    final serviceType = context.read<SettingsBloc>().state.ytService;
+
+    var queued = 0;
+    for (final video in items) {
+      final options = await service.getDownloadOptions(
+        videoId: video.id,
+        serviceType: serviceType,
+      );
+      final resolved = options.fold((_) => null, (value) => value);
+      if (resolved == null) continue;
+
+      final videoQuality = resolved.videoQualities.isEmpty
+          ? null
+          : resolved.videoQualities.first;
+      final audioQuality = resolved.audioQualities.isEmpty
+          ? null
+          : resolved.audioQualities.first;
+      if (videoQuality == null && audioQuality == null) continue;
+
+      final downloadType = videoQuality == null
+          ? DownloadType.audioOnly
+          : (audioQuality == null
+              ? DownloadType.videoOnly
+              : DownloadType.videoWithAudio);
+
+      bloc.add(DownloadEvent.startDownload(
+        videoId: video.id,
+        title: video.title.isEmpty ? video.id : video.title,
+        channelName: video.channelName ?? '',
+        downloadType: downloadType,
+        thumbnailUrl: video.thumbnailUrl,
+        videoQuality: videoQuality,
+        audioQuality: audioQuality,
+      ));
+      queued++;
+    }
+
+    if (!mounted) return;
+    messenger.showSnackBar(
+      SnackBar(
+        content: Text(
+          queued == 0 ? locals.downloadAllFailed : locals.downloadAllQueued,
+        ),
+        behavior: SnackBarBehavior.floating,
+      ),
     );
   }
 
@@ -208,6 +345,27 @@ class _ScreenPlaylistDetailState extends State<ScreenPlaylistDetail> {
           ),
         ),
       ),
+    );
+  }
+
+  /// Shares the playlist as readable text: one title plus its watch link per
+  /// video. Local playlists live only on this device, so there is no server URL
+  /// to hand out — the links are what a recipient can actually open.
+  Future<void> _sharePlaylist(
+    LocalPlaylist playlist,
+    List<_PlaylistVideo> items,
+  ) async {
+    final buffer = StringBuffer(playlist.name)
+      ..writeln()
+      ..writeln();
+    for (final item in items) {
+      buffer.writeln(item.title);
+      buffer.writeln('https://www.youtube.com/watch?v=${item.id}');
+      buffer.writeln();
+    }
+
+    await SharePlus.instance.share(
+      ShareParams(text: buffer.toString().trimRight(), subject: playlist.name),
     );
   }
 

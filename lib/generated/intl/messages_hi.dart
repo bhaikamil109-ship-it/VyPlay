@@ -172,6 +172,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "changeFolder": MessageLookupByLibrary.simpleMessage("Change folder"),
     "channelSubscribers": m2,
     "channels": MessageLookupByLibrary.simpleMessage("चैनल"),
+    "checkNow": MessageLookupByLibrary.simpleMessage("Check now"),
+    "checkNowDone": MessageLookupByLibrary.simpleMessage(
+      "Checked for new uploads.",
+    ),
     "clearAll": MessageLookupByLibrary.simpleMessage("सब साफ़ करें"),
     "clearAllHistory": MessageLookupByLibrary.simpleMessage(
       "Clear all history",
@@ -279,6 +283,13 @@ class MessageLookup extends MessageLookupByLibrary {
       "Double Tap to Expand",
     ),
     "download": MessageLookupByLibrary.simpleMessage("डाउनलोड"),
+    "downloadAll": MessageLookupByLibrary.simpleMessage("Download all"),
+    "downloadAllFailed": MessageLookupByLibrary.simpleMessage(
+      "Could not queue playlist downloads.",
+    ),
+    "downloadAllQueued": MessageLookupByLibrary.simpleMessage(
+      "Playlist videos added to the download queue.",
+    ),
     "downloadAutoDelete": MessageLookupByLibrary.simpleMessage(
       "Auto Delete After Watch",
     ),
@@ -286,6 +297,24 @@ class MessageLookup extends MessageLookupByLibrary {
       "Automatically delete downloaded videos after watching",
     ),
     "downloadFailed": m4,
+    "downloadFileMissing": MessageLookupByLibrary.simpleMessage(
+      "The downloaded file could not be opened. It may have been deleted.",
+    ),
+    "downloadFolderNotWritable": MessageLookupByLibrary.simpleMessage(
+      "This folder is not writable.",
+    ),
+    "downloadFolderReady": MessageLookupByLibrary.simpleMessage(
+      "Writable — downloads will be saved here.",
+    ),
+    "downloadFolderRejected": MessageLookupByLibrary.simpleMessage(
+      "That folder cannot be used. Nothing was changed.",
+    ),
+    "downloadFolderSaved": MessageLookupByLibrary.simpleMessage(
+      "Download folder updated.",
+    ),
+    "downloadFolderUnavailable": MessageLookupByLibrary.simpleMessage(
+      "This folder is no longer available.",
+    ),
     "downloadLocation": MessageLookupByLibrary.simpleMessage(
       "Download location",
     ),
@@ -334,6 +363,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "enableSwipeGestures": MessageLookupByLibrary.simpleMessage(
       "Enable Swipe Gestures",
     ),
+    "exitApp": MessageLookupByLibrary.simpleMessage("Exit"),
+    "exitConfirmMessage": MessageLookupByLibrary.simpleMessage(
+      "Playback will stop.",
+    ),
+    "exitConfirmTitle": MessageLookupByLibrary.simpleMessage("Exit VyPlay?"),
     "exportData": MessageLookupByLibrary.simpleMessage("Export Data"),
     "exportSubscriptions": MessageLookupByLibrary.simpleMessage(
       "Export Subscriptions",
@@ -558,6 +592,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "notificationsDenied": MessageLookupByLibrary.simpleMessage(
       "Notification permission was denied",
     ),
+    "openDownloadedFile": MessageLookupByLibrary.simpleMessage("Open"),
     "openInBrowser": MessageLookupByLibrary.simpleMessage("ब्राउज़र में खोलें"),
     "openLinksExternally": MessageLookupByLibrary.simpleMessage(
       "Open links in external browser",
@@ -609,6 +644,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "playlistNotFound": MessageLookupByLibrary.simpleMessage(
       "Playlist not found",
     ),
+    "playlistOrder": MessageLookupByLibrary.simpleMessage("Playlist order"),
     "playlists": MessageLookupByLibrary.simpleMessage("प्लेलिस्ट"),
     "pluginCapabilityChannel": MessageLookupByLibrary.simpleMessage(
       "Channel metadata",
@@ -729,6 +765,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "quickOptions": MessageLookupByLibrary.simpleMessage("Quick Options"),
     "readMoreText": MessageLookupByLibrary.simpleMessage("Read more"),
     "recentSearches": MessageLookupByLibrary.simpleMessage("Recent searches"),
+    "recheckFolder": MessageLookupByLibrary.simpleMessage("Re-check"),
     "refresh": MessageLookupByLibrary.simpleMessage("रीफ्रेश करें"),
     "refreshToLoad": MessageLookupByLibrary.simpleMessage(
       "Pull down to refresh",
@@ -774,6 +811,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Retrieve Dislikes",
     ),
     "retry": MessageLookupByLibrary.simpleMessage("फिर कोशिश करें"),
+    "retryDownload": MessageLookupByLibrary.simpleMessage("Retry"),
     "richCaptionRendering": MessageLookupByLibrary.simpleMessage(
       "Rich Caption Rendering",
     ),
@@ -826,6 +864,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "searchHistoryEnabledDescription": MessageLookupByLibrary.simpleMessage(
       "Save your search queries for quick access",
     ),
+    "searchInPlaylist": MessageLookupByLibrary.simpleMessage(
+      "Search in playlist",
+    ),
     "searchSavedVideos": MessageLookupByLibrary.simpleMessage(
       "Search saved videos...",
     ),
@@ -862,6 +903,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "settings": MessageLookupByLibrary.simpleMessage("सेटिंग्स"),
     "share": MessageLookupByLibrary.simpleMessage("शेयर"),
+    "shareDownloadedFile": MessageLookupByLibrary.simpleMessage("Share"),
     "shareLogs": MessageLookupByLibrary.simpleMessage("Share logs"),
     "shareVia": MessageLookupByLibrary.simpleMessage("Share via"),
     "shorts": MessageLookupByLibrary.simpleMessage("शॉर्ट्स"),
@@ -907,7 +949,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "sleepTimerOff": MessageLookupByLibrary.simpleMessage("Off"),
     "sleepTimerSet": MessageLookupByLibrary.simpleMessage("सेट"),
     "sort": MessageLookupByLibrary.simpleMessage("Sort"),
+    "sortAToZ": MessageLookupByLibrary.simpleMessage("Title A–Z"),
     "sortBy": MessageLookupByLibrary.simpleMessage("क्रमबद्ध करें"),
+    "sortZToA": MessageLookupByLibrary.simpleMessage("Title Z–A"),
     "sponsor": MessageLookupByLibrary.simpleMessage("Sponsor"),
     "sponsorBlock": MessageLookupByLibrary.simpleMessage("स्पॉन्सरब्लॉक"),
     "sponsorBlockCategories": MessageLookupByLibrary.simpleMessage(

@@ -542,14 +542,40 @@ class _PipedMediaKitPlayerState extends State<PipedMediaKitPlayer> {
       );
     }
 
+    final bool audioOnly =
+        context.read<SettingsBloc>().state.isAudioOnlyEnabled ?? false;
+
+    // Mirror the ExoPlayer audio-only contract on the media_kit path:
+    // when audio-only is enabled the video surface is removed from the tree
+    // while playback, background audio, PiP and lifecycle stay intact.
+    // When disabled the normal video surface is shown.
     return AspectRatio(
       aspectRatio: _getAspectRatio(),
       child: Stack(
         alignment: Alignment.center,
         children: [
-          (context.read<SettingsBloc>().state.isPinchToZoomEnabled ?? false)
-              ? InteractiveViewer(
-                  child: Video(
+          if (!audioOnly)
+            (context.read<SettingsBloc>().state.isPinchToZoomEnabled ?? false)
+                ? InteractiveViewer(
+                    child: Video(
+                      controller: _videoController,
+                      controls: (state) {
+                        return _buildCustomControls(state);
+                      },
+                      fit: _currentFitMode,
+                      subtitleViewConfiguration: SubtitleViewConfiguration(
+                        style: TextStyle(
+                          fontSize: widget.subtitleSize,
+                          color: Colors.white,
+                          backgroundColor: const Color(0x99000000),
+                          fontWeight: FontWeight.w500,
+                        ),
+                        textAlign: TextAlign.center,
+                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+                      ),
+                    ),
+                  )
+                : Video(
                     controller: _videoController,
                     controls: (state) {
                       return _buildCustomControls(state);
@@ -566,25 +592,8 @@ class _PipedMediaKitPlayerState extends State<PipedMediaKitPlayer> {
                       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
                     ),
                   ),
-                )
-              : Video(
-                  controller: _videoController,
-                  controls: (state) {
-                    return _buildCustomControls(state);
-                  },
-                  fit: _currentFitMode,
-                  subtitleViewConfiguration: SubtitleViewConfiguration(
-                    style: TextStyle(
-                      fontSize: widget.subtitleSize,
-                      color: Colors.white,
-                      backgroundColor: const Color(0x99000000),
-                      fontWeight: FontWeight.w500,
-                    ),
-                    textAlign: TextAlign.center,
-                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
-                  ),
-                ),
-          // Buffering indicator overlay
+          // Buffering indicator overlay stays visible in audio-only mode too,
+          // so audio playback state is still reflected in the UI.
           StreamBuilder<bool>(
             stream: _player.stream.buffering,
             initialData: false,

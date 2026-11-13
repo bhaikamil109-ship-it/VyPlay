@@ -105,6 +105,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "channelSubscribers": m2,
     "channels": MessageLookupByLibrary.simpleMessage("القنوات"),
+    "checkNow": MessageLookupByLibrary.simpleMessage("Check now"),
+    "checkNowDone": MessageLookupByLibrary.simpleMessage(
+      "Checked for new uploads.",
+    ),
     "clearAll": MessageLookupByLibrary.simpleMessage("مسح الكل"),
     "clearAllHistory": MessageLookupByLibrary.simpleMessage("مسح كل السجل"),
     "clearAllHistoryConfirm": MessageLookupByLibrary.simpleMessage(
@@ -155,7 +159,32 @@ class MessageLookup extends MessageLookupByLibrary {
     "dislike": MessageLookupByLibrary.simpleMessage("عدم إعجاب"),
     "distractionFree": MessageLookupByLibrary.simpleMessage("بلا تشتت"),
     "download": MessageLookupByLibrary.simpleMessage("تنزيل"),
+    "downloadAll": MessageLookupByLibrary.simpleMessage("Download all"),
+    "downloadAllFailed": MessageLookupByLibrary.simpleMessage(
+      "Could not queue playlist downloads.",
+    ),
+    "downloadAllQueued": MessageLookupByLibrary.simpleMessage(
+      "Playlist videos added to the download queue.",
+    ),
     "downloadFailed": m4,
+    "downloadFileMissing": MessageLookupByLibrary.simpleMessage(
+      "The downloaded file could not be opened. It may have been deleted.",
+    ),
+    "downloadFolderNotWritable": MessageLookupByLibrary.simpleMessage(
+      "This folder is not writable.",
+    ),
+    "downloadFolderReady": MessageLookupByLibrary.simpleMessage(
+      "Writable — downloads will be saved here.",
+    ),
+    "downloadFolderRejected": MessageLookupByLibrary.simpleMessage(
+      "That folder cannot be used. Nothing was changed.",
+    ),
+    "downloadFolderSaved": MessageLookupByLibrary.simpleMessage(
+      "Download folder updated.",
+    ),
+    "downloadFolderUnavailable": MessageLookupByLibrary.simpleMessage(
+      "This folder is no longer available.",
+    ),
     "downloadStarted": MessageLookupByLibrary.simpleMessage("بدأ التنزيل"),
     "downloadType": MessageLookupByLibrary.simpleMessage("نوع التنزيل"),
     "downloading": MessageLookupByLibrary.simpleMessage("جارٍ التنزيل"),
@@ -170,6 +199,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "enableHlsPlayerDescription": MessageLookupByLibrary.simpleMessage(
       "شغل مشغل المباشر لتفعيل كل اختيارات الجودة، عطله عند ظهور أي أخطاء.",
     ),
+    "exitApp": MessageLookupByLibrary.simpleMessage("Exit"),
+    "exitConfirmMessage": MessageLookupByLibrary.simpleMessage(
+      "Playback will stop.",
+    ),
+    "exitConfirmTitle": MessageLookupByLibrary.simpleMessage("Exit VyPlay?"),
     "exportData": MessageLookupByLibrary.simpleMessage("تصدير البيانات"),
     "exportSubscriptions": MessageLookupByLibrary.simpleMessage(
       "تصدير الاشتراكات",
@@ -283,6 +317,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "notificationsDenied": MessageLookupByLibrary.simpleMessage(
       "تم رفض إذن الإشعارات",
     ),
+    "openDownloadedFile": MessageLookupByLibrary.simpleMessage("Open"),
     "openInBrowser": MessageLookupByLibrary.simpleMessage("فتح في المتصفح"),
     "openLinksExternally": MessageLookupByLibrary.simpleMessage(
       "فتح الروابط في المتصفح الخارجي",
@@ -308,6 +343,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "playlistNotFound": MessageLookupByLibrary.simpleMessage(
       "قائمة التشغيل غير موجودة",
     ),
+    "playlistOrder": MessageLookupByLibrary.simpleMessage("Playlist order"),
     "playlists": MessageLookupByLibrary.simpleMessage("قوائم التشغيل"),
     "pluginCapabilityChannel": MessageLookupByLibrary.simpleMessage(
       "Channel metadata",
@@ -416,6 +452,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "recentSearches": MessageLookupByLibrary.simpleMessage(
       "عمليات البحث الأخيرة",
     ),
+    "recheckFolder": MessageLookupByLibrary.simpleMessage("Re-check"),
     "refresh": MessageLookupByLibrary.simpleMessage("Refresh"),
     "refreshToLoad": MessageLookupByLibrary.simpleMessage(
       "اسحب للأسفل للتحديث",
@@ -448,6 +485,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "أظهر عدم الإعجابات",
     ),
     "retry": MessageLookupByLibrary.simpleMessage("إعادة المحاولة"),
+    "retryDownload": MessageLookupByLibrary.simpleMessage("Retry"),
     "saveToDevice": MessageLookupByLibrary.simpleMessage("حفظ على الجهاز"),
     "saveToDeviceFailed": MessageLookupByLibrary.simpleMessage(
       "فشل الحفظ على الجهاز",
@@ -476,6 +514,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "searchHistoryEnabledDescription": MessageLookupByLibrary.simpleMessage(
       "احفظ استعلامات البحث للوصول السريع",
     ),
+    "searchInPlaylist": MessageLookupByLibrary.simpleMessage(
+      "Search in playlist",
+    ),
     "searchSavedVideos": MessageLookupByLibrary.simpleMessage(
       "ابحث في المقاطع المحفوظة...",
     ),
@@ -495,6 +536,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "servicePiped": MessageLookupByLibrary.simpleMessage("Piped"),
     "settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),
     "share": MessageLookupByLibrary.simpleMessage("مشاركة"),
+    "shareDownloadedFile": MessageLookupByLibrary.simpleMessage("Share"),
     "shareLogs": MessageLookupByLibrary.simpleMessage("مشاركة السجلات"),
     "shareVia": MessageLookupByLibrary.simpleMessage("مشاركة عبر"),
     "shorts": MessageLookupByLibrary.simpleMessage("Shorts"),
@@ -524,7 +566,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "sleepTimerOff": MessageLookupByLibrary.simpleMessage("إيقاف"),
     "sleepTimerSet": MessageLookupByLibrary.simpleMessage("تعيين"),
     "sort": MessageLookupByLibrary.simpleMessage("ترتيب"),
+    "sortAToZ": MessageLookupByLibrary.simpleMessage("Title A–Z"),
     "sortBy": MessageLookupByLibrary.simpleMessage("ترتيب حسب"),
+    "sortZToA": MessageLookupByLibrary.simpleMessage("Title Z–A"),
     "sponsor": MessageLookupByLibrary.simpleMessage("رعاية"),
     "sponsorBlock": MessageLookupByLibrary.simpleMessage("SponsorBlock"),
     "sponsorBlockCategories": MessageLookupByLibrary.simpleMessage(

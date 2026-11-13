@@ -61,7 +61,8 @@ class NewPipeAudioStream {
   /// read a `.label`-style value uniformly from audio and video streams.
   String get resolutionLikeLabel {
     if (averageBitrate != null) {
-      return '${averageBitrate}k';
+      // averageBitrate is bits per second; the label is kbps.
+      return '${(averageBitrate! / 1000).round()}k';
     }
     return format ?? 'audio';
   }

@@ -103,6 +103,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "channelSubscribers": m2,
     "channels": MessageLookupByLibrary.simpleMessage("Kanallar"),
+    "checkNow": MessageLookupByLibrary.simpleMessage("Check now"),
+    "checkNowDone": MessageLookupByLibrary.simpleMessage(
+      "Checked for new uploads.",
+    ),
     "clearAll": MessageLookupByLibrary.simpleMessage("Tümünü temizle"),
     "clearAllHistory": MessageLookupByLibrary.simpleMessage(
       "Tüm geçmişi temizle",
@@ -163,7 +167,32 @@ class MessageLookup extends MessageLookupByLibrary {
       "Dikkat Dağıtmayan",
     ),
     "download": MessageLookupByLibrary.simpleMessage("İndir"),
+    "downloadAll": MessageLookupByLibrary.simpleMessage("Download all"),
+    "downloadAllFailed": MessageLookupByLibrary.simpleMessage(
+      "Could not queue playlist downloads.",
+    ),
+    "downloadAllQueued": MessageLookupByLibrary.simpleMessage(
+      "Playlist videos added to the download queue.",
+    ),
     "downloadFailed": m4,
+    "downloadFileMissing": MessageLookupByLibrary.simpleMessage(
+      "The downloaded file could not be opened. It may have been deleted.",
+    ),
+    "downloadFolderNotWritable": MessageLookupByLibrary.simpleMessage(
+      "This folder is not writable.",
+    ),
+    "downloadFolderReady": MessageLookupByLibrary.simpleMessage(
+      "Writable — downloads will be saved here.",
+    ),
+    "downloadFolderRejected": MessageLookupByLibrary.simpleMessage(
+      "That folder cannot be used. Nothing was changed.",
+    ),
+    "downloadFolderSaved": MessageLookupByLibrary.simpleMessage(
+      "Download folder updated.",
+    ),
+    "downloadFolderUnavailable": MessageLookupByLibrary.simpleMessage(
+      "This folder is no longer available.",
+    ),
     "downloadStarted": MessageLookupByLibrary.simpleMessage("İndirme başladı"),
     "downloadType": MessageLookupByLibrary.simpleMessage("İndirme Türü"),
     "downloading": MessageLookupByLibrary.simpleMessage("İndiriliyor"),
@@ -176,6 +205,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "enableHlsPlayerDescription": MessageLookupByLibrary.simpleMessage(
       "Tüm kalite seçeneklerini açmak için HLS oynatıcıyı etkinleştirin. Hata oluşursa devre dışı bırakın.",
     ),
+    "exitApp": MessageLookupByLibrary.simpleMessage("Exit"),
+    "exitConfirmMessage": MessageLookupByLibrary.simpleMessage(
+      "Playback will stop.",
+    ),
+    "exitConfirmTitle": MessageLookupByLibrary.simpleMessage("Exit VyPlay?"),
     "exportData": MessageLookupByLibrary.simpleMessage("Verileri Dışa Aktar"),
     "exportSubscriptions": MessageLookupByLibrary.simpleMessage(
       "Abonelikleri Dışa Aktar",
@@ -297,6 +331,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "notificationsDenied": MessageLookupByLibrary.simpleMessage(
       "Bildirim izni reddedildi",
     ),
+    "openDownloadedFile": MessageLookupByLibrary.simpleMessage("Open"),
     "openInBrowser": MessageLookupByLibrary.simpleMessage("Tarayıcıda Aç"),
     "openLinksExternally": MessageLookupByLibrary.simpleMessage(
       "Bağlantıları harici tarayıcıda aç",
@@ -322,6 +357,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "playlistNotFound": MessageLookupByLibrary.simpleMessage(
       "Oynatma listesi bulunamadı",
     ),
+    "playlistOrder": MessageLookupByLibrary.simpleMessage("Playlist order"),
     "playlists": MessageLookupByLibrary.simpleMessage("Oynatma listeleri"),
     "pluginCapabilityChannel": MessageLookupByLibrary.simpleMessage(
       "Channel metadata",
@@ -428,6 +464,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "queueShuffle": MessageLookupByLibrary.simpleMessage("Karıştır"),
     "readMoreText": MessageLookupByLibrary.simpleMessage("Devamını oku"),
     "recentSearches": MessageLookupByLibrary.simpleMessage("Son aramalar"),
+    "recheckFolder": MessageLookupByLibrary.simpleMessage("Re-check"),
     "refresh": MessageLookupByLibrary.simpleMessage("Refresh"),
     "refreshToLoad": MessageLookupByLibrary.simpleMessage(
       "Yenilemek için aşağı çekin",
@@ -460,6 +497,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Beğenmeme sayılarını gör",
     ),
     "retry": MessageLookupByLibrary.simpleMessage("Tekrar Dene"),
+    "retryDownload": MessageLookupByLibrary.simpleMessage("Retry"),
     "saveToDevice": MessageLookupByLibrary.simpleMessage("Cihaza Kaydet"),
     "saveToDeviceFailed": MessageLookupByLibrary.simpleMessage(
       "Cihaza kaydedilemedi",
@@ -486,6 +524,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "searchHistoryEnabledDescription": MessageLookupByLibrary.simpleMessage(
       "Hızlı erişim için arama sorgularınızı kaydedin",
     ),
+    "searchInPlaylist": MessageLookupByLibrary.simpleMessage(
+      "Search in playlist",
+    ),
     "searchSavedVideos": MessageLookupByLibrary.simpleMessage(
       "Kayıtlı videolarda ara...",
     ),
@@ -505,6 +546,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "servicePiped": MessageLookupByLibrary.simpleMessage("Piped"),
     "settings": MessageLookupByLibrary.simpleMessage("Ayarlar"),
     "share": MessageLookupByLibrary.simpleMessage("Paylaş"),
+    "shareDownloadedFile": MessageLookupByLibrary.simpleMessage("Share"),
     "shareLogs": MessageLookupByLibrary.simpleMessage("Günlükleri paylaş"),
     "shareVia": MessageLookupByLibrary.simpleMessage("Şununla paylaş"),
     "shorts": MessageLookupByLibrary.simpleMessage("Shorts"),
@@ -538,7 +580,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "sleepTimerOff": MessageLookupByLibrary.simpleMessage("Kapalı"),
     "sleepTimerSet": MessageLookupByLibrary.simpleMessage("Ayarla"),
     "sort": MessageLookupByLibrary.simpleMessage("Sırala"),
+    "sortAToZ": MessageLookupByLibrary.simpleMessage("Title A–Z"),
     "sortBy": MessageLookupByLibrary.simpleMessage("Sıralama ölçütü"),
+    "sortZToA": MessageLookupByLibrary.simpleMessage("Title Z–A"),
     "sponsor": MessageLookupByLibrary.simpleMessage("Sponsor"),
     "sponsorBlock": MessageLookupByLibrary.simpleMessage("SponsorBlock"),
     "sponsorBlockCategories": MessageLookupByLibrary.simpleMessage(

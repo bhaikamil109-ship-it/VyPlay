@@ -57,7 +57,10 @@ class ExplodeStreamHelper {
       final audioStreams = manifest.audioOnly.map((stream) {
         return NewPipeAudioStream(
           url: stream.url.toString(),
-          averageBitrate: stream.bitrate.kiloBitsPerSecond.toInt(),
+          // Bits per second, matching NewPipe/Piped conversion: every consumer
+          // divides by 1000 for display, so handing over kbps made Explode
+          // audio read "0 kbps" in the download sheet.
+          averageBitrate: stream.bitrate.bitsPerSecond.toInt(),
           format: stream.container.name.toUpperCase(),
           mimeType: 'audio/${stream.container.name}',
           codec: stream.audioCodec,

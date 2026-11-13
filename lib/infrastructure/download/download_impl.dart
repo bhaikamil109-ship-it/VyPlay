@@ -11,6 +11,11 @@ import 'package:vyplay/domain/core/failure/main_failure.dart';
 import 'package:vyplay/domain/download/download_service.dart';
 import 'package:vyplay/domain/download/models/download_item.dart' as domain;
 import 'package:vyplay/domain/download/models/download_quality.dart';
+import 'package:vyplay/core/services/download_location_service.dart';
+import 'package:vyplay/core/services/foreground_download_service.dart';
+import 'package:vyplay/core/services/saf_storage_service.dart';
+import 'package:vyplay/domain/download/download_location.dart';
+import 'package:vyplay/domain/download/saf_directory.dart';
 import 'package:vyplay/infrastructure/download/ffmpeg_muxer.dart';
 import 'package:vyplay/domain/watch/models/newpipe/newpipe_stream.dart';
 import 'package:vyplay/domain/watch/models/newpipe/newpipe_watch_resp.dart';
@@ -81,6 +86,40 @@ class DownloadImpl implements DownloadService {
   // code path and codec/container combinations MP4 cannot hold (VP9 + Opus)
   // are written to MKV instead of producing a broken file.
   final FfmpegMuxer _muxer = FfmpegMuxer();
+
+  /// Resolves the download folder and proves it is writable.
+  final DownloadLocationService _locationService = DownloadLocationService();
+
+  /// Used for documents that live in a user-chosen SAF folder.
+  final SafStorageService _saf = SafStorageService();
+
+  /// Keeps the process alive while transfers run (Android dataSync service).
+  final ForegroundDownloadService _foreground = ForegroundDownloadService();
+
+  /// Transfers currently in flight, used to start/stop the foreground service.
+  int _activeTransfers = 0;
+
+  /// Marks a transfer as running and makes sure the process stays alive.
+  Future<void> _enterTransfer(domain.DownloadItem item) async {
+    _activeTransfers++;
+    await _foreground.start(
+      activeCount: _activeTransfers,
+      text: ForegroundDownloadService.textFor(_activeTransfers),
+    );
+    if (_activeTransfers > 1) {
+      log('[Download] ${item.title}: $_activeTransfers transfers active');
+    }
+  }
+
+  /// Hands one transfer back and ends the foreground session when idle.
+  Future<void> _leaveTransfer() async {
+    if (_activeTransfers > 0) _activeTransfers--;
+    if (_activeTransfers == 0) {
+      await _foreground.stop();
+    } else {
+      await _foreground.update(activeCount: _activeTransfers);
+    }
+  }
 
   // Track active downloads
   final Map<int, CancelToken> _cancelTokens = {};
@@ -333,6 +372,21 @@ class DownloadImpl implements DownloadService {
       final insertedId = await _db.insertDownload(_toCompanion(item));
       item.id = insertedId;
 
+      // Refuse a second copy of a request that is already queued, running or
+      // finished. The row just inserted is skipped by id.
+      final duplicate = await _findDuplicate(item);
+      if (duplicate != null) {
+        final message = duplicate.status == domain.DownloadStatus.completed
+            ? 'This video is already downloaded at the same quality. '
+                'Delete the existing download first.'
+            : 'This video is already downloading at the same quality.';
+        item.status = domain.DownloadStatus.failed;
+        item.errorMessage = message;
+        await _db.updateDownload(_toCompanion(item));
+        onError(item, message);
+        return Left(MainFailure.unknown(message: message));
+      }
+
       final cancelToken = CancelToken();
       _cancelTokens[item.id!] = cancelToken;
       _pausedDownloads[item.id!] = false;
@@ -370,6 +424,10 @@ class DownloadImpl implements DownloadService {
       await _db.updateDownload(_toCompanion(item));
       onProgress(item);
 
+      // Hold the process alive for the whole transfer, not just the HTTP call:
+      // merging can take a while after the network part is done.
+      await _enterTransfer(item);
+
       try {
         if (item.downloadType == domain.DownloadType.audioOnly) {
           // Audio only download
@@ -383,8 +441,10 @@ class DownloadImpl implements DownloadService {
               item, downloadDir, cancelToken, onProgress);
         }
       } finally {
-        // Always hand the slot back, including on throw, so one failed
-        // download can never permanently shrink the pool.
+        // Always hand the slot and the foreground session back, including on
+        // throw, so one failed download can never shrink the pool or leave a
+        // stale "downloading" notification behind.
+        await _leaveTransfer();
         _downloadSlots.release();
       }
 
@@ -400,6 +460,10 @@ class DownloadImpl implements DownloadService {
         await _db.updateDownload(_toCompanion(item));
         return Right(item);
       }
+
+      // A transfer that finished locally but was not yet copied into a
+      // user-chosen SAF folder is not finished from the user's point of view.
+      await _publishToSelectedTree(item);
 
       // Mark as completed
       item.status = domain.DownloadStatus.completed;
@@ -432,6 +496,120 @@ class DownloadImpl implements DownloadService {
 
       return Left(MainFailure.serverError(message: 'Download failed: $e'));
     }
+  }
+
+  @override
+  Future<void> resumeInterruptedDownloads({
+    required Function(domain.DownloadItem) onProgress,
+    required Function(domain.DownloadItem) onComplete,
+    required Function(domain.DownloadItem, String) onError,
+    int limit = 3,
+  }) async {
+    var started = 0;
+    for (final status in [
+      domain.DownloadStatus.downloading,
+      domain.DownloadStatus.merging,
+      domain.DownloadStatus.pending,
+    ]) {
+      if (started >= limit) break;
+      final result = await getDownloadsByStatus(status: status);
+      final items = result.fold((_) => null, (value) => value);
+      if (items == null) continue;
+
+      for (final item in items) {
+        if (started >= limit) break;
+        if (item.id == null) continue;
+        try {
+          started++;
+          await resumeDownload(
+            downloadId: item.id!,
+            onProgress: onProgress,
+            onComplete: onComplete,
+            onError: onError,
+          );
+        } catch (e) {
+          log('[Download] Could not resume ${item.id}: $e');
+        }
+      }
+    }
+  }
+
+  /// Restarts a failed or cancelled download from the beginning.
+  ///
+  /// Resume only continues a paused transfer; a failed one may have a corrupt
+  /// or truncated partial file, so its partials are removed and the row is
+  /// re-created rather than resumed.
+  @override
+  Future<Either<MainFailure, domain.DownloadItem>> retryDownload({
+    required int downloadId,
+    required Function(domain.DownloadItem) onProgress,
+    required Function(domain.DownloadItem) onComplete,
+    required Function(domain.DownloadItem, String) onError,
+  }) async {
+    try {
+      final dbItem = await _db.getDownloadById(downloadId);
+      if (dbItem == null) {
+        return const Left(MainFailure.notFound(resource: 'Download'));
+      }
+
+      final item = _toDomain(dbItem);
+      if (!canRetryDownload(item.status)) {
+        return const Left(MainFailure.unknown(
+          message: 'Only failed or cancelled downloads can be retried.',
+        ));
+      }
+
+      await _deleteFile(item.videoFilePath);
+      await _deleteFile(item.audioFilePath);
+      await _deleteFile(item.outputFilePath);
+      await _db.deleteDownload(downloadId);
+
+      item
+        ..id = null
+        ..status = domain.DownloadStatus.pending
+        ..downloadedBytes = 0
+        ..videoDownloadedBytes = 0
+        ..audioDownloadedBytes = 0
+        ..downloadSpeed = 0
+        ..etaSeconds = null
+        ..currentPhase = null
+        ..errorMessage = null
+        ..videoProgress = 0.0
+        ..audioProgress = 0.0
+        ..videoFilePath = null
+        ..audioFilePath = null
+        ..outputFilePath = null
+        ..videoTotalBytes = null
+        ..audioTotalBytes = null;
+
+      return await startDownload(
+        item: item,
+        onProgress: onProgress,
+        onComplete: onComplete,
+        onError: onError,
+      );
+    } catch (e) {
+      final message = _friendlyError(e);
+      return Left(MainFailure.serverError(message: 'Retry failed: $message'));
+    }
+  }
+
+  /// Returns an existing download that describes the same request as [item],
+  /// or null when there is none.
+  Future<domain.DownloadItem?> _findDuplicate(domain.DownloadItem item) async {
+    try {
+      final rows = await _db.getAllDownloads(item.profileName);
+      for (final row in rows) {
+        final existing = _toDomain(row);
+        if (existing.id != null && existing.id == item.id) continue;
+        if (!blocksDuplicateRequest(existing.status)) continue;
+        if (isSameDownloadRequest(existing, item)) return existing;
+      }
+    } catch (e) {
+      // A failed duplicate check must not block a legitimate download.
+      log('[Download] Duplicate check failed: $e');
+    }
+    return null;
   }
 
   Future<void> _downloadVideo(
@@ -1061,6 +1239,7 @@ class DownloadImpl implements DownloadService {
   /// text; users need one short sentence they can act on.
   String _friendlyError(Object e) {
     if (e is MuxException) return e.message;
+    if (e is DownloadLocationFailure) return e.message;
     if (e is DioException) {
       switch (e.type) {
         case DioExceptionType.connectionTimeout:
@@ -1140,28 +1319,11 @@ class DownloadImpl implements DownloadService {
   }
 
   Future<Directory> _getDownloadDirectory() async {
-    // A user-chosen folder wins over the default. The setting is stored as an
-    // absolute path; if it no longer exists (SD card removed, folder deleted)
-    // we fall back to the app-private directory rather than failing.
+    // A user-chosen folder wins, but only once a write probe has passed.
+    // When it cannot be used this throws instead of quietly writing to app
+    // storage: a file the user cannot find is worse than a clear error.
     final customPath = await _customDownloadPath();
-    if (customPath != null && customPath.isNotEmpty) {
-      final custom = Directory(customPath);
-      try {
-        if (!await custom.exists()) {
-          await custom.create(recursive: true);
-        }
-        return custom;
-      } catch (_) {
-        // Fall through to the default location.
-      }
-    }
-
-    final appDir = await getApplicationDocumentsDirectory();
-    final downloadDir = Directory('${appDir.path}/VyPlay/Downloads');
-    if (!await downloadDir.exists()) {
-      await downloadDir.create(recursive: true);
-    }
-    return downloadDir;
+    return _locationService.resolve(configuredPath: customPath);
   }
 
   /// Reads the user's preferred download folder from the settings store.
@@ -1227,12 +1389,19 @@ class DownloadImpl implements DownloadService {
 
       final downloadDir = await _getDownloadDirectory();
 
-      if (item.downloadType == domain.DownloadType.audioOnly) {
-        await _downloadAudioWithResume(item, downloadDir, cancelToken, onProgress, existingAudioBytes);
-      } else if (item.downloadType == domain.DownloadType.videoOnly) {
-        await _downloadVideoWithResume(item, downloadDir, cancelToken, onProgress, existingVideoBytes);
-      } else {
-        await _downloadVideoWithAudioResume(item, downloadDir, cancelToken, onProgress, existingVideoBytes, existingAudioBytes);
+      // A resumed transfer needs the same foreground keep-alive as a fresh one.
+      await _enterTransfer(item);
+
+      try {
+        if (item.downloadType == domain.DownloadType.audioOnly) {
+          await _downloadAudioWithResume(item, downloadDir, cancelToken, onProgress, existingAudioBytes);
+        } else if (item.downloadType == domain.DownloadType.videoOnly) {
+          await _downloadVideoWithResume(item, downloadDir, cancelToken, onProgress, existingVideoBytes);
+        } else {
+          await _downloadVideoWithAudioResume(item, downloadDir, cancelToken, onProgress, existingVideoBytes, existingAudioBytes);
+        }
+      } finally {
+        await _leaveTransfer();
       }
 
       // Check if cancelled or paused
@@ -1247,6 +1416,10 @@ class DownloadImpl implements DownloadService {
         await _db.updateDownload(_toCompanion(item));
         return Right(item);
       }
+
+      // A transfer that finished locally but was not yet copied into a
+      // user-chosen SAF folder is not finished from the user's point of view.
+      await _publishToSelectedTree(item);
 
       // Mark as completed
       item.status = domain.DownloadStatus.completed;
@@ -1514,6 +1687,76 @@ class DownloadImpl implements DownloadService {
     }
   }
 
+  /// Copies the finished file into the folder the user picked with SAF, then
+  /// records the document URI as the download's path.
+  ///
+  /// When the selection is a plain path this is a no-op: the file is already
+  /// where the user asked for it. When the copy fails the local file is kept,
+  /// so a publish error never costs the user the download itself.
+  Future<void> _publishToSelectedTree(domain.DownloadItem item) async {
+    final configured = await _customDownloadPath();
+    if (!SafDirectory.isTreeUri(configured)) return;
+
+    final localPath = item.outputFilePath;
+    if (localPath == null || SafDirectory.isTreeUri(localPath)) return;
+
+    final localFile = File(localPath);
+    if (!await localFile.exists() || await localFile.length() == 0) return;
+
+    final extension = localPath.contains('.')
+        ? localPath.split('.').last
+        : 'mp4';
+    final safeTitle = item.title
+        .replaceAll(RegExp(r'[<>:"/\\|?*]'), '_')
+        .replaceAll(RegExp(r'\s+'), ' ')
+        .trim();
+    final fileName = safeTitle.isEmpty ? 'download' : safeTitle;
+
+    try {
+      final document = await _locationService.publishToTree(
+        configuredPath: configured,
+        localPath: localPath,
+        fileName: '$fileName.$extension',
+        mimeType: _mimeTypeForExtension(extension),
+      );
+      if (document == null) return;
+
+      item.outputFilePath = document.uri;
+      log('[Download] Published to chosen folder: ${document.displayPath}');
+
+      // The staging copy has served its purpose; keeping it would double the
+      // storage used by every download.
+      await _deleteFile(localPath);
+    } on SafStorageException catch (e) {
+      log('[Download] Publish to chosen folder failed: ${e.message}');
+    } catch (e) {
+      log('[Download] Publish to chosen folder failed: $e');
+    }
+  }
+
+  /// MIME type for a container extension, matching what the SAF picker shows.
+  String _mimeTypeForExtension(String extension) {
+    switch (extension.toLowerCase()) {
+      case 'mp4':
+      case 'm4v':
+        return 'video/mp4';
+      case 'mkv':
+        return 'video/x-matroska';
+      case 'webm':
+        return 'video/webm';
+      case 'mp3':
+        return 'audio/mpeg';
+      case 'm4a':
+        return 'audio/mp4';
+      case 'opus':
+        return 'audio/opus';
+      case 'ogg':
+        return 'audio/ogg';
+      default:
+        return 'application/octet-stream';
+    }
+  }
+
   Future<void> _deletePartialFiles(domain.DownloadItem item) async {
     final paths = [item.videoFilePath, item.audioFilePath];
     for (final path in paths) {
@@ -1529,11 +1772,15 @@ class DownloadImpl implements DownloadService {
   Future<void> _deleteAllFiles(domain.DownloadItem item) async {
     final paths = [item.videoFilePath, item.audioFilePath, item.outputFilePath];
     for (final path in paths) {
-      if (path != null) {
-        final file = File(path);
-        if (await file.exists()) {
-          await file.delete();
-        }
+      if (path == null) continue;
+      if (SafDirectory.isTreeUri(path)) {
+        // The file lives in the folder the user picked; File cannot touch it.
+        await _saf.deleteDocument(path);
+        continue;
+      }
+      final file = File(path);
+      if (await file.exists()) {
+        await file.delete();
       }
     }
   }
@@ -1643,6 +1890,16 @@ class DownloadImpl implements DownloadService {
         return const Left(MainFailure.notFound(resource: 'Output file path'));
       }
 
+      // A download published into the user's chosen SAF folder is already in
+      // shared storage; copying it again would only duplicate it.
+      if (SafDirectory.isTreeUri(item.outputFilePath)) {
+        return const Left(
+          MainFailure.unknown(
+            message: 'This download is already saved in the folder you chose.',
+          ),
+        );
+      }
+
       final sourceFile = File(item.outputFilePath!);
       if (!await sourceFile.exists()) {
         return const Left(MainFailure.notFound(resource: 'Downloaded file'));
@@ -1667,15 +1924,16 @@ class DownloadImpl implements DownloadService {
       String subFolder;
 
       if (Platform.isAndroid) {
-        // On Android, use the public downloads directory
-        // This makes files visible in file managers and media apps
-        if (item.downloadType == domain.DownloadType.audioOnly) {
-          publicDir = Directory('/storage/emulated/0/Music');
-          subFolder = 'VyPlay';
-        } else {
-          publicDir = Directory('/storage/emulated/0/Movies');
-          subFolder = 'VyPlay';
-        }
+        // Ask the platform where media belongs instead of hardcoding
+        // /storage/emulated/0, which is wrong on secondary users, SD-card
+        // primary volumes and devices without that path.
+        final type = item.downloadType == domain.DownloadType.audioOnly
+            ? StorageDirectory.music
+            : StorageDirectory.movies;
+        final candidates =
+            await getExternalStorageDirectories(type: type) ?? const <Directory>[];
+        publicDir = candidates.isEmpty ? null : candidates.first;
+        subFolder = 'VyPlay';
       } else {
         // On other platforms, use the downloads directory
         publicDir = await getDownloadsDirectory();

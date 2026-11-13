@@ -90,6 +90,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "channelSubscribers": m2,
     "channels": MessageLookupByLibrary.simpleMessage("채널"),
+    "checkNow": MessageLookupByLibrary.simpleMessage("Check now"),
+    "checkNowDone": MessageLookupByLibrary.simpleMessage(
+      "Checked for new uploads.",
+    ),
     "clearAll": MessageLookupByLibrary.simpleMessage("모두 지우기"),
     "clearAllHistory": MessageLookupByLibrary.simpleMessage("기록 모두 지우기"),
     "clearAllHistoryConfirm": MessageLookupByLibrary.simpleMessage(
@@ -132,7 +136,32 @@ class MessageLookup extends MessageLookupByLibrary {
     "dislike": MessageLookupByLibrary.simpleMessage("싫어요"),
     "distractionFree": MessageLookupByLibrary.simpleMessage("방해 요소 제거"),
     "download": MessageLookupByLibrary.simpleMessage("다운로드"),
+    "downloadAll": MessageLookupByLibrary.simpleMessage("Download all"),
+    "downloadAllFailed": MessageLookupByLibrary.simpleMessage(
+      "Could not queue playlist downloads.",
+    ),
+    "downloadAllQueued": MessageLookupByLibrary.simpleMessage(
+      "Playlist videos added to the download queue.",
+    ),
     "downloadFailed": m4,
+    "downloadFileMissing": MessageLookupByLibrary.simpleMessage(
+      "The downloaded file could not be opened. It may have been deleted.",
+    ),
+    "downloadFolderNotWritable": MessageLookupByLibrary.simpleMessage(
+      "This folder is not writable.",
+    ),
+    "downloadFolderReady": MessageLookupByLibrary.simpleMessage(
+      "Writable — downloads will be saved here.",
+    ),
+    "downloadFolderRejected": MessageLookupByLibrary.simpleMessage(
+      "That folder cannot be used. Nothing was changed.",
+    ),
+    "downloadFolderSaved": MessageLookupByLibrary.simpleMessage(
+      "Download folder updated.",
+    ),
+    "downloadFolderUnavailable": MessageLookupByLibrary.simpleMessage(
+      "This folder is no longer available.",
+    ),
     "downloadStarted": MessageLookupByLibrary.simpleMessage("다운로드 시작됨"),
     "downloadType": MessageLookupByLibrary.simpleMessage("다운로드 유형"),
     "downloading": MessageLookupByLibrary.simpleMessage("다운로드 중"),
@@ -143,6 +172,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "enableHlsPlayerDescription": MessageLookupByLibrary.simpleMessage(
       "HLS 재생기를 사용해 모든 화질 설정을 잠금 해제하세요. 오류가 발생한다면 사용 중지하세요.",
     ),
+    "exitApp": MessageLookupByLibrary.simpleMessage("Exit"),
+    "exitConfirmMessage": MessageLookupByLibrary.simpleMessage(
+      "Playback will stop.",
+    ),
+    "exitConfirmTitle": MessageLookupByLibrary.simpleMessage("Exit VyPlay?"),
     "exportData": MessageLookupByLibrary.simpleMessage("데이터 내보내기"),
     "exportSubscriptions": MessageLookupByLibrary.simpleMessage("구독 내보내기"),
     "exportSuccess": MessageLookupByLibrary.simpleMessage("내보내기 완료"),
@@ -242,6 +276,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "notificationsDenied": MessageLookupByLibrary.simpleMessage(
       "알림 권한이 거부되었습니다",
     ),
+    "openDownloadedFile": MessageLookupByLibrary.simpleMessage("Open"),
     "openInBrowser": MessageLookupByLibrary.simpleMessage("브라우저에서 열기"),
     "openLinksExternally": MessageLookupByLibrary.simpleMessage(
       "링크를 외부 브라우저에서 열기",
@@ -261,6 +296,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "playlist": MessageLookupByLibrary.simpleMessage("재생목록"),
     "playlistNameHint": MessageLookupByLibrary.simpleMessage("재생목록 이름"),
     "playlistNotFound": MessageLookupByLibrary.simpleMessage("재생목록을 찾을 수 없음"),
+    "playlistOrder": MessageLookupByLibrary.simpleMessage("Playlist order"),
     "playlists": MessageLookupByLibrary.simpleMessage("재생목록"),
     "pluginCapabilityChannel": MessageLookupByLibrary.simpleMessage(
       "Channel metadata",
@@ -365,6 +401,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "queueShuffle": MessageLookupByLibrary.simpleMessage("셔플"),
     "readMoreText": MessageLookupByLibrary.simpleMessage("더 읽기"),
     "recentSearches": MessageLookupByLibrary.simpleMessage("최근 검색어"),
+    "recheckFolder": MessageLookupByLibrary.simpleMessage("Re-check"),
     "refresh": MessageLookupByLibrary.simpleMessage("Refresh"),
     "refreshToLoad": MessageLookupByLibrary.simpleMessage("아래로 당겨 새로고침"),
     "region": MessageLookupByLibrary.simpleMessage("지역"),
@@ -385,6 +422,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "retrieveDislikes": MessageLookupByLibrary.simpleMessage("싫어요 가져오기"),
     "retry": MessageLookupByLibrary.simpleMessage("재시도"),
+    "retryDownload": MessageLookupByLibrary.simpleMessage("Retry"),
     "saveToDevice": MessageLookupByLibrary.simpleMessage("기기에 저장"),
     "saveToDeviceFailed": MessageLookupByLibrary.simpleMessage("기기에 저장 실패"),
     "saveToPlaylist": MessageLookupByLibrary.simpleMessage("재생목록에 저장"),
@@ -401,6 +439,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "searchHistoryEnabledDescription": MessageLookupByLibrary.simpleMessage(
       "빠른 액세스를 위해 검색어 저장",
     ),
+    "searchInPlaylist": MessageLookupByLibrary.simpleMessage(
+      "Search in playlist",
+    ),
     "searchSavedVideos": MessageLookupByLibrary.simpleMessage("저장한 동영상 검색..."),
     "searchSubscriptions": MessageLookupByLibrary.simpleMessage("구독 검색..."),
     "searchYouTube": MessageLookupByLibrary.simpleMessage("YouTube 검색..."),
@@ -416,6 +457,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "servicePiped": MessageLookupByLibrary.simpleMessage("Piped"),
     "settings": MessageLookupByLibrary.simpleMessage("설정"),
     "share": MessageLookupByLibrary.simpleMessage("공유"),
+    "shareDownloadedFile": MessageLookupByLibrary.simpleMessage("Share"),
     "shareLogs": MessageLookupByLibrary.simpleMessage("로그 공유"),
     "shareVia": MessageLookupByLibrary.simpleMessage("공유"),
     "shorts": MessageLookupByLibrary.simpleMessage("Shorts"),
@@ -439,7 +481,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "sleepTimerOff": MessageLookupByLibrary.simpleMessage("끔"),
     "sleepTimerSet": MessageLookupByLibrary.simpleMessage("설정"),
     "sort": MessageLookupByLibrary.simpleMessage("정렬"),
+    "sortAToZ": MessageLookupByLibrary.simpleMessage("Title A–Z"),
     "sortBy": MessageLookupByLibrary.simpleMessage("정렬 기준"),
+    "sortZToA": MessageLookupByLibrary.simpleMessage("Title Z–A"),
     "sponsor": MessageLookupByLibrary.simpleMessage("스폰서"),
     "sponsorBlock": MessageLookupByLibrary.simpleMessage("SponsorBlock"),
     "sponsorBlockCategories": MessageLookupByLibrary.simpleMessage("건너뛸 카테고리"),

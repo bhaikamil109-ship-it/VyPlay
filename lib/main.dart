@@ -28,11 +28,13 @@ import 'package:vyplay/presentation/watch/widgets/global_pip_overlay.dart';
 import 'package:vyplay/core/services/audio_handler_service.dart';
 import 'package:vyplay/core/services/dearrow_service.dart';
 import 'package:vyplay/core/services/log_collector.dart';
+import 'package:vyplay/core/services/background_polling_service.dart';
 import 'package:vyplay/core/services/subscription_notifier.dart';
 import 'package:media_kit/media_kit.dart';
 
 import 'core/di/injectable.dart';
 
+import 'domain/download/download_service.dart';
 import 'domain/plugin/plugin_manager.dart';
 import 'domain/plugin/plugin_sandbox.dart';
 import 'domain/plugin/plugin_extension_registry.dart';
@@ -100,6 +102,14 @@ void main() async {
     ),
   );
 
+  // Downloads owned by a previous process are dead rows: nothing will finish
+  // them, so resume the newest few now. Bounded to keep launch traffic sane.
+  unawaited(getIt<DownloadService>().resumeInterruptedDownloads(
+    onProgress: (_) {},
+    onComplete: (_) {},
+    onError: (_, __) {},
+  ));
+
   // Pick up the persisted DeArrow preference so cards can replace clickbait
   // titles/thumbnails as soon as they are built.
   unawaited(DeArrowService().syncFromSettings());
@@ -138,6 +148,13 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
         // Look for new uploads from subscribed channels. Self-throttling and a
         // no-op unless the user turned notifications on.
         SubscriptionNotifier().checkForNewVideos();
+
+        // Make sure the periodic background job exists. WorkManager keeps it
+        // across reboots, but a fresh install or an app update needs it
+        // registered again; `keep` makes this call idempotent.
+        SubscriptionNotifier().loadEnabled().then((enabled) async {
+          if (enabled) await BackgroundPollingService.instance.schedule();
+        });
       });
     });
   }

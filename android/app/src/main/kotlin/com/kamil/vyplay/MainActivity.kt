@@ -1,11 +1,15 @@
 package com.kamil.vyplay
 
 import android.app.PictureInPictureParams
+import android.content.Intent
 import android.content.res.Configuration
 import android.graphics.Rect
+import android.net.Uri
 import android.os.Build
 import android.util.Rational
 import android.view.WindowManager
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.media3.common.util.UnstableApi
 import com.ryanheise.audioservice.AudioServiceFragmentActivity
 import io.flutter.embedding.engine.FlutterEngine
@@ -24,6 +28,8 @@ class MainActivity: AudioServiceFragmentActivity() {
         private const val CAST_CHANNEL = "com.kamil.vyplay/cast"
         private const val CAST_EVENT_CHANNEL = "com.kamil.vyplay/cast_events"
         private const val STORAGE_CHANNEL = "com.kamil.vyplay/storage"
+        private const val SAF_CHANNEL = "com.kamil.vyplay/saf"
+        private const val DOWNLOAD_SERVICE_CHANNEL = "com.kamil.vyplay/download_service"
         private const val DEVICE_CHANNEL = "com.kamil.vyplay/device"
         private const val MEDIA_STORE_CHANNEL = "com.kamil.vyplay/mediastore"
     }
@@ -32,12 +38,37 @@ class MainActivity: AudioServiceFragmentActivity() {
     private var castHandler: CastMethodHandler? = null
     private var pipChannel: MethodChannel? = null
     private var muxerHandler: FFmpegMuxerHandler? = null
+    private var safHandler: SafStorageHandler? = null
+
+    /**
+     * The system folder picker used for the download location. Created here
+     * (not inside the handler) because ActivityResultLauncher must be
+     * registered while the Activity is being created, which is also when
+     * configureFlutterEngine runs.
+     */
+    private lateinit var safTreePicker: ActivityResultLauncher<Intent>
 
     // PiP state
     private var isPipModeEnabled = false
     private var isVideoPlaying = false
     private var videoAspectRatio: Rational = Rational(16, 9)
     private var sourceRectHint: Rect? = null
+
+    override fun onCreate(savedInstanceState: android.os.Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        // Must be registered before the Activity reaches STARTED.
+        safTreePicker = registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()
+        ) { activityResult ->
+            val uri: Uri? = if (activityResult.resultCode == RESULT_OK) {
+                activityResult.data?.data
+            } else {
+                null
+            }
+            safHandler?.onPickResult(uri)
+        }
+    }
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
@@ -77,6 +108,19 @@ class MainActivity: AudioServiceFragmentActivity() {
         // Register storage channel (free-space checks before a download starts)
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, STORAGE_CHANNEL)
             .setMethodCallHandler(StorageMethodHandler())
+
+        // Register the Storage Access Framework channel: folder picker,
+        // persisted grants, write probes and ContentResolver copies. Android
+        // 11+ cannot write a user-picked folder with plain File APIs, so this
+        // is the only route that actually works for downloads.
+        safHandler = SafStorageHandler(this, safTreePicker)
+        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, SAF_CHANNEL)
+            .setMethodCallHandler(safHandler)
+
+        // Keeps the process alive (dataSync foreground service) while downloads
+        // are transferring. Progress notifications stay on the Dart side.
+        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, DOWNLOAD_SERVICE_CHANNEL)
+            .setMethodCallHandler(DownloadServiceHandler(applicationContext))
 
         // Register device capability channel. The Flutter layer reads RAM/SDK
         // once at startup and picks low-end-friendly cache and list settings.
@@ -242,6 +286,8 @@ class MainActivity: AudioServiceFragmentActivity() {
         // Clear PiP channel to prevent callbacks after destruction
         pipChannel?.setMethodCallHandler(null)
         pipChannel = null
+        safHandler?.dispose()
+        safHandler = null
         newPipeHandler?.dispose()
         castHandler?.detach()
         castHandler = null

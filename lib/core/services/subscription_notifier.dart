@@ -5,6 +5,7 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:vyplay/core/services/background_polling_service.dart';
 import 'package:vyplay/core/settings.dart';
 import 'package:vyplay/domain/watch/models/newpipe/newpipe_related.dart';
 import 'package:vyplay/infrastructure/database/database.dart';
@@ -12,10 +13,12 @@ import 'package:vyplay/infrastructure/newpipe/newpipe_channel.dart';
 
 /// Notifies about new uploads from subscribed channels.
 ///
-/// Checks run in the foreground — on startup and when the app returns from the
-/// background — throttled to [_minCheckInterval]. There is no periodic
-/// background job; adding one would need a WorkManager-style plugin and the
-/// matching platform configuration.
+/// Checks run in the foreground (on startup and when the app returns from the
+/// background, throttled to [_minCheckInterval]) **and** from a periodic
+/// WorkManager job registered through [BackgroundPollingService] when the
+/// feature is enabled. The background job runs in its own isolate
+/// (`background_poll_worker.dart`) and calls the same
+/// [checkForNewVideos] path, so both produce identical notifications.
 ///
 /// State lives in the settings table so it survives restarts:
 ///  * [notifyNewVideosKey] — whether the feature is on,
@@ -44,6 +47,11 @@ class SubscriptionNotifier extends ChangeNotifier {
   bool _checking = false;
 
   bool? _enabled;
+
+  /// Injectable so the toggle → schedule mapping can be tested without the
+  /// WorkManager plugin. Defaults to the real service.
+  @visibleForTesting
+  static BackgroundPollingScheduler? pollScheduler;
 
   /// Whether new-upload notifications are on. Null until first read.
   bool get isEnabled => _enabled ?? false;
@@ -75,8 +83,57 @@ class SubscriptionNotifier extends ChangeNotifier {
     }
     _enabled = enabled;
     await _db.setSetting(notifyNewVideosKey, enabled.toString());
+    // The switch must control the periodic job, not just a stored string:
+    // turning it off cancels the WorkManager task so no background work (and no
+    // notification) can happen behind the user's back.
+    await applyScheduleFor(enabled);
     notifyListeners();
     return enabled;
+  }
+
+  /// Registers or cancels the periodic background check. Split out from
+  /// [setEnabled] so it can be tested without a database.
+  @visibleForTesting
+  Future<void> applyScheduleFor(bool enabled) async {
+    final scheduler = pollScheduler ?? BackgroundPollingService.instance;
+    if (enabled) {
+      await scheduler.schedule();
+    } else {
+      await scheduler.cancel();
+    }
+  }
+
+  /// Records the outcome of a background run so Settings can report it.
+  /// Stored in the settings table because the background isolate has no other
+  /// channel back to the UI.
+  Future<void> recordBackgroundRun({required int notified, String? error}) async {
+    try {
+      await _db.setSetting(
+        notifyLastBackgroundRunKey,
+        DateTime.now().toIso8601String(),
+      );
+      await _db.setSetting(notifyLastBackgroundCountKey, notified.toString());
+      await _db.setSetting(notifyLastBackgroundErrorKey, error ?? '');
+    } catch (e) {
+      dev.log('recordBackgroundRun failed: $e', name: 'SubNotifier');
+    }
+  }
+
+  /// Last background-run timestamp, notification count and error (if any).
+  Future<({DateTime? at, int count, String? error})> loadBackgroundRun() async {
+    try {
+      final raw = await _db.getSetting(notifyLastBackgroundRunKey);
+      final count = await _db.getSetting(notifyLastBackgroundCountKey);
+      final error = await _db.getSetting(notifyLastBackgroundErrorKey);
+      return (
+        at: raw == null ? null : DateTime.tryParse(raw),
+        count: int.tryParse(count ?? '') ?? 0,
+        error: (error == null || error.isEmpty) ? null : error,
+      );
+    } catch (e) {
+      dev.log('loadBackgroundRun failed: $e', name: 'SubNotifier');
+      return (at: null, count: 0, error: null);
+    }
   }
 
   Future<void> initialize() async {

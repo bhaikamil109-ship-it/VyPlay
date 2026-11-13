@@ -262,6 +262,12 @@ class MainNavigationState extends State<MainNavigation> {
                     final entered = await pipService.enterPipMode();
                     if (entered) return;
                   }
+                  // Confirm before leaving: one stray back press at the root
+                  // used to quit instantly, mid-playback.
+                  final exitContext = context;
+                  if (!exitContext.mounted) return;
+                  if (!await _confirmAppExit(exitContext)) return;
+
                   // Stop the player before exiting to prevent FlutterJNI crash
                   final globalPlayer = GlobalPlayerController();
                   if (globalPlayer.hasActivePlayer) {
@@ -358,4 +364,28 @@ class _LazyIndexedStackState extends State<_LazyIndexedStack> {
       ],
     );
   }
+}
+
+/// Asks before leaving the app. Returns false when the user backs out of the
+/// dialog, which keeps playback and navigation exactly where they were.
+Future<bool> _confirmAppExit(BuildContext context) async {
+  final locals = S.of(context);
+  final result = await showDialog<bool>(
+    context: context,
+    builder: (dialogContext) => AlertDialog(
+      title: Text(locals.exitConfirmTitle),
+      content: Text(locals.exitConfirmMessage),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.of(dialogContext).pop(false),
+          child: Text(locals.cancel),
+        ),
+        FilledButton(
+          onPressed: () => Navigator.of(dialogContext).pop(true),
+          child: Text(locals.exitApp),
+        ),
+      ],
+    ),
+  );
+  return result ?? false;
 }

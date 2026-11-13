@@ -152,6 +152,11 @@ const repeatModeKey = 'repeat-mode';
 const notifyNewVideosKey = 'notify-new-videos';
 const notifyLastCheckKey = 'notify-last-check';
 const notifySeenVideosKey = 'notify-seen-videos';
+// Result of the last scheduled background check (WorkManager), so Settings can
+// report whether background polling is actually running.
+const notifyLastBackgroundRunKey = 'notify-last-background-run';
+const notifyLastBackgroundCountKey = 'notify-last-background-count';
+const notifyLastBackgroundErrorKey = 'notify-last-background-error';
 
 // Advanced content filter: keyword blocklist (one per line, /regex/ supported)
 // and channel-ID blocklist, plus Shorts and paid/promoted video hiding.

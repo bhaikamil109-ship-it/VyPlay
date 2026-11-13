@@ -62,21 +62,24 @@ class InvidiousStreamHelper {
     ).toList();
 
     return audioFormats.map((format) {
-      // Parse bitrate for quality label
-      final bitrateKbps = int.tryParse(format.bitrate ?? '');
+      // Invidious reports `bitrate` in bits per second. Keep that unit: the
+      // download layer divides by 1000 to show kbps, exactly as it does for
+      // NewPipe and Piped streams. Converting to kbps here made Invidious
+      // audio report "0 kbps" in the download sheet.
+      final bitrateBps = int.tryParse(format.bitrate ?? '');
       final qualityLabel = format.audioQuality ??
-          (bitrateKbps != null ? '${(bitrateKbps / 1000).round()}kbps' : null);
+          (bitrateBps != null ? '${(bitrateBps / 1000).round()}kbps' : null);
 
       return NewPipeAudioStream(
         url: format.url,
-        averageBitrate: bitrateKbps != null ? bitrateKbps ~/ 1000 : null,
+        averageBitrate: bitrateBps,
         format: format.container,
         mimeType: format.type,
         codec: format.encoding,
         quality: qualityLabel,
         itag: int.tryParse(format.itag ?? ''),
         contentLength: int.tryParse(format.clen ?? ''),
-        bitrate: bitrateKbps,
+        bitrate: bitrateBps,
         sampleRate: format.audioSampleRate,
         audioChannels: format.audioChannels,
       );

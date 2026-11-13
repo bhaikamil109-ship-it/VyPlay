@@ -6,6 +6,9 @@
     <uses-permission android:name="android.permission.READ_MEDIA_VIDEO"/>
     <uses-permission android:name="android.permission.READ_MEDIA_AUDIO"/>
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK"/>
+    <!-- Downloads run under a dataSync foreground service so a transfer is not
+         killed when the user leaves the app or locks the screen. -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC"/>
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <!-- Legacy storage access, needed only on Android 9 and below. From API 29
          scoped storage applies and saved downloads go through MediaStore
@@ -111,6 +114,15 @@
                 <action android:name="android.media.browse.MediaBrowserService"/>
             </intent-filter>
         </service>
+
+        <!-- Keeps a download running while the app is backgrounded. The type
+             must match FOREGROUND_SERVICE_DATA_SYNC or startForeground throws
+             on Android 14+. Not exported: only this app starts it. -->
+        <service
+            android:name=".DownloadsForegroundService"
+            android:exported="false"
+            android:foregroundServiceType="dataSync"
+            android:stopWithTask="false"/>
 
         <receiver
             android:name="com.ryanheise.audioservice.MediaButtonReceiver"

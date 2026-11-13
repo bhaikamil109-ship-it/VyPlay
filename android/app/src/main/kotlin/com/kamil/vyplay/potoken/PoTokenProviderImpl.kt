@@ -36,6 +36,19 @@ object PoTokenProviderImpl : PoTokenProvider {
         appContext = context.applicationContext
     }
 
+    /**
+     * The extractor's interface also asks for a web-embed token, an Android
+     * client token and an iOS client token. VyPlay only runs YouTube's BotGuard
+     * VM for the regular web client, so the other clients deliberately return
+     * null: the extractor then falls back to its own request path instead of
+     * receiving a token minted for the wrong client.
+     */
+    override fun getWebEmbedClientPoToken(videoId: String): PoTokenResult? = null
+
+    override fun getAndroidClientPoToken(videoId: String): PoTokenResult? = null
+
+    override fun getIosClientPoToken(videoId: String): PoTokenResult? = null
+
     override fun getWebClientPoToken(videoId: String): PoTokenResult? {
         val context = appContext ?: return null
         if (!supportsWebView() || webViewBadImpl) return null

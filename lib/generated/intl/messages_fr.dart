@@ -103,6 +103,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "channelSubscribers": m2,
     "channels": MessageLookupByLibrary.simpleMessage("Chaînes"),
+    "checkNow": MessageLookupByLibrary.simpleMessage("Check now"),
+    "checkNowDone": MessageLookupByLibrary.simpleMessage(
+      "Checked for new uploads.",
+    ),
     "clearAll": MessageLookupByLibrary.simpleMessage("Tout effacer"),
     "clearAllHistory": MessageLookupByLibrary.simpleMessage(
       "Effacer tout l\'historique",
@@ -167,7 +171,32 @@ class MessageLookup extends MessageLookupByLibrary {
     "dislike": MessageLookupByLibrary.simpleMessage("Je n\'aime pas"),
     "distractionFree": MessageLookupByLibrary.simpleMessage("Sans distraction"),
     "download": MessageLookupByLibrary.simpleMessage("Télécharger"),
+    "downloadAll": MessageLookupByLibrary.simpleMessage("Download all"),
+    "downloadAllFailed": MessageLookupByLibrary.simpleMessage(
+      "Could not queue playlist downloads.",
+    ),
+    "downloadAllQueued": MessageLookupByLibrary.simpleMessage(
+      "Playlist videos added to the download queue.",
+    ),
     "downloadFailed": m4,
+    "downloadFileMissing": MessageLookupByLibrary.simpleMessage(
+      "The downloaded file could not be opened. It may have been deleted.",
+    ),
+    "downloadFolderNotWritable": MessageLookupByLibrary.simpleMessage(
+      "This folder is not writable.",
+    ),
+    "downloadFolderReady": MessageLookupByLibrary.simpleMessage(
+      "Writable — downloads will be saved here.",
+    ),
+    "downloadFolderRejected": MessageLookupByLibrary.simpleMessage(
+      "That folder cannot be used. Nothing was changed.",
+    ),
+    "downloadFolderSaved": MessageLookupByLibrary.simpleMessage(
+      "Download folder updated.",
+    ),
+    "downloadFolderUnavailable": MessageLookupByLibrary.simpleMessage(
+      "This folder is no longer available.",
+    ),
     "downloadStarted": MessageLookupByLibrary.simpleMessage(
       "Téléchargement démarré",
     ),
@@ -186,6 +215,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "enableHlsPlayerDescription": MessageLookupByLibrary.simpleMessage(
       "Activez le lecteur HLS pour déverrouiller toutes les options de qualité. Désactivez-le si des erreurs se produisent.",
     ),
+    "exitApp": MessageLookupByLibrary.simpleMessage("Exit"),
+    "exitConfirmMessage": MessageLookupByLibrary.simpleMessage(
+      "Playback will stop.",
+    ),
+    "exitConfirmTitle": MessageLookupByLibrary.simpleMessage("Exit VyPlay?"),
     "exportData": MessageLookupByLibrary.simpleMessage("Exporter les données"),
     "exportSubscriptions": MessageLookupByLibrary.simpleMessage(
       "Exporter les abonnements",
@@ -321,6 +355,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "notificationsDenied": MessageLookupByLibrary.simpleMessage(
       "L\'autorisation de notification a été refusée",
     ),
+    "openDownloadedFile": MessageLookupByLibrary.simpleMessage("Open"),
     "openInBrowser": MessageLookupByLibrary.simpleMessage(
       "Ouvrir dans le navigateur",
     ),
@@ -348,6 +383,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "playlistNotFound": MessageLookupByLibrary.simpleMessage(
       "Playlist introuvable",
     ),
+    "playlistOrder": MessageLookupByLibrary.simpleMessage("Playlist order"),
     "playlists": MessageLookupByLibrary.simpleMessage("Playlists"),
     "pluginCapabilityChannel": MessageLookupByLibrary.simpleMessage(
       "Channel metadata",
@@ -458,6 +494,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "recentSearches": MessageLookupByLibrary.simpleMessage(
       "Recherches récentes",
     ),
+    "recheckFolder": MessageLookupByLibrary.simpleMessage("Re-check"),
     "refresh": MessageLookupByLibrary.simpleMessage("Refresh"),
     "refreshToLoad": MessageLookupByLibrary.simpleMessage(
       "Tirez vers le bas pour actualiser",
@@ -490,6 +527,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Récupérer les dislikes",
     ),
     "retry": MessageLookupByLibrary.simpleMessage("Réessayer"),
+    "retryDownload": MessageLookupByLibrary.simpleMessage("Retry"),
     "saveToDevice": MessageLookupByLibrary.simpleMessage(
       "Enregistrer sur l\'appareil",
     ),
@@ -520,6 +558,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "searchHistoryEnabledDescription": MessageLookupByLibrary.simpleMessage(
       "Enregistrez vos recherches pour un accès rapide",
     ),
+    "searchInPlaylist": MessageLookupByLibrary.simpleMessage(
+      "Search in playlist",
+    ),
     "searchSavedVideos": MessageLookupByLibrary.simpleMessage(
       "Rechercher dans les vidéos enregistrées...",
     ),
@@ -545,6 +586,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "servicePiped": MessageLookupByLibrary.simpleMessage("Piped"),
     "settings": MessageLookupByLibrary.simpleMessage("Paramètres"),
     "share": MessageLookupByLibrary.simpleMessage("Partager"),
+    "shareDownloadedFile": MessageLookupByLibrary.simpleMessage("Share"),
     "shareLogs": MessageLookupByLibrary.simpleMessage("Partager les journaux"),
     "shareVia": MessageLookupByLibrary.simpleMessage("Partager via"),
     "shorts": MessageLookupByLibrary.simpleMessage("Shorts"),
@@ -578,7 +620,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "sleepTimerOff": MessageLookupByLibrary.simpleMessage("Désactivé"),
     "sleepTimerSet": MessageLookupByLibrary.simpleMessage("Définir"),
     "sort": MessageLookupByLibrary.simpleMessage("Trier"),
+    "sortAToZ": MessageLookupByLibrary.simpleMessage("Title A–Z"),
     "sortBy": MessageLookupByLibrary.simpleMessage("Trier par"),
+    "sortZToA": MessageLookupByLibrary.simpleMessage("Title Z–A"),
     "sponsor": MessageLookupByLibrary.simpleMessage("Sponsor"),
     "sponsorBlock": MessageLookupByLibrary.simpleMessage("SponsorBlock"),
     "sponsorBlockCategories": MessageLookupByLibrary.simpleMessage(

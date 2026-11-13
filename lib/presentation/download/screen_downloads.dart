@@ -9,11 +9,15 @@ import 'package:vyplay/application/settings/settings_bloc.dart';
 import 'package:vyplay/core/animations/animations.dart';
 import 'package:vyplay/core/constants.dart';
 import 'package:vyplay/core/enums.dart';
+import 'package:vyplay/core/services/saf_storage_service.dart';
+import 'package:vyplay/domain/download/download_location.dart';
 import 'package:vyplay/domain/download/models/download_item.dart';
+import 'package:vyplay/domain/download/saf_directory.dart';
 import 'package:vyplay/core/services/content_filter_helper.dart';
 import 'package:vyplay/generated/l10n.dart';
 import 'package:vyplay/presentation/main_navigation/main_navigation.dart';
 import 'package:open_filex/open_filex.dart';
+import 'package:share_plus/share_plus.dart' show ShareParams, SharePlus, XFile;
 
 class ScreenDownloads extends StatefulWidget {
   const ScreenDownloads({super.key});
@@ -86,8 +90,14 @@ class _ScreenDownloadsState extends State<ScreenDownloads>
               if (state.errorMessage != null) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
+                    // The reason (folder gone, no space, expired stream) is the
+                    // part the user can act on, so prefer it over the title.
                     content: Text(
-                      locals.downloadFailed(state.failedDownloadTitle ?? 'Unknown'),
+                      (state.errorMessage != null &&
+                              state.errorMessage!.trim().isNotEmpty)
+                          ? state.errorMessage!
+                          : locals.downloadFailed(
+                              state.failedDownloadTitle ?? 'Unknown'),
                     ),
                     behavior: SnackBarBehavior.floating,
                     backgroundColor: AppColors.error,
@@ -226,6 +236,9 @@ class _ScreenDownloadsState extends State<ScreenDownloads>
               onResume: () => _onResume(item),
               onCancel: () => _onCancel(item),
               onSaveToDevice: () => _onSaveToDevice(item),
+              onRetry: () => _onRetry(item),
+              onOpen: () => _onOpen(item),
+              onShare: () => _onShare(item),
             ),
           );
         },
@@ -271,6 +284,22 @@ class _ScreenDownloadsState extends State<ScreenDownloads>
 
   Future<void> _onItemTap(DownloadItem item) async {
     if (item.status == DownloadStatus.completed && item.outputFilePath != null) {
+      // Files published into a user-picked SAF folder are content URIs; the
+      // system handler opens those, not a File path.
+      if (SafDirectory.isTreeUri(item.outputFilePath)) {
+        final opened = await SafStorageService()
+            .openDocument(item.outputFilePath!);
+        if (!opened && mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(S.of(context).downloadFileMissing),
+              behavior: SnackBarBehavior.floating,
+            ),
+          );
+        }
+        return;
+      }
+
       final file = File(item.outputFilePath!);
       if (await file.exists()) {
         // Use open_filex to properly open files on Android (handles FileProvider)
@@ -342,6 +371,94 @@ class _ScreenDownloadsState extends State<ScreenDownloads>
         );
   }
 
+  void _onRetry(DownloadItem item) {
+    if (item.id == null) return;
+    context
+        .read<DownloadBloc>()
+        .add(DownloadEvent.retryDownload(downloadId: item.id!));
+  }
+
+  Future<void> _onOpen(DownloadItem item) async {
+    final path = item.outputFilePath;
+    if (path == null) return;
+    final locals = S.of(context);
+    final messenger = ScaffoldMessenger.of(context);
+
+    if (SafDirectory.isTreeUri(path)) {
+      final opened = await SafStorageService().openDocument(path);
+      if (!mounted) return;
+      if (!opened) {
+        messenger.showSnackBar(
+          SnackBar(
+            content: Text(locals.downloadFileMissing),
+            behavior: SnackBarBehavior.floating,
+          ),
+        );
+      }
+      return;
+    }
+
+    final result = await OpenFilex.open(path);
+    if (!mounted) return;
+    if (result.type != ResultType.done) {
+      messenger.showSnackBar(
+        SnackBar(
+          content: Text(locals.downloadFileMissing),
+          behavior: SnackBarBehavior.floating,
+        ),
+      );
+    }
+  }
+
+  Future<void> _onShare(DownloadItem item) async {
+    final path = item.outputFilePath;
+    if (path == null) return;
+
+    // share_plus needs a real path; a SAF document is shared with a content
+    // URI grant through the native channel instead.
+    if (SafDirectory.isTreeUri(path)) {
+      final shared = await SafStorageService()
+          .shareDocument(path, mimeType: _mimeTypeForPath(path));
+      if (!shared && mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(S.of(context).downloadFileMissing),
+            behavior: SnackBarBehavior.floating,
+          ),
+        );
+      }
+      return;
+    }
+
+    final file = File(path);
+    if (!await file.exists()) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(S.of(context).downloadFileMissing),
+          behavior: SnackBarBehavior.floating,
+        ),
+      );
+      return;
+    }
+    await SharePlus.instance.share(
+      ShareParams(files: [XFile(path)], text: item.title),
+    );
+  }
+
+  /// MIME type for a document path, used when handing it to other apps.
+  String _mimeTypeForPath(String path) {
+    final lower = path.toLowerCase();
+    if (lower.endsWith('.mp4') || lower.endsWith('.m4v')) return 'video/mp4';
+    if (lower.endsWith('.mkv')) return 'video/x-matroska';
+    if (lower.endsWith('.webm')) return 'video/webm';
+    if (lower.endsWith('.m4a')) return 'audio/mp4';
+    if (lower.endsWith('.mp3')) return 'audio/mpeg';
+    if (lower.endsWith('.opus')) return 'audio/opus';
+    if (lower.endsWith('.ogg')) return 'audio/ogg';
+    return 'application/octet-stream';
+  }
+
   Future<void> _onSaveToDevice(DownloadItem item) async {
     if (item.outputFilePath == null) return;
 
@@ -372,6 +489,9 @@ class _DownloadItemCard extends StatelessWidget {
   final VoidCallback onResume;
   final VoidCallback onCancel;
   final VoidCallback? onSaveToDevice;
+  final VoidCallback onRetry;
+  final VoidCallback onOpen;
+  final VoidCallback onShare;
 
   const _DownloadItemCard({
     required this.item,
@@ -383,6 +503,9 @@ class _DownloadItemCard extends StatelessWidget {
     required this.onResume,
     required this.onCancel,
     this.onSaveToDevice,
+    required this.onRetry,
+    required this.onOpen,
+    required this.onShare,
   });
 
   @override
@@ -472,6 +595,19 @@ class _DownloadItemCard extends StatelessWidget {
                             _buildQualityBadge(item.videoQuality!),
                         ],
                       ),
+                      if (item.errorMessage != null &&
+                          item.errorMessage!.trim().isNotEmpty) ...[
+                        AppSpacing.height4,
+                        Text(
+                          item.errorMessage!,
+                          maxLines: 3,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(
+                            fontSize: AppFontSize.caption,
+                            color: AppColors.error,
+                          ),
+                        ),
+                      ],
                     ],
                   ),
                 ),
@@ -711,6 +847,15 @@ class _DownloadItemCard extends StatelessWidget {
           case 'save_to_device':
             onSaveToDevice?.call();
             break;
+          case 'retry':
+            onRetry();
+            break;
+          case 'open':
+            onOpen();
+            break;
+          case 'share':
+            onShare();
+            break;
         }
       },
       itemBuilder: (context) {
@@ -725,6 +870,45 @@ class _DownloadItemCard extends StatelessWidget {
                 const Icon(CupertinoIcons.pause),
                 AppSpacing.width8,
                 Text(locals.pause),
+              ],
+            ),
+          ));
+        }
+
+        // A failed or cancelled transfer restarts from scratch; a paused one
+        // resumes, which is why the two actions are separate.
+        if (canRetryDownload(item.status)) {
+          items.add(PopupMenuItem(
+            value: 'retry',
+            child: Row(
+              children: [
+                const Icon(CupertinoIcons.arrow_clockwise),
+                AppSpacing.width8,
+                Text(locals.retryDownload),
+              ],
+            ),
+          ));
+        }
+
+        if (item.status == DownloadStatus.completed &&
+            item.outputFilePath != null) {
+          items.add(PopupMenuItem(
+            value: 'open',
+            child: Row(
+              children: [
+                const Icon(CupertinoIcons.play_rectangle),
+                AppSpacing.width8,
+                Text(locals.openDownloadedFile),
+              ],
+            ),
+          ));
+          items.add(PopupMenuItem(
+            value: 'share',
+            child: Row(
+              children: [
+                const Icon(CupertinoIcons.share),
+                AppSpacing.width8,
+                Text(locals.shareDownloadedFile),
               ],
             ),
           ));

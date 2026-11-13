@@ -60,6 +60,7 @@ dependencies:
   volume_controller: ^3.4.1
   flutter_local_notifications: ^18.0.1
   audio_service: ^0.18.15
+  workmanager: ^0.10.10
   # NOTE: ffmpeg_kit_flutter_new was removed. Video/audio merging now runs in
   # native Android code through the pure-Java muxers vendored from NewPipe
   # 0.29.1 (android/app/src/main/java/org/schabi/newpipe/streams), so the app

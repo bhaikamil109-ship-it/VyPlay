@@ -43,6 +43,11 @@ sealed class DownloadEvent with _$DownloadEvent {
     required int downloadId,
   }) = _ResumeDownload;
 
+  /// Retry a failed or cancelled download
+  const factory DownloadEvent.retryDownload({
+    required int downloadId,
+  }) = _RetryDownload;
+
   /// Cancel a download
   const factory DownloadEvent.cancelDownload({
     required int downloadId,

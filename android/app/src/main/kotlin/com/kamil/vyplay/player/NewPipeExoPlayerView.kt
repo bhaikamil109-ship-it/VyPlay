@@ -204,6 +204,9 @@ class NewPipeExoPlayerView(
     private var sourceType = ""
     private var isLive = false
 
+    /** True while the video surface is hidden (audio-only mode). */
+    private var audioOnlyEnabled = false
+
     init {
         channel.setMethodCallHandler(this)
         player.addListener(listener)
@@ -253,9 +256,26 @@ class NewPipeExoPlayerView(
             }
             "setSpeed" -> {
                 val speed = (call.argument<Number>("speed") ?: 1.0).toFloat()
-                player.setPlaybackSpeed(speed.coerceIn(0.25f, 2.0f))
+                player.setPlaybackSpeed(speed.coerceIn(0.25f, 3.0f))
                 result.success(null)
             }
+            "setSkipSilence" -> {
+                // ExoPlayer skips silent passages by time-stretching the audio
+                // stream it already has; no extra decoding pass is involved.
+                player.skipSilenceEnabled = call.argument<Boolean>("enabled") ?: false
+                result.success(null)
+            }
+            "isSkipSilenceEnabled" -> result.success(player.skipSilenceEnabled)
+            "setAudioOnly" -> {
+                // Hiding the surface stops all video rendering and its decode
+                // work while the audio renderer keeps playing; the player is
+                // untouched so switching back needs no reload.
+                val audioOnly = call.argument<Boolean>("enabled") ?: false
+                playerView.visibility = if (audioOnly) View.GONE else View.VISIBLE
+                audioOnlyEnabled = audioOnly
+                result.success(null)
+            }
+            "isAudioOnly" -> result.success(audioOnlyEnabled)
             "getPosition" -> result.success(player.currentPosition.coerceAtLeast(0))
             "getDuration" -> {
                 val duration = player.duration
@@ -292,6 +312,13 @@ class NewPipeExoPlayerView(
         val startPositionMs = (params["startPositionMs"] as? Number)?.toLong() ?: 0L
         val playWhenReady = params["playWhenReady"] as? Boolean ?: true
         playerView.resizeMode = resizeModeFrom(params["fitMode"] as? String)
+        // Applied on every load so a reload (quality or audio-track change)
+        // cannot silently drop the user's preference.
+        (params["skipSilence"] as? Boolean)?.let { player.skipSilenceEnabled = it }
+        (params["audioOnly"] as? Boolean)?.let {
+            audioOnlyEnabled = it
+            playerView.visibility = if (it) View.GONE else View.VISIBLE
+        }
 
         if (!sourceKey.isNullOrBlank() &&
             NewPipeSharedExoPlayer.sourceKey == sourceKey &&

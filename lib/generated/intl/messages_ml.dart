@@ -101,6 +101,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "channelSubscribers": m2,
     "channels": MessageLookupByLibrary.simpleMessage("ചാനലുകൾ"),
+    "checkNow": MessageLookupByLibrary.simpleMessage("Check now"),
+    "checkNowDone": MessageLookupByLibrary.simpleMessage(
+      "Checked for new uploads.",
+    ),
     "clearAll": MessageLookupByLibrary.simpleMessage("എല്ലാം മായ്ക്കുക"),
     "clearAllHistory": MessageLookupByLibrary.simpleMessage(
       "ചരിത്രമെല്ലാം മായ്ക്കുക",
@@ -165,7 +169,32 @@ class MessageLookup extends MessageLookupByLibrary {
       "ശ്രദ്ധ തിരിയാതിരിക്കാൻ",
     ),
     "download": MessageLookupByLibrary.simpleMessage("ഡൗൺലോഡ്"),
+    "downloadAll": MessageLookupByLibrary.simpleMessage("Download all"),
+    "downloadAllFailed": MessageLookupByLibrary.simpleMessage(
+      "Could not queue playlist downloads.",
+    ),
+    "downloadAllQueued": MessageLookupByLibrary.simpleMessage(
+      "Playlist videos added to the download queue.",
+    ),
     "downloadFailed": m4,
+    "downloadFileMissing": MessageLookupByLibrary.simpleMessage(
+      "The downloaded file could not be opened. It may have been deleted.",
+    ),
+    "downloadFolderNotWritable": MessageLookupByLibrary.simpleMessage(
+      "This folder is not writable.",
+    ),
+    "downloadFolderReady": MessageLookupByLibrary.simpleMessage(
+      "Writable — downloads will be saved here.",
+    ),
+    "downloadFolderRejected": MessageLookupByLibrary.simpleMessage(
+      "That folder cannot be used. Nothing was changed.",
+    ),
+    "downloadFolderSaved": MessageLookupByLibrary.simpleMessage(
+      "Download folder updated.",
+    ),
+    "downloadFolderUnavailable": MessageLookupByLibrary.simpleMessage(
+      "This folder is no longer available.",
+    ),
     "downloadStarted": MessageLookupByLibrary.simpleMessage(
       "ഡൗൺലോഡ് ആരംഭിച്ചു",
     ),
@@ -182,6 +211,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "enableHlsPlayerDescription": MessageLookupByLibrary.simpleMessage(
       "എല്ലാ ക്വാളിറ്റി ഓപ്ഷനുകളും ലഭ്യമാകാൻ HLS പ്ലെയർ ഓൺ ചെയ്യുക. പിശകുകൾ സംഭവിച്ചാൽ ഓഫ് ചെയ്യുക.",
     ),
+    "exitApp": MessageLookupByLibrary.simpleMessage("Exit"),
+    "exitConfirmMessage": MessageLookupByLibrary.simpleMessage(
+      "Playback will stop.",
+    ),
+    "exitConfirmTitle": MessageLookupByLibrary.simpleMessage("Exit VyPlay?"),
     "exportData": MessageLookupByLibrary.simpleMessage(
       "ഡാറ്റ എക്സ്പോർട്ട് ചെയ്യുക",
     ),
@@ -321,6 +355,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "notificationsDenied": MessageLookupByLibrary.simpleMessage(
       "അറിയിപ്പ് അനുമതി നിഷേധിച്ചു",
     ),
+    "openDownloadedFile": MessageLookupByLibrary.simpleMessage("Open"),
     "openInBrowser": MessageLookupByLibrary.simpleMessage("ബ്രൗസറിൽ തുറക്കുക"),
     "openLinksExternally": MessageLookupByLibrary.simpleMessage(
       "ലിങ്കുകൾ ബാഹ്യ ബ്രൗസറിൽ തുറക്കുക",
@@ -344,6 +379,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "playlistNotFound": MessageLookupByLibrary.simpleMessage(
       "പ്ലേലിസ്റ്റ് കണ്ടെത്തിയില്ല",
     ),
+    "playlistOrder": MessageLookupByLibrary.simpleMessage("Playlist order"),
     "playlists": MessageLookupByLibrary.simpleMessage("പ്ലേലിസ്റ്റുകൾ"),
     "pluginCapabilityChannel": MessageLookupByLibrary.simpleMessage(
       "Channel metadata",
@@ -450,6 +486,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "queueShuffle": MessageLookupByLibrary.simpleMessage("ഷഫിൾ"),
     "readMoreText": MessageLookupByLibrary.simpleMessage("കൂടുതൽ വായിക്കുക"),
     "recentSearches": MessageLookupByLibrary.simpleMessage("സമീപകാല തിരയലുകൾ"),
+    "recheckFolder": MessageLookupByLibrary.simpleMessage("Re-check"),
     "refresh": MessageLookupByLibrary.simpleMessage("Refresh"),
     "refreshToLoad": MessageLookupByLibrary.simpleMessage(
       "പുതുക്കാൻ താഴേക്ക് വലിക്കുക",
@@ -484,6 +521,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "ഡിസ്ലൈക്കുകൾ വീണ്ടെടുക്കുക",
     ),
     "retry": MessageLookupByLibrary.simpleMessage("വീണ്ടും ശ്രമിക്കുക"),
+    "retryDownload": MessageLookupByLibrary.simpleMessage("Retry"),
     "saveToDevice": MessageLookupByLibrary.simpleMessage(
       "ഉപകരണത്തിൽ സേവ് ചെയ്യുക",
     ),
@@ -512,6 +550,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "searchHistoryEnabledDescription": MessageLookupByLibrary.simpleMessage(
       "വേഗത്തിലുള്ള ആക്സസിനായി തിരയൽ ചോദ്യങ്ങൾ സേവ് ചെയ്യുക",
     ),
+    "searchInPlaylist": MessageLookupByLibrary.simpleMessage(
+      "Search in playlist",
+    ),
     "searchSavedVideos": MessageLookupByLibrary.simpleMessage(
       "സേവ് ചെയ്ത വീഡിയോകളിൽ തിരയുക...",
     ),
@@ -535,6 +576,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "servicePiped": MessageLookupByLibrary.simpleMessage("Piped"),
     "settings": MessageLookupByLibrary.simpleMessage("ക്രമീകരണങ്ങൾ"),
     "share": MessageLookupByLibrary.simpleMessage("പങ്കിടുക"),
+    "shareDownloadedFile": MessageLookupByLibrary.simpleMessage("Share"),
     "shareLogs": MessageLookupByLibrary.simpleMessage("ലോഗുകൾ പങ്കിടുക"),
     "shareVia": MessageLookupByLibrary.simpleMessage("പങ്കിടുക"),
     "shorts": MessageLookupByLibrary.simpleMessage("Shorts"),
@@ -568,7 +610,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "sleepTimerOff": MessageLookupByLibrary.simpleMessage("ഓഫ്"),
     "sleepTimerSet": MessageLookupByLibrary.simpleMessage("സെറ്റ് ചെയ്യുക"),
     "sort": MessageLookupByLibrary.simpleMessage("ക്രമീകരിക്കുക"),
+    "sortAToZ": MessageLookupByLibrary.simpleMessage("Title A–Z"),
     "sortBy": MessageLookupByLibrary.simpleMessage("ക്രമീകരിക്കുക"),
+    "sortZToA": MessageLookupByLibrary.simpleMessage("Title Z–A"),
     "sponsor": MessageLookupByLibrary.simpleMessage("സ്പോൺസർ"),
     "sponsorBlock": MessageLookupByLibrary.simpleMessage("SponsorBlock"),
     "sponsorBlockCategories": MessageLookupByLibrary.simpleMessage(

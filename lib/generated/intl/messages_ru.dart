@@ -99,6 +99,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "channelSubscribers": m2,
     "channels": MessageLookupByLibrary.simpleMessage("Каналы"),
+    "checkNow": MessageLookupByLibrary.simpleMessage("Check now"),
+    "checkNowDone": MessageLookupByLibrary.simpleMessage(
+      "Checked for new uploads.",
+    ),
     "clearAll": MessageLookupByLibrary.simpleMessage("Очистить всё"),
     "clearAllHistory": MessageLookupByLibrary.simpleMessage("Очистить историю"),
     "clearAllHistoryConfirm": MessageLookupByLibrary.simpleMessage(
@@ -155,7 +159,32 @@ class MessageLookup extends MessageLookupByLibrary {
     "dislike": MessageLookupByLibrary.simpleMessage("Не нравится"),
     "distractionFree": MessageLookupByLibrary.simpleMessage("Отсекая лишнее"),
     "download": MessageLookupByLibrary.simpleMessage("Скачать"),
+    "downloadAll": MessageLookupByLibrary.simpleMessage("Download all"),
+    "downloadAllFailed": MessageLookupByLibrary.simpleMessage(
+      "Could not queue playlist downloads.",
+    ),
+    "downloadAllQueued": MessageLookupByLibrary.simpleMessage(
+      "Playlist videos added to the download queue.",
+    ),
     "downloadFailed": m4,
+    "downloadFileMissing": MessageLookupByLibrary.simpleMessage(
+      "The downloaded file could not be opened. It may have been deleted.",
+    ),
+    "downloadFolderNotWritable": MessageLookupByLibrary.simpleMessage(
+      "This folder is not writable.",
+    ),
+    "downloadFolderReady": MessageLookupByLibrary.simpleMessage(
+      "Writable — downloads will be saved here.",
+    ),
+    "downloadFolderRejected": MessageLookupByLibrary.simpleMessage(
+      "That folder cannot be used. Nothing was changed.",
+    ),
+    "downloadFolderSaved": MessageLookupByLibrary.simpleMessage(
+      "Download folder updated.",
+    ),
+    "downloadFolderUnavailable": MessageLookupByLibrary.simpleMessage(
+      "This folder is no longer available.",
+    ),
     "downloadStarted": MessageLookupByLibrary.simpleMessage("Загрузка начата"),
     "downloadType": MessageLookupByLibrary.simpleMessage("Тип загрузки"),
     "downloading": MessageLookupByLibrary.simpleMessage("Загрузка"),
@@ -166,6 +195,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "enableHlsPlayerDescription": MessageLookupByLibrary.simpleMessage(
       "Переключит на проигрыватель HLS, поддерживающий больше форматов. Отключите при ошибках.",
     ),
+    "exitApp": MessageLookupByLibrary.simpleMessage("Exit"),
+    "exitConfirmMessage": MessageLookupByLibrary.simpleMessage(
+      "Playback will stop.",
+    ),
+    "exitConfirmTitle": MessageLookupByLibrary.simpleMessage("Exit VyPlay?"),
     "exportData": MessageLookupByLibrary.simpleMessage("Экспорт данных"),
     "exportSubscriptions": MessageLookupByLibrary.simpleMessage(
       "Экспорт подписок",
@@ -279,6 +313,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "notificationsDenied": MessageLookupByLibrary.simpleMessage(
       "Разрешение на уведомления отклонено",
     ),
+    "openDownloadedFile": MessageLookupByLibrary.simpleMessage("Open"),
     "openInBrowser": MessageLookupByLibrary.simpleMessage("Открыть в браузере"),
     "openLinksExternally": MessageLookupByLibrary.simpleMessage(
       "Открывать ссылки во внешнем браузере",
@@ -302,6 +337,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "playlistNotFound": MessageLookupByLibrary.simpleMessage(
       "Плейлист не найден",
     ),
+    "playlistOrder": MessageLookupByLibrary.simpleMessage("Playlist order"),
     "playlists": MessageLookupByLibrary.simpleMessage("Плейлисты"),
     "pluginCapabilityChannel": MessageLookupByLibrary.simpleMessage(
       "Channel metadata",
@@ -408,6 +444,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "queueShuffle": MessageLookupByLibrary.simpleMessage("Перемешать"),
     "readMoreText": MessageLookupByLibrary.simpleMessage("Раскрыть"),
     "recentSearches": MessageLookupByLibrary.simpleMessage("Недавние запросы"),
+    "recheckFolder": MessageLookupByLibrary.simpleMessage("Re-check"),
     "refresh": MessageLookupByLibrary.simpleMessage("Refresh"),
     "refreshToLoad": MessageLookupByLibrary.simpleMessage(
       "Потяните вниз для обновления",
@@ -442,6 +479,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Вернуть дизлайки",
     ),
     "retry": MessageLookupByLibrary.simpleMessage("Повторить"),
+    "retryDownload": MessageLookupByLibrary.simpleMessage("Retry"),
     "saveToDevice": MessageLookupByLibrary.simpleMessage(
       "Сохранить на устройство",
     ),
@@ -472,6 +510,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "searchHistoryEnabledDescription": MessageLookupByLibrary.simpleMessage(
       "Сохраняйте запросы для быстрого доступа",
     ),
+    "searchInPlaylist": MessageLookupByLibrary.simpleMessage(
+      "Search in playlist",
+    ),
     "searchSavedVideos": MessageLookupByLibrary.simpleMessage(
       "Поиск в сохранённых...",
     ),
@@ -493,6 +534,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "servicePiped": MessageLookupByLibrary.simpleMessage("Piped"),
     "settings": MessageLookupByLibrary.simpleMessage("Настройки"),
     "share": MessageLookupByLibrary.simpleMessage("Поделиться"),
+    "shareDownloadedFile": MessageLookupByLibrary.simpleMessage("Share"),
     "shareLogs": MessageLookupByLibrary.simpleMessage("Поделиться логами"),
     "shareVia": MessageLookupByLibrary.simpleMessage("Поделиться через"),
     "shorts": MessageLookupByLibrary.simpleMessage("Shorts"),
@@ -524,7 +566,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "sleepTimerOff": MessageLookupByLibrary.simpleMessage("Выкл."),
     "sleepTimerSet": MessageLookupByLibrary.simpleMessage("Задать"),
     "sort": MessageLookupByLibrary.simpleMessage("Сортировка"),
+    "sortAToZ": MessageLookupByLibrary.simpleMessage("Title A–Z"),
     "sortBy": MessageLookupByLibrary.simpleMessage("Сортировать по"),
+    "sortZToA": MessageLookupByLibrary.simpleMessage("Title Z–A"),
     "sponsor": MessageLookupByLibrary.simpleMessage("Спонсор"),
     "sponsorBlock": MessageLookupByLibrary.simpleMessage("SponsorBlock"),
     "sponsorBlockCategories": MessageLookupByLibrary.simpleMessage(

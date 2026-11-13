@@ -10,7 +10,9 @@ import 'package:vyplay/application/application.dart';
 import 'package:vyplay/core/player/global_player_controller.dart';
 import 'package:vyplay/core/services/audio_handler_service.dart';
 import 'package:vyplay/core/services/exoplayer_notification_bridge.dart';
+import 'package:vyplay/core/services/external_player_service.dart';
 import 'package:vyplay/core/services/pip_service.dart';
+import 'package:vyplay/core/services/player_preferences_service.dart';
 import 'package:vyplay/domain/saved/models/local_store.dart';
 import 'package:vyplay/domain/sponsorblock/models/sponsor_segment.dart';
 import 'package:vyplay/domain/watch/models/newpipe/newpipe_subtitle.dart';
@@ -30,6 +32,7 @@ import 'package:vyplay/generated/l10n.dart';
 import 'package:go_router/go_router.dart';
 import 'package:screen_brightness/screen_brightness.dart';
 import 'package:volume_controller/volume_controller.dart';
+import 'package:vyplay/core/operations/math_operations.dart';
 
 class NewPipeExoPlayer extends StatefulWidget {
   const NewPipeExoPlayer({
@@ -75,6 +78,8 @@ class _NewPipeExoPlayerState extends State<NewPipeExoPlayer> {
   final _resolver = NewPipePlaybackResolver();
   final _pipService = PipService();
   final _globalPlayer = GlobalPlayerController();
+  final _playerPreferences = PlayerPreferencesService();
+  final _externalPlayer = ExternalPlayerService();
   MethodChannel? _channel;
   Timer? _historyTimer;
   Timer? _hideTimer;
@@ -102,6 +107,27 @@ class _NewPipeExoPlayerState extends State<NewPipeExoPlayer> {
   bool _isReloadingLiveUrl = false;
   int? _sleepTimerMinutes;
   Timer? _sleepTimer;
+
+  /// Skip-silence is owned by ExoPlayer itself; this mirrors the state so the
+  /// sheet can show it and every reload can resend it.
+  bool _skipSilence = false;
+
+  /// Audio-only playback: the video surface is hidden, audio keeps playing.
+  bool _audioOnly = false;
+
+  /// Whether the current speed is stored for this video's channel.
+  bool _rememberSpeedForChannel = false;
+
+  /// Key used for the per-channel speed entry. The channel URL is stable across
+  /// uploads, unlike the display name which the owner can change.
+  String? get _channelKey {
+    final url = widget.watchInfo.uploaderUrl;
+    if (url != null && url.trim().isNotEmpty) {
+      return url.trim();
+    }
+    final name = widget.watchInfo.uploaderName;
+    return (name == null || name.trim().isEmpty) ? null : 'name:${name.trim()}';
+  }
   late List<VideoChapter> _chapters;
   bool _autoAdvanced = false;
   late PlaybackConfiguration _config;
@@ -144,6 +170,8 @@ class _NewPipeExoPlayerState extends State<NewPipeExoPlayer> {
         ? _globalPlayer.nativePosition.inMilliseconds
         : widget.playbackPosition * 1000;
     _registerNativeSession();
+    unawaited(_restoreSkipSilence());
+    unawaited(_restorePlayerPreferences());
     _initDeviceControls();
     _initPip();
     if (_currentSubtitle != null) {
@@ -310,6 +338,9 @@ class _NewPipeExoPlayerState extends State<NewPipeExoPlayer> {
       'startPositionMs': startPositionMs ?? _positionMs,
       'playWhenReady': true,
       'fitMode': _fitMode,
+      // Sent with every load so a quality/audio-track reload keeps the setting.
+      'skipSilence': _skipSilence,
+      'audioOnly': _audioOnly,
       'title': widget.watchInfo.title,
       'keepPosition': keepPosition,
       'selectedSubtitleUrl': null,
@@ -537,6 +568,51 @@ class _NewPipeExoPlayerState extends State<NewPipeExoPlayer> {
     _globalPlayer.updateNativeExoPlayerSelections(speed: speed);
     await _channel?.invokeMethod('setSpeed', {'speed': speed});
     unawaited(_syncNotificationState(force: true));
+
+    // Per-channel memory is opt-in; without it the global default is untouched.
+    final channelKey = _channelKey;
+    if (_rememberSpeedForChannel && channelKey != null) {
+      await _playerPreferences.setChannelSpeed(channelKey, speed);
+    }
+  }
+
+  /// Loads the persisted audio-only and per-channel-speed preferences.
+  Future<void> _restorePlayerPreferences() async {
+    final audioOnly = await _playerPreferences.isAudioOnlyEnabled();
+    final channelKey = _channelKey;
+    final channelSpeed =
+        channelKey == null ? null : await _playerPreferences.channelSpeed(channelKey);
+
+    if (!mounted) return;
+    setState(() {
+      _audioOnly = audioOnly;
+      _rememberSpeedForChannel = channelSpeed != null;
+    });
+
+    if (audioOnly) {
+      await _channel?.invokeMethod('setAudioOnly', {'enabled': true});
+    }
+
+    // A remembered channel speed wins over the global default on load.
+    if (channelSpeed != null && channelSpeed != _speed) {
+      await _changeSpeed(channelSpeed);
+    }
+  }
+
+  Future<void> _setAudioOnly(bool enabled) async {
+    setState(() => _audioOnly = enabled);
+    await _playerPreferences.setAudioOnlyEnabled(enabled);
+    await _channel?.invokeMethod('setAudioOnly', {'enabled': enabled});
+  }
+
+  Future<void> _setRememberSpeedForChannel(bool remember) async {
+    setState(() => _rememberSpeedForChannel = remember);
+    final channelKey = _channelKey;
+    if (channelKey == null) return;
+    await _playerPreferences.setChannelSpeed(
+      channelKey,
+      remember ? _speed : null,
+    );
   }
 
   Future<void> _initNotification() async {
@@ -635,9 +711,56 @@ class _NewPipeExoPlayerState extends State<NewPipeExoPlayer> {
           onFitModeChanged: _changeFitMode,
           sleepTimerMinutes: _sleepTimerMinutes,
           onSleepTimerChanged: _setSleepTimer,
+          skipSilenceEnabled: _skipSilence,
+          onSkipSilenceChanged: _setSkipSilence,
+          onOpenInExternalPlayer: _openInExternalPlayer,
+          audioOnlyEnabled: _audioOnly,
+          onAudioOnlyChanged: _setAudioOnly,
+          rememberSpeedForChannel: _rememberSpeedForChannel,
+          onRememberSpeedForChannelChanged: _setRememberSpeedForChannel,
         ),
       ),
     );
+  }
+
+  /// Loads the persisted skip-silence preference and applies it to the player.
+  Future<void> _restoreSkipSilence() async {
+    final enabled = await _playerPreferences.isSkipSilenceEnabled();
+    if (!mounted) return;
+    setState(() => _skipSilence = enabled);
+    await _channel?.invokeMethod('setSkipSilence', {'enabled': enabled});
+  }
+
+  Future<void> _setSkipSilence(bool enabled) async {
+    setState(() => _skipSilence = enabled);
+    await _playerPreferences.setSkipSilenceEnabled(enabled);
+    await _channel?.invokeMethod('setSkipSilence', {'enabled': enabled});
+  }
+
+  /// Hands the current stream to another installed player.
+  Future<void> _openInExternalPlayer() async {
+    final url = _config.videoUrl ?? _config.manifestUrl;
+    final messenger = ScaffoldMessenger.of(context);
+    final locals = S.of(context);
+
+    if (url == null || url.isEmpty) {
+      messenger.showSnackBar(
+        SnackBar(content: Text(locals.failedToOpenFile)),
+      );
+      return;
+    }
+
+    final opened = await _externalPlayer.open(
+      url: url,
+      mimeType: ExternalPlayerService.mimeTypeFor(url),
+      title: widget.watchInfo.title,
+    );
+
+    if (!opened && mounted) {
+      messenger.showSnackBar(
+        SnackBar(content: Text(locals.failedToOpenFile)),
+      );
+    }
   }
 
   Future<void> _changeFitMode(String fitMode) async {
@@ -1070,7 +1193,7 @@ class _NewPipeExoPlayerState extends State<NewPipeExoPlayer> {
               padding: const EdgeInsets.fromLTRB(12, 0, 12, 8),
               child: Row(
                 children: [
-                  Text(_formatDuration(position), style: _timeStyle),
+                  Text(formatPlayerDuration(position), style: _timeStyle),
                   Expanded(
                     child: SliderTheme(
                       data: SliderTheme.of(context).copyWith(
@@ -1109,7 +1232,7 @@ class _NewPipeExoPlayerState extends State<NewPipeExoPlayer> {
                       ),
                     ),
                   ),
-                  Text(_config.isLive ? 'LIVE' : _formatDuration(duration),
+                  Text(_config.isLive ? 'LIVE' : formatPlayerDuration(duration),
                       style: _timeStyle),
                 ],
               ),
@@ -1312,13 +1435,6 @@ class _NewPipeExoPlayerState extends State<NewPipeExoPlayer> {
         fontFeatures: [FontFeature.tabularFigures()],
       );
 
-  String _formatDuration(Duration duration) {
-    final hours = duration.inHours;
-    final minutes = duration.inMinutes.remainder(60).toString().padLeft(2, '0');
-    final seconds = duration.inSeconds.remainder(60).toString().padLeft(2, '0');
-    if (hours > 0) return '$hours:$minutes:$seconds';
-    return '${duration.inMinutes}:$seconds';
-  }
 
   String? _captionForPosition(int positionMs) {
     for (final cue in _captionCues) {

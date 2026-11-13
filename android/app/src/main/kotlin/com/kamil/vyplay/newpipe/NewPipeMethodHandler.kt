@@ -1,6 +1,8 @@
 package com.kamil.vyplay.newpipe
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Handler
 import android.os.Looper
 import com.kamil.vyplay.potoken.PoTokenProviderImpl
@@ -19,7 +21,7 @@ import org.schabi.newpipe.extractor.localization.ContentCountry
 import org.schabi.newpipe.extractor.localization.Localization
 import org.schabi.newpipe.extractor.playlist.PlaylistInfo
 import org.schabi.newpipe.extractor.search.SearchInfo
-import org.schabi.newpipe.extractor.services.youtube.YoutubeStreamExtractor
+import org.schabi.newpipe.extractor.services.youtube.extractors.YoutubeStreamExtractor
 import org.schabi.newpipe.extractor.stream.StreamInfo
 import org.schabi.newpipe.extractor.stream.AudioStream
 import org.schabi.newpipe.extractor.stream.VideoStream
@@ -79,7 +81,49 @@ class NewPipeMethodHandler(
             "getCommentReplies" -> handleGetCommentReplies(call, result)
             "getPlaylist" -> handleGetPlaylist(call, result)
             "getRelatedStreams" -> handleGetRelatedStreams(call, result)
+            "openExternalPlayer" -> handleOpenExternalPlayer(call, result)
             else -> result.notImplemented()
+        }
+    }
+
+    /**
+     * Hands the resolved stream URL to another video player.
+     *
+     * Uses ACTION_VIEW with an explicit MIME type so Android offers every app
+     * that can play this container (VLC, MX Player, the system player…) instead
+     * of only browsers. The URL is the already-extracted stream, so no extra
+     * network request or extractor work happens here.
+     */
+    private fun handleOpenExternalPlayer(call: MethodCall, result: MethodChannel.Result) {
+        val url = call.argument<String>("url")
+        if (url.isNullOrBlank()) {
+            result.error("INVALID_URL", "A stream url is required", null)
+            return
+        }
+
+        val context = appContext
+        if (context == null) {
+            result.error("NO_CONTEXT", "No Android context is available", null)
+            return
+        }
+
+        val mimeType = call.argument<String>("mimeType") ?: "video/*"
+        val title = call.argument<String>("title")
+
+        try {
+            val view = Intent(Intent.ACTION_VIEW).apply {
+                setDataAndType(Uri.parse(url), mimeType)
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            }
+            val chooser = Intent.createChooser(view, title).apply {
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            }
+            context.startActivity(chooser)
+            result.success(true)
+        } catch (e: Exception) {
+            // No player installed / activity not found.
+            result.error("NO_HANDLER", e.message ?: "No app can play this stream", null)
         }
     }
 

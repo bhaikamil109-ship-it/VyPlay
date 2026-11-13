@@ -493,8 +493,11 @@ class _ScreenSubscriptionsState extends State<ScreenSubscriptions>
     return _isGridView
         ? GridView.builder(
             padding: const EdgeInsets.all(AppSpacing.lg),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3,
+            // Extent-based, not a fixed column count: phones keep roughly the
+            // same three columns while tablets and foldables get more instead
+            // of three very wide cards.
+            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+              maxCrossAxisExtent: 140,
               crossAxisSpacing: AppSpacing.md,
               mainAxisSpacing: AppSpacing.md,
               childAspectRatio: 0.75,
@@ -577,8 +580,8 @@ class _ScreenSubscriptionsState extends State<ScreenSubscriptions>
       child: _isGridView
           ? GridView.builder(
               padding: const EdgeInsets.all(AppSpacing.lg),
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3,
+              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                maxCrossAxisExtent: 140,
                 crossAxisSpacing: AppSpacing.md,
                 mainAxisSpacing: AppSpacing.md,
                 childAspectRatio: 0.75,

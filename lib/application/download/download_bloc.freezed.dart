@@ -56,6 +56,7 @@ extension DownloadEventPatterns on DownloadEvent {
     TResult Function(_StartDownload value)? startDownload,
     TResult Function(_PauseDownload value)? pauseDownload,
     TResult Function(_ResumeDownload value)? resumeDownload,
+    TResult Function(_RetryDownload value)? retryDownload,
     TResult Function(_CancelDownload value)? cancelDownload,
     TResult Function(_DeleteDownload value)? deleteDownload,
     TResult Function(_GetAllDownloads value)? getAllDownloads,
@@ -79,6 +80,8 @@ extension DownloadEventPatterns on DownloadEvent {
         return pauseDownload(_that);
       case _ResumeDownload() when resumeDownload != null:
         return resumeDownload(_that);
+      case _RetryDownload() when retryDownload != null:
+        return retryDownload(_that);
       case _CancelDownload() when cancelDownload != null:
         return cancelDownload(_that);
       case _DeleteDownload() when deleteDownload != null:
@@ -121,6 +124,7 @@ extension DownloadEventPatterns on DownloadEvent {
     required TResult Function(_StartDownload value) startDownload,
     required TResult Function(_PauseDownload value) pauseDownload,
     required TResult Function(_ResumeDownload value) resumeDownload,
+    required TResult Function(_RetryDownload value) retryDownload,
     required TResult Function(_CancelDownload value) cancelDownload,
     required TResult Function(_DeleteDownload value) deleteDownload,
     required TResult Function(_GetAllDownloads value) getAllDownloads,
@@ -143,6 +147,8 @@ extension DownloadEventPatterns on DownloadEvent {
         return pauseDownload(_that);
       case _ResumeDownload():
         return resumeDownload(_that);
+      case _RetryDownload():
+        return retryDownload(_that);
       case _CancelDownload():
         return cancelDownload(_that);
       case _DeleteDownload():
@@ -182,6 +188,7 @@ extension DownloadEventPatterns on DownloadEvent {
     TResult? Function(_StartDownload value)? startDownload,
     TResult? Function(_PauseDownload value)? pauseDownload,
     TResult? Function(_ResumeDownload value)? resumeDownload,
+    TResult? Function(_RetryDownload value)? retryDownload,
     TResult? Function(_CancelDownload value)? cancelDownload,
     TResult? Function(_DeleteDownload value)? deleteDownload,
     TResult? Function(_GetAllDownloads value)? getAllDownloads,
@@ -204,6 +211,8 @@ extension DownloadEventPatterns on DownloadEvent {
         return pauseDownload(_that);
       case _ResumeDownload() when resumeDownload != null:
         return resumeDownload(_that);
+      case _RetryDownload() when retryDownload != null:
+        return retryDownload(_that);
       case _CancelDownload() when cancelDownload != null:
         return cancelDownload(_that);
       case _DeleteDownload() when deleteDownload != null:
@@ -263,6 +272,7 @@ extension DownloadEventPatterns on DownloadEvent {
         startDownload,
     TResult Function(int downloadId)? pauseDownload,
     TResult Function(int downloadId)? resumeDownload,
+    TResult Function(int downloadId)? retryDownload,
     TResult Function(int downloadId)? cancelDownload,
     TResult Function(int downloadId)? deleteDownload,
     TResult Function(String profileName)? getAllDownloads,
@@ -303,6 +313,8 @@ extension DownloadEventPatterns on DownloadEvent {
         return pauseDownload(_that.downloadId);
       case _ResumeDownload() when resumeDownload != null:
         return resumeDownload(_that.downloadId);
+      case _RetryDownload() when retryDownload != null:
+        return retryDownload(_that.downloadId);
       case _CancelDownload() when cancelDownload != null:
         return cancelDownload(_that.downloadId);
       case _DeleteDownload() when deleteDownload != null:
@@ -364,6 +376,7 @@ extension DownloadEventPatterns on DownloadEvent {
         startDownload,
     required TResult Function(int downloadId) pauseDownload,
     required TResult Function(int downloadId) resumeDownload,
+    required TResult Function(int downloadId) retryDownload,
     required TResult Function(int downloadId) cancelDownload,
     required TResult Function(int downloadId) deleteDownload,
     required TResult Function(String profileName) getAllDownloads,
@@ -403,6 +416,8 @@ extension DownloadEventPatterns on DownloadEvent {
         return pauseDownload(_that.downloadId);
       case _ResumeDownload():
         return resumeDownload(_that.downloadId);
+      case _RetryDownload():
+        return retryDownload(_that.downloadId);
       case _CancelDownload():
         return cancelDownload(_that.downloadId);
       case _DeleteDownload():
@@ -460,6 +475,7 @@ extension DownloadEventPatterns on DownloadEvent {
         startDownload,
     TResult? Function(int downloadId)? pauseDownload,
     TResult? Function(int downloadId)? resumeDownload,
+    TResult? Function(int downloadId)? retryDownload,
     TResult? Function(int downloadId)? cancelDownload,
     TResult? Function(int downloadId)? deleteDownload,
     TResult? Function(String profileName)? getAllDownloads,
@@ -499,6 +515,8 @@ extension DownloadEventPatterns on DownloadEvent {
         return pauseDownload(_that.downloadId);
       case _ResumeDownload() when resumeDownload != null:
         return resumeDownload(_that.downloadId);
+      case _RetryDownload() when retryDownload != null:
+        return retryDownload(_that.downloadId);
       case _CancelDownload() when cancelDownload != null:
         return cancelDownload(_that.downloadId);
       case _DeleteDownload() when deleteDownload != null:
@@ -1038,6 +1056,71 @@ class __$ResumeDownloadCopyWithImpl<$Res>
     Object? downloadId = null,
   }) {
     return _then(_ResumeDownload(
+      downloadId: null == downloadId
+          ? _self.downloadId
+          : downloadId // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _RetryDownload implements DownloadEvent {
+  const _RetryDownload({required this.downloadId});
+
+  final int downloadId;
+
+  /// Create a copy of DownloadEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$RetryDownloadCopyWith<_RetryDownload> get copyWith =>
+      __$RetryDownloadCopyWithImpl<_RetryDownload>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _RetryDownload &&
+            (identical(other.downloadId, downloadId) ||
+                other.downloadId == downloadId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, downloadId);
+
+  @override
+  String toString() {
+    return 'DownloadEvent.retryDownload(downloadId: $downloadId)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$RetryDownloadCopyWith<$Res>
+    implements $DownloadEventCopyWith<$Res> {
+  factory _$RetryDownloadCopyWith(
+          _RetryDownload value, $Res Function(_RetryDownload) _then) =
+      __$RetryDownloadCopyWithImpl;
+  @useResult
+  $Res call({int downloadId});
+}
+
+/// @nodoc
+class __$RetryDownloadCopyWithImpl<$Res>
+    implements _$RetryDownloadCopyWith<$Res> {
+  __$RetryDownloadCopyWithImpl(this._self, this._then);
+
+  final _RetryDownload _self;
+  final $Res Function(_RetryDownload) _then;
+
+  /// Create a copy of DownloadEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? downloadId = null,
+  }) {
+    return _then(_RetryDownload(
       downloadId: null == downloadId
           ? _self.downloadId
           : downloadId // ignore: cast_nullable_to_non_nullable

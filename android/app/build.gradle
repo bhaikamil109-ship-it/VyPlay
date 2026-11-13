@@ -175,6 +175,16 @@ dependencies {
     // Kotlin Coroutines - Async operations for background extraction
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1'
 
+    // Storage Access Framework: DocumentFile wraps the tree URIs returned by
+    // ACTION_OPEN_DOCUMENT_TREE. Android 11+ cannot write a user-picked folder
+    // through java.io.File, so downloads are published with ContentResolver.
+    implementation 'androidx.documentfile:documentfile:1.0.1'
+    // registerForActivityResult (ActivityResultLauncher) for the folder picker.
+    implementation 'androidx.activity:activity-ktx:1.9.3'
+
+    // JVM unit tests for the pure SAF naming rules (no device required).
+    testImplementation 'junit:junit:4.13.2'
+
     // Media3 / ExoPlayer - native Android playback path for NewPipe streams
     def media3Version = '1.4.1'
     implementation "androidx.media3:media3-exoplayer:$media3Version"
