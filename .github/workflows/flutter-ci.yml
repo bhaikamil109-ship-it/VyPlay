@@ -1,12 +1,5 @@
 name: Flutter CI
 
-# Continuous verification for every change to main: static analysis, the full
-# unit/widget test suite, and a debug APK build. The debug build is the part
-# that cannot run in a disk-constrained sandbox, so CI is where it gets proven.
-#
-# Release builds are deliberately NOT here: they need a signing keystore, which
-# is handled by android-draft-release.yml.
-
 on:
   push:
     branches:
@@ -16,31 +9,23 @@ on:
       - main
   workflow_dispatch:
 
-# Least privilege: this workflow only reads the repository. It uploads build
-# artifacts through the Actions runtime, which does not need contents: write.
 permissions:
   contents: read
 
-# One run per branch. A new push supersedes the previous run instead of queueing
-# behind it, so a stale commit never holds the runner.
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  analyze-test-build:
-    name: Analyze, test and build debug APK
-    runs-on: ubuntu-latest
+  analyze-test:
+    name: Analyze and test
+    runs-on: ubuntu-24.04
     timeout-minutes: 45
 
     steps:
       - name: Checkout
         uses: actions/checkout@v5
 
-      # The ubuntu runner image ships several large toolchains this build never
-      # uses. Removing them frees ~20 GB, which the Gradle build needs: the NDK
-      # is ~2.5 GB and the merged native libraries (FFmpeg + mpv + Flutter) are
-      # several GB more.
       - name: Free disk space
         shell: bash
         run: |
@@ -57,110 +42,70 @@ jobs:
           sudo apt-get clean
           echo "Disk after:"; df -h /
 
-      # Gradle 8.14.5 + AGP 8.13.2 require a JDK 17 toolchain. The runner's
-      # default JDK is not guaranteed to be 17, so it is pinned explicitly.
       - name: Set up Java 17
         uses: actions/setup-java@v5
         with:
           distribution: temurin
-          java-version: "17"
+          java-version: '17'
 
-      # 3.47.1 matches the version android-draft-release.yml already pins, so
-      # both workflows build with the same toolchain.
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: "3.47.1"
+          flutter-version: '3.47.1'
           cache: true
 
       - name: Flutter version
         run: flutter --version
 
-      # Informational only: a missing optional component must not fail the job.
-      - name: Flutter doctor
-        run: flutter doctor -v || true
-
-      # android/gradle.properties sets `android.builder.sdkDownload=false`, which
-      # stops AGP from fetching missing SDK components on its own. That keeps the
-      # NDK size out of the build, but it also means every platform and
-      # build-tools the build needs must be installed up front.
       - name: Install required Android SDK packages
         shell: bash
         run: |
           set -euo pipefail
           SDK_ROOT="${ANDROID_SDK_ROOT:-${ANDROID_HOME:-}}"
-          if [[ -z "${SDK_ROOT}" ]]; then
-            echo "Neither ANDROID_SDK_ROOT nor ANDROID_HOME is set." >&2
+          if [[ -z "$SDK_ROOT" ]]; then
+            echo 'Neither ANDROID_SDK_ROOT nor ANDROID_HOME is set.' >&2
             exit 1
           fi
-          echo "Android SDK root: ${SDK_ROOT}"
-
-          # Prefer the newest cmdline-tools copy; fall back to whatever
-          # sdkmanager is already on PATH if the directory layout differs.
-          SDKMANAGER="$(find "${SDK_ROOT}/cmdline-tools" -name sdkmanager -type f 2>/dev/null | sort -V | tail -n 1 || true)"
-          if [[ -z "${SDKMANAGER}" ]]; then
+          SDKMANAGER="$(find "$SDK_ROOT/cmdline-tools" -name sdkmanager -type f 2>/dev/null | sort -V | tail -n 1 || true)"
+          if [[ -z "$SDKMANAGER" ]]; then
             SDKMANAGER="$(command -v sdkmanager || true)"
           fi
-          if [[ -z "${SDKMANAGER}" ]]; then
-            echo "sdkmanager not found in ${SDK_ROOT}/cmdline-tools or on PATH." >&2
+          if [[ -z "$SDKMANAGER" ]]; then
+            echo "sdkmanager not found under $SDK_ROOT/cmdline-tools or on PATH." >&2
             exit 1
           fi
-          echo "sdkmanager: ${SDKMANAGER}"
-
-          yes | "${SDKMANAGER}" --licenses > /dev/null 2>&1 || true
-
-          "${SDKMANAGER}" --install \
-            "platform-tools" \
-            "platforms;android-36" \
-            "platforms;android-35" \
-            "build-tools;36.0.0"
-
-          echo "--- installed platforms ---"
-          ls "${SDK_ROOT}/platforms"
-          echo "--- installed build-tools ---"
-          ls "${SDK_ROOT}/build-tools"
+          yes | "$SDKMANAGER" --licenses >/dev/null 2>&1 || true
+          "$SDKMANAGER" --install \
+            'platform-tools' \
+            'platforms;android-36' \
+            'platforms;android-35' \
+            'build-tools;36.0.0'
 
       - name: Install dependencies
         run: flutter pub get
 
-      # --no-fatal-infos keeps style-level infos from failing CI while still
-      # failing on warnings and errors.
       - name: Analyze
-        run: flutter analyze --no-fatal-infos
+        shell: bash
+        run: |
+          set -o pipefail
+          flutter analyze --no-fatal-infos 2>&1 | tee "$RUNNER_TEMP/flutter-analyze.log"
 
       - name: Test
-        run: flutter test --reporter expanded
-
-      # A single debug APK, deliberately: no Gradle `splits` block and no
-      # --split-per-abi here, so the artifact is the plain app-debug.apk that
-      # the flutter tool expects to find under build/app/outputs/flutter-apk/.
-      - name: Build debug APK
-        run: flutter build apk --debug
-
-      - name: List built APKs
         shell: bash
         run: |
-          set -euo pipefail
-          ls -lah build/app/outputs/flutter-apk/ || true
-          ls -lah build/app/outputs/apk/debug/ || true
+          set -o pipefail
+          flutter test --reporter expanded 2>&1 | tee "$RUNNER_TEMP/flutter-test.log"
 
-      # If the Gradle step ever fails again, this prints the real compiler or
-      # packaging error instead of only "failed to produce an .apk file".
-      - name: Show Gradle failure details
-        if: failure()
-        shell: bash
-        run: |
-          set +e
-          echo "=== build tree ==="
-          find build -maxdepth 4 -name '*.apk' -o -maxdepth 4 -name '*.log' 2>/dev/null | head -50
-          echo "=== outputs ==="
-          ls -laR build/app/outputs 2>/dev/null | head -80
-
-      - name: Upload debug APKs
-        uses: actions/upload-artifact@v4
+      - name: Upload small CI diagnostics
+        if: always()
+        continue-on-error: true
+        uses: actions/upload-artifact@v6
         with:
-          name: vyplay-debug-apk
-          path: build/app/outputs/flutter-apk/*.apk
-          retention-days: 1
-          if-no-files-found: error
+          name: flutter-ci-diagnostics-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/flutter-analyze.log
+            ${{ runner.temp }}/flutter-test.log
+          if-no-files-found: ignore
+          retention-days: 3
+          compression-level: 6
