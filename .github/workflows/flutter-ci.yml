@@ -1,3 +1,4 @@
+
 name: Flutter CI
 
 on:
@@ -96,16 +97,3 @@ jobs:
         run: |
           set -o pipefail
           flutter test --reporter expanded 2>&1 | tee "$RUNNER_TEMP/flutter-test.log"
-
-      - name: Upload small CI diagnostics
-        if: always()
-        continue-on-error: true
-        uses: actions/upload-artifact@v6
-        with:
-          name: flutter-ci-diagnostics-${{ github.run_id }}-${{ github.run_attempt }}
-          path: |
-            ${{ runner.temp }}/flutter-analyze.log
-            ${{ runner.temp }}/flutter-test.log
-          if-no-files-found: ignore
-          retention-days: 3
-          compression-level: 6
