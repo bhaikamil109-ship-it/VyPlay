@@ -1,16 +1,22 @@
-name: Android Draft Release
+
+name: Android Release
 
 on:
   push:
     tags:
       - 'v*'
   workflow_dispatch:
+    inputs:
+      release_tag:
+        description: 'Version tag to publish, e.g. v0.9.3'
+        required: true
+        type: string
 
 permissions:
   contents: read
 
 concurrency:
-  group: vyplay-release-${{ github.ref }}
+  group: vyplay-release-${{ inputs.release_tag || github.ref }}
   cancel-in-progress: false
 
 jobs:
@@ -19,8 +25,10 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
-      - name: Checkout tagged source
+      - name: Checkout release source
         uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event_name == 'workflow_dispatch' && inputs.release_tag || github.ref }}
 
       - name: Set up Java 17
         uses: actions/setup-java@v5
@@ -50,39 +58,28 @@ jobs:
           set -o pipefail
           flutter test --reporter expanded 2>&1 | tee "$RUNNER_TEMP/flutter-test.log"
 
-      - name: Upload small test diagnostics
-        if: always()
-        continue-on-error: true
-        uses: actions/upload-artifact@v6
-        with:
-          name: release-test-diagnostics-${{ github.run_id }}-${{ github.run_attempt }}
-          path: |
-            ${{ runner.temp }}/flutter-analyze.log
-            ${{ runner.temp }}/flutter-test.log
-          if-no-files-found: ignore
-          retention-days: 3
-          compression-level: 6
-
   build-and-release:
-    name: Build, verify, and update Draft Release
-    if: startsWith(github.ref, 'refs/tags/v')
+    name: Build, verify, and publish GitHub Release
+    if: startsWith(github.ref, 'refs/tags/v') || (github.event_name == 'workflow_dispatch' && inputs.release_tag != '')
     needs: verify
     runs-on: ubuntu-24.04
     timeout-minutes: 90
     permissions:
       contents: write
     env:
+      RELEASE_TAG: ${{ github.event_name == 'workflow_dispatch' && inputs.release_tag || github.ref_name }}
       ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
       ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
       ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
       ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
       ANDROID_RELEASE_CERT_SHA256: ${{ secrets.ANDROID_RELEASE_CERT_SHA256 }}
-      ANDROID_PACKAGE_ID: com.vyplay.app
+      ANDROID_PACKAGE_ID: com.kamil.vyplay
 
     steps:
-      - name: Checkout tagged source
+      - name: Checkout release source
         uses: actions/checkout@v5
         with:
+          ref: ${{ github.event_name == 'workflow_dispatch' && inputs.release_tag || github.ref }}
           fetch-depth: 0
 
       - name: Set up Java 17
@@ -121,8 +118,8 @@ jobs:
           print(match.group(1))
           PY
           )"
-          if [[ "$GITHUB_REF_NAME" != "v$VERSION" ]]; then
-            echo "Tag '$GITHUB_REF_NAME' must exactly match pubspec version 'v$VERSION'." >&2
+          if [[ "$RELEASE_TAG" != "v$VERSION" ]]; then
+            echo "Tag '$RELEASE_TAG' must exactly match pubspec version 'v$VERSION'." >&2
             exit 1
           fi
           for name in ANDROID_KEYSTORE_BASE64 ANDROID_KEYSTORE_PASSWORD ANDROID_KEY_PASSWORD ANDROID_KEY_ALIAS ANDROID_RELEASE_CERT_SHA256; do
@@ -192,7 +189,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p "$RUNNER_TEMP/vyplay-release-assets"
-          cp build/app/outputs/flutter-apk/app-release.apk "$RUNNER_TEMP/vyplay-release-assets/VyPlay-${GITHUB_REF_NAME}-universal.apk"
+          cp build/app/outputs/flutter-apk/app-release.apk "$RUNNER_TEMP/vyplay-release-assets/VyPlay-${RELEASE_TAG}-universal.apk"
 
       - name: Build split release APKs
         run: flutter build apk --release --split-per-abi --build-name='${{ steps.release_metadata.outputs.version }}' --build-number='${{ steps.release_metadata.outputs.build_number }}'
@@ -216,7 +213,7 @@ jobs:
           fi
           for apk in "${SPLIT_APKS[@]}"; do
             abi="$(basename "$apk" | sed -E 's/^app-(.*)-release\.apk$/\1/')"
-            cp "$apk" "$RELEASE_DIR/VyPlay-${GITHUB_REF_NAME}-${abi}.apk"
+            cp "$apk" "$RELEASE_DIR/VyPlay-${RELEASE_TAG}-${abi}.apk"
           done
           SDK_ROOT="${ANDROID_SDK_ROOT:-${ANDROID_HOME:-}}"
           if [[ -z "$SDK_ROOT" ]]; then
@@ -246,8 +243,8 @@ jobs:
           (cd "$RELEASE_DIR" && sha256sum --check SHA256SUMS)
           printf 'release_dir=%s\n' "$RELEASE_DIR" >> "$GITHUB_OUTPUT"
 
-      - name: Create or update Draft Release and upload verified APKs
-        id: draft_release
+      - name: Prepare unpublished Release and upload verified APK assets
+        id: release_stage
         env:
           GH_TOKEN: ${{ github.token }}
           RELEASE_DIR: ${{ steps.verify_apks.outputs.release_dir }}
@@ -255,7 +252,7 @@ jobs:
         run: |
           set -euo pipefail
           RELEASE_ERROR="$RUNNER_TEMP/release-query-error.log"
-          if RELEASE_JSON="$(gh api "repos/$GITHUB_REPOSITORY/releases/tags/$GITHUB_REF_NAME" 2>"$RELEASE_ERROR")"; then
+          if RELEASE_JSON="$(gh api "repos/$GITHUB_REPOSITORY/releases/tags/$RELEASE_TAG" 2>"$RELEASE_ERROR")"; then
             RELEASE_EXISTS=true
           else
             if ! grep -Fq 'HTTP 404' "$RELEASE_ERROR"; then
@@ -268,7 +265,7 @@ jobs:
           fi
           if [[ "$RELEASE_EXISTS" == 'true' ]]; then
             if [[ "$(jq -r '.draft' <<< "$RELEASE_JSON")" != 'true' ]]; then
-              echo "Release $GITHUB_REF_NAME is already published; refusing to alter it." >&2
+              echo "Release $RELEASE_TAG is already published; refusing to alter it." >&2
               exit 1
             fi
             RELEASE_ID="$(jq -r '.id' <<< "$RELEASE_JSON")"
@@ -278,35 +275,35 @@ jobs:
             done
           else
             RELEASE_JSON="$(gh api --method POST "repos/$GITHUB_REPOSITORY/releases" \
-              -f "tag_name=$GITHUB_REF_NAME" \
-              -f "target_commitish=$GITHUB_SHA" \
-              -f "name=VyPlay $GITHUB_REF_NAME" \
+              -f "tag_name=$RELEASE_TAG" \
+              -f "target_commitish=$(git rev-parse HEAD)" \
+              -f "name=VyPlay $RELEASE_TAG" \
               -F draft=true \
               -F generate_release_notes=true)"
             RELEASE_ID="$(jq -r '.id' <<< "$RELEASE_JSON")"
           fi
           while IFS= read -r -d '' apk; do
-            gh release upload "$GITHUB_REF_NAME" "$apk" --clobber
+            gh release upload "$RELEASE_TAG" "$apk" --clobber
           done < <(find "$RELEASE_DIR" -maxdepth 1 -type f -name '*.apk' -print0 | sort -z)
-          gh release upload "$GITHUB_REF_NAME" "$RELEASE_DIR/SHA256SUMS" --clobber
+          gh release upload "$RELEASE_TAG" "$RELEASE_DIR/SHA256SUMS" --clobber
           printf 'release_id=%s\n' "$RELEASE_ID" >> "$GITHUB_OUTPUT"
 
-      - name: Verify remote Draft Release asset names, sizes, and checksums
+      - name: Verify unpublished Release asset names, sizes, and checksums
         env:
           GH_TOKEN: ${{ github.token }}
           RELEASE_DIR: ${{ steps.verify_apks.outputs.release_dir }}
         shell: bash
         run: |
           set -euo pipefail
-          RELEASE_JSON="$(gh api "repos/$GITHUB_REPOSITORY/releases/tags/$GITHUB_REF_NAME")"
-          [[ "$(jq -r '.draft' <<< "$RELEASE_JSON")" == 'true' ]] || { echo 'Release is not a draft.' >&2; exit 1; }
+          RELEASE_JSON="$(gh api "repos/$GITHUB_REPOSITORY/releases/tags/$RELEASE_TAG")"
+          [[ "$(jq -r '.draft' <<< "$RELEASE_JSON")" == 'true' ]] || { echo 'Release was published before asset verification; refusing to continue.' >&2; exit 1; }
           DOWNLOAD_DIR="$RUNNER_TEMP/vyplay-release-download-check"
           mkdir -p "$DOWNLOAD_DIR"
           EXPECTED_NAMES="$(for asset in "$RELEASE_DIR"/*.apk "$RELEASE_DIR"/SHA256SUMS; do [[ -f "$asset" ]] && basename "$asset"; done | sort)"
           REMOTE_ANDROID_NAMES="$(jq -r '.assets[].name | select((startswith("VyPlay-") and (endswith(".apk") or endswith(".aab"))) or . == "SHA256SUMS")' <<< "$RELEASE_JSON" | sort)"
           if [[ "$EXPECTED_NAMES" != "$REMOTE_ANDROID_NAMES" ]]; then
-            echo 'Draft Release APK/checksum asset set does not exactly match the verified build.' >&2
-            diff -u <(printf '%s\\n' "$EXPECTED_NAMES") <(printf '%s\\n' "$REMOTE_ANDROID_NAMES") || true
+            echo 'Release APK/checksum asset set does not exactly match the verified build.' >&2
+            diff -u <(printf '%s\n' "$EXPECTED_NAMES") <(printf '%s\n' "$REMOTE_ANDROID_NAMES") || true
             exit 1
           fi
           while IFS= read -r -d '' asset; do
@@ -316,7 +313,7 @@ jobs:
             [[ -n "$remote" ]] || { echo "Release asset missing or duplicated: $name" >&2; exit 1; }
             remote_size="$(jq -r '.size' <<< "$remote")"
             [[ "$remote_size" == "$local_size" && "$remote_size" -gt 0 ]] || { echo "Release asset size mismatch: $name" >&2; exit 1; }
-            gh release download "$GITHUB_REF_NAME" --pattern "$name" --dir "$DOWNLOAD_DIR"
+            gh release download "$RELEASE_TAG" --pattern "$name" --dir "$DOWNLOAD_DIR"
             local_sha="$(sha256sum "$asset" | cut -d ' ' -f1)"
             remote_sha="$(sha256sum "$DOWNLOAD_DIR/$name" | cut -d ' ' -f1)"
             [[ "$local_sha" == "$remote_sha" ]] || { echo "Release asset checksum mismatch: $name" >&2; exit 1; }
@@ -324,15 +321,19 @@ jobs:
           done < <(find "$RELEASE_DIR" -maxdepth 1 -type f \( -name '*.apk' -o -name 'SHA256SUMS' \) -print0 | sort -z)
           (cd "$DOWNLOAD_DIR" && sha256sum --check "$RELEASE_DIR/SHA256SUMS")
 
-      - name: Upload small release diagnostics
-        if: always()
-        continue-on-error: true
-        uses: actions/upload-artifact@v6
-        with:
-          name: release-diagnostics-${{ github.run_id }}-${{ github.run_attempt }}
-          path: |
-            ${{ runner.temp }}/apksigner.log
-            ${{ runner.temp }}/vyplay-release-assets/SHA256SUMS
-          if-no-files-found: ignore
-          retention-days: 3
-          compression-level: 6
+      - name: Publish verified GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_ID: ${{ steps.release_stage.outputs.release_id }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh api --method PATCH "repos/$GITHUB_REPOSITORY/releases/$RELEASE_ID" \
+            -F draft=false \
+            -F prerelease=false >/dev/null
+          RELEASE_JSON="$(gh api "repos/$GITHUB_REPOSITORY/releases/$RELEASE_ID")"
+          if [[ "$(jq -r '.draft' <<< "$RELEASE_JSON")" != 'false' ]]; then
+            echo 'GitHub Release did not become published.' >&2
+            exit 1
+          fi
+          echo "Published VyPlay release: $RELEASE_TAG"
