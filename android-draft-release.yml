@@ -1,0 +1,338 @@
+name: Android Draft Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: vyplay-release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    name: Analyze and test before release
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - name: Checkout tagged source
+        uses: actions/checkout@v5
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: '3.47.1'
+          cache: true
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Analyze
+        shell: bash
+        run: |
+          set -o pipefail
+          flutter analyze --no-fatal-infos 2>&1 | tee "$RUNNER_TEMP/flutter-analyze.log"
+
+      - name: Test
+        shell: bash
+        run: |
+          set -o pipefail
+          flutter test --reporter expanded 2>&1 | tee "$RUNNER_TEMP/flutter-test.log"
+
+      - name: Upload small test diagnostics
+        if: always()
+        continue-on-error: true
+        uses: actions/upload-artifact@v6
+        with:
+          name: release-test-diagnostics-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/flutter-analyze.log
+            ${{ runner.temp }}/flutter-test.log
+          if-no-files-found: ignore
+          retention-days: 3
+          compression-level: 6
+
+  build-and-release:
+    name: Build, verify, and update Draft Release
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: verify
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    permissions:
+      contents: write
+    env:
+      ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+      ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+      ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+      ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+      ANDROID_RELEASE_CERT_SHA256: ${{ secrets.ANDROID_RELEASE_CERT_SHA256 }}
+      ANDROID_PACKAGE_ID: com.vyplay.app
+
+    steps:
+      - name: Checkout tagged source
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: '3.47.1'
+          cache: true
+
+      - name: Validate release version and configure required signing key
+        id: release_metadata
+        shell: bash
+        run: |
+          set -euo pipefail
+          VERSION="$(python3 - <<'PY'
+          import re
+          from pathlib import Path
+          match = re.search(r'^version:\s*([0-9]+\.[0-9]+\.[0-9]+)(?:\+([0-9]+))?\s*$', Path('pubspec.yaml').read_text(), re.M)
+          if not match:
+              raise SystemExit('pubspec.yaml must define a numeric semantic version')
+          print(match.group(1))
+          PY
+          )"
+          BUILD_NUMBER="$(python3 - <<'PY'
+          import re
+          from pathlib import Path
+          match = re.search(r'^version:\s*[0-9]+\.[0-9]+\.[0-9]+\+([0-9]+)\s*$', Path('pubspec.yaml').read_text(), re.M)
+          if not match:
+              raise SystemExit('pubspec.yaml must define version: x.y.z+n')
+          print(match.group(1))
+          PY
+          )"
+          if [[ "$GITHUB_REF_NAME" != "v$VERSION" ]]; then
+            echo "Tag '$GITHUB_REF_NAME' must exactly match pubspec version 'v$VERSION'." >&2
+            exit 1
+          fi
+          for name in ANDROID_KEYSTORE_BASE64 ANDROID_KEYSTORE_PASSWORD ANDROID_KEY_PASSWORD ANDROID_KEY_ALIAS ANDROID_RELEASE_CERT_SHA256; do
+            if [[ -z "${!name}" ]]; then
+              echo "Required release signing secret is missing: $name" >&2
+              exit 1
+            fi
+          done
+          EXPECTED_CERT="$(printf '%s' "$ANDROID_RELEASE_CERT_SHA256" | tr -d '[:space:]:' | tr '[:upper:]' '[:lower:]')"
+          if [[ ! "$EXPECTED_CERT" =~ ^[0-9a-f]{64}$ ]]; then
+            echo 'ANDROID_RELEASE_CERT_SHA256 must contain the expected SHA-256 certificate fingerprint.' >&2
+            exit 1
+          fi
+          KEYSTORE="$RUNNER_TEMP/vyplay-release.jks"
+          printf '%s' "$ANDROID_KEYSTORE_BASE64" | base64 --decode > "$KEYSTORE"
+          test -s "$KEYSTORE"
+          CERT_FILE="$RUNNER_TEMP/vyplay-release-cert.der"
+          keytool -exportcert -keystore "$KEYSTORE" -storepass "$ANDROID_KEYSTORE_PASSWORD" -alias "$ANDROID_KEY_ALIAS" -file "$CERT_FILE"
+          ACTUAL_CERT="$(sha256sum "$CERT_FILE" | cut -d ' ' -f1)"
+          if [[ "$ACTUAL_CERT" != "$EXPECTED_CERT" ]]; then
+            echo 'Configured keystore certificate does not match ANDROID_RELEASE_CERT_SHA256.' >&2
+            exit 1
+          fi
+          mkdir -p android/app
+          cp "$KEYSTORE" android/app/key.jks
+          {
+            printf 'storePassword=%s\n' "$ANDROID_KEYSTORE_PASSWORD"
+            printf 'keyPassword=%s\n' "$ANDROID_KEY_PASSWORD"
+            printf 'keyAlias=%s\n' "$ANDROID_KEY_ALIAS"
+            printf 'storeFile=key.jks\n'
+          } > android/key.properties
+          chmod 600 android/key.properties android/app/key.jks
+          printf 'version=%s\nbuild_number=%s\ncertificate_sha256=%s\n' "$VERSION" "$BUILD_NUMBER" "$ACTUAL_CERT" >> "$GITHUB_OUTPUT"
+
+      - name: Install required Android SDK packages
+        shell: bash
+        run: |
+          set -euo pipefail
+          SDK_ROOT="${ANDROID_SDK_ROOT:-${ANDROID_HOME:-}}"
+          if [[ -z "$SDK_ROOT" ]]; then
+            echo 'Neither ANDROID_SDK_ROOT nor ANDROID_HOME is set.' >&2
+            exit 1
+          fi
+          SDKMANAGER="$(find "$SDK_ROOT/cmdline-tools" -name sdkmanager -type f 2>/dev/null | sort -V | tail -n 1 || true)"
+          if [[ -z "$SDKMANAGER" ]]; then
+            SDKMANAGER="$(command -v sdkmanager || true)"
+          fi
+          if [[ -z "$SDKMANAGER" ]]; then
+            echo "sdkmanager not found under $SDK_ROOT/cmdline-tools or on PATH." >&2
+            exit 1
+          fi
+          yes | "$SDKMANAGER" --licenses >/dev/null 2>&1 || true
+          "$SDKMANAGER" --install \
+            'platform-tools' \
+            'platforms;android-36' \
+            'platforms;android-35' \
+            'build-tools;36.0.0'
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build universal release APK
+        run: flutter build apk --release --build-name='${{ steps.release_metadata.outputs.version }}' --build-number='${{ steps.release_metadata.outputs.build_number }}'
+
+      - name: Preserve universal APK
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/vyplay-release-assets"
+          cp build/app/outputs/flutter-apk/app-release.apk "$RUNNER_TEMP/vyplay-release-assets/VyPlay-${GITHUB_REF_NAME}-universal.apk"
+
+      - name: Build split release APKs
+        run: flutter build apk --release --split-per-abi --build-name='${{ steps.release_metadata.outputs.version }}' --build-number='${{ steps.release_metadata.outputs.build_number }}'
+
+      - name: Verify release APK identity, signing, checksums, and sizes
+        id: verify_apks
+        shell: bash
+        env:
+          VERSION: ${{ steps.release_metadata.outputs.version }}
+          BUILD_NUMBER: ${{ steps.release_metadata.outputs.build_number }}
+          EXPECTED_CERT: ${{ steps.release_metadata.outputs.certificate_sha256 }}
+        run: |
+          set -euo pipefail
+          APK_DIR='build/app/outputs/flutter-apk'
+          RELEASE_DIR="$RUNNER_TEMP/vyplay-release-assets"
+          shopt -s nullglob
+          SPLIT_APKS=("$APK_DIR"/app-*-release.apk)
+          if (( ${#SPLIT_APKS[@]} == 0 )); then
+            echo 'No split release APKs were produced.' >&2
+            exit 1
+          fi
+          for apk in "${SPLIT_APKS[@]}"; do
+            abi="$(basename "$apk" | sed -E 's/^app-(.*)-release\.apk$/\1/')"
+            cp "$apk" "$RELEASE_DIR/VyPlay-${GITHUB_REF_NAME}-${abi}.apk"
+          done
+          SDK_ROOT="${ANDROID_SDK_ROOT:-${ANDROID_HOME:-}}"
+          if [[ -z "$SDK_ROOT" ]]; then
+            echo 'Android SDK root is not set.' >&2
+            exit 1
+          fi
+          BUILD_TOOLS="$(find "$SDK_ROOT/build-tools" -mindepth 1 -maxdepth 1 -type d | sort -V | tail -n 1)"
+          test -x "$BUILD_TOOLS/apksigner"
+          test -x "$BUILD_TOOLS/aapt"
+          : > "$RELEASE_DIR/SHA256SUMS"
+          for apk in "$RELEASE_DIR"/*.apk; do
+            test -s "$apk"
+            "$BUILD_TOOLS/apksigner" verify --verbose --print-certs "$apk" > "$RUNNER_TEMP/apksigner.log"
+            CERT="$(awk -F': ' '/Signer #1 certificate SHA-256 digest:/ {gsub(/:/, "", $2); print tolower($2); exit}' "$RUNNER_TEMP/apksigner.log")"
+            if [[ "$CERT" != "$EXPECTED_CERT" ]]; then
+              echo "APK signing certificate mismatch: $(basename "$apk")" >&2
+              exit 1
+            fi
+            BADGING="$("$BUILD_TOOLS/aapt" dump badging "$apk")"
+            grep -F "package: name='$ANDROID_PACKAGE_ID' versionCode='$BUILD_NUMBER' versionName='$VERSION'" <<< "$BADGING" >/dev/null || {
+              echo "Package identity or version mismatch: $(basename "$apk")" >&2
+              exit 1
+            }
+            (cd "$RELEASE_DIR" && sha256sum "$(basename "$apk")" >> SHA256SUMS)
+            printf '%s (%s bytes) SHA-256 %s\n' "$(basename "$apk")" "$(stat -c '%s' "$apk")" "$(sha256sum "$apk" | cut -d ' ' -f1)"
+          done
+          (cd "$RELEASE_DIR" && sha256sum --check SHA256SUMS)
+          printf 'release_dir=%s\n' "$RELEASE_DIR" >> "$GITHUB_OUTPUT"
+
+      - name: Create or update Draft Release and upload verified APKs
+        id: draft_release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_DIR: ${{ steps.verify_apks.outputs.release_dir }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          RELEASE_ERROR="$RUNNER_TEMP/release-query-error.log"
+          if RELEASE_JSON="$(gh api "repos/$GITHUB_REPOSITORY/releases/tags/$GITHUB_REF_NAME" 2>"$RELEASE_ERROR")"; then
+            RELEASE_EXISTS=true
+          else
+            if ! grep -Fq 'HTTP 404' "$RELEASE_ERROR"; then
+              cat "$RELEASE_ERROR" >&2
+              echo 'Could not determine whether a release already exists; refusing to create a possibly duplicate release.' >&2
+              exit 1
+            fi
+            RELEASE_JSON=''
+            RELEASE_EXISTS=false
+          fi
+          if [[ "$RELEASE_EXISTS" == 'true' ]]; then
+            if [[ "$(jq -r '.draft' <<< "$RELEASE_JSON")" != 'true' ]]; then
+              echo "Release $GITHUB_REF_NAME is already published; refusing to alter it." >&2
+              exit 1
+            fi
+            RELEASE_ID="$(jq -r '.id' <<< "$RELEASE_JSON")"
+            gh api --method PATCH "repos/$GITHUB_REPOSITORY/releases/$RELEASE_ID" -F draft=true >/dev/null
+            jq -r '.assets[] | select(((.name | startswith("VyPlay-")) and ((.name | endswith(".apk")) or (.name | endswith(".aab")))) or .name == "SHA256SUMS") | .id' <<< "$RELEASE_JSON" | while IFS= read -r asset_id; do
+              [[ -n "$asset_id" ]] && gh api --method DELETE "repos/$GITHUB_REPOSITORY/releases/assets/$asset_id"
+            done
+          else
+            RELEASE_JSON="$(gh api --method POST "repos/$GITHUB_REPOSITORY/releases" \
+              -f "tag_name=$GITHUB_REF_NAME" \
+              -f "target_commitish=$GITHUB_SHA" \
+              -f "name=VyPlay $GITHUB_REF_NAME" \
+              -F draft=true \
+              -F generate_release_notes=true)"
+            RELEASE_ID="$(jq -r '.id' <<< "$RELEASE_JSON")"
+          fi
+          while IFS= read -r -d '' apk; do
+            gh release upload "$GITHUB_REF_NAME" "$apk" --clobber
+          done < <(find "$RELEASE_DIR" -maxdepth 1 -type f -name '*.apk' -print0 | sort -z)
+          gh release upload "$GITHUB_REF_NAME" "$RELEASE_DIR/SHA256SUMS" --clobber
+          printf 'release_id=%s\n' "$RELEASE_ID" >> "$GITHUB_OUTPUT"
+
+      - name: Verify remote Draft Release asset names, sizes, and checksums
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_DIR: ${{ steps.verify_apks.outputs.release_dir }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          RELEASE_JSON="$(gh api "repos/$GITHUB_REPOSITORY/releases/tags/$GITHUB_REF_NAME")"
+          [[ "$(jq -r '.draft' <<< "$RELEASE_JSON")" == 'true' ]] || { echo 'Release is not a draft.' >&2; exit 1; }
+          DOWNLOAD_DIR="$RUNNER_TEMP/vyplay-release-download-check"
+          mkdir -p "$DOWNLOAD_DIR"
+          EXPECTED_NAMES="$(for asset in "$RELEASE_DIR"/*.apk "$RELEASE_DIR"/SHA256SUMS; do [[ -f "$asset" ]] && basename "$asset"; done | sort)"
+          REMOTE_ANDROID_NAMES="$(jq -r '.assets[].name | select((startswith("VyPlay-") and (endswith(".apk") or endswith(".aab"))) or . == "SHA256SUMS")' <<< "$RELEASE_JSON" | sort)"
+          if [[ "$EXPECTED_NAMES" != "$REMOTE_ANDROID_NAMES" ]]; then
+            echo 'Draft Release APK/checksum asset set does not exactly match the verified build.' >&2
+            diff -u <(printf '%s\\n' "$EXPECTED_NAMES") <(printf '%s\\n' "$REMOTE_ANDROID_NAMES") || true
+            exit 1
+          fi
+          while IFS= read -r -d '' asset; do
+            name="$(basename "$asset")"
+            local_size="$(stat -c '%s' "$asset")"
+            remote="$(jq -c --arg name "$name" '[.assets[] | select(.name == $name)] | if length == 1 then .[0] else empty end' <<< "$RELEASE_JSON")"
+            [[ -n "$remote" ]] || { echo "Release asset missing or duplicated: $name" >&2; exit 1; }
+            remote_size="$(jq -r '.size' <<< "$remote")"
+            [[ "$remote_size" == "$local_size" && "$remote_size" -gt 0 ]] || { echo "Release asset size mismatch: $name" >&2; exit 1; }
+            gh release download "$GITHUB_REF_NAME" --pattern "$name" --dir "$DOWNLOAD_DIR"
+            local_sha="$(sha256sum "$asset" | cut -d ' ' -f1)"
+            remote_sha="$(sha256sum "$DOWNLOAD_DIR/$name" | cut -d ' ' -f1)"
+            [[ "$local_sha" == "$remote_sha" ]] || { echo "Release asset checksum mismatch: $name" >&2; exit 1; }
+            printf 'Verified release asset: %s (%s bytes, SHA-256 %s)\n' "$name" "$remote_size" "$local_sha"
+          done < <(find "$RELEASE_DIR" -maxdepth 1 -type f \( -name '*.apk' -o -name 'SHA256SUMS' \) -print0 | sort -z)
+          (cd "$DOWNLOAD_DIR" && sha256sum --check "$RELEASE_DIR/SHA256SUMS")
+
+      - name: Upload small release diagnostics
+        if: always()
+        continue-on-error: true
+        uses: actions/upload-artifact@v6
+        with:
+          name: release-diagnostics-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/apksigner.log
+            ${{ runner.temp }}/vyplay-release-assets/SHA256SUMS
+          if-no-files-found: ignore
+          retention-days: 3
+          compression-level: 6
