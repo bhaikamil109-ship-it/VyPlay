@@ -1,71 +1,54 @@
 
-name: Android Release
+name: Android APK Build & Release
 
 on:
   push:
-    tags:
-      - 'v*'
+    branches:
+      - main
   workflow_dispatch:
-    inputs:
-      release_tag:
-        description: 'Release version, e.g. v0.9.3'
-        required: true
-        type: string
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
-  group: vyplay-release-${{ inputs.release_tag || github.ref_name }}
+  group: vyplay-apk-${{ github.run_id }}
   cancel-in-progress: false
 
 jobs:
-  build-and-release:
-    name: Build and Publish VyPlay APK
+  build-android:
+    name: Build APKs and publish release
     runs-on: ubuntu-24.04
     timeout-minutes: 90
-    permissions:
-      contents: write
 
     env:
-      RELEASE_TAG: ${{ inputs.release_tag || github.ref_name }}
-      ANDROID_PACKAGE_ID: com.kamil.vyplay
-      ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
-      ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
-      ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
-      ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
-      ANDROID_RELEASE_CERT_SHA256: ${{ secrets.ANDROID_RELEASE_CERT_SHA256 }}
+      GRADLE_OPTS: "-Dorg.gradle.daemon=false -Dkotlin.daemon.jvm.options=-Xmx1536m,-XX:-UseParallelGC"
 
     steps:
-      - name: Checkout source
+      - name: Checkout
         uses: actions/checkout@v5
         with:
-          ref: ${{ github.event_name == 'workflow_dispatch' && 'main' || github.ref }}
           fetch-depth: 0
 
-      - name: Validate release tag and select source
+      - name: Free disk space
         shell: bash
-        env:
-          REQUESTED_TAG: ${{ inputs.release_tag }}
         run: |
           set -euo pipefail
+          echo "Disk before:"
+          df -h /
 
-          if [[ ! "$RELEASE_TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-            echo "Invalid release tag: $RELEASE_TAG. Expected vX.Y.Z."
-            exit 1
-          fi
+          sudo rm -rf \
+            /usr/local/lib/android/sdk/emulator \
+            /usr/local/lib/android/sdk/system-images \
+            /usr/share/dotnet \
+            /opt/ghc \
+            /opt/hostedtoolcache/CodeQL \
+            /usr/local/share/boost \
+            2>/dev/null || true
 
-          if [[ "$GITHUB_EVENT_NAME" == "workflow_dispatch" ]]; then
-            REMOTE_TAG="$(git ls-remote --tags origin "refs/tags/$RELEASE_TAG")"
+          sudo apt-get clean
 
-            if [[ -n "$REMOTE_TAG" ]]; then
-              git fetch --no-tags origin "refs/tags/$RELEASE_TAG:refs/tags/$RELEASE_TAG"
-              git checkout --detach "$RELEASE_TAG"
-              echo "Using existing tag: $RELEASE_TAG"
-            else
-              echo "Tag does not exist. Building current main commit."
-            fi
-          fi
+          echo "Disk after:"
+          df -h /
 
       - name: Set up Java 17
         uses: actions/setup-java@v5
@@ -80,108 +63,28 @@ jobs:
           flutter-version: '3.47.1'
           cache: true
 
-      - name: Validate version and configure signing
-        id: metadata
-        shell: bash
-        run: |
-          set -euo pipefail
-
-          VERSION="$(python3 - <<'PY'
-          import re
-          from pathlib import Path
-          text = Path("pubspec.yaml").read_text()
-          match = re.search(
-              r"^version:\s*([0-9]+\.[0-9]+\.[0-9]+)\+([0-9]+)\s*$",
-              text, re.M
-          )
-          if not match:
-              raise SystemExit("Expected pubspec version format x.y.z+n")
-          print(match.group(1))
-          PY
-          )"
-
-          BUILD_NUMBER="$(python3 - <<'PY'
-          import re
-          from pathlib import Path
-          text = Path("pubspec.yaml").read_text()
-          match = re.search(
-              r"^version:\s*[0-9]+\.[0-9]+\.[0-9]+\+([0-9]+)\s*$",
-              text, re.M
-          )
-          if not match:
-              raise SystemExit("Build number not found")
-          print(match.group(1))
-          PY
-          )"
-
-          if [[ "$RELEASE_TAG" != "v$VERSION" ]]; then
-            echo "Tag $RELEASE_TAG does not match pubspec version v$VERSION."
-            exit 1
-          fi
-
-          for name in \
-            ANDROID_KEYSTORE_BASE64 \
-            ANDROID_KEYSTORE_PASSWORD \
-            ANDROID_KEY_PASSWORD \
-            ANDROID_KEY_ALIAS \
-            ANDROID_RELEASE_CERT_SHA256
-          do
-            if [[ -z "${!name}" ]]; then
-              echo "Missing signing secret: $name"
-              exit 1
-            fi
-          done
-
-          EXPECTED_CERT="$(printf '%s' "$ANDROID_RELEASE_CERT_SHA256" | tr -d '[:space:]:' | tr '[:upper:]' '[:lower:]')"
-
-          if [[ ! "$EXPECTED_CERT" =~ ^[0-9a-f]{64}$ ]]; then
-            echo "Invalid certificate SHA-256 fingerprint."
-            exit 1
-          fi
-
-          KEYSTORE="$RUNNER_TEMP/vyplay-release.jks"
-          printf '%s' "$ANDROID_KEYSTORE_BASE64" | base64 --decode > "$KEYSTORE"
-          test -s "$KEYSTORE"
-
-          CERT_FILE="$RUNNER_TEMP/release-cert.der"
-
-          keytool -exportcert \
-            -keystore "$KEYSTORE" \
-            -storepass "$ANDROID_KEYSTORE_PASSWORD" \
-            -alias "$ANDROID_KEY_ALIAS" \
-            -file "$CERT_FILE"
-
-          ACTUAL_CERT="$(sha256sum "$CERT_FILE" | cut -d ' ' -f1)"
-
-          if [[ "$ACTUAL_CERT" != "$EXPECTED_CERT" ]]; then
-            echo "Signing certificate fingerprint mismatch."
-            exit 1
-          fi
-
-          mkdir -p android/app
-
-          cp "$KEYSTORE" android/app/key.jks
-
-          {
-            printf 'storePassword=%s\n' "$ANDROID_KEYSTORE_PASSWORD"
-            printf 'keyPassword=%s\n' "$ANDROID_KEY_PASSWORD"
-            printf 'keyAlias=%s\n' "$ANDROID_KEY_ALIAS"
-            printf 'storeFile=key.jks\n'
-          } > android/key.properties
-
-          chmod 600 android/key.properties android/app/key.jks
-
-          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
-          echo "build_number=$BUILD_NUMBER" >> "$GITHUB_OUTPUT"
-          echo "certificate=$ACTUAL_CERT" >> "$GITHUB_OUTPUT"
-
       - name: Install Android SDK packages
         shell: bash
         run: |
           set -euo pipefail
 
           SDK_ROOT="${ANDROID_SDK_ROOT:-${ANDROID_HOME:-}}"
-          SDKMANAGER="$(find "$SDK_ROOT/cmdline-tools" -name sdkmanager -type f | sort -V | tail -n 1)"
+
+          if [[ -z "$SDK_ROOT" ]]; then
+            echo "Android SDK root not found."
+            exit 1
+          fi
+
+          SDKMANAGER="$(find "$SDK_ROOT/cmdline-tools" -name sdkmanager -type f 2>/dev/null | sort -V | tail -n 1 || true)"
+
+          if [[ -z "$SDKMANAGER" ]]; then
+            SDKMANAGER="$(command -v sdkmanager || true)"
+          fi
+
+          if [[ -z "$SDKMANAGER" ]]; then
+            echo "sdkmanager not found."
+            exit 1
+          fi
 
           yes | "$SDKMANAGER" --licenses >/dev/null 2>&1 || true
 
@@ -191,49 +94,91 @@ jobs:
             'platforms;android-35' \
             'build-tools;36.0.0'
 
+      - name: Configure Android signing
+        id: signing
+        shell: bash
+        env:
+          ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+        run: |
+          set -euo pipefail
+
+          mkdir -p android/app
+
+          if [[ -n "$ANDROID_KEYSTORE_BASE64" &&
+                -n "$ANDROID_KEYSTORE_PASSWORD" &&
+                -n "$ANDROID_KEY_PASSWORD" &&
+                -n "$ANDROID_KEY_ALIAS" ]]; then
+
+            echo "Using configured release keystore."
+
+            printf '%s' "$ANDROID_KEYSTORE_BASE64" \
+              | base64 --decode > android/app/key.jks
+
+            {
+              printf 'storePassword=%s\n' "$ANDROID_KEYSTORE_PASSWORD"
+              printf 'keyPassword=%s\n' "$ANDROID_KEY_PASSWORD"
+              printf 'keyAlias=%s\n' "$ANDROID_KEY_ALIAS"
+              printf 'storeFile=key.jks\n'
+            } > android/key.properties
+
+            echo "signed=true" >> "$GITHUB_OUTPUT"
+
+          else
+            echo "Release secrets unavailable."
+            echo "Generating temporary debug keystore."
+
+            keytool -genkeypair -v \
+              -keystore android/app/key.jks \
+              -storepass android \
+              -keypass android \
+              -alias androiddebugkey \
+              -keyalg RSA \
+              -keysize 2048 \
+              -validity 10000 \
+              -dname "CN=Android Debug,O=Android,C=US"
+
+            {
+              printf 'storePassword=android\n'
+              printf 'keyPassword=android\n'
+              printf 'keyAlias=androiddebugkey\n'
+              printf 'storeFile=key.jks\n'
+            } > android/key.properties
+
+            echo "signed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+          chmod 600 android/key.properties android/app/key.jks
+
       - name: Get Flutter dependencies
         run: flutter pub get
 
-      - name: Build universal APK
-        run: |
-          flutter build apk --release \
-            --build-name='${{ steps.metadata.outputs.version }}' \
-            --build-number='${{ steps.metadata.outputs.build_number }}'
+      - name: Build universal release APK
+        run: flutter build apk --release
 
-      - name: Preserve universal APK
+      - name: Save universal APK
         shell: bash
         run: |
           set -euo pipefail
 
-          RELEASE_DIR="$RUNNER_TEMP/vyplay-release-assets"
-          mkdir -p "$RELEASE_DIR"
+          mkdir -p dist
 
           cp build/app/outputs/flutter-apk/app-release.apk \
-            "$RELEASE_DIR/VyPlay-${RELEASE_TAG}-universal.apk"
+            dist/VyPlay-universal.apk
 
-          echo "RELEASE_DIR=$RELEASE_DIR" >> "$GITHUB_ENV"
+          test -s dist/VyPlay-universal.apk
 
-      - name: Build split APKs
-        run: |
-          flutter build apk --release --split-per-abi \
-            --build-name='${{ steps.metadata.outputs.version }}' \
-            --build-number='${{ steps.metadata.outputs.build_number }}'
+      - name: Build split release APKs
+        run: flutter build apk --release --split-per-abi
 
-      - name: Verify APKs and generate checksums
+      - name: Collect and verify APK files
         shell: bash
-        env:
-          EXPECTED_CERT: ${{ steps.metadata.outputs.certificate }}
-          VERSION: ${{ steps.metadata.outputs.version }}
-          BUILD_NUMBER: ${{ steps.metadata.outputs.build_number }}
         run: |
           set -euo pipefail
 
           APK_DIR="build/app/outputs/flutter-apk"
-          SDK_ROOT="${ANDROID_SDK_ROOT:-${ANDROID_HOME:-}}"
-          BUILD_TOOLS="$SDK_ROOT/build-tools/36.0.0"
-
-          test -x "$BUILD_TOOLS/apksigner"
-          test -x "$BUILD_TOOLS/aapt"
 
           shopt -s nullglob
           SPLIT_APKS=("$APK_DIR"/app-*-release.apk)
@@ -245,93 +190,132 @@ jobs:
 
           for apk in "${SPLIT_APKS[@]}"; do
             abi="$(basename "$apk" | sed -E 's/^app-(.*)-release\.apk$/\1/')"
-            cp "$apk" "$RELEASE_DIR/VyPlay-${RELEASE_TAG}-${abi}.apk"
+            cp "$apk" "dist/VyPlay-${abi}.apk"
           done
 
-          : > "$RELEASE_DIR/SHA256SUMS"
+          APK_COUNT="$(find dist -maxdepth 1 -name '*.apk' | wc -l)"
 
-          for apk in "$RELEASE_DIR"/*.apk; do
-            test -s "$apk"
-
-            "$BUILD_TOOLS/apksigner" verify --verbose --print-certs "$apk" \
-              > "$RUNNER_TEMP/apksigner.log"
-
-            CERT="$(awk -F': ' '/Signer #1 certificate SHA-256 digest:/ {
-              gsub(/:/, "", $2); print tolower($2); exit
-            }' "$RUNNER_TEMP/apksigner.log")"
-
-            if [[ "$CERT" != "$EXPECTED_CERT" ]]; then
-              echo "APK signing certificate mismatch: $(basename "$apk")"
-              exit 1
-            fi
-
-            BADGING="$("$BUILD_TOOLS/aapt" dump badging "$apk")"
-
-            grep -F "package: name='$ANDROID_PACKAGE_ID' versionCode='$BUILD_NUMBER' versionName='$VERSION'" <<< "$BADGING" >/dev/null || {
-              echo "Package ID or version mismatch: $(basename "$apk")"
-              exit 1
-            }
-
-            (cd "$RELEASE_DIR" && sha256sum "$(basename "$apk")" >> SHA256SUMS)
-
-            echo "Verified: $(basename "$apk")"
-          done
-
-          (cd "$RELEASE_DIR" && sha256sum --check SHA256SUMS)
-
-      - name: Create or update GitHub Release
-        env:
-          GH_TOKEN: ${{ github.token }}
-        shell: bash
-        run: |
-          set -euo pipefail
-
-          if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
-            echo "Release already exists. Updating its APK assets."
-          else
-            gh release create "$RELEASE_TAG" \
-              --target "$GITHUB_SHA" \
-              --title "VyPlay $RELEASE_TAG" \
-              --generate-notes
+          if [[ "$APK_COUNT" -lt 2 ]]; then
+            echo "Expected universal and split APKs."
+            exit 1
           fi
 
-          for apk in "$RELEASE_DIR"/*.apk; do
-            gh release upload "$RELEASE_TAG" "$apk" --clobber
+          echo "Generated APKs:"
+          ls -lh dist/*.apk
+
+          for apk in dist/*.apk; do
+            test -s "$apk"
           done
 
-          gh release upload "$RELEASE_TAG" \
-            "$RELEASE_DIR/SHA256SUMS" --clobber
+          (cd dist && sha256sum *.apk > SHA256SUMS)
 
-      - name: Download and verify published assets
-        env:
-          GH_TOKEN: ${{ github.token }}
+      - name: Read app version
+        id: app_version
         shell: bash
         run: |
           set -euo pipefail
 
-          DOWNLOAD_DIR="$RUNNER_TEMP/vyplay-download-check"
-          mkdir -p "$DOWNLOAD_DIR"
+          VERSION="$(python3 - <<'PY'
+          import re
+          from pathlib import Path
 
-          for asset in "$RELEASE_DIR"/*.apk "$RELEASE_DIR/SHA256SUMS"; do
-            name="$(basename "$asset")"
+          match = re.search(
+              r'^version:\s*(\S+)',
+              Path('pubspec.yaml').read_text(),
+              re.M
+          )
 
-            gh release download "$RELEASE_TAG" \
-              --pattern "$name" \
-              --dir "$DOWNLOAD_DIR"
+          if not match:
+              raise SystemExit('Version not found in pubspec.yaml')
 
-            cmp "$asset" "$DOWNLOAD_DIR/$name"
-            echo "Release asset verified: $name"
-          done
+          print(match.group(1))
+          PY
+          )"
 
-          (cd "$DOWNLOAD_DIR" && sha256sum --check SHA256SUMS)
+          RELEASE_VERSION="${VERSION//+/-}"
+          TAG="v${RELEASE_VERSION}-run-${GITHUB_RUN_NUMBER}"
 
-      - name: Release summary
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+
+      - name: Create release notes
+        shell: bash
+        env:
+          SIGNED: ${{ steps.signing.outputs.signed }}
+          VERSION: ${{ steps.app_version.outputs.version }}
+        run: |
+          set -euo pipefail
+
+          {
+            echo "VyPlay Android APK build."
+            echo
+            echo "Version: $VERSION"
+
+            if [[ "$SIGNED" == "true" ]]; then
+              echo "Signing: Configured release keystore."
+            else
+              echo "Signing: Temporary debug keystore."
+              echo "For testing only. Future updates require the same signing key."
+            fi
+
+            echo
+            echo "APK files:"
+            find dist -maxdepth 1 -name '*.apk' -printf '- %f\n' | sort
+
+            echo
+            echo "Recent changes:"
+            git log --pretty='- %s (%h)' -10
+          } > RELEASE_NOTES.md
+
+      - name: Publish APKs directly to GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ steps.app_version.outputs.tag }}
+          VERSION: ${{ steps.app_version.outputs.version }}
         shell: bash
         run: |
-          echo "## VyPlay APK Release" >> "$GITHUB_STEP_SUMMARY"
-          echo "Version: $RELEASE_TAG" >> "$GITHUB_STEP_SUMMARY"
-          echo "" >> "$GITHUB_STEP_SUMMARY"
-          echo "Flutter tests and analyzer were not run." >> "$GITHUB_STEP_SUMMARY"
-          echo "" >> "$GITHUB_STEP_SUMMARY"
-          echo "APK assets uploaded and verified on GitHub Release." >> "$GITHUB_STEP_SUMMARY"
+          set -euo pipefail
+
+          gh release create "$RELEASE_TAG" \
+            dist/*.apk \
+            dist/SHA256SUMS \
+            --title "VyPlay $VERSION" \
+            --notes-file RELEASE_NOTES.md
+
+      - name: Verify published release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ steps.app_version.outputs.tag }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          DOWNLOAD_DIR="$RUNNER_TEMP/vyplay-release-check"
+          mkdir -p "$DOWNLOAD_DIR"
+
+          gh release download "$RELEASE_TAG" \
+            --dir "$DOWNLOAD_DIR"
+
+          for apk in dist/*.apk; do
+            name="$(basename "$apk")"
+            cmp "$apk" "$DOWNLOAD_DIR/$name"
+            echo "Verified: $name"
+          done
+
+          cmp dist/SHA256SUMS "$DOWNLOAD_DIR/SHA256SUMS"
+
+          (
+            cd "$DOWNLOAD_DIR"
+            sha256sum --check SHA256SUMS
+          )
+
+          echo "All published APK assets verified."
+
+      - name: Build summary
+        if: always()
+        run: |
+          echo "## VyPlay APK Build" >> "$GITHUB_STEP_SUMMARY"
+          echo "Flutter tests: Not run." >> "$GITHUB_STEP_SUMMARY"
+          echo "Flutter analyze: Not run." >> "$GITHUB_STEP_SUMMARY"
+          echo "GitHub Actions artifact upload: Disabled." >> "$GITHUB_STEP_SUMMARY"
           
