@@ -20,10 +20,41 @@ class GlobalPlayerController extends ChangeNotifier {
       GlobalPlayerController._internal();
   factory GlobalPlayerController() => _instance;
   GlobalPlayerController._internal() {
-    // Eagerly initialize player and video controller
-    _initializePlayer();
-    // Setup PiP service listener
+    // Setup PiP service listener. It is a plain method-channel listener and is
+    // independent of the player itself.
     _setupPipListener();
+    // The player and its video controller are native state: creating them spins
+    // up a libmpv instance and a video texture. This singleton is built from
+    // GlobalPipOverlay while the MaterialApp renders its first frame, so doing
+    // that work here meant the app's very first frame could not be drawn unless
+    // libmpv came up. On a device where it does not (missing/failed native
+    // library, native allocation refused on a low-RAM phone) the exception
+    // aborted that frame and left the process on a blank window with a blank
+    // Recents snapshot. Defer it to just after the first frame instead.
+    _scheduleEagerInitialization();
+  }
+
+  /// Runs the eager player setup once the first frame is on screen.
+  ///
+  /// The player is still created at startup - the reason it was made eager is
+  /// that the first play then has no initialization delay - but it can no
+  /// longer take the first frame down with it.
+  void _scheduleEagerInitialization() {
+    void initialize() {
+      try {
+        _initializePlayer();
+      } catch (e, stack) {
+        log('[GlobalPlayer] Eager initialization failed: $e\n$stack');
+      }
+    }
+
+    try {
+      WidgetsBinding.instance.addPostFrameCallback((_) => initialize());
+    } catch (_) {
+      // No binding available (host-side tests / pure Dart hosts): behave like
+      // the previous eager construction.
+      initialize();
+    }
   }
 
   /// Test-only constructor: builds a controller without touching media_kit or
@@ -128,12 +159,17 @@ class GlobalPlayerController extends ChangeNotifier {
   /// Initialize player eagerly to avoid first-play issues
   void _initializePlayer() {
     if (_isInitialized) return;
-    _player = Player(
+    // Build both handles before publishing either of them: a failure part-way
+    // through must not leave a player without a video controller behind, which
+    // the getters below would then treat as initialized.
+    final player = Player(
       configuration: const PlayerConfiguration(
         bufferSize: 8 * 1024 * 1024,
       ),
     );
-    _videoController = VideoController(_player!);
+    final videoController = VideoController(player);
+    _player = player;
+    _videoController = videoController;
     _isInitialized = true;
     _tuneNetworkPlayback();
     log('[GlobalPlayer] Player and VideoController initialized eagerly');

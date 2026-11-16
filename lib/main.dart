@@ -59,8 +59,17 @@ void main() async {
   // Reading it first also keeps the measurement off the first frame.
   await DeviceProfile.load();
 
-  // Initialize media_kit
-  MediaKit.ensureInitialized();
+  // Initialize media_kit. It has to run before any Player is created (see
+  // _scheduleEagerInitialization in GlobalPlayerController), but it must never
+  // be able to abort startup: this loads the native libmpv shared library, and
+  // where that load fails it throws. An uncaught throw here meant runApp() was
+  // never reached, so the process stayed alive with no Flutter UI at all - the
+  // grey launch window (and grey Recents snapshot) this fixes.
+  try {
+    MediaKit.ensureInitialized();
+  } catch (e) {
+    debugPrint('[startup] media_kit initialization failed: $e');
+  }
 
   // Decoded-image cache budget, scaled to the device (32 MB on a 2 GB phone,
   // 200 MB on a flagship). Holding 200 MB of bitmaps on a low-RAM device is
@@ -69,18 +78,11 @@ void main() async {
       AppPerf.imageCacheBytes;
 
   Bloc.observer = AppBlocObserver();
-  await SettingImpl.initializeDB();
-
-  // Restore the saved repeat mode and keep it persisted from here on. The
-  // queue takes a hook rather than touching the database itself.
-  final queue = PlaybackQueue();
-  final savedQueueRepeatMode = await AppDatabase.instance.getSetting(repeatModeKey);
-  queue.restoreQueueRepeatMode(QueueRepeatMode.values.firstWhere(
-    (mode) => mode.name == savedQueueRepeatMode,
-    orElse: () => QueueRepeatMode.off,
-  ));
-  queue.onQueueRepeatModeChanged = (mode) =>
-      AppDatabase.instance.setSetting(repeatModeKey, mode.name);
+  try {
+    await SettingImpl.initializeDB();
+  } catch (e) {
+    debugPrint('[startup] database initialization failed: $e');
+  }
 
   // Initialize GetIt and register dependencies
   configureInjection();
@@ -102,19 +104,54 @@ void main() async {
     ),
   );
 
+  runApp(const MyApp());
+
+  // Everything below runs after the first frame is scheduled and is wrapped in
+  // guards. It used to be awaited before runApp(), which made the whole UI
+  // depend on a database read: a slow or failing open on a low-end device left
+  // the app on its launch window instead of the splash screen.
+  unawaited(_startDeferredWork());
+}
+
+/// Restores persisted playback state and starts background work that the first
+/// frame does not depend on. Every step is guarded, so a failure here degrades a
+/// feature instead of keeping the app from drawing.
+Future<void> _startDeferredWork() async {
+  // Restore the saved repeat mode and keep it persisted from here on. The
+  // queue takes a hook rather than touching the database itself.
+  try {
+    final queue = PlaybackQueue();
+    final savedQueueRepeatMode =
+        await AppDatabase.instance.getSetting(repeatModeKey);
+    queue.restoreQueueRepeatMode(QueueRepeatMode.values.firstWhere(
+      (mode) => mode.name == savedQueueRepeatMode,
+      orElse: () => QueueRepeatMode.off,
+    ));
+    queue.onQueueRepeatModeChanged = (mode) =>
+        AppDatabase.instance.setSetting(repeatModeKey, mode.name);
+  } catch (e) {
+    debugPrint('[startup] could not restore the queue repeat mode: $e');
+  }
+
   // Downloads owned by a previous process are dead rows: nothing will finish
   // them, so resume the newest few now. Bounded to keep launch traffic sane.
-  unawaited(getIt<DownloadService>().resumeInterruptedDownloads(
-    onProgress: (_) {},
-    onComplete: (_) {},
-    onError: (_, __) {},
-  ));
+  try {
+    await getIt<DownloadService>().resumeInterruptedDownloads(
+      onProgress: (_) {},
+      onComplete: (_) {},
+      onError: (_, __) {},
+    );
+  } catch (e) {
+    debugPrint('[startup] resuming interrupted downloads failed: $e');
+  }
 
   // Pick up the persisted DeArrow preference so cards can replace clickbait
   // titles/thumbnails as soon as they are built.
-  unawaited(DeArrowService().syncFromSettings());
-
-  runApp(const MyApp());
+  try {
+    await DeArrowService().syncFromSettings();
+  } catch (e) {
+    debugPrint('[startup] DeArrow sync failed: $e');
+  }
 }
 
 class MyApp extends StatefulWidget {
