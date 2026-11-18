@@ -17,6 +17,7 @@ import 'package:injectable/injectable.dart';
 import 'package:drift/drift.dart' show Value;
 import 'package:path_provider/path_provider.dart';
 import 'package:vyplay/domain/sleep_timer/sleep_timer_config.dart';
+import 'package:vyplay/core/services/startup_diagnostics.dart';
 
 import '../../core/settings.dart';
 
@@ -99,10 +100,30 @@ class SettingImpl implements SettingsService {
     // Initialize settings list
     List<Map<String, String>> settingsList = [];
 
-    // Iterate over settingsDefaults and initialize each setting
-    for (var setting in settingsDefaults) {
-      settingsList
-          .add(await _getOrDefault(setting["name"]!, setting["default"]!));
+    // Iterate over settingsDefaults and initialize each setting.
+    //
+    // The reads below are the first database access of the process, so they are
+    // also where an unopenable or locked vyplay.db surfaces. A read that fails
+    // must not leave the splash screen waiting for a "settings loaded" state
+    // that will never arrive: fall back to the declared defaults for whatever
+    // could not be read and let the app start with them.
+    try {
+      for (var setting in settingsDefaults) {
+        settingsList
+            .add(await _getOrDefault(setting["name"]!, setting["default"]!));
+      }
+    } catch (error, stack) {
+      StartupDiagnostics().recordStartupStepFailed(
+          'settings read (vyplay.db)', error, stack);
+      final loaded = settingsList
+          .expand((setting) => setting.keys)
+          .toSet();
+      for (final setting in settingsDefaults) {
+        final name = setting["name"]!;
+        if (!loaded.contains(name)) {
+          settingsList.add({name: setting["default"]!});
+        }
+      }
     }
 
     return settingsList;

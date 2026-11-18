@@ -178,6 +178,14 @@ class StartupDiagnostics {
         error: description, stack: stack);
   }
 
+  /// Called when a single startup step failed or timed out but startup kept
+  /// going with its defaults (e.g. the database could not be opened). Records
+  /// the step, the error and the stack so the next device run names it.
+  void recordStartupStepFailed(String step, Object error, StackTrace stack) {
+    log('STARTUP STEP FAILED — $step (startup continued with defaults)',
+        error: '$error', stack: stack);
+  }
+
   /// Called when an uncaught Dart exception reaches the zone (e.g. in main()).
   void recordUncaughtException(Object error, StackTrace stack) {
     log('UNCAUGHT DART EXCEPTION in main() — ${error.runtimeType}: $error',

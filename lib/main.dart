@@ -44,6 +44,13 @@ import 'domain/plugin/plugin_loader.dart';
 import 'infrastructure/plugin/plugin_manager_impl.dart';
 import 'infrastructure/plugin/plugin_sandbox_impl.dart';
 
+/// Upper bound for a single platform-backed startup step.
+///
+/// Startup continues with its safe defaults when a step exceeds this, because a
+/// stalled native call must never be able to leave the app with a window that
+/// paints nothing (the grey screen).
+const _startupStepTimeout = Duration(seconds: 2);
+
 void main() {
   StartupDiagnostics().recordDartStartup();
 
@@ -63,12 +70,26 @@ void main() {
     // Resolve the hardware profile before anything allocates a cache, so the
     // image cache and list windows below are already sized for this device.
     // Reading it first also keeps the measurement off the first frame.
-    await DeviceProfile.load();
+    //
+    // Bounded: this is a platform round-trip. A reply that never arrives used
+    // to keep the app from calling runApp(), which is exactly what the grey
+    // screen looked like, so time out and keep the safe defaults.
+    await DeviceProfile.load().timeout(
+      _startupStepTimeout,
+      onTimeout: () => DeviceProfile.current,
+    );
     StartupDiagnostics().recordDeviceProfileLoaded();
 
-    // Initialize media_kit
-    MediaKit.ensureInitialized();
-    StartupDiagnostics().recordMediaKitInitialized();
+    // Initialize media_kit. This loads the native player library, which can
+    // fail on old ARM devices; losing playback is bad, but losing the whole UI
+    // is worse, so record the failure and keep starting up.
+    try {
+      MediaKit.ensureInitialized();
+      StartupDiagnostics().recordMediaKitInitialized();
+    } catch (error, stack) {
+      StartupDiagnostics().recordStartupStepFailed(
+          'MediaKit.ensureInitialized()', error, stack);
+    }
 
     // Decoded-image cache budget, scaled to the device (32 MB on a 2 GB phone,
     // 200 MB on a flagship). Holding 200 MB of bitmaps on a low-RAM device is
@@ -78,21 +99,10 @@ void main() {
     StartupDiagnostics().recordImageCacheConfigured();
 
     Bloc.observer = AppBlocObserver();
-    await SettingImpl.initializeDB();
-    StartupDiagnostics().recordSettingsDbInitialized();
 
-    // Restore the saved repeat mode and keep it persisted from here on. The
-    // queue takes a hook rather than touching the database itself.
-    final queue = PlaybackQueue();
-    final savedQueueRepeatMode = await AppDatabase.instance.getSetting(repeatModeKey);
-    queue.restoreQueueRepeatMode(QueueRepeatMode.values.firstWhere(
-      (mode) => mode.name == savedQueueRepeatMode,
-      orElse: () => QueueRepeatMode.off,
-    ));
-    queue.onQueueRepeatModeChanged = (mode) =>
-        AppDatabase.instance.setSetting(repeatModeKey, mode.name);
-
-    // Initialize GetIt and register dependencies
+    // Initialize GetIt and register dependencies. Registration is synchronous
+    // and constructs nothing, so it is safe to require it before runApp():
+    // MyApp.build resolves its blocs from GetIt on the very first build.
     configureInjection();
     StartupDiagnostics().recordInjectionConfigured();
 
@@ -114,23 +124,73 @@ void main() {
     );
     StartupDiagnostics().recordPluginSubsystemWired();
 
-    // Downloads owned by a previous process are dead rows: nothing will finish
-    // them, so resume the newest few now. Bounded to keep launch traffic sane.
+    // Everything that needs vyplay.db is started after the first frame
+    // instead of gating it; see _restorePersistedStartupState().
+    unawaited(_restorePersistedStartupState());
+
+    StartupDiagnostics().recordRunAppScheduled();
+    runApp(const MyApp());
+  });
+}
+
+/// Startup work that needs the local database: the first open (and migration)
+/// of `vyplay.db`, the saved repeat mode, resuming downloads a previous process
+/// left behind, and the DeArrow preference.
+///
+/// This deliberately runs *after* `runApp()`. Opening SQLite is the slowest and
+/// most failure-prone step of startup — drift first dlopens `libsqlite3.so` and,
+/// if that fails, retries through a platform channel that loads the library in
+/// Java — and while it ran before the first frame, a throw or a stall there left
+/// the process with no UI at all: the window stayed grey and so did its Recent
+/// Apps thumbnail. None of it is needed to draw, so it can never again decide
+/// whether the app opens.
+Future<void> _restorePersistedStartupState() async {
+  try {
+    await SettingImpl.initializeDB().timeout(_startupStepTimeout);
+    StartupDiagnostics().recordSettingsDbInitialized();
+
+    // Restore the saved repeat mode and keep it persisted from here on. The
+    // queue takes a hook rather than touching the database itself.
+    final queue = PlaybackQueue();
+    final savedQueueRepeatMode = await AppDatabase.instance
+        .getSetting(repeatModeKey)
+        .timeout(const Duration(seconds: 5));
+    queue.restoreQueueRepeatMode(QueueRepeatMode.values.firstWhere(
+      (mode) => mode.name == savedQueueRepeatMode,
+      orElse: () => QueueRepeatMode.off,
+    ));
+    queue.onQueueRepeatModeChanged = (mode) =>
+        AppDatabase.instance.setSetting(repeatModeKey, mode.name);
+  } catch (error, stack) {
+    // Keep the defaults above (repeat mode stays off). Settings and saved data
+    // still load through their own error states on the splash screen.
+    StartupDiagnostics().recordStartupStepFailed(
+        'database startup (vyplay.db)', error, stack);
+  }
+
+  // Downloads owned by a previous process are dead rows: nothing will finish
+  // them, so resume the newest few now. Bounded to keep launch traffic sane.
+  try {
     unawaited(getIt<DownloadService>().resumeInterruptedDownloads(
       onProgress: (_) {},
       onComplete: (_) {},
       onError: (_, __) {},
     ));
     StartupDiagnostics().recordDownloadResumeKickedOff();
+  } catch (error, stack) {
+    StartupDiagnostics().recordStartupStepFailed(
+        'DownloadService.resumeInterruptedDownloads()', error, stack);
+  }
 
-    // Pick up the persisted DeArrow preference so cards can replace clickbait
-    // titles/thumbnails as soon as they are built.
+  // Pick up the persisted DeArrow preference so cards can replace clickbait
+  // titles/thumbnails as soon as they are built.
+  try {
     unawaited(DeArrowService().syncFromSettings());
     StartupDiagnostics().recordDeArrowSyncKickedOff();
-
-    StartupDiagnostics().recordRunAppScheduled();
-    runApp(const MyApp());
-  });
+  } catch (error, stack) {
+    StartupDiagnostics().recordStartupStepFailed(
+        'DeArrowService.syncFromSettings()', error, stack);
+  }
 }
 
 class MyApp extends StatefulWidget {

@@ -13,6 +13,7 @@ import 'package:vyplay/core/player/global_player_controller.dart';
 import 'package:vyplay/infrastructure/newpipe/newpipe_channel.dart';
 import 'package:vyplay/domain/settings/settings_service.dart';
 import 'package:vyplay/domain/sleep_timer/sleep_timer_config.dart';
+import 'package:vyplay/core/services/startup_diagnostics.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -73,8 +74,17 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
         instanceApi = settingsMap[instanceApiUrl] ?? BaseUrl.kBaseUrl;
       }
 
-      //package info
-      PackageInfo packageInfo = await PackageInfo.fromPlatform();
+      // Package info. This is a platform channel call, and the version string is
+      // cosmetic: a failure here must not keep the splash screen waiting for a
+      // settings state that would otherwise be ready.
+      String? packageVersion = state.version;
+      try {
+        PackageInfo packageInfo = await PackageInfo.fromPlatform();
+        packageVersion = packageInfo.version;
+      } catch (error, stack) {
+        StartupDiagnostics()
+            .recordStartupStepFailed('PackageInfo.fromPlatform()', error, stack);
+      }
 
       // Update the state with the collected settings
       var newState = state;
@@ -167,7 +177,7 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
               : settingsMap[pipedAuthUsernameKey]!.trim();
 
       newState = newState.copyWith(
-        version: packageInfo.version,
+        version: packageVersion,
         themeMode: defaultThemeMode,
         isHistoryVisible: defaultHistoryVisibility,
         isDislikeVisible: defaultDislikeVisibility,
@@ -215,8 +225,15 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
       GlobalPlayerController.bluetoothSeekEnabled =
           (settingsMap[bluetoothSeekEnabledKey] ?? 'true') != 'false';
 
-      // Push the stored cookie into the native NewPipe downloader.
-      await NewPipeChannel.setCookie(youtubeCookie);
+      // Push the stored cookie into the native NewPipe downloader. Best effort:
+      // if the channel is unavailable the app still starts, the cookie just is
+      // not handed to the native extractor.
+      try {
+        await NewPipeChannel.setCookie(youtubeCookie);
+      } catch (error, stack) {
+        StartupDiagnostics()
+            .recordStartupStepFailed('NewPipeChannel.setCookie()', error, stack);
+      }
 
       if (ytService == YouTubeServices.invidious.name) {
         BaseUrl.updateInvidiousBaseUrl(instanceApi);
