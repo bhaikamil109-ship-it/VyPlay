@@ -7,6 +7,7 @@ import 'package:vyplay/application/application.dart';
 import 'package:vyplay/core/constants.dart';
 import 'package:vyplay/core/enums.dart';
 import 'package:vyplay/core/perf/app_perf.dart';
+import 'package:vyplay/core/services/startup_diagnostics.dart';
 import 'package:vyplay/generated/l10n.dart';
 import 'package:vyplay/presentation/home/widgets/personalized_feed_section.dart';
 import 'package:vyplay/presentation/trending/widgets/invidious/trending_videos_section.dart';
@@ -23,6 +24,11 @@ class ScreenHome extends StatelessWidget {
   Widget build(BuildContext context) {
     final trendingBloc = BlocProvider.of<TrendingBloc>(context);
     final locals = S.of(context);
+
+    // Record that ScreenHome's build ran. This is the widget the user should
+    // see once the splash screen navigates away — if it never builds, the
+    // grey screen happened before / during the splash-to-main transition.
+    StartupDiagnostics().recordScreenHomeBuilt();
 
     return BlocBuilder<SettingsBloc, SettingsState>(
       buildWhen: (previous, current) =>

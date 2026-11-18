@@ -9,6 +9,7 @@ import 'package:vyplay/core/deep_link_handler.dart';
 import 'package:vyplay/core/enums.dart';
 import 'package:vyplay/core/player/global_player_controller.dart';
 import 'package:vyplay/core/services/pip_service.dart';
+import 'package:vyplay/core/services/startup_diagnostics.dart';
 import 'package:vyplay/generated/l10n.dart';
 
 import '../download/screen_downloads.dart';
@@ -59,6 +60,9 @@ int? consumePendingDownloadsTab() {
 
 class MainNavigation extends StatefulWidget {
   const MainNavigation({super.key});
+
+  /// Set once the first build of MainNavigation's scaffold completes.
+  static bool _mainNavigationBuilt = false;
 
   @override
   MainNavigationState createState() => MainNavigationState();
@@ -144,6 +148,7 @@ class MainNavigationState extends State<MainNavigation> {
   @override
   void initState() {
     super.initState();
+    StartupDiagnostics().recordMainNavigationInitState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _deepLinkHandler.init(context);
     });
@@ -222,6 +227,11 @@ class MainNavigationState extends State<MainNavigation> {
           child: ValueListenableBuilder(
             valueListenable: indexChangeNotifier,
             builder: (BuildContext context, int index, Widget? _) {
+              // Record the first build of MainNavigation's scaffold.
+              if (!MainNavigation._mainNavigationBuilt) {
+                MainNavigation._mainNavigationBuilt = true;
+                StartupDiagnostics().recordMainNavigationBuilt();
+              }
               // Check for pending navigation from notification tap
               final pendingNav = consumePendingNavigation();
               if (pendingNav == 'downloads') {

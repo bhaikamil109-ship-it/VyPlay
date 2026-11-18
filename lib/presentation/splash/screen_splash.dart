@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vyplay/application/application.dart';
 import 'package:vyplay/core/enums.dart';
+import 'package:vyplay/core/services/startup_diagnostics.dart';
 import 'package:go_router/go_router.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -21,6 +22,7 @@ class SplashScreenState extends State<SplashScreen> {
   void _initializeSettings() {
     // Initialize the settings bloc first
     // Subscriptions will be loaded after settings are initialized (in _handleState)
+    StartupDiagnostics().recordSplashInitializedSettings();
     BlocProvider.of<SettingsBloc>(context)
         .add(SettingsEvent.initialize());
   }
@@ -118,6 +120,7 @@ class SplashScreenState extends State<SplashScreen> {
               subscribeState.subscribeStatus == ApiStatus.error)) {
         await Future.delayed(const Duration());
         if (mounted) {
+          StartupDiagnostics().recordNavigatedToMain();
           Router.neglect(context, () {
             context.goNamed('main');
           });
@@ -158,6 +161,7 @@ class SplashScreenState extends State<SplashScreen> {
             subscribeState.subscribeStatus == ApiStatus.error)) {
       await Future.delayed(const Duration());
       if (mounted) {
+        StartupDiagnostics().recordNavigatedToMain();
         Router.neglect(context, () {
           context.goNamed('main');
         });
