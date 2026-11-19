@@ -9,6 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vyplay/application/application.dart';
 import 'package:vyplay/core/player/global_player_controller.dart';
 import 'package:vyplay/core/services/audio_handler_service.dart';
+import 'package:vyplay/core/services/playback_diagnostics.dart';
 import 'package:vyplay/core/services/exoplayer_notification_bridge.dart';
 import 'package:vyplay/core/services/external_player_service.dart';
 import 'package:vyplay/core/services/pip_service.dart';
@@ -105,6 +106,10 @@ class _NewPipeExoPlayerState extends State<NewPipeExoPlayer> {
   String? _currentAudioTrackId;
   List<_CaptionCue> _captionCues = [];
   bool _isReloadingLiveUrl = false;
+  /// Automatic recoveries spent on the current source. Reset whenever a
+  /// source actually starts rendering, so a later failure can recover again.
+  int _sourceRecoveryAttempts = 0;
+  static const int _maxSourceRecoveryAttempts = 1;
   int? _sleepTimerMinutes;
   Timer? _sleepTimer;
 
@@ -277,10 +282,77 @@ class _NewPipeExoPlayerState extends State<NewPipeExoPlayer> {
     return resolved;
   }
 
+  /// One bounded recovery for a stream URL that the player cannot open.
+  ///
+  /// Googlevideo URLs expire, and before this the only failure with a refresh
+  /// path was live HLS: a stale progressive/merging/DASH URL left the user on
+  /// the same error with a cache that kept serving the dead URL for five
+  /// minutes. Permanent errors must not retry forever, so this runs at most
+  /// [_maxSourceRecoveryAttempts] times per loaded source.
+  Future<void> _recoverFromStreamFailure({
+    required String message,
+    required String code,
+  }) async {
+    if (_sourceRecoveryAttempts >= _maxSourceRecoveryAttempts) return;
+
+    final recoverable = RegExp(
+      r'(404|403|410|ERROR_CODE_IO_BAD_HTTP_STATUS|ERROR_CODE_IO_FILE_NOT_FOUND|expired|Source error)',
+      caseSensitive: false,
+    ).hasMatch('$code $message');
+    if (!recoverable) return;
+
+    _sourceRecoveryAttempts++;
+    try {
+      await NewPipeChannel.invalidateStreamInfo(widget.videoId);
+      final fresh = await NewPipeChannel.getStreamInfo(widget.videoId);
+      final freshConfig = _resolver.resolve(
+        watchResp: fresh,
+        preferredQuality: _initialQuality(),
+        preferHighQuality: true,
+        preferAdaptive: _currentQuality == 'Auto',
+      );
+      if (!mounted || !freshConfig.isValid) {
+        PlaybackDiagnostics.instance.recordRecovery(
+          videoId: widget.videoId,
+          action: 'invalidate-cache-and-reextract',
+          success: false,
+          detail: 'no usable stream after re-extraction',
+        );
+        return;
+      }
+      setState(() {
+        _config = freshConfig;
+        _qualities = NewPipeStreamHelper.getAvailableQualities(fresh);
+        _audioTracks = NewPipeStreamHelper.getAvailableAudioTracks(
+          fresh.audioStreams ?? [],
+        );
+        _errorMessage = null;
+        _isBuffering = true;
+      });
+      await _channel?.invokeMethod('load', _sourceParams(keepPosition: true));
+      PlaybackDiagnostics.instance.recordRecovery(
+        videoId: widget.videoId,
+        action: 'reload-fresh-source',
+        success: true,
+      );
+    } catch (error) {
+      PlaybackDiagnostics.instance.recordRecovery(
+        videoId: widget.videoId,
+        action: 'invalidate-cache-and-reextract',
+        success: false,
+        detail: error.runtimeType.toString(),
+      );
+    }
+  }
+
   Future<void> _handleLiveUrlExpired() async {
     if (_isReloadingLiveUrl) return;
     _isReloadingLiveUrl = true;
     try {
+      // The native handler caches StreamInfo for 5 minutes and that object
+      // carries the resolved URLs, so a refresh has to invalidate it first or
+      // it just hands back the same expired manifest.
+      await NewPipeChannel.invalidateStreamInfo(widget.videoId);
       final freshInfo = await NewPipeChannel.getStreamInfo(widget.videoId);
       final freshHlsUrl = freshInfo.hlsUrl;
       if (freshHlsUrl != null && freshHlsUrl.isNotEmpty) {
@@ -404,6 +476,10 @@ class _NewPipeExoPlayerState extends State<NewPipeExoPlayer> {
             position: Duration(milliseconds: _positionMs),
             duration: Duration(milliseconds: _durationMs),
           );
+          if (_durationMs > 1000) {
+            // A source that actually rendered is allowed a fresh recovery.
+            _sourceRecoveryAttempts = 0;
+          }
           unawaited(_syncNotificationState(force: true));
           if (!widget.isFullscreen) {
             unawaited(_pipService.setVideoPlaying(_isPlaying));
@@ -424,12 +500,30 @@ class _NewPipeExoPlayerState extends State<NewPipeExoPlayer> {
           final args = Map<String, dynamic>.from(call.arguments as Map);
           if (mounted) {
             final isPlaylistStuck = args['isPlaylistStuck'] as bool? ?? false;
+            final message = args['message'] as String? ?? 'Playback failed';
+            final code = args['code'] as String? ?? 'UNKNOWN';
+            PlaybackDiagnostics.instance.recordFailure(
+              backend: 'newpipe',
+              player: 'android-media3',
+              videoId: widget.videoId,
+              errorCode: code,
+              message: message,
+              quality: _currentQuality,
+              sourceType: _sourceTypeName(_config.sourceType),
+              url: _config.manifestUrl ?? _config.videoUrl,
+              containerOrManifest: _config.audioUrl,
+              recoveryAttempt: _sourceRecoveryAttempts,
+            );
             setState(() {
-              _errorMessage = args['message'] as String? ?? 'Playback failed';
+              _errorMessage = message;
               _isBuffering = false;
             });
-            if (isPlaylistStuck && _config.isLive) {
-              _handleLiveUrlExpired();
+            if (_config.isLive) {
+              if (isPlaylistStuck) {
+                unawaited(_handleLiveUrlExpired());
+              }
+            } else {
+              unawaited(_recoverFromStreamFailure(message: message, code: code));
             }
           }
           break;

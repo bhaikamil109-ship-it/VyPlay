@@ -139,6 +139,27 @@ class NewPipeChannel {
     _streamCache.clear();
   }
 
+  /// Drop every cached copy of [videoId]'s stream info, on both sides of the
+  /// channel.
+  ///
+  /// The native handler keeps its own 5-minute `StreamInfo` cache, and a
+  /// `StreamInfo` carries the already-resolved Googlevideo URLs. Refreshing a
+  /// stream therefore has to invalidate that cache first, otherwise the
+  /// "fresh" extraction returns the same expired URL.
+  static Future<void> invalidateStreamInfo(String videoId) async {
+    _streamCache.remove(videoId);
+    if (!Platform.isAndroid) return;
+    try {
+      await _channel.invokeMethod<bool>(
+        'clearStreamCache',
+        {'id': videoId},
+      );
+    } catch (_) {
+      // Best-effort: an older native build may not expose the method yet. The
+      // Dart-side cache is still cleared, which is the part this class owns.
+    }
+  }
+
   /// Get trending videos for a specific region
   static Future<List<NewPipeTrendingResp>> getTrending(String region) async {
     try {

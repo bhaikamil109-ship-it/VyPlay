@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:vyplay/core/services/log_collector.dart';
+import 'package:vyplay/core/services/playback_diagnostics.dart';
 import 'package:vyplay/generated/l10n.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:path_provider/path_provider.dart';
@@ -145,7 +146,13 @@ class _ScreenDebugState extends State<ScreenDebug> {
   Future<void> _shareLogs() async {
     final dir = await getTemporaryDirectory();
     final file = File('${dir.path}/vyplay_debug.log');
-    await file.writeAsString(_collector.fullLog);
+    // Playback failures carry the redacted URL/error classification that a
+    // startup-only log cannot show, so both are exported together.
+    await file.writeAsString(
+      '${_collector.fullLog}\n\n'
+      '=== PLAYBACK DIAGNOSTICS ===\n'
+      '${PlaybackDiagnostics.instance.dump()}\n',
+    );
     await SharePlus.instance.share(ShareParams(files: [XFile(file.path)]));
   }
 }

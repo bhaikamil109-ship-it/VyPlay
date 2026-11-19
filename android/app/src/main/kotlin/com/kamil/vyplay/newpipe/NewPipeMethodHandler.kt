@@ -68,6 +68,18 @@ class NewPipeMethodHandler(
                 streamInfoCache.clear()
                 result.success(true)
             }
+            // Explicit cache invalidation. Without this, a refresh after an
+            // expired Googlevideo URL kept returning the cached StreamInfo
+            // (and therefore the same dead stream URLs) for up to 5 minutes.
+            "clearStreamCache" -> {
+                val id = call.argument<String>("id")
+                if (id.isNullOrBlank()) {
+                    streamInfoCache.clear()
+                } else {
+                    streamInfoCache.remove(id)
+                }
+                result.success(true)
+            }
             "getStreamInfo" -> handleGetStreamInfo(call, result)
             "getStreamInfoFast" -> handleGetStreamInfoFast(call, result)
             "getTrending" -> handleGetTrending(call, result)
