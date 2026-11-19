@@ -272,15 +272,25 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           RELEASE_TAG: ${{ steps.app_version.outputs.tag }}
           VERSION: ${{ steps.app_version.outputs.version }}
+          SIGNED: ${{ steps.signing.outputs.signed }}
         shell: bash
         run: |
           set -euo pipefail
 
-          gh release create "$RELEASE_TAG" \
-            dist/*.apk \
-            dist/SHA256SUMS \
-            --title "VyPlay $VERSION" \
-            --notes-file RELEASE_NOTES.md
+          ASSETS=(dist/*.apk dist/SHA256SUMS)
+
+          if [[ "$SIGNED" == "true" ]]; then
+            gh release create "$RELEASE_TAG" "${ASSETS[@]}" \
+              --title "VyPlay $VERSION" \
+              --notes-file RELEASE_NOTES.md
+          else
+            # A fresh temporary debug key is not a stable update identity.
+            # Publish it as a prerelease so it cannot be mistaken for production.
+            gh release create "$RELEASE_TAG" "${ASSETS[@]}" \
+              --title "VyPlay $VERSION (UNSIGNED TEST BUILD)" \
+              --notes-file RELEASE_NOTES.md \
+              --prerelease
+          fi
 
       - name: Verify published release assets
         env:
