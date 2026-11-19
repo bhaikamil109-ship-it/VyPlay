@@ -37,7 +37,7 @@ class MainActivity: AudioServiceFragmentActivity() {
     private var newPipeHandler: NewPipeMethodHandler? = null
     private var castHandler: CastMethodHandler? = null
     private var pipChannel: MethodChannel? = null
-    private var muxerHandler: FFmpegMuxerHandler? = null
+    private var muxerHandler: NewPipeMuxerHandler? = null
     private var safHandler: SafStorageHandler? = null
 
     /**
@@ -88,10 +88,11 @@ class MainActivity: AudioServiceFragmentActivity() {
                 NewPipeExoPlayerViewFactory(flutterEngine.dartExecutor.binaryMessenger)
             )
 
-        // Initialize and register the FFmpeg mux plan handler. The actual
-        // merge runs in Dart via ffmpeg_kit_flutter_new; this channel only
-        // validates inputs and picks the output container.
-        muxerHandler = FFmpegMuxerHandler()
+        // Register the native muxer. NewPipeMuxerHandler performs the real
+        // merge with the vendored org.schabi.newpipe.streams writers and
+        // delegates the legacy resolveMuxPlan/muxVideoAudio calls to
+        // FFmpegMuxerHandler, so old call sites keep resolving.
+        muxerHandler = NewPipeMuxerHandler()
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, MUXER_CHANNEL)
             .setMethodCallHandler(muxerHandler)
 
