@@ -11,6 +11,7 @@ import 'package:vyplay/domain/watch/models/newpipe/newpipe_comments_resp.dart';
 import 'package:vyplay/domain/watch/models/piped/comments/comments_resp.dart';
 import 'package:vyplay/domain/watch/models/explode/explode_watch.dart';
 import 'package:vyplay/domain/watch/models/piped/video/watch_resp.dart';
+import 'package:vyplay/application/watch/watch_failure.dart';
 import 'package:vyplay/domain/watch/watch_service.dart';
 import 'package:vyplay/infrastructure/newpipe/newpipe_channel.dart';
 import 'package:injectable/injectable.dart';
@@ -318,7 +319,16 @@ class WatchImpl implements WatchService {
       return Right(result);
     } catch (e) {
       log('Err on getNewPipeVideoData: $e');
-      return Left(MainFailure.unknown(message: e.toString()));
+      // Name the stage instead of forwarding a raw exception string: the watch
+      // screen shows this text, and a bare "HTTP 404" never said whether the
+      // extractor, the manifest or the player produced it.
+      final report = WatchFailureReport.fromException(
+        backend: 'NewPipe',
+        error: e,
+        fallbackStage: WatchStage.metadataExtraction,
+      );
+      log('NewPipe failure: ${report.describe()} | ${report.detail}');
+      return Left(MainFailure.unknown(message: report.describe()));
     }
   }
 
@@ -331,7 +341,13 @@ class WatchImpl implements WatchService {
       return Right(result);
     } catch (e) {
       log('Err on getNewPipeVideoDataFast: $e');
-      return Left(MainFailure.unknown(message: e.toString()));
+      final report = WatchFailureReport.fromException(
+        backend: 'NewPipe',
+        error: e,
+        fallbackStage: WatchStage.metadataExtraction,
+      );
+      log('NewPipe failure: ${report.describe()} | ${report.detail}');
+      return Left(MainFailure.unknown(message: report.describe()));
     }
   }
 
