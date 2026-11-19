@@ -33,7 +33,8 @@ class PlaybackDiagnostics {
     String? quality,
     String? sourceType,
     String? url,
-    String? containerOrManifest,
+    String? secondaryUrl,
+    int? httpStatus,
     int? recoveryAttempt,
     bool fromCache = false,
   }) {
@@ -44,7 +45,8 @@ class PlaybackDiagnostics {
       ..write('quality=${quality ?? 'unknown'} ')
       ..write('source=${sourceType ?? 'unknown'} ')
       ..write('url=$sanitized ')
-      ..write('container=${containerOrManifest ?? '-'} ')
+      ..write('secondaryUrl=${_sanitize(secondaryUrl)} ')
+      ..write('httpStatus=${httpStatus ?? '-'} ')
       ..write('cached=$fromCache ')
       ..write('recovery=${recoveryAttempt ?? 0} ')
       ..write('code=$errorCode ')
@@ -92,6 +94,9 @@ class PlaybackDiagnostics {
         ? '${withoutUrls.substring(0, 500)}…'
         : withoutUrls;
   }
+
+  /// Redact URLs (including signed query parameters) from diagnostic messages.
+  String redactMessage(String message) => _redactMessage(message);
 
   String dump() {
     if (_entries.isEmpty) return 'No playback failures recorded.';

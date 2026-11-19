@@ -511,7 +511,8 @@ class _NewPipeExoPlayerState extends State<NewPipeExoPlayer> {
               quality: _currentQuality,
               sourceType: _sourceTypeName(_config.sourceType),
               url: _config.manifestUrl ?? _config.videoUrl,
-              containerOrManifest: _config.audioUrl,
+              secondaryUrl: _config.audioUrl,
+              httpStatus: args['httpStatus'] as int?,
               recoveryAttempt: _sourceRecoveryAttempts,
             );
             setState(() {
