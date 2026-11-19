@@ -3,22 +3,22 @@
 ![VyPlay](doc/banner.jpg)
 
 <p align="center">
-<a href="https://github.com/bhaikamil109-ship-it/VyPlay./releases" alt="GitHub release"><img src="https://img.shields.io/github/release/bhaikamil109-ship-it/VyPlay..svg" ></a>
+<a href="https://github.com/bhaikamil109-ship-it/VyPlay/releases" alt="GitHub release"><img src="https://img.shields.io/github/release/bhaikamil109-ship-it/VyPlay.svg" ></a>
 <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" alt="GitHub release"><img src="https://shields.io/badge/License-GPL%20v3-blue.svg" ></a>
-  <a href="https://github.com/bhaikamil109-ship-it/VyPlay./releases" alt="GitHub release"><img src="https://shields.io/badge/Flutter-v3.47.1-blue.svg" ></a>
-  <a href="https://github.com/bhaikamil109-ship-it/VyPlay./actions/workflows/flutter-ci.yml" alt="Flutter CI"><img src="https://github.com/bhaikamil109-ship-it/VyPlay./actions/workflows/flutter-ci.yml/badge.svg" ></a>
+  <a href="https://github.com/bhaikamil109-ship-it/VyPlay/releases" alt="GitHub release"><img src="https://shields.io/badge/Flutter-v3.47.1-blue.svg" ></a>
+  <a href="https://github.com/bhaikamil109-ship-it/VyPlay/actions/workflows/flutter-ci.yml" alt="Flutter CI"><img src="https://github.com/bhaikamil109-ship-it/VyPlay/actions/workflows/flutter-ci.yml/badge.svg" ></a>
 </p>
 
 A clean, ad-free YouTube client built with Flutter. Watch YouTube videos without ads, subscribe to channels, retrieve video dislikes, read comments, save videos, and more.
 
-> **Note:** VyPlay is a derivative work of [FluxTube](https://github.com/mu-fazil-vk/FluxTube) (GPLv3). It keeps the same multi-backend architecture and adds VyPlay branding, a dedicated Shorts feed, an FFmpeg-based download merge, and additional localisation. Upstream attribution is preserved in the app's About screen as required by the licence.
+> **Note:** VyPlay is a derivative work of [FluxTube](https://github.com/mu-fazil-vk/FluxTube) (GPLv3). It keeps the same multi-backend architecture and adds VyPlay branding, a dedicated Shorts feed, a native download merge, and additional localisation. Upstream attribution is preserved in the app's About screen as required by the licence.
 
 ## Features
 
 - **No Login Needed**: Use the app without any login requirements.
 - **Ad-Free Experience**: Enjoy YouTube videos without interruptions.
 - **Multiple YouTube Services**: Switch between NewPipe Extractor, Piped, Invidious, or Explode backends.
-- **Download Videos**: Download videos and audio in multiple qualities with FFmpeg merging support.
+- **Download Videos**: Download videos and audio in multiple qualities with native merging support.
 - **Dedicated Shorts Feed**: A real Shorts tab backed by channel Shorts tabs, not a fixed search query.
 - **Background Playback**: Continue listening with notification controls (play/pause/seek).
 - **Picture-in-Picture**: System PiP mode - auto-enters when pressing home while playing.
@@ -54,12 +54,12 @@ Some features are only available when using the NewPipe Extractor service.
 ## Download
 
 <p>
-  <a href="https://github.com/bhaikamil109-ship-it/VyPlay./releases">
+  <a href="https://github.com/bhaikamil109-ship-it/VyPlay/releases">
     <img alt="Get it on GitHub" src="doc/get-it-on-gb.png" width="200">
   </a>
 </p>
 
-You can download the latest version of the app from the [releases page](https://github.com/bhaikamil109-ship-it/VyPlay./releases).
+You can download the latest version of the app from the [releases page](https://github.com/bhaikamil109-ship-it/VyPlay/releases).
 
 ## VyPlay vs NewPipe App
 
@@ -72,7 +72,7 @@ If you select "NewPipe Extractor" as your YouTube service in VyPlay, it uses the
 | **Fallback Options**  | Switch service if one breaks                       | Wait for app update           |
 | **SponsorBlock**      | Built-in                                           | Requires fork (e.g., Tubular) |
 | **Multiple Profiles** | Yes                                                | No                            |
-| **Download**          | Yes (all services, with FFmpeg merging)            | Yes                           |
+| **Download**          | Yes (all services, with native merging)            | Yes                           |
 | **Background Play**   | Yes (with notification controls)                   | Yes                           |
 | **System PiP**        | Yes (auto-enter on home press)                     | Yes                           |
 
@@ -107,14 +107,14 @@ For the best experience:
 - [X] Save Downloads to Public Storage
 - [X] Database Migration (Isar → Drift)
 - [X] Dedicated Shorts Feed
-- [X] FFmpeg-based Download Merge (replaces MediaMuxer)
+- [X] Native Download Merge (NewPipe pure-Java muxers)
 - [X] Hindi Localisation
 
 ## Contribution
 
 Contributions are welcome! Whether you have ideas, translations, design changes, code cleaning, or even major code changes, help is always welcome.
 
-If you have any ideas, suggestions, or issues, please open a [new issue](https://github.com/bhaikamil109-ship-it/VyPlay./issues) or submit a pull request.
+If you have any ideas, suggestions, or issues, please open a [new issue](https://github.com/bhaikamil109-ship-it/VyPlay/issues) or submit a pull request.
 
 1. Fork the repository.
 2. Create a new branch: `git checkout -b my-feature-branch`
