@@ -97,3 +97,56 @@ provable dead ends (unrefreshable stale URL, zero recovery), but **no claim is m
 3. Settings → Debug → Share logs, and send the file. The playback section will contain
    `backend=newpipe player=android-media3 ... source=dash url=https://*.googlevideo.com/...`
    plus `code=` and `recovery=` lines, which distinguishes case B/C/F from case A.
+
+---
+
+## 6. Off-device reproduction attempt (2026-11-19, supersedes the "needs a device log" assumption)
+
+A JVM harness (`/tmp/vyplay-harness`, Gradle + `com.github.teamnewpipe:newpipeextractor:v0.26.5`,
+the exact version from `android/app/build.gradle:167`) reimplements `VyPlayDownloader`'s request
+semantics verbatim — same extractor UA (`VyPlayDownloader.kt:23`), same 30 s timeouts, same
+redirect policy — and walks every stage of the **fresh-install default** configuration
+(`ytService = newpipe`, `defaultQuality = 720p`, `preferAdaptivePlayback = true`).
+
+### Correction to section 1/2 of this report
+
+The earlier claim that the default path opens a **DASH** manifest was wrong.
+`StreamInfo.getDashMpdUrl()` is **empty** for a normal VOD, so
+`_resolveAdaptiveStream` (`newpipe_playback_resolver.dart:114-119`) skips DASH and returns the
+**HLS** variant instead. The report above is left in place as history; this section is the
+measured truth.
+
+### Measured status codes
+
+| Stage | Request | Result |
+|---|---|---|
+| metadata extraction | `StreamInfo.getInfo` → visitor_id / player / next | all **200**, title resolved |
+| extracted `dashMpdUrl` | — | **empty** |
+| extracted `hlsUrl` | `manifest.googlevideo.com/api/manifest/hls_variant/.../index.m3u8` with the **player** UA (`NewPipeExoPlayerView.kt:427-429`) | **200** |
+| 720p video-only media | `rr1---sn-*.googlevideo.com/videoplayback` with player UA | **200** |
+| best audio media | same host, player UA | **200** |
+| progressive media | same host, player UA | **200** |
+| Piped default instance | `api.piped.private.coffee/streams/<id>` | **200** (double-slash form → 302 → resolves) |
+| Invidious default instance | `inv.nadeko.net/api/v1/videos/<id>` | **403** |
+
+Sandbox egress to YouTube and to the Piped instance is **not** blocked or bot-detected; the
+extractor path works end to end from this IP. Therefore the 404 the user sees is **not
+reproducible at any external stage from here**. What remains environment-specific: YouTube's
+per-IP playability answer for the device's mobile IP, the poToken/WebView client context
+(`PoTokenProviderImpl.kt`), and any non-default backend the user's preserved settings select.
+
+### Structural defect this *did* prove (fixed)
+
+Every failure was flattened to `MainFailure.unknown(message: e.toString())`
+(`watch_impl.dart:321`, `:334` before the change), so the watch screen could only ever show a
+raw exception string — exactly the "HTTP 404" with no stage attached. Now
+`WatchFailureReport.fromException` (`lib/application/watch/watch_failure.dart`) classifies the
+failure into backend + stage + HTTP status and the surfaced text becomes
+`NewPipe metadata extraction failed (HTTP 404)`; classification is covered by
+`test/watch_failure_test.dart` (7 cases).
+
+### What is still device-only
+
+Which of the remaining stages actually answers 404 on the Vivo Y90. The exported playback log
+(previous section) now records backend, source type, host/path and Media3 code, so that answer
+is one reproduction away — but it is **not** claimed as fixed here.

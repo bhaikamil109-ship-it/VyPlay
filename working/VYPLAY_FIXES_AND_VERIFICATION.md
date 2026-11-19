@@ -66,3 +66,27 @@ New `lib/core/services/playback_diagnostics.dart`; recorded from `onError`
 - No physical Android device is reachable from this workspace: the muxer restore and the
   playback recovery are **compiled and analysed, not device-verified**.
 - The 404 itself is not claimed fixed; the diagnostic export is what will pin it.
+
+---
+
+## Fix 5 — Stage-named watch failures (proven structural defect)
+
+Pre-fix, all three NewPipe fetch paths returned `MainFailure.unknown(message: e.toString())`
+(`git show a1e93d1:lib/infrastructure/watch/watch_impl.dart` lines 321 and 334), so the watch
+screen could only render an opaque exception — the origin of a bare "HTTP 404".
+
+- New `lib/application/watch/watch_failure.dart`: `WatchStage`, `WatchFailureReport` with
+  `httpStatus`, `retryable`, `describe()` and `fromException()`.
+- `lib/infrastructure/watch/watch_impl.dart`: both NewPipe watch fetches now classify and
+  surface `NewPipe metadata extraction failed (HTTP 404)` instead of `Exception: ...`.
+- `test/watch_failure_test.dart`: 7 cases covering status parsing, stage precedence,
+  retryability and exception type.
+
+Note on the "fails before the fix" requirement: the classifier is new behaviour, so the test
+exercises new code; the *pre-fix output* is demonstrated by the `e.toString()` lines above
+rather than by a test that could not reference a non-existent API. This is stated instead of
+being dressed up as a regression test.
+
+Also corrected in this pass: the earlier "default path is DASH" conclusion was wrong —
+`dashMpdUrl` is empty and the default path is HLS (see the reproduction section in
+`VYPLAY_PLAYBACK_404_ROOT_CAUSE.md`).
