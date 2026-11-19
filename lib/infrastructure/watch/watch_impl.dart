@@ -12,6 +12,7 @@ import 'package:vyplay/domain/watch/models/piped/comments/comments_resp.dart';
 import 'package:vyplay/domain/watch/models/explode/explode_watch.dart';
 import 'package:vyplay/domain/watch/models/piped/video/watch_resp.dart';
 import 'package:vyplay/application/watch/watch_failure.dart';
+import 'package:vyplay/core/services/playback_diagnostics.dart';
 import 'package:vyplay/domain/watch/watch_service.dart';
 import 'package:vyplay/infrastructure/newpipe/newpipe_channel.dart';
 import 'package:injectable/injectable.dart';
@@ -21,6 +22,32 @@ import '../../domain/core/api_end_points.dart';
 
 @LazySingleton(as: WatchService)
 class WatchImpl implements WatchService {
+  WatchFailureReport _recordNewPipeFailure({
+    required String videoId,
+    required Object error,
+  }) {
+    final report = WatchFailureReport.fromException(
+      backend: 'NewPipe',
+      error: error,
+      fallbackStage: WatchStage.metadataExtraction,
+    );
+    PlaybackDiagnostics.instance.recordFailure(
+      backend: 'newpipe',
+      player: 'newpipe-extractor',
+      videoId: videoId,
+      errorCode: report.httpStatus == null
+          ? report.exceptionType
+          : 'HTTP_${report.httpStatus}',
+      message: report.detail,
+      sourceType: report.stage.label,
+      httpStatus: report.httpStatus,
+    );
+    log(
+      'NewPipe failure: ${report.describe()} | '
+      '${PlaybackDiagnostics.instance.redactMessage(report.detail)}',
+    );
+    return report;
+  }
   MainFailure _mapDioExceptionToFailure(DioException e) {
     switch (e.type) {
       case DioExceptionType.connectionTimeout:
@@ -318,16 +345,7 @@ class WatchImpl implements WatchService {
       final result = await NewPipeChannel.getStreamInfo(id);
       return Right(result);
     } catch (e) {
-      log('Err on getNewPipeVideoData: $e');
-      // Name the stage instead of forwarding a raw exception string: the watch
-      // screen shows this text, and a bare "HTTP 404" never said whether the
-      // extractor, the manifest or the player produced it.
-      final report = WatchFailureReport.fromException(
-        backend: 'NewPipe',
-        error: e,
-        fallbackStage: WatchStage.metadataExtraction,
-      );
-      log('NewPipe failure: ${report.describe()} | ${report.detail}');
+      final report = _recordNewPipeFailure(videoId: id, error: e);
       return Left(MainFailure.unknown(message: report.describe()));
     }
   }
@@ -340,13 +358,7 @@ class WatchImpl implements WatchService {
       final result = await NewPipeChannel.getStreamInfoFast(id);
       return Right(result);
     } catch (e) {
-      log('Err on getNewPipeVideoDataFast: $e');
-      final report = WatchFailureReport.fromException(
-        backend: 'NewPipe',
-        error: e,
-        fallbackStage: WatchStage.metadataExtraction,
-      );
-      log('NewPipe failure: ${report.describe()} | ${report.detail}');
+      final report = _recordNewPipeFailure(videoId: id, error: e);
       return Left(MainFailure.unknown(message: report.describe()));
     }
   }

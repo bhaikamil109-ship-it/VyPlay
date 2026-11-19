@@ -14,6 +14,7 @@ import androidx.media3.common.util.UnstableApi
 import androidx.media3.database.StandaloneDatabaseProvider
 import androidx.media3.datasource.DataSource
 import androidx.media3.datasource.DefaultHttpDataSource
+import androidx.media3.datasource.HttpDataSource
 import androidx.media3.datasource.cache.CacheDataSource
 import androidx.media3.datasource.cache.LeastRecentlyUsedCacheEvictor
 import androidx.media3.datasource.cache.SimpleCache
@@ -30,6 +31,18 @@ import io.flutter.plugin.common.BinaryMessenger
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.platform.PlatformView
+
+private fun findHttpStatus(error: Throwable): Int? {
+    val visited = HashSet<Throwable>()
+    var current: Throwable? = error
+    while (current != null && visited.add(current)) {
+        if (current is HttpDataSource.InvalidResponseCodeException) {
+            return current.responseCode
+        }
+        current = current.cause
+    }
+    return null
+}
 
 @UnstableApi
 object NewPipeSharedExoPlayer {
@@ -175,13 +188,19 @@ class NewPipeExoPlayerView(
 
         override fun onPlayerError(error: PlaybackException) {
             val errorCode = error.errorCodeName
+            val httpStatus = findHttpStatus(error)
+            val errorMessage = buildString {
+                append(error.message ?: "Playback error")
+                if (httpStatus != null) append(" (HTTP $httpStatus)")
+            }
             val isPlaylistStuck = errorCode.contains("PlaylistStuck") ||
                 error.cause?.javaClass?.simpleName?.contains("PlaylistStuck") == true
             channel.invokeMethod(
                 "onError",
                 mapOf(
-                    "message" to (error.message ?: "Playback error"),
+                    "message" to errorMessage,
                     "code" to errorCode,
+                    "httpStatus" to httpStatus,
                     "isPlaylistStuck" to isPlaylistStuck,
                     "sourceType" to sourceType,
                     "isLive" to isLive

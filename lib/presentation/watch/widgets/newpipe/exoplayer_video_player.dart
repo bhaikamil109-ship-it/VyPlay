@@ -460,15 +460,18 @@ class _NewPipeExoPlayerState extends State<NewPipeExoPlayer> {
           final args = Map<String, dynamic>.from(call.arguments as Map);
           if (!mounted) return;
           final wasPlaying = _isPlaying;
+          final nextIsPlaying = args['isPlaying'] as bool? ?? _isPlaying;
           setState(() {
             if (!_isScrubbing) {
               _positionMs = (args['positionMs'] as num? ?? _positionMs).toInt();
             }
             _durationMs = (args['durationMs'] as num? ?? _durationMs).toInt();
-            _isPlaying = args['isPlaying'] as bool? ?? _isPlaying;
+            _isPlaying = nextIsPlaying;
             _isBuffering = args['isBuffering'] as bool? ?? false;
             _currentCaptionText = _captionForPosition(_positionMs);
-            _errorMessage = null;
+            // Keep an error visible through idle/buffering state ticks. Clear it
+            // only after the player has actually resumed playback.
+            if (nextIsPlaying) _errorMessage = null;
           });
           _globalPlayer.updateNativeExoPlayerState(
             playing: _isPlaying,
@@ -511,7 +514,8 @@ class _NewPipeExoPlayerState extends State<NewPipeExoPlayer> {
               quality: _currentQuality,
               sourceType: _sourceTypeName(_config.sourceType),
               url: _config.manifestUrl ?? _config.videoUrl,
-              containerOrManifest: _config.audioUrl,
+              secondaryUrl: _config.audioUrl,
+              httpStatus: args['httpStatus'] as int?,
               recoveryAttempt: _sourceRecoveryAttempts,
             );
             setState(() {
