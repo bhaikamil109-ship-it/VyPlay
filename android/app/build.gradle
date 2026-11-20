@@ -221,7 +221,8 @@ dependencies {
 
     // NewPipe Extractor - YouTube data extraction library (lowercase required for JitPack)
     // PipePipe Extractor adds the Bilibili service/API alongside the existing YouTube API.
-    implementation 'com.github.InfinityLoop1308.PipePipeExtractor:extractor:v5.5.0'
+    // Pin to the exact PipePipe submodule commit used by PipePipe v5.5.0. The extractor repo does not expose a matching v5.5.0 JitPack tag.
+    implementation 'com.github.InfinityLoop1308.PipePipeExtractor:extractor:1a09d20e68dbd0892995bc58ffa539049a656690'
     // PipePipe FFmpegKit, pinned to an upstream commit and SHA-1 verified above.
     implementation files(pipePipeFfmpegAarFile).builtBy(downloadPipePipeFfmpegAar)
     implementation 'com.arthenica:smart-exception-java:0.2.1'
