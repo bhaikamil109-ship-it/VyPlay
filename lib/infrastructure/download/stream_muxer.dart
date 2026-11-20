@@ -37,7 +37,7 @@ class MuxFailure implements Exception {
   String toString() => message;
 }
 
-/// Runs the native merge and reports the real output path and container.
+/// Runs the native FFmpegKit remux (with the NewPipe writer fallback) and reports the output path.
 ///
 /// This is a seam, not an abstraction for its own sake: the merge runs in
 /// native Android code through NewPipe's pure-Java muxers, so the flow can only
@@ -49,9 +49,7 @@ typedef NativeMuxRunner = Future<Map<String, dynamic>> Function({
 });
 
 /// Method channel that carries the muxer calls to the Android side.
-///
-/// The channel name is unchanged from the previous FFmpeg-based
-/// implementation, so the existing native contract keeps working.
+/// The channel name and argument contract remain unchanged.
 const MethodChannel muxerChannel =
     MethodChannel('com.kamil.vyplay/muxer');
 
