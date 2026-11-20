@@ -78,7 +78,8 @@ class NewPipeSearchItem {
     if (url == null) return null;
     final uri = Uri.tryParse(url!);
     if (uri == null) return null;
-    return uri.queryParameters['v'] ?? uri.pathSegments.lastOrNull;
+    final segments = uri.pathSegments.where((segment) => segment.isNotEmpty);
+    return uri.queryParameters['v'] ?? segments.lastOrNull;
   }
 
   /// Extract channel ID from URL
