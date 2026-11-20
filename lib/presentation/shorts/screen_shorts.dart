@@ -501,6 +501,7 @@ class _ShortVideoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final locals = S.of(context);
+    final likeCount = controller.likeCount ?? short.likeCount;
 
     return Stack(
       fit: StackFit.expand,
@@ -665,26 +666,27 @@ class _ShortVideoPage extends StatelessWidget {
           bottom: 100,
           child: Column(
             children: [
-              // Like count display
-              _ActionButton(
-                icon: CupertinoIcons.heart_fill,
-                label: controller.likeCount != null
-                    ? (controller.likeCount == -1 ? locals.like : formatCount(controller.likeCount.toString()))
-                    : (short.likeCount != null
-                        ? (short.likeCount == -1 ? locals.like : formatCount(short.likeCount.toString()))
-                        : ''),
-                onTap: () {},
-                isActive: true,
-              ),
-              const SizedBox(height: 20),
-              // View count display
-              _ActionButton(
-                icon: CupertinoIcons.eye_fill,
-                label: controller.viewCount != null
-                    ? formatCount(controller.viewCount.toString())
-                    : (short.viewCount != null ? formatCount(short.viewCount.toString()) : ''),
-                onTap: () {},
-              ),
+              // Read-only engagement metadata. Like mutations are not
+              // supported by the active extractor APIs, so don't expose a
+              // non-functional like button or a fake active state.
+              if (likeCount != null && likeCount >= 0) ...[
+                _ActionButton(
+                  icon: CupertinoIcons.heart_fill,
+                  label: formatCount(likeCount.toString()),
+                  isActive: false,
+                ),
+                const SizedBox(height: 20),
+              ],
+              // View count is informational, not an interactive action.
+              if ((controller.viewCount ?? short.viewCount) != null) ...[
+                _ActionButton(
+                  icon: CupertinoIcons.eye_fill,
+                  label: formatCount(
+                    (controller.viewCount ?? short.viewCount).toString(),
+                  ),
+                ),
+                const SizedBox(height: 20),
+              ],
               const SizedBox(height: 20),
               // Comment button
               _ActionButton(
@@ -893,13 +895,13 @@ class _VideoProgressBarState extends State<_VideoProgressBar> {
 class _ActionButton extends StatelessWidget {
   final IconData icon;
   final String label;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
   final bool isActive;
 
   const _ActionButton({
     required this.icon,
     required this.label,
-    required this.onTap,
+    this.onTap,
     this.isActive = false,
   });
 
