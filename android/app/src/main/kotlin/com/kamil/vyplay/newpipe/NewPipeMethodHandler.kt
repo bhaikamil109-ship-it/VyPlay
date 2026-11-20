@@ -432,13 +432,17 @@ class NewPipeMethodHandler(
 
         scope.launch {
             try {
+                val serviceId = call.argument<String>("serviceId") ?: "newpipe"
                 val url = if (channelId.startsWith("http")) {
                     channelId
+                } else if (serviceId == "bilibili") {
+                    "https://space.bilibili.com/$channelId"
                 } else {
                     "https://www.youtube.com/channel/$channelId"
                 }
 
-                val channelInfo = ChannelInfo.getInfo(ServiceList.YouTube, url)
+                val service = streamingService(serviceId)
+                val channelInfo = ChannelInfo.getInfo(service, url)
 
                 // Get initial videos from the first tab (usually "Videos")
                 var initialVideos: List<Map<String, Any?>> = emptyList()
@@ -458,7 +462,7 @@ class NewPipeMethodHandler(
 
                         if (videosTab != null) {
                             android.util.Log.d("NewPipeHandler", "Using tab: filters=${videosTab.contentFilters}")
-                            val tabExtractor = ServiceList.YouTube.getChannelTabExtractor(videosTab)
+                            val tabExtractor = service.getChannelTabExtractor(videosTab)
                             tabExtractor.fetchPage()
                             val initialPage = tabExtractor.initialPage
                             android.util.Log.d("NewPipeHandler", "Initial page items count: ${initialPage.items.size}")
@@ -532,6 +536,7 @@ class NewPipeMethodHandler(
             result.error("INVALID_ARGUMENT", "Tab URL is required", null)
             return
         }
+        val serviceId = call.argument<String>("serviceId") ?: "newpipe"
         val tabId = call.argument<String>("id")
         @Suppress("UNCHECKED_CAST")
         val contentFilters = call.argument<List<String>>("contentFilters") ?: emptyList()
@@ -540,12 +545,13 @@ class NewPipeMethodHandler(
         scope.launch {
             try {
                 // Create the link handler from the tab data
-                val linkHandler = ServiceList.YouTube.channelTabLHFactory.fromQuery(
+                val service = streamingService(serviceId)
+                val linkHandler = service.channelTabLHFactory.fromQuery(
                     tabId ?: tabUrl,
                     contentFilters,
                     ""
                 )
-                val tabExtractor = ServiceList.YouTube.getChannelTabExtractor(linkHandler)
+                val tabExtractor = service.getChannelTabExtractor(linkHandler)
 
                 val response = if (nextPageJson != null) {
                     // Handle pagination
@@ -585,8 +591,8 @@ class NewPipeMethodHandler(
 
         scope.launch {
             try {
-                val url = "https://www.youtube.com/watch?v=$videoId"
-                val commentsInfo = CommentsInfo.getInfo(ServiceList.YouTube, url)
+                val url = buildStreamUrl(videoId, serviceId)
+                val commentsInfo = CommentsInfo.getInfo(streamingService(serviceId), url)
 
                 val response = mapOf(
                     "comments" to commentsInfo.relatedItems.map { comment ->
@@ -633,10 +639,10 @@ class NewPipeMethodHandler(
 
         scope.launch {
             try {
-                val url = "https://www.youtube.com/watch?v=$videoId"
+                val url = buildStreamUrl(videoId, serviceId)
                 val page = deserializePage(nextPageJson)
                 val moreComments = CommentsInfo.getMoreItems(
-                    ServiceList.YouTube,
+                    streamingService(serviceId),
                     url,
                     page
                 )
@@ -681,13 +687,14 @@ class NewPipeMethodHandler(
             result.error("INVALID_ARGUMENT", "Replies page is required", null)
             return
         }
+        val serviceId = call.argument<String>("serviceId") ?: "newpipe"
 
         scope.launch {
             try {
-                val url = "https://www.youtube.com/watch?v=$videoId"
+                val url = buildStreamUrl(videoId, serviceId)
                 val page = deserializePage(repliesPageJson)
                 val replies = CommentsInfo.getMoreItems(
-                    ServiceList.YouTube,
+                    streamingService(serviceId),
                     url,
                     page
                 )
@@ -794,6 +801,12 @@ class NewPipeMethodHandler(
     private fun streamCacheKey(serviceId: String, videoId: String): String =
         "$serviceId:$videoId"
 
+    private fun buildStreamUrl(videoId: String, serviceId: String): String = when {
+        videoId.startsWith("http://") || videoId.startsWith("https://") -> videoId
+        serviceId == "bilibili" -> "https://www.bilibili.com/video/$videoId"
+        else -> "https://www.youtube.com/watch?v=$videoId"
+    }
+
     private fun getCachedOrExtractStreamInfo(
         videoId: String,
         serviceId: String = "newpipe",
@@ -805,12 +818,10 @@ class NewPipeMethodHandler(
             return cached.streamInfo
         }
 
-        val url = when {
-            videoId.startsWith("http://") || videoId.startsWith("https://") -> videoId
-            serviceId == "bilibili" -> "https://www.bilibili.com/video/$videoId"
-            else -> "https://www.youtube.com/watch?v=$videoId"
-        }
-        val streamInfo = StreamInfo.getInfo(streamingService(serviceId), url)
+        val streamInfo = StreamInfo.getInfo(
+            streamingService(serviceId),
+            buildStreamUrl(videoId, serviceId)
+        )
         streamInfoCache[cacheKey] = CachedStreamInfo(streamInfo, now)
         return streamInfo
     }
