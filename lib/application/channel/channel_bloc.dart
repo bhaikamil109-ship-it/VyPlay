@@ -4,6 +4,7 @@ import 'dart:developer';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vyplay/core/enums.dart';
 import 'package:vyplay/domain/channel/channel_services.dart';
+import 'package:vyplay/infrastructure/newpipe/newpipe_channel.dart';
 import 'package:vyplay/domain/channel/models/invidious/invidious_channel_resp.dart';
 import 'package:vyplay/domain/channel/models/invidious/latest_video.dart';
 import 'package:vyplay/domain/channel/models/newpipe/newpipe_channel_resp.dart';
@@ -35,7 +36,9 @@ class ChannelBloc extends Bloc<ChannelEvent, ChannelState> {
       if (event.serviceType == YouTubeServices.invidious.name) {
         log("--------invidious bloc---------");
         await _fetchInvidiousChannelInfo(event, emit);
-      } else if (event.serviceType == YouTubeServices.newpipe.name) {
+      } else if (event.serviceType == YouTubeServices.newpipe.name ||
+          event.serviceType == YouTubeServices.bilibili.name) {
+        NewPipeChannel.setActiveService(event.serviceType);
         log("--------newpipe bloc---------");
         await _fetchNewPipeChannelInfo(event, emit);
       } else {
