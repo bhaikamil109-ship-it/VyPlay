@@ -67,7 +67,7 @@ class WatchBloc extends Bloc<WatchEvent, WatchState> {
     );
     //toggle comments
     on<GetCommentData>((event, emit) async {
-      final requestSerial = _watchInfoRequestSerial;
+        final requestSerial = _watchInfoRequestSerial;
       // Toggle comments - store the new value before emit
       final newTapCommentsValue = !state.isTapComments;
 
@@ -82,7 +82,6 @@ class WatchBloc extends Bloc<WatchEvent, WatchState> {
       if (newTapCommentsValue == true) {
         final _result = await watchService.getCommentsData(id: event.id);
         if (!_isCurrentWatchRequest(requestSerial, emit)) return;
-
 
         final _state = _result.fold(
             (MainFailure failure) =>
@@ -109,8 +108,7 @@ class WatchBloc extends Bloc<WatchEvent, WatchState> {
       ));
 
       final _result = await watchService.getCommentsData(id: event.id);
-        if (!_isCurrentWatchRequest(requestSerial, emit)) return;
-
+      if (!_isCurrentWatchRequest(requestSerial, emit)) return;
 
       final _state = _result.fold(
         (MainFailure failure) =>
@@ -147,8 +145,7 @@ class WatchBloc extends Bloc<WatchEvent, WatchState> {
 
       final _result = await watchService.getCommentRepliesData(
           id: event.id, repliesPage: event.nextPage);
-        if (!_isCurrentWatchRequest(requestSerial, emit)) return;
-
+      if (!_isCurrentWatchRequest(requestSerial, emit)) return;
 
       final _state = _result.fold(
           (MainFailure failure) => state.copyWith(
@@ -178,8 +175,7 @@ class WatchBloc extends Bloc<WatchEvent, WatchState> {
 
       final _result = await watchService.getMoreCommentsData(
           id: event.id, nextPage: event.nextPage);
-        if (!_isCurrentWatchRequest(requestSerial, emit)) return;
-
+      if (!_isCurrentWatchRequest(requestSerial, emit)) return;
 
       final _state = _result.fold(
           (MainFailure failure) => state.copyWith(
@@ -221,8 +217,7 @@ class WatchBloc extends Bloc<WatchEvent, WatchState> {
 
       final _result = await watchService.getMoreCommentsData(
           id: event.id, nextPage: event.nextPage);
-        if (!_isCurrentWatchRequest(requestSerial, emit)) return;
-
+      if (!_isCurrentWatchRequest(requestSerial, emit)) return;
 
       final _state = _result.fold(
           (MainFailure failure) => state.copyWith(
@@ -253,7 +248,7 @@ class WatchBloc extends Bloc<WatchEvent, WatchState> {
     //GET SUBTITLES
     on<GetSubtitles>(
       (event, emit) async {
-      final requestSerial = _watchInfoRequestSerial;
+        final requestSerial = _watchInfoRequestSerial;
         emit(state.copyWith(
           fetchSubtitlesStatus: ApiStatus.loading,
         ));
@@ -261,7 +256,6 @@ class WatchBloc extends Bloc<WatchEvent, WatchState> {
         //get stream info data
         final result = await watchService.getSubtitles(id: event.id);
         if (!_isCurrentWatchRequest(requestSerial, emit)) return;
-
 
         final _state = result.fold(
             (MainFailure failure) => state.copyWith(
@@ -350,7 +344,7 @@ class WatchBloc extends Bloc<WatchEvent, WatchState> {
           fetchExplodeMuxedStreamsStatus: ApiStatus.loading,
           muxedStreams: null));
       final result = await watchService.getExplodeMuxedStreamData(id: event.id);
-        if (!_isCurrentWatchRequest(requestSerial, emit)) return;
+      if (!_isCurrentWatchRequest(requestSerial, emit)) return;
 
       final newState = result.fold(
         (failure) => state.copyWith(
@@ -369,7 +363,7 @@ class WatchBloc extends Bloc<WatchEvent, WatchState> {
       final requestSerial = _watchInfoRequestSerial;
       emit(state.copyWith(fetchExplodeLiveStreamStatus: ApiStatus.loading));
       final result = await watchService.getExplodeLiveStreamUrl(id: event.id);
-        if (!_isCurrentWatchRequest(requestSerial, emit)) return;
+      if (!_isCurrentWatchRequest(requestSerial, emit)) return;
 
       final newState = result.fold(
         (failure) => state.copyWith(
@@ -428,8 +422,7 @@ class WatchBloc extends Bloc<WatchEvent, WatchState> {
           isTapComments: !state.isTapComments));
 
       final result = await watchService.getInvidiousCommentsData(id: event.id);
-        if (!_isCurrentWatchRequest(requestSerial, emit)) return;
-
+      if (!_isCurrentWatchRequest(requestSerial, emit)) return;
 
       final _state = result.fold(
         (MainFailure failure) => state.copyWith(
@@ -454,8 +447,7 @@ class WatchBloc extends Bloc<WatchEvent, WatchState> {
       ));
 
       final result = await watchService.getInvidiousCommentsData(id: event.id);
-        if (!_isCurrentWatchRequest(requestSerial, emit)) return;
-
+      if (!_isCurrentWatchRequest(requestSerial, emit)) return;
 
       final _state = result.fold(
         (MainFailure failure) => state.copyWith(
@@ -481,8 +473,7 @@ class WatchBloc extends Bloc<WatchEvent, WatchState> {
         id: event.id,
         continuation: event.continuation,
       );
-        if (!_isCurrentWatchRequest(requestSerial, emit)) return;
-
+      if (!_isCurrentWatchRequest(requestSerial, emit)) return;
 
       final _state = result.fold(
         (MainFailure failure) => state.copyWith(
@@ -508,8 +499,7 @@ class WatchBloc extends Bloc<WatchEvent, WatchState> {
         id: event.id,
         continuation: event.continuation!,
       );
-        if (!_isCurrentWatchRequest(requestSerial, emit)) return;
-
+      if (!_isCurrentWatchRequest(requestSerial, emit)) return;
 
       final _state = result.fold(
         (MainFailure failure) => state.copyWith(
@@ -553,8 +543,7 @@ class WatchBloc extends Bloc<WatchEvent, WatchState> {
         id: event.id,
         continuation: event.continuation!,
       );
-        if (!_isCurrentWatchRequest(requestSerial, emit)) return;
-
+      if (!_isCurrentWatchRequest(requestSerial, emit)) return;
 
       final _state = result.fold(
         (MainFailure failure) => state.copyWith(
@@ -734,7 +723,7 @@ class WatchBloc extends Bloc<WatchEvent, WatchState> {
     });
 
     on<GetNewPipeComments>((event, emit) async {
-      final requestSerial = _watchInfoRequestSerial;
+        final requestSerial = _watchInfoRequestSerial;
       // Toggle comments - store the new value before emit
       final newTapCommentsValue = !state.isTapComments;
 
@@ -749,7 +738,6 @@ class WatchBloc extends Bloc<WatchEvent, WatchState> {
       if (newTapCommentsValue == true) {
         final result = await watchService.getNewPipeCommentsData(id: event.id);
         if (!_isCurrentWatchRequest(requestSerial, emit)) return;
-
 
         final _state = result.fold(
           (MainFailure failure) => loadingState.copyWith(
@@ -778,8 +766,7 @@ class WatchBloc extends Bloc<WatchEvent, WatchState> {
       ));
 
       final result = await watchService.getNewPipeCommentsData(id: event.id);
-        if (!_isCurrentWatchRequest(requestSerial, emit)) return;
-
+      if (!_isCurrentWatchRequest(requestSerial, emit)) return;
 
       final _state = result.fold(
         (MainFailure failure) => state.copyWith(
@@ -805,8 +792,7 @@ class WatchBloc extends Bloc<WatchEvent, WatchState> {
         id: event.id,
         nextPage: event.nextPage!,
       );
-        if (!_isCurrentWatchRequest(requestSerial, emit)) return;
-
+      if (!_isCurrentWatchRequest(requestSerial, emit)) return;
 
       final _state = result.fold(
         (MainFailure failure) => state.copyWith(
@@ -851,8 +837,7 @@ class WatchBloc extends Bloc<WatchEvent, WatchState> {
         videoId: event.videoId,
         repliesPage: event.repliesPage,
       );
-        if (!_isCurrentWatchRequest(requestSerial, emit)) return;
-
+      if (!_isCurrentWatchRequest(requestSerial, emit)) return;
 
       final _state = result.fold(
         (MainFailure failure) => state.copyWith(
@@ -878,8 +863,7 @@ class WatchBloc extends Bloc<WatchEvent, WatchState> {
         videoId: event.videoId,
         repliesPage: event.nextPage!,
       );
-        if (!_isCurrentWatchRequest(requestSerial, emit)) return;
-
+      if (!_isCurrentWatchRequest(requestSerial, emit)) return;
 
       final _state = result.fold(
         (MainFailure failure) => state.copyWith(
@@ -924,8 +908,7 @@ class WatchBloc extends Bloc<WatchEvent, WatchState> {
         videoId: event.videoId,
         categories: event.categories,
       );
-        if (!_isCurrentWatchRequest(requestSerial, emit)) return;
-
+      if (!_isCurrentWatchRequest(requestSerial, emit)) return;
 
       final _state = result.fold(
         (MainFailure failure) => state.copyWith(

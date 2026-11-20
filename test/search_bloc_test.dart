@@ -16,8 +16,11 @@ import 'package:vyplay/domain/search/search_service.dart';
 class _FakeSearchService implements SearchService {
   final Set<String> deferredSearchQueries = {};
   final Set<String> deferredSuggestionQueries = {};
+  final Set<String> deferredNewPipeSearchQueries = {};
   final Map<String, Completer<Either<MainFailure, SearchResp>>> deferredSearchResults = {};
   final Map<String, Completer<Either<MainFailure, List>>> deferredSuggestions = {};
+  final Map<String, Completer<Either<MainFailure, NewPipeSearchResp>>> deferredNewPipeSearchResults = {};
+  final Map<String, Completer<void>> newPipeSearchStarted = {};
   final Map<String, Completer<void>> searchStarted = {};
   final Map<String, Completer<void>> suggestionsStarted = {};
   final Map<String, SearchResp> pipedFirstPages = {};
@@ -31,6 +34,9 @@ class _FakeSearchService implements SearchService {
 
   Future<void> waitForSuggestions(String query) =>
       suggestionsStarted.putIfAbsent(query, Completer<void>.new).future;
+
+  Future<void> waitForNewPipeSearch(String query) =>
+      newPipeSearchStarted.putIfAbsent(query, Completer<void>.new).future;
 
   @override
   Future<Either<MainFailure, SearchResp>> getSearchResult({
@@ -102,8 +108,18 @@ class _FakeSearchService implements SearchService {
   Future<Either<MainFailure, NewPipeSearchResp>> getNewPipeSearchResult({
     required String query,
     required String filter,
-  }) async =>
-      Right(newPipeFirstPages[query] ?? NewPipeSearchResp(items: const []));
+  }) async {
+    if (deferredNewPipeSearchQueries.contains(query)) {
+      final started = newPipeSearchStarted.putIfAbsent(query, Completer<void>.new);
+      if (!started.isCompleted) started.complete();
+      final request = deferredNewPipeSearchResults.putIfAbsent(
+        query,
+        () => Completer<Either<MainFailure, NewPipeSearchResp>>(),
+      );
+      return request.future;
+    }
+    return Right(newPipeFirstPages[query] ?? NewPipeSearchResp(items: const []));
+  }
 
   @override
   Future<Either<MainFailure, NewPipeSearchResp>> getMoreNewPipeSearchResult({
@@ -202,6 +218,46 @@ void main() {
       await Future<void>.delayed(Duration.zero);
 
       expect(bloc.state.result?.suggestion, 'newer');
+    });
+
+    test('a late Piped result is ignored after switching to NewPipe', () async {
+      service.deferredSearchQueries.add('older-piped');
+      service.deferredNewPipeSearchQueries.add('current-newpipe');
+
+      bloc.add(SearchEvent.getSearchResult(
+        query: 'older-piped',
+        filter: 'all',
+        serviceType: 'piped',
+      ));
+      await service.waitForSearch('older-piped');
+
+      bloc.add(SearchEvent.getSearchResult(
+        query: 'current-newpipe',
+        filter: 'all',
+        serviceType: 'newpipe',
+      ));
+      await service.waitForNewPipeSearch('current-newpipe');
+
+      final currentLoaded = _waitForState(
+        bloc,
+        (state) =>
+            state.fetchNewPipeSearchResultStatus == ApiStatus.loaded &&
+            state.newPipeSearchResult?.items?.isNotEmpty == true,
+      );
+      service.deferredNewPipeSearchResults['current-newpipe']!.complete(
+        Right(NewPipeSearchResp(
+          items: [NewPipeSearchItem(name: 'current video')],
+        )),
+      );
+      await currentLoaded;
+
+      service.deferredSearchResults['older-piped']!.complete(
+        Right(SearchResp(suggestion: 'stale Piped result')),
+      );
+      await Future<void>.delayed(Duration.zero);
+
+      expect(bloc.state.newPipeSearchResult!.items!.single.name, 'current video');
+      expect(bloc.state.result, isNull);
     });
 
     test('clearing suggestions invalidates an older in-flight request',
