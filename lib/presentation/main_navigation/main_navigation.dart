@@ -210,9 +210,10 @@ class MainNavigationState extends State<MainNavigation> {
             _previousShowTrending != showTrending) {
           final currentIndex = indexChangeNotifier.value;
           final previousKeys = _activeKeys(_previousShowTrending!);
-          final currentKey = (currentIndex >= 0 && currentIndex < previousKeys.length)
-              ? previousKeys[currentIndex]
-              : 'home';
+          final currentKey =
+              (currentIndex >= 0 && currentIndex < previousKeys.length)
+                  ? previousKeys[currentIndex]
+                  : 'home';
           final resolved = activeKeys.indexOf(currentKey);
           final newIndex = resolved >= 0 ? resolved : 0;
 
@@ -233,7 +234,8 @@ class MainNavigationState extends State<MainNavigation> {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: Text(
-                    '$failedName is not responding. Switched to a working instance.',
+                    '$failedName is not responding. '
+                    'Switched to a working instance.',
                   ),
                   duration: const Duration(seconds: 4),
                   behavior: SnackBarBehavior.floating,
@@ -285,7 +287,8 @@ class MainNavigationState extends State<MainNavigation> {
                   MainNavigationConfig.destinationKeyForPage(currentPageKey);
               final selectedDestinationIndex =
                   destinationKeys.indexOf(selectedDestinationKey);
-              // Update the notifier if index was out of bounds (e.g., when trending tab is removed)
+              // Update the notifier if the index is out of bounds (for example,
+              // when the Trending tab is removed).
               if (index != safeIndex) {
                 WidgetsBinding.instance.addPostFrameCallback((_) {
                   indexChangeNotifier.value = safeIndex;
@@ -344,7 +347,8 @@ class MainNavigationState extends State<MainNavigation> {
                         .colorScheme
                         .primary
                         .withValues(alpha: 0.14),
-                    labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
+                    labelBehavior:
+                        NavigationDestinationLabelBehavior.alwaysShow,
                     destinations: destinations,
                     onDestinationSelected: (destinationIndex) {
                       final destinationKey = destinationKeys[destinationIndex];
