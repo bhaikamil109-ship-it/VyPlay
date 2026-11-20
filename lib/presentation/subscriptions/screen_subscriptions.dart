@@ -43,6 +43,7 @@ class _ScreenSubscriptionsState extends State<ScreenSubscriptions>
   int? _activeGroupId;
   String? _activeGroupName;
   Set<String>? _activeGroupChannelIds;
+  int _groupFilterGeneration = 0;
 
   @override
   void initState() {
@@ -68,28 +69,33 @@ class _ScreenSubscriptionsState extends State<ScreenSubscriptions>
       context.read<SettingsBloc>().state.currentProfile;
 
   void _loadSubscriptions() {
-    final currentProfile = context.read<SettingsBloc>().state.currentProfile;
-    BlocProvider.of<SubscribeBloc>(context)
-        .add(SubscribeEvent.getAllSubscribeList(profileName: currentProfile));
+    final profileName = _currentProfile;
+    context.read<SubscribeBloc>().add(
+      SubscribeEvent.getAllSubscribeList(profileName: profileName),
+    );
+  }
 
-    // Also load feed data
-    final subscribeState = context.read<SubscribeBloc>().state;
-    final settingsState = context.read<SettingsBloc>().state;
-    if (subscribeState.subscribedChannels.isNotEmpty) {
-      if (settingsState.ytService == YouTubeServices.newpipe.name) {
-        BlocProvider.of<TrendingBloc>(context).add(
-          TrendingEvent.getNewPipeHomeFeedData(
-            channels: subscribeState.subscribedChannels,
-          ),
-        );
-      } else {
-        BlocProvider.of<TrendingBloc>(context).add(
-          TrendingEvent.getHomeFeedData(
-            channels: subscribeState.subscribedChannels,
-          ),
-        );
-      }
+  void _loadSubscribedFeed(List<Subscribe> channels, String serviceType) {
+    if (channels.isEmpty) return;
+    final trendingBloc = context.read<TrendingBloc>();
+    if (serviceType == YouTubeServices.newpipe.name) {
+      trendingBloc.add(TrendingEvent.getNewPipeHomeFeedData(channels: channels));
+    } else {
+      trendingBloc.add(TrendingEvent.getHomeFeedData(channels: channels));
     }
+  }
+
+  Future<void> _refreshSubscriptions() async {
+    final bloc = context.read<SubscribeBloc>();
+    final completed = bloc.stream.firstWhere(
+      (state) =>
+          state.subscribeStatus == ApiStatus.loaded ||
+          state.subscribeStatus == ApiStatus.error,
+    );
+    bloc.add(
+      SubscribeEvent.getAllSubscribeList(profileName: _currentProfile),
+    );
+    await completed;
   }
 
   @override
@@ -126,11 +132,17 @@ class _ScreenSubscriptionsState extends State<ScreenSubscriptions>
 
   /// Loads the selected group's members and filters the channel list to them.
   Future<void> _applyGroupFilter(int groupId, String groupName) async {
+    final requestGeneration = ++_groupFilterGeneration;
+    final profileName = _currentProfile;
     final result = await getIt<SettingsService>().getGroupMembers(
       groupId: groupId,
-      profileName: _currentProfile,
+      profileName: profileName,
     );
-    if (!mounted) return;
+    if (!mounted ||
+        requestGeneration != _groupFilterGeneration ||
+        profileName != _currentProfile) {
+      return;
+    }
 
     result.fold(
       (failure) {
@@ -154,6 +166,7 @@ class _ScreenSubscriptionsState extends State<ScreenSubscriptions>
   }
 
   void _clearGroupFilter() {
+    _groupFilterGeneration++;
     setState(() {
       _activeGroupId = null;
       _activeGroupName = null;
@@ -274,10 +287,29 @@ class _ScreenSubscriptionsState extends State<ScreenSubscriptions>
     final isDark = theme.brightness == Brightness.dark;
     final locals = S.of(context);
 
-    return BlocBuilder<SettingsBloc, SettingsState>(
-      builder: (context, settingsState) {
-        return BlocBuilder<SubscribeBloc, SubscribeState>(
-          builder: (context, subscribeState) {
+    return BlocListener<SettingsBloc, SettingsState>(
+      listenWhen: (previous, current) =>
+          previous.currentProfile != current.currentProfile ||
+          previous.ytService != current.ytService,
+      listener: (context, settingsState) {
+        _clearGroupFilter();
+        _loadSubscriptions();
+      },
+      child: BlocListener<SubscribeBloc, SubscribeState>(
+        listenWhen: (previous, current) =>
+            current.subscribeStatus == ApiStatus.loaded &&
+            (previous.subscribeStatus != ApiStatus.loaded ||
+                previous.subscribedChannels != current.subscribedChannels),
+        listener: (context, subscribeState) {
+          _loadSubscribedFeed(
+            subscribeState.subscribedChannels,
+            context.read<SettingsBloc>().state.ytService,
+          );
+        },
+        child: BlocBuilder<SettingsBloc, SettingsState>(
+          builder: (context, settingsState) {
+            return BlocBuilder<SubscribeBloc, SubscribeState>(
+              builder: (context, subscribeState) {
             final channels =
                 _filterAndSortChannels(subscribeState.subscribedChannels);
             final isLoading =
@@ -483,10 +515,11 @@ class _ScreenSubscriptionsState extends State<ScreenSubscriptions>
                 ),
               ),
             );
-          },
-        );
-      },
-    );
+              },
+            ),
+          ),
+        ),
+      );
   }
 
   Widget _buildLoadingState() {
@@ -576,7 +609,7 @@ class _ScreenSubscriptionsState extends State<ScreenSubscriptions>
     }
 
     return RefreshIndicator(
-      onRefresh: () async => _loadSubscriptions(),
+      onRefresh: _refreshSubscriptions,
       child: _isGridView
           ? GridView.builder(
               padding: const EdgeInsets.all(AppSpacing.lg),

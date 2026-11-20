@@ -298,10 +298,20 @@ class _ScreenSavedState extends State<ScreenSaved>
     final isDark = theme.brightness == Brightness.dark;
     final locals = S.of(context);
 
-    return BlocBuilder<SettingsBloc, SettingsState>(
-      builder: (context, settingsState) {
-        return BlocBuilder<SavedBloc, SavedState>(
-          builder: (context, savedState) {
+    return BlocListener<SettingsBloc, SettingsState>(
+      listenWhen: (previous, current) =>
+          previous.currentProfile != current.currentProfile,
+      listener: (context, settingsState) {
+        setState(() {
+          _selectedIds.clear();
+          _isSelectionMode = false;
+        });
+        _loadVideos();
+      },
+      child: BlocBuilder<SettingsBloc, SettingsState>(
+        builder: (context, settingsState) {
+          return BlocBuilder<SavedBloc, SavedState>(
+            builder: (context, savedState) {
             final savedVideos = _filterAndSortVideos(savedState.localSavedVideos);
             final historyVideos = _filterAndSortVideos(savedState.localSavedHistoryVideos);
             final isLoading = savedState.savedVideosFetchStatus == ApiStatus.loading ||
@@ -596,10 +606,10 @@ class _ScreenSavedState extends State<ScreenSaved>
                 ),
               ),
             );
-          },
-        );
-      },
-    );
+            },
+          ),
+        ),
+      );
   }
 
   Widget _buildLoadingState() {
