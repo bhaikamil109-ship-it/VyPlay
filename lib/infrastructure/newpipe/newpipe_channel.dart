@@ -267,7 +267,7 @@ class NewPipeChannel {
     try {
       final result = await _channel.invokeMethod<String>(
         'getSearchSuggestions',
-        {'query': query},
+        {'query': query, 'serviceId': _activeServiceId},
       );
       if (result == null) return [];
       final json = jsonDecode(result) as List<dynamic>;
@@ -282,7 +282,7 @@ class NewPipeChannel {
     try {
       final result = await _channel.invokeMethod<String>(
         'getChannel',
-        {'id': channelId},
+        {'id': channelId, 'serviceId': _activeServiceId},
       );
       if (result == null) {
         throw PlatformException(
@@ -383,6 +383,7 @@ class NewPipeChannel {
         'getChannelTab',
         {
           'url': tabUrl,
+          'serviceId': _activeServiceId,
           if (tabId != null) 'id': tabId,
           if (contentFilters != null) 'contentFilters': contentFilters,
         },
