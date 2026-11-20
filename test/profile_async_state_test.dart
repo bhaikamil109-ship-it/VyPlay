@@ -60,6 +60,38 @@ class _DeferredSubscribeServices implements SubscribeServices {
   noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
 }
 
+class _RacingMutationSubscribeServices implements SubscribeServices {
+  final List<Subscribe> rows = [];
+  final List<String> startedMutationIds = [];
+
+  @override
+  Future<Either<MainFailure, List<Subscribe>>> addSubscriberInfo({
+    required Subscribe subscribeInfo,
+    String profileName = 'default',
+  }) async {
+    startedMutationIds.add(subscribeInfo.id);
+    await Future<void>.delayed(
+      Duration(milliseconds: subscribeInfo.id == 'a' ? 30 : 1),
+    );
+    rows.add(subscribeInfo);
+    return Right(List<Subscribe>.from(rows));
+  }
+
+  @override
+  Future<Either<MainFailure, Subscribe>> checkSubscriberInfo({
+    required String id,
+    String profileName = 'default',
+  }) async =>
+      Right(Subscribe(
+        id: id,
+        channelName: id,
+        profileName: profileName,
+      ));
+
+  @override
+  noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
+}
+
 class _DeferredSavedServices implements SavedServices {
   final Map<String, Completer<Either<MainFailure, List<LocalStoreVideoInfo>>>>
       listRequests = {};
@@ -185,6 +217,45 @@ void main() {
         ['work'],
       );
       expect(bloc.state.oldList.map((channel) => channel.id), ['work']);
+    });
+
+    test('concurrent subscription adds persist and emit in request order',
+        () async {
+      final services = _RacingMutationSubscribeServices();
+      final bloc = SubscribeBloc(services);
+      addTearDown(bloc.close);
+
+      final finalState = bloc.stream.firstWhere(
+        (state) =>
+            state.subscribedChannels.length == 2 &&
+            state.subscribedChannels[0].id == 'a' &&
+            state.subscribedChannels[1].id == 'b',
+      );
+      bloc.add(SubscribeEvent.addSubscribe(
+        channelInfo: Subscribe(
+          id: 'a',
+          channelName: 'Channel A',
+          profileName: 'work',
+        ),
+        profileName: 'work',
+      ));
+      bloc.add(SubscribeEvent.addSubscribe(
+        channelInfo: Subscribe(
+          id: 'b',
+          channelName: 'Channel B',
+          profileName: 'work',
+        ),
+        profileName: 'work',
+      ));
+
+      await finalState;
+
+      expect(services.startedMutationIds, ['a', 'b']);
+      expect(services.rows.map((channel) => channel.id), ['a', 'b']);
+      expect(
+        bloc.state.subscribedChannels.map((channel) => channel.id),
+        ['a', 'b'],
+      );
     });
 
     test('late channel check from previous profile cannot set channelInfo',
