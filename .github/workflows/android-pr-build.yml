@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 90
     env:
-      GRADLE_OPTS: "-Dorg.gradle.daemon=false -Dkotlin.daemon.jvm.options=-Xmx1536m,-XX:-UseParallelGC"
+      GRADLE_OPTS: "-Dorg.gradle.daemon=false -Dorg.gradle.workers.max=2 -Dkotlin.daemon.jvm.options=-Xmx1g"
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -78,6 +78,18 @@ jobs:
 
       - name: Resolve Flutter dependencies
         run: flutter pub get
+
+      - name: Configure Gradle memory for CI
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$HOME/.gradle"
+          cat > "$HOME/.gradle/gradle.properties" <<'EOF'
+          org.gradle.jvmargs=-Xmx4g -XX:MaxMetaspaceSize=1g -Dfile.encoding=UTF-8
+          org.gradle.workers.max=2
+          org.gradle.parallel=false
+          kotlin.daemon.jvm.options=-Xmx1g
+          EOF
 
       - name: Build split-ABI debug APKs
         run: flutter build apk --debug --split-per-abi
