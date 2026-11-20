@@ -1,7 +1,40 @@
+import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:vyplay/presentation/main_navigation/main_navigation.dart';
+import 'package:vyplay/presentation/main_navigation/navigation_labels.dart';
 
 void main() {
+  group('More navigation localization', () {
+    test('covers every currently supported language', () {
+      const expected = <String, String>{
+        'ar': 'المزيد',
+        'en': 'More',
+        'fr': 'Plus',
+        'hi': 'अधिक',
+        'ja': 'その他',
+        'ko': '더보기',
+        'ml': 'കൂടുതൽ',
+        'pl': 'Więcej',
+        'pt': 'Mais',
+        'ru': 'Ещё',
+        'tr': 'Daha fazla',
+        'zh': '更多',
+      };
+
+      for (final entry in expected.entries) {
+        expect(
+          moreNavigationLabel(Locale(entry.key)),
+          entry.value,
+          reason: 'The More destination should be localized for ${entry.key}.',
+        );
+      }
+    });
+
+    test('falls back safely for an unsupported locale', () {
+      expect(moreNavigationLabel(const Locale('de')), 'More');
+    });
+  });
+
   group('MainNavigationConfig', () {
     test('keeps five primary destinations on compact phone navigation', () {
       expect(
