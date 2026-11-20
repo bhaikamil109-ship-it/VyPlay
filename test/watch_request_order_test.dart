@@ -165,5 +165,36 @@ void main() {
     expect(bloc.state.fetchCommentsStatus.name, 'loading');
     expect(bloc.state.comments.comments, isEmpty);
     expect(bloc.state.oldId, 'newer');
+
+  test('late comments from a previous Short cannot replace the current Short comments',
+      () async {
+    final service = _DeferredWatchService();
+    final bloc = WatchBloc(service, _UnusedSponsorBlockService());
+    addTearDown(bloc.close);
+
+    bloc.add(WatchEvent.forceFetchCommentData(id: 'short-1'));
+    await service.waitUntilCommentsStarted('short-1');
+
+    bloc.add(WatchEvent.forceFetchCommentData(id: 'short-2'));
+    await service.waitUntilCommentsStarted('short-2');
+
+    final currentCommentsLoaded = bloc.stream.firstWhere(
+      (state) =>
+          state.fetchCommentsStatus.name == 'loaded' &&
+          state.comments.commentCount == 2,
+    );
+    service.commentRequests['short-2']!.complete(
+      Right(CommentsResp(comments: [], commentCount: 2)),
+    );
+    await currentCommentsLoaded;
+
+    service.commentRequests['short-1']!.complete(
+      Right(CommentsResp(comments: [], commentCount: 1)),
+    );
+    await Future<void>.delayed(Duration.zero);
+
+    expect(bloc.state.comments.commentCount, 2);
+    expect(bloc.state.fetchCommentsStatus.name, 'loaded');
+  });
   });
 }
