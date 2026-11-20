@@ -79,8 +79,12 @@ class _ScreenShortsState extends State<ScreenShorts> {
     _currentIndex = widget.initialIndex;
     _pageController = PageController(initialPage: widget.initialIndex);
 
-    // Initialize controllers for each short
+    // Initialize controllers for each short and attach one listener per
+    // controller. Re-entering a page must not accumulate duplicate listeners.
     _controllers = widget.shorts.map((short) => _ShortVideoController()).toList();
+    for (final controller in _controllers) {
+      controller.addListener(_onControllerChanged);
+    }
 
     // Pause any video playing in the global player before starting shorts
     _pauseGlobalPlayer();
@@ -90,6 +94,10 @@ class _ScreenShortsState extends State<ScreenShorts> {
 
     // Hide system UI for immersive experience
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+  }
+
+  void _onControllerChanged() {
+    if (mounted) setState(() {});
   }
 
   Future<void> _pauseGlobalPlayer() async {
@@ -110,7 +118,8 @@ class _ScreenShortsState extends State<ScreenShorts> {
     // Restore system UI
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
 
-    for (var controller in _controllers) {
+    for (final controller in _controllers) {
+      controller.removeListener(_onControllerChanged);
       controller.dispose();
     }
     _pageController.dispose();
@@ -135,9 +144,6 @@ class _ScreenShortsState extends State<ScreenShorts> {
       controller.play();
     } else if (!controller.isInitializing) {
       // Not initialized and not currently initializing, start initialization
-      controller.addListener(() {
-        if (mounted) setState(() {});
-      });
       await controller.initialize(short.id, context);
       if (mounted) setState(() {});
     }
@@ -166,7 +172,10 @@ class _ScreenShortsState extends State<ScreenShorts> {
     if (previousIndex >= 0 && previousIndex < _controllers.length) {
       final prevController = _controllers[previousIndex];
       prevController.setShouldPlay(false);
-      prevController.pause();
+      // A paused Player still owns decoder and stream resources. Release it
+      // as soon as its page is no longer active; metadata can be fetched again
+      // on return without keeping every swiped video player alive.
+      prevController.releasePlayer();
     }
 
     setState(() {
@@ -1216,6 +1225,9 @@ class _ShortVideoController extends ChangeNotifier {
   bool _hasError = false;
   bool _shouldPlay = false; // Track if this controller should play when ready (default false)
   bool _isInitializing = false; // Prevent concurrent initialization
+  int _playerGeneration = 0;
+  StreamSubscription<bool>? _playingSubscription;
+  StreamSubscription<bool>? _bufferingSubscription;
 
   // Quality
   List<StreamQualityInfo>? _availableQualities;
@@ -1256,6 +1268,7 @@ class _ShortVideoController extends ChangeNotifier {
 
   Future<void> initialize(String videoId, BuildContext context) async {
     if (_isInitialized || _isInitializing) return;
+    final generation = ++_playerGeneration;
     _isInitializing = true;
     _isLoading = true;
     _hasError = false;
@@ -1264,6 +1277,7 @@ class _ShortVideoController extends ChangeNotifier {
     try {
       // Fetch video info using NewPipe
       _watchResp = await NewPipeChannel.getStreamInfo(videoId);
+      if (generation != _playerGeneration) return;
 
       // Extract video metadata
       _title = _watchResp!.title;
@@ -1289,6 +1303,7 @@ class _ShortVideoController extends ChangeNotifier {
 
       if (!_currentConfig!.isValid) {
         _hasError = true;
+        _isInitializing = false;
         _isLoading = false;
         notifyListeners();
         return;
@@ -1298,18 +1313,21 @@ class _ShortVideoController extends ChangeNotifier {
       _videoController = VideoController(_player!);
 
       // Listen to player state
-      _player!.stream.playing.listen((playing) {
+      _playingSubscription = _player!.stream.playing.listen((playing) {
+        if (generation != _playerGeneration) return;
         _isPlaying = playing;
         notifyListeners();
       });
 
-      _player!.stream.buffering.listen((buffering) {
+      _bufferingSubscription = _player!.stream.buffering.listen((buffering) {
+        if (generation != _playerGeneration) return;
         _isBuffering = buffering;
         notifyListeners();
       });
 
       // Setup media source based on type
       await _setupMediaSource(_currentConfig!);
+      if (generation != _playerGeneration) return;
 
       // For merging source type, listen for completion to re-set audio on loop
       if (_currentConfig!.sourceType == MediaSourceType.merging && _audioUrl != null) {
@@ -1317,12 +1335,14 @@ class _ShortVideoController extends ChangeNotifier {
       }
 
       await _player!.setPlaylistMode(PlaylistMode.loop);
+      if (generation != _playerGeneration) return;
 
       _isInitialized = true;
       _isInitializing = false;
       _isLoading = false;
       notifyListeners();
     } catch (e) {
+      if (generation != _playerGeneration) return;
       debugPrint('Error initializing short video: $e');
       _hasError = true;
       _isInitializing = false;
@@ -1635,15 +1655,42 @@ class _ShortVideoController extends ChangeNotifier {
   }
 
   Future<void> retry(String videoId, BuildContext context) async {
+    final shouldResume = _shouldPlay;
+    releasePlayer();
+    _shouldPlay = shouldResume;
     _hasError = false;
-    _isInitialized = false;
-    _completedSubscription?.cancel();
-    _player?.dispose();
-    _player = null;
-    _videoController = null;
-    _audioUrl = null;
     notifyListeners();
     await initialize(videoId, context);
+  }
+
+  /// Releases native decoding/player resources while retaining this controller's
+  /// place in the feed. It can be initialized again when the user swipes back.
+  void releasePlayer() {
+    _playerGeneration++;
+    _isInitializing = false;
+    _isInitialized = false;
+    _isLoading = false;
+    _isPlaying = false;
+    _isBuffering = false;
+    _shouldPlay = false;
+    _hasError = false;
+
+    unawaited(_completedSubscription?.cancel());
+    _completedSubscription = null;
+    unawaited(_playingSubscription?.cancel());
+    _playingSubscription = null;
+    unawaited(_bufferingSubscription?.cancel());
+    _bufferingSubscription = null;
+
+    final player = _player;
+    _player = null;
+    _videoController = null;
+    if (player != null) unawaited(player.dispose());
+
+    _audioUrl = null;
+    _currentConfig = null;
+    _currentQuality = null;
+    notifyListeners();
   }
 
   void togglePlayPause() {
@@ -1672,11 +1719,7 @@ class _ShortVideoController extends ChangeNotifier {
 
   @override
   void dispose() {
-    _completedSubscription?.cancel();
-    _player?.dispose();
-    _player = null;
-    _videoController = null;
-    _isInitialized = false;
+    releasePlayer();
     super.dispose();
   }
 }
