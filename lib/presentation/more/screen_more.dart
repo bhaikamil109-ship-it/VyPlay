@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vyplay/application/application.dart';
 import 'package:vyplay/core/enums.dart';
 import 'package:vyplay/generated/l10n.dart';
+import 'package:vyplay/presentation/main_navigation/navigation_labels.dart';
 
 /// Secondary destinations that intentionally stay off the compact phone
 /// navigation bar. Core content destinations remain one tap away.
@@ -25,7 +26,7 @@ class ScreenMore extends StatelessWidget {
 
         return Scaffold(
           appBar: AppBar(
-            title: const Text('More'),
+            title: Text(moreNavigationLabel(Localizations.localeOf(context))),
             scrolledUnderElevation: 0,
           ),
           body: SafeArea(
