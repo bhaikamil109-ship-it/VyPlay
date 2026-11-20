@@ -18,8 +18,6 @@ class ScreenMore extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final locals = S.of(context);
-    final theme = Theme.of(context);
-
     return BlocBuilder<SettingsBloc, SettingsState>(
       buildWhen: (previous, current) => previous.ytService != current.ytService,
       builder: (context, state) {
@@ -37,29 +35,18 @@ class ScreenMore extends StatelessWidget {
                 if (showTrending)
                   _MoreDestinationTile(
                     title: locals.trending,
-                    subtitle: 'Discover popular videos from your selected service.',
                     icon: CupertinoIcons.flame_fill,
                     onTap: () => onOpenPage('trending'),
                   ),
                 _MoreDestinationTile(
                   title: locals.downloads,
-                  subtitle: 'Manage active, completed and saved downloads.',
                   icon: CupertinoIcons.arrow_down_circle_fill,
                   onTap: () => onOpenPage('downloads'),
                 ),
                 _MoreDestinationTile(
                   title: locals.settings,
-                  subtitle: 'Configure services, playback, storage and preferences.',
                   icon: CupertinoIcons.settings,
                   onTap: () => onOpenPage('settings'),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  'VyPlay',
-                  style: theme.textTheme.labelSmall?.copyWith(
-                    color: theme.colorScheme.onSurfaceVariant,
-                    letterSpacing: 0.8,
-                  ),
                 ),
               ],
             ),
@@ -73,13 +60,11 @@ class ScreenMore extends StatelessWidget {
 class _MoreDestinationTile extends StatelessWidget {
   const _MoreDestinationTile({
     required this.title,
-    required this.subtitle,
     required this.icon,
     required this.onTap,
   });
 
   final String title;
-  final String subtitle;
   final IconData icon;
   final VoidCallback onTap;
 
@@ -112,7 +97,6 @@ class _MoreDestinationTile extends StatelessWidget {
             fontWeight: FontWeight.w600,
           ),
         ),
-        subtitle: Text(subtitle),
         trailing: const Icon(CupertinoIcons.chevron_forward, size: 18),
         onTap: onTap,
       ),
