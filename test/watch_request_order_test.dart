@@ -165,6 +165,7 @@ void main() {
     expect(bloc.state.fetchCommentsStatus.name, 'loading');
     expect(bloc.state.comments.comments, isEmpty);
     expect(bloc.state.oldId, 'newer');
+  });
 
   test('late comments from a previous Short cannot replace the current Short comments',
       () async {
@@ -195,6 +196,5 @@ void main() {
 
     expect(bloc.state.comments.commentCount, 2);
     expect(bloc.state.fetchCommentsStatus.name, 'loaded');
-  });
   });
 }
