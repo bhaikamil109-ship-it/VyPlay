@@ -18,6 +18,7 @@ import '../settings/screen_settings.dart';
 import '../shorts/shorts_feed_screen.dart';
 import '../subscriptions/screen_subscriptions.dart';
 import '../trending/screen_trending.dart';
+import 'navigation_labels.dart';
 
 ValueNotifier<int> indexChangeNotifier = ValueNotifier(0);
 
@@ -75,10 +76,13 @@ class MainNavigationConfig {
 /// current backend's conditional pages have been applied.
 String? _pendingNavigation;
 int? _pendingDownloadsTab;
+String _backTargetPageKey = 'home';
 
 void navigateToMainTab(String pageKey) {
   _pendingNavigation = pageKey;
   _pendingDownloadsTab = null;
+  // This entry point is used by tiles inside the More hub.
+  _backTargetPageKey = 'more';
   _mainTabRequestNotifier.value++;
 }
 
@@ -87,6 +91,8 @@ void navigateToMainTab(String pageKey) {
 void navigateToDownloadsTab({int? downloadsTabIndex}) {
   _pendingNavigation = 'downloads';
   _pendingDownloadsTab = downloadsTabIndex;
+  // Notification entry points return to the primary Home destination.
+  _backTargetPageKey = 'home';
   if (downloadsTabIndex != null) {
     downloadsTabNotifier.value = downloadsTabIndex;
   }
@@ -139,12 +145,13 @@ class MainNavigationState extends State<MainNavigation> {
     return _pageCache.putIfAbsent(key, () => page);
   }
 
-  String _destinationLabel(String key, S locals) => switch (key) {
+  String _destinationLabel(String key, S locals, Locale locale) =>
+      switch (key) {
         'home' => locals.home,
         'shorts' => locals.shorts,
         'subscriptions' => locals.subscriptions,
         'library' => locals.library,
-        _ => 'More',
+        _ => moreNavigationLabel(locale),
       };
 
   IconData _destinationIcon(String key) => switch (key) {
@@ -155,14 +162,17 @@ class MainNavigationState extends State<MainNavigation> {
         _ => CupertinoIcons.ellipsis_circle_fill,
       };
 
-  List<NavigationDestination> _getDestinations(S locals) =>
+  List<NavigationDestination> _getDestinations(
+    S locals,
+    Locale locale,
+  ) =>
       MainNavigationConfig.destinationKeys
           .map(
             (key) => NavigationDestination(
               icon: Icon(_destinationIcon(key)),
               selectedIcon: Icon(_destinationIcon(key)),
-              label: _destinationLabel(key, locals),
-              tooltip: _destinationLabel(key, locals),
+              label: _destinationLabel(key, locals, locale),
+              tooltip: _destinationLabel(key, locals, locale),
             ),
           )
           .toList(growable: false);
@@ -195,7 +205,7 @@ class MainNavigationState extends State<MainNavigation> {
         final showTrending =
             settingsState.ytService != YouTubeServices.newpipe.name;
         final pages = _getPages(showTrending);
-        final destinations = _getDestinations(locals);
+        final destinations = _getDestinations(locals, Localizations.localeOf(context));
         final destinationKeys = MainNavigationConfig.destinationKeys;
 
         final maxIndex = pages.length - 1;
@@ -299,12 +309,20 @@ class MainNavigationState extends State<MainNavigation> {
                 onPopInvokedWithResult: (didPop, _) async {
                   if (didPop) return;
 
-                  // Back from a secondary tab returns to Home first. Only a
-                  // second Back press on Home can launch PiP or exit the app.
+                  // Back from a secondary screen returns to its entry point:
+                  // More for an item opened from the More hub, otherwise Home.
+                  // Only Back on Home can launch PiP or the app-exit flow.
                   final homeIndex = activeKeys.indexOf('home');
-                  if (safeIndex != homeIndex && homeIndex >= 0) {
-                    indexChangeNotifier.value = homeIndex;
-                    return;
+                  if (currentPageKey != 'home') {
+                    final returnIndex =
+                        activeKeys.indexOf(_backTargetPageKey);
+                    final resolvedReturnIndex =
+                        returnIndex >= 0 ? returnIndex : homeIndex;
+                    _backTargetPageKey = 'home';
+                    if (resolvedReturnIndex >= 0) {
+                      indexChangeNotifier.value = resolvedReturnIndex;
+                      return;
+                    }
                   }
 
                   final watchState = context.read<WatchBloc>().state;
@@ -354,6 +372,7 @@ class MainNavigationState extends State<MainNavigation> {
                       final destinationKey = destinationKeys[destinationIndex];
                       final pageIndex = activeKeys.indexOf(destinationKey);
                       if (pageIndex >= 0) {
+                        _backTargetPageKey = 'home';
                         indexChangeNotifier.value = pageIndex;
                       }
                     },
