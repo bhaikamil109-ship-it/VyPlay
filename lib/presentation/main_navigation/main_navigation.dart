@@ -93,20 +93,6 @@ void navigateToDownloadsTab({int? downloadsTabIndex}) {
   _mainTabRequestNotifier.value++;
 }
 
-/// Get and clear pending navigation target
-String? consumePendingNavigation() {
-  final target = _pendingNavigation;
-  _pendingNavigation = null;
-  return target;
-}
-
-/// Get and clear pending downloads tab index
-int? consumePendingDownloadsTab() {
-  final tab = _pendingDownloadsTab;
-  _pendingDownloadsTab = null;
-  return tab;
-}
-
 class MainNavigation extends StatefulWidget {
   const MainNavigation({super.key});
 
