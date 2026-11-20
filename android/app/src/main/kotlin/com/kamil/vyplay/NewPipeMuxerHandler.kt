@@ -1,6 +1,8 @@
 package com.kamil.vyplay
 
 import android.util.Log
+import com.arthenica.ffmpegkit.FFmpegKit
+import com.arthenica.ffmpegkit.ReturnCode
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import kotlinx.coroutines.CoroutineScope
@@ -17,20 +19,15 @@ import java.io.IOException
 import java.io.RandomAccessFile
 
 /**
- * Merges a video-only stream and an audio-only stream into one playable file
- * using NewPipe's pure-Java muxers, with no FFmpeg dependency.
+ * Merges separate video and audio streams with PipePipe's FFmpegKit remux
+ * approach (`-c copy`, no re-encoding). The NewPipe 0.29.1 writers remain as
+ * a compatibility fallback for ABIs where the upstream FFmpegKit binary is
+ * unavailable, notably 32-bit ARM.
  *
- * The writers themselves are vendored verbatim from NewPipe 0.29.1
- * (`org.schabi.newpipe.streams`), so the container handling is the same code
- * path NewPipe ships:
- *   - MP4  -> [Mp4FromDashWriter]  (DASH fragments -> progressive MP4)
- *   - WebM -> [WebMWriter]         (picks the audio track, drops cover art)
- *   - Opus -> [OggFromWebMWriter]  (WebM/Opus -> Ogg/Opus, for audio-only)
+ * Audio-only Opus demuxing still uses NewPipe's [OggFromWebMWriter].
  *
- * This handler is registered on the existing `com.kamil.vyplay/muxer`
- * channel. Methods it does not recognise are delegated to
- * [FFmpegMuxerHandler] so the previously published `resolveMuxPlan` and
- * `muxVideoAudio` contracts keep working unchanged.
+ * This handler remains on the existing `com.kamil.vyplay/muxer` channel and
+ * delegates legacy mux-plan methods to [FFmpegMuxerHandler].
  */
 class NewPipeMuxerHandler(
     private val legacy: FFmpegMuxerHandler = FFmpegMuxerHandler(),
@@ -134,32 +131,63 @@ class NewPipeMuxerHandler(
         val videoKind = sniffContainer(videoPath)
         val audioKind = sniffContainer(audioPath)
 
+        // FFmpeg can remux different input container families into Matroska
+        // without re-encoding. Keep MP4/WebM when the pair already matches.
         val container = when {
             videoKind == Container.MP4 && audioKind == Container.MP4 -> "mp4"
             videoKind == Container.WEBM && audioKind == Container.WEBM -> "webm"
-            else -> throw IllegalStateException(
-                "Cannot merge $videoKind video with $audioKind audio: " +
-                    "the streams use different container families."
-            )
+            else -> "mkv"
         }
 
         val target = retargetExtension(outputPath, container)
         val targetFile = File(target)
-        // A stale or partial file must never survive a failed merge, otherwise
-        // it looks like a completed download.
-        if (targetFile.exists()) {
-            targetFile.delete()
+        if (targetFile.exists() && !targetFile.delete()) {
+            throw IllegalStateException("Could not clear stale merge output: $target")
         }
 
-        Log.i(TAG, "Merging $videoKind + $audioKind -> $container at $target")
+        Log.i(TAG, "PipePipe FFmpeg remux: $videoKind + $audioKind -> $container at $target")
 
-        when (container) {
-            "mp4" -> mergeMp4(videoPath, audioPath, target)
-            else -> mergeWebM(videoPath, audioPath, target)
+        var ffmpegFailure: Throwable? = null
+        try {
+            mergeWithPipePipeFfmpeg(videoPath, audioPath, target, container)
+        } catch (error: Exception) {
+            ffmpegFailure = error
+        } catch (error: LinkageError) {
+            ffmpegFailure = error
+        }
+
+        if (ffmpegFailure != null) {
+            Log.w(TAG, "PipePipe FFmpegKit failed; checking NewPipe compatibility fallback", ffmpegFailure)
+            try {
+                when {
+                    videoKind == Container.MP4 && audioKind == Container.MP4 ->
+                        mergeMp4(videoPath, audioPath, target)
+                    videoKind == Container.WEBM && audioKind == Container.WEBM ->
+                        mergeWebM(videoPath, audioPath, target)
+                    else -> throw IllegalStateException(
+                        "The NewPipe fallback cannot mux mixed/unknown input containers."
+                    )
+                }
+            } catch (fallbackError: Exception) {
+                targetFile.delete()
+                throw IllegalStateException(
+                    "PipePipe FFmpeg remux failed: ${ffmpegFailure.message ?: ffmpegFailure.javaClass.simpleName}. " +
+                        "NewPipe fallback also failed: ${fallbackError.message ?: fallbackError.javaClass.simpleName}",
+                    fallbackError
+                )
+            } catch (fallbackError: LinkageError) {
+                targetFile.delete()
+                throw IllegalStateException(
+                    "PipePipe FFmpeg remux failed and the NewPipe compatibility fallback is unavailable: " +
+                        (fallbackError.message ?: fallbackError.javaClass.simpleName),
+                    fallbackError
+                )
+            }
         }
 
         if (!targetFile.exists() || targetFile.length() == 0L) {
-            throw IllegalStateException("Muxer produced no usable output at $target")
+            targetFile.delete()
+            throw IllegalStateException("Remuxer produced no usable output at $target")
         }
 
         Log.i(TAG, "Merge complete: $target (${targetFile.length()} bytes)")
@@ -170,6 +198,62 @@ class NewPipeMuxerHandler(
             "videoContainer" to videoKind.name.lowercase(),
             "audioContainer" to audioKind.name.lowercase(),
         )
+    }
+
+    /**
+     * Run PipePipe's FFmpegKit stream-copy remux. Arguments are passed as an
+     * array (not a shell command), so paths with spaces remain safe.
+     */
+    private fun mergeWithPipePipeFfmpeg(
+        videoPath: String,
+        audioPath: String,
+        target: String,
+        container: String,
+    ) {
+        val targetFile = File(target)
+        val temporaryFile = File(retargetExtension(target, "tmp.$container"))
+        temporaryFile.delete()
+
+        try {
+            val arguments = mutableListOf(
+                "-hide_banner",
+                "-nostats",
+                "-loglevel", "error",
+                "-y",
+                "-i", videoPath,
+                "-i", audioPath,
+                "-map", "0:v:0",
+                "-map", "1:a:0",
+                "-map_metadata", "0",
+                "-c", "copy",
+            )
+            if (container == "mp4") {
+                arguments.add("-movflags")
+                arguments.add("+faststart")
+            }
+            arguments.add(temporaryFile.absolutePath)
+
+            val session = FFmpegKit.executeWithArguments(arguments.toTypedArray())
+            if (!ReturnCode.isSuccess(session.returnCode)) {
+                throw IllegalStateException(
+                    "FFmpegKit returned ${session.returnCode}: " +
+                        (session.output.takeIf { it.isNotBlank() } ?: "no FFmpeg diagnostic output")
+                )
+            }
+            if (!temporaryFile.exists() || temporaryFile.length() == 0L) {
+                throw IllegalStateException("FFmpegKit reported success but produced an empty output file")
+            }
+
+            if (targetFile.exists() && !targetFile.delete()) {
+                throw IllegalStateException("Could not replace merge output: $target")
+            }
+            if (!temporaryFile.renameTo(targetFile)) {
+                temporaryFile.copyTo(targetFile, overwrite = true)
+                temporaryFile.delete()
+            }
+        } finally {
+            temporaryFile.delete()
+        }
     }
 
     /** DASH fragments -> progressive MP4, exactly as NewPipe's Mp4FromDashMuxer. */
