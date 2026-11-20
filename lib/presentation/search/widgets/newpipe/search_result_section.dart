@@ -58,7 +58,8 @@ class _NewPipeSearchResultSectionState
     if (position.extentAfter > 240 ||
         nextPage == null ||
         nextPage.trim().isEmpty ||
-        widget.state.fetchMoreNewPipeSearchResultStatus == ApiStatus.loading ||
+        widget.state.fetchMoreNewPipeSearchResultStatus ==
+            ApiStatus.loading ||
         widget.state.isMoreNewPipeFetchCompleted) {
       return;
     }

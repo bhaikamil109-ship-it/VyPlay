@@ -52,7 +52,8 @@ class _InvidiousSearcheResultSectionState
     if (!_scrollController.hasClients) return;
     final position = _scrollController.position;
     if (position.extentAfter > 240 ||
-        widget.state.fetchMoreInvidiousSearchResultStatus == ApiStatus.loading ||
+        widget.state.fetchMoreInvidiousSearchResultStatus ==
+            ApiStatus.loading ||
         widget.state.isMoreInvidiousFetchCompleted) {
       return;
     }

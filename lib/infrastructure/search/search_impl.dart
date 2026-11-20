@@ -22,11 +22,12 @@ class SearchImpl implements SearchService {
   Future<Either<MainFailure, SearchResp>> getSearchResult(
       {required String query, required String filter}) async {
     try {
-      final Response response =
-          await ApiClient.dio.get(buildSearchRequestUri(ApiEndPoints.search, {
-        'q': query,
-        'filter': filter,
-      }));
+      final Response response = await ApiClient.dio.get(
+        buildSearchRequestUri(ApiEndPoints.search, {
+          'q': query,
+          'filter': filter,
+        }),
+      );
       if (response.statusCode == 200 || response.statusCode == 201) {
         return Right(SearchResp.fromJson(response.data));
       } else {
@@ -43,10 +44,11 @@ class SearchImpl implements SearchService {
   Future<Either<MainFailure, List>> getSearchSuggestion(
       {required String query}) async {
     try {
-      final Response response =
-          await ApiClient.dio.get(buildSearchRequestUri(ApiEndPoints.suggestions, {
-        'query': query,
-      }));
+      final Response response = await ApiClient.dio.get(
+        buildSearchRequestUri(ApiEndPoints.suggestions, {
+          'query': query,
+        }),
+      );
       if (response.statusCode == 200 || response.statusCode == 201) {
         return Right(response.data as List);
       } else {

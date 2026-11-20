@@ -71,13 +71,19 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
       final requestId = _searchRequestGeneration;
       if (event.serviceType == YouTubeServices.invidious.name) {
         if (state.fetchMoreInvidiousSearchResultStatus == ApiStatus.loading ||
-            state.isMoreInvidiousFetchCompleted) return;
+            state.isMoreInvidiousFetchCompleted) {
+          return;
+        }
       } else if (event.serviceType == YouTubeServices.newpipe.name) {
         if (state.fetchMoreNewPipeSearchResultStatus == ApiStatus.loading ||
-            state.isMoreNewPipeFetchCompleted) return;
+            state.isMoreNewPipeFetchCompleted) {
+          return;
+        }
       } else {
         if (state.fetchMoreSearchResultStatus == ApiStatus.loading ||
-            state.isMoreFetchCompleted) return;
+            state.isMoreFetchCompleted) {
+          return;
+        }
       }
 
       emit(state.copyWith(isSuggestionDisplay: false));
@@ -150,7 +156,11 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     });
   }
 
-  Future<void> _fetchPipedSearchResult(GetSearchResult event, Emitter<SearchState> emit, int requestId) async {
+  Future<void> _fetchPipedSearchResult(
+    GetSearchResult event,
+    Emitter<SearchState> emit,
+    int requestId,
+  ) async {
     //loading
     emit(state.copyWith(
       result: null,
@@ -184,7 +194,11 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     emit(_state);
   }
 
-  Future<void> _fetchInvidiousSearchResult(GetSearchResult event, Emitter<SearchState> emit, int requestId) async {
+  Future<void> _fetchInvidiousSearchResult(
+    GetSearchResult event,
+    Emitter<SearchState> emit,
+    int requestId,
+  ) async {
     //loading
     emit(state.copyWith(
       invidiousSearchResult: [],
@@ -218,7 +232,10 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
   }
 
   Future<void> _fetchPipedSearchSuggestion(
-      GetSearchSuggestion event, Emitter<SearchState> emit, int requestId) async {
+    GetSearchSuggestion event,
+    Emitter<SearchState> emit,
+    int requestId,
+  ) async {
     //loading
     emit(state.copyWith(
       result: null,
@@ -248,7 +265,10 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
   }
 
   Future<void> _fetchInvidiousSearchSuggestion(
-      GetSearchSuggestion event, Emitter<SearchState> emit, int requestId) async {
+    GetSearchSuggestion event,
+    Emitter<SearchState> emit,
+    int requestId,
+  ) async {
     //loading
     emit(state.copyWith(
       invidiousSearchResult: [],
@@ -279,7 +299,10 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
   }
 
   Future<void> _fetchMorePipedSearchResult(
-      GetMoreSearchResult event, Emitter<SearchState> emit, int requestId) async {
+    GetMoreSearchResult event,
+    Emitter<SearchState> emit,
+    int requestId,
+  ) async {
     //loading
     emit(state.copyWith(
         fetchMoreSearchResultStatus: ApiStatus.loading,
@@ -320,7 +343,10 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
   }
 
   Future<void> _fetchMoreInvidiousSearchResult(
-      GetMoreSearchResult event, Emitter<SearchState> emit, int requestId) async {
+    GetMoreSearchResult event,
+    Emitter<SearchState> emit,
+    int requestId,
+  ) async {
     //also incriment page and pass page instead of nextPage
     emit(state.copyWith(
         fetchMoreInvidiousSearchResultStatus: ApiStatus.loading,
@@ -358,7 +384,11 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
 
   // NEWPIPE
 
-  Future<void> _fetchNewPipeSearchResult(GetSearchResult event, Emitter<SearchState> emit, int requestId) async {
+  Future<void> _fetchNewPipeSearchResult(
+    GetSearchResult event,
+    Emitter<SearchState> emit,
+    int requestId,
+  ) async {
     //loading
     emit(state.copyWith(
       newPipeSearchResult: null,
@@ -391,7 +421,10 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
   }
 
   Future<void> _fetchNewPipeSearchSuggestion(
-      GetSearchSuggestion event, Emitter<SearchState> emit, int requestId) async {
+    GetSearchSuggestion event,
+    Emitter<SearchState> emit,
+    int requestId,
+  ) async {
     //loading
     emit(state.copyWith(
       newPipeSearchResult: null,
@@ -400,7 +433,9 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     ));
 
     //get search details
-    final _result = await searchService.getNewPipeSearchSuggestion(query: event.query);
+    final _result = await searchService.getNewPipeSearchSuggestion(
+      query: event.query,
+    );
     if (emit.isDone || requestId != _suggestionRequestGeneration) return;
 
     //assign data
@@ -421,7 +456,10 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
   }
 
   Future<void> _fetchMoreNewPipeSearchResult(
-      GetMoreSearchResult event, Emitter<SearchState> emit, int requestId) async {
+    GetMoreSearchResult event,
+    Emitter<SearchState> emit,
+    int requestId,
+  ) async {
     //loading
     emit(state.copyWith(
         fetchMoreNewPipeSearchResultStatus: ApiStatus.loading,
