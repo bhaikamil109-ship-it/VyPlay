@@ -219,8 +219,9 @@ dependencies {
     // Core library desugaring for NewPipe Extractor (Java 8+ APIs on older Android)
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs_nio:2.1.3'
 
-    // NewPipe Extractor - keep the compatible API used by VyPlay's native handlers.
-    implementation 'com.github.teamnewpipe:newpipeextractor:v0.26.5'
+    // PipePipe Extractor provides the real Bilibili service while retaining YouTube support.
+    // Pin the exact upstream fork commit; native adapters are kept compatible with this API.
+    implementation 'com.github.InfinityLoop1308.PipePipeExtractor:extractor:1a09d20e68dbd0892995bc58ffa539049a656690'
     // PipePipe FFmpegKit, pinned to an upstream commit and SHA-1 verified above.
     implementation files(pipePipeFfmpegAarFile).builtBy(downloadPipePipeFfmpegAar)
     implementation 'com.arthenica:smart-exception-java:0.2.1'
