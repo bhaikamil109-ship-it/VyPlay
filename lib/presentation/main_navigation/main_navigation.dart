@@ -21,9 +21,16 @@ import '../trending/screen_trending.dart';
 
 ValueNotifier<int> indexChangeNotifier = ValueNotifier(0);
 
-/// Notifier for downloads screen tab selection.
+/// Notifier for Downloads' inner tab selection.
 /// 0 = Downloading, 1 = Completed, 2 = All.
 ValueNotifier<int?> downloadsTabNotifier = ValueNotifier(null);
+
+/// Navigation requests need their own signal: assigning index 0 to a notifier
+/// already holding 0 does not notify listeners.
+final ValueNotifier<int> _mainTabRequestNotifier = ValueNotifier(0);
+final Listenable _mainNavigationListenable = Listenable.merge(
+  <Listenable>[indexChangeNotifier, _mainTabRequestNotifier],
+);
 
 /// Stable page and bottom-navigation identities. Page order may change when
 /// Trending is unavailable, but destination selection is always key-based.
@@ -72,8 +79,7 @@ int? _pendingDownloadsTab;
 void navigateToMainTab(String pageKey) {
   _pendingNavigation = pageKey;
   _pendingDownloadsTab = null;
-  // Trigger a shell rebuild; the pending key is resolved safely in its builder.
-  indexChangeNotifier.value = 0;
+  _mainTabRequestNotifier.value++;
 }
 
 /// Navigate to the Downloads page and optionally select an inner tab.
@@ -84,7 +90,7 @@ void navigateToDownloadsTab({int? downloadsTabIndex}) {
   if (downloadsTabIndex != null) {
     downloadsTabNotifier.value = downloadsTabIndex;
   }
-  indexChangeNotifier.value = 0;
+  _mainTabRequestNotifier.value++;
 }
 
 /// Get and clear pending navigation target
@@ -255,9 +261,10 @@ class MainNavigationState extends State<MainNavigation> {
               );
             }
           },
-          child: ValueListenableBuilder(
-            valueListenable: indexChangeNotifier,
-            builder: (BuildContext context, int index, Widget? _) {
+          child: AnimatedBuilder(
+            animation: _mainNavigationListenable,
+            builder: (BuildContext context, Widget? _) {
+              final index = indexChangeNotifier.value;
               // Record the first build of MainNavigation's scaffold.
               if (!MainNavigation._mainNavigationBuilt) {
                 MainNavigation._mainNavigationBuilt = true;
