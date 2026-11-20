@@ -21,12 +21,14 @@ class NewPipeSearchResultSection extends StatefulWidget {
     required this.state,
     required this.searchQuery,
     this.filter = "all",
+    this.serviceId = 'newpipe',
   });
 
   final S locals;
   final SearchState state;
   final String searchQuery;
   final String filter;
+  final String serviceId;
 
   @override
   State<NewPipeSearchResultSection> createState() =>
@@ -61,7 +63,7 @@ class _NewPipeSearchResultSectionState
         query: widget.searchQuery,
         filter: widget.filter,
         nextPage: widget.state.newPipeSearchResult?.nextPage,
-        serviceType: YouTubeServices.newpipe.name,
+        serviceType: widget.serviceId,
       ));
     }
   }
