@@ -52,7 +52,8 @@ class ScreenHome extends StatelessWidget {
                   log("oldList: ${subscribeState.oldList.length} & subscribedChannels: ${subscribeState.subscribedChannels.length}");
                   // For NewPipe, home stays as personalized feed - no refresh needed
                   // For other services, refresh the subscription feed on home
-                  if (settingsState.ytService != YouTubeServices.newpipe.name) {
+                  if (settingsState.ytService != YouTubeServices.newpipe.name &&
+                      settingsState.ytService != YouTubeServices.bilibili.name) {
                     trendingBloc.add(GetForcedHomeFeedData(
                         channels: subscribeState.subscribedChannels));
                   }
@@ -107,8 +108,8 @@ class ScreenHome extends StatelessWidget {
                             current.isLoadingMoreInvidiousTrending;
                   },
                   builder: (context, trendingState) {
-                    if (settingsState.ytService ==
-                        YouTubeServices.newpipe.name) {
+                    if ((settingsState.ytService == YouTubeServices.newpipe.name ||
+                        settingsState.ytService == YouTubeServices.bilibili.name)) {
                       return _buildNewPipeTrendingOrFeedSection(
                         trendingState,
                         locals,
@@ -387,7 +388,8 @@ class ScreenHome extends StatelessWidget {
     SettingsState settingsState,
   ) {
     // NewPipe error handling
-    if (settingsState.ytService == YouTubeServices.newpipe.name) {
+    if ((settingsState.ytService == YouTubeServices.newpipe.name ||
+        settingsState.ytService == YouTubeServices.bilibili.name)) {
       if (trendingState.fetchNewPipeTrendingStatus == ApiStatus.error ||
           trendingState.newPipeTrendingResult.isEmpty) {
         return ErrorRetryWidget(
