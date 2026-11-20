@@ -1,3 +1,30 @@
+# Phase 2 — Core UI & Navigation (VyPlay mission)
+
+**Implementation:** COMPLETE for the agreed Phase 2 navigation scope.
+**Automated verification:** Flutter CI passed on commit `20dc7408e37d96be39c2b692cf5d4a6a41e51917` (Flutter analyze + all 571 tests). The nine new navigation/localization tests passed.
+**Final QA:** rerun pending on commit `42ad410aab17fb21c8aa7ee862ca7290fea03d26` after correcting the QA workflow's Gradle invocation. Previous QA attempt passed formatting, analyze and all 571 Flutter tests, then failed because the repository has no checked-in `android/gradlew` wrapper script. The workflow now provisions Gradle 8.14.5 and invokes Gradle directly; native test and arm64 APK checks are pending rerun.
+**Android APK:** release build for the earlier commit remains in progress; latest commit's build is queued/running. No APK artifact has been confirmed yet.
+**Physical-device acceptance:** NOT VERIFIED. No Android device/emulator session is connected to this workflow.
+
+### Implemented
+- Replaced the previous navigation bar with five compact primary destinations: Home, Shorts, Subscriptions, Library and More.
+- Kept Trending (where supported), Downloads and Settings accessible from the More hub; Trending is hidden for the NewPipe backend.
+- Introduced stable page keys and backend-aware page/index mapping so conditional Trending visibility does not shift a user's selected destination.
+- Added a separate navigation request notifier so repeated navigation requests to the already-selected Home index still trigger routing.
+- Wired notification/deep-link navigation to Downloads and its optional inner tab.
+- Added Back behavior: secondary page opened from More returns to More; other secondary tabs return to Home; Home retains the existing PiP/exit handling.
+- Localized the More label for all 12 shipped locales, with a safe fallback.
+- Added nine unit tests covering compact destinations, all page keys, NewPipe Trending visibility, selected destination mapping, index stability and localization.
+
+### Remaining acceptance checks
+- [ ] Latest Deep QA passes (format, analyze, 571+ Flutter tests, Kotlin native tests, arm64 debug APK and package/version verification).
+- [ ] Latest Android APK workflow completes and uploads its temporary-key test artifact (no public Release; permanent signing key intentionally deferred until project completion).
+- [ ] Physical-device visual/interaction check: five-tab bar, More destinations, backend switch with Trending, notification-to-Downloads navigation, Back behavior, rotation and small-screen layout.
+
+**Verdict:** Phase 2 implementation is complete; do not label the overall phase 100% accepted until the latest Android QA/build gates and the physical-device acceptance checks above pass.
+
+---
+
 # Current VyPlay mission status — 2026-11-20
 
 ## Phase 1 — App Branding & Identity
