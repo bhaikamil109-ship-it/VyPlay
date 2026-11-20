@@ -16,6 +16,11 @@ part 'search_bloc.freezed.dart';
 
 @injectable
 class SearchBloc extends Bloc<SearchEvent, SearchState> {
+  // Bloc handlers are concurrent: generations stop stale network responses
+  // from overwriting a newer query or a cleared suggestion field.
+  int _searchRequestGeneration = 0;
+  int _suggestionRequestGeneration = 0;
+
   final SearchService searchService;
   final SearchHistoryService searchHistoryService;
   SearchBloc(
@@ -23,38 +28,65 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     this.searchHistoryService,
   ) : super(SearchState.initialize()) {
     on<GetSearchResult>((event, emit) async {
+      final requestId = ++_searchRequestGeneration;
+      _suggestionRequestGeneration++;
       emit(state.copyWith(isSuggestionDisplay: false));
 
       if (event.serviceType == YouTubeServices.invidious.name) {
-        await _fetchInvidiousSearchResult(event, emit);
+        await _fetchInvidiousSearchResult(event, emit, requestId);
       } else if (event.serviceType == YouTubeServices.newpipe.name) {
-        await _fetchNewPipeSearchResult(event, emit);
+        await _fetchNewPipeSearchResult(event, emit, requestId);
       } else {
-        await _fetchPipedSearchResult(event, emit);
+        await _fetchPipedSearchResult(event, emit, requestId);
       }
     });
 
     //get suggestions
     on<GetSearchSuggestion>((event, emit) async {
+      final requestId = ++_suggestionRequestGeneration;
+      if (event.query.trim().isEmpty) {
+        emit(state.copyWith(
+          isSuggestionDisplay: false,
+          suggestions: const [],
+          invidiousSuggestionResult: const [],
+          newPipeSuggestionResult: const [],
+          fetchSuggestionStatus: ApiStatus.initial,
+          fetchInvidiousSuggestionStatus: ApiStatus.initial,
+          fetchNewPipeSuggestionStatus: ApiStatus.initial,
+        ));
+        return;
+      }
+
       if (event.serviceType == YouTubeServices.invidious.name) {
-        await _fetchInvidiousSearchSuggestion(event, emit);
+        await _fetchInvidiousSearchSuggestion(event, emit, requestId);
       } else if (event.serviceType == YouTubeServices.newpipe.name) {
-        await _fetchNewPipeSearchSuggestion(event, emit);
+        await _fetchNewPipeSearchSuggestion(event, emit, requestId);
       } else {
-        await _fetchPipedSearchSuggestion(event, emit);
+        await _fetchPipedSearchSuggestion(event, emit, requestId);
       }
     });
 
     // GET MORE SEARCH RESULT
     on<GetMoreSearchResult>((event, emit) async {
-      emit(state.copyWith(isSuggestionDisplay: false));
-
+      final requestId = _searchRequestGeneration;
       if (event.serviceType == YouTubeServices.invidious.name) {
-        await _fetchMoreInvidiousSearchResult(event, emit);
+        if (state.fetchMoreInvidiousSearchResultStatus == ApiStatus.loading ||
+            state.isMoreInvidiousFetchCompleted) return;
       } else if (event.serviceType == YouTubeServices.newpipe.name) {
-        await _fetchMoreNewPipeSearchResult(event, emit);
+        if (state.fetchMoreNewPipeSearchResultStatus == ApiStatus.loading ||
+            state.isMoreNewPipeFetchCompleted) return;
       } else {
-        await _fetchMorePipedSearchResult(event, emit);
+        if (state.fetchMoreSearchResultStatus == ApiStatus.loading ||
+            state.isMoreFetchCompleted) return;
+      }
+
+      emit(state.copyWith(isSuggestionDisplay: false));
+      if (event.serviceType == YouTubeServices.invidious.name) {
+        await _fetchMoreInvidiousSearchResult(event, emit, requestId);
+      } else if (event.serviceType == YouTubeServices.newpipe.name) {
+        await _fetchMoreNewPipeSearchResult(event, emit, requestId);
+      } else {
+        await _fetchMorePipedSearchResult(event, emit, requestId);
       }
     });
 
@@ -118,7 +150,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     });
   }
 
-  Future<void> _fetchPipedSearchResult(GetSearchResult event, Emitter<SearchState> emit) async {
+  Future<void> _fetchPipedSearchResult(GetSearchResult event, Emitter<SearchState> emit, int requestId) async {
     //loading
     emit(state.copyWith(
       result: null,
@@ -127,11 +159,13 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
       fetchSearchResultStatus: ApiStatus.loading,
       fetchSuggestionStatus: ApiStatus.initial,
       fetchMoreSearchResultStatus: ApiStatus.initial,
+      isMoreFetchCompleted: false,
     ));
 
     //get search details
     final _result = await searchService.getSearchResult(
         query: event.query, filter: event.filter ?? "all");
+    if (emit.isDone || requestId != _searchRequestGeneration) return;
 
     //assign data
     final _state = _result.fold(
@@ -150,7 +184,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     emit(_state);
   }
 
-  Future<void> _fetchInvidiousSearchResult(GetSearchResult event, Emitter<SearchState> emit) async {
+  Future<void> _fetchInvidiousSearchResult(GetSearchResult event, Emitter<SearchState> emit, int requestId) async {
     //loading
     emit(state.copyWith(
       invidiousSearchResult: [],
@@ -159,11 +193,14 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
       fetchInvidiousSearchResultStatus: ApiStatus.loading,
       fetchInvidiousSuggestionStatus: ApiStatus.initial,
       fetchMoreInvidiousSearchResultStatus: ApiStatus.initial,
+      isMoreInvidiousFetchCompleted: false,
+      page: 2,
     ));
 
     //get search details
     final _result = await searchService.getInvidiousSearchResult(
         query: event.query, type: event.filter ?? "all");
+    if (emit.isDone || requestId != _searchRequestGeneration) return;
 
     //assign data
     final _state = _result.fold(
@@ -181,7 +218,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
   }
 
   Future<void> _fetchPipedSearchSuggestion(
-      GetSearchSuggestion event, Emitter<SearchState> emit) async {
+      GetSearchSuggestion event, Emitter<SearchState> emit, int requestId) async {
     //loading
     emit(state.copyWith(
       result: null,
@@ -191,6 +228,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
 
     //get search details
     final _result = await searchService.getSearchSuggestion(query: event.query);
+    if (emit.isDone || requestId != _suggestionRequestGeneration) return;
 
     //assign data
     final _state = _result.fold(
@@ -210,7 +248,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
   }
 
   Future<void> _fetchInvidiousSearchSuggestion(
-      GetSearchSuggestion event, Emitter<SearchState> emit) async {
+      GetSearchSuggestion event, Emitter<SearchState> emit, int requestId) async {
     //loading
     emit(state.copyWith(
       invidiousSearchResult: [],
@@ -221,6 +259,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     //get search details
     final _result =
         await searchService.getInvidiousSearchSuggestion(query: event.query);
+    if (emit.isDone || requestId != _suggestionRequestGeneration) return;
 
     //assign data
     final _state = _result.fold(
@@ -240,7 +279,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
   }
 
   Future<void> _fetchMorePipedSearchResult(
-      GetMoreSearchResult event, Emitter<SearchState> emit) async {
+      GetMoreSearchResult event, Emitter<SearchState> emit, int requestId) async {
     //loading
     emit(state.copyWith(
         fetchMoreSearchResultStatus: ApiStatus.loading,
@@ -251,29 +290,29 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
         query: event.query,
         filter: event.filter ?? "all",
         nextPage: event.nextPage);
+    if (emit.isDone || requestId != _searchRequestGeneration) return;
 
     //assign data
     final _state = _result.fold(
         (MainFailure failure) =>
             state.copyWith(fetchMoreSearchResultStatus: ApiStatus.error),
         (SearchResp resp) {
-      if (resp.nextpage == null) {
-        return state.copyWith(
-          fetchMoreSearchResultStatus: ApiStatus.loaded,
-          isMoreFetchCompleted: true,
-        );
-      } else if (state.result?.items != null) {
-        final updatedResult = SearchResp(
-          items: [...state.result!.items, ...resp.items],
-          nextpage: resp.nextpage,
-          suggestion: state.result!.suggestion,
-          corrected: state.result!.corrected,
-        );
-        return state.copyWith(
-            fetchMoreSearchResultStatus: ApiStatus.loaded, result: updatedResult);
-      } else {
-        return state;
-      }
+      final currentResult = state.result;
+      final updatedResult = currentResult == null
+          ? resp
+          : SearchResp(
+              items: [...currentResult.items, ...resp.items],
+              nextpage: resp.nextpage,
+              suggestion: currentResult.suggestion ?? resp.suggestion,
+              corrected: currentResult.corrected ?? resp.corrected,
+            );
+      final hasNextPage =
+          resp.nextpage != null && resp.nextpage!.trim().isNotEmpty;
+      return state.copyWith(
+        fetchMoreSearchResultStatus: ApiStatus.loaded,
+        isMoreFetchCompleted: !hasNextPage,
+        result: updatedResult,
+      );
     });
 
     //update to ui
@@ -281,7 +320,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
   }
 
   Future<void> _fetchMoreInvidiousSearchResult(
-      GetMoreSearchResult event, Emitter<SearchState> emit) async {
+      GetMoreSearchResult event, Emitter<SearchState> emit, int requestId) async {
     //also incriment page and pass page instead of nextPage
     emit(state.copyWith(
         fetchMoreInvidiousSearchResultStatus: ApiStatus.loading,
@@ -290,6 +329,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     //get search details
     final _result = await searchService.getMoreInvidiousSearchResult(
         query: event.query, type: event.filter ?? "all", page: state.page);
+    if (emit.isDone || requestId != _searchRequestGeneration) return;
 
     //assign data
     final _state = _result.fold(
@@ -318,7 +358,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
 
   // NEWPIPE
 
-  Future<void> _fetchNewPipeSearchResult(GetSearchResult event, Emitter<SearchState> emit) async {
+  Future<void> _fetchNewPipeSearchResult(GetSearchResult event, Emitter<SearchState> emit, int requestId) async {
     //loading
     emit(state.copyWith(
       newPipeSearchResult: null,
@@ -327,11 +367,13 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
       fetchNewPipeSearchResultStatus: ApiStatus.loading,
       fetchNewPipeSuggestionStatus: ApiStatus.initial,
       fetchMoreNewPipeSearchResultStatus: ApiStatus.initial,
+      isMoreNewPipeFetchCompleted: false,
     ));
 
     //get search details
     final _result = await searchService.getNewPipeSearchResult(
         query: event.query, filter: event.filter ?? "all");
+    if (emit.isDone || requestId != _searchRequestGeneration) return;
 
     //assign data
     final _state = _result.fold(
@@ -349,7 +391,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
   }
 
   Future<void> _fetchNewPipeSearchSuggestion(
-      GetSearchSuggestion event, Emitter<SearchState> emit) async {
+      GetSearchSuggestion event, Emitter<SearchState> emit, int requestId) async {
     //loading
     emit(state.copyWith(
       newPipeSearchResult: null,
@@ -359,6 +401,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
 
     //get search details
     final _result = await searchService.getNewPipeSearchSuggestion(query: event.query);
+    if (emit.isDone || requestId != _suggestionRequestGeneration) return;
 
     //assign data
     final _state = _result.fold(
@@ -378,7 +421,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
   }
 
   Future<void> _fetchMoreNewPipeSearchResult(
-      GetMoreSearchResult event, Emitter<SearchState> emit) async {
+      GetMoreSearchResult event, Emitter<SearchState> emit, int requestId) async {
     //loading
     emit(state.copyWith(
         fetchMoreNewPipeSearchResultStatus: ApiStatus.loading,
@@ -389,30 +432,34 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
         query: event.query,
         filter: event.filter ?? "all",
         nextPage: event.nextPage ?? '');
+    if (emit.isDone || requestId != _searchRequestGeneration) return;
 
     //assign data
     final _state = _result.fold(
         (MainFailure failure) =>
             state.copyWith(fetchMoreNewPipeSearchResultStatus: ApiStatus.error),
         (NewPipeSearchResp resp) {
-      if (resp.nextPage == null) {
-        return state.copyWith(
-          fetchMoreNewPipeSearchResultStatus: ApiStatus.loaded,
-          isMoreNewPipeFetchCompleted: true,
-        );
-      } else if (state.newPipeSearchResult?.items != null) {
-        final updatedResult = NewPipeSearchResp(
-          items: [...(state.newPipeSearchResult?.items ?? []), ...(resp.items ?? [])],
-          nextPage: resp.nextPage,
-          searchSuggestion: state.newPipeSearchResult?.searchSuggestion,
-          isCorrectedSearch: state.newPipeSearchResult?.isCorrectedSearch,
-        );
-        return state.copyWith(
-            fetchMoreNewPipeSearchResultStatus: ApiStatus.loaded,
-            newPipeSearchResult: updatedResult);
-      } else {
-        return state;
-      }
+      final currentResult = state.newPipeSearchResult;
+      final updatedResult = currentResult == null
+          ? resp
+          : NewPipeSearchResp(
+              items: [
+                ...(currentResult.items ?? const []),
+                ...(resp.items ?? const []),
+              ],
+              nextPage: resp.nextPage,
+              searchSuggestion:
+                  currentResult.searchSuggestion ?? resp.searchSuggestion,
+              isCorrectedSearch:
+                  currentResult.isCorrectedSearch ?? resp.isCorrectedSearch,
+            );
+      final hasNextPage =
+          resp.nextPage != null && resp.nextPage!.trim().isNotEmpty;
+      return state.copyWith(
+        fetchMoreNewPipeSearchResultStatus: ApiStatus.loaded,
+        isMoreNewPipeFetchCompleted: !hasNextPage,
+        newPipeSearchResult: updatedResult,
+      );
     });
 
     //update to ui

@@ -46,17 +46,22 @@ class _SearcheResultSectionState extends State<SearcheResultSection> {
   }
 
   void _onScroll() {
-    if (_scrollController.position.pixels ==
-            _scrollController.position.maxScrollExtent &&
-        !(widget.state.fetchMoreSearchResultStatus == ApiStatus.loading) &&
-        !widget.state.isMoreFetchCompleted) {
-      BlocProvider.of<SearchBloc>(context).add(SearchEvent.getMoreSearchResult(
-        query: widget.searchQuery,
-        filter: widget.filter,
-        nextPage: widget.state.result?.nextpage,
-        serviceType: YouTubeServices.piped.name,
-      ));
+    if (!_scrollController.hasClients) return;
+    final position = _scrollController.position;
+    final nextPage = widget.state.result?.nextpage;
+    if (position.extentAfter > 240 ||
+        nextPage == null ||
+        nextPage.trim().isEmpty ||
+        widget.state.fetchMoreSearchResultStatus == ApiStatus.loading ||
+        widget.state.isMoreFetchCompleted) {
+      return;
     }
+    BlocProvider.of<SearchBloc>(context).add(SearchEvent.getMoreSearchResult(
+      query: widget.searchQuery,
+      filter: widget.filter,
+      nextPage: nextPage,
+      serviceType: YouTubeServices.piped.name,
+    ));
   }
 
   @override

@@ -9,6 +9,7 @@ import 'package:vyplay/domain/search/models/newpipe/newpipe_search_resp.dart';
 import 'package:vyplay/domain/search/models/piped/search_resp.dart';
 import 'package:vyplay/domain/search/search_service.dart';
 import 'package:vyplay/infrastructure/newpipe/newpipe_channel.dart';
+import 'package:vyplay/infrastructure/search/search_request_uri.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../domain/core/api_end_points.dart';
@@ -22,7 +23,10 @@ class SearchImpl implements SearchService {
       {required String query, required String filter}) async {
     try {
       final Response response =
-          await ApiClient.dio.get("${ApiEndPoints.search}$query&filter=$filter");
+          await ApiClient.dio.get(buildSearchRequestUri(ApiEndPoints.search, {
+        'q': query,
+        'filter': filter,
+      }));
       if (response.statusCode == 200 || response.statusCode == 201) {
         return Right(SearchResp.fromJson(response.data));
       } else {
@@ -40,7 +44,9 @@ class SearchImpl implements SearchService {
       {required String query}) async {
     try {
       final Response response =
-          await ApiClient.dio.get("${ApiEndPoints.suggestions}$query");
+          await ApiClient.dio.get(buildSearchRequestUri(ApiEndPoints.suggestions, {
+        'query': query,
+      }));
       if (response.statusCode == 200 || response.statusCode == 201) {
         return Right(response.data as List);
       } else {
@@ -60,7 +66,13 @@ class SearchImpl implements SearchService {
       required String? nextPage}) async {
     try {
       final Response response = await ApiClient.dio.get(
-          "${ApiEndPoints.moreSearch}$query&filter=$filter&nextpage=$nextPage");
+        buildSearchRequestUri(ApiEndPoints.moreSearch, {
+          'q': query,
+          'filter': filter,
+          if (nextPage != null && nextPage.trim().isNotEmpty)
+            'nextpage': nextPage,
+        }),
+      );
       if (response.statusCode == 200 || response.statusCode == 201) {
         return Right(SearchResp.fromJson(response.data));
       } else {
@@ -80,8 +92,12 @@ class SearchImpl implements SearchService {
       getInvidiousSearchResult(
           {required String query, required String type}) async {
     try {
-      final Response response = await ApiClient.dio
-          .get("${InvidiousApiEndpoints.search}$query&type=$type");
+      final Response response = await ApiClient.dio.get(
+        buildSearchRequestUri(InvidiousApiEndpoints.search, {
+          'q': query,
+          'type': type,
+        }),
+      );
       if (response.statusCode == 200 || response.statusCode == 201) {
         final List<InvidiousSearchResp> result = List<InvidiousSearchResp>.from(
             response.data.map((x) => InvidiousSearchResp.fromJson(x)));
@@ -100,8 +116,11 @@ class SearchImpl implements SearchService {
   Future<Either<MainFailure, List>> getInvidiousSearchSuggestion(
       {required String query}) async {
     try {
-      final Response response = await ApiClient.dio
-          .get("${InvidiousApiEndpoints.suggestions}$query");
+      final Response response = await ApiClient.dio.get(
+        buildSearchRequestUri(InvidiousApiEndpoints.suggestions, {
+          'q': query,
+        }),
+      );
       if (response.statusCode == 200 || response.statusCode == 201) {
         return Right(response.data["suggestions"] as List);
       } else {
@@ -122,7 +141,12 @@ class SearchImpl implements SearchService {
           required int? page}) async {
     try {
       final Response response = await ApiClient.dio.get(
-          "${InvidiousApiEndpoints.search}$query&type=$type&page=$page");
+        buildSearchRequestUri(InvidiousApiEndpoints.search, {
+          'q': query,
+          'type': type,
+          if (page != null) 'page': page.toString(),
+        }),
+      );
       if (response.statusCode == 200 || response.statusCode == 201) {
         final List<InvidiousSearchResp> result = List<InvidiousSearchResp>.from(
             response.data.map((x) => InvidiousSearchResp.fromJson(x)));

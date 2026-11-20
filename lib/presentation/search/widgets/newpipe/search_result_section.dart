@@ -52,18 +52,22 @@ class _NewPipeSearchResultSectionState
   }
 
   void _onScroll() {
-    if (_scrollController.position.pixels ==
-            _scrollController.position.maxScrollExtent &&
-        !(widget.state.fetchMoreNewPipeSearchResultStatus ==
-            ApiStatus.loading) &&
-        !widget.state.isMoreNewPipeFetchCompleted) {
-      BlocProvider.of<SearchBloc>(context).add(SearchEvent.getMoreSearchResult(
-        query: widget.searchQuery,
-        filter: widget.filter,
-        nextPage: widget.state.newPipeSearchResult?.nextPage,
-        serviceType: YouTubeServices.newpipe.name,
-      ));
+    if (!_scrollController.hasClients) return;
+    final position = _scrollController.position;
+    final nextPage = widget.state.newPipeSearchResult?.nextPage;
+    if (position.extentAfter > 240 ||
+        nextPage == null ||
+        nextPage.trim().isEmpty ||
+        widget.state.fetchMoreNewPipeSearchResultStatus == ApiStatus.loading ||
+        widget.state.isMoreNewPipeFetchCompleted) {
+      return;
     }
+    BlocProvider.of<SearchBloc>(context).add(SearchEvent.getMoreSearchResult(
+      query: widget.searchQuery,
+      filter: widget.filter,
+      nextPage: nextPage,
+      serviceType: YouTubeServices.newpipe.name,
+    ));
   }
 
   @override

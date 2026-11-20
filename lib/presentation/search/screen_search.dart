@@ -71,6 +71,7 @@ class _ScreenSearchState extends State<ScreenSearch> {
 
   void _performSearch(String query, String serviceType) {
     if (query.trim().isEmpty) return;
+    EasyDebounce.cancel('suggestions');
 
     setState(() {
       _showSearchHistory = false;
@@ -99,7 +100,11 @@ class _ScreenSearchState extends State<ScreenSearch> {
   }
 
   void _onSearchQueryChanged(String value, String serviceType) {
-    if (value.isEmpty) {
+    if (value.trim().isEmpty) {
+      EasyDebounce.cancel('suggestions');
+      BlocProvider.of<SearchBloc>(context).add(
+        SearchEvent.getSearchSuggestion(query: '', serviceType: serviceType),
+      );
       setState(() {
         _showSearchHistory = true;
       });
@@ -123,9 +128,15 @@ class _ScreenSearchState extends State<ScreenSearch> {
   }
 
   void _clearSearch() {
+    EasyDebounce.cancel('suggestions');
     _textEditingController.clear();
+    final serviceType = context.read<SettingsBloc>().state.ytService;
+    BlocProvider.of<SearchBloc>(context).add(
+      SearchEvent.getSearchSuggestion(query: '', serviceType: serviceType),
+    );
     setState(() {
       _showSearchHistory = true;
+      _selectedFilter = 'all';
     });
   }
 
@@ -149,7 +160,31 @@ class _ScreenSearchState extends State<ScreenSearch> {
     final isDark = theme.brightness == Brightness.dark;
     final locals = S.of(context);
 
-    return BlocBuilder<SettingsBloc, SettingsState>(
+    return BlocListener<SettingsBloc, SettingsState>(
+      listenWhen: (previous, current) =>
+          previous.ytService != current.ytService,
+      listener: (context, settingsState) {
+        EasyDebounce.cancel('suggestions');
+        setState(() => _selectedFilter = 'all');
+        final query = _textEditingController.text.trim();
+        if (query.isNotEmpty) {
+          BlocProvider.of<SearchBloc>(context).add(
+            SearchEvent.getSearchResult(
+              query: query,
+              filter: 'all',
+              serviceType: settingsState.ytService,
+            ),
+          );
+        } else {
+          BlocProvider.of<SearchBloc>(context).add(
+            SearchEvent.getSearchSuggestion(
+              query: '',
+              serviceType: settingsState.ytService,
+            ),
+          );
+        }
+      },
+      child: BlocBuilder<SettingsBloc, SettingsState>(
       buildWhen: (previous, current) =>
           previous.ytService != current.ytService ||
           previous.isSearchHistoryEnabled != current.isSearchHistoryEnabled ||
@@ -342,6 +377,7 @@ class _ScreenSearchState extends State<ScreenSearch> {
           ),
         );
       },
+      ),
     );
   }
 
@@ -524,42 +560,52 @@ class _ScreenSearchState extends State<ScreenSearch> {
 
   Widget _buildInvidiousContent(
       SearchState state, SettingsState settingsState, S locals) {
-    if (state.isSuggestionDisplay == true &&
-        state.fetchSuggestionStatus == ApiStatus.loaded &&
-        (state.fetchSearchResultStatus == ApiStatus.loading ||
-            state.fetchSearchResultStatus == ApiStatus.loaded) &&
-        state.suggestions.isNotEmpty &&
-        _textEditingController.text.isNotEmpty) {
-      return SearchSuggestionSection(
-        textEditingController: _textEditingController,
-        state: state,
-        onSearch: (query) => _performSearch(query, settingsState.ytService),
-      );
-    } else if (state.fetchSearchResultStatus == ApiStatus.loading ||
-        state.fetchSearchResultStatus == ApiStatus.initial) {
+    final queryIsEmpty = _textEditingController.text.trim().isEmpty;
+
+    if (state.isSuggestionDisplay && !queryIsEmpty) {
+      if (state.fetchInvidiousSuggestionStatus == ApiStatus.loading) {
+        return cIndicator(context);
+      }
+      if (state.fetchInvidiousSuggestionStatus == ApiStatus.loaded &&
+          state.invidiousSuggestionResult.isNotEmpty) {
+        return InvidiousSearchSuggestionSection(
+          textEditingController: _textEditingController,
+          state: state,
+          onSearch: (query) => _performSearch(query, settingsState.ytService),
+        );
+      }
+      return const SizedBox.shrink();
+    }
+
+    if (state.fetchInvidiousSearchResultStatus == ApiStatus.loading ||
+        (!queryIsEmpty &&
+            state.fetchInvidiousSearchResultStatus == ApiStatus.initial)) {
       return cIndicator(context);
-    } else if (state.isSuggestionDisplay ||
-        _textEditingController.text.isEmpty) {
-      return Container();
-    } else if (state.fetchSearchResultStatus == ApiStatus.error ||
-        state.result == null ||
-        state.result!.items.isEmpty) {
+    }
+    if (queryIsEmpty &&
+        state.fetchInvidiousSearchResultStatus == ApiStatus.initial) {
+      return const SizedBox.shrink();
+    }
+    if (state.fetchInvidiousSearchResultStatus == ApiStatus.error ||
+        state.invidiousSearchResult.isEmpty) {
       return ErrorRetryWidget(
         lottie: 'assets/cup.zip',
         onTap: () => BlocProvider.of<SearchBloc>(context).add(
-            SearchEvent.getSearchResult(
-                query: _textEditingController.text,
-                filter: _selectedFilter,
-                serviceType: settingsState.ytService)),
-      );
-    } else {
-      return SearcheResultSection(
-        locals: locals,
-        state: state,
-        searchQuery: _textEditingController.text,
-        filter: _selectedFilter,
+          SearchEvent.getSearchResult(
+            query: _textEditingController.text.trim(),
+            filter: _selectedFilter,
+            serviceType: settingsState.ytService,
+          ),
+        ),
       );
     }
+
+    return InvidiousSearcheResultSection(
+      locals: locals,
+      state: state,
+      searchQuery: _textEditingController.text.trim(),
+      filter: _selectedFilter,
+    );
   }
 
   Widget _buildPipedContent(

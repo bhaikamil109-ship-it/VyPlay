@@ -49,17 +49,19 @@ class _InvidiousSearcheResultSectionState
   }
 
   void _onScroll() {
-    if (_scrollController.position.pixels ==
-            _scrollController.position.maxScrollExtent &&
-        !(widget.state.fetchMoreSearchResultStatus == ApiStatus.loading) &&
-        !widget.state.isMoreFetchCompleted) {
-      BlocProvider.of<SearchBloc>(context).add(SearchEvent.getMoreSearchResult(
-        query: widget.searchQuery,
-        filter: widget.filter,
-        nextPage: null,
-        serviceType: YouTubeServices.invidious.name,
-      ));
+    if (!_scrollController.hasClients) return;
+    final position = _scrollController.position;
+    if (position.extentAfter > 240 ||
+        widget.state.fetchMoreInvidiousSearchResultStatus == ApiStatus.loading ||
+        widget.state.isMoreInvidiousFetchCompleted) {
+      return;
     }
+    BlocProvider.of<SearchBloc>(context).add(SearchEvent.getMoreSearchResult(
+      query: widget.searchQuery,
+      filter: widget.filter,
+      nextPage: null,
+      serviceType: YouTubeServices.invidious.name,
+    ));
   }
 
   @override
