@@ -107,7 +107,7 @@ class NewPipeChannel {
       final json = jsonDecode(result) as Map<String, dynamic>;
       final resp = NewPipeWatchResp.fromJson(json);
       // Cache the result
-      _streamCache[videoId] = _CachedStreamInfo(resp, DateTime.now());
+      _streamCache[_cacheKey(videoId)] = _CachedStreamInfo(resp, DateTime.now());
       return resp;
     } on MissingPluginException {
       // Fall back to regular getStreamInfo if fast method is not available
