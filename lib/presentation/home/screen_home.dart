@@ -428,7 +428,8 @@ class ScreenHome extends StatelessWidget {
     }
 
     // Return appropriate trending section
-    if (settingsState.ytService == YouTubeServices.newpipe.name) {
+    if (settingsState.ytService == YouTubeServices.newpipe.name ||
+        settingsState.ytService == YouTubeServices.bilibili.name) {
       return NewPipeTrendingVideosSection(
         locals: locals,
         state: trendingState,
