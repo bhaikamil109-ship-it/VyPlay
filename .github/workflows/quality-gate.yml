@@ -140,6 +140,9 @@ jobs:
               output="$QUALITY_DIR/formatted-source/$file"
               mkdir -p "$(dirname "$output")"
               dart format --output=show "$file" > "$output"
+              printf 'FORMATTED_FILE_BEGIN:%s\n' "$file"
+              base64 -w0 "$output"
+              printf '\nFORMATTED_FILE_END:%s\n' "$file"
             done < <(printf '%s\n' "${DART_FILES[@]}")
             exit 1
           fi
