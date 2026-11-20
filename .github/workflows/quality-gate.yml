@@ -24,7 +24,7 @@ jobs:
 
     env:
       GRADLE_OPTS: "-Dorg.gradle.daemon=false -Dkotlin.daemon.jvm.options=-Xmx1536m,-XX:-UseParallelGC"
-      QUALITY_DIR: .qa-reports
+      QUALITY_DIR: ${{ github.workspace }}/.qa-reports
 
     steps:
       - name: Checkout
@@ -132,7 +132,12 @@ jobs:
           APK="build/app/outputs/flutter-apk/app-debug.apk"
           test -s "$APK"
 
-          AAPT="$(find "${ANDROID_SDK_ROOT:-$ANDROID_HOME}/build-tools" -path '*/aapt' -type f | sort -V | tail -n 1)"
+          SDK_ROOT="${ANDROID_SDK_ROOT:-${ANDROID_HOME:-}}"
+          if [[ -z "$SDK_ROOT" ]]; then
+            echo "Android SDK root not found." >&2
+            exit 1
+          fi
+          AAPT="$(find "$SDK_ROOT/build-tools" -path '*/aapt' -type f | sort -V | tail -n 1)"
           if [[ -z "$AAPT" ]]; then
             echo "aapt not found in Android build-tools." >&2
             exit 1
