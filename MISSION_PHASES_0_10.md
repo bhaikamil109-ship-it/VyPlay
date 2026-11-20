@@ -24,7 +24,7 @@ This is the active execution plan for the current Phase 0–10 mission. The olde
 | Phase | Scope | Status |
 |---|---|---|
 | 0 | Repository baseline, branch/PR reconciliation, architecture and CI audit | **COMPLETE — audit only** |
-| 1 | Isolated FFmpeg large-file remux | **IN PROGRESS — PR #4 implementation and CI are green; final packaging/license checks remain** |
+| 1 | Isolated FFmpeg large-file remux | **IN PROGRESS — PR #4 CI and ABI inventory green; strict mission-branch ABI assertions await CI** |
 | 2 | Bilibili service integration | PENDING |
 | 3 | Drawer and navigation redesign | PENDING |
 | 4 | Core reliability: search, feeds, channels, playback errors and backend recovery | PENDING |
@@ -58,7 +58,7 @@ This is the active execution plan for the current Phase 0–10 mission. The olde
 ### Baseline caveats
 
 - Historical `VYPLAY_PROGRESS.md` reports 553/553 Flutter tests, Kotlin unit tests green, and a debug APK build on 2026-11-13. Those are historical results, not a fresh measurement of the current main commit.
-- Main’s Nov 19 checks and PR #4’s Nov 20 Flutter/Android checks are current CI evidence; test count and detailed runtime media output are not established by the summaries retrieved for this audit.
+- Main’s Nov 19 checks and PR #4’s Nov 20 Flutter/Android checks are current CI evidence. PR #4 Flutter CI logs show **562/562 tests passed**. The CI logs also list the exact FFmpeg native libraries packaged in all three ABI APKs; this proves packaging, not successful execution against real media.
 - CI does not equal a physical-device test. Playback, FFmpeg output correctness, notifications, PiP, SAF/SD-card behavior, and real backend/network behavior remain device/network-dependent.
 - Main branch protection is disabled; no direct main write or merge is part of this mission.
 
@@ -89,10 +89,10 @@ This is the active execution plan for the current Phase 0–10 mission. The olde
 
 ### Remaining Phase 1 checks
 
-- [ ] Inspect the exact AAR native-library inventory and verify the FFmpeg native libraries expected by each produced ABI. The current workflow only asserts that each APK contains at least one native `.so`; that generic check does not by itself prove FFmpegKit’s libraries are present for every ABI.
-- [ ] Confirm the AAR’s exact component licenses, bundled third-party notices, and corresponding-source availability before distributing a release. The upstream PipePipeClient repository declares GPL-3.0; the exact AAR contents/notice manifest still require review. VyPlay’s repository also declares GPL-3.0.
-- [ ] Re-run CI after the mission-branch documentation corrections.
-- [ ] Physical-device large-file MP4/WebM/mixed-container tests are deferred to the post-Phase-10 device stage by design.
+- [x] Inspect the exact AAR native-library inventory from the successful PR #4 Android job logs. `arm64-v8a` and `x86_64` contain `libffmpegkit.so`, `libffmpegkit_abidetect.so`, and the FFmpeg codec/format/filter/resample/scale libraries. `armeabi-v7a` contains the corresponding `*_neon.so` codec libraries plus `libffmpegkit_armv7a_neon.so` and `libffmpegkit_abidetect.so`.
+- [ ] Re-run CI on the mission branch after adding strict per-ABI library assertions to `.github/workflows/android-pr-build.yml` and correcting the two stale FFmpeg comments.
+- [ ] Phase 9 release gate: confirm the AAR’s exact component licenses, bundled third-party notices, and corresponding-source availability before distributing a release. The upstream PipePipeClient repository declares GPL-3.0; the exact AAR contents/notice manifest still require review. VyPlay’s repository also declares GPL-3.0.
+- [ ] Physical-device large-file MP4/WebM/mixed-container tests are intentionally deferred to the post-Phase-10 device stage.
 
 ## Phase 2 — Bilibili integration
 
@@ -157,4 +157,4 @@ Only after Phases 0–10 pass their implementation/automated gates:
 4. Fix device-found issues on the mission branch, rerun affected automated tests and CI, rebuild the APK, and repeat the failed device cases.
 5. Issue the final readiness verdict with confirmed, unverified and blocked items clearly separated.
 
-**Current honest verdict:** Phase 0 audit is complete. Phase 1 has a CI-green implementation base but is not yet closed. Phases 2–10 have not been started or verified in this ledger. No device test is claimed.
+**Current honest verdict:** Phase 0 audit is complete. Phase 1 implementation and original PR #4 CI are green, including the exact three-ABI FFmpeg library inventory. Phase 1 awaits mission-branch CI for the stricter APK assertions and documentation-only corrections. Phases 2–10 have not been started or verified in this ledger. No device test is claimed.
