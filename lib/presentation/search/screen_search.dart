@@ -311,7 +311,8 @@ class _ScreenSearchState extends State<ScreenSearch> {
                                     const SizedBox(width: 8),
                                     _buildFilterChip(locals.filterMusic,
                                         'music_songs', settingsState.ytService),
-                                  ],
+                                  ]
+                                : [],
                       ),
                     ),
                   ),
