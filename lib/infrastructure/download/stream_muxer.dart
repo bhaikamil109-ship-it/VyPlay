@@ -15,7 +15,7 @@ class MuxResult {
   /// Absolute path of the merged file that actually exists on disk.
   final String outputPath;
 
-  /// `mp4`, `webm` or `ogg`.
+  /// `mp4`, `webm`, `mkv` or `ogg`.
   final String container;
 
   /// True when the muxer copied the streams without re-encoding.
@@ -37,11 +37,11 @@ class MuxFailure implements Exception {
   String toString() => message;
 }
 
-/// Runs the native merge and reports the real output path and container.
+/// Runs the native FFmpegKit remux (with the NewPipe writer fallback) and reports the output path.
 ///
-/// This is a seam, not an abstraction for its own sake: the merge runs in
-/// native Android code through NewPipe's pure-Java muxers, so the flow can only
-/// be exercised in a unit test if the channel call can be replaced.
+/// This is a seam, not an abstraction for its own sake: remuxing runs through
+/// native FFmpegKit with a NewPipe writer fallback, so the flow can be tested
+/// without a device by replacing the channel call.
 typedef NativeMuxRunner = Future<Map<String, dynamic>> Function({
   required String videoPath,
   required String audioPath,
@@ -49,13 +49,11 @@ typedef NativeMuxRunner = Future<Map<String, dynamic>> Function({
 });
 
 /// Method channel that carries the muxer calls to the Android side.
-///
-/// The channel name is unchanged from the previous FFmpeg-based
-/// implementation, so the existing native contract keeps working.
+/// The channel name and argument contract remain unchanged.
 const MethodChannel muxerChannel =
     MethodChannel('com.kamil.vyplay/muxer');
 
-/// Default runner: asks the native NewPipe muxer to merge the two streams.
+/// Default runner: asks the native FFmpegKit remuxer (with NewPipe fallback) to merge the streams.
 Future<Map<String, dynamic>> runNativeMux({
   required String videoPath,
   required String audioPath,
@@ -77,14 +75,13 @@ Future<Map<String, dynamic>> runNativeMux({
 
 /// Merges separate video and audio streams into a single playable file.
 ///
-/// The merge runs in native Android code through the pure-Java muxers vendored
-/// from NewPipe 0.29.1 (`org.schabi.newpipe.streams`), so no FFmpeg binary is
-/// involved. That means:
-///   - the container is chosen from the real stream headers, not the file
-///     extension, so a VP9 + Opus pair is written as WebM instead of a broken
-///     MP4,
-///   - the audio track is located explicitly rather than assumed to be index 0,
-///   - the streams are copied, never re-encoded, so no quality is lost.
+/// The primary Android path uses PipePipe's pinned FFmpegKit AAR with `-c copy`.
+/// The NewPipe 0.29.1 Java writers remain as a compatibility fallback for
+/// matching MP4 and WebM inputs when FFmpegKit is unavailable or rejects a pair.
+/// The native handler inspects input headers, keeps matching MP4/WebM pairs in
+/// their original container, and uses Matroska for mixed or unknown families.
+/// Neither path re-encodes media; automated Dart tests mock the native channel,
+/// so real codec/container behavior still requires Android build and device tests.
 class StreamMuxer {
   StreamMuxer({
     NativeMuxRunner? runner,
