@@ -32,6 +32,65 @@ def releaseStoreFile = keystoreProperties['storeFile']
         : null
 def hasReleaseKeystore = releaseStoreFile != null && releaseStoreFile.exists()
 
+ 
+// PipePipe's FFmpegKit build is shipped as a pinned AAR. Download it at build
+// time rather than committing a 33 MB binary. Verify the Git blob SHA before
+// Gradle is allowed to package it.
+def pipePipeFfmpegAarFile = layout.buildDirectory.file('pipepipe-ffmpeg/ffmpeg-kit.aar').get().asFile
+def pipePipeFfmpegAarBlobSha = '27ae421b634123feb5853d41f0fb5ec8494a3acb'
+def pipePipeFfmpegAarUrl = 'https://raw.githubusercontent.com/InfinityLoop1308/PipePipeClient/b91f008fb4d25b470c4383dcf42e31ee7696d272/ffmpeg/ffmpeg-kit.aar'
+
+def calculateGitBlobSha = { File file ->
+    def digest = java.security.MessageDigest.getInstance('SHA-1')
+    digest.update(("blob ${file.length()}\\0").getBytes('UTF-8'))
+    file.withInputStream { input ->
+        byte[] buffer = new byte[64 * 1024]
+        int count
+        while ((count = input.read(buffer)) > 0) {
+            digest.update(buffer, 0, count)
+        }
+    }
+    digest.digest().collect { String.format('%02x', it & 0xff) }.join()
+}
+
+def downloadPipePipeFfmpegAar = tasks.register('downloadPipePipeFfmpegAar') {
+    outputs.file(pipePipeFfmpegAarFile)
+    doLast {
+        pipePipeFfmpegAarFile.parentFile.mkdirs()
+        if (pipePipeFfmpegAarFile.exists() &&
+                calculateGitBlobSha(pipePipeFfmpegAarFile) == pipePipeFfmpegAarBlobSha) {
+            logger.lifecycle('Using verified PipePipe FFmpegKit AAR')
+            return
+        }
+
+        File temporary = new File(pipePipeFfmpegAarFile.parentFile, 'ffmpeg-kit.aar.part')
+        temporary.delete()
+        def connection = new URL(pipePipeFfmpegAarUrl).openConnection()
+        connection.connectTimeout = 30000
+        connection.readTimeout = 120000
+        connection.setRequestProperty('User-Agent', 'VyPlay-Gradle')
+        connection.getInputStream().withCloseable { input ->
+            temporary.withOutputStream { output -> input.transferTo(output) }
+        }
+
+        def actualSha = calculateGitBlobSha(temporary)
+        if (actualSha != pipePipeFfmpegAarBlobSha) {
+            temporary.delete()
+            throw new GradleException(
+                    "PipePipe FFmpegKit AAR integrity check failed: expected ${pipePipeFfmpegAarBlobSha}, got ${actualSha}"
+            )
+        }
+        if (pipePipeFfmpegAarFile.exists() && !pipePipeFfmpegAarFile.delete()) {
+            temporary.delete()
+            throw new GradleException('Could not replace the existing PipePipe FFmpegKit AAR')
+        }
+        if (!temporary.renameTo(pipePipeFfmpegAarFile)) {
+            temporary.delete()
+            throw new GradleException('Could not move the verified PipePipe FFmpegKit AAR into the Gradle build directory')
+        }
+    }
+}
+
 gradle.taskGraph.whenReady { taskGraph ->
     def buildingRelease = taskGraph.allTasks.any { task ->
         task.name.toLowerCase(Locale.ROOT).contains('release')
@@ -162,6 +221,9 @@ dependencies {
 
     // NewPipe Extractor - YouTube data extraction library (lowercase required for JitPack)
     implementation 'com.github.teamnewpipe:newpipeextractor:v0.26.5'
+    // PipePipe FFmpegKit, pinned to an upstream commit and SHA-1 verified above.
+    implementation files(pipePipeFfmpegAarFile).builtBy(downloadPipePipeFfmpegAar)
+    implementation 'com.arthenica:smart-exception-java:0.2.1'
 
     // OkHttp - Required by NewPipe Extractor for HTTP requests
     implementation 'com.squareup.okhttp3:okhttp:4.12.0'
