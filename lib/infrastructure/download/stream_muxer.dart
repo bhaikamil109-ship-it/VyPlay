@@ -39,9 +39,9 @@ class MuxFailure implements Exception {
 
 /// Runs the native FFmpegKit remux (with the NewPipe writer fallback) and reports the output path.
 ///
-/// This is a seam, not an abstraction for its own sake: the merge runs in
-/// native Android code through NewPipe's pure-Java muxers, so the flow can only
-/// be exercised in a unit test if the channel call can be replaced.
+/// This is a seam, not an abstraction for its own sake: remuxing runs through
+/// native FFmpegKit with a NewPipe writer fallback, so the flow can be tested
+/// without a device by replacing the channel call.
 typedef NativeMuxRunner = Future<Map<String, dynamic>> Function({
   required String videoPath,
   required String audioPath,
