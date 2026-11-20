@@ -41,7 +41,9 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     on<GetSearchSuggestion>((event, emit) async {
       if (event.serviceType == YouTubeServices.invidious.name) {
         await _fetchInvidiousSearchSuggestion(event, emit);
-      } else if (event.serviceType == YouTubeServices.newpipe.name) {
+      } else if (event.serviceType == YouTubeServices.newpipe.name ||
+          event.serviceType == YouTubeServices.bilibili.name) {
+        NewPipeChannel.setActiveService(event.serviceType);
         await _fetchNewPipeSearchSuggestion(event, emit);
       } else {
         await _fetchPipedSearchSuggestion(event, emit);
