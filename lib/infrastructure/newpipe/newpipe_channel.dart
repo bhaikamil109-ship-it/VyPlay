@@ -413,6 +413,7 @@ class NewPipeChannel {
         'getChannelTab',
         {
           'url': tabUrl,
+          'serviceId': _activeServiceId,
           if (tabId != null) 'id': tabId,
           if (contentFilters != null) 'contentFilters': contentFilters,
           'nextPage': nextPage,
