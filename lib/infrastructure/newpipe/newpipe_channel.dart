@@ -88,7 +88,7 @@ class NewPipeChannel {
   /// Falls back to regular getStreamInfo if fast method is not available.
   static Future<NewPipeWatchResp> getStreamInfoFast(String videoId) async {
     // Check cache first
-    final cached = _streamCache[videoId];
+    final cached = _streamCache[_cacheKey(videoId)];
     if (cached != null && !cached.isExpired(_cacheTtl)) {
       return cached.data;
     }
