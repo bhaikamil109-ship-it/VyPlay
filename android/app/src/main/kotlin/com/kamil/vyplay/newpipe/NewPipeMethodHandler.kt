@@ -636,6 +636,7 @@ class NewPipeMethodHandler(
             result.error("INVALID_ARGUMENT", "Next page is required", null)
             return
         }
+        val serviceId = call.argument<String>("serviceId") ?: "newpipe"
 
         scope.launch {
             try {
