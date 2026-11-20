@@ -180,7 +180,7 @@ class _NewPipeScreenWatchState extends State<NewPipeScreenWatch>
       }
       watchBloc.add(WatchEvent.getNewPipeWatchInfoFast(
         id: widget.id,
-        sponsorBlockCategories: settingsState.isSponsorBlockEnabled
+        sponsorBlockCategories: settingsState.isSponsorBlockEnabled && widget.serviceId != 'bilibili'
             ? sbCategories
             : [],
       ));
@@ -392,7 +392,7 @@ class _NewPipeScreenWatchState extends State<NewPipeScreenWatch>
                                                   skipInterval: settingsState
                                                       .skipInterval,
                                                   sponsorSegments: settingsState
-                                                          .isSponsorBlockEnabled
+                                                          .isSponsorBlockEnabled && widget.serviceId != 'bilibili'
                                                       ? state.sponsorSegments
                                                       : const [],
                                                   preferAdaptivePlayback:
