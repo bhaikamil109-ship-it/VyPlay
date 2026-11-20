@@ -295,6 +295,15 @@ class MainNavigationState extends State<MainNavigation> {
                 canPop: false,
                 onPopInvokedWithResult: (didPop, _) async {
                   if (didPop) return;
+
+                  // Back from a secondary tab returns to Home first. Only a
+                  // second Back press on Home can launch PiP or exit the app.
+                  final homeIndex = activeKeys.indexOf('home');
+                  if (safeIndex != homeIndex && homeIndex >= 0) {
+                    indexChangeNotifier.value = homeIndex;
+                    return;
+                  }
+
                   final watchState = context.read<WatchBloc>().state;
                   if (watchState.isPipEnabled &&
                       watchState.selectedVideoBasicDetails != null) {
