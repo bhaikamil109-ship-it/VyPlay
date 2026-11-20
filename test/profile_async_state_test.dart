@@ -84,6 +84,37 @@ class _DeferredSavedServices implements SavedServices {
   noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
 }
 
+class _RacingDeleteSavedServices implements SavedServices {
+  final Map<String, List<LocalStoreVideoInfo>> rows;
+
+  _RacingDeleteSavedServices(List<LocalStoreVideoInfo> initial)
+      : rows = {'work': List<LocalStoreVideoInfo>.from(initial)};
+
+  @override
+  Future<Either<MainFailure, List<LocalStoreVideoInfo>>> getVideoInfoList({
+    String profileName = 'default',
+  }) async =>
+      Right(List<LocalStoreVideoInfo>.from(rows[profileName] ?? const []));
+
+  @override
+  Future<Either<MainFailure, List<LocalStoreVideoInfo>>> deleteVideoInfo({
+    required String id,
+    String profileName = 'default',
+  }) async {
+    // Without serialized writes the later request finishes first, returns a
+    // partial list, and can become the only state update accepted by the BLoC.
+    await Future<void>.delayed(
+      Duration(milliseconds: id == 'a' ? 30 : 1),
+    );
+    final profileRows = rows.putIfAbsent(profileName, () => []);
+    profileRows.removeWhere((video) => video.id == id);
+    return Right(List<LocalStoreVideoInfo>.from(profileRows));
+  }
+
+  @override
+  noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
+}
+
 class _FakeSettingsBloc implements SettingsBloc {
   SettingsState _state = SettingsState.initialize();
 
@@ -243,6 +274,64 @@ void main() {
   });
 
   group('SavedBloc profile request ordering', () {
+    test('batch deletes publish the final database result in event order',
+        () async {
+      final services = _RacingDeleteSavedServices([
+        LocalStoreVideoInfo(
+          id: 'a',
+          title: 'A',
+          isSaved: true,
+          profileName: 'work',
+        ),
+        LocalStoreVideoInfo(
+          id: 'b',
+          title: 'B',
+          isSaved: true,
+          profileName: 'work',
+        ),
+        LocalStoreVideoInfo(
+          id: 'c',
+          title: 'C',
+          isSaved: true,
+          profileName: 'work',
+        ),
+      ]);
+      final settingsBloc = _FakeSettingsBloc()..setProfile('work');
+      final bloc = SavedBloc(
+        services,
+        _UnusedUserPreferencesService(),
+        settingsBloc,
+      );
+      addTearDown(bloc.close);
+
+      bloc.add(const SavedEvent.getAllVideoInfoList(profileName: 'work'));
+      await bloc.stream.firstWhere(
+        (state) =>
+            state.savedVideosFetchStatus == ApiStatus.loaded &&
+            state.localSavedVideos.length == 3,
+      );
+
+      final finalState = bloc.stream.firstWhere(
+        (state) =>
+            state.savedVideosFetchStatus == ApiStatus.loaded &&
+            state.localSavedVideos.length == 1 &&
+            state.localSavedVideos.single.id == 'c',
+      );
+      bloc.add(
+        const SavedEvent.deleteVideoInfo(id: 'a', profileName: 'work'),
+      );
+      bloc.add(
+        const SavedEvent.deleteVideoInfo(id: 'b', profileName: 'work'),
+      );
+
+      await finalState;
+      expect(
+        bloc.state.localSavedVideos.map((video) => video.id),
+        ['c'],
+      );
+      expect(services.rows['work']!.map((video) => video.id), ['c']);
+    });
+
     test('late library response from previous profile is ignored', () async {
       final services = _DeferredSavedServices();
       final settingsBloc = _FakeSettingsBloc()..setProfile('personal');
