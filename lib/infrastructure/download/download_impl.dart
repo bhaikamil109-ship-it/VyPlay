@@ -13,6 +13,7 @@ import 'package:vyplay/domain/download/models/download_item.dart' as domain;
 import 'package:vyplay/domain/download/models/download_quality.dart';
 import 'package:vyplay/core/services/download_location_service.dart';
 import 'package:vyplay/core/services/foreground_download_service.dart';
+import 'package:vyplay/core/services/bilibili_request_headers.dart';
 import 'package:vyplay/core/services/saf_storage_service.dart';
 import 'package:vyplay/domain/download/download_location.dart';
 import 'package:vyplay/domain/download/saf_directory.dart';
@@ -837,7 +838,7 @@ class DownloadImpl implements DownloadService {
       final headResponse = await _dio.head(
         downloadUrl,
         options: Options(
-          headers: _getDownloadHeaders(),
+          headers: _getDownloadHeaders(downloadUrl),
           followRedirects: true,
         ),
       );
@@ -878,13 +879,17 @@ class DownloadImpl implements DownloadService {
     );
   }
 
-  Map<String, dynamic> _getDownloadHeaders() {
-    return {
+  Map<String, dynamic> _getDownloadHeaders(String url) {
+    final headers = <String, dynamic>{
       'User-Agent': 'com.google.android.youtube/19.02.39 (Linux; U; Android 14) gzip',
       'Accept': '*/*',
       'Accept-Encoding': '*',
       'Connection': 'keep-alive',
     };
+    // PipePipe sends a Bilibili site Referer and browser UA to its media CDN.
+    // Keep YouTube headers untouched for Googlevideo and other backends.
+    headers.addAll(BilibiliRequestHeaders.forDownloadUrl(url));
+    return headers;
   }
 
   /// Multi-threaded chunked download for faster speeds
@@ -1002,7 +1007,7 @@ class DownloadImpl implements DownloadService {
             },
             options: Options(
               headers: {
-                ..._getDownloadHeaders(),
+                ..._getDownloadHeaders(url),
                 'Range': 'bytes=$startByte-$endByte',
               },
               followRedirects: true,
@@ -1035,7 +1040,7 @@ class DownloadImpl implements DownloadService {
 
     while (retryCount <= maxRetries) {
       try {
-        final headers = _getDownloadHeaders();
+        final headers = _getDownloadHeaders(url);
 
         // Add Range header for resume support
         if (currentResumeFrom > 0) {
