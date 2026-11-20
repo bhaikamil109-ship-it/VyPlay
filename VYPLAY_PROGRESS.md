@@ -1,3 +1,23 @@
+# Current VyPlay mission status — 2026-11-20
+
+## Phase 1 — App Branding & Identity
+
+**Implementation state:** first implementation committed; validation is pending. Phase 1 is not passed until Flutter/Android CI and required device checks have been reviewed.
+
+- App display name: already consistently `VyPlay` in Android manifest and `AppInfo`.
+- Approved mark: silver V/play symbol on black; no wordmark under the icon and no purple in the launcher identity.
+- Launcher: adaptive foreground, black adaptive background, Android 13 monochrome layer, and legacy API 24–25 launcher resource use the same mark.
+- Splash: black background with the silver mark on pre-Android 12 and Android 12+ splash resources.
+- Notifications: dedicated white monochrome glyph is used by Dart download notifications, subscription notifications and native foreground-download service.
+- Android install identity: Gradle `applicationId` is `com.kamil.vyplay`; namespace and Kotlin package remain `com.kamil.vyplay`.
+- Legal provenance: existing FluxTube and NewPipe Extractor GPL attribution in `lib/core/app_info.dart` is intentionally retained.
+- **Migration warning:** changing from `com.fazilvk.fluxtube` to `com.kamil.vyplay` creates a separate Android app identity. Android will not automatically transfer the old app's private data into the new package; the old install can remain alongside it. The user previously approved the new ID.
+- **UNVERIFIED:** `flutter analyze`, `flutter test`, Gradle resource linking, APK build, launcher rendering on Android 8–15, notification appearance and splash rendering on physical devices. This execution environment exposes no Flutter/Android build toolchain or attached device.
+
+Phase 1 remains **IN PROGRESS** pending CI/build/device evidence.
+
+---
+
 # VYPLAY_PROGRESS.md
 
 > **Honesty contract.** This file records what was *actually* changed and *actually*

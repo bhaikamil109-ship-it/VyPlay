@@ -107,8 +107,8 @@ flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
   image_path: "assets/icon/icon.png"
-  # The adaptive icon (Android 8+) is hand-maintained in
-  # mipmap-anydpi-v26/launcher_icon.xml with a violet background and a white
-  # play glyph. No adaptive_icon_* keys are set on purpose: if they were, the
-  # generator would overwrite that XML with a flattened bitmap on its next run.
+  # Android adaptive launcher artwork is hand-maintained in
+  # mipmap-anydpi-v26/launcher_icon.xml: black background, silver V/play mark,
+  # and a separate white monochrome silhouette. No adaptive_icon_* keys are
+  # set so the adaptive XML is not flattened by the generator.
   min_sdk_android: 24

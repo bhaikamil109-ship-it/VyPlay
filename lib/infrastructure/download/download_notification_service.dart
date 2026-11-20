@@ -40,7 +40,7 @@ class DownloadNotificationService {
       log('[Notification] Initializing notification service...');
 
       // Android initialization settings
-      const androidSettings = AndroidInitializationSettings('@mipmap/launcher_icon');
+      const androidSettings = AndroidInitializationSettings('@drawable/ic_vyplay_notification');
 
       // iOS initialization settings
       const iosSettings = DarwinInitializationSettings(
@@ -235,7 +235,7 @@ class DownloadNotificationService {
       autoCancel: false,
       onlyAlertOnce: true,
       category: AndroidNotificationCategory.progress,
-      icon: '@mipmap/launcher_icon',
+      icon: '@drawable/ic_vyplay_notification',
       largeIcon: thumbnail,
       subText: 'Starting download...',
     );
@@ -308,7 +308,7 @@ class DownloadNotificationService {
       autoCancel: false,
       onlyAlertOnce: true,
       category: AndroidNotificationCategory.progress,
-      icon: '@mipmap/launcher_icon',
+      icon: '@drawable/ic_vyplay_notification',
       largeIcon: thumbnail,
       subText: '$progress%',
     );
@@ -352,7 +352,7 @@ class DownloadNotificationService {
       priority: Priority.high,
       ongoing: false,
       autoCancel: true,
-      icon: '@mipmap/launcher_icon',
+      icon: '@drawable/ic_vyplay_notification',
       largeIcon: thumbnail,
       subText: 'Completed',
       category: AndroidNotificationCategory.status,
@@ -397,7 +397,7 @@ class DownloadNotificationService {
       priority: Priority.high,
       ongoing: false,
       autoCancel: true,
-      icon: '@mipmap/launcher_icon',
+      icon: '@drawable/ic_vyplay_notification',
       largeIcon: thumbnail,
       subText: 'Failed',
       category: AndroidNotificationCategory.error,
@@ -448,7 +448,7 @@ class DownloadNotificationService {
       ongoing: false,
       autoCancel: false,
       onlyAlertOnce: true,
-      icon: '@mipmap/launcher_icon',
+      icon: '@drawable/ic_vyplay_notification',
       largeIcon: thumbnail,
       subText: 'Paused',
       category: AndroidNotificationCategory.progress,

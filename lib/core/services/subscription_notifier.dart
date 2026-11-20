@@ -139,7 +139,7 @@ class SubscriptionNotifier extends ChangeNotifier {
   Future<void> initialize() async {
     if (_initialized) return;
     const androidSettings =
-        AndroidInitializationSettings('@mipmap/launcher_icon');
+        AndroidInitializationSettings('@drawable/ic_vyplay_notification');
     const iosSettings = DarwinInitializationSettings(
       requestAlertPermission: false,
       requestBadgePermission: false,

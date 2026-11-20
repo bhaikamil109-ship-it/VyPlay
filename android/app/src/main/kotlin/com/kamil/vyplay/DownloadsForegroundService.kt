@@ -171,7 +171,7 @@ class DownloadsForegroundService : Service() {
         return NotificationCompat.Builder(this, CHANNEL_ID)
             .setContentTitle("VyPlay downloads")
             .setContentText(text)
-            .setSmallIcon(android.R.drawable.stat_sys_download)
+            .setSmallIcon(R.drawable.ic_vyplay_notification)
             .setOngoing(true)
             .setOnlyAlertOnce(true)
             .setShowWhen(false)

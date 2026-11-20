@@ -72,7 +72,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.fazilvk.fluxtube"
+        applicationId "com.kamil.vyplay" // VyPlay Android install identity
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
         // Keep the Android compatibility floor aligned with the tested app baseline.
