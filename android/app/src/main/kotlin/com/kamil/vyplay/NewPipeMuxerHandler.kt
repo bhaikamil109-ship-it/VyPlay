@@ -158,6 +158,7 @@ class NewPipeMuxerHandler(
 
         if (ffmpegFailure != null) {
             Log.w(TAG, "PipePipe FFmpegKit failed; checking NewPipe compatibility fallback", ffmpegFailure)
+            targetFile.delete()
             try {
                 when {
                     videoKind == Container.MP4 && audioKind == Container.MP4 ->
