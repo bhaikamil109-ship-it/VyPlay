@@ -14,6 +14,7 @@ import 'package:vyplay/domain/subscribes/models/subscribe.dart';
 import 'package:vyplay/domain/trending/models/invidious/invidious_trending_resp.dart';
 import 'package:vyplay/domain/trending/models/newpipe/newpipe_trending_resp.dart';
 import 'package:vyplay/domain/trending/trending_service.dart';
+import 'package:vyplay/infrastructure/newpipe/newpipe_channel.dart';
 
 import '../../domain/trending/models/piped/trending_resp.dart';
 
@@ -51,7 +52,9 @@ class TrendingBloc extends Bloc<TrendingEvent, TrendingState> {
         if (state.invidiousTrendingResult.isNotEmpty && state.isInvidiousTrendingCacheValid) {
           return emit(state);
         }
-      } else if (event.serviceType == YouTubeServices.newpipe.name) {
+      } else if (event.serviceType == YouTubeServices.newpipe.name ||
+          event.serviceType == YouTubeServices.bilibili.name) {
+        NewPipeChannel.setActiveService(event.serviceType);
         if (state.newPipeTrendingResult.isNotEmpty && state.isNewPipeTrendingCacheValid) {
           return emit(state);
         }
