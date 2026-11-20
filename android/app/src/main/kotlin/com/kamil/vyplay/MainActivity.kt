@@ -88,10 +88,10 @@ class MainActivity: AudioServiceFragmentActivity() {
                 NewPipeExoPlayerViewFactory(flutterEngine.dartExecutor.binaryMessenger)
             )
 
-        // Register the native muxer. NewPipeMuxerHandler performs the real
-        // merge with the vendored org.schabi.newpipe.streams writers and
-        // delegates the legacy resolveMuxPlan/muxVideoAudio calls to
-        // FFmpegMuxerHandler, so old call sites keep resolving.
+        // Register the native muxer. NewPipeMuxerHandler uses PipePipe's
+        // FFmpegKit stream-copy remux as its primary merge path, retains the
+        // vendored NewPipe writers as a compatibility fallback, and delegates
+        // legacy resolveMuxPlan/muxVideoAudio calls to FFmpegMuxerHandler.
         muxerHandler = NewPipeMuxerHandler()
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, MUXER_CHANNEL)
             .setMethodCallHandler(muxerHandler)
