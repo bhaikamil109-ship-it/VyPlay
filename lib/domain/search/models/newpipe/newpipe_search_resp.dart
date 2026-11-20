@@ -92,6 +92,9 @@ class NewPipeSearchItem {
         return uri.pathSegments[idx + 1];
       }
     }
+    if (uri.host == 'space.bilibili.com' && uri.pathSegments.isNotEmpty) {
+      return uri.pathSegments.first;
+    }
     return null;
   }
 }
