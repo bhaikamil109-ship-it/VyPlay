@@ -120,7 +120,7 @@ class NewPipeChannel {
 
   /// Get cached stream info if available and not expired
   static NewPipeWatchResp? getCachedStreamInfo(String videoId) {
-    final cached = _streamCache[videoId];
+    final cached = _streamCache[_cacheKey(videoId)];
     if (cached != null && !cached.isExpired(_cacheTtl)) {
       return cached.data;
     }
