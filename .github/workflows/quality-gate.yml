@@ -1,0 +1,207 @@
+name: VyPlay Deep QA & Analysis
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: vyplay-quality-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality-gate:
+    name: Deep Flutter and Android QA
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+
+    env:
+      GRADLE_OPTS: "-Dorg.gradle.daemon=false -Dkotlin.daemon.jvm.options=-Xmx1536m,-XX:-UseParallelGC"
+      QUALITY_DIR: ${{ runner.temp }}/vyplay-quality
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Prepare report directory and free disk space
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$QUALITY_DIR"
+          echo "Disk before:"
+          df -h /
+
+          sudo rm -rf \
+            /usr/local/lib/android/sdk/emulator \
+            /usr/local/lib/android/sdk/system-images \
+            /usr/share/dotnet \
+            /opt/ghc \
+            /opt/hostedtoolcache/CodeQL \
+            /usr/local/share/boost \
+            2>/dev/null || true
+          sudo apt-get clean
+
+          echo "Disk after:"
+          df -h /
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: '3.47.1'
+          cache: true
+
+      - name: Install Android SDK packages
+        shell: bash
+        run: |
+          set -euo pipefail
+          SDK_ROOT="${ANDROID_SDK_ROOT:-${ANDROID_HOME:-}}"
+          if [[ -z "$SDK_ROOT" ]]; then
+            echo "Android SDK root not found." >&2
+            exit 1
+          fi
+
+          SDKMANAGER="$(find "$SDK_ROOT/cmdline-tools" -name sdkmanager -type f 2>/dev/null | sort -V | tail -n 1 || true)"
+          if [[ -z "$SDKMANAGER" ]]; then
+            SDKMANAGER="$(command -v sdkmanager || true)"
+          fi
+          if [[ -z "$SDKMANAGER" ]]; then
+            echo "sdkmanager not found." >&2
+            exit 1
+          fi
+
+          yes | "$SDKMANAGER" --licenses >/dev/null 2>&1 || true
+          "$SDKMANAGER" --install \
+            'platform-tools' \
+            'platforms;android-36' \
+            'platforms;android-35' \
+            'build-tools;36.0.0'
+
+      - name: Get Flutter dependencies
+        run: flutter pub get
+
+      - name: Check Dart formatting
+        shell: bash
+        run: |
+          set -o pipefail
+          dart format --output=none --set-exit-if-changed lib test 2>&1 | tee "$QUALITY_DIR/dart-format.log"
+
+      - name: Flutter static analysis
+        shell: bash
+        run: |
+          set -o pipefail
+          flutter analyze --no-fatal-infos 2>&1 | tee "$QUALITY_DIR/flutter-analyze.log"
+
+      - name: Flutter unit and widget tests with coverage
+        shell: bash
+        run: |
+          set -o pipefail
+          flutter test --coverage --reporter expanded 2>&1 | tee "$QUALITY_DIR/flutter-test.log"
+          test -s coverage/lcov.info
+
+      - name: Android native unit tests
+        shell: bash
+        working-directory: android
+        run: |
+          set -o pipefail
+          ./gradlew --no-daemon :app:testDebugUnitTest 2>&1 | tee "$QUALITY_DIR/android-unit-tests.log"
+
+      - name: Build Android arm64 debug APK
+        shell: bash
+        run: |
+          set -o pipefail
+          flutter build apk --debug --target-platform android-arm64 2>&1 | tee "$QUALITY_DIR/android-debug-build.log"
+
+      - name: Verify APK identity and version
+        shell: bash
+        run: |
+          set -euo pipefail
+          APK="build/app/outputs/flutter-apk/app-debug.apk"
+          test -s "$APK"
+
+          AAPT="$(find "${ANDROID_SDK_ROOT:-$ANDROID_HOME}/build-tools" -path '*/aapt' -type f | sort -V | tail -n 1)"
+          if [[ -z "$AAPT" ]]; then
+            echo "aapt not found in Android build-tools." >&2
+            exit 1
+          fi
+
+          PUB_VERSION="$(sed -n 's/^version:[[:space:]]*//p' pubspec.yaml | head -n 1 | tr -d "'\"")"
+          VERSION_NAME="${PUB_VERSION%%+*}"
+          if [[ "$PUB_VERSION" == *"+"* ]]; then
+            VERSION_CODE="${PUB_VERSION##*+}"
+          else
+            VERSION_CODE="1"
+          fi
+
+          "$AAPT" dump badging "$APK" > "$QUALITY_DIR/apk-badging.txt"
+          python3 - "$QUALITY_DIR/apk-badging.txt" "$VERSION_NAME" "$VERSION_CODE" <<'PY'
+          import re
+          import sys
+          from pathlib import Path
+
+          badging_path, expected_name, expected_code = sys.argv[1:]
+          text = Path(badging_path).read_text()
+          package_line = next(
+              (line for line in text.splitlines() if line.startswith("package:")),
+              None,
+          )
+          if package_line is None:
+              raise SystemExit("APK package metadata is missing.")
+
+          values = dict(re.findall(r"(name|versionCode|versionName)='([^']*)'", package_line))
+          expected = {
+              "name": "com.kamil.vyplay",
+              "versionName": expected_name,
+              "versionCode": expected_code,
+          }
+          for key, wanted in expected.items():
+              actual = values.get(key)
+              if actual != wanted:
+                  raise SystemExit(
+                      f"APK {key} mismatch: expected {wanted!r}, found {actual!r}"
+                  )
+              print(f"PASS: {key}={actual}")
+          PY
+
+          echo "Verified package: com.kamil.vyplay"
+          echo "Verified version: $PUB_VERSION"
+
+      - name: Publish QA summary
+        if: always()
+        shell: bash
+        run: |
+          {
+            echo "## VyPlay Deep QA & Analysis"
+            echo
+            echo "- Commit: `$GITHUB_SHA`"
+            echo "- Flutter: `3.47.1`"
+            echo "- Java: `17`"
+            echo "- Expected application ID: `com.kamil.vyplay`"
+            echo
+            echo "Checks: Dart format, Flutter analyze, Flutter tests + coverage,"
+            echo "Android native unit tests, arm64 debug APK build, APK identity/version."
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload QA reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: vyplay-qa-reports-${{ github.run_number }}
+          path: |
+            coverage/lcov.info
+            ${{ runner.temp }}/vyplay-quality/
+          if-no-files-found: warn
+          retention-days: 14
