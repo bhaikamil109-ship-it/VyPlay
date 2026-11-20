@@ -24,6 +24,16 @@ class SavedBloc extends Bloc<SavedEvent, SavedState> {
   int _writeRequestGeneration = 0;
   int _videoCheckGeneration = 0;
   String? _loadedProfileName;
+  Future<void> _writeQueue = Future<void>.value();
+
+  Future<void> _queueWrite(Future<void> Function() write) {
+    final task = _writeQueue.then((_) => write());
+    _writeQueue = task.then<void>(
+      (_) {},
+      onError: (Object error, StackTrace stackTrace) {},
+    );
+    return task;
+  }
 
   SavedBloc(
     this._savedServices,
@@ -81,20 +91,25 @@ class SavedBloc extends Bloc<SavedEvent, SavedState> {
     // add video data to local storage
     on<AddVideoInfo>((event, emit) async {
       if (_settingsBloc.state.currentProfile != event.profileName) return;
-      final requestGeneration = ++_writeRequestGeneration;
       _listRequestGeneration++;
       _videoCheckGeneration++;
 
-      final result = await _savedServices.addVideoInfo(
-        videoInfo: event.videoInfo,
-        profileName: event.profileName,
-      );
-      if (emit.isDone ||
-          requestGeneration != _writeRequestGeneration ||
-          _settingsBloc.state.currentProfile != event.profileName) {
-        return;
-      }
-      final nextState = result.fold(
+      await _queueWrite(() async {
+        if (emit.isDone ||
+            _settingsBloc.state.currentProfile != event.profileName) {
+          return;
+        }
+        final requestGeneration = ++_writeRequestGeneration;
+        final result = await _savedServices.addVideoInfo(
+          videoInfo: event.videoInfo,
+          profileName: event.profileName,
+        );
+        if (emit.isDone ||
+            requestGeneration != _writeRequestGeneration ||
+            _settingsBloc.state.currentProfile != event.profileName) {
+          return;
+        }
+        final nextState = result.fold(
         (MainFailure failure) =>
             state.copyWith(savedVideosFetchStatus: ApiStatus.error),
         (List<LocalStoreVideoInfo> response) {
@@ -109,25 +124,35 @@ class SavedBloc extends Bloc<SavedEvent, SavedState> {
             videoInfo: event.videoInfo,
           );
         },
-      );
-      emit(nextState);
+        );
+        _listRequestGeneration++;
+        _videoCheckGeneration++;
+        emit(nextState);
+      });
     });
 
     // delete video data from local storage
     on<DeleteVideoInfo>((event, emit) async {
       if (_settingsBloc.state.currentProfile != event.profileName) return;
-      final requestGeneration = ++_writeRequestGeneration;
       _listRequestGeneration++;
       _videoCheckGeneration++;
 
-      final _result = await _savedServices.deleteVideoInfo(
-          id: event.id, profileName: event.profileName);
-      if (emit.isDone ||
-          requestGeneration != _writeRequestGeneration ||
-          _settingsBloc.state.currentProfile != event.profileName) {
-        return;
-      }
-      final _state = _result.fold(
+      await _queueWrite(() async {
+        if (emit.isDone ||
+            _settingsBloc.state.currentProfile != event.profileName) {
+          return;
+        }
+        final requestGeneration = ++_writeRequestGeneration;
+        final result = await _savedServices.deleteVideoInfo(
+          id: event.id,
+          profileName: event.profileName,
+        );
+        if (emit.isDone ||
+            requestGeneration != _writeRequestGeneration ||
+            _settingsBloc.state.currentProfile != event.profileName) {
+          return;
+        }
+        final nextState = result.fold(
           (MainFailure f) =>
               state.copyWith(savedVideosFetchStatus: ApiStatus.error),
           (List<LocalStoreVideoInfo> resp) {
@@ -166,10 +191,11 @@ class SavedBloc extends Bloc<SavedEvent, SavedState> {
             localSavedVideos: savedVideos,
             localSavedHistoryVideos: historyVideos,
             videoInfo: updatedVideoInfo);
+        });
+        _listRequestGeneration++;
+        _videoCheckGeneration++;
+        emit(nextState);
       });
-
-      // update to ui - single emit, no need for CheckVideoInfo
-      emit(_state);
     });
 
     // check the playing video present in the saved video
@@ -216,21 +242,29 @@ class SavedBloc extends Bloc<SavedEvent, SavedState> {
     // This prevents race condition where history updates overwrite manual save
     on<UpdatePlaybackPosition>((event, emit) async {
       if (_settingsBloc.state.currentProfile != event.profileName) return;
-      final requestGeneration = ++_writeRequestGeneration;
       _listRequestGeneration++;
       _videoCheckGeneration++;
 
-      // First, check if the video already exists in the database
-      final existingResult = await _savedServices.checkVideoInfo(
-          id: event.videoInfo.id, profileName: event.profileName);
-      if (emit.isDone ||
-          requestGeneration != _writeRequestGeneration ||
-          _settingsBloc.state.currentProfile != event.profileName) {
-        return;
-      }
+      await _queueWrite(() async {
+        if (emit.isDone ||
+            _settingsBloc.state.currentProfile != event.profileName) {
+          return;
+        }
+        final requestGeneration = ++_writeRequestGeneration;
 
-      // Preserve the existing isSaved state if the video exists
-      final videoInfoToSave = existingResult.fold(
+        // First, check if the video already exists in the database
+        final existingResult = await _savedServices.checkVideoInfo(
+          id: event.videoInfo.id,
+          profileName: event.profileName,
+        );
+        if (emit.isDone ||
+            requestGeneration != _writeRequestGeneration ||
+            _settingsBloc.state.currentProfile != event.profileName) {
+          return;
+        }
+
+        // Preserve the existing isSaved state if the video exists
+        final videoInfoToSave = existingResult.fold(
         // Video doesn't exist, use the provided info
         (_) => event.videoInfo,
         // Video exists, preserve its isSaved state
@@ -285,7 +319,10 @@ class SavedBloc extends Bloc<SavedEvent, SavedState> {
             videoInfo: videoInfoToSave);
       });
 
-      emit(newState);
+        _listRequestGeneration++;
+        _videoCheckGeneration++;
+        emit(newState);
+      });
       // Don't dispatch CheckVideoInfo here - we already have the correct videoInfo
       // from the save operation. Dispatching it causes unnecessary state updates
       // and UI flickering.
