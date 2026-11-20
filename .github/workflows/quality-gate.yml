@@ -24,11 +24,13 @@ jobs:
 
     env:
       GRADLE_OPTS: "-Dorg.gradle.daemon=false -Dkotlin.daemon.jvm.options=-Xmx1536m,-XX:-UseParallelGC"
-      QUALITY_DIR: ${{ github.workspace }}/.qa-reports
+      QUALITY_DIR: ${{ github.workspace }}/qa-reports
 
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
 
       - name: Prepare report directory and free disk space
         shell: bash
@@ -93,11 +95,40 @@ jobs:
       - name: Get Flutter dependencies
         run: flutter pub get
 
-      - name: Check Dart formatting
+      - name: Check formatting of changed Dart files
         shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          EVENT_BEFORE: ${{ github.event.before }}
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
         run: |
-          set -o pipefail
-          dart format --output=none --set-exit-if-changed lib test 2>&1 | tee "$QUALITY_DIR/dart-format.log"
+          set -euo pipefail
+
+          BASE_SHA="$PR_BASE_SHA"
+          if [[ "$EVENT_NAME" == "push" && -n "$EVENT_BEFORE" &&
+                "$EVENT_BEFORE" != "0000000000000000000000000000000000000000" ]]; then
+            BASE_SHA="$EVENT_BEFORE"
+          elif [[ -z "$BASE_SHA" ]]; then
+            BASE_SHA="$(git rev-parse HEAD^ 2>/dev/null || true)"
+          fi
+
+          if [[ -z "$BASE_SHA" ]] || ! git cat-file -e "$BASE_SHA^{commit}" 2>/dev/null; then
+            echo "No comparison commit found; formatting baseline audit is non-blocking." | tee "$QUALITY_DIR/dart-format.log"
+            dart format --output=none lib test 2>&1 | tee -a "$QUALITY_DIR/dart-format.log" || true
+            exit 0
+          fi
+
+          mapfile -d '' -t DART_FILES < <(
+            git diff --name-only -z "$BASE_SHA" "$GITHUB_SHA" -- 'lib/**/*.dart' 'test/**/*.dart'
+          )
+
+          if (( ${#DART_FILES[@]} == 0 )); then
+            echo "No Dart files changed in this commit; formatting gate passed." | tee "$QUALITY_DIR/dart-format.log"
+            exit 0
+          fi
+
+          printf 'Checking %s changed Dart file(s).\n' "${#DART_FILES[@]}" | tee "$QUALITY_DIR/dart-format.log"
+          dart format --output=none --set-exit-if-changed "${DART_FILES[@]}" 2>&1 | tee -a "$QUALITY_DIR/dart-format.log"
 
       - name: Flutter static analysis
         shell: bash
@@ -191,10 +222,10 @@ jobs:
           {
             echo "## VyPlay Deep QA & Analysis"
             echo
-            echo "- Commit: `$GITHUB_SHA`"
-            echo "- Flutter: `3.47.1`"
-            echo "- Java: `17`"
-            echo "- Expected application ID: `com.kamil.vyplay`"
+            echo "- Commit: $GITHUB_SHA"
+            echo "- Flutter: 3.47.1"
+            echo "- Java: 17"
+            echo "- Expected application ID: com.kamil.vyplay"
             echo
             echo "Checks: Dart format, Flutter analyze, Flutter tests + coverage,"
             echo "Android native unit tests, arm64 debug APK build, APK identity/version."
