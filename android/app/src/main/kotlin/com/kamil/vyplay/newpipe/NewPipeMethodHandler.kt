@@ -14,6 +14,7 @@ import kotlinx.coroutines.*
 import org.schabi.newpipe.extractor.InfoItem
 import org.schabi.newpipe.extractor.NewPipe
 import org.schabi.newpipe.extractor.ServiceList
+import org.schabi.newpipe.extractor.StreamingService
 import org.schabi.newpipe.extractor.channel.ChannelInfo
 import org.schabi.newpipe.extractor.comments.CommentsInfo
 import org.schabi.newpipe.extractor.kiosk.KioskInfo
@@ -73,10 +74,11 @@ class NewPipeMethodHandler(
             // (and therefore the same dead stream URLs) for up to 5 minutes.
             "clearStreamCache" -> {
                 val id = call.argument<String>("id")
+                val serviceId = call.argument<String>("serviceId") ?: "newpipe"
                 if (id.isNullOrBlank()) {
                     streamInfoCache.clear()
                 } else {
-                    streamInfoCache.remove(id)
+                    streamInfoCache.remove(streamCacheKey(serviceId, id))
                 }
                 result.success(true)
             }
@@ -147,10 +149,11 @@ class NewPipeMethodHandler(
             result.error("INVALID_ARGUMENT", "Video ID is required", null)
             return
         }
+        val serviceId = call.argument<String>("serviceId") ?: "newpipe"
 
         scope.launch {
             try {
-                val streamInfo = getCachedOrExtractStreamInfo(videoId)
+                val streamInfo = getCachedOrExtractStreamInfo(videoId, serviceId)
 
                 // Get the best quality thumbnail
                 val bestThumbnail = streamInfo.thumbnails.maxByOrNull { it.width * it.height }?.url
@@ -207,10 +210,11 @@ class NewPipeMethodHandler(
             result.error("INVALID_ARGUMENT", "Video ID is required", null)
             return
         }
+        val serviceId = call.argument<String>("serviceId") ?: "newpipe"
 
         scope.launch {
             try {
-                val streamInfo = getCachedOrExtractStreamInfo(videoId)
+                val streamInfo = getCachedOrExtractStreamInfo(videoId, serviceId)
 
                 // Get the best quality thumbnail
                 val bestThumbnail = streamInfo.thumbnails.maxByOrNull { it.width * it.height }?.url
@@ -347,11 +351,14 @@ class NewPipeMethodHandler(
         }
         val filter = call.argument<String>("filter") ?: "all"
         val nextPageJson = call.argument<String>("nextPage")
+        val serviceId = call.argument<String>("serviceId") ?: "newpipe"
 
         scope.launch {
             try {
-                val service = ServiceList.YouTube
-                val contentFilters = when (filter) {
+                val service = streamingService(serviceId)
+                // Bilibili's PipePipe search service returns the site's native
+                // mixed result list; YouTube-only filter names do not apply.
+                val contentFilters = if (serviceId == "bilibili") emptyList() else when (filter) {
                     "videos" -> listOf("videos")
                     "channels" -> listOf("channels")
                     "playlists" -> listOf("playlists")
@@ -401,10 +408,11 @@ class NewPipeMethodHandler(
             result.error("INVALID_ARGUMENT", "Query is required", null)
             return
         }
+        val serviceId = call.argument<String>("serviceId") ?: "newpipe"
 
         scope.launch {
             try {
-                val extractor = ServiceList.YouTube.suggestionExtractor
+                val extractor = streamingService(serviceId).suggestionExtractor
                 val suggestions = extractor.suggestionList(query)
                 sendSuccess(result, gson.toJson(suggestions))
             } catch (e: Exception) {
@@ -573,6 +581,7 @@ class NewPipeMethodHandler(
             result.error("INVALID_ARGUMENT", "Video ID is required", null)
             return
         }
+        val serviceId = call.argument<String>("serviceId") ?: "newpipe"
 
         scope.launch {
             try {
@@ -763,10 +772,11 @@ class NewPipeMethodHandler(
             result.error("INVALID_ARGUMENT", "Video ID is required", null)
             return
         }
+        val serviceId = call.argument<String>("serviceId") ?: "newpipe"
 
         scope.launch {
             try {
-                val streamInfo = getCachedOrExtractStreamInfo(videoId)
+                val streamInfo = getCachedOrExtractStreamInfo(videoId, serviceId)
 
                 val relatedVideos = streamInfo.relatedItems.map { mapInfoItem(it) }
                 sendSuccess(result, gson.toJson(relatedVideos))
@@ -778,16 +788,30 @@ class NewPipeMethodHandler(
 
     // Helper methods
 
-    private fun getCachedOrExtractStreamInfo(videoId: String): StreamInfo {
+    private fun streamingService(serviceId: String): StreamingService =
+        if (serviceId == "bilibili") ServiceList.BiliBili else ServiceList.YouTube
+
+    private fun streamCacheKey(serviceId: String, videoId: String): String =
+        "$serviceId:$videoId"
+
+    private fun getCachedOrExtractStreamInfo(
+        videoId: String,
+        serviceId: String = "newpipe",
+    ): StreamInfo {
         val now = System.currentTimeMillis()
-        val cached = streamInfoCache[videoId]
+        val cacheKey = streamCacheKey(serviceId, videoId)
+        val cached = streamInfoCache[cacheKey]
         if (cached != null && now - cached.timestampMs <= streamInfoCacheTtlMs) {
             return cached.streamInfo
         }
 
-        val url = "https://www.youtube.com/watch?v=$videoId"
-        val streamInfo = StreamInfo.getInfo(ServiceList.YouTube, url)
-        streamInfoCache[videoId] = CachedStreamInfo(streamInfo, now)
+        val url = when {
+            videoId.startsWith("http://") || videoId.startsWith("https://") -> videoId
+            serviceId == "bilibili" -> "https://www.bilibili.com/video/$videoId"
+            else -> "https://www.youtube.com/watch?v=$videoId"
+        }
+        val streamInfo = StreamInfo.getInfo(streamingService(serviceId), url)
+        streamInfoCache[cacheKey] = CachedStreamInfo(streamInfo, now)
         return streamInfo
     }
 
