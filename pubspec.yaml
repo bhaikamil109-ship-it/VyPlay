@@ -61,10 +61,10 @@ dependencies:
   flutter_local_notifications: ^18.0.1
   audio_service: ^0.18.15
   workmanager: ^0.10.10
-  # NOTE: ffmpeg_kit_flutter_new was removed. Video/audio merging now runs in
-  # native Android code through the pure-Java muxers vendored from NewPipe
-  # 0.29.1 (android/app/src/main/java/org/schabi/newpipe/streams), so the app
-  # no longer ships an FFmpeg binary.
+  # FFmpegKit is intentionally not a Dart dependency. Android pins the
+  # PipePipe FFmpegKit AAR in android/app/build.gradle and verifies its Git blob
+  # SHA-1 before packaging. NewPipe's pure-Java MP4/WebM writers remain the
+  # compatibility fallback. Do not add ffmpeg_kit_flutter_new here.
 
 dev_dependencies:
   build_runner: ^2.4.13
