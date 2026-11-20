@@ -1,3 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Approved silver V/play mark, centred in the adaptive-icon safe canvas. -->
-<bitmap xmlns:android="http://schemas.android.com/apk/res/android" android:gravity="center" android:src="@drawable/vyplay_foreground" />
+<!-- Native silver vector foreground; avoids compiling an external launcher bitmap. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#8F96A4"
+        android:pathData="M11,72 C18,89 39,96 60,84 L94,67 L90,78 L64,93 C39,106 14,94 7,77 Z" />
+    <path
+        android:fillColor="#D0D4DD"
+        android:pathData="M17,25 L29,25 L51,71 L72,29 L86,29 L59,87 L47,87 Z" />
+    <path
+        android:fillColor="#F5F6F8"
+        android:pathData="M57,43 L79,54 L57,66 Z" />
+</vector>
