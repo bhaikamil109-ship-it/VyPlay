@@ -66,7 +66,9 @@ class TrendingBloc extends Bloc<TrendingEvent, TrendingState> {
 
       if (event.serviceType == YouTubeServices.invidious.name) {
         await _fetchInvidiousTrendingInfo(event, emit);
-      } else if (event.serviceType == YouTubeServices.newpipe.name) {
+      } else if (event.serviceType == YouTubeServices.newpipe.name ||
+          event.serviceType == YouTubeServices.bilibili.name) {
+        NewPipeChannel.setActiveService(event.serviceType);
         await _fetchNewPipeTrendingInfo(event, emit);
       } else {
         await _fetchPipedTrendingInfo(event, emit);
