@@ -165,8 +165,7 @@ class NewPipeMethodHandler(
                 val streamInfo = getCachedOrExtractStreamInfo(videoId, serviceId)
 
                 // Get the best quality thumbnail
-                val bestThumbnail = streamInfo.thumbnails.maxByOrNull { it.width * it.height }?.url
-                    ?: streamInfo.thumbnails.lastOrNull()?.url
+                val bestThumbnail = streamInfo.thumbnailUrl
 
                 val response = mapOf(
                     "id" to streamInfo.id,
@@ -174,7 +173,7 @@ class NewPipeMethodHandler(
                     "description" to streamInfo.description?.content,
                     "uploaderName" to streamInfo.uploaderName,
                     "uploaderUrl" to streamInfo.uploaderUrl,
-                    "uploaderAvatarUrl" to streamInfo.uploaderAvatars.firstOrNull()?.url,
+                    "uploaderAvatarUrl" to streamInfo.uploaderAvatarUrl,
                     "uploaderVerified" to streamInfo.isUploaderVerified,
                     "uploaderSubscriberCount" to streamInfo.uploaderSubscriberCount,
                     "thumbnailUrl" to bestThumbnail,
@@ -372,7 +371,6 @@ class NewPipeMethodHandler(
         scope.launch {
             try {
                 val service = streamingService(serviceId)
-                val service = streamingService(serviceId)
                 val contentFilters = findSearchContentFilter(service, filter)
 
                 val searchInfo = if (nextPageJson != null) {
@@ -487,13 +485,13 @@ class NewPipeMethodHandler(
                 // Get best quality avatar and banner using ResolutionLevel
                 val bestAvatar = channelInfo.avatars
                     .maxWithOrNull(compareBy<org.schabi.newpipe.extractor.Image> {
-                        when (it.estimatedResolutionLevel) {
+                        when (it.getEstimatedResolutionLevel())
                             org.schabi.newpipe.extractor.Image.ResolutionLevel.HIGH -> 3
                             org.schabi.newpipe.extractor.Image.ResolutionLevel.MEDIUM -> 2
                             org.schabi.newpipe.extractor.Image.ResolutionLevel.LOW -> 1
                             else -> 0
                         }
-                    }.thenByDescending { it.width * it.height })?.url
+                    }.thenByDescending { it.getWidth() * it.getHeight() })?.getUrl()
 
                 val bestBanner = channelInfo.banners
                     .maxWithOrNull(compareBy<org.schabi.newpipe.extractor.Image> {
@@ -713,12 +711,12 @@ class NewPipeMethodHandler(
                             "text" to comment.commentText?.content,
                             "authorName" to comment.uploaderName,
                             "authorUrl" to comment.uploaderUrl,
-                            "authorAvatarUrl" to comment.uploaderAvatars.firstOrNull()?.url,
+                            "authorAvatarUrl" to comment.uploaderAvatarUrl,
                             "authorVerified" to comment.isUploaderVerified,
                             "likeCount" to comment.likeCount,
                             "replyCount" to comment.replyCount,
                             "isPinned" to comment.isPinned,
-                            "isEdited" to comment.isEdited,
+                            "isEdited" to null,
                             "isHearted" to comment.isHeartedByUploader,
                             "uploadDate" to comment.textualUploadDate,
                             "repliesPage" to serializePage(comment.replies)
