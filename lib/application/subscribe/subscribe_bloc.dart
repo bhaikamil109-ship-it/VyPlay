@@ -15,34 +15,50 @@ part 'subscribe_bloc.freezed.dart';
 class SubscribeBloc extends Bloc<SubscribeEvent, SubscribeState> {
   final SubscribeServices _subscribeServices;
 
+  int _listRequestGeneration = 0;
+  int _mutationRequestGeneration = 0;
+  int _channelCheckGeneration = 0;
+  String? _activeProfileName;
+
   SubscribeBloc(this._subscribeServices,)
       : super(SubscribeState.initialize()) {
     // get all subscribed channel list from local storage
     on<GetAllSubscribeList>((event, emit) async {
+      final requestGeneration = ++_listRequestGeneration;
+      final profileChanged = _activeProfileName != event.profileName;
+      _activeProfileName = event.profileName;
+      if (profileChanged) {
+        _mutationRequestGeneration++;
+        _channelCheckGeneration++;
+      }
+
       emit(state.copyWith(
-          subscribeStatus: ApiStatus.loading, subscribedChannels: []));
+        subscribeStatus: ApiStatus.loading,
+        subscribedChannels:
+            profileChanged ? <Subscribe>[] : state.subscribedChannels,
+        oldList: profileChanged ? <Subscribe>[] : state.oldList,
+        channelInfo: profileChanged ? null : state.channelInfo,
+      ));
 
-      final _result = await _subscribeServices.getSubscriberInfoList(
-          profileName: event.profileName);
-      final _state = _result.fold(
-          (MainFailure f) => state.copyWith(subscribeStatus: ApiStatus.error),
-          (List<Subscribe> resp) {
-        if (state.subscribedChannels != resp) {
-          // When loading subscriptions for a profile, also update oldList
-          // to prevent auto-refresh in home screen when switching profiles.
-          // The home screen's auto-refresh logic compares oldList.length with
-          // subscribedChannels.length. By keeping them in sync during profile
-          // switch, we prevent unnecessary feed refreshes.
-          return state.copyWith(
-              subscribeStatus: ApiStatus.loaded,
-              subscribedChannels: resp,
-              oldList: resp,);
-        } else {
-          return state;
-        }
-      });
+      final result = await _subscribeServices.getSubscriberInfoList(
+        profileName: event.profileName,
+      );
+      if (emit.isDone ||
+          requestGeneration != _listRequestGeneration ||
+          _activeProfileName != event.profileName) {
+        return;
+      }
 
-      emit(_state);
+      final nextState = result.fold(
+        (MainFailure failure) =>
+            state.copyWith(subscribeStatus: ApiStatus.error),
+        (List<Subscribe> response) => state.copyWith(
+          subscribeStatus: ApiStatus.loaded,
+          subscribedChannels: response,
+          oldList: response,
+        ),
+      );
+      emit(nextState);
     });
 
     // update old subscribed channels list
@@ -52,33 +68,74 @@ class SubscribeBloc extends Bloc<SubscribeEvent, SubscribeState> {
 
     // add subscribed channel data to local storage
     on<AddSubscribe>((event, emit) async {
+      if (_activeProfileName != null &&
+          _activeProfileName != event.profileName) {
+        return;
+      }
+      _activeProfileName ??= event.profileName;
+      final requestGeneration = ++_mutationRequestGeneration;
+      _listRequestGeneration++;
+      _channelCheckGeneration++;
       emit(state.copyWith(subscribeStatus: ApiStatus.loading));
 
-      final _result = await _subscribeServices.addSubscriberInfo(
-          subscribeInfo: event.channelInfo, profileName: event.profileName);
-      final _state = _result.fold(
-          (MainFailure f) => state.copyWith(subscribeStatus: ApiStatus.error),
-          (List<Subscribe> resp) => state.copyWith(
-              subscribeStatus: ApiStatus.loaded, subscribedChannels: resp));
+      final result = await _subscribeServices.addSubscriberInfo(
+        subscribeInfo: event.channelInfo,
+        profileName: event.profileName,
+      );
+      if (emit.isDone ||
+          requestGeneration != _mutationRequestGeneration ||
+          _activeProfileName != event.profileName) {
+        return;
+      }
+      final nextState = result.fold(
+        (MainFailure failure) =>
+            state.copyWith(subscribeStatus: ApiStatus.error),
+        (List<Subscribe> response) => state.copyWith(
+          subscribeStatus: ApiStatus.loaded,
+          subscribedChannels: response,
+        ),
+      );
 
-      emit(_state);
-      add(CheckSubscribeInfo(id: event.channelInfo.id, profileName: event.profileName));
+      emit(nextState);
+      add(CheckSubscribeInfo(
+        id: event.channelInfo.id,
+        profileName: event.profileName,
+      ));
       // Note: Don't call GetAllSubscribeList here - it's already updated by addSubscriberInfo
       // and calling it would sync oldList, preventing the home screen from detecting the change
     });
 
     // delete channel data from local storage
     on<DeleteSubscribeInfo>((event, emit) async {
+      if (_activeProfileName != null &&
+          _activeProfileName != event.profileName) {
+        return;
+      }
+      _activeProfileName ??= event.profileName;
+      final requestGeneration = ++_mutationRequestGeneration;
+      _listRequestGeneration++;
+      _channelCheckGeneration++;
       emit(state.copyWith(subscribeStatus: ApiStatus.loading));
 
-      final _result = await _subscribeServices.deleteSubscriberInfo(
-          id: event.id, profileName: event.profileName);
-      final _state = _result.fold(
-          (MainFailure f) => state.copyWith(subscribeStatus: ApiStatus.error),
-          (List<Subscribe> resp) => state.copyWith(
-              subscribeStatus: ApiStatus.loaded, subscribedChannels: resp));
+      final result = await _subscribeServices.deleteSubscriberInfo(
+        id: event.id,
+        profileName: event.profileName,
+      );
+      if (emit.isDone ||
+          requestGeneration != _mutationRequestGeneration ||
+          _activeProfileName != event.profileName) {
+        return;
+      }
+      final nextState = result.fold(
+        (MainFailure failure) =>
+            state.copyWith(subscribeStatus: ApiStatus.error),
+        (List<Subscribe> response) => state.copyWith(
+          subscribeStatus: ApiStatus.loaded,
+          subscribedChannels: response,
+        ),
+      );
 
-      emit(_state);
+      emit(nextState);
       add(CheckSubscribeInfo(id: event.id, profileName: event.profileName));
       // Note: Don't call GetAllSubscribeList here - it's already updated by deleteSubscriberInfo
       // and calling it would sync oldList, preventing the home screen from detecting the change
@@ -86,15 +143,28 @@ class SubscribeBloc extends Bloc<SubscribeEvent, SubscribeState> {
 
     // check the playing video's channel present in the subscribed list
     on<CheckSubscribeInfo>((event, emit) async {
+      if (_activeProfileName != null &&
+          _activeProfileName != event.profileName) {
+        return;
+      }
+      _activeProfileName ??= event.profileName;
+      final requestGeneration = ++_channelCheckGeneration;
       emit(state.copyWith(channelInfo: null));
 
-      final _result = await _subscribeServices.checkSubscriberInfo(
-          id: event.id, profileName: event.profileName);
-      final _state = _result.fold(
-          (MainFailure f) => state.copyWith(channelInfo: null),
-          (Subscribe resp) => state.copyWith(channelInfo: resp));
-
-      emit(_state);
+      final result = await _subscribeServices.checkSubscriberInfo(
+        id: event.id,
+        profileName: event.profileName,
+      );
+      if (emit.isDone ||
+          requestGeneration != _channelCheckGeneration ||
+          _activeProfileName != event.profileName) {
+        return;
+      }
+      final nextState = result.fold(
+        (MainFailure failure) => state.copyWith(channelInfo: null),
+        (Subscribe response) => state.copyWith(channelInfo: response),
+      );
+      emit(nextState);
     });
   }
 }
