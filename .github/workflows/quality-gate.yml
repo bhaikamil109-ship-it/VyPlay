@@ -214,7 +214,7 @@ jobs:
           # "name" can collide with "versionName" in aapt output.
           values = {}
           for key in ("name", "versionCode", "versionName"):
-              match = re.search(rf"(?:^|\\s){re.escape(key)}='([^']*)'", package_line)
+              match = re.search(rf"(?:^|\s){re.escape(key)}='([^']*)'", package_line)
               if match is not None:
                   values[key] = match.group(1)
 
