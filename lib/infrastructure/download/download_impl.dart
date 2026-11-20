@@ -1006,7 +1006,7 @@ class DownloadImpl implements DownloadService {
             },
             options: Options(
               headers: {
-                ..._getDownloadHeaders(),
+                ..._getDownloadHeaders(url),
                 'Range': 'bytes=$startByte-$endByte',
               },
               followRedirects: true,
