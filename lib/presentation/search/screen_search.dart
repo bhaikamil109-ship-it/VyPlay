@@ -324,7 +324,8 @@ class _ScreenSearchState extends State<ScreenSearch> {
                   }
 
                   // NEWPIPE
-                  if (settingsState.ytService == YouTubeServices.newpipe.name) {
+                  if (settingsState.ytService == YouTubeServices.newpipe.name ||
+                      settingsState.ytService == YouTubeServices.bilibili.name) {
                     return _buildNewPipeContent(state, settingsState, locals);
                   }
                   // INVIDIOUS
@@ -518,6 +519,7 @@ class _ScreenSearchState extends State<ScreenSearch> {
         state: state,
         searchQuery: _textEditingController.text,
         filter: _selectedFilter,
+        serviceId: settingsState.ytService,
       );
     }
   }
