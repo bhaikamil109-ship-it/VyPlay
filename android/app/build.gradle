@@ -42,7 +42,7 @@ def pipePipeFfmpegAarUrl = 'https://raw.githubusercontent.com/InfinityLoop1308/P
 
 def calculateGitBlobSha = { File file ->
     def digest = java.security.MessageDigest.getInstance('SHA-1')
-    digest.update(("blob ${file.length()}\\0").getBytes('UTF-8'))
+    digest.update(("blob ${file.length()}\0").getBytes('UTF-8'))
     file.withInputStream { input ->
         byte[] buffer = new byte[64 * 1024]
         int count
