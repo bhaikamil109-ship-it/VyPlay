@@ -187,8 +187,10 @@ class _ScreenSearchState extends State<ScreenSearch> {
       child: BlocBuilder<SettingsBloc, SettingsState>(
         buildWhen: (previous, current) =>
             previous.ytService != current.ytService ||
-            previous.isSearchHistoryEnabled != current.isSearchHistoryEnabled ||
-            previous.isSearchHistoryVisible != current.isSearchHistoryVisible,
+            previous.isSearchHistoryEnabled !=
+                current.isSearchHistoryEnabled ||
+            previous.isSearchHistoryVisible !=
+                current.isSearchHistoryVisible,
         builder: (context, settingsState) {
           return Scaffold(
             backgroundColor:

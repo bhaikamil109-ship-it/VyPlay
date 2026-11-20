@@ -186,7 +186,10 @@ class _InvidiousSearcheResultSectionState
           },
           // Only add extra item when loading more results
           itemCount: items.length +
-              (widget.state.fetchMoreInvidiousSearchResultStatus == ApiStatus.loading ? 1 : 0),
+              (widget.state.fetchMoreInvidiousSearchResultStatus ==
+                      ApiStatus.loading
+                  ? 1
+                  : 0),
         );
       },
     );

@@ -237,7 +237,10 @@ class _NewPipeSearchResultSectionState
                 },
               // Only add extra item when loading more results
               itemCount: regularItems.length +
-                  (widget.state.fetchMoreNewPipeSearchResultStatus == ApiStatus.loading ? 1 : 0),
+                  (widget.state.fetchMoreNewPipeSearchResultStatus ==
+                          ApiStatus.loading
+                      ? 1
+                      : 0),
             ),
           ],
         );
