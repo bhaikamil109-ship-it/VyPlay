@@ -53,10 +53,14 @@ class ChannelInfoSection extends StatelessWidget {
               onSubscribeTap: () {
                 if (isSubscribed) {
                   BlocProvider.of<SubscribeBloc>(context)
-                      .add(SubscribeEvent.deleteSubscribeInfo(id: channelId));
+                      .add(SubscribeEvent.deleteSubscribeInfo(
+                        id: channelId,
+                        profileName: context.read<SettingsBloc>().state.currentProfile,
+                      ));
                 } else {
                   BlocProvider.of<SubscribeBloc>(context).add(
                       SubscribeEvent.addSubscribe(
+                          profileName: context.read<SettingsBloc>().state.currentProfile,
                           channelInfo: Subscribe(
                               id: channelId,
                               channelName:
