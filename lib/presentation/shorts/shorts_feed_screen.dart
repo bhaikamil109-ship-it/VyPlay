@@ -186,6 +186,7 @@ class _ShortsFeedScreenState extends State<ShortsFeedScreen> {
   /// a persistent outage does not turn into a request loop.
   Future<void> _retry() async {
     _retryAttempt++;
+    final requestGeneration = _requestGeneration;
     final seconds = (_retryAttempt * 2).clamp(1, 10);
 
     setState(() {
@@ -194,7 +195,7 @@ class _ShortsFeedScreenState extends State<ShortsFeedScreen> {
     });
 
     await Future<void>.delayed(Duration(seconds: seconds));
-    if (!mounted) return;
+    if (!mounted || requestGeneration != _requestGeneration) return;
     await _loadInitial();
   }
 
