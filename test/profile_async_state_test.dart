@@ -190,6 +190,56 @@ void main() {
 
       expect(bloc.state.channelInfo, isNull);
     });
+    test('watch-page channel check activates a newly selected profile',
+        () async {
+      final services = _DeferredSubscribeServices();
+      final bloc = SubscribeBloc(services);
+      addTearDown(bloc.close);
+
+      bloc.add(
+        const SubscribeEvent.checkSubscribeInfo(
+          id: 'personal-channel',
+          profileName: 'personal',
+        ),
+      );
+      await services.waitForCheck('personal');
+
+      final personalLoaded = bloc.stream.firstWhere(
+        (state) => state.channelInfo?.id == 'personal-channel',
+      );
+      services.checkRequests['personal']!.complete(
+        Right(Subscribe(
+          id: 'personal-channel',
+          channelName: 'Personal channel',
+          profileName: 'personal',
+        )),
+      );
+      await personalLoaded;
+
+      bloc.add(
+        const SubscribeEvent.checkSubscribeInfo(
+          id: 'work-channel',
+          profileName: 'work',
+        ),
+      );
+      await services.waitForCheck('work');
+
+      final workLoaded = bloc.stream.firstWhere(
+        (state) => state.channelInfo?.id == 'work-channel',
+      );
+      services.checkRequests['work']!.complete(
+        Right(Subscribe(
+          id: 'work-channel',
+          channelName: 'Work channel',
+          profileName: 'work',
+        )),
+      );
+      await workLoaded;
+
+      expect(bloc.state.channelInfo?.id, 'work-channel');
+      expect(bloc.state.subscribedChannels, isEmpty);
+      expect(bloc.state.oldList, isEmpty);
+    });
   });
 
   group('SavedBloc profile request ordering', () {

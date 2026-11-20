@@ -20,6 +20,21 @@ class SubscribeBloc extends Bloc<SubscribeEvent, SubscribeState> {
   int _channelCheckGeneration = 0;
   String? _activeProfileName;
 
+  void _activateProfile(String profileName, Emitter<SubscribeState> emit) {
+    if (_activeProfileName == profileName) return;
+
+    _activeProfileName = profileName;
+    _listRequestGeneration++;
+    _mutationRequestGeneration++;
+    _channelCheckGeneration++;
+    emit(state.copyWith(
+      subscribeStatus: ApiStatus.initial,
+      subscribedChannels: <Subscribe>[],
+      oldList: <Subscribe>[],
+      channelInfo: null,
+    ));
+  }
+
   SubscribeBloc(this._subscribeServices,)
       : super(SubscribeState.initialize()) {
     // get all subscribed channel list from local storage
@@ -68,11 +83,7 @@ class SubscribeBloc extends Bloc<SubscribeEvent, SubscribeState> {
 
     // add subscribed channel data to local storage
     on<AddSubscribe>((event, emit) async {
-      if (_activeProfileName != null &&
-          _activeProfileName != event.profileName) {
-        return;
-      }
-      _activeProfileName ??= event.profileName;
+      _activateProfile(event.profileName, emit);
       final requestGeneration = ++_mutationRequestGeneration;
       _listRequestGeneration++;
       _channelCheckGeneration++;
@@ -107,11 +118,7 @@ class SubscribeBloc extends Bloc<SubscribeEvent, SubscribeState> {
 
     // delete channel data from local storage
     on<DeleteSubscribeInfo>((event, emit) async {
-      if (_activeProfileName != null &&
-          _activeProfileName != event.profileName) {
-        return;
-      }
-      _activeProfileName ??= event.profileName;
+      _activateProfile(event.profileName, emit);
       final requestGeneration = ++_mutationRequestGeneration;
       _listRequestGeneration++;
       _channelCheckGeneration++;
@@ -143,11 +150,7 @@ class SubscribeBloc extends Bloc<SubscribeEvent, SubscribeState> {
 
     // check the playing video's channel present in the subscribed list
     on<CheckSubscribeInfo>((event, emit) async {
-      if (_activeProfileName != null &&
-          _activeProfileName != event.profileName) {
-        return;
-      }
-      _activeProfileName ??= event.profileName;
+      _activateProfile(event.profileName, emit);
       final requestGeneration = ++_channelCheckGeneration;
       emit(state.copyWith(channelInfo: null));
 
