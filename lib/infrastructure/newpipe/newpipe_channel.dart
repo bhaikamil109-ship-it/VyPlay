@@ -68,7 +68,7 @@ class NewPipeChannel {
       final result = await _channel.invokeMethod<String>(
         'getStreamInfo',
         {'id': videoId,
-          'serviceId': _activeServiceId, 'serviceId': _activeServiceId},
+          'serviceId': _activeServiceId},
       );
       if (result == null) {
         throw PlatformException(
@@ -100,7 +100,7 @@ class NewPipeChannel {
       final result = await _channel.invokeMethod<String>(
         'getStreamInfoFast',
         {'id': videoId,
-          'serviceId': _activeServiceId, 'serviceId': _activeServiceId},
+          'serviceId': _activeServiceId},
       );
       if (result == null) {
         throw PlatformException(
@@ -170,7 +170,7 @@ class NewPipeChannel {
       await _channel.invokeMethod<bool>(
         'clearStreamCache',
         {'id': videoId,
-          'serviceId': _activeServiceId, 'serviceId': _activeServiceId},
+          'serviceId': _activeServiceId},
       );
     } catch (_) {
       // Best-effort: an older native build may not expose the method yet. The
@@ -267,7 +267,7 @@ class NewPipeChannel {
     try {
       final result = await _channel.invokeMethod<String>(
         'getSearchSuggestions',
-        {'query': query, 'serviceId': _activeServiceId},
+        {'query': query},
       );
       if (result == null) return [];
       final json = jsonDecode(result) as List<dynamic>;
@@ -303,7 +303,7 @@ class NewPipeChannel {
       final result = await _channel.invokeMethod<String>(
         'getComments',
         {'id': videoId,
-          'serviceId': _activeServiceId, 'serviceId': _activeServiceId},
+          'serviceId': _activeServiceId},
       );
       if (result == null) {
         throw PlatformException(
