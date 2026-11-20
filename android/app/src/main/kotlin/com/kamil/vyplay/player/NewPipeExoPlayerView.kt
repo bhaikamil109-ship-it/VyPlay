@@ -148,7 +148,7 @@ class NewPipeExoPlayerView(
         .setCache(NewPipeSharedExoPlayer.cache(context))
         .setUpstreamDataSourceFactory(httpDataSourceFactory)
         .setFlags(CacheDataSource.FLAG_IGNORE_CACHE_ON_ERROR)
-    private val liveDataSourceFactory: DataSource.Factory = DefaultHttpDataSource.Factory()
+    private val liveDataSourceFactory = DefaultHttpDataSource.Factory()
         .setUserAgent(USER_AGENT)
         .setAllowCrossProtocolRedirects(true)
         .setConnectTimeoutMs(30_000)
