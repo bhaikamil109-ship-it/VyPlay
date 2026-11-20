@@ -1,10 +1,8 @@
-import 'package:awesome_bottom_bar/awesome_bottom_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vyplay/application/application.dart';
-import 'package:vyplay/core/colors.dart';
 import 'package:vyplay/core/deep_link_handler.dart';
 import 'package:vyplay/core/enums.dart';
 import 'package:vyplay/core/player/global_player_controller.dart';
@@ -14,6 +12,7 @@ import 'package:vyplay/generated/l10n.dart';
 
 import '../download/screen_downloads.dart';
 import '../home/screen_home.dart';
+import '../more/screen_more.dart';
 import '../saved/screen_saved.dart';
 import '../settings/screen_settings.dart';
 import '../shorts/shorts_feed_screen.dart';
@@ -22,25 +21,69 @@ import '../trending/screen_trending.dart';
 
 ValueNotifier<int> indexChangeNotifier = ValueNotifier(0);
 
-/// Notifier for downloads screen tab selection
-/// 0 = Downloading, 1 = Completed, 2 = All
+/// Notifier for downloads screen tab selection.
+/// 0 = Downloading, 1 = Completed, 2 = All.
 ValueNotifier<int?> downloadsTabNotifier = ValueNotifier(null);
 
-/// Pending navigation info
+/// Stable page and bottom-navigation identities. Page order may change when
+/// Trending is unavailable, but destination selection is always key-based.
+class MainNavigationConfig {
+  static const List<String> pageKeys = <String>[
+    'home',
+    'shorts',
+    'trending',
+    'subscriptions',
+    'library',
+    'downloads',
+    'settings',
+    'more',
+  ];
+
+  /// Keep the five primary destinations that fit comfortably on a phone.
+  /// Trending, Downloads and Settings remain available from the More screen.
+  static const List<String> destinationKeys = <String>[
+    'home',
+    'shorts',
+    'subscriptions',
+    'library',
+    'more',
+  ];
+
+  static List<String> activePageKeys({required bool showTrending}) =>
+      pageKeys
+          .where((key) => showTrending || key != 'trending')
+          .toList(growable: false);
+
+  static String destinationKeyForPage(String pageKey) =>
+      destinationKeys.contains(pageKey) ? pageKey : 'more';
+
+  static int pageIndexForDestination(
+    String destinationKey, {
+    required bool showTrending,
+  }) =>
+      activePageKeys(showTrending: showTrending).indexOf(destinationKey);
+}
+
+/// Requests a page by its stable key. The shell resolves the index after the
+/// current backend's conditional pages have been applied.
 String? _pendingNavigation;
 int? _pendingDownloadsTab;
 
-/// Navigate to the Downloads tab
-/// [downloadsTabIndex] - optional tab index within Downloads screen (0=Downloading, 1=Completed, 2=All)
+void navigateToMainTab(String pageKey) {
+  _pendingNavigation = pageKey;
+  _pendingDownloadsTab = null;
+  // Trigger a shell rebuild; the pending key is resolved safely in its builder.
+  indexChangeNotifier.value = 0;
+}
+
+/// Navigate to the Downloads page and optionally select an inner tab.
+/// [downloadsTabIndex]: 0 = Downloading, 1 = Completed, 2 = All.
 void navigateToDownloadsTab({int? downloadsTabIndex}) {
   _pendingNavigation = 'downloads';
   _pendingDownloadsTab = downloadsTabIndex;
-  // Set the downloads tab notifier if specified
   if (downloadsTabIndex != null) {
     downloadsTabNotifier.value = downloadsTabIndex;
   }
-  // The exact index is resolved by key inside MainNavigation, so any value
-  // here is only a hint that a navigation is pending.
   indexChangeNotifier.value = 0;
 }
 
@@ -74,21 +117,8 @@ class MainNavigationState extends State<MainNavigation> {
   bool? _previousShowTrending;
   final Map<String, Widget> _pageCache = {};
 
-  /// The canonical tab order. Trending is conditional (NewPipe has no trending
-  /// endpoint), so it is filtered out at build time rather than by arithmetic.
-  static const List<String> _tabKeys = <String>[
-    'home',
-    'shorts',
-    'trending',
-    'subscriptions',
-    'library',
-    'downloads',
-    'settings',
-  ];
-
-  List<String> _activeKeys(bool showTrending) => _tabKeys
-      .where((k) => showTrending || k != 'trending')
-      .toList(growable: false);
+  List<String> _activeKeys(bool showTrending) =>
+      MainNavigationConfig.activePageKeys(showTrending: showTrending);
 
   Widget _pageFor(String key) {
     return _cachedPage(key, switch (key) {
@@ -98,51 +128,51 @@ class MainNavigationState extends State<MainNavigation> {
       'subscriptions' => const ScreenSubscriptions(),
       'library' => const ScreenSaved(),
       'downloads' => const ScreenDownloads(),
-      _ => const ScreenSettings(),
+      'settings' => const ScreenSettings(),
+      _ => const ScreenMore(),
     });
   }
 
   List<Widget> _getPages(bool showTrending) =>
-      _activeKeys(showTrending).map(_pageFor).toList(growable: false);
+      _activeKeys(showTrending)
+          .map(
+            (key) => KeyedSubtree(
+              key: ValueKey<String>(key),
+              child: _pageFor(key),
+            ),
+          )
+          .toList(growable: false);
 
   Widget _cachedPage(String key, Widget page) {
     return _pageCache.putIfAbsent(key, () => page);
   }
 
-  TabItem _tabItemFor(String key, S locals) {
-    return switch (key) {
-      'home' => TabItem(
-          icon: CupertinoIcons.house_fill, title: locals.home, key: 'home'),
-      'shorts' => TabItem(
-          icon: CupertinoIcons.play_rectangle_fill,
-          title: locals.shorts,
-          key: 'shorts'),
-      'trending' => TabItem(
-          icon: CupertinoIcons.flame_fill,
-          title: locals.trending,
-          key: 'trending'),
-      'subscriptions' => TabItem(
-          icon: CupertinoIcons.person_2_fill,
-          title: locals.subscriptions,
-          key: 'subscriptions'),
-      'library' => TabItem(
-          icon: CupertinoIcons.bookmark_fill,
-          title: locals.library,
-          key: 'library'),
-      'downloads' => TabItem(
-          icon: CupertinoIcons.arrow_down_circle_fill,
-          title: locals.downloads,
-          key: 'downloads'),
-      _ => TabItem(
-          icon: CupertinoIcons.settings,
-          title: locals.settings,
-          key: 'settings'),
-    };
-  }
+  String _destinationLabel(String key, S locals) => switch (key) {
+        'home' => locals.home,
+        'shorts' => locals.shorts,
+        'subscriptions' => locals.subscriptions,
+        'library' => locals.library,
+        _ => 'More',
+      };
 
-  List<TabItem> _getTabItems(S locals, bool showTrending) =>
-      _activeKeys(showTrending)
-          .map((k) => _tabItemFor(k, locals))
+  IconData _destinationIcon(String key) => switch (key) {
+        'home' => CupertinoIcons.house_fill,
+        'shorts' => CupertinoIcons.play_rectangle_fill,
+        'subscriptions' => CupertinoIcons.person_2_fill,
+        'library' => CupertinoIcons.bookmark_fill,
+        _ => CupertinoIcons.ellipsis_circle_fill,
+      };
+
+  List<NavigationDestination> _getDestinations(S locals) =>
+      MainNavigationConfig.destinationKeys
+          .map(
+            (key) => NavigationDestination(
+              icon: Icon(_destinationIcon(key)),
+              selectedIcon: Icon(_destinationIcon(key)),
+              label: _destinationLabel(key, locals),
+              tooltip: _destinationLabel(key, locals),
+            ),
+          )
           .toList(growable: false);
 
   @override
@@ -173,7 +203,8 @@ class MainNavigationState extends State<MainNavigation> {
         final showTrending =
             settingsState.ytService != YouTubeServices.newpipe.name;
         final pages = _getPages(showTrending);
-        final items = _getTabItems(locals, showTrending);
+        final destinations = _getDestinations(locals);
+        final destinationKeys = MainNavigationConfig.destinationKeys;
 
         final maxIndex = pages.length - 1;
         final activeKeys = _activeKeys(showTrending);
@@ -232,18 +263,21 @@ class MainNavigationState extends State<MainNavigation> {
                 MainNavigation._mainNavigationBuilt = true;
                 StartupDiagnostics().recordMainNavigationBuilt();
               }
-              // Check for pending navigation from notification tap
-              final pendingNav = consumePendingNavigation();
-              if (pendingNav == 'downloads') {
-                // Find downloads tab index by key
-                final downloadsIndex =
-                    items.indexWhere((item) => item.key == 'downloads');
-                if (downloadsIndex >= 0) {
-                  // Get the pending downloads tab before navigating
-                  final pendingDownloadsTab = consumePendingDownloadsTab();
+              // Resolve notification taps and More-menu actions by stable page
+              // key. This keeps the behavior correct when Trending is removed
+              // for the NewPipe backend.
+              final pendingNav = _pendingNavigation;
+              if (pendingNav != null) {
+                _pendingNavigation = null;
+                final targetIndex = activeKeys.indexOf(pendingNav);
+                final pendingDownloadsTab = pendingNav == 'downloads'
+                    ? _pendingDownloadsTab
+                    : null;
+                _pendingDownloadsTab = null;
+                if (targetIndex >= 0) {
                   WidgetsBinding.instance.addPostFrameCallback((_) {
-                    indexChangeNotifier.value = downloadsIndex;
-                    // Set the downloads tab after navigation
+                    if (!mounted) return;
+                    indexChangeNotifier.value = targetIndex;
                     if (pendingDownloadsTab != null) {
                       downloadsTabNotifier.value = pendingDownloadsTab;
                     }
@@ -253,6 +287,11 @@ class MainNavigationState extends State<MainNavigation> {
 
               // Ensure index is within bounds
               final safeIndex = index.clamp(0, maxIndex);
+              final currentPageKey = activeKeys[safeIndex];
+              final selectedDestinationKey =
+                  MainNavigationConfig.destinationKeyForPage(currentPageKey);
+              final selectedDestinationIndex =
+                  destinationKeys.indexOf(selectedDestinationKey);
               // Update the notifier if index was out of bounds (e.g., when trending tab is removed)
               if (index != safeIndex) {
                 WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -295,27 +334,23 @@ class MainNavigationState extends State<MainNavigation> {
                       children: pages,
                     ),
                   ),
-                  bottomNavigationBar: BottomBarSalomon(
-                    items: items,
-                    top: 25,
-                    bottom: 25,
-                    iconSize: 26,
-                    heightItem: 50,
-                    backgroundColor: kTransparentColor,
-                    color: kGreyColor!,
-                    colorSelected: kRedColor,
-                    backgroundSelected: kGreyOpacityColor!,
-                    indexSelected: safeIndex,
-                    titleStyle: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20),
-                    ),
-                    onTap: (int index) => indexChangeNotifier.value = index,
+                  bottomNavigationBar: NavigationBar(
+                    height: 70,
+                    selectedIndex: selectedDestinationIndex,
+                    backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+                    indicatorColor: Theme.of(context)
+                        .colorScheme
+                        .primary
+                        .withValues(alpha: 0.14),
+                    labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
+                    destinations: destinations,
+                    onDestinationSelected: (destinationIndex) {
+                      final destinationKey = destinationKeys[destinationIndex];
+                      final pageIndex = activeKeys.indexOf(destinationKey);
+                      if (pageIndex >= 0) {
+                        indexChangeNotifier.value = pageIndex;
+                      }
+                    },
                   ),
                 ),
               );
@@ -341,27 +376,27 @@ class _LazyIndexedStack extends StatefulWidget {
 }
 
 class _LazyIndexedStackState extends State<_LazyIndexedStack> {
-  late List<bool> _built;
+  late Set<Key> _builtKeys;
+
+  Key _keyFor(int index) =>
+      widget.children[index].key ?? ValueKey<int>(index);
 
   @override
   void initState() {
     super.initState();
-    _built = List<bool>.filled(widget.children.length, false);
-    _built[widget.index] = true;
+    _builtKeys = <Key>{_keyFor(widget.index)};
   }
 
   @override
   void didUpdateWidget(covariant _LazyIndexedStack oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (_built.length != widget.children.length) {
-      _built = List<bool>.generate(
-        widget.children.length,
-        (index) => index < oldWidget.children.length && index < _built.length
-            ? _built[index]
-            : false,
-      );
-    }
-    _built[widget.index] = true;
+    final currentKeys = widget.children
+        .asMap()
+        .entries
+        .map((entry) => entry.value.key ?? ValueKey<int>(entry.key))
+        .toSet();
+    _builtKeys.retainAll(currentKeys);
+    _builtKeys.add(_keyFor(widget.index));
   }
 
   @override
@@ -370,7 +405,9 @@ class _LazyIndexedStackState extends State<_LazyIndexedStack> {
       index: widget.index,
       children: [
         for (var i = 0; i < widget.children.length; i++)
-          _built[i] ? widget.children[i] : const SizedBox.shrink(),
+          _builtKeys.contains(_keyFor(i))
+              ? widget.children[i]
+              : SizedBox.shrink(key: _keyFor(i)),
       ],
     );
   }
