@@ -135,7 +135,7 @@ class MainNavigationState extends State<MainNavigation> {
       'library' => const ScreenSaved(),
       'downloads' => const ScreenDownloads(),
       'settings' => const ScreenSettings(),
-      _ => const ScreenMore(),
+      _ => ScreenMore(onOpenPage: navigateToMainTab),
     });
   }
 
