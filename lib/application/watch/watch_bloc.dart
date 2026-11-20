@@ -26,7 +26,9 @@ part 'watch_bloc.freezed.dart';
 class WatchBloc extends Bloc<WatchEvent, WatchState> {
   static const bool _verboseTimingLogs = false;
 
-  int _newPipeWatchRequestSerial = 0;
+  // All backend watch-info requests share one generation so a late response
+  // from a previous video/backend cannot replace the currently selected video.
+  int _watchInfoRequestSerial = 0;
 
   WatchBloc(
     WatchService watchService,
@@ -34,6 +36,7 @@ class WatchBloc extends Bloc<WatchEvent, WatchState> {
   ) : super(WatchState.initialize()) {
     on<GetWatchInfo>(
       (event, emit) async {
+        final requestSerial = ++_watchInfoRequestSerial;
         emit(state.copyWith(
           fetchWatchInfoStatus: ApiStatus.loading,
           isTapComments: false,
@@ -42,6 +45,7 @@ class WatchBloc extends Bloc<WatchEvent, WatchState> {
 
         //get stream info data
         final result = await watchService.getVideoData(id: event.id);
+        if (requestSerial != _watchInfoRequestSerial || emit.isDone) return;
 
         final _state = result.fold(
             (MainFailure failure) => state.copyWith(
@@ -266,6 +270,7 @@ class WatchBloc extends Bloc<WatchEvent, WatchState> {
 
     // YOUTUBE EXPLODE
     on<GetExplodeWatchInfo>((event, emit) async {
+      final requestSerial = ++_watchInfoRequestSerial;
       emit(state.copyWith(
         explodeWatchResp: ExplodeWatchResp.initial(),
         fetchExplodeWatchInfoStatus: ApiStatus.loading,
@@ -275,6 +280,7 @@ class WatchBloc extends Bloc<WatchEvent, WatchState> {
 
       // Get video data using watchService
       final result = await watchService.getExplodeVideoData(id: event.id);
+      if (requestSerial != _watchInfoRequestSerial || emit.isDone) return;
 
       // Handle the result
       final _state = result.fold(
@@ -356,6 +362,7 @@ class WatchBloc extends Bloc<WatchEvent, WatchState> {
 
     // INVIDIOUS
     on<GetInvidiousWatchInfo>((event, emit) async {
+      final requestSerial = ++_watchInfoRequestSerial;
       emit(state.copyWith(
         invidiousWatchResp: InvidiousWatchResp(),
         fetchInvidiousWatchInfoStatus: ApiStatus.loading,
@@ -364,6 +371,7 @@ class WatchBloc extends Bloc<WatchEvent, WatchState> {
       ));
 
       final result = await watchService.getInvidiousVideoData(id: event.id);
+      if (requestSerial != _watchInfoRequestSerial || emit.isDone) return;
 
       final _state = result.fold(
         (MainFailure failure) => state.copyWith(
@@ -539,7 +547,7 @@ class WatchBloc extends Bloc<WatchEvent, WatchState> {
 
     // NEWPIPE
     on<GetNewPipeWatchInfo>((event, emit) async {
-      final requestSerial = ++_newPipeWatchRequestSerial;
+      final requestSerial = ++_watchInfoRequestSerial;
       emit(state.copyWith(
         newPipeWatchResp: NewPipeWatchResp(),
         fetchNewPipeWatchInfoStatus: ApiStatus.loading,
@@ -549,7 +557,7 @@ class WatchBloc extends Bloc<WatchEvent, WatchState> {
 
       final stopwatch = Stopwatch()..start();
       final result = await watchService.getNewPipeVideoData(id: event.id);
-      if (requestSerial != _newPipeWatchRequestSerial) return;
+      if (requestSerial != _watchInfoRequestSerial || emit.isDone) return;
 
       final _state = result.fold(
         (MainFailure failure) => state.copyWith(
@@ -572,7 +580,7 @@ class WatchBloc extends Bloc<WatchEvent, WatchState> {
 
     // NewPipe video info with parallel SponsorBlock fetch
     on<GetNewPipeWatchInfoFast>((event, emit) async {
-      final requestSerial = ++_newPipeWatchRequestSerial;
+      final requestSerial = ++_watchInfoRequestSerial;
       emit(state.copyWith(
         newPipeWatchResp: NewPipeWatchResp(),
         fetchNewPipeWatchInfoStatus: ApiStatus.loading,
@@ -599,7 +607,7 @@ class WatchBloc extends Bloc<WatchEvent, WatchState> {
       }
 
       final results = await Future.wait(futures);
-      if (requestSerial != _newPipeWatchRequestSerial) return;
+      if (requestSerial != _watchInfoRequestSerial || emit.isDone) return;
 
       final videoResult = results[0] as Either<MainFailure, NewPipeWatchResp>;
 
@@ -651,7 +659,7 @@ class WatchBloc extends Bloc<WatchEvent, WatchState> {
 
       final fullStopwatch = Stopwatch()..start();
       final fullResult = await watchService.getNewPipeVideoData(id: event.id);
-      if (requestSerial != _newPipeWatchRequestSerial) return;
+      if (requestSerial != _watchInfoRequestSerial || emit.isDone) return;
 
       fullResult.fold(
         (_) {
