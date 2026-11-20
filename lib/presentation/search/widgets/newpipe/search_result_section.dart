@@ -9,6 +9,7 @@ import 'package:vyplay/domain/subscribes/models/subscribe.dart';
 import 'package:vyplay/domain/watch/models/basic_info.dart';
 import 'package:vyplay/generated/l10n.dart';
 import 'package:vyplay/presentation/shorts/screen_shorts.dart';
+import 'package:vyplay/presentation/settings/utils/launch_url.dart';
 import 'package:vyplay/widgets/widgets.dart';
 import 'package:go_router/go_router.dart';
 
@@ -21,12 +22,14 @@ class NewPipeSearchResultSection extends StatefulWidget {
     required this.state,
     required this.searchQuery,
     this.filter = "all",
+    this.serviceId = 'newpipe',
   });
 
   final S locals;
   final SearchState state;
   final String searchQuery;
   final String filter;
+  final String serviceId;
 
   @override
   State<NewPipeSearchResultSection> createState() =>
@@ -61,7 +64,7 @@ class _NewPipeSearchResultSectionState
         query: widget.searchQuery,
         filter: widget.filter,
         nextPage: widget.state.newPipeSearchResult?.nextPage,
-        serviceType: YouTubeServices.newpipe.name,
+        serviceType: widget.serviceId,
       ));
     }
   }
@@ -75,9 +78,11 @@ class _NewPipeSearchResultSectionState
         final items = widget.state.newPipeSearchResult?.items ?? [];
 
         // Separate shorts from regular items
-        final shorts = items
-            .where((item) => item.type == "STREAM" && item.isShort == true)
-            .toList();
+        final shorts = widget.serviceId == 'bilibili'
+            ? <NewPipeSearchItem>[]
+            : items
+                .where((item) => item.type == "STREAM" && item.isShort == true)
+                .toList();
         final regularItems = items
             .where((item) => !(item.type == "STREAM" && item.isShort == true))
             .toList();
@@ -134,7 +139,10 @@ class _NewPipeSearchResultSectionState
                         locals: widget.locals,
                       );
                     } else if (result.type == "PLAYLIST") {
-                      final playlistId = result.url?.split('=').last ?? '';
+                      final playlistUrl = result.url ?? '';
+                      final playlistId = widget.serviceId == 'bilibili'
+                          ? playlistUrl
+                          : playlistUrl.split('=').last;
                       return PlaylistWidget(
                         key: ValueKey('playlist_$playlistId'),
                         playlistId: playlistId,
@@ -144,6 +152,13 @@ class _NewPipeSearchResultSectionState
                         uploaderName: result.uploaderName,
                         uploaderAvatar: result.uploaderAvatarUrl,
                         onTap: () {
+                          if (widget.serviceId == 'bilibili') {
+                            final uri = Uri.tryParse(playlistUrl);
+                            if (uri != null && uri.hasScheme && uri.host.isNotEmpty) {
+                              urlLaunchWithSettings(context, playlistUrl);
+                            }
+                            return;
+                          }
                           context.goNamed('playlist', pathParameters: {
                             'playlistId': playlistId,
                           });

@@ -12,8 +12,11 @@ import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import kotlinx.coroutines.*
 import org.schabi.newpipe.extractor.InfoItem
+import org.schabi.newpipe.extractor.search.filter.Filter
+import org.schabi.newpipe.extractor.search.filter.FilterItem
 import org.schabi.newpipe.extractor.NewPipe
 import org.schabi.newpipe.extractor.ServiceList
+import org.schabi.newpipe.extractor.StreamingService
 import org.schabi.newpipe.extractor.channel.ChannelInfo
 import org.schabi.newpipe.extractor.comments.CommentsInfo
 import org.schabi.newpipe.extractor.kiosk.KioskInfo
@@ -21,7 +24,6 @@ import org.schabi.newpipe.extractor.localization.ContentCountry
 import org.schabi.newpipe.extractor.localization.Localization
 import org.schabi.newpipe.extractor.playlist.PlaylistInfo
 import org.schabi.newpipe.extractor.search.SearchInfo
-import org.schabi.newpipe.extractor.services.youtube.extractors.YoutubeStreamExtractor
 import org.schabi.newpipe.extractor.stream.StreamInfo
 import org.schabi.newpipe.extractor.stream.AudioStream
 import org.schabi.newpipe.extractor.stream.VideoStream
@@ -51,8 +53,16 @@ class NewPipeMethodHandler(
             if (!isInitialized) {
                 NewPipe.init(VyPlayDownloader.getInstance())
                 context?.let { PoTokenProviderImpl.setContext(it.applicationContext) }
-                // Enables WebView/BotGuard-backed poTokens for the WEB client.
-                YoutubeStreamExtractor.setPoTokenProvider(PoTokenProviderImpl)
+                // PipePipe's pinned API uses a per-video MWEB PO-token resolver.
+                NewPipe.setYoutubePoTokenResolver(
+                    if (PoTokenProviderImpl.isAvailable()) {
+                        java.util.function.Function { videoId ->
+                            PoTokenProviderImpl.getYoutubePoTokenResult(videoId)
+                        }
+                    } else {
+                        null
+                    }
+                )
                 isInitialized = true
             }
         }
@@ -73,10 +83,11 @@ class NewPipeMethodHandler(
             // (and therefore the same dead stream URLs) for up to 5 minutes.
             "clearStreamCache" -> {
                 val id = call.argument<String>("id")
+                val serviceId = call.argument<String>("serviceId") ?: "newpipe"
                 if (id.isNullOrBlank()) {
                     streamInfoCache.clear()
                 } else {
-                    streamInfoCache.remove(id)
+                    streamInfoCache.remove(streamCacheKey(serviceId, id))
                 }
                 result.success(true)
             }
@@ -147,14 +158,14 @@ class NewPipeMethodHandler(
             result.error("INVALID_ARGUMENT", "Video ID is required", null)
             return
         }
+        val serviceId = call.argument<String>("serviceId") ?: "newpipe"
 
         scope.launch {
             try {
-                val streamInfo = getCachedOrExtractStreamInfo(videoId)
+                val streamInfo = getCachedOrExtractStreamInfo(videoId, serviceId)
 
                 // Get the best quality thumbnail
-                val bestThumbnail = streamInfo.thumbnails.maxByOrNull { it.width * it.height }?.url
-                    ?: streamInfo.thumbnails.lastOrNull()?.url
+                val bestThumbnail = streamInfo.thumbnailUrl
 
                 val response = mapOf(
                     "id" to streamInfo.id,
@@ -162,7 +173,7 @@ class NewPipeMethodHandler(
                     "description" to streamInfo.description?.content,
                     "uploaderName" to streamInfo.uploaderName,
                     "uploaderUrl" to streamInfo.uploaderUrl,
-                    "uploaderAvatarUrl" to streamInfo.uploaderAvatars.firstOrNull()?.url,
+                    "uploaderAvatarUrl" to streamInfo.uploaderAvatarUrl,
                     "uploaderVerified" to streamInfo.isUploaderVerified,
                     "uploaderSubscriberCount" to streamInfo.uploaderSubscriberCount,
                     "thumbnailUrl" to bestThumbnail,
@@ -207,10 +218,11 @@ class NewPipeMethodHandler(
             result.error("INVALID_ARGUMENT", "Video ID is required", null)
             return
         }
+        val serviceId = call.argument<String>("serviceId") ?: "newpipe"
 
         scope.launch {
             try {
-                val streamInfo = getCachedOrExtractStreamInfo(videoId)
+                val streamInfo = getCachedOrExtractStreamInfo(videoId, serviceId)
 
                 // Get the best quality thumbnail
                 val bestThumbnail = streamInfo.thumbnails.maxByOrNull { it.width * it.height }?.url
@@ -264,7 +276,8 @@ class NewPipeMethodHandler(
 
         scope.launch {
             try {
-                val service = ServiceList.YouTube
+                val serviceId = call.argument<String>("serviceId") ?: "newpipe"
+                val service = streamingService(serviceId)
                 val kiosk = service.kioskList.defaultKioskExtractor
 
                 // Set content country for region-specific trending
@@ -303,13 +316,19 @@ class NewPipeMethodHandler(
             return
         }
         val nextPageJson = call.argument<String>("nextPage")
+        val serviceId = call.argument<String>("serviceId") ?: "newpipe"
+        if (serviceId == "bilibili") {
+            result.error("UNSUPPORTED_SERVICE", "Bilibili does not expose the YouTube Shorts channel tab.", null)
+            return
+        }
 
         scope.launch {
             try {
+                val shortsFilter = FilterItem(Filter.ITEM_IDENTIFIER_UNKNOWN, "shorts")
                 val linkHandler = ServiceList.YouTube.channelTabLHFactory.fromQuery(
                     channelId,
-                    listOf("shorts"),
-                    ""
+                    listOf(shortsFilter),
+                    emptyList()
                 )
                 val tabExtractor = ServiceList.YouTube.getChannelTabExtractor(linkHandler)
 
@@ -347,24 +366,19 @@ class NewPipeMethodHandler(
         }
         val filter = call.argument<String>("filter") ?: "all"
         val nextPageJson = call.argument<String>("nextPage")
+        val serviceId = call.argument<String>("serviceId") ?: "newpipe"
 
         scope.launch {
             try {
-                val service = ServiceList.YouTube
-                val contentFilters = when (filter) {
-                    "videos" -> listOf("videos")
-                    "channels" -> listOf("channels")
-                    "playlists" -> listOf("playlists")
-                    "music_songs" -> listOf("music_songs")
-                    else -> emptyList()
-                }
+                val service = streamingService(serviceId)
+                val contentFilters = findSearchContentFilter(service, filter)
 
                 val searchInfo = if (nextPageJson != null) {
                     // Deserialize the full Page object for pagination
                     val page = deserializePage(nextPageJson)
                     SearchInfo.getMoreItems(
                         service,
-                        service.searchQHFactory.fromQuery(query, contentFilters, ""),
+                        service.searchQHFactory.fromQuery(query, contentFilters, emptyList()),
                         page
                     ).let { moreItems ->
                         // Create a minimal response for pagination
@@ -376,7 +390,7 @@ class NewPipeMethodHandler(
                 } else {
                     val info = SearchInfo.getInfo(
                         service,
-                        service.searchQHFactory.fromQuery(query, contentFilters, "")
+                        service.searchQHFactory.fromQuery(query, contentFilters, emptyList())
                     )
                     mapOf(
                         "items" to info.relatedItems.map { mapInfoItem(it) },
@@ -401,10 +415,11 @@ class NewPipeMethodHandler(
             result.error("INVALID_ARGUMENT", "Query is required", null)
             return
         }
+        val serviceId = call.argument<String>("serviceId") ?: "newpipe"
 
         scope.launch {
             try {
-                val extractor = ServiceList.YouTube.suggestionExtractor
+                val extractor = streamingService(serviceId).suggestionExtractor
                 val suggestions = extractor.suggestionList(query)
                 sendSuccess(result, gson.toJson(suggestions))
             } catch (e: Exception) {
@@ -424,13 +439,17 @@ class NewPipeMethodHandler(
 
         scope.launch {
             try {
+                val serviceId = call.argument<String>("serviceId") ?: "newpipe"
                 val url = if (channelId.startsWith("http")) {
                     channelId
+                } else if (serviceId == "bilibili") {
+                    "https://space.bilibili.com/$channelId"
                 } else {
                     "https://www.youtube.com/channel/$channelId"
                 }
 
-                val channelInfo = ChannelInfo.getInfo(ServiceList.YouTube, url)
+                val service = streamingService(serviceId)
+                val channelInfo = ChannelInfo.getInfo(service, url)
 
                 // Get initial videos from the first tab (usually "Videos")
                 var initialVideos: List<Map<String, Any?>> = emptyList()
@@ -445,12 +464,12 @@ class NewPipeMethodHandler(
                     try {
                         // Find the videos tab or use the first tab
                         val videosTab = channelInfo.tabs.find { tab ->
-                            tab.contentFilters.any { it.contains("videos", ignoreCase = true) }
+                            tab.contentFilters.any { it.name.contains("videos", ignoreCase = true) }
                         } ?: channelInfo.tabs.firstOrNull()
 
                         if (videosTab != null) {
                             android.util.Log.d("NewPipeHandler", "Using tab: filters=${videosTab.contentFilters}")
-                            val tabExtractor = ServiceList.YouTube.getChannelTabExtractor(videosTab)
+                            val tabExtractor = service.getChannelTabExtractor(videosTab)
                             tabExtractor.fetchPage()
                             val initialPage = tabExtractor.initialPage
                             android.util.Log.d("NewPipeHandler", "Initial page items count: ${initialPage.items.size}")
@@ -466,13 +485,13 @@ class NewPipeMethodHandler(
                 // Get best quality avatar and banner using ResolutionLevel
                 val bestAvatar = channelInfo.avatars
                     .maxWithOrNull(compareBy<org.schabi.newpipe.extractor.Image> {
-                        when (it.estimatedResolutionLevel) {
+                        when (it.getEstimatedResolutionLevel())
                             org.schabi.newpipe.extractor.Image.ResolutionLevel.HIGH -> 3
                             org.schabi.newpipe.extractor.Image.ResolutionLevel.MEDIUM -> 2
                             org.schabi.newpipe.extractor.Image.ResolutionLevel.LOW -> 1
                             else -> 0
                         }
-                    }.thenByDescending { it.width * it.height })?.url
+                    }.thenByDescending { it.getWidth() * it.getHeight() })?.getUrl()
 
                 val bestBanner = channelInfo.banners
                     .maxWithOrNull(compareBy<org.schabi.newpipe.extractor.Image> {
@@ -501,10 +520,10 @@ class NewPipeMethodHandler(
                     "tabs" to channelInfo.tabs.map { tab ->
                         // Store tab data in a format we can use to recreate the extractor
                         mapOf(
-                            "name" to tab.contentFilters.firstOrNull()?.lowercase(),
+                            "name" to tab.contentFilters.firstOrNull()?.name?.lowercase(),
                             "url" to tab.url,
                             "id" to tab.id,
-                            "contentFilters" to tab.contentFilters
+                            "contentFilters" to tab.contentFilters.map { it.name }
                         )
                     }
                 )
@@ -524,6 +543,7 @@ class NewPipeMethodHandler(
             result.error("INVALID_ARGUMENT", "Tab URL is required", null)
             return
         }
+        val serviceId = call.argument<String>("serviceId") ?: "newpipe"
         val tabId = call.argument<String>("id")
         @Suppress("UNCHECKED_CAST")
         val contentFilters = call.argument<List<String>>("contentFilters") ?: emptyList()
@@ -532,12 +552,10 @@ class NewPipeMethodHandler(
         scope.launch {
             try {
                 // Create the link handler from the tab data
-                val linkHandler = ServiceList.YouTube.channelTabLHFactory.fromQuery(
-                    tabId ?: tabUrl,
-                    contentFilters,
-                    ""
-                )
-                val tabExtractor = ServiceList.YouTube.getChannelTabExtractor(linkHandler)
+                val service = streamingService(serviceId)
+                // The service-provided tab URL already contains typed FilterItems.
+                val linkHandler = service.channelTabLHFactory.fromUrl(tabUrl, null)
+                val tabExtractor = service.getChannelTabExtractor(linkHandler)
 
                 val response = if (nextPageJson != null) {
                     // Handle pagination
@@ -573,33 +591,34 @@ class NewPipeMethodHandler(
             result.error("INVALID_ARGUMENT", "Video ID is required", null)
             return
         }
+        val serviceId = call.argument<String>("serviceId") ?: "newpipe"
 
         scope.launch {
             try {
-                val url = "https://www.youtube.com/watch?v=$videoId"
-                val commentsInfo = CommentsInfo.getInfo(ServiceList.YouTube, url)
+                val url = buildStreamUrl(videoId, serviceId)
+                val commentsInfo = CommentsInfo.getInfo(streamingService(serviceId), url)
 
                 val response = mapOf(
-                    "comments" to commentsInfo.relatedItems.map { comment ->
+                    "comments" to commentsInfo?.relatedItems?.map { comment ->
                         mapOf(
                             "id" to comment.commentId,
                             "text" to comment.commentText?.content,
                             "authorName" to comment.uploaderName,
                             "authorUrl" to comment.uploaderUrl,
-                            "authorAvatarUrl" to comment.uploaderAvatars.firstOrNull()?.url,
+                            "authorAvatarUrl" to comment.uploaderAvatarUrl,
                             "authorVerified" to comment.isUploaderVerified,
                             "likeCount" to comment.likeCount,
                             "replyCount" to comment.replyCount,
                             "isPinned" to comment.isPinned,
-                            "isEdited" to comment.isEdited,
+                            "isEdited" to null,
                             "isHearted" to comment.isHeartedByUploader,
                             "uploadDate" to comment.textualUploadDate,
                             "repliesPage" to serializePage(comment.replies)
                         )
-                    },
-                    "nextPage" to serializePage(commentsInfo.nextPage),
-                    "commentCount" to commentsInfo.commentsCount,
-                    "isDisabled" to commentsInfo.isCommentsDisabled
+                    }?.orEmpty(),
+                    "nextPage" to serializePage(commentsInfo?.nextPage),
+                    "commentCount" to null,
+                    "isDisabled" to (commentsInfo == null || commentsInfo.isCommentsDisabled)
                 )
 
                 sendSuccess(result, gson.toJson(response))
@@ -621,13 +640,14 @@ class NewPipeMethodHandler(
             result.error("INVALID_ARGUMENT", "Next page is required", null)
             return
         }
+        val serviceId = call.argument<String>("serviceId") ?: "newpipe"
 
         scope.launch {
             try {
-                val url = "https://www.youtube.com/watch?v=$videoId"
+                val url = buildStreamUrl(videoId, serviceId)
                 val page = deserializePage(nextPageJson)
                 val moreComments = CommentsInfo.getMoreItems(
-                    ServiceList.YouTube,
+                    streamingService(serviceId),
                     url,
                     page
                 )
@@ -639,12 +659,12 @@ class NewPipeMethodHandler(
                             "text" to comment.commentText?.content,
                             "authorName" to comment.uploaderName,
                             "authorUrl" to comment.uploaderUrl,
-                            "authorAvatarUrl" to comment.uploaderAvatars.firstOrNull()?.url,
+                            "authorAvatarUrl" to comment.uploaderAvatarUrl,
                             "authorVerified" to comment.isUploaderVerified,
                             "likeCount" to comment.likeCount,
                             "replyCount" to comment.replyCount,
                             "isPinned" to comment.isPinned,
-                            "isEdited" to comment.isEdited,
+                            "isEdited" to null,
                             "isHearted" to comment.isHeartedByUploader,
                             "uploadDate" to comment.textualUploadDate,
                             "repliesPage" to serializePage(comment.replies)
@@ -672,13 +692,14 @@ class NewPipeMethodHandler(
             result.error("INVALID_ARGUMENT", "Replies page is required", null)
             return
         }
+        val serviceId = call.argument<String>("serviceId") ?: "newpipe"
 
         scope.launch {
             try {
-                val url = "https://www.youtube.com/watch?v=$videoId"
+                val url = buildStreamUrl(videoId, serviceId)
                 val page = deserializePage(repliesPageJson)
                 val replies = CommentsInfo.getMoreItems(
-                    ServiceList.YouTube,
+                    streamingService(serviceId),
                     url,
                     page
                 )
@@ -690,12 +711,12 @@ class NewPipeMethodHandler(
                             "text" to comment.commentText?.content,
                             "authorName" to comment.uploaderName,
                             "authorUrl" to comment.uploaderUrl,
-                            "authorAvatarUrl" to comment.uploaderAvatars.firstOrNull()?.url,
+                            "authorAvatarUrl" to comment.uploaderAvatarUrl,
                             "authorVerified" to comment.isUploaderVerified,
                             "likeCount" to comment.likeCount,
                             "replyCount" to comment.replyCount,
                             "isPinned" to comment.isPinned,
-                            "isEdited" to comment.isEdited,
+                            "isEdited" to null,
                             "isHearted" to comment.isHeartedByUploader,
                             "uploadDate" to comment.textualUploadDate,
                             "repliesPage" to serializePage(comment.replies)
@@ -722,19 +743,19 @@ class NewPipeMethodHandler(
 
         scope.launch {
             try {
+                val serviceId = call.argument<String>("serviceId") ?: "newpipe"
+                if (serviceId == "bilibili" && !playlistId.startsWith("http")) {
+                    throw IllegalArgumentException("A full Bilibili season/series playlist URL is required.")
+                }
                 val url = if (playlistId.startsWith("http")) {
                     playlistId
                 } else {
                     "https://www.youtube.com/playlist?list=$playlistId"
                 }
 
-                val playlistInfo = PlaylistInfo.getInfo(ServiceList.YouTube, url)
-
-                // Get best quality thumbnails
-                val bestPlaylistThumbnail = playlistInfo.thumbnails.maxByOrNull { it.width * it.height }?.url
-                    ?: playlistInfo.thumbnails.lastOrNull()?.url
-                val bestUploaderAvatar = playlistInfo.uploaderAvatars.maxByOrNull { it.width * it.height }?.url
-                    ?: playlistInfo.uploaderAvatars.lastOrNull()?.url
+                val playlistInfo = PlaylistInfo.getInfo(streamingService(serviceId), url)
+                val bestPlaylistThumbnail = playlistInfo.thumbnailUrl
+                val bestUploaderAvatar = playlistInfo.uploaderAvatarUrl
 
                 val response = mapOf(
                     "id" to playlistInfo.id,
@@ -763,10 +784,11 @@ class NewPipeMethodHandler(
             result.error("INVALID_ARGUMENT", "Video ID is required", null)
             return
         }
+        val serviceId = call.argument<String>("serviceId") ?: "newpipe"
 
         scope.launch {
             try {
-                val streamInfo = getCachedOrExtractStreamInfo(videoId)
+                val streamInfo = getCachedOrExtractStreamInfo(videoId, serviceId)
 
                 val relatedVideos = streamInfo.relatedItems.map { mapInfoItem(it) }
                 sendSuccess(result, gson.toJson(relatedVideos))
@@ -778,16 +800,46 @@ class NewPipeMethodHandler(
 
     // Helper methods
 
-    private fun getCachedOrExtractStreamInfo(videoId: String): StreamInfo {
+    private fun streamingService(serviceId: String): StreamingService =
+        if (serviceId == "bilibili") ServiceList.BiliBili else ServiceList.YouTube
+
+    private fun findSearchContentFilter(
+        service: StreamingService,
+        filterName: String,
+    ): List<FilterItem> {
+        if (filterName.isBlank() || filterName == "all") return emptyList()
+        val available = service.searchQHFactory.getAvailableContentFilter()
+        val matching = available.filterGroups
+            .flatMap { group -> group.filterItems.toList() }
+            .firstOrNull { it.name.equals(filterName, ignoreCase = true) }
+        return matching?.let { listOf(it) } ?: emptyList()
+    }
+
+    private fun streamCacheKey(serviceId: String, videoId: String): String =
+        "$serviceId:$videoId"
+
+    private fun buildStreamUrl(videoId: String, serviceId: String): String = when {
+        videoId.startsWith("http://") || videoId.startsWith("https://") -> videoId
+        serviceId == "bilibili" -> "https://www.bilibili.com/video/$videoId"
+        else -> "https://www.youtube.com/watch?v=$videoId"
+    }
+
+    private fun getCachedOrExtractStreamInfo(
+        videoId: String,
+        serviceId: String = "newpipe",
+    ): StreamInfo {
         val now = System.currentTimeMillis()
-        val cached = streamInfoCache[videoId]
+        val cacheKey = streamCacheKey(serviceId, videoId)
+        val cached = streamInfoCache[cacheKey]
         if (cached != null && now - cached.timestampMs <= streamInfoCacheTtlMs) {
             return cached.streamInfo
         }
 
-        val url = "https://www.youtube.com/watch?v=$videoId"
-        val streamInfo = StreamInfo.getInfo(ServiceList.YouTube, url)
-        streamInfoCache[videoId] = CachedStreamInfo(streamInfo, now)
+        val streamInfo = StreamInfo.getInfo(
+            streamingService(serviceId),
+            buildStreamUrl(videoId, serviceId)
+        )
+        streamInfoCache[cacheKey] = CachedStreamInfo(streamInfo, now)
         return streamInfo
     }
 
@@ -842,143 +894,33 @@ class NewPipeMethodHandler(
     }
 
     private fun mapInfoItem(item: InfoItem): Map<String, Any?> {
-        // Smart thumbnail selection with different logic for channels vs videos
-        val bestThumbnail = run {
-            // For channels, use their avatars/thumbnails directly without trying to construct URLs
-            if (item is org.schabi.newpipe.extractor.channel.ChannelInfoItem) {
-                if (item.thumbnails.isNotEmpty()) {
-                    android.util.Log.d("NewPipeHandler", "Channel thumbnails available: ${item.thumbnails.size}")
+        val stream = item as? org.schabi.newpipe.extractor.stream.StreamInfoItem
+        val channel = item as? org.schabi.newpipe.extractor.channel.ChannelInfoItem
+        val playlist = item as? org.schabi.newpipe.extractor.playlist.PlaylistInfoItem
 
-                    // Select best quality channel avatar using ResolutionLevel
-                    val best = item.thumbnails.maxWithOrNull(
-                        compareBy<org.schabi.newpipe.extractor.Image> {
-                            when (it.estimatedResolutionLevel) {
-                                org.schabi.newpipe.extractor.Image.ResolutionLevel.HIGH -> 3
-                                org.schabi.newpipe.extractor.Image.ResolutionLevel.MEDIUM -> 2
-                                org.schabi.newpipe.extractor.Image.ResolutionLevel.LOW -> 1
-                                else -> 0
-                            }
-                        }.thenByDescending { it.width * it.height }
-                    )
-
-                    if (best != null) {
-                        android.util.Log.d("NewPipeHandler", "Selected channel avatar: ${best.estimatedResolutionLevel} (${best.width}x${best.height})")
-                        return@run best.url
-                    }
-                }
-                android.util.Log.w("NewPipeHandler", "No channel avatar available")
-                return@run null
-            }
-
-            // For videos/streams/playlists, use smart thumbnail selection with fallback
-            if (item.thumbnails.isNotEmpty()) {
-                android.util.Log.d("NewPipeHandler", "Thumbnails available: ${item.thumbnails.size}")
-
-                // Check if we have any HIGH quality images (720p+)
-                val highQuality = item.thumbnails.filter {
-                    it.estimatedResolutionLevel == org.schabi.newpipe.extractor.Image.ResolutionLevel.HIGH
-                }
-
-                val best = when {
-                    // If we have HIGH quality, use it
-                    highQuality.isNotEmpty() -> {
-                        highQuality.maxByOrNull { it.width * it.height }
-                    }
-                    // If all images are low-res (< 480px), skip to URL construction
-                    item.thumbnails.all { it.width < 480 } -> {
-                        android.util.Log.d("NewPipeHandler", "All thumbnails are low-res, will construct HQ URL")
-                        null
-                    }
-                    // Otherwise use largest available
-                    else -> {
-                        item.thumbnails.maxByOrNull { it.width * it.height }
-                    }
-                }
-
-                item.thumbnails.forEach {
-                    android.util.Log.d("NewPipeHandler", "  - ${it.estimatedResolutionLevel} (${it.width}x${it.height}): ${it.url}")
-                }
-
-                if (best != null) {
-                    android.util.Log.d("NewPipeHandler", "Selected: ${best.estimatedResolutionLevel} (${best.width}x${best.height})")
-                    return@run best.url  // Return early with good thumbnail
-                }
-            }
-
-            // If we reach here, either no thumbnails or all were low-res
-            // Try constructing high-quality URL from video ID
-            if (item.url != null) {
-                android.util.Log.d("NewPipeHandler", "Falling back to URL construction")
-                // Extract video ID from various URL formats:
-                // /watch?v=VIDEO_ID
-                // /shorts/VIDEO_ID
-                // /VIDEO_ID
-                val videoId = when {
-                    item.url!!.contains("/watch?v=") -> {
-                        item.url!!.substringAfter("v=").substringBefore("&").substringBefore("?")
-                    }
-                    item.url!!.contains("/shorts/") -> {
-                        item.url!!.substringAfter("/shorts/").substringBefore("?").substringBefore("&")
-                    }
-                    item.url!!.startsWith("/") && item.url!!.length == 12 -> {
-                        // Likely just /VIDEO_ID (11 chars + leading slash)
-                        item.url!!.substring(1)
-                    }
-                    else -> {
-                        // Try last segment after /
-                        item.url!!.substringAfterLast("/").substringBefore("?").substringBefore("&")
-                    }
-                }
-
-                if (videoId.isNotEmpty() && videoId.length == 11) {  // YouTube video IDs are 11 chars
-                    android.util.Log.d("NewPipeHandler", "Constructing max quality thumbnail for video ID: $videoId")
-                    // Use maxresdefault for best quality (1280x720+)
-                    return@run "https://i.ytimg.com/vi/$videoId/maxresdefault.jpg"
-                } else {
-                    android.util.Log.w("NewPipeHandler", "Can't extract video ID from: ${item.url}, extracted: $videoId")
-                }
-            }
-
-            // Final fallback - no thumbnail available
-            android.util.Log.w("NewPipeHandler", "No thumbnail URL could be determined")
-            null
-        }
-
+        // PipePipe InfoItem exposes a single resolved thumbnail URL. Preserve
+        // that URL rather than constructing a YouTube-only thumbnail for Bilibili.
         return mapOf(
             "url" to item.url,
             "name" to item.name,
-            "thumbnailUrl" to bestThumbnail,
+            "thumbnailUrl" to item.thumbnailUrl,
             "type" to item.infoType.name,
-            // Stream-specific fields
-            "uploaderName" to (item as? org.schabi.newpipe.extractor.stream.StreamInfoItem)?.uploaderName,
-            "uploaderUrl" to (item as? org.schabi.newpipe.extractor.stream.StreamInfoItem)?.uploaderUrl,
-            "uploaderAvatarUrl" to (item as? org.schabi.newpipe.extractor.stream.StreamInfoItem)?.uploaderAvatars?.maxWithOrNull(
-                compareBy<org.schabi.newpipe.extractor.Image> {
-                    when (it.estimatedResolutionLevel) {
-                        org.schabi.newpipe.extractor.Image.ResolutionLevel.HIGH -> 3
-                        org.schabi.newpipe.extractor.Image.ResolutionLevel.MEDIUM -> 2
-                        org.schabi.newpipe.extractor.Image.ResolutionLevel.LOW -> 1
-                        else -> 0
-                    }
-                }.thenByDescending { it.width * it.height }
-            )?.url,
-            "uploaderVerified" to (item as? org.schabi.newpipe.extractor.stream.StreamInfoItem)?.isUploaderVerified,
-            "duration" to (item as? org.schabi.newpipe.extractor.stream.StreamInfoItem)?.duration,
-            "viewCount" to (item as? org.schabi.newpipe.extractor.stream.StreamInfoItem)?.viewCount,
-            "uploadDate" to (item as? org.schabi.newpipe.extractor.stream.StreamInfoItem)?.textualUploadDate,
-            "isLive" to ((item as? org.schabi.newpipe.extractor.stream.StreamInfoItem)?.streamType?.name == "LIVE_STREAM"),
-            "isShort" to (item as? org.schabi.newpipe.extractor.stream.StreamInfoItem)?.isShortFormContent,
-            // Content availability (v0.25.0+): UNKNOWN, AVAILABLE, MEMBERSHIP, PAID, UPCOMING
-            "contentAvailability" to (item as? org.schabi.newpipe.extractor.stream.StreamInfoItem)?.contentAvailability?.name,
-            // Channel-specific fields
-            "subscriberCount" to (item as? org.schabi.newpipe.extractor.channel.ChannelInfoItem)?.subscriberCount,
-            "isVerified" to (item as? org.schabi.newpipe.extractor.channel.ChannelInfoItem)?.isVerified,
-            "description" to (item as? org.schabi.newpipe.extractor.channel.ChannelInfoItem)?.description,
-            // Playlist-specific fields
-            "streamCount" to (item as? org.schabi.newpipe.extractor.playlist.PlaylistInfoItem)?.streamCount,
-            // Add uploader info for playlists (they have uploaderName unlike StreamInfoItem)
-            "playlistUploaderName" to (item as? org.schabi.newpipe.extractor.playlist.PlaylistInfoItem)?.uploaderName,
-            "playlistUploaderUrl" to (item as? org.schabi.newpipe.extractor.playlist.PlaylistInfoItem)?.uploaderUrl
+            "uploaderName" to stream?.uploaderName,
+            "uploaderUrl" to stream?.uploaderUrl,
+            "uploaderAvatarUrl" to stream?.uploaderAvatarUrl,
+            "uploaderVerified" to stream?.isUploaderVerified,
+            "duration" to stream?.duration,
+            "viewCount" to stream?.viewCount,
+            "uploadDate" to stream?.textualUploadDate,
+            "isLive" to (stream?.streamType?.name == "LIVE_STREAM"),
+            "isShort" to stream?.isShortFormContent,
+            "contentAvailability" to null,
+            "subscriberCount" to channel?.subscriberCount,
+            "isVerified" to channel?.isVerified,
+            "description" to channel?.description,
+            "streamCount" to playlist?.streamCount,
+            "playlistUploaderName" to playlist?.uploaderName,
+            "playlistUploaderUrl" to playlist?.uploaderUrl
         )
     }
 
@@ -1012,7 +954,7 @@ class NewPipeMethodHandler(
         return when {
             ids != null && body != null -> org.schabi.newpipe.extractor.Page(url, id, ids, null, body)
             ids != null -> org.schabi.newpipe.extractor.Page(ids)
-            body != null -> org.schabi.newpipe.extractor.Page(url, id, body)
+            body != null -> org.schabi.newpipe.extractor.Page(url, id, null, null, body)
             id != null -> org.schabi.newpipe.extractor.Page(url, id)
             url != null -> org.schabi.newpipe.extractor.Page(url)
             else -> throw IllegalArgumentException("Invalid Page data: no url or ids provided")

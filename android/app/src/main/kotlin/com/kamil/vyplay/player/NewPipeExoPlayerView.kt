@@ -331,6 +331,16 @@ class NewPipeExoPlayerView(
         val startPositionMs = (params["startPositionMs"] as? Number)?.toLong() ?: 0L
         val playWhenReady = params["playWhenReady"] as? Boolean ?: true
         playerView.resizeMode = resizeModeFrom(params["fitMode"] as? String)
+
+        // Keep Bilibili's Referer on initial load and every quality/audio reload.
+        val requestHeaders = (params["requestHeaders"] as? Map<*, *>)
+            ?.mapNotNull { (key, value) ->
+                if (key is String && value is String) key to value else null
+            }
+            ?.toMap()
+            .orEmpty()
+        httpDataSourceFactory.setDefaultRequestProperties(requestHeaders)
+        liveDataSourceFactory.setDefaultRequestProperties(requestHeaders)
         // Applied on every load so a reload (quality or audio-track change)
         // cannot silently drop the user's preference.
         (params["skipSilence"] as? Boolean)?.let { player.skipSilenceEnabled = it }

@@ -13,6 +13,7 @@ import 'package:vyplay/domain/download/models/download_item.dart' as domain;
 import 'package:vyplay/domain/download/models/download_quality.dart';
 import 'package:vyplay/core/services/download_location_service.dart';
 import 'package:vyplay/core/services/foreground_download_service.dart';
+import 'package:vyplay/core/services/bilibili_request_headers.dart';
 import 'package:vyplay/core/services/saf_storage_service.dart';
 import 'package:vyplay/domain/download/download_location.dart';
 import 'package:vyplay/domain/download/saf_directory.dart';
@@ -771,23 +772,11 @@ class DownloadImpl implements DownloadService {
         outputPath: item.outputFilePath!,
       );
 
-      if (mergedPath != null) {
-        // The container may have changed (mp4 -> mkv), so record the real path.
-        item.outputFilePath = mergedPath;
-        // Clean up temp files only after a verified merge.
-        await _deleteFile(item.videoFilePath);
-        await _deleteFile(item.audioFilePath);
-      } else {
-        // Phase 5 rule: NEVER silently save a video-only file when audio was
-        // requested. Throw so the caller marks the download as failed with a
-        // clear, actionable message instead of reporting a silent success.
-        throw MuxException(
-          'Could not merge video and audio streams into a single file. '
-          'The video resolution you selected has no compatible audio track, '
-          'or the device muxer rejected the streams. Try a lower resolution, '
-          'or download the video and audio separately.',
-        );
-      }
+      // The container may change (for example MP4 -> MKV); record the path
+      // actually written by FFmpeg before cleaning temporary stream files.
+      item.outputFilePath = mergedPath;
+      await _deleteFile(item.videoFilePath);
+      await _deleteFile(item.audioFilePath);
     } else if (item.videoFilePath != null) {
       // No audio stream was requested (video-only download). Renaming is correct here.
       final videoFile = File(item.videoFilePath!);
@@ -799,11 +788,9 @@ class DownloadImpl implements DownloadService {
 
   /// Merge separate video and audio streams into one playable file.
   ///
-  /// Returns the path of the merged file on success, or `null` when the merge
-  /// failed. The merge runs through FFmpeg (`FfmpegMuxer`), which replaced the
-  /// old Android-only MediaMuxer implementation. The returned path may differ
-  /// from [outputPath] when the codecs require an MKV container.
-  Future<String?> _muxVideoAndAudio({
+  /// Returns the actual output path. Failures preserve the native FFmpeg
+  /// diagnostic so the download error shown to the user is actionable.
+  Future<String> _muxVideoAndAudio({
     required String videoPath,
     required String audioPath,
     required String outputPath,
@@ -817,11 +804,11 @@ class DownloadImpl implements DownloadService {
       log('[Download] FFmpeg merge successful: ${result.outputPath}');
       return result.outputPath;
     } on MuxFailure catch (e) {
-      log('[Download] FFmpeg merge failed: ${e.message}');
-      return null;
+      log('[Download] PipePipe FFmpeg remux failed: ${e.message}');
+      throw MuxException('Video/audio remux failed: ${e.message}');
     } catch (e) {
-      log('[Download] Muxing error: $e');
-      return null;
+      log('[Download] Remuxing error: $e');
+      throw MuxException('Video/audio remux failed: $e');
     }
   }
 
@@ -851,7 +838,7 @@ class DownloadImpl implements DownloadService {
       final headResponse = await _dio.head(
         downloadUrl,
         options: Options(
-          headers: _getDownloadHeaders(),
+          headers: _getDownloadHeaders(downloadUrl),
           followRedirects: true,
         ),
       );
@@ -892,13 +879,16 @@ class DownloadImpl implements DownloadService {
     );
   }
 
-  Map<String, dynamic> _getDownloadHeaders() {
-    return {
+  Map<String, dynamic> _getDownloadHeaders(String url) {
+    final headers = <String, dynamic>{
       'User-Agent': 'com.google.android.youtube/19.02.39 (Linux; U; Android 14) gzip',
       'Accept': '*/*',
       'Accept-Encoding': '*',
       'Connection': 'keep-alive',
     };
+    // Use the browser Referer only for known Bilibili media CDN hostnames.
+    headers.addAll(BilibiliRequestHeaders.forDownloadUrl(url));
+    return headers;
   }
 
   /// Multi-threaded chunked download for faster speeds
@@ -1016,7 +1006,7 @@ class DownloadImpl implements DownloadService {
             },
             options: Options(
               headers: {
-                ..._getDownloadHeaders(),
+                ..._getDownloadHeaders(url),
                 'Range': 'bytes=$startByte-$endByte',
               },
               followRedirects: true,
@@ -1049,7 +1039,7 @@ class DownloadImpl implements DownloadService {
 
     while (retryCount <= maxRetries) {
       try {
-        final headers = _getDownloadHeaders();
+        final headers = _getDownloadHeaders(url);
 
         // Add Range header for resume support
         if (currentResumeFrom > 0) {
@@ -1621,23 +1611,12 @@ class DownloadImpl implements DownloadService {
         outputPath: item.outputFilePath!,
       );
 
-      if (mergedPath != null) {
-        // The container may have changed (mp4 -> mkv), so record the real path.
-        item.outputFilePath = mergedPath;
-        // Clean up temp files
-        await _deleteFile(item.videoFilePath);
-        await _deleteFile(item.audioFilePath);
-      } else {
-        // Same Phase 5 rule as the non-resume path: fail loudly, keep the
-        // audio file intact so the user can retry the merge without
-        // re-downloading everything.
-        throw MuxException(
-          'Could not merge video and audio streams into a single file. '
-          'The video resolution you selected has no compatible audio track, '
-          'or the device muxer rejected the streams. Try a lower resolution, '
-          'or download the video and audio separately.',
-        );
-      }
+      // Preserve the actual container/path produced by FFmpeg. A merge
+      // failure throws MuxException with the native diagnostic and leaves the
+      // downloaded source streams available for a retry.
+      item.outputFilePath = mergedPath;
+      await _deleteFile(item.videoFilePath);
+      await _deleteFile(item.audioFilePath);
     } else if (item.videoFilePath != null) {
       final videoFile = File(item.videoFilePath!);
       if (await videoFile.exists()) {

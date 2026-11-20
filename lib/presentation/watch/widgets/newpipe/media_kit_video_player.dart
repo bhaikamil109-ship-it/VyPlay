@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:vyplay/application/application.dart';
 import 'package:vyplay/core/player/global_player_controller.dart';
+import 'package:vyplay/core/services/bilibili_request_headers.dart';
 import 'package:vyplay/core/services/player_preferences_service.dart';
 import 'package:vyplay/domain/saved/models/local_store.dart';
 import 'package:vyplay/domain/sponsorblock/models/sponsor_segment.dart';
@@ -25,6 +26,7 @@ class NewPipeMediaKitPlayer extends StatefulWidget {
     super.key,
     required this.watchInfo,
     required this.videoId,
+    this.serviceId = 'newpipe',
     required this.playbackPosition,
     this.defaultQuality = "720p",
     this.isSaved = false,
@@ -39,6 +41,7 @@ class NewPipeMediaKitPlayer extends StatefulWidget {
 
   final NewPipeWatchResp watchInfo;
   final String videoId;
+  final String serviceId;
   final String defaultQuality;
   final int playbackPosition;
   final bool isSaved;
@@ -414,6 +417,7 @@ class _NewPipeMediaKitPlayerState extends State<NewPipeMediaKitPlayer> {
               httpHeaders: {
                 'User-Agent':
                     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+                ...BilibiliRequestHeaders.forPlaybackService(widget.serviceId),
               },
             ),
             play: false,
@@ -463,7 +467,7 @@ class _NewPipeMediaKitPlayerState extends State<NewPipeMediaKitPlayer> {
 
         case MediaSourceType.hls:
           // HLS stream - fast initialization, no separate wait needed
-          await _player.open(Media(config.manifestUrl!), play: false);
+          await _player.open(Media(config.manifestUrl!, httpHeaders: BilibiliRequestHeaders.forPlaybackService(widget.serviceId)), play: false);
           debugPrint('Opened HLS stream');
           break;
 

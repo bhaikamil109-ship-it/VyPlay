@@ -121,6 +121,7 @@ class _ScreenChannelState extends State<ScreenChannel>
                 state: state,
                 channelInfo: state.newPipeChannelResp!,
                 isSubscribed: _isSubscribed,
+                serviceId: BlocProvider.of<SettingsBloc>(context).state.ytService,
               );
             }
 
@@ -317,6 +318,7 @@ class _ScreenChannelState extends State<ScreenChannel>
       locals: locals,
       state: state,
       isSubscribed: isSubscribed,
+      serviceId: BlocProvider.of<SettingsBloc>(context).state.ytService,
     );
   }
 
@@ -369,8 +371,10 @@ class _NewPipeChannelView extends StatefulWidget {
     required this.locals,
     required this.state,
     required this.isSubscribed,
+    required this.serviceId,
   });
 
+  final String serviceId;
   final NewPipeChannelResp channelInfo;
   final String channelId;
   final String? avatarUrl;
@@ -455,7 +459,9 @@ class _NewPipeChannelViewState extends State<_NewPipeChannelView>
           actions: [
             _buildCompactYouTubeButton(
               context,
-              '$kYTChannelUrl${widget.channelInfo.id}',
+              widget.serviceId == YouTubeServices.bilibili.name
+                  ? 'https://space.bilibili.com/${widget.channelInfo.id}'
+                  : '$kYTChannelUrl${widget.channelInfo.id}',
             ),
             const SizedBox(width: 8),
           ]),

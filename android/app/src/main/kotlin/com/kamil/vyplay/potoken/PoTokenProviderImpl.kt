@@ -9,15 +9,14 @@ import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import org.schabi.newpipe.extractor.NewPipe
 import org.schabi.newpipe.extractor.services.youtube.InnertubeClientRequestInfo
-import org.schabi.newpipe.extractor.services.youtube.PoTokenProvider
-import org.schabi.newpipe.extractor.services.youtube.PoTokenResult
+import org.schabi.newpipe.extractor.services.youtube.YoutubePoTokenResult
 import org.schabi.newpipe.extractor.services.youtube.YoutubeParsingHelper
 
 /**
- * NewPipe Extractor PoTokenProvider backed by an offscreen WebView that runs
- * YouTube's BotGuard VM. Ported from NewPipe's `PoTokenProviderImpl`.
+ * PipePipe's MWEB PO-token resolver backed by an offscreen WebView that runs
+ * YouTube's BotGuard VM. The exact resolver API is pinned with the extractor.
  */
-object PoTokenProviderImpl : PoTokenProvider {
+object PoTokenProviderImpl {
 
     private const val TAG = "PoTokenProvider"
 
@@ -36,37 +35,36 @@ object PoTokenProviderImpl : PoTokenProvider {
         appContext = context.applicationContext
     }
 
+    /** True when the app can use the WebView-backed MWEB token resolver. */
+    fun isAvailable(): Boolean =
+        appContext != null && supportsWebView() && !webViewBadImpl
+
     /**
-     * The extractor's interface also asks for a web-embed token, an Android
-     * client token and an iOS client token. VyPlay only runs YouTube's BotGuard
-     * VM for the regular web client, so the other clients deliberately return
-     * null: the extractor then falls back to its own request path instead of
-     * receiving a token minted for the wrong client.
+     * Obtain the PO token PipePipe requires for one YouTube MWEB player request.
+     * Failures are propagated to the caller so stream extraction cannot silently
+     * continue with a token generated for the wrong client.
      */
-    override fun getWebEmbedClientPoToken(videoId: String): PoTokenResult? = null
-
-    override fun getAndroidClientPoToken(videoId: String): PoTokenResult? = null
-
-    override fun getIosClientPoToken(videoId: String): PoTokenResult? = null
-
-    override fun getWebClientPoToken(videoId: String): PoTokenResult? {
-        val context = appContext ?: return null
-        if (!supportsWebView() || webViewBadImpl) return null
+    fun getYoutubePoTokenResult(videoId: String): YoutubePoTokenResult {
+        val context = appContext
+            ?: throw PoTokenException("Application context is not initialized")
+        if (!supportsWebView() || webViewBadImpl) {
+            throw PoTokenException("WebView PO-token generation is unavailable")
+        }
 
         return try {
             runBlocking(Dispatchers.IO) {
                 getWebClientPoTokenInternal(context, videoId, forceRecreate = false)
             }
         } catch (e: BadWebViewException) {
-            Log.e(TAG, "WebView is broken, disabling poToken", e)
+            Log.e(TAG, "WebView is broken; disabling PO-token generation", e)
             webViewBadImpl = true
-            null
+            throw e
         } catch (e: PoTokenException) {
-            Log.e(TAG, "Could not obtain poToken", e)
-            null
+            Log.e(TAG, "Could not obtain PO token", e)
+            throw e
         } catch (e: Throwable) {
-            Log.e(TAG, "Unexpected poToken failure", e)
-            null
+            Log.e(TAG, "Unexpected PO-token failure", e)
+            throw PoTokenException(e.message ?: "Unexpected PO-token failure")
         }
     }
 
@@ -74,7 +72,7 @@ object PoTokenProviderImpl : PoTokenProvider {
         context: Context,
         videoId: String,
         forceRecreate: Boolean,
-    ): PoTokenResult {
+    ): YoutubePoTokenResult {
         val (activeGenerator, activeVisitorData, activeStreamingPot, recreated) =
             mutex.withLock {
                 val shouldRecreate = generator == null || forceRecreate || generator!!.isExpired()
@@ -119,7 +117,11 @@ object PoTokenProviderImpl : PoTokenProvider {
             return getWebClientPoTokenInternal(context, videoId, forceRecreate = true)
         }
 
-        return PoTokenResult(activeVisitorData, playerPot, activeStreamingPot)
+        return YoutubePoTokenResult(
+            activeVisitorData,
+            YoutubeParsingHelper.getClientVersion(),
+            playerPot,
+        )
     }
 
     private fun supportsWebView(): Boolean = try {

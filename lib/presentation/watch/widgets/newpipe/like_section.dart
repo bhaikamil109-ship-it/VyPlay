@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vyplay/application/application.dart';
 import 'package:vyplay/core/strings.dart';
+import 'package:vyplay/core/enums.dart';
 import 'package:vyplay/domain/saved/models/local_store.dart';
 import 'package:vyplay/domain/watch/models/newpipe/newpipe_watch_resp.dart';
 import 'package:vyplay/presentation/download/widgets/download_options_sheet.dart';
@@ -110,7 +111,12 @@ class NewPipeLikeSection extends StatelessWidget {
                   audioStreams: watchInfo.audioStreams ?? [],
                 );
               },
-              onTapYoutube: () async => await urlLaunchWithSettings(context, '$kYTBaseUrl$id'),
+              onTapYoutube: () async => await urlLaunchWithSettings(
+                context,
+                settingsState.ytService == YouTubeServices.bilibili.name
+                    ? 'https://www.bilibili.com/video/$id'
+                    : '$kYTBaseUrl$id',
+              ),
               onTapPip: pipClicked,
             );
           },
@@ -127,6 +133,9 @@ class NewPipeLikeSection extends StatelessWidget {
       final channelIndex = uri.pathSegments.indexOf('channel');
       if (channelIndex != -1 && channelIndex + 1 < uri.pathSegments.length) {
         return uri.pathSegments[channelIndex + 1];
+      }
+      if (uri.host == 'space.bilibili.com' && uri.pathSegments.isNotEmpty) {
+        return uri.pathSegments.first;
       }
     }
     return null;

@@ -108,6 +108,17 @@ class _ShortsFeedScreenState extends State<ShortsFeedScreen> {
       _loadMoreFailed = false;
     });
 
+    if (NewPipeChannel.activeServiceId == 'bilibili') {
+      setState(() {
+        _shorts.clear();
+        _nextPage = null;
+        _hasMore = false;
+        _initialLoadDone = true;
+        _errorMessage = 'Shorts are not available from the selected Bilibili service.';
+      });
+      return;
+    }
+
     try {
       final resp = await _fetchPage(null);
       if (!mounted) return;

@@ -78,7 +78,8 @@ class NewPipeSearchItem {
     if (url == null) return null;
     final uri = Uri.tryParse(url!);
     if (uri == null) return null;
-    return uri.queryParameters['v'] ?? uri.pathSegments.lastOrNull;
+    final segments = uri.pathSegments.where((segment) => segment.isNotEmpty);
+    return uri.queryParameters['v'] ?? segments.lastOrNull;
   }
 
   /// Extract channel ID from URL
@@ -91,6 +92,9 @@ class NewPipeSearchItem {
       if (idx + 1 < uri.pathSegments.length) {
         return uri.pathSegments[idx + 1];
       }
+    }
+    if (uri.host == 'space.bilibili.com' && uri.pathSegments.isNotEmpty) {
+      return uri.pathSegments.first;
     }
     return null;
   }

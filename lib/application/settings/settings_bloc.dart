@@ -241,6 +241,9 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
         BaseUrl.updateBaseUrl(instanceApi);
       }
 
+      // Route all shared native extractor consumers to the stored service.
+      NewPipeChannel.setActiveService(ytService);
+
       // Emit the new state
       emit(newState.copyWith(settingsStatus: ApiStatus.loaded));
     });
@@ -984,9 +987,13 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
 
     on<SetYoutubeService>((event, emit) async {
       final _result = await settingsService.setYoutubeService(service: event.service);
-      emit(_result.fold(
+      final nextState = _result.fold(
           (MainFailure f) => state,
-          (service) => state.copyWith(ytService: service)));
+          (service) => state.copyWith(ytService: service));
+      if (nextState.ytService != state.ytService) {
+        NewPipeChannel.setActiveService(nextState.ytService);
+      }
+      emit(nextState);
     });
 
     on<BookmarksApplied>((event, emit) async {

@@ -9,6 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vyplay/application/application.dart';
 import 'package:vyplay/core/player/global_player_controller.dart';
 import 'package:vyplay/core/services/audio_handler_service.dart';
+import 'package:vyplay/core/services/bilibili_request_headers.dart';
 import 'package:vyplay/core/services/playback_diagnostics.dart';
 import 'package:vyplay/core/services/exoplayer_notification_bridge.dart';
 import 'package:vyplay/core/services/external_player_service.dart';
@@ -40,6 +41,7 @@ class NewPipeExoPlayer extends StatefulWidget {
     super.key,
     required this.watchInfo,
     required this.videoId,
+    this.serviceId = 'newpipe',
     required this.playbackPosition,
     this.defaultQuality = '720p',
     this.videoFitMode = 'contain',
@@ -56,6 +58,7 @@ class NewPipeExoPlayer extends StatefulWidget {
 
   final NewPipeWatchResp watchInfo;
   final String videoId;
+  final String serviceId;
   final int playbackPosition;
   final String defaultQuality;
   final String videoFitMode;
@@ -407,6 +410,7 @@ class _NewPipeExoPlayerState extends State<NewPipeExoPlayer> {
       'audioUrl': _config.audioUrl,
       'manifestUrl': _config.manifestUrl,
       'isLive': _config.isLive,
+      'requestHeaders': BilibiliRequestHeaders.forPlaybackService(widget.serviceId),
       'startPositionMs': startPositionMs ?? _positionMs,
       'playWhenReady': true,
       'fitMode': _fitMode,
@@ -423,6 +427,7 @@ class _NewPipeExoPlayerState extends State<NewPipeExoPlayer> {
   String get _sourceKey {
     return [
       widget.videoId,
+      widget.serviceId,
       _sourceTypeName(_config.sourceType),
       _config.videoUrl ?? '',
       _config.audioUrl ?? '',
