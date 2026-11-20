@@ -467,7 +467,7 @@ class _NewPipeMediaKitPlayerState extends State<NewPipeMediaKitPlayer> {
 
         case MediaSourceType.hls:
           // HLS stream - fast initialization, no separate wait needed
-          await _player.open(Media(config.manifestUrl!), play: false);
+          await _player.open(Media(config.manifestUrl!, httpHeaders: BilibiliRequestHeaders.forPlaybackService(widget.serviceId)), play: false);
           debugPrint('Opened HLS stream');
           break;
 
