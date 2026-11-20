@@ -76,7 +76,8 @@ class _ScreenSubscriptionsState extends State<ScreenSubscriptions>
     final subscribeState = context.read<SubscribeBloc>().state;
     final settingsState = context.read<SettingsBloc>().state;
     if (subscribeState.subscribedChannels.isNotEmpty) {
-      if (settingsState.ytService == YouTubeServices.newpipe.name) {
+      if ((settingsState.ytService == YouTubeServices.newpipe.name ||
+          settingsState.ytService == YouTubeServices.bilibili.name)) {
         BlocProvider.of<TrendingBloc>(context).add(
           TrendingEvent.getNewPipeHomeFeedData(
             channels: subscribeState.subscribedChannels,
