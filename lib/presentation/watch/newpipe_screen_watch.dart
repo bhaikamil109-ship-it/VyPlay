@@ -8,6 +8,7 @@ import 'package:vyplay/core/constants.dart';
 import 'package:vyplay/core/enums.dart';
 import 'package:vyplay/core/player/global_player_controller.dart';
 import 'package:vyplay/core/player/playback_queue.dart';
+import 'package:vyplay/infrastructure/newpipe/newpipe_channel.dart';
 import 'package:vyplay/domain/watch/models/basic_info.dart';
 import 'package:vyplay/generated/l10n.dart';
 import 'package:vyplay/presentation/watch/widgets/newpipe/exoplayer_video_player.dart';
@@ -25,10 +26,12 @@ class NewPipeScreenWatch extends StatefulWidget {
     super.key,
     required this.id,
     required this.channelId,
+    this.serviceId = 'newpipe',
   });
 
   final String id;
   final String channelId;
+  final String serviceId;
 
   @override
   State<NewPipeScreenWatch> createState() => _NewPipeScreenWatchState();
@@ -50,6 +53,7 @@ class _NewPipeScreenWatchState extends State<NewPipeScreenWatch>
   @override
   void initState() {
     super.initState();
+    NewPipeChannel.setActiveService(widget.serviceId);
     WidgetsBinding.instance.addObserver(this);
     // Defer initialization to avoid calling notifyListeners during build
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -85,6 +89,9 @@ class _NewPipeScreenWatchState extends State<NewPipeScreenWatch>
   @override
   void didUpdateWidget(covariant NewPipeScreenWatch oldWidget) {
     super.didUpdateWidget(oldWidget);
+    if (oldWidget.serviceId != widget.serviceId) {
+      NewPipeChannel.setActiveService(widget.serviceId);
+    }
     // If the video ID changed (e.g., user clicked a related video), reinitialize
     if (oldWidget.id != widget.id) {
       debugPrint(
@@ -368,6 +375,7 @@ class _NewPipeScreenWatchState extends State<NewPipeScreenWatch>
                                                   key: ValueKey(
                                                       'exo_player_${widget.id}'),
                                                   videoId: widget.id,
+                                                  serviceId: widget.serviceId,
                                                   watchInfo:
                                                       state.newPipeWatchResp,
                                                   playbackPosition: savedState
@@ -399,6 +407,7 @@ class _NewPipeScreenWatchState extends State<NewPipeScreenWatch>
                                                   key: ValueKey(
                                                       'player_${widget.id}'),
                                                   videoId: widget.id,
+                                                  serviceId: widget.serviceId,
                                                   watchInfo:
                                                       state.newPipeWatchResp,
                                                   // Only use playback position if it's for the current video
