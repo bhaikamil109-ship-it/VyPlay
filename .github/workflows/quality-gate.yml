@@ -24,7 +24,7 @@ jobs:
 
     env:
       GRADLE_OPTS: "-Dorg.gradle.daemon=false -Dkotlin.daemon.jvm.options=-Xmx1536m,-XX:-UseParallelGC"
-      QUALITY_DIR: ${{ runner.temp }}/vyplay-quality
+      QUALITY_DIR: .qa-reports
 
     steps:
       - name: Checkout
@@ -202,6 +202,6 @@ jobs:
           name: vyplay-qa-reports-${{ github.run_number }}
           path: |
             coverage/lcov.info
-            ${{ runner.temp }}/vyplay-quality/
+            .qa-reports/
           if-no-files-found: warn
           retention-days: 14
