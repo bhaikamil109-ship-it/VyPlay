@@ -374,8 +374,9 @@ class _NewPipeScreenWatchState extends State<NewPipeScreenWatch>
                                           ? useNativePlayer
                                               ? NewPipeExoPlayer(
                                                   key: ValueKey(
-                                                      'exo_player_${widget.id}'),
+                                                      'exo_player_${widget.serviceId}_${widget.id}'),
                                                   videoId: widget.id,
+                                                  serviceId: widget.serviceId,
                                                   watchInfo:
                                                       state.newPipeWatchResp,
                                                   playbackPosition: savedState
