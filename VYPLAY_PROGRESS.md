@@ -1,3 +1,42 @@
+# Latest mission checkpoint — 2026-11-20 (Phase 5–6 continuation)
+
+**Active continuation:** Phase 5–6. The user has confirmed that Phases 3–4 were already completed; do not restart or re-implement those phases.
+
+**Source baseline:** `main` at `52cdb5dc5cbea09c7981e0dc10fef606156a6a69`.
+- Latest application-logic commit before this QA-only parser correction: `fc3e1aff22fe73e37acc0a7216ed8ed05411d0d6`.
+- The `52cdb5dc` commit changes only `.github/workflows/quality-gate.yml`; no app code or package/version metadata changed.
+- The preceding source work includes Shorts player lifecycle/retry hardening and profile-aware/serialized saved + subscription mutations with regression coverage.
+
+## Automated verification — PASSED
+
+**Deep QA run #48:** [GitHub Actions run 44831640957](https://github.com/bhaikamil109-ship-it/VyPlay/actions/runs/44831640957) — completed successfully on `52cdb5dc`.
+
+- Flutter changed-Dart formatting: passed on the source-change run #47; final QA-only commit #48 had no changed Dart files.
+- `flutter analyze --no-fatal-infos`: passed, “No issues found”.
+- Flutter unit/widget tests: **601/601 passed**.
+- Android native unit-test Gradle task: **BUILD SUCCESSFUL**.
+- Android arm64 debug APK: built successfully.
+- APK identity/version verification: passed — package `com.kamil.vyplay`, version name `0.1.0`, version code `1`.
+- QA report artifact: `vyplay-qa-reports-48` (14-day retention).
+
+**Flutter CI run #169:** [GitHub Actions run 44831640906](https://github.com/bhaikamil109-ship-it/VyPlay/actions/runs/44831640906) — success.
+
+**Android APK build run #129:** [GitHub Actions run 44831641021](https://github.com/bhaikamil109-ship-it/VyPlay/actions/runs/44831641021) — success.
+- Universal release APK and ABI-split APKs (armeabi-v7a, arm64-v8a, x86_64) were built and collected with SHA256 checksums.
+- No permanent release-signing secrets were configured. The workflow correctly generated a temporary test keystore and uploaded `VyPlay-test-APKs-129`; it intentionally skipped public GitHub Release publication.
+- Test artifact URL: https://github.com/bhaikamil109-ship-it/VyPlay/actions/runs/44831641021/artifacts/14677142390
+- Artifact expiry recorded by GitHub: 2026-12-04.
+
+## Remaining acceptance limits — NOT VERIFIED
+
+- No physical Android device or emulator was connected to CI. Real-device installation, UI rendering, Shorts scrolling/player handoff, profile switching, background playback/downloads, notifications, and actual backend/network playback remain unverified.
+- The uploaded APKs use a temporary signing key and are for testing only. They are not the permanent release-signed build and cannot be treated as an official update channel. Permanent signing remains deferred until the user supplies/configures their own release keystore.
+- Do not claim full device/release acceptance until those external gates are completed.
+
+**Checkpoint verdict:** automated code/CI/build gates for this Phase 5–6 continuation are green. Physical-device acceptance and permanent release signing are separate outstanding gates; do not mark those complete by inference.
+
+---
+
 # Phase 2 — Core UI & Navigation (VyPlay mission)
 
 **Implementation:** COMPLETE for the agreed Phase 2 navigation scope.
