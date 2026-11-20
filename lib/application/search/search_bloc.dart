@@ -7,6 +7,7 @@ import 'package:vyplay/domain/search/models/piped/search_resp.dart';
 import 'package:vyplay/domain/search/models/search_history.dart';
 import 'package:vyplay/domain/search/search_history_service.dart';
 import 'package:vyplay/domain/search/search_service.dart';
+import 'package:vyplay/infrastructure/newpipe/newpipe_channel.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
@@ -27,7 +28,9 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
 
       if (event.serviceType == YouTubeServices.invidious.name) {
         await _fetchInvidiousSearchResult(event, emit);
-      } else if (event.serviceType == YouTubeServices.newpipe.name) {
+      } else if (event.serviceType == YouTubeServices.newpipe.name ||
+          event.serviceType == YouTubeServices.bilibili.name) {
+        NewPipeChannel.setActiveService(event.serviceType);
         await _fetchNewPipeSearchResult(event, emit);
       } else {
         await _fetchPipedSearchResult(event, emit);
@@ -38,7 +41,9 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     on<GetSearchSuggestion>((event, emit) async {
       if (event.serviceType == YouTubeServices.invidious.name) {
         await _fetchInvidiousSearchSuggestion(event, emit);
-      } else if (event.serviceType == YouTubeServices.newpipe.name) {
+      } else if (event.serviceType == YouTubeServices.newpipe.name ||
+          event.serviceType == YouTubeServices.bilibili.name) {
+        NewPipeChannel.setActiveService(event.serviceType);
         await _fetchNewPipeSearchSuggestion(event, emit);
       } else {
         await _fetchPipedSearchSuggestion(event, emit);
@@ -51,7 +56,9 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
 
       if (event.serviceType == YouTubeServices.invidious.name) {
         await _fetchMoreInvidiousSearchResult(event, emit);
-      } else if (event.serviceType == YouTubeServices.newpipe.name) {
+      } else if (event.serviceType == YouTubeServices.newpipe.name ||
+          event.serviceType == YouTubeServices.bilibili.name) {
+        NewPipeChannel.setActiveService(event.serviceType);
         await _fetchMoreNewPipeSearchResult(event, emit);
       } else {
         await _fetchMorePipedSearchResult(event, emit);

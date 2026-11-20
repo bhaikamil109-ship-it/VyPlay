@@ -148,7 +148,7 @@ class NewPipeExoPlayerView(
         .setCache(NewPipeSharedExoPlayer.cache(context))
         .setUpstreamDataSourceFactory(httpDataSourceFactory)
         .setFlags(CacheDataSource.FLAG_IGNORE_CACHE_ON_ERROR)
-    private val liveDataSourceFactory: DataSource.Factory = DefaultHttpDataSource.Factory()
+    private val liveDataSourceFactory = DefaultHttpDataSource.Factory()
         .setUserAgent(USER_AGENT)
         .setAllowCrossProtocolRedirects(true)
         .setConnectTimeoutMs(30_000)
@@ -331,6 +331,18 @@ class NewPipeExoPlayerView(
         val startPositionMs = (params["startPositionMs"] as? Number)?.toLong() ?: 0L
         val playWhenReady = params["playWhenReady"] as? Boolean ?: true
         playerView.resizeMode = resizeModeFrom(params["fitMode"] as? String)
+
+        // Service-specific headers (notably Bilibili's Referer) must be
+        // applied to every source reload, including quality/audio-track changes.
+        val requestHeaders = (params["requestHeaders"] as? Map<*, *>)
+            ?.mapNotNull { (key, value) ->
+                if (key is String && value is String) key to value else null
+            }
+            ?.toMap()
+            .orEmpty()
+        httpDataSourceFactory.setDefaultRequestProperties(requestHeaders)
+        liveDataSourceFactory.setDefaultRequestProperties(requestHeaders)
+
         // Applied on every load so a reload (quality or audio-track change)
         // cannot silently drop the user's preference.
         (params["skipSilence"] as? Boolean)?.let { player.skipSilenceEnabled = it }

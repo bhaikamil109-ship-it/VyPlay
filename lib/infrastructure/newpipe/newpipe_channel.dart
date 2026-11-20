@@ -16,6 +16,21 @@ class NewPipeChannel {
   // Cache for stream URLs with TTL (5 minutes)
   static final Map<String, _CachedStreamInfo> _streamCache = {};
   static const _cacheTtl = Duration(minutes: 5);
+  static String _activeServiceId = 'newpipe';
+
+  /// Selects the native extractor used by watch and search requests.
+  /// YouTube remains the default; Bilibili is routed to PipePipe's BiliBili service.
+  static void setActiveService(String serviceId) {
+    final next = serviceId == 'bilibili' ? 'bilibili' : 'newpipe';
+    if (_activeServiceId != next) {
+      _activeServiceId = next;
+      _streamCache.clear();
+    }
+  }
+
+  static String get activeServiceId => _activeServiceId;
+
+  static String _cacheKey(String videoId) => '$_activeServiceId:$videoId';
 
   /// Check if NewPipe Extractor is available on this platform.
   /// Returns true on Android, false on iOS/other platforms.
@@ -52,7 +67,8 @@ class NewPipeChannel {
     try {
       final result = await _channel.invokeMethod<String>(
         'getStreamInfo',
-        {'id': videoId},
+        {'id': videoId,
+          'serviceId': _activeServiceId},
       );
       if (result == null) {
         throw PlatformException(
@@ -63,7 +79,7 @@ class NewPipeChannel {
       final json = jsonDecode(result) as Map<String, dynamic>;
       final resp = NewPipeWatchResp.fromJson(json);
       // Cache the result
-      _streamCache[videoId] = _CachedStreamInfo(resp, DateTime.now());
+      _streamCache[_cacheKey(videoId)] = _CachedStreamInfo(resp, DateTime.now());
       return resp;
     } on PlatformException catch (e) {
       throw Exception('Failed to get stream info: ${e.message}');
@@ -75,7 +91,7 @@ class NewPipeChannel {
   /// Falls back to regular getStreamInfo if fast method is not available.
   static Future<NewPipeWatchResp> getStreamInfoFast(String videoId) async {
     // Check cache first
-    final cached = _streamCache[videoId];
+    final cached = _streamCache[_cacheKey(videoId)];
     if (cached != null && !cached.isExpired(_cacheTtl)) {
       return cached.data;
     }
@@ -83,7 +99,8 @@ class NewPipeChannel {
     try {
       final result = await _channel.invokeMethod<String>(
         'getStreamInfoFast',
-        {'id': videoId},
+        {'id': videoId,
+          'serviceId': _activeServiceId},
       );
       if (result == null) {
         throw PlatformException(
@@ -94,7 +111,7 @@ class NewPipeChannel {
       final json = jsonDecode(result) as Map<String, dynamic>;
       final resp = NewPipeWatchResp.fromJson(json);
       // Cache the result
-      _streamCache[videoId] = _CachedStreamInfo(resp, DateTime.now());
+      _streamCache[_cacheKey(videoId)] = _CachedStreamInfo(resp, DateTime.now());
       return resp;
     } on MissingPluginException {
       // Fall back to regular getStreamInfo if fast method is not available
@@ -107,7 +124,7 @@ class NewPipeChannel {
 
   /// Get cached stream info if available and not expired
   static NewPipeWatchResp? getCachedStreamInfo(String videoId) {
-    final cached = _streamCache[videoId];
+    final cached = _streamCache[_cacheKey(videoId)];
     if (cached != null && !cached.isExpired(_cacheTtl)) {
       return cached.data;
     }
@@ -117,7 +134,7 @@ class NewPipeChannel {
   /// Pre-fetch stream info for a video (e.g., from thumbnails)
   static Future<void> prefetchStreamInfo(String videoId) async {
     // Check if already cached
-    final cached = _streamCache[videoId];
+    final cached = _streamCache[_cacheKey(videoId)];
     if (cached != null && !cached.isExpired(_cacheTtl)) {
       return;
     }
@@ -147,12 +164,13 @@ class NewPipeChannel {
   /// stream therefore has to invalidate that cache first, otherwise the
   /// "fresh" extraction returns the same expired URL.
   static Future<void> invalidateStreamInfo(String videoId) async {
-    _streamCache.remove(videoId);
+    _streamCache.remove(_cacheKey(videoId));
     if (!Platform.isAndroid) return;
     try {
       await _channel.invokeMethod<bool>(
         'clearStreamCache',
-        {'id': videoId},
+        {'id': videoId,
+          'serviceId': _activeServiceId},
       );
     } catch (_) {
       // Best-effort: an older native build may not expose the method yet. The
@@ -227,6 +245,7 @@ class NewPipeChannel {
         {
           'query': query,
           'filter': filter,
+          'serviceId': _activeServiceId,
           if (nextPage != null) 'nextPage': nextPage,
         },
       );
@@ -248,7 +267,7 @@ class NewPipeChannel {
     try {
       final result = await _channel.invokeMethod<String>(
         'getSearchSuggestions',
-        {'query': query},
+        {'query': query, 'serviceId': _activeServiceId},
       );
       if (result == null) return [];
       final json = jsonDecode(result) as List<dynamic>;
@@ -263,7 +282,7 @@ class NewPipeChannel {
     try {
       final result = await _channel.invokeMethod<String>(
         'getChannel',
-        {'id': channelId},
+        {'id': channelId, 'serviceId': _activeServiceId},
       );
       if (result == null) {
         throw PlatformException(
@@ -283,7 +302,8 @@ class NewPipeChannel {
     try {
       final result = await _channel.invokeMethod<String>(
         'getComments',
-        {'id': videoId},
+        {'id': videoId,
+          'serviceId': _activeServiceId},
       );
       if (result == null) {
         throw PlatformException(
@@ -308,6 +328,7 @@ class NewPipeChannel {
         'getMoreComments',
         {
           'id': videoId,
+          'serviceId': _activeServiceId,
           'nextPage': nextPage,
         },
       );
@@ -334,6 +355,7 @@ class NewPipeChannel {
         'getCommentReplies',
         {
           'id': videoId,
+          'serviceId': _activeServiceId,
           'repliesPage': repliesPage,
         },
       );
@@ -361,6 +383,7 @@ class NewPipeChannel {
         'getChannelTab',
         {
           'url': tabUrl,
+          'serviceId': _activeServiceId,
           if (tabId != null) 'id': tabId,
           if (contentFilters != null) 'contentFilters': contentFilters,
         },
@@ -390,6 +413,7 @@ class NewPipeChannel {
         'getChannelTab',
         {
           'url': tabUrl,
+          'serviceId': _activeServiceId,
           if (tabId != null) 'id': tabId,
           if (contentFilters != null) 'contentFilters': contentFilters,
           'nextPage': nextPage,

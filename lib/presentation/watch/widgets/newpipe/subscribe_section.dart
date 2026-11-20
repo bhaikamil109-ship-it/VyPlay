@@ -82,6 +82,9 @@ class NewPipeChannelInfoSection extends StatelessWidget {
       if (channelIndex != -1 && channelIndex + 1 < uri.pathSegments.length) {
         return uri.pathSegments[channelIndex + 1];
       }
+      if (uri.host == 'space.bilibili.com') {
+        return uri.pathSegments.first;
+      }
     }
     return null;
   }

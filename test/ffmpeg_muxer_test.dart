@@ -9,15 +9,13 @@ import 'package:vyplay/infrastructure/download/ffmpeg_muxer.dart';
 import 'package:vyplay/infrastructure/download/stream_muxer.dart'
     show NativeMuxRunner;
 
-/// Unit tests for the NewPipe-based video/audio merger.
+/// Unit tests for the Dart-side video/audio merge adapter.
 ///
-/// The merge now runs in native Android code through the pure-Java muxers
-/// vendored from NewPipe 0.29.1, exposed by [StreamMuxer]. Rather than
-/// invoking a binary, the flow crosses the `com.kamil.vyplay/muxer` method
-/// channel, so a host-platform unit test exercises it by replacing that channel
-/// with [TestDefaultBinaryMessengerBinding] and, where the contract being
-/// described is the runner rather than the channel, by providing a
-/// [NativeMuxRunner] via [StreamMuxer]'s constructor.
+/// Android now uses PipePipe's FFmpegKit stream-copy remux with NewPipe's
+/// Java writers as a compatibility fallback. These host-platform tests mock
+/// the `com.kamil.vyplay/muxer` channel or inject [NativeMuxRunner]; they do
+/// not execute FFmpegKit or the native Java writers. A successful Dart test
+/// therefore verifies adapter behavior only, not real media output.
 ///
 /// Coverage stays focused on the choice points that decide whether a download
 /// is reported as successful: input validation, the wrapper around the native

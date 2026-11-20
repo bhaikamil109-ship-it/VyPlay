@@ -24,10 +24,12 @@ class ScreenWatch extends StatelessWidget {
       final ytService = settingsState.ytService;
 
       // All services now use MediaKit player exclusively
-      if (ytService == YouTubeServices.newpipe.name) {
+      if (ytService == YouTubeServices.newpipe.name ||
+          ytService == YouTubeServices.bilibili.name) {
         return NewPipeScreenWatch(
           id: id,
           channelId: channelId,
+          serviceId: ytService,
         );
       } else if (ytService == YouTubeServices.piped.name) {
         return PipedScreenWatch(
