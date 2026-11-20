@@ -1039,7 +1039,7 @@ class DownloadImpl implements DownloadService {
 
     while (retryCount <= maxRetries) {
       try {
-        final headers = _getDownloadHeaders();
+        final headers = _getDownloadHeaders(url);
 
         // Add Range header for resume support
         if (currentResumeFrom > 0) {
