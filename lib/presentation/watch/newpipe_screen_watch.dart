@@ -428,7 +428,7 @@ class _NewPipeScreenWatchState extends State<NewPipeScreenWatch>
                                                   subtitleSize: settingsState
                                                       .subtitleSize,
                                                   sponsorSegments: settingsState
-                                                          .isSponsorBlockEnabled
+                                                          .isSponsorBlockEnabled && widget.serviceId != 'bilibili'
                                                       ? state.sponsorSegments
                                                       : const [],
                                                   isAutoPipEnabled:
