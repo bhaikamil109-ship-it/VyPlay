@@ -287,7 +287,7 @@ class _ScreenSubscriptionsState extends State<ScreenSubscriptions>
     final isDark = theme.brightness == Brightness.dark;
     final locals = S.of(context);
 
-    return BlocListener<SettingsBloc, SettingsState>(
+    return BlocConsumer<SettingsBloc, SettingsState>(
       listenWhen: (previous, current) =>
           previous.currentProfile != current.currentProfile ||
           previous.ytService != current.ytService,
@@ -295,21 +295,19 @@ class _ScreenSubscriptionsState extends State<ScreenSubscriptions>
         _clearGroupFilter();
         _loadSubscriptions();
       },
-      child: BlocListener<SubscribeBloc, SubscribeState>(
-        listenWhen: (previous, current) =>
-            current.subscribeStatus == ApiStatus.loaded &&
-            (previous.subscribeStatus != ApiStatus.loaded ||
-                previous.subscribedChannels != current.subscribedChannels),
-        listener: (context, subscribeState) {
-          _loadSubscribedFeed(
-            subscribeState.subscribedChannels,
-            context.read<SettingsBloc>().state.ytService,
-          );
-        },
-        child: BlocBuilder<SettingsBloc, SettingsState>(
-          builder: (context, settingsState) {
-            return BlocBuilder<SubscribeBloc, SubscribeState>(
-              builder: (context, subscribeState) {
+      builder: (context, settingsState) {
+        return BlocConsumer<SubscribeBloc, SubscribeState>(
+          listenWhen: (previous, current) =>
+              current.subscribeStatus == ApiStatus.loaded &&
+              (previous.subscribeStatus != ApiStatus.loaded ||
+                  previous.subscribedChannels != current.subscribedChannels),
+          listener: (context, subscribeState) {
+            _loadSubscribedFeed(
+              subscribeState.subscribedChannels,
+              context.read<SettingsBloc>().state.ytService,
+            );
+          },
+          builder: (context, subscribeState) {
             final channels =
                 _filterAndSortChannels(subscribeState.subscribedChannels);
             final isLoading =
@@ -515,11 +513,9 @@ class _ScreenSubscriptionsState extends State<ScreenSubscriptions>
                 ),
               ),
             );
-              },
-            ),
           },
-        ),
-      ),
+        );
+      },
     );
   }
 
