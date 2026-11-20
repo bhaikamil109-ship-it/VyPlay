@@ -1607,23 +1607,12 @@ class DownloadImpl implements DownloadService {
         outputPath: item.outputFilePath!,
       );
 
-      if (mergedPath != null) {
-        // The container may have changed (mp4 -> mkv), so record the real path.
-        item.outputFilePath = mergedPath;
-        // Clean up temp files
-        await _deleteFile(item.videoFilePath);
-        await _deleteFile(item.audioFilePath);
-      } else {
-        // Same Phase 5 rule as the non-resume path: fail loudly, keep the
-        // audio file intact so the user can retry the merge without
-        // re-downloading everything.
-        throw MuxException(
-          'Could not merge video and audio streams into a single file. '
-          'The video resolution you selected has no compatible audio track, '
-          'or the device muxer rejected the streams. Try a lower resolution, '
-          'or download the video and audio separately.',
-        );
-      }
+      // Preserve the actual container/path produced by FFmpeg. A merge
+      // failure throws MuxException with the native diagnostic and leaves the
+      // downloaded source streams available for a retry.
+      item.outputFilePath = mergedPath;
+      await _deleteFile(item.videoFilePath);
+      await _deleteFile(item.audioFilePath);
     } else if (item.videoFilePath != null) {
       final videoFile = File(item.videoFilePath!);
       if (await videoFile.exists()) {
