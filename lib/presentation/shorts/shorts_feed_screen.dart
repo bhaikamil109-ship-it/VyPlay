@@ -7,6 +7,7 @@ import 'package:vyplay/domain/search/models/newpipe/newpipe_search_resp.dart';
 import 'package:vyplay/generated/l10n.dart';
 import 'package:vyplay/infrastructure/newpipe/newpipe_channel.dart';
 import 'package:vyplay/presentation/shorts/screen_shorts.dart';
+import 'package:vyplay/presentation/shorts/shorts_feed_helpers.dart';
 import 'package:vyplay/widgets/error_widget.dart';
 import 'package:vyplay/widgets/shimmers/shimmer_home_video_card.dart';
 
@@ -57,6 +58,10 @@ class _ShortsFeedScreenState extends State<ShortsFeedScreen> {
   /// flaky connection is not hammered with immediate re-requests.
   int _retryAttempt = 0;
 
+  /// Invalidates late initial/pagination responses when the user refreshes or
+  /// retries, so an older request cannot replace the active channel's feed.
+  int _requestGeneration = 0;
+
   /// True once the dedicated Shorts source has failed and the feed is being
   /// served by the search fallback instead.
   bool _usingFallback = false;
@@ -74,15 +79,11 @@ class _ShortsFeedScreenState extends State<ShortsFeedScreen> {
     _loadInitial();
   }
 
-  /// Fetches one page from whichever source is currently active.
+  /// Fetches a page from the currently selected source.
   ///
-  /// The dedicated channel-tab source is preferred; the search source is only
-  /// used after the dedicated one has failed (see [_loadFallback]).
-  ///
-  /// YouTube-jaisa feed ke liye: har page load par alag channel select karein
-  /// taaki alg alg channels ke shorts dikhein.
-  int _pageLoadCount = 0;
-
+  /// A NewPipe nextPage cursor belongs to the channel/tab that returned it.
+  /// Keep [_activeChannel] fixed until that cursor is exhausted; only an
+  /// explicit refresh rotates to another discovery channel.
   Future<NewPipeSearchResp> _fetchPage(String? nextPage) {
     if (_usingFallback) {
       return NewPipeChannel.search(
@@ -91,10 +92,6 @@ class _ShortsFeedScreenState extends State<ShortsFeedScreen> {
         nextPage: nextPage,
       );
     }
-    // Har load par channel rotate karein (YouTube gese feed ke liye)
-    _pageLoadCount++;
-    final channelIndex = _pageLoadCount % _shortsChannels.length;
-    _activeChannel = _shortsChannels[channelIndex];
     return NewPipeChannel.getShorts(
       channelId: _activeChannel,
       nextPage: nextPage,
@@ -102,19 +99,22 @@ class _ShortsFeedScreenState extends State<ShortsFeedScreen> {
   }
 
   Future<void> _loadInitial() async {
+    final requestGeneration = ++_requestGeneration;
     setState(() {
       _errorMessage = null;
       _initialLoadDone = false;
+      _isLoadingMore = false;
       _loadMoreFailed = false;
+      _usingFallback = false;
     });
 
     try {
       final resp = await _fetchPage(null);
-      if (!mounted) return;
+      if (!mounted || requestGeneration != _requestGeneration) return;
       setState(() {
         _shorts
           ..clear()
-          ..addAll((resp.items ?? const <NewPipeSearchItem>[]).where(_isShort));
+          ..addAll(uniqueShortItems(resp.items ?? const <NewPipeSearchItem>[]));
         _nextPage = resp.nextPage;
         _hasMore = _nextPage != null;
         _initialLoadDone = true;
@@ -123,13 +123,12 @@ class _ShortsFeedScreenState extends State<ShortsFeedScreen> {
     } catch (e) {
       // The dedicated source can fail for reasons that have nothing to do
       // with the network (an extractor change, a channel with no Shorts tab).
-      // Try the fallback source once before showing an error, so the tab still
-      // shows real content instead of an empty screen.
+      // Try the fallback source once before showing an error.
+      if (requestGeneration != _requestGeneration || !mounted) return;
       if (!_usingFallback) {
-        await _loadFallback();
+        await _loadFallback(requestGeneration);
         return;
       }
-      if (!mounted) return;
       setState(() {
         _initialLoadDone = true;
         _errorMessage = _describeError(e);
@@ -138,20 +137,17 @@ class _ShortsFeedScreenState extends State<ShortsFeedScreen> {
   }
 
   /// Last-resort source: a Shorts-filtered search.
-  ///
-  /// Used only when the dedicated channel-tab source is unavailable, so the
-  /// tab is never empty for a reason the user cannot act on.
-  Future<void> _loadFallback() async {
+  Future<void> _loadFallback(int requestGeneration) async {
     try {
       final resp = await NewPipeChannel.search(
         query: 'shorts',
         filter: 'videos',
       );
-      if (!mounted) return;
+      if (!mounted || requestGeneration != _requestGeneration) return;
       setState(() {
         _shorts
           ..clear()
-          ..addAll((resp.items ?? const <NewPipeSearchItem>[]).where(_isShort));
+          ..addAll(uniqueShortItems(resp.items ?? const <NewPipeSearchItem>[]));
         _nextPage = resp.nextPage;
         _hasMore = _nextPage != null;
         _initialLoadDone = true;
@@ -159,7 +155,7 @@ class _ShortsFeedScreenState extends State<ShortsFeedScreen> {
         _retryAttempt = 0;
       });
     } catch (e) {
-      if (!mounted) return;
+      if (!mounted || requestGeneration != _requestGeneration) return;
       setState(() {
         _initialLoadDone = true;
         _errorMessage = _describeError(e);
@@ -202,40 +198,32 @@ class _ShortsFeedScreenState extends State<ShortsFeedScreen> {
     await _loadInitial();
   }
 
-  /// A result counts as a short when the extractor flags it, or when its
-  /// duration is at or under 60 seconds (some backends omit the flag).
-  bool _isShort(NewPipeSearchItem item) {
-    if (item.type != null && item.type!.toUpperCase() != 'STREAM') return false;
-    if (item.isShort == true) return true;
-    final d = item.duration;
-    return d != null && d > 0 && d <= 60;
-  }
-
   Future<void> _loadMore() async {
     if (_isLoadingMore || !_hasMore || _nextPage == null) return;
 
-    setState(() => _isLoadingMore = true);
+    final requestGeneration = _requestGeneration;
+    final requestedCursor = _nextPage!;
+    setState(() {
+      _isLoadingMore = true;
+      _loadMoreFailed = false;
+    });
 
     try {
-      // Load more se pehle channel rotate karein (YouTube gese feed ke liye)
-      _pageLoadCount++;
-      final channelIndex = _pageLoadCount % _shortsChannels.length;
-      _activeChannel = _shortsChannels[channelIndex];
-      
-      final resp = await _fetchPage(_nextPage);
-      if (!mounted) return;
+      // The cursor is scoped to the active channel; never rotate channels here.
+      final resp = await _fetchPage(requestedCursor);
+      if (!mounted || requestGeneration != _requestGeneration) return;
       setState(() {
-        final known = _shorts.map((e) => e.url).toSet();
-        _shorts.addAll((resp.items ?? const <NewPipeSearchItem>[])
-            .where(_isShort)
-            .where((e) => !known.contains(e.url)));
-        _nextPage = resp.nextPage;
+        _shorts.addAll(uniqueShortItems(
+          resp.items ?? const <NewPipeSearchItem>[],
+          existing: _shorts,
+        ));
+        _nextPage = resp.nextPage == requestedCursor ? null : resp.nextPage;
         _hasMore = _nextPage != null;
         _isLoadingMore = false;
         _loadMoreFailed = false;
       });
     } catch (_) {
-      if (!mounted) return;
+      if (!mounted || requestGeneration != _requestGeneration) return;
       // Keep the items already on screen; surface a retry affordance at the
       // end of the list instead of replacing the whole feed with an error.
       setState(() {
@@ -251,36 +239,40 @@ class _ShortsFeedScreenState extends State<ShortsFeedScreen> {
     // backoff, because the user explicitly asked for a new attempt.
     final idx = _shortsChannels.indexOf(_activeChannel);
     _activeChannel = _shortsChannels[(idx + 1) % _shortsChannels.length];
+    _usingFallback = false;
     _retryAttempt = 0;
     _loadMoreFailed = false;
     await _loadInitial();
   }
 
   void _openPlayer(int index) {
-    final items = _shorts
-        .map((s) => ShortItem(
-              id: s.videoId ??
-                  s.url?.split('v=').last.split('&').first ??
-                  s.url?.split('/').last ??
-                  '',
-              title: s.name,
-              thumbnailUrl: s.thumbnailUrl,
-              uploaderName: s.uploaderName,
-              uploaderAvatar: s.uploaderAvatarUrl,
-              uploaderId: s.uploaderUrl?.split('/').last,
-              viewCount: s.viewCount,
-              duration: s.duration,
-              uploaderVerified: s.uploaderVerified,
-            ))
-        .where((e) => e.id.isNotEmpty)
-        .toList();
+    final items = <ShortItem>[];
+    final sourceIndexes = <int>[];
+    for (var sourceIndex = 0; sourceIndex < _shorts.length; sourceIndex++) {
+      final item = _shorts[sourceIndex];
+      final id = shortsVideoId(item);
+      if (id == null) continue;
+      sourceIndexes.add(sourceIndex);
+      items.add(ShortItem(
+        id: id,
+        title: item.name,
+        thumbnailUrl: item.thumbnailUrl,
+        uploaderName: item.uploaderName,
+        uploaderAvatar: item.uploaderAvatarUrl,
+        uploaderId: item.uploaderUrl?.split('/').last,
+        viewCount: item.viewCount,
+        duration: item.duration,
+        uploaderVerified: item.uploaderVerified,
+      ));
+    }
 
-    if (items.isEmpty) return;
+    final selectedIndex = sourceIndexes.indexOf(index);
+    if (selectedIndex < 0) return;
 
     Navigator.of(context).push(MaterialPageRoute(
       builder: (_) => ScreenShorts(
         shorts: items,
-        initialIndex: index.clamp(0, items.length - 1),
+        initialIndex: selectedIndex,
       ),
     ));
   }
