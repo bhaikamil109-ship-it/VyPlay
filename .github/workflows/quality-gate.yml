@@ -210,7 +210,14 @@ jobs:
           if package_line is None:
               raise SystemExit("APK package metadata is missing.")
 
-          values = dict(re.findall(r"(name|versionCode|versionName)='([^']*)'", package_line))
+          # Match complete attribute names only. A substring match for
+          # "name" can collide with "versionName" in aapt output.
+          values = {}
+          for key in ("name", "versionCode", "versionName"):
+              match = re.search(rf"(?:^|\\s){re.escape(key)}='([^']*)'", package_line)
+              if match is not None:
+                  values[key] = match.group(1)
+
           expected = {
               "name": "com.kamil.vyplay",
               "versionName": expected_name,
