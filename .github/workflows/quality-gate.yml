@@ -127,8 +127,16 @@ jobs:
             exit 0
           fi
 
-          printf 'Checking %s changed Dart file(s).\n' "${#DART_FILES[@]}" | tee "$QUALITY_DIR/dart-format.log"
-          dart format --output=none --set-exit-if-changed "${DART_FILES[@]}" 2>&1 | tee -a "$QUALITY_DIR/dart-format.log"
+          printf 'Checking %s changed Dart file(s).\n' "\${#DART_FILES[@]}" | tee "$QUALITY_DIR/dart-format.log"
+          if ! dart format --output=none --set-exit-if-changed "\${DART_FILES[@]}" 2>&1 | tee -a "$QUALITY_DIR/dart-format.log"; then
+            echo "Capturing canonical formatter output for the changed files." | tee -a "$QUALITY_DIR/dart-format.log"
+            while IFS= read -r file; do
+              output="$QUALITY_DIR/formatted-source/$file"
+              mkdir -p "$(dirname "$output")"
+              dart format --output=show "$file" > "$output"
+            done < <(printf '%s\n' "\${DART_FILES[@]}")
+            exit 1
+          fi
 
       - name: Flutter static analysis
         shell: bash
@@ -242,6 +250,6 @@ jobs:
           name: vyplay-qa-reports-${{ github.run_number }}
           path: |
             coverage/lcov.info
-            .qa-reports/
+            qa-reports/
           if-no-files-found: warn
           retention-days: 14
