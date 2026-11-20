@@ -267,32 +267,32 @@ jobs:
             git log --pretty='- %s (%h)' -10
           } > RELEASE_NOTES.md
 
-      - name: Publish APKs directly to GitHub Release
+      - name: Publish signed APKs to GitHub Release
+        if: steps.signing.outputs.signed == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
           RELEASE_TAG: ${{ steps.app_version.outputs.tag }}
           VERSION: ${{ steps.app_version.outputs.version }}
-          SIGNED: ${{ steps.signing.outputs.signed }}
         shell: bash
         run: |
           set -euo pipefail
+          gh release create "$RELEASE_TAG" dist/*.apk dist/SHA256SUMS \
+            --title "VyPlay $VERSION" \
+            --notes-file RELEASE_NOTES.md
 
-          ASSETS=(dist/*.apk dist/SHA256SUMS)
-
-          if [[ "$SIGNED" == "true" ]]; then
-            gh release create "$RELEASE_TAG" "${ASSETS[@]}" \
-              --title "VyPlay $VERSION" \
-              --notes-file RELEASE_NOTES.md
-          else
-            # A fresh temporary debug key is not a stable update identity.
-            # Publish it as a prerelease so it cannot be mistaken for production.
-            gh release create "$RELEASE_TAG" "${ASSETS[@]}" \
-              --title "VyPlay $VERSION (UNSIGNED TEST BUILD)" \
-              --notes-file RELEASE_NOTES.md \
-              --prerelease
-          fi
+      - name: Upload temporary-key test APKs as workflow artifact
+        if: steps.signing.outputs.signed != 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: VyPlay-test-APKs-${{ github.run_number }}
+          path: |
+            dist/*.apk
+            dist/SHA256SUMS
+          if-no-files-found: error
+          retention-days: 14
 
       - name: Verify published release assets
+        if: steps.signing.outputs.signed == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
           RELEASE_TAG: ${{ steps.app_version.outputs.tag }}
@@ -327,5 +327,9 @@ jobs:
           echo "## VyPlay APK Build" >> "$GITHUB_STEP_SUMMARY"
           echo "Flutter tests: Not run." >> "$GITHUB_STEP_SUMMARY"
           echo "Flutter analyze: Not run." >> "$GITHUB_STEP_SUMMARY"
-          echo "GitHub Actions artifact upload: Disabled." >> "$GITHUB_STEP_SUMMARY"
+          if [[ "${{ steps.signing.outputs.signed }}" == "true" ]]; then
+            echo "Release publication: Permanent signing secrets configured." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "Release publication: Skipped; APKs uploaded as a 14-day test artifact." >> "$GITHUB_STEP_SUMMARY"
+          fi
           
