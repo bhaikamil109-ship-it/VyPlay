@@ -45,8 +45,9 @@ class SubscribeBloc extends Bloc<SubscribeEvent, SubscribeState> {
     ));
   }
 
-  SubscribeBloc(this._subscribeServices,)
-      : super(SubscribeState.initialize()) {
+  SubscribeBloc(
+    this._subscribeServices,
+  ) : super(SubscribeState.initialize()) {
     // get all subscribed channel list from local storage
     on<GetAllSubscribeList>((event, emit) async {
       final requestGeneration = ++_listRequestGeneration;

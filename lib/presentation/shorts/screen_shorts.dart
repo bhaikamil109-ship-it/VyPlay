@@ -81,7 +81,8 @@ class _ScreenShortsState extends State<ScreenShorts> {
 
     // Initialize controllers for each short and attach one listener per
     // controller. Re-entering a page must not accumulate duplicate listeners.
-    _controllers = widget.shorts.map((short) => _ShortVideoController()).toList();
+    _controllers =
+        widget.shorts.map((short) => _ShortVideoController()).toList();
     for (final controller in _controllers) {
       controller.addListener(_onControllerChanged);
     }
@@ -282,7 +283,8 @@ class _ScreenShortsState extends State<ScreenShorts> {
               ),
               // Header
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -305,9 +307,12 @@ class _ScreenShortsState extends State<ScreenShorts> {
                 child: BlocBuilder<WatchBloc, WatchState>(
                   builder: (context, watchState) {
                     // Determine the correct status and comments based on service
-                    final isLoading = watchState.fetchCommentsStatus == ApiStatus.loading ||
-                        watchState.fetchNewPipeCommentsStatus == ApiStatus.loading ||
-                        watchState.fetchInvidiousCommentsStatus == ApiStatus.loading;
+                    final isLoading =
+                        watchState.fetchCommentsStatus == ApiStatus.loading ||
+                            watchState.fetchNewPipeCommentsStatus ==
+                                ApiStatus.loading ||
+                            watchState.fetchInvidiousCommentsStatus ==
+                                ApiStatus.loading;
 
                     if (isLoading) {
                       return Center(child: cIndicator(context));
@@ -315,8 +320,10 @@ class _ScreenShortsState extends State<ScreenShorts> {
 
                     // Get comments from the appropriate source
                     final pipedComments = watchState.comments.comments;
-                    final newPipeComments = watchState.newPipeComments.comments ?? [];
-                    final invidiousComments = watchState.invidiousComments.comments ?? [];
+                    final newPipeComments =
+                        watchState.newPipeComments.comments ?? [];
+                    final invidiousComments =
+                        watchState.invidiousComments.comments ?? [];
 
                     // Use whichever has data
                     final hasComments = pipedComments.isNotEmpty ||
@@ -353,7 +360,8 @@ class _ScreenShortsState extends State<ScreenShorts> {
   }
 
   void _showQualitySheet(_ShortVideoController controller) {
-    if (controller.availableQualities == null || controller.availableQualities!.isEmpty) {
+    if (controller.availableQualities == null ||
+        controller.availableQualities!.isEmpty) {
       return;
     }
 
@@ -386,7 +394,8 @@ class _ScreenShortsState extends State<ScreenShorts> {
                     onTap: () => Navigator.pop(context),
                     child: const Padding(
                       padding: EdgeInsets.all(4),
-                      child: Icon(CupertinoIcons.xmark, color: kWhiteColor, size: 20),
+                      child: Icon(CupertinoIcons.xmark,
+                          color: kWhiteColor, size: 20),
                     ),
                   ),
                   const SizedBox(width: 8),
@@ -421,13 +430,15 @@ class _ScreenShortsState extends State<ScreenShorts> {
                         controller.changeQuality(quality.label);
                       },
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 16, vertical: 10),
                         child: Row(
                           children: [
                             SizedBox(
                               width: 24,
                               child: isSelected
-                                  ? const Icon(CupertinoIcons.checkmark, color: kWhiteColor, size: 16)
+                                  ? const Icon(CupertinoIcons.checkmark,
+                                      color: kWhiteColor, size: 16)
                                   : null,
                             ),
                             const SizedBox(width: 12),
@@ -435,22 +446,27 @@ class _ScreenShortsState extends State<ScreenShorts> {
                               child: Text(
                                 quality.label,
                                 style: TextStyle(
-                                  color: isSelected ? kWhiteColor : Colors.white70,
+                                  color:
+                                      isSelected ? kWhiteColor : Colors.white70,
                                   fontSize: 14,
-                                  fontWeight: isSelected ? FontWeight.w500 : FontWeight.normal,
+                                  fontWeight: isSelected
+                                      ? FontWeight.w500
+                                      : FontWeight.normal,
                                 ),
                               ),
                             ),
                             if (quality.fps != null && quality.fps! > 30)
                               Container(
-                                padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 5, vertical: 2),
                                 decoration: BoxDecoration(
                                   color: Colors.white24,
                                   borderRadius: BorderRadius.circular(4),
                                 ),
                                 child: Text(
                                   '${quality.fps}fps',
-                                  style: const TextStyle(color: kWhiteColor, fontSize: 10),
+                                  style: const TextStyle(
+                                      color: kWhiteColor, fontSize: 10),
                                 ),
                               ),
                           ],
@@ -557,7 +573,11 @@ class _ShortVideoPage extends StatelessWidget {
           ),
 
         // Play/Pause overlay - make the entire center area tappable
-        if (controller.isInitialized && !controller.isPlaying && isActive && !controller.isLoading && !controller.isBuffering)
+        if (controller.isInitialized &&
+            !controller.isPlaying &&
+            isActive &&
+            !controller.isLoading &&
+            !controller.isBuffering)
           Positioned.fill(
             child: GestureDetector(
               onTap: () => controller.togglePlayPause(),
@@ -728,7 +748,8 @@ class _ShortVideoPage extends StatelessWidget {
                 child: Row(
                   children: [
                     // Channel avatar
-                    _buildChannelAvatar(controller.uploaderAvatar ?? short.uploaderAvatar),
+                    _buildChannelAvatar(
+                        controller.uploaderAvatar ?? short.uploaderAvatar),
                     const SizedBox(width: 10),
                     Expanded(
                       child: Column(
@@ -738,7 +759,9 @@ class _ShortVideoPage extends StatelessWidget {
                             children: [
                               Flexible(
                                 child: Text(
-                                  controller.uploaderName ?? short.uploaderName ?? locals.noUploaderName,
+                                  controller.uploaderName ??
+                                      short.uploaderName ??
+                                      locals.noUploaderName,
                                   style: const TextStyle(
                                     color: kWhiteColor,
                                     fontWeight: FontWeight.w600,
@@ -748,7 +771,8 @@ class _ShortVideoPage extends StatelessWidget {
                                   overflow: TextOverflow.ellipsis,
                                 ),
                               ),
-                              if (controller.uploaderVerified == true || short.uploaderVerified == true) ...[
+                              if (controller.uploaderVerified == true ||
+                                  short.uploaderVerified == true) ...[
                                 const SizedBox(width: 4),
                                 const Icon(
                                   CupertinoIcons.checkmark_seal_fill,
@@ -1169,13 +1193,16 @@ class _CommentTile extends StatelessWidget {
                       ),
                     ),
                     // Reply button - show if replyCount > 0 and onReplyTap is provided
-                    if (replyCount != null && replyCount! > 0 && onReplyTap != null) ...[
+                    if (replyCount != null &&
+                        replyCount! > 0 &&
+                        onReplyTap != null) ...[
                       const SizedBox(width: 16),
                       GestureDetector(
                         onTap: onReplyTap,
                         behavior: HitTestBehavior.opaque,
                         child: Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 8, vertical: 6),
                           decoration: BoxDecoration(
                             color: AppColors.primary.withValues(alpha: 0.1),
                             borderRadius: BorderRadius.circular(16),
@@ -1223,7 +1250,8 @@ class _ShortVideoController extends ChangeNotifier {
   bool _isLoading = false;
   bool _isBuffering = false;
   bool _hasError = false;
-  bool _shouldPlay = false; // Track if this controller should play when ready (default false)
+  bool _shouldPlay =
+      false; // Track if this controller should play when ready (default false)
   bool _isInitializing = false; // Prevent concurrent initialization
   int _playerGeneration = 0;
   StreamSubscription<bool>? _playingSubscription;
@@ -1289,7 +1317,8 @@ class _ShortVideoController extends ChangeNotifier {
       _viewCount = _watchResp!.viewCount;
 
       // Get available qualities
-      _availableQualities = NewPipeStreamHelper.getAvailableQualities(_watchResp!);
+      _availableQualities =
+          NewPipeStreamHelper.getAvailableQualities(_watchResp!);
 
       // Get playable stream URL using resolver
       final resolver = NewPipePlaybackResolver();
@@ -1330,7 +1359,8 @@ class _ShortVideoController extends ChangeNotifier {
       if (generation != _playerGeneration) return;
 
       // For merging source type, listen for completion to re-set audio on loop
-      if (_currentConfig!.sourceType == MediaSourceType.merging && _audioUrl != null) {
+      if (_currentConfig!.sourceType == MediaSourceType.merging &&
+          _audioUrl != null) {
         _setupCompletedListener();
       }
 
@@ -1354,7 +1384,8 @@ class _ShortVideoController extends ChangeNotifier {
   /// Listen to completed stream to re-set audio when video loops
   void _setupCompletedListener() {
     _completedSubscription?.cancel();
-    _completedSubscription = _player!.stream.completed.listen((completed) async {
+    _completedSubscription =
+        _player!.stream.completed.listen((completed) async {
       if (completed && _audioUrl != null) {
         // Video completed (will loop due to PlaylistMode.loop)
         // Re-set audio track immediately
@@ -1378,7 +1409,8 @@ class _ShortVideoController extends ChangeNotifier {
           Media(
             config.videoUrl!,
             httpHeaders: {
-              'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+              'User-Agent':
+                  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
             },
           ),
           play: false,
@@ -1386,7 +1418,8 @@ class _ShortVideoController extends ChangeNotifier {
         if (_shouldPlay) {
           await _player!.play();
         }
-        debugPrint('[Shorts] Opened progressive stream, shouldPlay: $_shouldPlay');
+        debugPrint(
+            '[Shorts] Opened progressive stream, shouldPlay: $_shouldPlay');
         break;
 
       case MediaSourceType.merging:
@@ -1397,7 +1430,8 @@ class _ShortVideoController extends ChangeNotifier {
           Media(
             config.videoUrl!,
             httpHeaders: {
-              'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+              'User-Agent':
+                  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
             },
           ),
           play: false,
@@ -1505,7 +1539,8 @@ class _ShortVideoController extends ChangeNotifier {
       _likeCount = watchResp.likeCount;
       _viewCount = watchResp.viewCount;
       _watchResp = watchResp;
-      _availableQualities = NewPipeStreamHelper.getAvailableQualities(watchResp);
+      _availableQualities =
+          NewPipeStreamHelper.getAvailableQualities(watchResp);
     } catch (e) {
       debugPrint('Error preloading short: $e');
     }
@@ -1522,7 +1557,8 @@ class _ShortVideoController extends ChangeNotifier {
       final currentPosition = _player!.state.position;
       final wasPlaying = _player!.state.playing;
 
-      debugPrint('[Shorts] Changing quality from $_currentQuality to $newQuality at position: ${currentPosition.inSeconds}s');
+      debugPrint(
+          '[Shorts] Changing quality from $_currentQuality to $newQuality at position: ${currentPosition.inSeconds}s');
 
       // Resolve new configuration
       final resolver = NewPipePlaybackResolver();
@@ -1542,10 +1578,12 @@ class _ShortVideoController extends ChangeNotifier {
       await _player!.pause();
 
       // Setup new media source (this opens the new stream)
-      await _setupMediaSourceWithPosition(newConfig, currentPosition, wasPlaying);
+      await _setupMediaSourceWithPosition(
+          newConfig, currentPosition, wasPlaying);
 
       // Re-setup completed listener if merging
-      if (newConfig.sourceType == MediaSourceType.merging && _audioUrl != null) {
+      if (newConfig.sourceType == MediaSourceType.merging &&
+          _audioUrl != null) {
         _setupCompletedListener();
       }
 
@@ -1562,7 +1600,8 @@ class _ShortVideoController extends ChangeNotifier {
     }
   }
 
-  Future<void> _setupMediaSourceWithPosition(PlaybackConfiguration config, Duration seekPosition, bool shouldPlay) async {
+  Future<void> _setupMediaSourceWithPosition(PlaybackConfiguration config,
+      Duration seekPosition, bool shouldPlay) async {
     switch (config.sourceType) {
       case MediaSourceType.progressive:
         // Muxed stream (has audio)
@@ -1570,7 +1609,8 @@ class _ShortVideoController extends ChangeNotifier {
           Media(
             config.videoUrl!,
             httpHeaders: {
-              'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+              'User-Agent':
+                  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
             },
           ),
           play: false,
@@ -1585,7 +1625,8 @@ class _ShortVideoController extends ChangeNotifier {
         if (shouldPlay) {
           await _player!.play();
         }
-        debugPrint('[Shorts] Opened progressive stream at ${seekPosition.inSeconds}s');
+        debugPrint(
+            '[Shorts] Opened progressive stream at ${seekPosition.inSeconds}s');
         break;
 
       case MediaSourceType.merging:
@@ -1596,7 +1637,8 @@ class _ShortVideoController extends ChangeNotifier {
           Media(
             config.videoUrl!,
             httpHeaders: {
-              'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+              'User-Agent':
+                  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
             },
           ),
           play: false,
@@ -1623,7 +1665,8 @@ class _ShortVideoController extends ChangeNotifier {
         if (shouldPlay) {
           await _player!.play();
         }
-        debugPrint('[Shorts] Opened video + audio at ${seekPosition.inSeconds}s');
+        debugPrint(
+            '[Shorts] Opened video + audio at ${seekPosition.inSeconds}s');
         break;
 
       case MediaSourceType.hls:
@@ -1776,7 +1819,8 @@ class _ShortsCommentsListState extends State<_ShortsCommentsList> {
             !state.isMoreInvidiousCommentsFetchCompleted &&
             state.invidiousComments.continuation != null) {
           context.read<WatchBloc>().add(WatchEvent.getMoreInvidiousComments(
-              id: widget.videoId, continuation: state.invidiousComments.continuation!));
+              id: widget.videoId,
+              continuation: state.invidiousComments.continuation!));
         }
       } else {
         if (state.fetchMoreCommentsStatus != ApiStatus.loading &&
@@ -1790,18 +1834,21 @@ class _ShortsCommentsListState extends State<_ShortsCommentsList> {
   }
 
   void _showReplies(BuildContext context, Comment comment) {
-    debugPrint('[Shorts] _showReplies called: commentId=${comment.commentId}, repliesPage=${comment.repliesPage}');
+    debugPrint(
+        '[Shorts] _showReplies called: commentId=${comment.commentId}, repliesPage=${comment.repliesPage}');
     if (comment.commentId != null && comment.repliesPage != null) {
       context.read<WatchBloc>().add(WatchEvent.getCommentRepliesData(
           id: comment.commentId!, nextPage: comment.repliesPage!));
       _showRepliesSheet(context, comment);
     } else {
-      debugPrint('[Shorts] Cannot show replies: commentId or repliesPage is null');
+      debugPrint(
+          '[Shorts] Cannot show replies: commentId or repliesPage is null');
     }
   }
 
   void _showNewPipeReplies(BuildContext context, NewPipeComment comment) {
-    debugPrint('[Shorts] _showNewPipeReplies called: repliesPage=${comment.repliesPage}');
+    debugPrint(
+        '[Shorts] _showNewPipeReplies called: repliesPage=${comment.repliesPage}');
     if (comment.repliesPage != null) {
       context.read<WatchBloc>().add(WatchEvent.getNewPipeCommentReplies(
           videoId: widget.videoId, repliesPage: comment.repliesPage!));
@@ -1811,7 +1858,8 @@ class _ShortsCommentsListState extends State<_ShortsCommentsList> {
     }
   }
 
-  void _showNewPipeRepliesSheet(BuildContext context, NewPipeComment parentComment) {
+  void _showNewPipeRepliesSheet(
+      BuildContext context, NewPipeComment parentComment) {
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
 
@@ -1854,7 +1902,8 @@ class _ShortsCommentsListState extends State<_ShortsCommentsList> {
 
     if (settingsState.ytService == YouTubeServices.newpipe.name) {
       final comments = state.newPipeComments.comments ?? [];
-      final isLoadingMore = state.fetchMoreNewPipeCommentsStatus == ApiStatus.loading;
+      final isLoadingMore =
+          state.fetchMoreNewPipeCommentsStatus == ApiStatus.loading;
       final hasMore = !state.isMoreNewPipeCommentsFetchCompleted;
 
       return ListView.builder(
@@ -1896,7 +1945,8 @@ class _ShortsCommentsListState extends State<_ShortsCommentsList> {
       );
     } else if (settingsState.ytService == YouTubeServices.invidious.name) {
       final comments = state.invidiousComments.comments ?? [];
-      final isLoadingMore = state.fetchMoreInvidiousCommentsStatus == ApiStatus.loading;
+      final isLoadingMore =
+          state.fetchMoreInvidiousCommentsStatus == ApiStatus.loading;
       final hasMore = !state.isMoreInvidiousCommentsFetchCompleted;
 
       return ListView.builder(
@@ -1965,9 +2015,8 @@ class _ShortsCommentsListState extends State<_ShortsCommentsList> {
             theme: widget.theme,
             locals: widget.locals,
             replyCount: comment.replyCount,
-            onReplyTap: canShowReplies
-                ? () => _showReplies(context, comment)
-                : null,
+            onReplyTap:
+                canShowReplies ? () => _showReplies(context, comment) : null,
             isHearted: comment.hearted ?? false,
             isPinned: comment.pinned ?? false,
             isVerified: comment.verified ?? false,
@@ -2075,7 +2124,8 @@ class _NewPipeRepliesSheetState extends State<_NewPipeRepliesSheet> {
               padding: const EdgeInsets.all(16),
               child: _CommentTile(
                 avatarUrl: widget.parentComment.authorAvatarUrl,
-                author: widget.parentComment.authorName ?? widget.locals.commentAuthorNotFound,
+                author: widget.parentComment.authorName ??
+                    widget.locals.commentAuthorNotFound,
                 time: widget.parentComment.uploadDate ?? '',
                 text: widget.parentComment.text ?? '',
                 likeCount: widget.parentComment.likeCount?.toString() ?? '0',
@@ -2091,11 +2141,15 @@ class _NewPipeRepliesSheetState extends State<_NewPipeRepliesSheet> {
             Expanded(
               child: BlocBuilder<WatchBloc, WatchState>(
                 buildWhen: (previous, current) =>
-                    previous.fetchNewPipeCommentRepliesStatus != current.fetchNewPipeCommentRepliesStatus ||
-                    previous.fetchMoreNewPipeCommentRepliesStatus != current.fetchMoreNewPipeCommentRepliesStatus ||
-                    previous.newPipeCommentReplies != current.newPipeCommentReplies,
+                    previous.fetchNewPipeCommentRepliesStatus !=
+                        current.fetchNewPipeCommentRepliesStatus ||
+                    previous.fetchMoreNewPipeCommentRepliesStatus !=
+                        current.fetchMoreNewPipeCommentRepliesStatus ||
+                    previous.newPipeCommentReplies !=
+                        current.newPipeCommentReplies,
                 builder: (context, state) {
-                  if (state.fetchNewPipeCommentRepliesStatus == ApiStatus.loading) {
+                  if (state.fetchNewPipeCommentRepliesStatus ==
+                      ApiStatus.loading) {
                     return Center(child: cIndicator(context));
                   }
 
@@ -2112,7 +2166,9 @@ class _NewPipeRepliesSheetState extends State<_NewPipeRepliesSheet> {
                   }
 
                   final hasMore = state.newPipeCommentReplies.nextPage != null;
-                  final isLoadingMore = state.fetchMoreNewPipeCommentRepliesStatus == ApiStatus.loading;
+                  final isLoadingMore =
+                      state.fetchMoreNewPipeCommentRepliesStatus ==
+                          ApiStatus.loading;
 
                   return ListView.builder(
                     controller: _scrollController,
@@ -2130,7 +2186,8 @@ class _NewPipeRepliesSheetState extends State<_NewPipeRepliesSheet> {
                       final reply = replies[index];
                       return _CommentTile(
                         avatarUrl: reply.authorAvatarUrl,
-                        author: reply.authorName ?? widget.locals.commentAuthorNotFound,
+                        author: reply.authorName ??
+                            widget.locals.commentAuthorNotFound,
                         time: reply.uploadDate ?? '',
                         text: reply.text ?? '',
                         likeCount: reply.likeCount?.toString() ?? '0',
@@ -2251,7 +2308,8 @@ class _PipedRepliesSheetState extends State<_PipedRepliesSheet> {
               padding: const EdgeInsets.all(16),
               child: _CommentTile(
                 avatarUrl: widget.parentComment.thumbnail,
-                author: widget.parentComment.author ?? widget.locals.commentAuthorNotFound,
+                author: widget.parentComment.author ??
+                    widget.locals.commentAuthorNotFound,
                 time: widget.parentComment.commentedTime ?? '',
                 text: widget.parentComment.commentText ?? '',
                 likeCount: widget.parentComment.likeCount?.toString() ?? '0',
@@ -2267,10 +2325,13 @@ class _PipedRepliesSheetState extends State<_PipedRepliesSheet> {
             Expanded(
               child: BlocBuilder<WatchBloc, WatchState>(
                 buildWhen: (previous, current) =>
-                    previous.fetchCommentRepliesStatus != current.fetchCommentRepliesStatus ||
-                    previous.fetchMoreCommentRepliesStatus != current.fetchMoreCommentRepliesStatus ||
+                    previous.fetchCommentRepliesStatus !=
+                        current.fetchCommentRepliesStatus ||
+                    previous.fetchMoreCommentRepliesStatus !=
+                        current.fetchMoreCommentRepliesStatus ||
                     previous.commentReplies != current.commentReplies ||
-                    previous.isMoreReplyCommentsFetchCompleted != current.isMoreReplyCommentsFetchCompleted,
+                    previous.isMoreReplyCommentsFetchCompleted !=
+                        current.isMoreReplyCommentsFetchCompleted,
                 builder: (context, state) {
                   if (state.fetchCommentRepliesStatus == ApiStatus.loading) {
                     return Center(child: cIndicator(context));
@@ -2292,7 +2353,8 @@ class _PipedRepliesSheetState extends State<_PipedRepliesSheet> {
                   final hasMore = !state.isMoreReplyCommentsFetchCompleted &&
                       replyNextpage != null &&
                       replyNextpage.isNotEmpty;
-                  final isLoadingMore = state.fetchMoreCommentRepliesStatus == ApiStatus.loading;
+                  final isLoadingMore =
+                      state.fetchMoreCommentRepliesStatus == ApiStatus.loading;
 
                   return ListView.builder(
                     controller: _scrollController,
@@ -2310,7 +2372,8 @@ class _PipedRepliesSheetState extends State<_PipedRepliesSheet> {
                       final reply = replies[index];
                       return _CommentTile(
                         avatarUrl: reply.thumbnail,
-                        author: reply.author ?? widget.locals.commentAuthorNotFound,
+                        author:
+                            reply.author ?? widget.locals.commentAuthorNotFound,
                         time: reply.commentedTime ?? '',
                         text: reply.commentText ?? '',
                         likeCount: reply.likeCount?.toString() ?? '0',

@@ -52,9 +52,8 @@ class SavedBloc extends Bloc<SavedEvent, SavedState> {
 
       emit(state.copyWith(
         savedVideosFetchStatus: ApiStatus.loading,
-        localSavedVideos: profileChanged
-            ? <LocalStoreVideoInfo>[]
-            : state.localSavedVideos,
+        localSavedVideos:
+            profileChanged ? <LocalStoreVideoInfo>[] : state.localSavedVideos,
         localSavedHistoryVideos: profileChanged
             ? <LocalStoreVideoInfo>[]
             : state.localSavedHistoryVideos,

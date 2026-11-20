@@ -14,9 +14,11 @@ import 'package:vyplay/domain/subscribes/subscribe_services.dart';
 import 'package:vyplay/domain/user_preferences/user_preferences_service.dart';
 
 class _DeferredSubscribeServices implements SubscribeServices {
-  final Map<String, Completer<Either<MainFailure, List<Subscribe>>>> listRequests = {};
+  final Map<String, Completer<Either<MainFailure, List<Subscribe>>>>
+      listRequests = {};
   final Map<String, Completer<void>> listStarted = {};
-  final Map<String, Completer<Either<MainFailure, Subscribe>>> checkRequests = {};
+  final Map<String, Completer<Either<MainFailure, Subscribe>>> checkRequests =
+      {};
   final Map<String, Completer<void>> checkStarted = {};
 
   Future<void> waitForList(String profile) =>
@@ -207,7 +209,8 @@ void main() {
       final workLoaded = bloc.stream.firstWhere(
         (state) => state.subscribeStatus == ApiStatus.loaded,
       );
-      services.listRequests['work']!.complete(const Right<MainFailure, List<Subscribe>>([]));
+      services.listRequests['work']!
+          .complete(const Right<MainFailure, List<Subscribe>>([]));
       await workLoaded;
 
       services.checkRequests['personal']!.complete(
