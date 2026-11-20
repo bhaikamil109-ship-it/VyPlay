@@ -467,6 +467,9 @@ class AppDatabase extends _$AppDatabase {
 
   Future<List<Subscription>> getGroupMembers(
       int groupId, String profileName) async {
+    final group = await getGroupById(groupId);
+    if (group == null || group.profileName != profileName) return [];
+
     final query = select(subscriptionGroupMembers)
       ..where((t) =>
           t.groupId.equals(groupId) & t.profileName.equals(profileName));
@@ -474,7 +477,8 @@ class AppDatabase extends _$AppDatabase {
     final channelIds = members.map((m) => m.channelId).toList();
     if (channelIds.isEmpty) return [];
     final subscriptionQuery = select(subscriptions)
-      ..where((t) => t.channelId.isIn(channelIds));
+      ..where((t) =>
+          t.profileName.equals(profileName) & t.channelId.isIn(channelIds));
     return subscriptionQuery.get();
   }
 

@@ -805,6 +805,11 @@ class SettingImpl implements SettingsService {
   }
 
   // Subscription Group methods
+  Future<bool> _ownsSubscriptionGroup(int groupId, String profileName) async {
+    final group = await db.getGroupById(groupId);
+    return group != null && group.profileName == profileName;
+  }
+
   @override
   Future<Either<MainFailure, List<Map<String, dynamic>>>> getAllSubscriptionGroups(
       {required String profileName}) async {
@@ -842,6 +847,9 @@ class SettingImpl implements SettingsService {
   Future<Either<MainFailure, bool>> renameSubscriptionGroup(
       {required int groupId, required String newName, required String profileName}) async {
     try {
+      if (!await _ownsSubscriptionGroup(groupId, profileName)) {
+        return const Left(MainFailure.notFound(resource: 'subscription group'));
+      }
       final update = SubscriptionGroupsCompanion(
         groupName: Value(newName),
       );
@@ -856,6 +864,9 @@ class SettingImpl implements SettingsService {
   Future<Either<MainFailure, bool>> deleteSubscriptionGroup(
       {required int groupId, required String profileName}) async {
     try {
+      if (!await _ownsSubscriptionGroup(groupId, profileName)) {
+        return const Left(MainFailure.notFound(resource: 'subscription group'));
+      }
       await db.deleteGroup(groupId);
       return const Right(true);
     } catch (e) {
@@ -867,6 +878,12 @@ class SettingImpl implements SettingsService {
   Future<Either<MainFailure, bool>> addToGroup(
       {required int groupId, required String channelId, required String profileName}) async {
     try {
+      if (!await _ownsSubscriptionGroup(groupId, profileName)) {
+        return const Left(MainFailure.notFound(resource: 'subscription group'));
+      }
+      if (await db.getSubscription(channelId, profileName) == null) {
+        return const Left(MainFailure.notFound(resource: 'subscription'));
+      }
       await db.addToGroup(groupId, channelId, profileName);
       return const Right(true);
     } catch (e) {
@@ -878,6 +895,9 @@ class SettingImpl implements SettingsService {
   Future<Either<MainFailure, bool>> removeFromGroup(
       {required int groupId, required String channelId, required String profileName}) async {
     try {
+      if (!await _ownsSubscriptionGroup(groupId, profileName)) {
+        return const Left(MainFailure.notFound(resource: 'subscription group'));
+      }
       await db.removeFromGroup(groupId, channelId, profileName);
       return const Right(true);
     } catch (e) {
@@ -889,6 +909,9 @@ class SettingImpl implements SettingsService {
   Future<Either<MainFailure, List<Map<String, dynamic>>>> getGroupMembers(
       {required int groupId, required String profileName}) async {
     try {
+      if (!await _ownsSubscriptionGroup(groupId, profileName)) {
+        return const Left(MainFailure.notFound(resource: 'subscription group'));
+      }
       final members = await db.getGroupMembers(groupId, profileName);
       return Right(members.map((s) => {
         'channelId': s.channelId,
