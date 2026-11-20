@@ -130,7 +130,7 @@ class NewPipeChannel {
   /// Pre-fetch stream info for a video (e.g., from thumbnails)
   static Future<void> prefetchStreamInfo(String videoId) async {
     // Check if already cached
-    final cached = _streamCache[videoId];
+    final cached = _streamCache[_cacheKey(videoId)];
     if (cached != null && !cached.isExpired(_cacheTtl)) {
       return;
     }
