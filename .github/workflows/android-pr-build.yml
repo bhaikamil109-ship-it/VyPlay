@@ -105,16 +105,70 @@ jobs:
             echo "No split-ABI debug APKs were produced." >&2
             exit 1
           fi
+          if [[ "${#APKS[@]}" -ne 3 ]]; then
+            echo "Expected exactly three split-ABI APKs; found ${#APKS[@]}." >&2
+            exit 1
+          fi
+
+          declare -A SEEN_ABIS=()
           for apk in "${APKS[@]}"; do
             test -s "$apk"
-            echo "APK: $(basename "$apk") ($(stat -c '%s' "$apk") bytes)"
-            native_count="$(unzip -Z1 "$apk" | grep -Ec '^lib/[^/]+/[^/]+\.so$' || true)"
-            if [[ "$native_count" -eq 0 ]]; then
-              echo "No native libraries were packaged in $(basename "$apk")." >&2
+            apk_name="$(basename "$apk")"
+            abi="${apk_name#app-}"
+            abi="${abi%-debug.apk}"
+            echo "APK: $apk_name ($(stat -c '%s' "$apk") bytes)"
+            SEEN_ABIS["$abi"]=1
+
+            case "$abi" in
+              arm64-v8a|x86_64)
+                expected_ffmpeg_libs=(
+                  libffmpegkit.so
+                  libffmpegkit_abidetect.so
+                  libavcodec.so
+                  libavdevice.so
+                  libavfilter.so
+                  libavformat.so
+                  libavutil.so
+                  libswresample.so
+                  libswscale.so
+                )
+                ;;
+              armeabi-v7a)
+                expected_ffmpeg_libs=(
+                  libffmpegkit_armv7a_neon.so
+                  libffmpegkit_abidetect.so
+                  libavcodec_neon.so
+                  libavdevice_neon.so
+                  libavfilter_neon.so
+                  libavformat_neon.so
+                  libavutil_neon.so
+                  libswresample_neon.so
+                  libswscale_neon.so
+                )
+                ;;
+              *)
+                echo "Unexpected ABI APK: $apk_name" >&2
+                exit 1
+                ;;
+            esac
+
+            apk_entries="$(unzip -Z1 "$apk")"
+            for library in "${expected_ffmpeg_libs[@]}"; do
+              if ! grep -Fxq "lib/$abi/$library" <<< "$apk_entries"; then
+                echo "Missing FFmpeg library in $apk_name: lib/$abi/$library" >&2
+                exit 1
+              fi
+            done
+
+            echo "Verified FFmpeg libraries for $abi:"
+            printf '  %s\n' "${expected_ffmpeg_libs[@]}"
+          done
+
+          for abi in arm64-v8a armeabi-v7a x86_64; do
+            if [[ -z "${SEEN_ABIS[$abi]:-}" ]]; then
+              echo "Missing split-ABI APK for $abi." >&2
               exit 1
             fi
-            echo "Bundled native libraries: $native_count"
-            unzip -Z1 "$apk" | grep -E '^lib/[^/]+/[^/]+\.so$' | sort
           done
 
       - name: Upload debug APKs for review
