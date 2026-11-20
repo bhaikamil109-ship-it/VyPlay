@@ -517,9 +517,10 @@ class _ScreenSubscriptionsState extends State<ScreenSubscriptions>
             );
               },
             ),
-          ),
+          },
         ),
-      );
+      ),
+    );
   }
 
   Widget _buildLoadingState() {

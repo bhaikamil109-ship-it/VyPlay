@@ -608,8 +608,9 @@ class _ScreenSavedState extends State<ScreenSaved>
             );
             },
           ),
-        ),
-      );
+        },
+      ),
+    );
   }
 
   Widget _buildLoadingState() {
