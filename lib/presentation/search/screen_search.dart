@@ -274,7 +274,7 @@ class _ScreenSearchState extends State<ScreenSearch> {
                                     'playlist', settingsState.ytService),
                               ]
                             : settingsState.ytService ==
-                                    YouTubeServices.newpipe.name
+                                    YouTubeServices.bilibili.name
                                 ? [
                                     _buildFilterChip(locals.filterAll, 'all',
                                         settingsState.ytService),
@@ -282,16 +282,21 @@ class _ScreenSearchState extends State<ScreenSearch> {
                                     _buildFilterChip(locals.filterVideos,
                                         'videos', settingsState.ytService),
                                     const SizedBox(width: 8),
+                                    _buildFilterChip('Live', 'lives',
+                                        settingsState.ytService),
+                                    const SizedBox(width: 8),
                                     _buildFilterChip(locals.filterChannels,
                                         'channels', settingsState.ytService),
                                     const SizedBox(width: 8),
-                                    _buildFilterChip(locals.filterPlaylists,
-                                        'playlists', settingsState.ytService),
+                                    _buildFilterChip('Anime', 'animes',
+                                        settingsState.ytService),
                                     const SizedBox(width: 8),
-                                    _buildFilterChip(locals.filterMusic,
-                                        'music_songs', settingsState.ytService),
+                                    _buildFilterChip('Movies / TV', 'movies_and_tv',
+                                        settingsState.ytService),
                                   ]
-                                : [
+                                : settingsState.ytService ==
+                                    YouTubeServices.newpipe.name
+                                  ? [
                                     _buildFilterChip(locals.filterAll, 'all',
                                         settingsState.ytService),
                                     const SizedBox(width: 8),
@@ -324,7 +329,8 @@ class _ScreenSearchState extends State<ScreenSearch> {
                   }
 
                   // NEWPIPE
-                  if (settingsState.ytService == YouTubeServices.newpipe.name) {
+                  if (settingsState.ytService == YouTubeServices.newpipe.name ||
+                      settingsState.ytService == YouTubeServices.bilibili.name) {
                     return _buildNewPipeContent(state, settingsState, locals);
                   }
                   // INVIDIOUS
@@ -518,6 +524,7 @@ class _ScreenSearchState extends State<ScreenSearch> {
         state: state,
         searchQuery: _textEditingController.text,
         filter: _selectedFilter,
+        serviceId: settingsState.ytService,
       );
     }
   }
