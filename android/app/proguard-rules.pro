@@ -74,6 +74,10 @@
 -keep class androidx.core.app.NotificationCompat { *; }
 -keep class androidx.core.app.NotificationCompat$* { *; }
 
+# PipePipe FFmpegKit classes are loaded through the native remux path.
+-keep class com.arthenica.ffmpegkit.** { *; }
+-keep class com.arthenica.smartexception.** { *; }
+-dontwarn com.arthenica.ffmpegkit.**
 # Muxer handlers - invoked by name from the method channel.
 # FFmpegMuxerHandler is kept because NewPipeMuxerHandler delegates the legacy
 # `resolveMuxPlan` / `muxVideoAudio` calls to it.
