@@ -1,6 +1,6 @@
 # VyPlay — Ultra Repository Audit
 
-Date: 2026-11-19 · Base commit `5dea4b8` · App `com.vyplay.app` `0.9.3+14`
+Original audit: 2026-11-19 · Status reconciled: 2026-11-21 · Current app `com.kamil.vyplay` `0.1.0`
 
 Scope of this pass: the playback path end-to-end, the native muxer/download contract, backend
 reachability, DI/database integrity, the Supabase connection, release engineering and
@@ -48,11 +48,13 @@ maintainer decision.
 Added `lib/core/services/playback_diagnostics.dart`, wired into the player error path and into
 the existing Debug → Share logs export. Redacted: `scheme://host/path` only.
 
-### H3 — High — CI publishes debug-signed APKs as normal releases (OPEN, needs decision)
-`android-draft-release.yml:100-145` generates a temporary debug keystore when signing secrets
-are missing and still publishes a production-looking release (`:279`, note at `:257`).
-See `VYPLAY_PRODUCTION_READINESS.md` for the two recommended shapes. Not changed because it
-alters release-channel semantics for the user's APK distribution.
+### H3 — High — CI release channel could publish a temporary-key APK as a normal release (FIXED)
+The previous workflow allowed a main-branch build to create a public Release even when the
+temporary debug keystore was used. Commit `be4a1880` now restricts public Release publication
+to a matching `v*` version tag **and** a fully configured permanent signing keystore. Main
+branch/manual non-tag builds and unsigned tag builds upload workflow artifacts only. The
+`pubspec.yaml` version must match the tag version before publication. Fresh workflow
+verification is tracked in `VYPLAY_PRODUCTION_READINESS.md`.
 
 ### M2 — Medium — dead player on Android (OPEN, by design?)
 `NewPipeMediaKitPlayer` is unreachable on Android because
@@ -69,10 +71,10 @@ native muxing implementation. Corrected in `README.md`.
 `CHANGELOG.md:3` documents `v0.9.4` while `pubspec.yaml:5` ships `0.9.3+14`.
 Left alone: rewriting released notes is the maintainer's call.
 
-### L2 — Low — error text can be cleared by the next state tick (OPEN)
-`onState` sets `_errorMessage = null` on every native state callback
-(`exoplayer_video_player.dart`, `onState` branch), so a non-fatal player error can disappear
-before the user reads it. Pre-existing; not changed to avoid altering error UX in this pass.
+### L2 — Low — playback error text cleared by ordinary state ticks (FIXED)
+`exoplayer_video_player.dart` now preserves the error through idle/buffering state callbacks
+and clears it only when the native player reports that playback has resumed. The error message
+therefore remains available for the user to read after a transient failure.
 
 ## C. Database / DI
 
@@ -97,8 +99,8 @@ before the user reads it. Pre-existing; not changed to avoid altering error UX i
 ## E. Open items requiring a decision or a device
 
 1. H2 Invidious default instance.
-2. H3 release signing / fail-closed publishing.
-3. Whether the Android media_kit player should be deleted or kept for other platforms.
-4. Physical-device verification of: merged downloads, playback recovery, DASH/HLS, PiP,
-   background playback, SAF downloads.
-5. SponsorBlock-on-downloads (`PHASE_PLAN.md:52`) still blocked without a native cut step.
+2. Whether the Android media_kit player should be deleted or kept for other platforms.
+3. Physical-device verification of: merged downloads, playback recovery, DASH/HLS, PiP,
+   background playback, SAF downloads and Android 15 dataSync timeout/recovery.
+4. SponsorBlock-on-downloads (`PHASE_PLAN.md:52`) still blocked without a native cut step.
+5. Live cross-backend verification for NewPipe, Piped, Invidious, Explode and PeerTube.
