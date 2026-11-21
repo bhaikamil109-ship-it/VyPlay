@@ -69,9 +69,9 @@ class NewPipeMuxerHandler(
                         val merged = mergeStreams(videoPath, audioPath, outputPath)
                         withContext(Dispatchers.Main) { result.success(merged) }
                     } catch (e: Exception) {
-                        Log.e(TAG, "Native merge failed", e)
+                        Log.e(TAG, "Native merge failed (${e.javaClass.simpleName})")
                         withContext(Dispatchers.Main) {
-                            result.error("MERGE_FAILED", e.message ?: "merge failed", null)
+                            result.error("MERGE_FAILED", "Unable to merge the selected streams", null)
                         }
                     }
                 }
@@ -95,9 +95,9 @@ class NewPipeMuxerHandler(
                         val out = demuxAudio(inputPath, outputPath)
                         withContext(Dispatchers.Main) { result.success(out) }
                     } catch (e: Exception) {
-                        Log.e(TAG, "Native demux failed", e)
+                        Log.e(TAG, "Native audio demux failed (${e.javaClass.simpleName})")
                         withContext(Dispatchers.Main) {
-                            result.error("DEMUX_FAILED", e.message ?: "demux failed", null)
+                            result.error("DEMUX_FAILED", "Unable to extract the audio stream", null)
                         }
                     }
                 }
@@ -125,10 +125,10 @@ class NewPipeMuxerHandler(
         val audioFile = File(audioPath)
 
         if (!videoFile.exists() || videoFile.length() == 0L) {
-            throw IllegalStateException("Video stream file is missing or empty: $videoPath")
+            throw IllegalStateException("Video stream file is missing or empty")
         }
         if (!audioFile.exists() || audioFile.length() == 0L) {
-            throw IllegalStateException("Audio stream file is missing or empty: $audioPath")
+            throw IllegalStateException("Audio stream file is missing or empty")
         }
 
         val videoKind = sniffContainer(videoPath)
@@ -151,7 +151,7 @@ class NewPipeMuxerHandler(
             targetFile.delete()
         }
 
-        Log.i(TAG, "Merging $videoKind + $audioKind -> $container at $target")
+        Log.i(TAG, "Merging $videoKind + $audioKind -> $container")
 
         when (container) {
             "mp4" -> mergeMp4(videoPath, audioPath, target)
@@ -159,10 +159,10 @@ class NewPipeMuxerHandler(
         }
 
         if (!targetFile.exists() || targetFile.length() == 0L) {
-            throw IllegalStateException("Muxer produced no usable output at $target")
+            throw IllegalStateException("Muxer produced no usable output")
         }
 
-        Log.i(TAG, "Merge complete: $target (${targetFile.length()} bytes)")
+        Log.i(TAG, "Merge complete (${targetFile.length()} bytes)")
 
         return mapOf(
             "outputPath" to target,
@@ -234,7 +234,7 @@ class NewPipeMuxerHandler(
     private fun demuxAudio(inputPath: String, outputPath: String): Map<String, Any> {
         val inputFile = File(inputPath)
         if (!inputFile.exists() || inputFile.length() == 0L) {
-            throw IllegalStateException("Audio stream file is missing or empty: $inputPath")
+            throw IllegalStateException("Audio stream file is missing or empty")
         }
 
         val kind = sniffContainer(inputPath)
@@ -268,7 +268,7 @@ class NewPipeMuxerHandler(
         }
 
         if (!targetFile.exists() || targetFile.length() == 0L) {
-            throw IllegalStateException("Demuxer produced no usable output at $target")
+            throw IllegalStateException("Demuxer produced no usable output")
         }
 
         return mapOf("outputPath" to target, "container" to "ogg", "skipped" to false)
@@ -314,7 +314,7 @@ class NewPipeMuxerHandler(
         try {
             stream?.close()
         } catch (e: IOException) {
-            Log.w(TAG, "Failed to close stream", e)
+            Log.w(TAG, "Failed to close native stream (${e.javaClass.simpleName})")
         }
     }
 
