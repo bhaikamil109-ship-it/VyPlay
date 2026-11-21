@@ -52,7 +52,7 @@ class NewPipeBackupArchiveValidator {
       throw const FormatException('Backup archive size is not allowed');
     }
 
-    final archive = ZipDecoder().decodeBytes(zipBytes);
+    final archive = ZipDecoder().decodeBytes(zipBytes, verify: true);
     final files = archive.files;
     if (files.isEmpty || files.length > maxArchiveEntries) {
       throw const FormatException('Backup archive entry count is not allowed');
@@ -84,8 +84,7 @@ class NewPipeBackupArchiveValidator {
     }
 
     final databaseContent = databaseEntry.content;
-    if (databaseContent is! List<int> ||
-        databaseContent.length != databaseEntry.size ||
+    if (databaseContent.length != databaseEntry.size ||
         databaseContent.length > maxDatabaseBytes) {
       throw const FormatException('Backup database content is incomplete');
     }
