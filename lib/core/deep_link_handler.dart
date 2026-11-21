@@ -126,13 +126,13 @@ class DeepLinkHandler {
     // supported YouTube host; do not parse arbitrary URLs containing the text
     // "youtube.com" in their path or query.
     final match = RegExp(
-      r"""(?<![A-Za-z0-9/.-=?&])(?:https?://(?:www\.|m\.)?(?:youtube\.com|youtu\.be)/|(?:www\.|m\.)?(?:youtube\.com|youtu\.be)/)[^\s<>"']+""",
+      r"""(?:^|[\s(\[{,:])((?:https?://)?(?:www\.|m\.)?(?:youtube\.com|youtu\.be)/[^\s<>"']+)""",
       caseSensitive: false,
     ).firstMatch(input.trim());
     if (match == null) return null;
 
-    var candidate = match.group(0)!;
-    candidate = candidate.replaceFirst(RegExp(r'[)\].,!?;:]+
+    var candidate = match.group(1)!;
+    candidate = candidate.replaceFirst(RegExp(r'[)\].,!?;:]+$'), '');
     if (candidate.isEmpty) return null;
 
     var uri = Uri.tryParse(candidate);
