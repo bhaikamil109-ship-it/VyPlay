@@ -26,13 +26,27 @@ class NewPipeBackupArchiveValidator {
       maxDatabaseBytes + maxPreferencesBytes + (2 * 1024 * 1024);
 
   static const List<int> _sqliteHeader = <int>[
-    0x53, 0x51, 0x4c, 0x69, 0x74, 0x65, 0x20, 0x66,
-    0x6f, 0x72, 0x6d, 0x61, 0x74, 0x20, 0x33, 0x00,
+    0x53,
+    0x51,
+    0x4c,
+    0x69,
+    0x74,
+    0x65,
+    0x20,
+    0x66,
+    0x6f,
+    0x72,
+    0x6d,
+    0x61,
+    0x74,
+    0x20,
+    0x33,
+    0x00,
   ];
 
-  /// Decodes and validates [zipBytes], throwing [FormatException] on invalid
-  /// backup envelopes. Callers should apply the compressed-size limit before
-  /// reading the ZIP into memory.
+  /// Decodes and validates [zipBytes], throwing [FormatException] on
+  /// invalid backup envelopes. Callers should apply the compressed-size
+  /// limit before reading the ZIP into memory.
   static ValidatedNewPipeBackup decode(List<int> zipBytes) {
     if (zipBytes.isEmpty || zipBytes.length > maxArchiveBytes) {
       throw const FormatException('Backup archive size is not allowed');

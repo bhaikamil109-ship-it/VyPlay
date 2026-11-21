@@ -75,8 +75,7 @@ class NewPipeDataService {
           .replaceAll('-', '')
           .substring(0, 15);
       final profileSuffix = profileName == 'default' ? '' : '_$profileName';
-      final zipPath =
-          '${docsDir.path}/VyPlayData$profileSuffix-$timestamp.zip';
+      final zipPath = '${docsDir.path}/VyPlayData$profileSuffix-$timestamp.zip';
       final zipFile = File(zipPath);
       await zipFile.writeAsBytes(zipData);
 
@@ -162,7 +161,8 @@ class NewPipeDataService {
     }
 
     // Open SQLite database
-    final newPipeDb = await openDatabase(dbPath, version: 1, onCreate: (newPipeDb, version) async {
+    final newPipeDb = await openDatabase(dbPath, version: 1,
+        onCreate: (newPipeDb, version) async {
       // Create NewPipe schema
       await newPipeDb.execute('''
         CREATE TABLE IF NOT EXISTS android_metadata (locale TEXT)
@@ -353,7 +353,8 @@ class NewPipeDataService {
             'service_id': 0,
             'url': 'https://www.youtube.com/watch?v=${video.videoId}',
             'title': video.title ?? '',
-            'stream_type': video.isLive == true ? 'LIVE_STREAM' : 'VIDEO_STREAM',
+            'stream_type':
+                video.isLive == true ? 'LIVE_STREAM' : 'VIDEO_STREAM',
             'duration': video.duration ?? 0,
             'uploader': video.uploaderName ?? '',
             'uploader_url': video.uploaderId != null
@@ -460,7 +461,8 @@ class NewPipeDataService {
             // Extract channel ID from URL
             String? channelId;
             if (url.contains('/channel/')) {
-              channelId = url.split('/channel/').last.split('/').first.split('?').first;
+              channelId =
+                  url.split('/channel/').last.split('/').first.split('?').first;
             }
 
             if (channelId != null && channelId.isNotEmpty) {
@@ -496,7 +498,8 @@ class NewPipeDataService {
               final existing = await db.getSearchEntry(query, profileName);
 
               if (existing == null) {
-                await db.upsertSearchHistory(SearchHistoryEntriesCompanion.insert(
+                await db
+                    .upsertSearchHistory(SearchHistoryEntriesCompanion.insert(
                   query: query,
                   profileName: profileName,
                   searchedAt: creationDate != null
@@ -561,12 +564,14 @@ class NewPipeDataService {
                   thumbnail: Value(stream['thumbnail_url'] as String?),
                   uploadedDate: Value(stream['textual_upload_date'] as String?),
                   uploaderName: Value(stream['uploader'] as String?),
-                  uploaderId: Value(_extractChannelId(stream['uploader_url'] as String?)),
+                  uploaderId: Value(
+                      _extractChannelId(stream['uploader_url'] as String?)),
                   duration: Value(stream['duration'] as int?),
                   isHistory: const Value(true),
                   isSaved: const Value(false),
                   isLive: Value(stream['stream_type'] == 'LIVE_STREAM'),
-                  playbackPosition: Value(progressTime != null ? progressTime ~/ 1000 : null),
+                  playbackPosition:
+                      Value(progressTime != null ? progressTime ~/ 1000 : null),
                   time: Value(accessDate != null
                       ? DateTime.fromMillisecondsSinceEpoch(accessDate)
                       : DateTime.now()),
@@ -656,7 +661,13 @@ class NewPipeDataService {
   String? _extractChannelId(String? uploaderUrl) {
     if (uploaderUrl == null) return null;
     if (uploaderUrl.contains('/channel/')) {
-      return uploaderUrl.split('/channel/').last.split('/').first.split('?').first;
+      return uploaderUrl
+          .split('/channel/')
+          .last
+          .split('/')
+          .first
+          .split('?')
+          .first;
     }
     return null;
   }
