@@ -623,7 +623,8 @@ class NewPipeDataService {
                   thumbnail: Value(stream['thumbnail_url'] as String?),
                   uploadedDate: Value(stream['textual_upload_date'] as String?),
                   uploaderName: Value(stream['uploader'] as String?),
-                  uploaderId: Value(_extractChannelId(stream['uploader_url'] as String?)),
+                  uploaderId: Value(
+                      _extractChannelId(stream['uploader_url'] as String?)),
                   duration: Value(stream['duration'] as int?),
                   isHistory: const Value(false),
                   isSaved: const Value(true),
