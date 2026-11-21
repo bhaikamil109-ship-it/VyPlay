@@ -212,8 +212,8 @@ class MainActivity: AudioServiceFragmentActivity() {
             try {
                 enterPictureInPictureMode(buildPipParams())
                 return true
-            } catch (e: Exception) {
-                e.printStackTrace()
+            } catch (_: Exception) {
+                android.util.Log.w("VyPlay", "Picture-in-picture entry failed")
                 return false
             }
         }
@@ -226,8 +226,8 @@ class MainActivity: AudioServiceFragmentActivity() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             try {
                 setPictureInPictureParams(buildPipParams())
-            } catch (e: Exception) {
-                e.printStackTrace()
+            } catch (_: Exception) {
+                android.util.Log.w("VyPlay", "Picture-in-picture parameters could not be updated")
             }
         }
     }
@@ -277,9 +277,9 @@ class MainActivity: AudioServiceFragmentActivity() {
                     "isInPipMode" to isInPictureInPictureMode
                 ))
             }
-        } catch (e: Exception) {
-            // Ignore - Flutter engine may have been detached
-            e.printStackTrace()
+        } catch (_: Exception) {
+            // Ignore - Flutter engine may have been detached.
+            android.util.Log.w("VyPlay", "Picture-in-picture callback could not reach Flutter")
         }
     }
 
