@@ -83,10 +83,8 @@ class PluginSandboxImpl implements PluginSandbox {
   bool isSettingReadable(String key) {
     // Normalize separators before checking so names such as x-api-key,
     // refresh-token and signing_key cannot bypass the sensitive-key policy.
-    final normalized = key
-        .trim()
-        .toLowerCase()
-        .replaceAll(RegExp(r'[^a-z0-9]'), '');
+    final normalized =
+        key.trim().toLowerCase().replaceAll(RegExp(r'[^a-z0-9]'), '');
     if (normalized.isEmpty) return false;
     const sensitive = <String>[
       'token',
