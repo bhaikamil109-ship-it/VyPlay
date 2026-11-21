@@ -422,6 +422,48 @@ void main() {
     expect(denied.error!.code, PluginErrorCodes.capabilityDenied);
   });
 
+  test('cached extension API is revoked immediately on disable', () async {
+    final stateStore = PluginStateStoreImpl.withDirectory(tempDir);
+    final permissionStore = PluginPermissionStoreImpl.withDirectory(tempDir);
+    await permissionStore.save({
+      'com.example.plugin': {PluginCapability.search, PluginCapability.network},
+    });
+    final loader = PluginLoaderImpl(
+      stateStore: stateStore,
+      appVersion: '2.0.0',
+      permissionStore: permissionStore,
+    );
+    final manager = PluginManagerImpl(
+      loader: loader,
+      registry: PluginExtensionRegistryImpl(),
+      sandbox: PluginSandboxImpl(),
+    );
+    final plugin = _MutablePlugin(_manifest(
+      capabilities: const [PluginCapability.search, PluginCapability.network],
+      networkHosts: const {'api.example.com'},
+    ));
+    expect((await manager.register(plugin)).isSuccess, isTrue);
+    expect((await manager.initialize(plugin.manifest.id)).isSuccess, isTrue);
+
+    final cachedApi = manager.extensionApi(plugin.manifest.id);
+    expect(cachedApi.hasCapability(PluginCapability.search), isTrue);
+    expect(cachedApi.hasCapability(PluginCapability.network), isTrue);
+
+    expect((await manager.setEnabled(plugin.manifest.id, false)).isSuccess, isTrue);
+    expect(cachedApi.grantedCapabilities, isEmpty);
+    expect(cachedApi.hasCapability(PluginCapability.search), isFalse);
+    expect(cachedApi.hasCapability(PluginCapability.network), isFalse);
+
+    final staleSearch = await cachedApi.search('hello');
+    expect(staleSearch.isFailure, isTrue);
+    expect(staleSearch.error!.code, PluginErrorCodes.capabilityDenied);
+    final staleNetwork = await cachedApi.networkRequest(
+      url: 'https://api.example.com/data',
+    );
+    expect(staleNetwork.isFailure, isTrue);
+    expect(staleNetwork.error!.code, PluginErrorCodes.capabilityDenied);
+  });
+
   test('setEnabled false disposes', () async {
     final stateStore = PluginStateStoreImpl.withDirectory(tempDir);
     final permissionStore = PluginPermissionStoreImpl.withDirectory(tempDir);

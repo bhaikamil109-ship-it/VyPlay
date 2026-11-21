@@ -38,6 +38,14 @@ class PluginExtensionApiImpl implements PluginExtensionApi {
   final PluginSandbox? sandbox;
   final Duration timeout;
 
+  /// Invalidates every previously issued reference to this API.
+  ///
+  /// The manager calls this before disposing the plugin, so a plugin cannot
+  /// retain a stale capability snapshot by caching the API object.
+  void deactivate() {
+    _granted.clear();
+  }
+
   @override
   Set<PluginCapability> get grantedCapabilities =>
       Set<PluginCapability>.unmodifiable(_granted);

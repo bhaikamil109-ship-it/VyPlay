@@ -82,9 +82,13 @@ class PluginManagerImpl implements PluginManager {
 
   @override
   Future<PluginResult<void>> dispose(String id) async {
+    // Revoke cached references before awaiting plugin disposal. This closes the
+    // window where an asynchronous dispose could leave old API grants usable.
+    final api = _apis.remove(id);
+    if (api is PluginExtensionApiImpl) {
+      api.deactivate();
+    }
     final result = await loader.dispose(id);
-    // A disabled plugin must not retain an API with previously granted access.
-    _apis.remove(id);
     _syncContributions(id);
     return result;
   }
