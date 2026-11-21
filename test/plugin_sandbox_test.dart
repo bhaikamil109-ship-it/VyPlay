@@ -269,11 +269,30 @@ void main() {
       );
     });
 
-    test('setting readability denies sensitive keys', () {
+    test('setting readability denies sensitive keys across separators', () {
       final sandbox = PluginSandboxImpl();
       expect(sandbox.isSettingReadable('theme'), isTrue);
-      expect(sandbox.isSettingReadable('youtubeCookie'), isFalse);
+      expect(sandbox.isSettingReadable('home.region'), isTrue);
+      for (final key in [
+        'youtubeCookie',
+        'x-api-key',
+        'refresh-token',
+        'client-secret',
+        'signing_key',
+        'private-key',
+        'oauth_access_token',
+        'bearer-token',
+        'jwt-secret',
+        'session.id',
+      ]) {
+        expect(
+          sandbox.isSettingReadable(key),
+          isFalse,
+          reason: 'Sensitive setting "$key" must not be readable',
+        );
+      }
       expect(sandbox.isSettingReadable(''), isFalse);
+      expect(sandbox.isSettingReadable('---'), isFalse);
     });
 
     test('capability helpers', () {
