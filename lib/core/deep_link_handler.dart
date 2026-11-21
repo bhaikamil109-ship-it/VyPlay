@@ -147,8 +147,7 @@ class DeepLinkHandler {
     }
 
     // Reject non-standard ports even when the hostname is otherwise trusted.
-    if (uri.hasPort &&
-        uri.port != (uri.scheme == 'https' ? 443 : 80)) {
+    if (uri.hasPort && uri.port != (uri.scheme == 'https' ? 443 : 80)) {
       return null;
     }
 
