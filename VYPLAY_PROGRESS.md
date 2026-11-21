@@ -1,3 +1,41 @@
+# Latest mission checkpoint — 2026-11-21 (Phase 7 continuation)
+
+**Mission order preserved:** Phases 3–4 were previously completed; Phase 5–6 automated gates are complete. This continuation moved to Phase 7 production/security hardening without reopening earlier app features.
+
+## Phase 7 changes committed
+
+- `825a6b99` — remove raw URL/shared-text logging and validate supported YouTube URL hosts and identifiers.
+- `d951a62b` → `be95e69b` → `ba240b20` — repair parser escaping/duplicate-source issue and apply Dart formatter output.
+- `ffe20f1c` — add deep-link parser tests for normal routes, lookalike hosts, malformed IDs, unsupported schemes and ports.
+- `e5804349` — handle Android 15 `dataSync` foreground-service timeout; report service-start rejection through the existing MethodChannel contract.
+- `2d720329` — redact plugin exception strings for initial deep-link/share lookup failures.
+- `be4a1880` — restrict public APK Release publishing to signed, matching version tags; main-branch builds remain workflow artifacts.
+- `a71a45c2` — refresh Phase 7–9 production-readiness documentation with the current Android ID/version and known open items.
+
+## Verification evidence
+
+**Deep QA run #64:** [44883537943](https://github.com/bhaikamil109-ship-it/VyPlay/actions/runs/44883537943), commit `ba240b20` — SUCCESS.
+- Formatting passed.
+- Flutter analyze: no issues.
+- Flutter tests: **610/610 passed**.
+- Android native unit tests: successful.
+- Android arm64 debug APK: built.
+- APK metadata verified: `com.kamil.vyplay`, `0.1.0`, version code `1`.
+
+**Fresh checks pending when this checkpoint was written:** commits `be4a1880`, `2d720329` and `a71a45c2) have workflow runs queued/running. Do not treat those commits as verified until their own runs finish successfully.
+
+## Remaining Phase 7–9 gates
+
+- Verify that main-branch builds upload artifacts and skip public Release publication even when permanent signing secrets are present; only a matching `v0.1.0`-style tag plus configured release signing may publish.
+- Complete CI for the last redaction/documentation commits.
+- Keep device-only checks open: Android 15 dataSync timeout/recovery, download notifications, SAF/SD-card writes, PiP/background playback, deep-link handoff and actual backend streaming.
+- Keep the Invidious default HTTP 403 decision, player error-message persistence, SponsorBlock download cutting, and live cross-backend checks open. Do not silently change backend defaults or claim blocked media trimming is implemented.
+- Permanent signing key remains intentionally deferred until the project is ready for release.
+
+**Current source checkpoint:** updated as commits land on `main`; inspect latest head and all corresponding CI runs before taking the next Phase 7 item.
+
+---
+
 # Latest mission checkpoint — 2026-11-21 (Phase 5–6 continuation)
 
 **Continuation rule:** The user confirmed Phases 3–4 were already completed. They were not restarted or re-implemented in this continuation.
