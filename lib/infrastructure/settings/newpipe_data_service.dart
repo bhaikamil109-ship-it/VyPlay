@@ -7,6 +7,7 @@ import 'package:drift/drift.dart';
 import 'package:vyplay/domain/core/failure/main_failure.dart';
 import 'package:vyplay/infrastructure/database/database.dart';
 import 'package:vyplay/infrastructure/settings/newpipe_backup_archive.dart';
+import 'package:vyplay/core/settings.dart';
 import 'package:injectable/injectable.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
@@ -37,7 +38,7 @@ class NewPipeDataService {
 
       // 2. Create preferences.json (VyPlay settings in JSON format)
       final prefsPath = '${exportDir.path}/preferences.json';
-      await _createPreferencesJson(prefsPath, profileName);
+      await _createPreferencesJson(prefsPath, profileName, includeSettings: includeSettings);
 
       // 3. Create newpipe.settings (minimal Java serialized format - mostly empty)
       // NewPipe uses Java ObjectOutputStream format, we'll create a minimal version
@@ -101,6 +102,7 @@ class NewPipeDataService {
     bool importSearchHistory = true,
     bool importWatchHistory = true,
     bool importPlaylists = true,
+    bool importSettings = false,
   }) async {
     try {
       final zipFile = File(zipPath);
@@ -134,14 +136,28 @@ class NewPipeDataService {
           importPlaylists: importPlaylists,
         );
 
-        return importResult.fold<Either<MainFailure, ImportResult>>(
-          (failure) => Left(failure),
-          (counts) => Right(ImportResult(
-            subscriptionsImported: counts['subscriptions'] ?? 0,
-            searchHistoryImported: counts['searchHistory'] ?? 0,
-            watchHistoryImported: counts['watchHistory'] ?? 0,
-            playlistsImported: counts['playlists'] ?? 0,
-          )),
+        return await importResult.fold<Future<Either<MainFailure, ImportResult>>>(
+          (failure) async => Left(failure),
+          (counts) async {
+            var settingsImported = 0;
+            if (importSettings) {
+              for (final entry in backup.vyplaySettings.entries) {
+                if (!NewPipeBackupArchiveValidator.supportedSettingsKeys
+                    .contains(entry.key)) {
+                  continue;
+                }
+                await db.setSetting(entry.key, entry.value);
+                settingsImported++;
+              }
+            }
+            return Right(ImportResult(
+              subscriptionsImported: counts['subscriptions'] ?? 0,
+              searchHistoryImported: counts['searchHistory'] ?? 0,
+              watchHistoryImported: counts['watchHistory'] ?? 0,
+              playlistsImported: counts['playlists'] ?? 0,
+              settingsImported: settingsImported,
+            ));
+          },
         );
       } finally {
         if (await tempDbFile.exists()) {
@@ -382,11 +398,28 @@ class NewPipeDataService {
     await newPipeDb.close();
   }
 
-  /// Create preferences.json (VyPlay settings + NewPipe compatible format)
-  Future<void> _createPreferencesJson(String path, String profileName) async {
-    // Create a combined format that works for both NewPipe and VyPlay
-    final prefs = {
-      // NewPipe standard fields
+  /// Create preferences.json (NewPipe-compatible fields + a safe VyPlay
+  /// preference allow-list. Authentication tokens, cookies and instance secrets
+  /// are deliberately excluded from portable backups.)
+  Future<void> _createPreferencesJson(
+    String path,
+    String profileName, {
+    required bool includeSettings,
+  }) async {
+    final vyPlaySettings = <String, String>{};
+    if (includeSettings) {
+      final entries = await db.select(db.settingsEntries).get();
+      for (final entry in entries) {
+        final value = entry.value;
+        if (value != null &&
+            NewPipeBackupArchiveValidator.supportedSettingsKeys
+                .contains(entry.name)) {
+          vyPlaySettings[entry.name] = value;
+        }
+      }
+    }
+
+    final prefs = <String, Object?>{
       'default_resolution': '720p60',
       'content_country': 'system',
       'content_language': 'system',
@@ -396,9 +429,9 @@ class NewPipeDataService {
       'show_comments': true,
       'show_description': true,
       'last_used_preferences_version': 8,
-      // VyPlay specific (will be ignored by NewPipe)
       'vyplay_profile': profileName,
-      'vyplay_version': '0.9.0',
+      'vyplay_version': '0.1.0',
+      'vyplay_settings': vyPlaySettings,
     };
 
     final file = File(path);
@@ -681,24 +714,27 @@ class ImportResult {
   final int searchHistoryImported;
   final int watchHistoryImported;
   final int playlistsImported;
+  final int settingsImported;
 
   ImportResult({
     required this.subscriptionsImported,
     required this.searchHistoryImported,
     required this.watchHistoryImported,
     required this.playlistsImported,
+    this.settingsImported = 0,
   });
 
   int get totalImported =>
       subscriptionsImported +
       searchHistoryImported +
       watchHistoryImported +
-      playlistsImported;
+      playlistsImported +
+      settingsImported;
 
   @override
   String toString() {
     return 'Imported: $subscriptionsImported subscriptions, '
         '$searchHistoryImported searches, $watchHistoryImported history, '
-        '$playlistsImported playlist items';
+        '$playlistsImported playlist items, $settingsImported settings';
   }
 }

@@ -225,6 +225,7 @@ class BackupSettingsSection extends StatelessWidget {
         importSearchHistory: options['searchHistory'] ?? true,
         importWatchHistory: options['watchHistory'] ?? true,
         importPlaylists: options['playlists'] ?? true,
+        importSettings: options['settings'] ?? false,
       );
 
       if (!context.mounted) return;
@@ -246,7 +247,8 @@ class BackupSettingsSection extends StatelessWidget {
                 'Imported: ${result.subscriptionsImported} subscriptions, '
                 '${result.searchHistoryImported} searches, '
                 '${result.watchHistoryImported} history items, '
-                '${result.playlistsImported} saved videos',
+                '${result.playlistsImported} saved videos, '
+                '${result.settingsImported} settings',
               ),
               behavior: SnackBarBehavior.floating,
               duration: const Duration(seconds: 5),
@@ -277,6 +279,7 @@ class BackupSettingsSection extends StatelessWidget {
     bool importSearchHistory = true;
     bool importWatchHistory = true;
     bool importPlaylists = true;
+    bool importSettings = false;
 
     return showDialog<Map<String, bool>>(
       context: context,
@@ -318,6 +321,14 @@ class BackupSettingsSection extends StatelessWidget {
                 controlAffinity: ListTileControlAffinity.leading,
                 dense: true,
               ),
+              CheckboxListTile(
+                title: const Text('VyPlay Settings'),
+                subtitle: const Text('Restore safe app preferences; passwords and login tokens are excluded'),
+                value: importSettings,
+                onChanged: (v) => setState(() => importSettings = v ?? false),
+                controlAffinity: ListTileControlAffinity.leading,
+                dense: true,
+              ),
             ],
           ),
           actions: [
@@ -331,6 +342,7 @@ class BackupSettingsSection extends StatelessWidget {
                 'searchHistory': importSearchHistory,
                 'watchHistory': importWatchHistory,
                 'playlists': importPlaylists,
+                'settings': importSettings,
               }),
               child: const Text('Import'),
             ),
