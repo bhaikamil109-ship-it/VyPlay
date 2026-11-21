@@ -331,7 +331,7 @@ class NewPipeMethodHandler(
 
                 sendSuccess(result, gson.toJson(response))
             } catch (e: Exception) {
-                android.util.Log.e("NewPipeHandler", "Failed to get shorts: ${e.message}", e)
+                android.util.Log.w("NewPipeHandler", "Shorts extraction failed (${e.javaClass.simpleName})")
                 sendError(result, "EXTRACTION_ERROR", e.message ?: "Failed to get shorts", null)
             }
         }
@@ -438,7 +438,7 @@ class NewPipeMethodHandler(
 
                 android.util.Log.d("NewPipeHandler", "Channel tabs count: ${channelInfo.tabs.size}")
                 channelInfo.tabs.forEach { tab ->
-                    android.util.Log.d("NewPipeHandler", "  Tab: filters=${tab.contentFilters}, url=${tab.url}")
+                    android.util.Log.d("NewPipeHandler", "  Tab filters: ${tab.contentFilters}")
                 }
 
                 if (channelInfo.tabs.isNotEmpty()) {
@@ -459,7 +459,7 @@ class NewPipeMethodHandler(
                             android.util.Log.d("NewPipeHandler", "Mapped initial videos count: ${initialVideos.size}")
                         }
                     } catch (tabError: Exception) {
-                        android.util.Log.e("NewPipeHandler", "Failed to get videos tab: ${tabError.message}", tabError)
+                        android.util.Log.w("NewPipeHandler", "Videos tab extraction failed (${tabError.javaClass.simpleName})")
                     }
                 }
 
@@ -484,9 +484,9 @@ class NewPipeMethodHandler(
                         }
                     }.thenByDescending { it.width * it.height })?.url
 
-                android.util.Log.d("NewPipeHandler", "Selected avatar: ${bestAvatar}")
-                android.util.Log.d("NewPipeHandler", "Selected banner: ${bestBanner}")
-                android.util.Log.d("NewPipeHandler", "Channel response: name=${channelInfo.name}, videos=${initialVideos.size}, tabs=${channelInfo.tabs.size}, nextPage=${videosNextPage != null}")
+                android.util.Log.d("NewPipeHandler", "Channel avatar available: ${bestAvatar != null}")
+                android.util.Log.d("NewPipeHandler", "Channel banner available: ${bestBanner != null}")
+                android.util.Log.d("NewPipeHandler", "Channel response: videos=${initialVideos.size}, tabs=${channelInfo.tabs.size}, nextPage=${videosNextPage != null}")
 
                 val response = mapOf(
                     "id" to channelInfo.id,
@@ -559,7 +559,7 @@ class NewPipeMethodHandler(
 
                 sendSuccess(result, gson.toJson(response))
             } catch (e: Exception) {
-                android.util.Log.e("NewPipeHandler", "Failed to get channel tab: ${e.message}", e)
+                android.util.Log.w("NewPipeHandler", "Channel tab extraction failed (${e.javaClass.simpleName})")
                 sendError(result, "EXTRACTION_ERROR", e.message ?: "Failed to get channel tab", null)
             }
         }
@@ -896,7 +896,7 @@ class NewPipeMethodHandler(
                 }
 
                 item.thumbnails.forEach {
-                    android.util.Log.d("NewPipeHandler", "  - ${it.estimatedResolutionLevel} (${it.width}x${it.height}): ${it.url}")
+                    android.util.Log.d("NewPipeHandler", "  - ${it.estimatedResolutionLevel} (${it.width}x${it.height})")
                 }
 
                 if (best != null) {
@@ -931,11 +931,11 @@ class NewPipeMethodHandler(
                 }
 
                 if (videoId.isNotEmpty() && videoId.length == 11) {  // YouTube video IDs are 11 chars
-                    android.util.Log.d("NewPipeHandler", "Constructing max quality thumbnail for video ID: $videoId")
+                    android.util.Log.d("NewPipeHandler", "Constructing high-quality thumbnail from video metadata")
                     // Use maxresdefault for best quality (1280x720+)
                     return@run "https://i.ytimg.com/vi/$videoId/maxresdefault.jpg"
                 } else {
-                    android.util.Log.w("NewPipeHandler", "Can't extract video ID from: ${item.url}, extracted: $videoId")
+                    android.util.Log.w("NewPipeHandler", "Could not derive a thumbnail identifier from stream metadata")
                 }
             }
 
