@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:vyplay/domain/plugin/plugin.dart';
 import 'package:vyplay/domain/plugin/plugin_capability.dart';
 import 'package:vyplay/domain/plugin/plugin_context.dart';
+import 'package:vyplay/domain/plugin/plugin_network_host.dart';
 import 'package:vyplay/domain/plugin/plugin_sandbox.dart';
 
 /// Common aliases for compatibility with alternate naming.
@@ -55,58 +56,27 @@ class PluginSandboxImpl implements PluginSandbox {
     Set<PluginCapability>? capabilities,
     Set<String>? declaredHosts,
   }) {
-    if (capabilities != null &&
+    if (capabilities == null ||
         !capabilities.contains(PluginCapability.network)) {
       return false;
     }
-    final scheme = uri.scheme.toLowerCase();
-    if (scheme != 'http' && scheme != 'https') return false;
-    if (uri.userInfo.isNotEmpty) return false;
-    if (uri.hasPort && uri.port != (scheme == 'https' ? 443 : 80)) {
-      return false;
-    }
-
-    final host = uri.host.toLowerCase();
-    if (!_isValidNetworkHost(host)) return false;
-
-    // Missing/empty allowlists are deny-by-default, never allow-all.
     if (declaredHosts == null || declaredHosts.isEmpty) return false;
-    final allowlist = declaredHosts.map((entry) => entry.toLowerCase()).toSet();
-    return allowlist.contains(host);
-  }
 
-  bool _isValidNetworkHost(String host) {
-    if (host.isEmpty || host.length > 253) return false;
-    if (host.contains(':') || host.contains('*') || host.endsWith('.')) {
-      return false;
-    }
-    if (host == 'localhost' ||
-        host.endsWith('.localhost') ||
-        host.endsWith('.local') ||
-        host.endsWith('.internal') ||
-        host.endsWith('.test') ||
-        host.endsWith('.invalid')) {
-      return false;
-    }
-    final labels = host.split('.');
-    if (labels.length < 2) return false;
-    for (final label in labels) {
-      if (label.isEmpty ||
-          label.length > 63 ||
-          label.startsWith('-') ||
-          label.endsWith('-')) {
-        return false;
-      }
-      for (final unit in label.codeUnits) {
-        final isLetter = unit >= 97 && unit <= 122;
-        final isDigit = unit >= 48 && unit <= 57;
-        if (!isLetter && !isDigit && unit != 45) return false;
-      }
-    }
-    if (!labels.last.codeUnits.any((unit) => unit >= 97 && unit <= 122)) {
-      return false;
-    }
-    return true;
+    // Plugins may only use HTTPS on its standard port. Reject user-info URLs,
+    // IP literals and local/reserved hostnames before exact allowlist matching.
+    final scheme = uri.scheme.toLowerCase();
+    if (scheme != 'https') return false;
+    if (uri.userInfo.isNotEmpty) return false;
+    if (uri.hasPort && uri.port != 443) return false;
+
+    final host = normalizePluginNetworkHost(uri.host);
+    if (!isValidPluginNetworkHost(host)) return false;
+
+    final allowlist = declaredHosts
+        .map(normalizePluginNetworkHost)
+        .where(isValidPluginNetworkHost)
+        .toSet();
+    return allowlist.contains(host);
   }
 
   @override

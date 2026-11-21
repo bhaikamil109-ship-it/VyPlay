@@ -133,6 +133,118 @@ void main() {
       }
     });
 
+    test('network is denied without an explicit host allowlist', () {
+      final sandbox = PluginSandboxImpl();
+      expect(
+        sandbox.isNetworkAllowed(
+          'p',
+          Uri.parse('https://api.example.com/path'),
+          capabilities: {PluginCapability.network},
+        ),
+        isFalse,
+      );
+      expect(
+        sandbox.isNetworkAllowed(
+          'p',
+          Uri.parse('https://api.example.com/path'),
+          capabilities: {PluginCapability.network},
+          declaredHosts: {},
+        ),
+        isFalse,
+      );
+      expect(
+        sandbox.isNetworkAllowed(
+          'p',
+          Uri.parse('https://api.example.com/path'),
+          declaredHosts: {'api.example.com'},
+        ),
+        isFalse,
+      );
+    });
+
+    test('network requires HTTPS, standard port and no user info', () {
+      final sandbox = PluginSandboxImpl();
+      const capabilities = {PluginCapability.network};
+      const hosts = {'api.example.com'};
+
+      expect(
+        sandbox.isNetworkAllowed(
+          'p',
+          Uri.parse('http://api.example.com/path'),
+          capabilities: capabilities,
+          declaredHosts: hosts,
+        ),
+        isFalse,
+      );
+      expect(
+        sandbox.isNetworkAllowed(
+          'p',
+          Uri.parse('https://api.example.com:8443/path'),
+          capabilities: capabilities,
+          declaredHosts: hosts,
+        ),
+        isFalse,
+      );
+      expect(
+        sandbox.isNetworkAllowed(
+          'p',
+          Uri.parse('https://user@api.example.com/path'),
+          capabilities: capabilities,
+          declaredHosts: hosts,
+        ),
+        isFalse,
+      );
+    });
+
+    test('network denies IP literals and local or reserved hosts', () {
+      final sandbox = PluginSandboxImpl();
+      const capabilities = {PluginCapability.network};
+      for (final url in [
+        'https://127.0.0.1/',
+        'https://10.0.0.2/',
+        'https://192.168.1.10/',
+        'https://172.16.0.1/',
+        'https://[::1]/',
+        'https://router.local/',
+        'https://service.internal/',
+        'https://host.test/',
+      ]) {
+        final uri = Uri.parse(url);
+        expect(
+          sandbox.isNetworkAllowed(
+            'p',
+            uri,
+            capabilities: capabilities,
+            declaredHosts: {uri.host},
+          ),
+          isFalse,
+          reason: 'Expected $url to be rejected',
+        );
+      }
+    });
+
+    test('network allowlist uses exact host matching', () {
+      final sandbox = PluginSandboxImpl();
+      expect(
+        sandbox.isNetworkAllowed(
+          'p',
+          Uri.parse('https://sub.api.example.com/path'),
+          capabilities: {PluginCapability.network},
+          declaredHosts: {'api.example.com'},
+        ),
+        isFalse,
+      );
+      expect(
+        sandbox.isNetworkAllowed(
+          'p',
+          Uri.parse('https://api.example.com./path'),
+          capabilities: {PluginCapability.network},
+          declaredHosts: {'api.example.com'},
+        ),
+        isTrue,
+      );
+    });
+
     test('network denied without capability', () {
       final sandbox = PluginSandboxImpl();
       expect(

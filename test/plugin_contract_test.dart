@@ -121,6 +121,91 @@ void main() {
       );
     });
 
+    test('network host allowlist round-trips and validates', () {
+      final manifest = PluginManifest(
+        id: 'com.example.network',
+        name: 'Network Plugin',
+        version: '1.0.0',
+        description: 'network test',
+        provider: 'test',
+        platforms: const ['android'],
+        capabilities: const [PluginCapability.network],
+        minAppVersion: '1.0.0',
+        networkHosts: const {'api.example.com'},
+      );
+
+      expect(manifest.validate(), isEmpty);
+      final restored = PluginManifest.fromJson(manifest.toJson());
+      expect(restored.networkHosts, {'api.example.com'});
+      expect(restored.validate(), isEmpty);
+    });
+
+    test('network capability requires at least one declared host', () {
+      final manifest = PluginManifest(
+        id: 'com.example.nohosts',
+        name: 'No Hosts',
+        version: '1.0.0',
+        description: 'network test',
+        provider: 'test',
+        platforms: const ['android'],
+        capabilities: const [PluginCapability.network],
+        minAppVersion: '1.0.0',
+      );
+
+      expect(
+        manifest.validate(),
+        contains('Network capability requires at least one declared network host'),
+      );
+    });
+
+    test('network allowlist rejects wildcard, IP and local hosts', () {
+      for (final host in [
+        '*.example.com',
+        '127.0.0.1',
+        '192.168.1.10',
+        '10.0.0.1',
+        '::1',
+        'localhost',
+        'api.local',
+        'api.internal',
+        'api.example.com:443',
+        'https://api.example.com',
+      ]) {
+        final manifest = PluginManifest(
+          id: 'com.example.badhost',
+          name: 'Bad Host',
+          version: '1.0.0',
+          description: 'network test',
+          provider: 'test',
+          platforms: const ['android'],
+          capabilities: const [PluginCapability.network],
+          minAppVersion: '1.0.0',
+          networkHosts: {host},
+        );
+        expect(
+          manifest.validate().any((error) => error.contains('Invalid network host')),
+          isTrue,
+          reason: 'Expected "$host" to be rejected',
+        );
+      }
+    });
+
+    test('network hosts cannot be declared without network capability', () {
+      final manifest = PluginManifest(
+        id: 'com.example.hostwithoutcap',
+        name: 'Host Without Capability',
+        version: '1.0.0',
+        description: 'network test',
+        provider: 'test',
+        platforms: const ['android'],
+        capabilities: const [PluginCapability.search],
+        minAppVersion: '1.0.0',
+        networkHosts: const {'api.example.com'},
+      );
+
+      expect(manifest.validate(), contains('Network hosts require the network capability'));
+    });
+
     test('fromJson round-trips', () {
       final json = _validManifest().toJson();
       final parsed = PluginManifest.fromJson(json);

@@ -57,9 +57,26 @@ void main() {
         sandbox: PluginSandboxImpl(),
       );
       final ok = await api.networkRequest(url: 'https://api.example.com/x');
-      expect(ok.isSuccess, isTrue);
+      expect(ok.isFailure, isTrue);
+      expect(ok.error!.code, PluginErrorCodes.networkUnavailable);
       final denied = await api.networkRequest(url: 'https://evil.com/x');
       expect(denied.isFailure, isTrue);
+      expect(denied.error!.code, PluginErrorCodes.capabilityDenied);
+    });
+
+    test('network fails closed when a plugin has no manifest allowlist', () async {
+      final api = PluginExtensionApiImpl(
+        pluginId: 'p',
+        grantedCapabilities: const {PluginCapability.network},
+        sandbox: PluginSandboxImpl(),
+      );
+
+      final result = await api.networkRequest(
+        url: 'https://api.example.com/status',
+      );
+
+      expect(result.isFailure, isTrue);
+      expect(result.error!.code, PluginErrorCodes.capabilityDenied);
     });
 
     test('readSetting denies sensitive keys', () async {

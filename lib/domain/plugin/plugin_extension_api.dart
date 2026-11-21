@@ -32,7 +32,9 @@ abstract class PluginExtensionApi {
   /// Read a non-sensitive setting. Requires [PluginCapability.settingsRead].
   Future<PluginResult<String?>> readSetting(String key);
 
-  /// Perform a network request to a declared host.
+  /// Validate a destination against the plugin's exact manifest allowlist.
+  /// Until a host transport is connected, permitted destinations return
+  /// [PluginErrorCodes.networkUnavailable]; no request is sent.
   /// Requires [PluginCapability.network].
   Future<PluginResult<int>> networkRequest({
     required String url,

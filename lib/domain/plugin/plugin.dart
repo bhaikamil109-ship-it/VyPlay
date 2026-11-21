@@ -73,4 +73,5 @@ class PluginErrorCodes {
   static const String capabilityDenied = 'capability_denied';
   static const String notEnabled = 'not_enabled';
   static const String disposalFailed = 'disposal_failed';
+  static const String networkUnavailable = 'network_unavailable';
 }

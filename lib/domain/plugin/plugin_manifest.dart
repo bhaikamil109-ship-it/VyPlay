@@ -19,7 +19,6 @@ class PluginManifest {
     this.configSchema = const <String, PluginConfigField>{},
     this.homepage,
     this.contributions = const <PluginContributionSpec>[],
-    this.allowedNetworkHosts = const <String>[],
     this.networkHosts = const <String>{},
   });
 
@@ -42,10 +41,6 @@ class PluginManifest {
   /// plugin is enabled, removed when it is disabled, and gated on the
   /// capabilities actually granted to the plugin.
   final List<PluginContributionSpec> contributions;
-
-  /// Exact DNS hosts the plugin may contact when the network capability is
-  /// granted. Empty means the plugin has no network destinations approved.
-  final List<String> allowedNetworkHosts;
 
   /// Returns a list of validation errors. Empty means valid.
   List<String> validate() {
@@ -75,23 +70,6 @@ class PluginManifest {
     if (capabilities.toSet().length != capabilities.length) {
       errors.add('Plugin capabilities must not contain duplicates');
     }
-    if (allowedNetworkHosts.isNotEmpty &&
-        !capabilities.contains(PluginCapability.network)) {
-      errors.add(
-        'Allowed network hosts require the network capability to be declared',
-      );
-    }
-    final normalizedHosts = <String>{};
-    for (final host in allowedNetworkHosts) {
-      if (!isValidPluginNetworkHost(host)) {
-        errors.add('Invalid plugin network host "$host"');
-        continue;
-      }
-      final normalized = normalizePluginNetworkHost(host);
-      if (!normalizedHosts.add(normalized)) {
-        errors.add('Duplicate plugin network host "$host"');
-      }
-    }
     if (capabilities.contains(PluginCapability.network) &&
         networkHosts.isEmpty) {
       errors.add(
@@ -102,7 +80,8 @@ class PluginManifest {
       errors.add('Network hosts require the network capability');
     }
     for (final host in networkHosts) {
-      if (!_isValidNetworkHost(host)) {
+      if (!isValidPluginNetworkHost(host) ||
+          normalizePluginNetworkHost(host) != host) {
         errors.add('Invalid network host "$host"');
       }
     }
@@ -154,7 +133,6 @@ class PluginManifest {
         'contributions': contributions
             .map((contribution) => contribution.toJson())
             .toList(growable: false),
-        'allowedNetworkHosts': allowedNetworkHosts,
       };
 
   factory PluginManifest.fromJson(Map<String, dynamic> json) {
@@ -195,7 +173,6 @@ class PluginManifest {
         ? rawNetworkHosts.map((entry) => entry.toString()).toSet()
         : <String>{};
     final rawPlatforms = json['platforms'];
-    final rawNetworkHosts = json['allowedNetworkHosts'];
     return PluginManifest(
       id: json['id']?.toString() ?? '',
       name: json['name']?.toString() ?? '',
@@ -212,44 +189,6 @@ class PluginManifest {
       contributions: contributions,
       networkHosts: networkHosts,
     );
-  }
-
-  static bool _isValidNetworkHost(String value) {
-    if (value.isEmpty || value != value.toLowerCase() || value.length > 253) {
-      return false;
-    }
-    if (value.contains('*') || value.contains(':') || value.endsWith('.')) {
-      return false;
-    }
-    if (value == 'localhost' ||
-        value.endsWith('.localhost') ||
-        value.endsWith('.local') ||
-        value.endsWith('.internal') ||
-        value.endsWith('.test') ||
-        value.endsWith('.invalid')) {
-      return false;
-    }
-    final labels = value.split('.');
-    if (labels.length < 2) return false;
-    for (final label in labels) {
-      if (label.isEmpty ||
-          label.length > 63 ||
-          label.startsWith('-') ||
-          label.endsWith('-')) {
-        return false;
-      }
-      for (final unit in label.codeUnits) {
-        final isLetter = unit >= 97 && unit <= 122;
-        final isDigit = unit >= 48 && unit <= 57;
-        if (!isLetter && !isDigit && unit != 45) return false;
-      }
-    }
-    // A public DNS suffix must contain a letter; this rejects numeric IP
-    // forms, including shortened and all-numeric dotted addresses.
-    if (!labels.last.codeUnits.any((unit) => unit >= 97 && unit <= 122)) {
-      return false;
-    }
-    return true;
   }
 
   static bool _isValidVersion(String value) {

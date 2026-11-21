@@ -218,7 +218,6 @@ class PluginExtensionApiImpl implements PluginExtensionApi {
         pluginId: pluginId,
         code: PluginErrorCodes.invalidManifest,
         message: 'Invalid network URL',
-        cause: error,
       ));
     }
     final sandbox = this.sandbox ?? PluginSandboxImpl();
@@ -232,11 +231,16 @@ class PluginExtensionApiImpl implements PluginExtensionApi {
       return PluginResult<int>.failure(PluginFailure(
         pluginId: pluginId,
         code: PluginErrorCodes.capabilityDenied,
-        message: 'Network access to ${uri.host} is not allowed',
+        message: 'Network access is not allowed for this destination',
       ));
     }
-    // No actual HTTP is performed here; host networking is mediated elsewhere.
-    return const PluginResult<int>.success(200);
+    // No transport is attached to this API yet. Do not report a fabricated
+    // HTTP status or pretend that a request was sent.
+    return PluginResult<int>.failure(PluginFailure(
+      pluginId: pluginId,
+      code: PluginErrorCodes.networkUnavailable,
+      message: 'Network transport is not configured; no request was sent',
+    ));
   }
 
   @override

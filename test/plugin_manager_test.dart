@@ -250,6 +250,45 @@ void main() {
     expect(granted, isNot(contains(PluginCapability.network)));
   });
 
+  test('manager wires manifest network hosts into the extension API', () async {
+    final stateStore = PluginStateStoreImpl.withDirectory(tempDir);
+    final permissionStore = PluginPermissionStoreImpl.withDirectory(tempDir);
+    await permissionStore.save({
+      _manifest().id: {PluginCapability.network},
+    });
+    final manager = PluginManagerImpl(
+      loader: PluginLoaderImpl(
+        stateStore: stateStore,
+        appVersion: '2.0.0',
+        permissionStore: permissionStore,
+      ),
+      registry: PluginExtensionRegistryImpl(),
+      sandbox: PluginSandboxImpl(),
+    );
+    final plugin = _MutablePlugin(_manifest(
+      capabilities: [PluginCapability.network],
+      networkHosts: {'api.example.com'},
+    ));
+
+    final registered = await manager.register(plugin);
+    expect(registered.isSuccess, isTrue);
+    final initialized = await manager.initialize(plugin.manifest.id);
+    expect(initialized.isSuccess, isTrue);
+
+    final api = manager.extensionApi(plugin.manifest.id);
+    final allowedHost = await api.networkRequest(
+      url: 'https://api.example.com/status',
+    );
+    expect(allowedHost.isFailure, isTrue);
+    expect(allowedHost.error!.code, PluginErrorCodes.networkUnavailable);
+
+    final unlistedHost = await api.networkRequest(
+      url: 'https://evil.example/status',
+    );
+    expect(unlistedHost.isFailure, isTrue);
+    expect(unlistedHost.error!.code, PluginErrorCodes.capabilityDenied);
+  });
+
   test('manager grants persisted capabilities only (Apply now reload)', () async {
     final stateStore = PluginStateStoreImpl.withDirectory(tempDir);
     final permissionStore = PluginPermissionStoreImpl.withDirectory(tempDir);
