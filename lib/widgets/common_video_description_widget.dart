@@ -5,6 +5,8 @@ import 'package:vyplay/widgets/thumbnail_image.dart';
 import 'package:vyplay/core/operations/math_operations.dart';
 import 'package:vyplay/generated/l10n.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter/services.dart';
+import 'package:share_plus/share_plus.dart' show ShareParams, SharePlus;
 
 import '../core/constants.dart';
 
@@ -25,8 +27,299 @@ class CaptionRowWidget extends StatelessWidget {
   /// When set, the caption may be replaced by its DeArrow community title.
   final String? videoId;
 
+  String? get _shareUrl {
+    final id = videoId;
+    if (id == null || !RegExp(r'^[A-Za-z0-9_-]{11}
+      children: [
+        Expanded(
+          child: videoId == null || videoId!.isEmpty
+              ? Text(
+                  caption,
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 14),
+                  overflow: TextOverflow.visible,
+                )
+              : DeArrowText(
+                  videoId!,
+                  caption,
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 14),
+                  overflow: TextOverflow.visible,
+                ),
+        ),
+        if (shareUrl != null)
+          PopupMenuButton<String>(
+            tooltip: 'Video actions',
+            icon: const Icon(Icons.more_vert),
+            onSelected: (action) async {
+              if (action == 'copy') {
+                await Clipboard.setData(ClipboardData(text: shareUrl));
+                if (context.mounted) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Video link copied'),
+                      duration: Duration(seconds: 2),
+                    ),
+                  );
+                }
+              } else if (action == 'share') {
+                await SharePlus.instance.share(
+                  ShareParams(text: '$caption\\n$shareUrl', subject: caption),
+                );
+              }
+            },
+            itemBuilder: (context) => const [
+              PopupMenuItem(
+                value: 'share',
+                child: ListTile(
+                  dense: true,
+                  leading: Icon(Icons.share_outlined),
+                  title: Text('Share video'),
+                ),
+              ),
+              PopupMenuItem(
+                value: 'copy',
+                child: ListTile(
+                  dense: true,
+                  leading: Icon(Icons.link),
+                  title: Text('Copy link'),
+                ),
+              ),
+            ],
+          ),
+        if (icon != null)
+          IconButton(
+            icon: Icon(
+              icon,
+              color: Theme.of(context).iconTheme.color,
+            ),
+            onPressed: onTap,
+          ),
+      ],
+    );
+  }
+}
+
+//view row widget
+class ViewRowWidget extends StatelessWidget {
+  const ViewRowWidget({
+    super.key,
+    this.views,
+    this.uploadedDate,
+  });
+
+  final int? views;
+  final String? uploadedDate;
+
   @override
   Widget build(BuildContext context) {
+    final Size _size = MediaQuery.of(context).size;
+
+    var _formattedViews =
+        views! > 1000 ? NumberFormat.compact().format(views ?? 0) : views;
+
+    //format date
+    String _formattedDate;
+    try {
+      //for date eg: 2024-05-22T08:51:33-07:00
+      // Parse the date string to a DateTime object
+      DateTime dateTime = DateTime.parse(uploadedDate ?? '0');
+
+      // Define the desired format
+      DateFormat dateFormat = DateFormat('yyyy-MM-dd  hh:mm a');
+
+      // Format the DateTime object to a string
+      _formattedDate = dateFormat.format(dateTime);
+    } catch (_) {
+      //for eg: 1 day ago
+      _formattedDate = uploadedDate ?? '';
+    }
+
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Flexible(
+          child: Text(
+            '${_formattedViews == '0' ? '' : _formattedViews} ${S.of(context).videoViews(views ?? 0)}',
+            maxLines: 1,
+            style: TextStyle(
+                color: kGreyColor, fontWeight: FontWeight.w600, fontSize: 12),
+            overflow: TextOverflow.ellipsis,
+          ),
+        ),
+        SizedBox(
+          width: (_size.width * 0.1).clamp(8.0, 24.0),
+        ),
+        Flexible(
+          child: Text(
+            _formattedDate,
+            maxLines: 1,
+            style: TextStyle(
+                color: kGreyColor, fontWeight: FontWeight.w600, fontSize: 12),
+            overflow: TextOverflow.ellipsis,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+//subscribe row widget
+class SubscribeRowWidget extends StatelessWidget {
+  const SubscribeRowWidget({
+    super.key,
+    this.radius = 24,
+    this.subTextStyle,
+    this.subCountTextStyle,
+    this.spacing,
+    this.subscribed = false,
+    this.subcount,
+    required this.uploader,
+    this.uploaderUrl,
+    this.isVerified = false,
+    this.onSubscribeTap,
+  });
+
+  //decoration
+  final double radius;
+  final TextStyle? subTextStyle;
+  final TextStyle? subCountTextStyle;
+  final Widget? spacing;
+
+// values
+  final bool subscribed;
+  final String? subcount;
+  final String? uploader;
+  final String? uploaderUrl;
+  final bool? isVerified;
+  final VoidCallback? onSubscribeTap;
+
+  @override
+  Widget build(BuildContext context) {
+    var _formattedSubCount = formatCount(subcount ?? '0');
+
+    return Row(
+      children: [
+        if (uploaderUrl != null && uploaderUrl != "")
+          CircleAvatar(
+            radius: radius,
+            backgroundImage: (uploaderUrl != null && uploaderUrl != "")
+                ? cachedAvatarProvider(uploaderUrl!,
+                    logicalDiameter: (radius * 2).toInt())
+                : null,
+          ),
+        spacing ?? kWidthBox10,
+        Expanded(
+          child: subcount == null || subcount == '-1'
+              ? Row(
+                  children: [
+                    Flexible(
+                      child: Text(
+                        uploader ?? '',
+                        overflow: TextOverflow.ellipsis,
+                        style: subTextStyle ??
+                            TextStyle(
+                                color: Theme.of(context)
+                                    .textTheme
+                                    .bodyMedium!
+                                    .color,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14),
+                      ),
+                    ),
+                    kWidthBox5,
+                    isVerified ?? false
+                        ? const Padding(
+                            padding: EdgeInsets.only(right: 5),
+                            child: Icon(
+                              Icons.verified,
+                              color: kRedColor,
+                              size: 20,
+                            ),
+                          )
+                        : const SizedBox.shrink(),
+                  ],
+                )
+              : Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Flexible(
+                          child: Text(
+                            uploader ?? '',
+                            overflow: TextOverflow.ellipsis,
+                            style: subTextStyle ??
+                                TextStyle(
+                                    color: Theme.of(context)
+                                        .textTheme
+                                        .bodyMedium!
+                                        .color,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 14),
+                          ),
+                        ),
+                        kWidthBox5,
+                        isVerified ?? false
+                            ? const Icon(
+                                Icons.verified,
+                                color: kRedColor,
+                                size: 20,
+                              )
+                            : const SizedBox.shrink(),
+                      ],
+                    ),
+                    Text(
+                      '${_formattedSubCount == '0' ? '' : _formattedSubCount} ${S.of(context).channelSubscribers(int.tryParse(subcount!) ?? 0)}',
+                      overflow: TextOverflow.ellipsis,
+                      style: subCountTextStyle ??
+                          TextStyle(
+                              color: kGreyColor,
+                              fontSize: 12,
+                              overflow: TextOverflow.ellipsis),
+                    )
+                  ],
+                ),
+        ),
+        kWidthBox10,
+        AnimatedContainer(
+          duration: const Duration(milliseconds: 300),
+          height: 40,
+          width: subscribed ? 65 : 130,
+          child: ElevatedButton(
+              style: ButtonStyle(
+                  elevation: const WidgetStatePropertyAll(0),
+                  backgroundColor: WidgetStatePropertyAll(
+                      subscribed ? kGreyOpacityColor : kRedColor),
+                  foregroundColor: WidgetStatePropertyAll(
+                      subscribed ? kRedColor : kWhiteColor),
+                  surfaceTintColor: WidgetStatePropertyAll(
+                      subscribed ? kTransparentColor : kRedColor)),
+              onPressed: onSubscribeTap,
+              child: subscribed
+                  ? const Icon(CupertinoIcons.check_mark_circled)
+                  : FittedBox(
+                      child: Text(
+                        S.of(context).subscribe,
+                        overflow: TextOverflow.clip,
+                        style: const TextStyle(fontSize: 14),
+                      ),
+                    )),
+        )
+      ],
+    );
+  }
+}
+).hasMatch(id)) {
+      return null;
+    }
+    return 'https://www.youtube.com/watch?v=$id';
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final shareUrl = _shareUrl;
     return Row(
       children: [
         Expanded(

@@ -8,6 +8,7 @@ import 'package:vyplay/core/model/language_model.dart';
 import 'package:vyplay/core/model/region_model.dart';
 import 'package:vyplay/core/regions.dart';
 import 'package:vyplay/generated/l10n.dart';
+import 'package:vyplay/core/services/accent_color_service.dart';
 import 'package:vyplay/presentation/settings/widgets/new_video_notification_tile.dart';
 import 'package:go_router/go_router.dart';
 
@@ -101,6 +102,50 @@ class CommonSettingsSection extends StatelessWidget {
                       BlocProvider.of<SettingsBloc>(context).add(
                           SettingsEvent.changeTheme(
                               themeMode: themeMode.toString()))),
+            ),
+            const SizedBox(height: 8),
+            AnimatedBuilder(
+              animation: AccentColorService.instance,
+              builder: (context, _) {
+                final service = AccentColorService.instance;
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('Accent color',
+                          style: Theme.of(context).textTheme.titleMedium),
+                      const SizedBox(height: 8),
+                      Wrap(
+                        spacing: 10,
+                        runSpacing: 8,
+                        children: AccentColorService.presets.entries.map((entry) {
+                          final selected = service.value == entry.value;
+                          return Tooltip(
+                            message: entry.key,
+                            child: InkWell(
+                              borderRadius: BorderRadius.circular(24),
+                              onTap: () => service.select(entry.value),
+                              child: Semantics(
+                                button: true,
+                                selected: selected,
+                                label: '${entry.key} accent',
+                                child: CircleAvatar(
+                                  radius: 18,
+                                  backgroundColor: Color(entry.value),
+                                  child: selected
+                                      ? const Icon(Icons.check, color: Colors.white, size: 20)
+                                      : null,
+                                ),
+                              ),
+                            ),
+                          );
+                        }).toList(),
+                      ),
+                    ],
+                  ),
+                );
+              },
             ),
             const NewVideoNotificationTile(),
           ],

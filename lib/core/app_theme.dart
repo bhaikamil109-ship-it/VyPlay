@@ -131,6 +131,40 @@ abstract class AppTheme {
           backgroundColor: Color(0xFF0A0A0A)),
     );
 
+  static ThemeData lightThemeWithAccent(Color accent) =>
+      lightTheme.copyWith(
+        colorScheme: lightTheme.colorScheme.copyWith(
+          primary: accent,
+          secondary: accent,
+        ),
+      );
+
+  static ThemeData darkThemeWithAccent(Color accent) =>
+      darkTheme.copyWith(
+        colorScheme: darkTheme.colorScheme.copyWith(
+          primary: accent,
+          secondary: accent,
+        ),
+      );
+
+  static ThemeData oledThemeWithAccent(Color accent) =>
+      oledTheme.copyWith(
+        colorScheme: oledTheme.colorScheme.copyWith(
+          primary: accent,
+          secondary: accent,
+          onPrimary: accent.computeLuminance() > 0.45
+              ? Colors.black
+              : Colors.white,
+        ),
+      );
+
+  static ThemeData dynamicThemeWithAccent(
+    ColorScheme colorScheme,
+    Color accent,
+  ) => dynamicTheme(
+        colorScheme.copyWith(primary: accent, secondary: accent),
+      );
+
   static ThemeData dynamicTheme(ColorScheme colorScheme) => ThemeData(
         useMaterial3: true,
         colorScheme: colorScheme,

@@ -27,6 +27,7 @@ import 'package:vyplay/presentation/routes/bloc_observer.dart';
 import 'package:vyplay/presentation/watch/widgets/global_pip_overlay.dart';
 import 'package:vyplay/core/services/audio_handler_service.dart';
 import 'package:vyplay/core/services/dearrow_service.dart';
+import 'package:vyplay/core/services/accent_color_service.dart';
 import 'package:vyplay/core/services/log_collector.dart';
 import 'package:vyplay/core/services/background_polling_service.dart';
 import 'package:vyplay/core/services/subscription_notifier.dart';
@@ -148,6 +149,7 @@ Future<void> _restorePersistedStartupState() async {
   try {
     await SettingImpl.initializeDB().timeout(_startupStepTimeout);
     StartupDiagnostics().recordSettingsDbInitialized();
+    await AccentColorService.instance.load().timeout(_startupStepTimeout);
 
     // Restore the saved repeat mode and keep it persisted from here on. The
     // queue takes a hook rather than touching the database itself.
@@ -276,6 +278,10 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
             previous.themeMode != current.themeMode ||
             previous.defaultLanguage != current.defaultLanguage,
         builder: (context, state) {
+          return AnimatedBuilder(
+            animation: AccentColorService.instance,
+            builder: (context, _) {
+          final accent = AccentColorService.instance.color;
           final mode = state.themeMode;
 
           if (mode == 'dynamic') {
@@ -283,8 +289,8 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
               builder: (lightDynamic, darkDynamic) {
                 return MaterialApp.router(
                   title: AppInfo.myApp.name,
-                  theme: AppTheme.dynamicTheme(lightDynamic ?? ColorScheme.fromSeed(seedColor: Colors.blue)),
-                  darkTheme: AppTheme.dynamicTheme(darkDynamic ?? const ColorScheme.dark()),
+                  theme: AppTheme.dynamicThemeWithAccent(lightDynamic ?? ColorScheme.fromSeed(seedColor: Colors.blue), accent),
+                  darkTheme: AppTheme.dynamicThemeWithAccent(darkDynamic ?? const ColorScheme.dark(), accent),
                   themeMode: ThemeMode.system,
                   debugShowCheckedModeBanner: false,
                   routerConfig: router,
@@ -309,8 +315,10 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
           final isOled = mode == 'oled';
           return MaterialApp.router(
             title: AppInfo.myApp.name,
-            theme: AppTheme.lightTheme,
-            darkTheme: isOled ? AppTheme.oledTheme : AppTheme.darkTheme,
+            theme: AppTheme.lightThemeWithAccent(accent),
+            darkTheme: isOled
+                ? AppTheme.oledThemeWithAccent(accent)
+                : AppTheme.darkThemeWithAccent(accent),
             themeMode: _getThemeMode(mode),
             debugShowCheckedModeBanner: false,
             routerConfig: router,
@@ -326,6 +334,8 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
               return GlobalPipOverlay(
                 child: child ?? const SizedBox.shrink(),
               );
+            },
+          );
             },
           );
         },
