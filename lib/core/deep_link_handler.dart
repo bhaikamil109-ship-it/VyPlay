@@ -66,16 +66,24 @@ class DeepLinkHandler {
   }
 
   void _handleDeepLink(Uri uri) {
-    debugPrint('Deep link received: $uri');
     final result = parseYouTubeUrl(uri.toString());
+    debugPrint(
+      result == null
+          ? '[DeepLink] Unsupported link ignored'
+          : '[DeepLink] Parsed ${result.type.name} link',
+    );
     if (result != null) {
       _navigateToContent(result);
     }
   }
 
   void _handleSharedText(String text) {
-    debugPrint('Shared text received: $text');
     final result = parseYouTubeUrl(text);
+    debugPrint(
+      result == null
+          ? '[Share] No supported YouTube link found'
+          : '[Share] Parsed ${result.type.name} link from shared content',
+    );
     if (result != null) {
       _navigateToContent(result);
     }
@@ -113,84 +121,95 @@ class DeepLinkHandler {
     }
   }
 
-  static YouTubeLinkResult? parseYouTubeUrl(String url) {
-    // Handle youtu.be short links
-    final youtubeShortRegex = RegExp(r'youtu\.be/([a-zA-Z0-9_-]{11})');
-    final shortMatch = youtubeShortRegex.firstMatch(url);
-    if (shortMatch != null) {
-      return YouTubeLinkResult(
-        type: YouTubeLinkType.video,
-        id: shortMatch.group(1)!,
-      );
+  static YouTubeLinkResult? parseYouTubeUrl(String input) {
+    // Shared text can contain prose around a URL. Extract only an explicitly
+    // supported YouTube host; do not parse arbitrary URLs containing the text
+    // "youtube.com" in their path or query.
+    final match = RegExp(
+      r'(?:https?://)?(?:www\\.|m\\.)?(?:youtube\\.com|youtu\\.be)/[^\\s<>"'']+',
+      caseSensitive: false,
+    ).firstMatch(input.trim());
+    if (match == null) return null;
+
+    var candidate = match.group(0)!;
+    candidate = candidate.replaceFirst(RegExp(r'[)\\].,!?;:]+$'), '');
+    if (candidate.isEmpty) return null;
+
+    var uri = Uri.tryParse(candidate);
+    if (uri == null) return null;
+    if (uri.scheme.isEmpty && uri.host.isEmpty) {
+      uri = Uri.tryParse('https://$candidate');
+    }
+    if (uri == null ||
+        (uri.scheme != 'https' && uri.scheme != 'http') ||
+        uri.userInfo.isNotEmpty) {
+      return null;
     }
 
-    // Handle youtube.com/watch?v= links
-    final watchRegex = RegExp(r'youtube\.com/watch\?v=([a-zA-Z0-9_-]{11})');
-    final watchMatch = watchRegex.firstMatch(url);
-    if (watchMatch != null) {
-      return YouTubeLinkResult(
-        type: YouTubeLinkType.video,
-        id: watchMatch.group(1)!,
-      );
+    // Reject non-standard ports even when the hostname is otherwise trusted.
+    if (uri.hasPort &&
+        uri.port != (uri.scheme == 'https' ? 443 : 80)) {
+      return null;
     }
 
-    // Handle youtube.com/v/ links
-    final vRegex = RegExp(r'youtube\.com/v/([a-zA-Z0-9_-]{11})');
-    final vMatch = vRegex.firstMatch(url);
-    if (vMatch != null) {
-      return YouTubeLinkResult(
-        type: YouTubeLinkType.video,
-        id: vMatch.group(1)!,
-      );
+    final host = uri.host.toLowerCase();
+    const youtubeHosts = {
+      'youtube.com',
+      'www.youtube.com',
+      'm.youtube.com',
+    };
+    final isShortLinkHost = host == 'youtu.be';
+    if (!isShortLinkHost && !youtubeHosts.contains(host)) return null;
+
+    final segments = uri.pathSegments;
+    final first = segments.isEmpty ? '' : segments.first;
+    final videoIdPattern = RegExp(r'^[A-Za-z0-9_-]{11}$');
+    final identifierPattern = RegExp(r'^[A-Za-z0-9_-]+$');
+
+    YouTubeLinkResult? videoResult(String? id) {
+      if (id == null || !videoIdPattern.hasMatch(id)) return null;
+      return YouTubeLinkResult(type: YouTubeLinkType.video, id: id);
     }
 
-    // Handle youtube.com/embed/ links
-    final embedRegex = RegExp(r'youtube\.com/embed/([a-zA-Z0-9_-]{11})');
-    final embedMatch = embedRegex.firstMatch(url);
-    if (embedMatch != null) {
-      return YouTubeLinkResult(
-        type: YouTubeLinkType.video,
-        id: embedMatch.group(1)!,
-      );
+    if (isShortLinkHost) {
+      return segments.length == 1 ? videoResult(segments.first) : null;
     }
 
-    // Handle youtube.com/shorts/ links
-    final shortsRegex = RegExp(r'youtube\.com/shorts/([a-zA-Z0-9_-]{11})');
-    final shortsMatch = shortsRegex.firstMatch(url);
-    if (shortsMatch != null) {
-      return YouTubeLinkResult(
-        type: YouTubeLinkType.video,
-        id: shortsMatch.group(1)!,
-      );
+    if (first == 'watch') {
+      return videoResult(uri.queryParameters['v']);
     }
 
-    // Handle youtube.com/channel/ links
-    final channelRegex = RegExp(r'youtube\.com/channel/([a-zA-Z0-9_-]+)');
-    final channelMatch = channelRegex.firstMatch(url);
-    if (channelMatch != null) {
+    if ((first == 'shorts' || first == 'embed' || first == 'v') &&
+        segments.length == 2) {
+      return videoResult(segments[1]);
+    }
+
+    if (first == 'channel' && segments.length == 2) {
+      final channelId = segments[1];
+      if (!identifierPattern.hasMatch(channelId)) return null;
       return YouTubeLinkResult(
         type: YouTubeLinkType.channel,
-        id: channelMatch.group(1)!,
+        id: channelId,
       );
     }
 
-    // Handle youtube.com/@username links
-    final handleRegex = RegExp(r'youtube\.com/@([a-zA-Z0-9_-]+)');
-    final handleMatch = handleRegex.firstMatch(url);
-    if (handleMatch != null) {
+    if (first.startsWith('@') && segments.length == 1) {
+      final handle = first.substring(1);
+      if (!RegExp(r'^[A-Za-z0-9_-]+$').hasMatch(handle)) return null;
       return YouTubeLinkResult(
         type: YouTubeLinkType.channel,
-        id: '@${handleMatch.group(1)!}',
+        id: '@$handle',
       );
     }
 
-    // Handle youtube.com/playlist?list= links
-    final playlistRegex = RegExp(r'youtube\.com/playlist\?list=([a-zA-Z0-9_-]+)');
-    final playlistMatch = playlistRegex.firstMatch(url);
-    if (playlistMatch != null) {
+    if (first == 'playlist') {
+      final playlistId = uri.queryParameters['list'];
+      if (playlistId == null || !identifierPattern.hasMatch(playlistId)) {
+        return null;
+      }
       return YouTubeLinkResult(
         type: YouTubeLinkType.playlist,
-        id: playlistMatch.group(1)!,
+        id: playlistId,
       );
     }
 
