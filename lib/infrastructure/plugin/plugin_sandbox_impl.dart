@@ -108,6 +108,7 @@ class PluginSandboxImpl implements PluginSandbox {
     }
     return true;
   }
+
   @override
   bool isSettingReadable(String key) {
     final normalized = key.trim().toLowerCase();

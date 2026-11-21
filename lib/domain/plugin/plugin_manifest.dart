@@ -53,8 +53,10 @@ class PluginManifest {
     if (!_isValidVersion(version)) {
       errors.add('Plugin version must follow semantic versioning (x.y.z)');
     }
-    if (provider.trim().isEmpty) errors.add('Plugin provider must not be empty');
-    if (platforms.isEmpty) errors.add('Plugin must declare at least one platform');
+    if (provider.trim().isEmpty)
+      errors.add('Plugin provider must not be empty');
+    if (platforms.isEmpty)
+      errors.add('Plugin must declare at least one platform');
     if (minAppVersion.trim().isEmpty) {
       errors.add('Plugin must declare a minimum app version');
     }
@@ -65,10 +67,13 @@ class PluginManifest {
     if (capabilities.toSet().length != capabilities.length) {
       errors.add('Plugin capabilities must not contain duplicates');
     }
-    if (capabilities.contains(PluginCapability.network) && networkHosts.isEmpty) {
-      errors.add('Network capability requires at least one declared network host');
+    if (capabilities.contains(PluginCapability.network) &&
+        networkHosts.isEmpty) {
+      errors.add(
+          'Network capability requires at least one declared network host');
     }
-    if (!capabilities.contains(PluginCapability.network) && networkHosts.isNotEmpty) {
+    if (!capabilities.contains(PluginCapability.network) &&
+        networkHosts.isNotEmpty) {
       errors.add('Network hosts require the network capability');
     }
     for (final host in networkHosts) {
