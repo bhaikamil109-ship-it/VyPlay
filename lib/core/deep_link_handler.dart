@@ -46,8 +46,10 @@ class DeepLinkHandler {
       if (initialLink != null) {
         _handleDeepLink(initialLink);
       }
-    } catch (e) {
-      debugPrint('Error getting initial link: $e');
+    } catch (_) {
+      // Do not write the incoming URL or plugin exception to logs; either may
+      // contain user-provided query parameters or shared content.
+      debugPrint('[DeepLink] Initial link lookup failed');
     }
   }
 
@@ -60,8 +62,9 @@ class DeepLinkHandler {
         _handleSharedText(text);
         ReceiveSharingIntent.instance.reset();
       }
-    } catch (e) {
-      debugPrint('Error getting initial share intent: $e');
+    } catch (_) {
+      // Shared content is private input; log only a generic failure marker.
+      debugPrint('[Share] Initial share lookup failed');
     }
   }
 
