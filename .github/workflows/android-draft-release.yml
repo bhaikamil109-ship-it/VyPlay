@@ -5,6 +5,8 @@ on:
   push:
     branches:
       - main
+    tags:
+      - 'v*'
   workflow_dispatch:
 
 permissions:
@@ -233,8 +235,18 @@ jobs:
           PY
           )"
 
-          RELEASE_VERSION="${VERSION//+/-}"
-          TAG="v${RELEASE_VERSION}-run-${GITHUB_RUN_NUMBER}"
+          if [[ "$GITHUB_REF" == refs/tags/v* ]]; then
+            TAG="$GITHUB_REF_NAME"
+            TAG_VERSION="${TAG#v}"
+            APP_VERSION="${VERSION%%+*}"
+
+            if [[ "$TAG_VERSION" != "$APP_VERSION" ]]; then
+              echo "Release tag $TAG does not match app version $APP_VERSION."
+              exit 1
+            fi
+          else
+            TAG="build-${GITHUB_RUN_NUMBER}"
+          fi
 
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
           echo "tag=$TAG" >> "$GITHUB_OUTPUT"
@@ -269,7 +281,7 @@ jobs:
           } > RELEASE_NOTES.md
 
       - name: Publish signed APKs to GitHub Release
-        if: steps.signing.outputs.signed == 'true'
+        if: steps.signing.outputs.signed == 'true' && startsWith(github.ref, 'refs/tags/v')
         env:
           GH_TOKEN: ${{ github.token }}
           RELEASE_TAG: ${{ steps.app_version.outputs.tag }}
@@ -281,11 +293,11 @@ jobs:
             --title "VyPlay $VERSION" \
             --notes-file RELEASE_NOTES.md
 
-      - name: Upload temporary-key test APKs as workflow artifact
-        if: steps.signing.outputs.signed != 'true'
+      - name: Upload non-release APKs as workflow artifact
+        if: steps.signing.outputs.signed != 'true' || !startsWith(github.ref, 'refs/tags/v')
         uses: actions/upload-artifact@v4
         with:
-          name: VyPlay-test-APKs-${{ github.run_number }}
+          name: VyPlay-build-APKs-${{ github.run_number }}
           path: |
             dist/*.apk
             dist/SHA256SUMS
@@ -293,7 +305,7 @@ jobs:
           retention-days: 14
 
       - name: Verify published release assets
-        if: steps.signing.outputs.signed == 'true'
+        if: steps.signing.outputs.signed == 'true' && startsWith(github.ref, 'refs/tags/v')
         env:
           GH_TOKEN: ${{ github.token }}
           RELEASE_TAG: ${{ steps.app_version.outputs.tag }}
