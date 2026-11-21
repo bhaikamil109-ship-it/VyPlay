@@ -64,9 +64,9 @@ class FFmpegMuxerHandler : MethodChannel.MethodCallHandler {
                         val plan = buildMuxPlan(videoPath, audioPath, requestedOutput)
                         withContext(Dispatchers.Main) { result.success(plan) }
                     } catch (e: Exception) {
-                        Log.e(TAG, "Failed to resolve mux plan", e)
+                        Log.e(TAG, "Mux plan resolution failed (${e.javaClass.simpleName})")
                         withContext(Dispatchers.Main) {
-                            result.error("MUX_PLAN_FAILED", e.message, null)
+                            result.error("MUX_PLAN_FAILED", "Unable to resolve download merge plan", null)
                         }
                     }
                 }
@@ -104,9 +104,9 @@ class FFmpegMuxerHandler : MethodChannel.MethodCallHandler {
                             )
                         }
                     } catch (e: Exception) {
-                        Log.e(TAG, "Legacy mux shim failed", e)
+                        Log.e(TAG, "Legacy mux-plan validation failed (${e.javaClass.simpleName})")
                         withContext(Dispatchers.Main) {
-                            result.error("MUXING_FAILED", e.message, null)
+                            result.error("MUXING_FAILED", "Unable to validate download merge inputs", null)
                         }
                     }
                 }
@@ -129,10 +129,10 @@ class FFmpegMuxerHandler : MethodChannel.MethodCallHandler {
         val audioFile = File(audioPath)
 
         if (!videoFile.exists() || videoFile.length() == 0L) {
-            throw IllegalStateException("Video stream file is missing or empty: $videoPath")
+            throw IllegalStateException("Video stream file is missing or empty")
         }
         if (!audioFile.exists() || audioFile.length() == 0L) {
-            throw IllegalStateException("Audio stream file is missing or empty: $audioPath")
+            throw IllegalStateException("Audio stream file is missing or empty")
         }
 
         val videoCodec = probeCodec(videoPath, video = true)
@@ -143,7 +143,7 @@ class FFmpegMuxerHandler : MethodChannel.MethodCallHandler {
 
         Log.i(
             TAG,
-            "Mux plan: video=$videoCodec audio=$audioCodec container=$container output=$outputPath"
+            "Mux plan: video=$videoCodec audio=$audioCodec container=$container"
         )
 
         return mapOf(
@@ -182,7 +182,7 @@ class FFmpegMuxerHandler : MethodChannel.MethodCallHandler {
                 else -> if (video) "h264" else "aac"
             }
         } catch (e: Exception) {
-            Log.w(TAG, "Codec probe failed for $path", e)
+            Log.w(TAG, "Codec probe failed (${e.javaClass.simpleName})")
             if (video) "h264" else "aac"
         }
     }
