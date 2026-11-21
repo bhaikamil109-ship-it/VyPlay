@@ -1,5 +1,6 @@
 import 'package:vyplay/domain/plugin/plugin_capability.dart';
 import 'package:vyplay/domain/plugin/plugin_contribution.dart';
+import 'package:vyplay/domain/plugin/plugin_network_host.dart';
 
 /// Declarative metadata for a plugin.
 ///
@@ -18,6 +19,7 @@ class PluginManifest {
     this.configSchema = const <String, PluginConfigField>{},
     this.homepage,
     this.contributions = const <PluginContributionSpec>[],
+    this.allowedNetworkHosts = const <String>[],
     this.networkHosts = const <String>{},
   });
 
@@ -40,6 +42,10 @@ class PluginManifest {
   /// plugin is enabled, removed when it is disabled, and gated on the
   /// capabilities actually granted to the plugin.
   final List<PluginContributionSpec> contributions;
+
+  /// Exact DNS hosts the plugin may contact when the network capability is
+  /// granted. Empty means the plugin has no network destinations approved.
+  final List<String> allowedNetworkHosts;
 
   /// Returns a list of validation errors. Empty means valid.
   List<String> validate() {
@@ -68,6 +74,23 @@ class PluginManifest {
     // Duplicate capabilities are not allowed.
     if (capabilities.toSet().length != capabilities.length) {
       errors.add('Plugin capabilities must not contain duplicates');
+    }
+    if (allowedNetworkHosts.isNotEmpty &&
+        !capabilities.contains(PluginCapability.network)) {
+      errors.add(
+        'Allowed network hosts require the network capability to be declared',
+      );
+    }
+    final normalizedHosts = <String>{};
+    for (final host in allowedNetworkHosts) {
+      if (!isValidPluginNetworkHost(host)) {
+        errors.add('Invalid plugin network host "$host"');
+        continue;
+      }
+      final normalized = normalizePluginNetworkHost(host);
+      if (!normalizedHosts.add(normalized)) {
+        errors.add('Duplicate plugin network host "$host"');
+      }
     }
     if (capabilities.contains(PluginCapability.network) &&
         networkHosts.isEmpty) {
@@ -131,6 +154,7 @@ class PluginManifest {
         'contributions': contributions
             .map((contribution) => contribution.toJson())
             .toList(growable: false),
+        'allowedNetworkHosts': allowedNetworkHosts,
       };
 
   factory PluginManifest.fromJson(Map<String, dynamic> json) {
@@ -171,6 +195,7 @@ class PluginManifest {
         ? rawNetworkHosts.map((entry) => entry.toString()).toSet()
         : <String>{};
     final rawPlatforms = json['platforms'];
+    final rawNetworkHosts = json['allowedNetworkHosts'];
     return PluginManifest(
       id: json['id']?.toString() ?? '',
       name: json['name']?.toString() ?? '',
