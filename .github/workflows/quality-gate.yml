@@ -134,18 +134,26 @@ jobs:
           fi
 
           printf 'Checking %s changed Dart file(s).\n' "${#DART_FILES[@]}" | tee "$QUALITY_DIR/dart-format.log"
-          if ! dart format --output=none --set-exit-if-changed "${DART_FILES[@]}" 2>&1 | tee -a "$QUALITY_DIR/dart-format.log"; then
-            echo "Capturing canonical formatter output for the changed files." | tee -a "$QUALITY_DIR/dart-format.log"
-            while IFS= read -r file; do
-              output="$QUALITY_DIR/formatted-source/$file"
-              mkdir -p "$(dirname "$output")"
-              dart format --output=show "$file" > "$output"
-              printf 'FORMATTED_FILE_BEGIN:%s\n' "$file"
-              base64 -w0 "$output"
-              printf '\nFORMATTED_FILE_END:%s\n' "$file"
-            done < <(printf '%s\n' "${DART_FILES[@]}")
+          FORMAT_FAILED=0
+          while IFS= read -r file; do
+            output="$RUNNER_TEMP/$(basename "$file").formatted.dart"
+            dart format --output=show "$file" > "$output"
+            # Dart prints a "Formatted N file(s)..." summary after source output.
+            # Remove that summary, then compare the actual formatter output to the
+            # checked-in source so this gate tests content rather than an exit flag.
+            sed -i -E '/^Formatted [0-9]+ files? \([0-9]+ changed\) in [0-9.]+ seconds?\.$/d' "$output"
+            if ! cmp -s "$file" "$output"; then
+              echo "Formatting difference detected: $file" | tee -a "$QUALITY_DIR/dart-format.log"
+              diff -u "$file" "$output" | tee -a "$QUALITY_DIR/dart-format.log" || true
+              FORMAT_FAILED=1
+            fi
+          done < <(printf '%s\n' "${DART_FILES[@]}")
+
+          if (( FORMAT_FAILED != 0 )); then
+            echo "Dart formatting check failed." | tee -a "$QUALITY_DIR/dart-format.log"
             exit 1
           fi
+          echo "Dart formatting passed: all changed files match canonical formatter output." | tee -a "$QUALITY_DIR/dart-format.log"
 
       - name: Flutter static analysis
         shell: bash
