@@ -44,23 +44,26 @@ class DownloadsForegroundService : Service() {
             private set
 
         /** Starts (or refreshes) the foreground download session. */
-        fun start(context: Context, text: String?, count: Int) {
+        fun start(context: Context, text: String?, count: Int): Boolean {
             val intent = Intent(context, DownloadsForegroundService::class.java).apply {
                 action = ACTION_START
                 putExtra(EXTRA_TEXT, text ?: defaultText(count))
                 putExtra(EXTRA_COUNT, count)
             }
-            try {
+            return try {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                     context.startForegroundService(intent)
                 } else {
                     context.startService(intent)
                 }
+                // Android accepted the request. onStartCommand sets isRunning
+                // only after startForeground() succeeds.
+                true
             } catch (e: Exception) {
-                // Android 12+ throws when the app is in the background without
-                // an exemption. The downloads themselves keep running; only the
-                // keep-alive guarantee is lost, so this must not crash the app.
+                // Android 12+ can reject background starts. The download itself
+                // is not failed, but the keep-alive guarantee was not accepted.
                 isRunning = false
+                false
             }
         }
 
@@ -124,6 +127,22 @@ class DownloadsForegroundService : Service() {
         // Interrupted rows are picked up by
         // DownloadService.resumeInterruptedDownloads on the next app start.
         return START_NOT_STICKY
+    }
+
+    /**
+     * Android 15 limits background dataSync foreground services to six hours
+     * in a rolling 24-hour window. Stop cleanly when the OS reports that limit;
+     * otherwise the process can crash with RemoteServiceException. Interrupted
+     * downloads are recovered by DownloadImpl when the app next starts.
+     *
+     * Transfers that must continue beyond this budget need a user-initiated
+     * data-transfer JobScheduler job rather than a dataSync foreground service.
+     */
+    override fun onTimeout(startId: Int, fgsType: Int) {
+        isRunning = false
+        stopForegroundCompat()
+        stopSelf(startId)
+        super.onTimeout(startId, fgsType)
     }
 
     override fun onDestroy() {

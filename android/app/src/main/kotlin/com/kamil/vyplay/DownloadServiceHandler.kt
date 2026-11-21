@@ -13,9 +13,9 @@ import io.flutter.plugin.common.MethodChannel
  *  * `stop`   {} -> bool
  *  * `isRunning` {} -> bool
  *
- * Every method answers with a boolean instead of an error so a missing
- * permission or a background-start restriction degrades to "no keep-alive"
- * rather than failing the download itself.
+ * Every method answers with a boolean instead of an error. "start" reports
+ * whether Android accepted the start request; "isRunning" reports whether
+ * onStartCommand successfully established the foreground notification.
  */
 class DownloadServiceHandler(private val context: Context) :
     MethodChannel.MethodCallHandler {
@@ -24,12 +24,12 @@ class DownloadServiceHandler(private val context: Context) :
         when (call.method) {
             "start" -> {
                 val count = call.argument<Int>("count") ?: 1
-                DownloadsForegroundService.start(
+                val accepted = DownloadsForegroundService.start(
                     context,
                     call.argument<String>("text"),
                     count,
                 )
-                result.success(true)
+                result.success(accepted)
             }
 
             "update" -> {
