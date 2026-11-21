@@ -434,10 +434,11 @@ void main() {
     final initialized = await manager.initialize(plugin.manifest.id);
     expect(initialized.isSuccess, isTrue);
     final api = manager.extensionApi(plugin.manifest.id);
-    expect(
-      (await api.networkRequest(url: 'https://api.example.com/data')).isSuccess,
-      isTrue,
+    final allowedRequest = await api.networkRequest(
+      url: 'https://api.example.com/data',
     );
+    expect(allowedRequest.isFailure, isTrue);
+    expect(allowedRequest.error!.code, PluginErrorCodes.networkUnavailable);
     expect(
       (await api.networkRequest(url: 'https://evil.example/data')).isFailure,
       isTrue,
