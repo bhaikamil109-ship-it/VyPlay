@@ -89,7 +89,11 @@ class NewPipeDataService {
     }
   }
 
-  /// Import data from NewPipe ZIP file
+  /// Import data from a NewPipe-compatible ZIP file.
+  ///
+  /// The archive is validated before any database file is written. Invalid or
+  /// unrelated ZIP files fail closed instead of reporting a successful import
+  /// with zero rows.
   Future<Either<MainFailure, ImportResult>> importFromNewPipeZip({
     required String zipPath,
     String profileName = 'default',
@@ -104,34 +108,24 @@ class NewPipeDataService {
         return const Left(MainFailure.clientFailure());
       }
 
-      final bytes = await zipFile.readAsBytes();
-      final archive = ZipDecoder().decodeBytes(bytes);
-
-      int subscriptionsImported = 0;
-      int searchHistoryImported = 0;
-      int watchHistoryImported = 0;
-      int playlistsImported = 0;
-
-      // Find and process files
-      ArchiveFile? dbFile;
-      ArchiveFile? prefsFile;
-
-      for (final file in archive) {
-        if (file.name == 'newpipe.db') {
-          dbFile = file;
-        } else if (file.name == 'preferences.json') {
-          prefsFile = file;
-        }
+      final zipLength = await zipFile.length();
+      if (zipLength <= 0 ||
+          zipLength > NewPipeBackupArchiveValidator.maxArchiveBytes) {
+        return const Left(MainFailure.clientFailure());
       }
 
-      // Process database if found
-      if (dbFile != null) {
-        final tempDir = await getTemporaryDirectory();
-        final tempDbPath = '${tempDir.path}/import_newpipe.db';
-        final tempDbFile = File(tempDbPath);
-        await tempDbFile.writeAsBytes(dbFile.content as List<int>);
+      final backup = NewPipeBackupArchiveValidator.decode(
+        await zipFile.readAsBytes(),
+      );
 
-        final result = await _importFromNewPipeDb(
+      final tempDir = await getTemporaryDirectory();
+      final tempDbPath = '${tempDir.path}/import_newpipe.db';
+      final tempDbFile = File(tempDbPath);
+
+      try {
+        await tempDbFile.writeAsBytes(backup.databaseBytes, flush: true);
+
+        final importResult = await _importFromNewPipeDb(
           tempDbPath,
           profileName,
           importSubscriptions: importSubscriptions,
@@ -140,33 +134,21 @@ class NewPipeDataService {
           importPlaylists: importPlaylists,
         );
 
-        result.fold(
-          (failure) => null,
-          (counts) {
-            subscriptionsImported = counts['subscriptions'] ?? 0;
-            searchHistoryImported = counts['searchHistory'] ?? 0;
-            watchHistoryImported = counts['watchHistory'] ?? 0;
-            playlistsImported = counts['playlists'] ?? 0;
-          },
+        return importResult.fold<Either<MainFailure, ImportResult>>(
+          (failure) => Left(failure),
+          (counts) => Right(ImportResult(
+            subscriptionsImported: counts['subscriptions'] ?? 0,
+            searchHistoryImported: counts['searchHistory'] ?? 0,
+            watchHistoryImported: counts['watchHistory'] ?? 0,
+            playlistsImported: counts['playlists'] ?? 0,
+          )),
         );
-
-        await tempDbFile.delete();
+      } finally {
+        if (await tempDbFile.exists()) {
+          await tempDbFile.delete();
+        }
       }
-
-      // Process preferences.json for VyPlay-specific settings (optional)
-      // We only use this for VyPlay-to-VyPlay transfers, not NewPipe
-      if (prefsFile != null) {
-        // Could parse and import VyPlay-specific settings here
-        // For now, we skip this as user requested settings to be VyPlay-only
-      }
-
-      return Right(ImportResult(
-        subscriptionsImported: subscriptionsImported,
-        searchHistoryImported: searchHistoryImported,
-        watchHistoryImported: watchHistoryImported,
-        playlistsImported: playlistsImported,
-      ));
-    } catch (e) {
+    } catch (_) {
       return const Left(MainFailure.clientFailure());
     }
   }
