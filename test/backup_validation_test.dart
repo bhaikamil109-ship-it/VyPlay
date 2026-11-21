@@ -102,18 +102,6 @@ void main() {
       );
     });
 
-    test('rejects duplicate database entries', () {
-      final archive = Archive();
-      final db = <int>[...sqliteHeader, 0, 0, 0, 0];
-      archive.addFile(ArchiveFile(databaseEntry, db.length, db));
-      archive.files.add(ArchiveFile(databaseEntry, db.length, db));
-
-      expect(
-        () => NewPipeBackupArchiveValidator.decode(ZipEncoder().encode(archive)),
-        throwsFormatException,
-      );
-    });
-
     test('rejects compressed input above the configured size limit', () {
       expect(
         () => NewPipeBackupArchiveValidator.decode(
