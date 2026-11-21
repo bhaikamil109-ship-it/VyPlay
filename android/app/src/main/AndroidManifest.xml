@@ -76,6 +76,7 @@
                 <category android:name="android.intent.category.BROWSABLE"/>
                 <data android:scheme="https" android:host="www.youtube.com" android:pathPrefix="/channel"/>
                 <data android:scheme="https" android:host="youtube.com" android:pathPrefix="/channel"/>
+                <data android:scheme="https" android:host="m.youtube.com" android:pathPrefix="/channel"/>
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
@@ -91,6 +92,28 @@
                 <category android:name="android.intent.category.BROWSABLE"/>
                 <data android:scheme="https" android:host="www.youtube.com" android:pathPrefix="/@"/>
                 <data android:scheme="https" android:host="youtube.com" android:pathPrefix="/@"/>
+                <data android:scheme="https" android:host="m.youtube.com" android:pathPrefix="/@"/>
+            </intent-filter>
+            <!-- Playlist URLs are supported by DeepLinkHandler.parseYouTubeUrl. -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="www.youtube.com" android:pathPrefix="/playlist"/>
+                <data android:scheme="https" android:host="youtube.com" android:pathPrefix="/playlist"/>
+                <data android:scheme="https" android:host="m.youtube.com" android:pathPrefix="/playlist"/>
+            </intent-filter>
+            <!-- Legacy embed and /v/ video URLs are also parsed by the app. -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="https" android:host="www.youtube.com" android:pathPrefix="/embed/"/>
+                <data android:scheme="https" android:host="youtube.com" android:pathPrefix="/embed/"/>
+                <data android:scheme="https" android:host="m.youtube.com" android:pathPrefix="/embed/"/>
+                <data android:scheme="https" android:host="www.youtube.com" android:pathPrefix="/v/"/>
+                <data android:scheme="https" android:host="youtube.com" android:pathPrefix="/v/"/>
+                <data android:scheme="https" android:host="m.youtube.com" android:pathPrefix="/v/"/>
             </intent-filter>
             <!-- Share intent to receive YouTube URLs -->
             <intent-filter>
