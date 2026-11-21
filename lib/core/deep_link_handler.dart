@@ -126,7 +126,7 @@ class DeepLinkHandler {
     // supported YouTube host; do not parse arbitrary URLs containing the text
     // "youtube.com" in their path or query.
     final match = RegExp(
-      r"""(?:https?://(?:www\.|m\.)?(?:youtube\.com|youtu\.be)/|(?<![A-Za-z0-9/.-])(?:www\.|m\.)?(?:youtube\.com|youtu\.be)/)[^\s<>"']+""",
+      r"""(?<![A-Za-z0-9/.-=?&])(?:https?://(?:www\.|m\.)?(?:youtube\.com|youtu\.be)/|(?:www\.|m\.)?(?:youtube\.com|youtu\.be)/)[^\s<>"']+""",
       caseSensitive: false,
     ).firstMatch(input.trim());
     if (match == null) return null;
