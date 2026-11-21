@@ -209,7 +209,7 @@ class PluginExtensionApiImpl implements PluginExtensionApi {
       return PluginResult<int>.failure(PluginFailure(
         pluginId: pluginId,
         code: PluginErrorCodes.invalidManifest,
-        message: 'Invalid URL: $url',
+        message: 'Invalid network URL',
         cause: error,
       ));
     }

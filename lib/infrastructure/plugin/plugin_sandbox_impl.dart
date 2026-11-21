@@ -55,34 +55,52 @@ class PluginSandboxImpl implements PluginSandbox {
     Set<PluginCapability>? capabilities,
     Set<String>? declaredHosts,
   }) {
-    if (capabilities != null && !capabilities.contains(PluginCapability.network)) {
+    if (capabilities != null &&
+        !capabilities.contains(PluginCapability.network)) {
       return false;
     }
     final scheme = uri.scheme.toLowerCase();
     if (scheme != 'http' && scheme != 'https') return false;
-    final host = uri.host.trim().toLowerCase();
-    if (host.isEmpty) return false;
-    if (host == 'localhost' ||
-        host == '::1' ||
-        host.startsWith('127.') ||
-        host.startsWith('10.') ||
-        host.startsWith('192.168.') ||
-        host.startsWith('169.254.') ||
-        host.startsWith('172.16.') ||
-        host.startsWith('172.17.') ||
-        host.startsWith('172.18.') ||
-        host.startsWith('172.19.') ||
-        host.startsWith('172.2') ||
-        host.startsWith('172.30.') ||
-        host.startsWith('172.31.')) {
+    if (uri.userInfo.isNotEmpty) return false;
+    if (uri.hasPort && uri.port != (scheme == 'https' ? 443 : 80)) {
       return false;
     }
-    if (declaredHosts != null && declaredHosts.isNotEmpty) {
-      return declaredHosts.map((h) => h.toLowerCase()).contains(host);
-    }
-    return true;
+
+    final host = uri.host.trim().toLowerCase().replaceFirst(RegExp(r'\.$'), '');
+    if (!_isValidNetworkHost(host)) return false;
+
+    // No implicit "allow all" mode: the manifest must declare exact hosts.
+    if (declaredHosts == null || declaredHosts.isEmpty) return false;
+    final allowedHosts = declaredHosts
+        .map((entry) => entry.trim().toLowerCase().replaceFirst(RegExp(r'\.$'), ''))
+        .where(_isValidNetworkHost)
+        .toSet();
+    return allowedHosts.contains(host);
   }
 
+  bool _isValidNetworkHost(String host) {
+    if (host.isEmpty ||
+        host.length > 253 ||
+        host.contains(':') ||
+        host.contains('*') ||
+        host.endsWith('.')) {
+      return false;
+    }
+    if (host == 'localhost' ||
+        host.endsWith('.localhost') ||
+        host.endsWith('.local') ||
+        host.endsWith('.internal') ||
+        host.endsWith('.test') ||
+        host.endsWith('.invalid')) {
+      return false;
+    }
+    // DNS names only: direct IPv4/IPv6 literals are not in the allowlist model.
+    if (RegExp(r'^\d+(?:\.\d+){0,3}$').hasMatch(host)) return false;
+    final labels = host.split('.');
+    if (labels.length < 2) return false;
+    final labelPattern = RegExp(r'^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?$');
+    return labels.every(labelPattern.hasMatch);
+  }
   @override
   bool isSettingReadable(String key) {
     final normalized = key.trim().toLowerCase();

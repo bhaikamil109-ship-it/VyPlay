@@ -18,6 +18,7 @@ class PluginManifest {
     this.configSchema = const <String, PluginConfigField>{},
     this.homepage,
     this.contributions = const <PluginContributionSpec>[],
+    this.networkHosts = const <String>{},
   });
 
   final String id;
@@ -30,6 +31,10 @@ class PluginManifest {
   final String minAppVersion;
   final Map<String, PluginConfigField> configSchema;
   final String? homepage;
+
+  /// Exact DNS hostnames this plugin may contact after network permission is
+  /// granted. IP literals, wildcards and local-only names are not valid.
+  final Set<String> networkHosts;
 
   /// Declarative extension contributions. Registered by the host when the
   /// plugin is enabled, removed when it is disabled, and gated on the
@@ -60,6 +65,18 @@ class PluginManifest {
     if (capabilities.toSet().length != capabilities.length) {
       errors.add('Plugin capabilities must not contain duplicates');
     }
+    if (capabilities.contains(PluginCapability.network) && networkHosts.isEmpty) {
+      errors.add('Network capability requires at least one declared network host');
+    }
+    if (!capabilities.contains(PluginCapability.network) && networkHosts.isNotEmpty) {
+      errors.add('Network hosts require the network capability');
+    }
+    for (final host in networkHosts) {
+      if (!_isValidNetworkHost(host)) {
+        errors.add('Invalid network host "$host"');
+      }
+    }
+
     // Contribution declarations must be unique and must only target points
     // whose required capability the plugin actually declares.
     final contributionKeys = <String>{};
@@ -103,6 +120,7 @@ class PluginManifest {
           (key, value) => MapEntry(key, value.toJson()),
         ),
         if (homepage != null) 'homepage': homepage,
+        'networkHosts': (networkHosts.toList()..sort()),
         'contributions': contributions
             .map((contribution) => contribution.toJson())
             .toList(growable: false),
@@ -141,6 +159,10 @@ class PluginManifest {
         }
       }
     }
+    final rawNetworkHosts = json['networkHosts'];
+    final networkHosts = rawNetworkHosts is List
+        ? rawNetworkHosts.map((entry) => entry.toString()).toSet()
+        : <String>{};
     final rawPlatforms = json['platforms'];
     return PluginManifest(
       id: json['id']?.toString() ?? '',
@@ -156,11 +178,270 @@ class PluginManifest {
       configSchema: schema,
       homepage: json['homepage']?.toString(),
       contributions: contributions,
+      networkHosts: networkHosts,
     );
   }
 
+  static bool _isValidNetworkHost(String value) {
+    final host = value.trim().toLowerCase();
+    if (host.isEmpty ||
+        host != value.trim() ||
+        host.length > 253 ||
+        host.contains('*') ||
+        host.contains(':') ||
+        host.endsWith('.')) {
+      return false;
+    }
+    if (host == 'localhost' ||
+        host.endsWith('.localhost') ||
+        host.endsWith('.local') ||
+        host.endsWith('.internal') ||
+        host.endsWith('.test') ||
+        host.endsWith('.invalid')) {
+      return false;
+    }
+    if (RegExp(r'^\d{1,3}(?:\.\d{1,3}){3}
+}
+
+/// Describes one configuration field required by a plugin.
+class PluginConfigField {
+  const PluginConfigField({
+    required this.key,
+    required this.label,
+    required this.type,
+    this.required = false,
+    this.defaultValue,
+    this.description,
+  });
+
+  final String key;
+  final String label;
+  final PluginConfigFieldType type;
+  final bool required;
+  final dynamic defaultValue;
+  final String? description;
+
+  List<String> validate() {
+    final errors = <String>[];
+    if (key.trim().isEmpty) errors.add('key must not be empty');
+    if (label.trim().isEmpty) errors.add('label must not be empty');
+    return errors;
+  }
+
+  Map<String, dynamic> toJson() => <String, dynamic>{
+        'key': key,
+        'label': label,
+        'type': type.id,
+        'required': required,
+        if (defaultValue != null) 'defaultValue': defaultValue,
+        if (description != null) 'description': description,
+      };
+
+  factory PluginConfigField.fromJson(Map<String, dynamic> json) {
+    return PluginConfigField(
+      key: json['key']?.toString() ?? '',
+      label: json['label']?.toString() ?? '',
+      type: PluginConfigFieldTypeX.tryParse(json['type']?.toString() ?? '') ??
+          PluginConfigFieldType.string,
+      required: json['required'] == true,
+      defaultValue: json['defaultValue'],
+      description: json['description']?.toString(),
+    );
+  }
+}
+
+enum PluginConfigFieldType {
+  string,
+  boolean,
+  integer,
+  secret,
+}
+
+extension PluginConfigFieldTypeX on PluginConfigFieldType {
+  String get id {
+    switch (this) {
+      case PluginConfigFieldType.string:
+        return 'string';
+      case PluginConfigFieldType.boolean:
+        return 'boolean';
+      case PluginConfigFieldType.integer:
+        return 'integer';
+      case PluginConfigFieldType.secret:
+        return 'secret';
+    }
+  }
+
+  static PluginConfigFieldType? tryParse(String value) {
+    for (final type in PluginConfigFieldType.values) {
+      if (type.id == value) return type;
+    }
+    return null;
+  }
+}).hasMatch(host)) {
+      return false;
+    }
+    final labels = host.split('.');
+    if (labels.length < 2) return false;
+    final labelPattern = RegExp(r'^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?
+}
+
+/// Describes one configuration field required by a plugin.
+class PluginConfigField {
+  const PluginConfigField({
+    required this.key,
+    required this.label,
+    required this.type,
+    this.required = false,
+    this.defaultValue,
+    this.description,
+  });
+
+  final String key;
+  final String label;
+  final PluginConfigFieldType type;
+  final bool required;
+  final dynamic defaultValue;
+  final String? description;
+
+  List<String> validate() {
+    final errors = <String>[];
+    if (key.trim().isEmpty) errors.add('key must not be empty');
+    if (label.trim().isEmpty) errors.add('label must not be empty');
+    return errors;
+  }
+
+  Map<String, dynamic> toJson() => <String, dynamic>{
+        'key': key,
+        'label': label,
+        'type': type.id,
+        'required': required,
+        if (defaultValue != null) 'defaultValue': defaultValue,
+        if (description != null) 'description': description,
+      };
+
+  factory PluginConfigField.fromJson(Map<String, dynamic> json) {
+    return PluginConfigField(
+      key: json['key']?.toString() ?? '',
+      label: json['label']?.toString() ?? '',
+      type: PluginConfigFieldTypeX.tryParse(json['type']?.toString() ?? '') ??
+          PluginConfigFieldType.string,
+      required: json['required'] == true,
+      defaultValue: json['defaultValue'],
+      description: json['description']?.toString(),
+    );
+  }
+}
+
+enum PluginConfigFieldType {
+  string,
+  boolean,
+  integer,
+  secret,
+}
+
+extension PluginConfigFieldTypeX on PluginConfigFieldType {
+  String get id {
+    switch (this) {
+      case PluginConfigFieldType.string:
+        return 'string';
+      case PluginConfigFieldType.boolean:
+        return 'boolean';
+      case PluginConfigFieldType.integer:
+        return 'integer';
+      case PluginConfigFieldType.secret:
+        return 'secret';
+    }
+  }
+
+  static PluginConfigFieldType? tryParse(String value) {
+    for (final type in PluginConfigFieldType.values) {
+      if (type.id == value) return type;
+    }
+    return null;
+  }
+});
+    return labels.every(labelPattern.hasMatch);
+  }
+
   static bool _isValidVersion(String value) {
-    return RegExp(r'^\d+\.\d+\.\d+$').hasMatch(value.trim());
+    return RegExp(r'^\d+\.\d+\.\d+
+}
+
+/// Describes one configuration field required by a plugin.
+class PluginConfigField {
+  const PluginConfigField({
+    required this.key,
+    required this.label,
+    required this.type,
+    this.required = false,
+    this.defaultValue,
+    this.description,
+  });
+
+  final String key;
+  final String label;
+  final PluginConfigFieldType type;
+  final bool required;
+  final dynamic defaultValue;
+  final String? description;
+
+  List<String> validate() {
+    final errors = <String>[];
+    if (key.trim().isEmpty) errors.add('key must not be empty');
+    if (label.trim().isEmpty) errors.add('label must not be empty');
+    return errors;
+  }
+
+  Map<String, dynamic> toJson() => <String, dynamic>{
+        'key': key,
+        'label': label,
+        'type': type.id,
+        'required': required,
+        if (defaultValue != null) 'defaultValue': defaultValue,
+        if (description != null) 'description': description,
+      };
+
+  factory PluginConfigField.fromJson(Map<String, dynamic> json) {
+    return PluginConfigField(
+      key: json['key']?.toString() ?? '',
+      label: json['label']?.toString() ?? '',
+      type: PluginConfigFieldTypeX.tryParse(json['type']?.toString() ?? '') ??
+          PluginConfigFieldType.string,
+      required: json['required'] == true,
+      defaultValue: json['defaultValue'],
+      description: json['description']?.toString(),
+    );
+  }
+}
+
+enum PluginConfigFieldType {
+  string,
+  boolean,
+  integer,
+  secret,
+}
+
+extension PluginConfigFieldTypeX on PluginConfigFieldType {
+  String get id {
+    switch (this) {
+      case PluginConfigFieldType.string:
+        return 'string';
+      case PluginConfigFieldType.boolean:
+        return 'boolean';
+      case PluginConfigFieldType.integer:
+        return 'integer';
+      case PluginConfigFieldType.secret:
+        return 'secret';
+    }
+  }
+
+  static PluginConfigFieldType? tryParse(String value) {
+    for (final type in PluginConfigFieldType.values) {
+      if (type.id == value) return type;
+    }
+    return null;
+  }
+}).hasMatch(value.trim());
   }
 }
 

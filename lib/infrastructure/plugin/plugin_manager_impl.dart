@@ -24,15 +24,24 @@ class PluginManagerImpl implements PluginManager {
 
   final Map<String, PluginExtensionApi> _apis = <String, PluginExtensionApi>{};
 
+  PluginExtensionApi _createExtensionApi(String id) {
+    final plugin = loader.plugin(id);
+    if (plugin == null) {
+      throw StateError('Plugin $id is not registered');
+    }
+    return PluginExtensionApiImpl(
+      pluginId: id,
+      grantedCapabilities: loader.grantedCapabilities(id),
+      allowedNetworkHosts: plugin.manifest.networkHosts,
+      sandbox: sandbox,
+    );
+  }
+
   @override
   Future<PluginResult<void>> register(Plugin plugin) async {
     final result = await loader.register(plugin);
     if (result.isSuccess) {
-      _apis[plugin.manifest.id] = PluginExtensionApiImpl(
-        pluginId: plugin.manifest.id,
-        grantedCapabilities: loader.grantedCapabilities(plugin.manifest.id),
-        sandbox: sandbox,
-      );
+      _apis[plugin.manifest.id] = _createExtensionApi(plugin.manifest.id);
       _syncContributions(plugin.manifest.id);
     }
     return result;
@@ -40,8 +49,7 @@ class PluginManagerImpl implements PluginManager {
 
   @override
   Future<PluginResult<void>> initialize(String id) async {
-    final api = _apis[id];
-    if (api == null) {
+    if (loader.plugin(id) == null) {
       return PluginResult<void>.failure(PluginFailure(
         pluginId: id,
         code: PluginErrorCodes.notEnabled,
@@ -55,7 +63,12 @@ class PluginManagerImpl implements PluginManager {
       );
     });
     if (result.isSuccess) {
+      // The loader re-reads permission policy on every enable/re-enable. Rebuild
+      // the API too, so it cannot retain stale or revoked grants.
+      _apis[id] = _createExtensionApi(id);
       _syncContributions(id);
+    } else {
+      _apis.remove(id);
     }
     return result;
   }
@@ -71,7 +84,8 @@ class PluginManagerImpl implements PluginManager {
   @override
   Future<PluginResult<void>> dispose(String id) async {
     final result = await loader.dispose(id);
-    // A disposed plugin must not keep contributing to host extension points.
+    // A disabled/disposed plugin must not retain an API with old permissions.
+    _apis.remove(id);
     _syncContributions(id);
     return result;
   }
@@ -121,9 +135,12 @@ class PluginManagerImpl implements PluginManager {
 
   @override
   PluginExtensionApi extensionApi(String id) {
+    if (loader.status(id) != PluginStatus.enabled) {
+      throw StateError('Plugin $id is not enabled');
+    }
     final api = _apis[id];
     if (api == null) {
-      throw StateError('Plugin $id is not registered');
+      throw StateError('Plugin $id has no active extension API');
     }
     return api;
   }
