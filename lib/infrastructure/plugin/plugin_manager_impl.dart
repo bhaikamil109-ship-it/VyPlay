@@ -63,8 +63,7 @@ class PluginManagerImpl implements PluginManager {
       );
     });
     if (result.isSuccess) {
-      // The loader re-reads permission policy on every enable/re-enable. Rebuild
-      // the API too, so it cannot retain stale or revoked grants.
+      // Loader refreshes grants on every enable. Refresh the API too.
       _apis[id] = _createExtensionApi(id);
       _syncContributions(id);
     } else {
@@ -84,7 +83,7 @@ class PluginManagerImpl implements PluginManager {
   @override
   Future<PluginResult<void>> dispose(String id) async {
     final result = await loader.dispose(id);
-    // A disabled/disposed plugin must not retain an API with old permissions.
+    // A disabled plugin must not retain an API with previously granted access.
     _apis.remove(id);
     _syncContributions(id);
     return result;

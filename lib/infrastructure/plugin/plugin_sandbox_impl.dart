@@ -66,24 +66,18 @@ class PluginSandboxImpl implements PluginSandbox {
       return false;
     }
 
-    final host = uri.host.trim().toLowerCase().replaceFirst(RegExp(r'\.$'), '');
+    final host = uri.host.toLowerCase();
     if (!_isValidNetworkHost(host)) return false;
 
-    // No implicit "allow all" mode: the manifest must declare exact hosts.
+    // Missing/empty allowlists are deny-by-default, never allow-all.
     if (declaredHosts == null || declaredHosts.isEmpty) return false;
-    final allowedHosts = declaredHosts
-        .map((entry) => entry.trim().toLowerCase().replaceFirst(RegExp(r'\.$'), ''))
-        .where(_isValidNetworkHost)
-        .toSet();
-    return allowedHosts.contains(host);
+    final allowlist = declaredHosts.map((entry) => entry.toLowerCase()).toSet();
+    return allowlist.contains(host);
   }
 
   bool _isValidNetworkHost(String host) {
-    if (host.isEmpty ||
-        host.length > 253 ||
-        host.contains(':') ||
-        host.contains('*') ||
-        host.endsWith('.')) {
+    if (host.isEmpty || host.length > 253) return false;
+    if (host.contains(':') || host.contains('*') || host.endsWith('.')) {
       return false;
     }
     if (host == 'localhost' ||
@@ -94,12 +88,25 @@ class PluginSandboxImpl implements PluginSandbox {
         host.endsWith('.invalid')) {
       return false;
     }
-    // DNS names only: direct IPv4/IPv6 literals are not in the allowlist model.
-    if (RegExp(r'^\d+(?:\.\d+){0,3}$').hasMatch(host)) return false;
     final labels = host.split('.');
     if (labels.length < 2) return false;
-    final labelPattern = RegExp(r'^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?$');
-    return labels.every(labelPattern.hasMatch);
+    for (final label in labels) {
+      if (label.isEmpty ||
+          label.length > 63 ||
+          label.startsWith('-') ||
+          label.endsWith('-')) {
+        return false;
+      }
+      for (final unit in label.codeUnits) {
+        final isLetter = unit >= 97 && unit <= 122;
+        final isDigit = unit >= 48 && unit <= 57;
+        if (!isLetter && !isDigit && unit != 45) return false;
+      }
+    }
+    if (!labels.last.codeUnits.any((unit) => unit >= 97 && unit <= 122)) {
+      return false;
+    }
+    return true;
   }
   @override
   bool isSettingReadable(String key) {
