@@ -57,6 +57,82 @@ void main() {
       );
     });
 
+    test('network access is denied without an explicit host allowlist', () {
+      final sandbox = PluginSandboxImpl();
+      expect(
+        sandbox.isNetworkAllowed(
+          'p',
+          Uri.parse('https://api.example.com/data'),
+          capabilities: {PluginCapability.network},
+        ),
+        isFalse,
+      );
+      expect(
+        sandbox.isNetworkAllowed(
+          'p',
+          Uri.parse('https://api.example.com/data'),
+          capabilities: {PluginCapability.network},
+          declaredHosts: const {},
+        ),
+        isFalse,
+      );
+    });
+
+    test('network allowlist matches only the exact declared DNS host', () {
+      final sandbox = PluginSandboxImpl();
+      expect(
+        sandbox.isNetworkAllowed(
+          'p',
+          Uri.parse('https://api.example.com/data'),
+          capabilities: {PluginCapability.network},
+          declaredHosts: {'api.example.com'},
+        ),
+        isTrue,
+      );
+      expect(
+        sandbox.isNetworkAllowed(
+          'p',
+          Uri.parse('https://sub.api.example.com/data'),
+          capabilities: {PluginCapability.network},
+          declaredHosts: {'api.example.com'},
+        ),
+        isFalse,
+      );
+    });
+
+    test('network denies local/IP hosts, credentials and non-standard ports', () {
+      final sandbox = PluginSandboxImpl();
+      const capabilities = {PluginCapability.network};
+      const allowedHosts = {
+        'api.example.com',
+        'localhost',
+        'printer.local',
+        '127.0.0.1',
+        '192.168.1.10',
+      };
+      for (final url in [
+        'http://127.0.0.1/',
+        'http://192.168.1.10/',
+        'http://[::1]/',
+        'http://[fe80::1]/',
+        'http://localhost/',
+        'http://printer.local/',
+        'https://user@api.example.com/',
+        'https://api.example.com:8443/',
+      ]) {
+        expect(
+          sandbox.isNetworkAllowed(
+            'p',
+            Uri.parse(url),
+            capabilities: capabilities,
+            declaredHosts: allowedHosts,
+          ),
+          isFalse,
+          reason: url,
+        );
+      }
+    });
+
     test('network denied without capability', () {
       final sandbox = PluginSandboxImpl();
       expect(

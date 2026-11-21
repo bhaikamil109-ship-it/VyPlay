@@ -73,6 +73,7 @@ void main() {
     String version = '1.0.0',
     String minAppVersion = '1.0.0',
     List<PluginCapability> capabilities = const [PluginCapability.diagnostics],
+    Set<String> networkHosts = const <String>{},
   }) {
     return PluginManifest(
       id: id,
@@ -83,6 +84,7 @@ void main() {
       platforms: const ['android'],
       capabilities: capabilities,
       minAppVersion: minAppVersion,
+      networkHosts: networkHosts,
     );
   }
 
@@ -361,6 +363,63 @@ void main() {
     await manager.setEnabled(plugin.manifest.id, true);
     expect(manager.grantedCapabilities(plugin.manifest.id), isEmpty);
     expect(plugin.contextCapabilities, isEmpty);
+  });
+
+  test('extension API uses manifest hosts and refreshes grants on re-enable',
+      () async {
+    final stateStore = PluginStateStoreImpl.withDirectory(tempDir);
+    final permissionStore = PluginPermissionStoreImpl.withDirectory(tempDir);
+    await permissionStore.save({
+      'com.example.plugin': {PluginCapability.network},
+    });
+    final loader = PluginLoaderImpl(
+      stateStore: stateStore,
+      appVersion: '2.0.0',
+      permissionStore: permissionStore,
+    );
+    final manager = PluginManagerImpl(
+      loader: loader,
+      registry: PluginExtensionRegistryImpl(),
+      sandbox: PluginSandboxImpl(),
+    );
+    final plugin = _MutablePlugin(_manifest(
+      capabilities: const [PluginCapability.network],
+      networkHosts: const {'api.example.com'},
+    ));
+
+    final registered = await manager.register(plugin);
+    expect(registered.isSuccess, isTrue);
+    expect(manager.status(plugin.manifest.id), PluginStatus.disabled);
+    expect(() => manager.extensionApi(plugin.manifest.id), throwsStateError);
+
+    final initialized = await manager.initialize(plugin.manifest.id);
+    expect(initialized.isSuccess, isTrue);
+    final api = manager.extensionApi(plugin.manifest.id);
+    expect(
+      (await api.networkRequest(url: 'https://api.example.com/data')).isSuccess,
+      isTrue,
+    );
+    expect(
+      (await api.networkRequest(url: 'https://evil.example/data')).isFailure,
+      isTrue,
+    );
+
+    final permissionService = PluginPermissionServiceImpl(store: permissionStore);
+    await permissionService.revoke(
+      plugin.manifest.id,
+      PluginCapability.network,
+    );
+    await manager.setEnabled(plugin.manifest.id, false);
+    expect(() => manager.extensionApi(plugin.manifest.id), throwsStateError);
+
+    final reenabled = await manager.setEnabled(plugin.manifest.id, true);
+    expect(reenabled.isSuccess, isTrue);
+    final refreshedApi = manager.extensionApi(plugin.manifest.id);
+    final denied = await refreshedApi.networkRequest(
+      url: 'https://api.example.com/data',
+    );
+    expect(denied.isFailure, isTrue);
+    expect(denied.error!.code, PluginErrorCodes.capabilityDenied);
   });
 
   test('setEnabled false disposes', () async {

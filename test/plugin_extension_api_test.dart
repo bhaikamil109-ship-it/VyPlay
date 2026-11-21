@@ -36,6 +36,19 @@ void main() {
       expect(result.value, 'hello');
     });
 
+    test('network capability without declared hosts is denied', () async {
+      final api = PluginExtensionApiImpl(
+        pluginId: 'p',
+        grantedCapabilities: const {PluginCapability.network},
+        sandbox: PluginSandboxImpl(),
+      );
+      final result = await api.networkRequest(
+        url: 'https://api.example.com/data',
+      );
+      expect(result.isFailure, isTrue);
+      expect(result.error!.code, PluginErrorCodes.capabilityDenied);
+    });
+
     test('network host allowlist', () async {
       final api = PluginExtensionApiImpl(
         pluginId: 'p',

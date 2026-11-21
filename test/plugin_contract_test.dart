@@ -66,6 +66,61 @@ void main() {
       expect(manifest.validate(), isNotEmpty);
     });
 
+    test('network capability requires an explicit DNS host allowlist', () {
+      final missingHosts = PluginManifest(
+        id: 'com.example.network',
+        name: 'Network Plugin',
+        version: '1.0.0',
+        description: 'network test',
+        provider: 'VyPlay',
+        platforms: const ['android'],
+        capabilities: const [PluginCapability.network],
+        minAppVersion: '1.0.0',
+      );
+      expect(
+        missingHosts.validate(),
+        contains('Network capability requires at least one declared network host'),
+      );
+
+      final validHosts = PluginManifest(
+        id: 'com.example.network',
+        name: 'Network Plugin',
+        version: '1.0.0',
+        description: 'network test',
+        provider: 'VyPlay',
+        platforms: const ['android'],
+        capabilities: const [PluginCapability.network],
+        minAppVersion: '1.0.0',
+        networkHosts: const {'api.example.com'},
+      );
+      expect(validHosts.validate(), isEmpty);
+      final restored = PluginManifest.fromJson(validHosts.toJson());
+      expect(restored.networkHosts, {'api.example.com'});
+      expect(restored.validate(), isEmpty);
+    });
+
+    test('network host declarations reject wildcard, local and IP hosts', () {
+      final invalid = PluginManifest(
+        id: 'com.example.network',
+        name: 'Network Plugin',
+        version: '1.0.0',
+        description: 'network test',
+        provider: 'VyPlay',
+        platforms: const ['android'],
+        capabilities: const [PluginCapability.network],
+        minAppVersion: '1.0.0',
+        networkHosts: const {
+          '*.example.com',
+          '127.0.0.1',
+          'service.local',
+        },
+      );
+      expect(
+        invalid.validate().where((error) => error.startsWith('Invalid network host')),
+        hasLength(3),
+      );
+    });
+
     test('fromJson round-trips', () {
       final json = _validManifest().toJson();
       final parsed = PluginManifest.fromJson(json);
@@ -127,6 +182,7 @@ extension _ManifestCopy on PluginManifest {
         minAppVersion: minAppVersion,
         configSchema: configSchema,
         homepage: homepage,
+        networkHosts: networkHosts,
       );
 
   PluginManifest copyWithName(String name) => PluginManifest(
@@ -140,6 +196,7 @@ extension _ManifestCopy on PluginManifest {
         minAppVersion: minAppVersion,
         configSchema: configSchema,
         homepage: homepage,
+        networkHosts: networkHosts,
       );
 
   PluginManifest copyWithVersion(String version) => PluginManifest(
@@ -153,6 +210,7 @@ extension _ManifestCopy on PluginManifest {
         minAppVersion: minAppVersion,
         configSchema: configSchema,
         homepage: homepage,
+        networkHosts: networkHosts,
       );
 
   PluginManifest copyWithPlatforms(List<String> platforms) => PluginManifest(
@@ -166,5 +224,6 @@ extension _ManifestCopy on PluginManifest {
         minAppVersion: minAppVersion,
         configSchema: configSchema,
         homepage: homepage,
+        networkHosts: networkHosts,
       );
 }
