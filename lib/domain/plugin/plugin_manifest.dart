@@ -53,10 +53,12 @@ class PluginManifest {
     if (!_isValidVersion(version)) {
       errors.add('Plugin version must follow semantic versioning (x.y.z)');
     }
-    if (provider.trim().isEmpty)
+    if (provider.trim().isEmpty) {
       errors.add('Plugin provider must not be empty');
-    if (platforms.isEmpty)
+    }
+    if (platforms.isEmpty) {
       errors.add('Plugin must declare at least one platform');
+    }
     if (minAppVersion.trim().isEmpty) {
       errors.add('Plugin must declare a minimum app version');
     }
